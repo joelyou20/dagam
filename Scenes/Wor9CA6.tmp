@@ -101,7 +101,7 @@ script = ExtResource("2_g1fgt")
 script = ExtResource("7_0f3sd")
 interact_cooldown = 0.3
 
-[node name="greg" type="CharacterBody3D" parent="." groups=["NPC"]]
+[node name="greg" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.511516, 0.157096, -0.368305)
 script = ExtResource("5_14pj2")
 display_name = "Greg"
@@ -127,7 +127,7 @@ pixel_size = 0.005
 billboard = 1
 texture = ExtResource("6_dnukd")
 
-[node name="farmer" type="CharacterBody3D" parent="." groups=["NPC"]]
+[node name="farmer" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.26084, 0.314192, -0.0422171)
 script = ExtResource("5_14pj2")
 display_name = "Farmer"

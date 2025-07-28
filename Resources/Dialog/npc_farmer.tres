@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="DialogResource" load_steps=10 format=3 uid="uid://bmvt8ak31j8l1"]
+
+[ext_resource type="Script" path="res://Scripts/Dialog/DialogEntry.gd" id="1_kxocc"]
+[ext_resource type="Script" path="res://Scripts/Dialog/DialogCondition.gd" id="1_wqsou"]
+[ext_resource type="Script" path="res://Scripts/Dialog/DialogOption.gd" id="2_7bqep"]
+[ext_resource type="Script" path="res://Scripts/Dialog/DialogResource.gd" id="3_g5j5n"]
+
+[sub_resource type="Resource" id="Resource_cl7y2"]
+script = ExtResource("2_7bqep")
+text = "Yes"
+next = "mad_about_dog"
+flags = Array[String](["kicked_gregs_dog"])
+
+[sub_resource type="Resource" id="Resource_5wa20"]
+script = ExtResource("2_7bqep")
+text = "No"
+next = "no_kick_dog"
+flags = Array[String]([])
+
+[sub_resource type="Resource" id="Resource_3w2kr"]
+script = ExtResource("1_kxocc")
+id = "default_intro"
+text = Array[String](["Hey!", "Wanna kick Greg's dog?"])
+state = 0
+options = Array[ExtResource("2_7bqep")]([SubResource("Resource_cl7y2"), SubResource("Resource_5wa20")])
+
+[sub_resource type="Resource" id="Resource_nxdak"]
+script = ExtResource("1_kxocc")
+id = "mad_about_dog"
+text = Array[String]([])
+state = 2
+options = Array[ExtResource("2_7bqep")]([])
+
+[sub_resource type="Resource" id="Resource_iqbl3"]
+script = ExtResource("1_kxocc")
+id = "no_kick_dog"
+text = Array[String](["No dog kick?", "Your loss"])
+state = 2
+options = Array[ExtResource("2_7bqep")]([])
+
+[resource]
+script = ExtResource("3_g5j5n")
+npc_id = "farmer"
+npc_name = "Farmer"
+entries = Array[ExtResource("1_kxocc")]([SubResource("Resource_3w2kr"), SubResource("Resource_nxdak"), SubResource("Resource_iqbl3")])
+conditions = Array[ExtResource("1_wqsou")]([])

@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 DialogManager="*res://Scripts/Managers/DialogManager.gd"
+FlagManager="*res://Scripts/Managers/FlagManager.gd"
+DialogState="*res://Scripts/Dialog/DialogState.gd"
 
 [display]
 
