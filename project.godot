@@ -19,7 +19,8 @@ config/icon="res://icon.svg"
 
 DialogManager="*res://Scripts/Managers/DialogManager.gd"
 FlagManager="*res://Scripts/Managers/FlagManager.gd"
-DialogState="*res://Scripts/Dialog/DialogState.gd"
+QuestManager="*res://Scripts/Managers/QuestManager.gd"
+GameStateManager="*res://Scripts/Managers/GameStateManager.gd"
 
 [display]
 

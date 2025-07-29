@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="QuestResource" load_steps=6 format=3 uid="uid://drqljvts7swcl"]
+
+[ext_resource type="Script" path="res://Scripts/Quests/QuestObjective.gd" id="1_fw6bk"]
+[ext_resource type="Script" path="res://Scripts/Quests/QuestResource.gd" id="1_tr20g"]
+[ext_resource type="Script" path="res://Scripts/Quests/QuestRequirement.gd" id="2_bkqnn"]
+[ext_resource type="Script" path="res://Scripts/Quests/QuestReward.gd" id="3_obcab"]
+
+[sub_resource type="Resource" id="Resource_h4qte"]
+script = ExtResource("2_bkqnn")
+flags = Array[int]([1])
+
+[resource]
+script = ExtResource("1_tr20g")
+id = "INTRO_QUEST"
+title = "Introduction Quest"
+description = "This quest exists as a test"
+state = 0
+requirements = Array[ExtResource("2_bkqnn")]([SubResource("Resource_h4qte")])
+objectives = Array[ExtResource("1_fw6bk")]([])
+rewards = Array[ExtResource("3_obcab")]([])

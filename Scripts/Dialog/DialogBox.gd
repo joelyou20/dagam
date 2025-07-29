@@ -5,7 +5,7 @@ extends Control
 @onready var options_container: VBoxContainer = $DialogOptionsBox/DialogOptionsContainer
 @onready var dialog_options_box: Panel = $DialogOptionsBox
 
-signal option_selected(option: DialogOption)
+signal option_selected(npc_id: String, option: DialogOption)
 
 var dialog_lines: Array = []
 var current_index := 0
@@ -82,20 +82,8 @@ func _on_option_selected(npc_id: String, option: DialogOption):
 	dialog_options_box.visible = false
 
 	# Emit the signal (in case others care)
-	emit_signal("option_selected", option)
-
-	# Set flags from this option if it has any
-	for flag_name in option.flags:
-		FlagManager.set_flag(flag_name, true)
-
+	emit_signal("option_selected", npc_id, option)
 	visible = false
-	# Advance to the next dialog entry if it exists
-	if option.next != "":
-		var next_entry := DialogManager.get_entry_by_id(npc_id, option.next)
-		if next_entry:
-			DialogManager.set_active_dialog(npc_id, DialogState.State.COMPLETED)
-			next_entry.state = DialogState.State.ACTIVE
-			DialogManager.show_dialog_by_entry_id(next_entry.id, npc_id)
 
 func _on_typewriter_tick():
 	if char_index < current_text.length():

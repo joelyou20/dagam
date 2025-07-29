@@ -10,12 +10,14 @@ script = ExtResource("2_7bqep")
 text = "Yes"
 next = "mad_about_dog"
 flags = Array[String](["kicked_gregs_dog"])
+accepted_quest = 1
 
 [sub_resource type="Resource" id="Resource_5wa20"]
 script = ExtResource("2_7bqep")
 text = "No"
 next = "no_kick_dog"
-flags = Array[String]([])
+flags = Array[int]([])
+accepted_quest = 0
 
 [sub_resource type="Resource" id="Resource_3w2kr"]
 script = ExtResource("1_kxocc")

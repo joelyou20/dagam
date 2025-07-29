@@ -18,4 +18,4 @@ func load_game_from_file(path: String = "user://savegame.dat"):
 	file.close()
 
 	DialogManager.load_all_dialogs(data.get("dialogs", {}))
-	FlagManager.load_flags(data.get("flags", {}))
+	FlagManager.load_flags()

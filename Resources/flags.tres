@@ -1,9 +1,18 @@
-[gd_resource type="Resource" script_class="FlagsResource" load_steps=2 format=3 uid="uid://de1slf81dbojt"]
+[gd_resource type="Resource" script_class="FlagsResource" load_steps=5 format=3 uid="uid://dhcbv8cacd04p"]
 
-[ext_resource type="Script" path="res://Resources/FlagsResource.gd" id="1_jx7r4"]
+[ext_resource type="Script" path="res://Scripts/Flags/FlagData.gd" id="1_pc7o2"]
+[ext_resource type="Script" path="res://Scripts/Flags/FlagsResource.gd" id="1_ulxjv"]
+
+[sub_resource type="Resource" id="Resource_4fj06"]
+script = ExtResource("1_pc7o2")
+key = 0
+value = false
+
+[sub_resource type="Resource" id="Resource_i6oip"]
+script = ExtResource("1_pc7o2")
+key = 1
+value = false
 
 [resource]
-script = ExtResource("1_jx7r4")
-flags = {
-"kicked_gregs_dog": false
-}
+script = ExtResource("1_ulxjv")
+flags = Array[ExtResource("1_pc7o2")]([SubResource("Resource_4fj06"), SubResource("Resource_i6oip")])

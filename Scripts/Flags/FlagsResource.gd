@@ -1,4 +1,4 @@
 extends Resource
 class_name FlagsResource
 
-@export var flags: Dictionary = {}
+@export var flags: Array[FlagData]

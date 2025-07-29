@@ -2,17 +2,30 @@ extends Node
 
 var flags := preload("res://Resources/flags.tres")
 
-func set_flag(flag_name: String, value: bool = true):
-	flags.flags[flag_name] = value
+func set_flag(flag_name: FlagData.FlagName, value: bool = true):
+	for flag in flags.flags:
+		if flag.key == flag_name:
+			flag.value = value
+			return
+	
+	# If not found, create a new flag and add it
+	var new_flag := FlagData.new()
+	new_flag.Key = flag_name
+	new_flag.value = value
+	flags.append(new_flag)
 
-func is_flag_set(flag_name: String) -> bool:
-	return flags.flags.get(flag_name, false)
-	
-func toggle_flag(flag_name: String):
-	flags.flags[flag_name] = !is_flag_set(flag_name)
-	print("flag toggled: " + flag_name)
-	print(is_flag_set(flag_name))
-	
+func is_flag_set(flag_name: FlagData.FlagName) -> bool:
+	return flags.flags[flag_name].value
+
+func get_flag(flag_name: String) -> FlagData:
+	for flag in flags.flags:
+		if FlagData.FlagName.keys()[flag.Key] == flag_name:
+			return flag
+	return null
+
+func toggle_flag(flag_name: FlagData.FlagName):
+	set_flag(flag_name, !is_flag_set(flag_name))
+
 func save_flags():
 	var save_data = flags.flags
 	var file = FileAccess.open("user://save_flags.json", FileAccess.WRITE)

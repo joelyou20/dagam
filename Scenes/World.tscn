@@ -107,7 +107,7 @@ script = ExtResource("5_14pj2")
 display_name = "Greg"
 
 [node name="Sprite" type="Sprite3D" parent="greg"]
-modulate = Color(1, 0.141176, 1, 1)
+modulate = Color(0.994886, 0.436116, 0.262789, 1)
 pixel_size = 0.02
 billboard = 1
 texture = ExtResource("3_xomyw")
@@ -127,12 +127,39 @@ pixel_size = 0.005
 billboard = 1
 texture = ExtResource("6_dnukd")
 
+[node name="gregsDog" type="CharacterBody3D" parent="." groups=["NPC"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.397113, 0.142383, -0.431329)
+script = ExtResource("5_14pj2")
+display_name = "Greg's Dog"
+
+[node name="Sprite" type="Sprite3D" parent="gregsDog"]
+modulate = Color(0.390194, 0.731994, 0.180154, 1)
+pixel_size = 0.02
+billboard = 1
+texture = ExtResource("3_xomyw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="gregsDog"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00671387, 0.0181466, 0.00665569)
+shape = SubResource("BoxShape3D_47rkc")
+
+[node name="Area3D" type="Area3D" parent="gregsDog"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="gregsDog/Area3D"]
+shape = SubResource("SphereShape3D_waqjh")
+
+[node name="ActionBubble" type="Sprite3D" parent="gregsDog"]
+transform = Transform3D(0.999724, 0.00490836, -0.0229667, -0.0053276, 0.99982, -0.0182287, 0.022873, 0.018346, 0.99957, 0, 0.21, 0)
+pixel_size = 0.005
+billboard = 1
+texture = ExtResource("6_dnukd")
+
 [node name="farmer" type="CharacterBody3D" parent="." groups=["NPC"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.26084, 0.314192, -0.0422171)
 script = ExtResource("5_14pj2")
 display_name = "Farmer"
 
 [node name="Sprite" type="Sprite3D" parent="farmer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.154664, 0)
 modulate = Color(1, 0.141176, 1, 1)
 pixel_size = 0.02
 billboard = 1
@@ -148,7 +175,7 @@ shape = SubResource("BoxShape3D_47rkc")
 shape = SubResource("SphereShape3D_waqjh")
 
 [node name="ActionBubble" type="Sprite3D" parent="farmer"]
-transform = Transform3D(0.999724, 0.00490836, -0.0229667, -0.0053276, 0.99982, -0.0182287, 0.022873, 0.018346, 0.99957, 0, 0.21, 0)
+transform = Transform3D(0.999724, 0.00490836, -0.0229667, -0.0053276, 0.99982, -0.0182287, 0.022873, 0.018346, 0.99957, -0.011647, 0.0783892, 0.0478374)
 pixel_size = 0.005
 billboard = 1
 texture = ExtResource("6_dnukd")

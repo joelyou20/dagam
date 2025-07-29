@@ -4,10 +4,11 @@ extends Node
 
 var dialog_registry := {
 	"greg": preload("res://Resources/Dialog/npc_greg.tres"),
+	"gregsDog": preload("res://Resources/Dialog/npc_gregs_dog.tres"),
 	"farmer": preload("res://Resources/Dialog/npc_farmer.tres")
 }
 
-var current_dialog: DialogResource = null
+var dialog_resource: DialogResource = null
 
 func _ready():
 	dialog_box.option_selected.connect(_on_dialog_option_selected)
@@ -15,42 +16,54 @@ func _ready():
 func show_dialog_by_npc_id(npc_id: String):
 	update_dialog(npc_id)
 	get_npc_dialog(npc_id)
-	if current_dialog:
+	if dialog_resource:
 		var entry: DialogEntry = null
-		for e in current_dialog.entries:
+		for e in dialog_resource.entries:
 			if e.state == DialogState.State.ACTIVE:
 				entry = e
 				break
-		if entry:
-			dialog_box.show_dialog(npc_id, entry.text, current_dialog.npc_name, entry.options)
-		else:
-			push_error("No valid active dialog options for npc_id: " + npc_id)
+		show_dialog(npc_id, entry, dialog_resource.npc_name)
 
 func show_dialog_by_entry_id(entry_id: String, npc_id: String):
-	if current_dialog:
-		var entry: DialogEntry = current_dialog.entries.filter(func(entry): entry.id == entry_id).front()
-		if entry:
-			dialog_box.show_dialog(npc_id, entry.text, current_dialog.npc_name, entry.options)
-		else:
-			push_error("No valid active dialog options for npc_id: " + npc_id)
+	if dialog_resource:
+		var entry: DialogEntry = dialog_resource.entries.filter(func(entry): entry.id == entry_id).front()
+		show_dialog(npc_id, entry, dialog_resource.npc_name)
+
+func show_dialog(npc_id: String, entry: DialogEntry, npc_name: String):
+	if entry:
+		dialog_box.show_dialog(npc_id, entry.text, dialog_resource.npc_name, entry.options)
+		for flag in entry.flags:
+			FlagManager.set_flag(flag)
+	else:
+		push_error("No valid active dialog options for npc_id: " + npc_id)
 
 func update_dialog(npc_id: String):
-	var active_dialog: DialogEntry = get_active_dialog(npc_id)
-	if active_dialog == null:
+	var active_dialog_entry: DialogEntry = get_active_dialog_entry(npc_id)
+	if active_dialog_entry == null:
 		return
-
-	for condition in current_dialog.conditions:
-		var logic := condition.logic
+	
+	var sorted_conditions = dialog_resource.conditions.duplicate()
+	sorted_conditions.sort_custom(func(a, b): return a.priority > b.priority)
+	
+	for condition: DialogCondition in sorted_conditions:
+		var flag_logic := condition.flag_logic
 		var flags := condition.flags
+		
+		var quests := condition.active_quests
+		var quest_logic := condition.quest_logic
 
-		var should_advance := (
-			(logic == DialogCondition.ConditionLogic.IF_ANY and flags.any(func(flag): return FlagManager.is_flag_set(flag))) or
-			(logic == DialogCondition.ConditionLogic.IF_ALL and flags.all(func(flag): return FlagManager.is_flag_set(flag))) or
-			(logic == DialogCondition.ConditionLogic.IF_NONE and not flags.any(func(flag): return FlagManager.is_flag_set(flag)))
-		)
+		var should_advance: bool = false
+		
+		should_advance = should_advance or flag_logic == DialogCondition.ConditionLogic.IF_ANY and flags.any(func(flag): return FlagManager.is_flag_set(flag))
+		should_advance = should_advance or flag_logic == DialogCondition.ConditionLogic.IF_ALL and flags.all(func(flag): return FlagManager.is_flag_set(flag))
+		should_advance = should_advance or flag_logic == DialogCondition.ConditionLogic.IF_NONE and not flags.any(func(flag): return FlagManager.is_flag_set(flag))
+		
+		should_advance = should_advance or quest_logic == DialogCondition.ConditionLogic.IF_ANY and quests.any(func(quest): return QuestManager.is_quest_active(quest))
+		should_advance = should_advance or quest_logic == DialogCondition.ConditionLogic.IF_ALL and quests.all(func(quest): return QuestManager.is_quest_active(quest))
+		should_advance = should_advance or quest_logic == DialogCondition.ConditionLogic.IF_NONE and not quests.any(func(quest): return QuestManager.is_quest_active(quest))
 
 		if should_advance:
-			active_dialog.state = DialogState.State.COMPLETED
+			active_dialog_entry.state = DialogState.State.COMPLETED
 			if condition.next != "":
 				var next_entry := get_entry_by_id(npc_id, condition.next)
 				if next_entry:
@@ -58,29 +71,38 @@ func update_dialog(npc_id: String):
 			break  # stop after first matching condition
 
 
-func _on_dialog_option_selected(option: DialogOption):
+func _on_dialog_option_selected(npc_id: String, option: DialogOption):
+	# Set flags from this option if it has any
 	for flag in option.flags:
 		FlagManager.toggle_flag(flag)
 	
-	# Optionally do something like:
-	# - Advance a dialog state
-	# - Modify world/NPC state
-	# - Trigger cutscenes/quests/etc.
+	if option.accepted_quest != null:
+		QuestManager.accept_quest(option.accepted_quest)
+
+	# Advance to the next dialog entry if it exists
+	if option.next != "":
+		var next_entry := get_entry_by_id(npc_id, option.next)
+		if next_entry:
+			set_active_dialog(npc_id, DialogState.State.COMPLETED)
+			next_entry.state = DialogState.State.ACTIVE
+			show_dialog_by_entry_id(next_entry.id, npc_id)
 
 func is_showing_dialog() -> bool:
 	return dialog_box.visible
 
 func get_npc_dialog(npc_id: String) -> DialogResource:
-	current_dialog = dialog_registry.get(npc_id)
-	return current_dialog
+	dialog_resource = dialog_registry.get(npc_id)
+	return dialog_resource
 
-func get_active_dialog(npc_id: String) -> DialogEntry:
+func get_active_dialog_entry(npc_id: String) -> DialogEntry:
 	var dialog = get_npc_dialog(npc_id)
+	# Deliberately skipping catching null for dialog. I want it to blow up when I try and access something
+	#  that does not exist
 	var matches = dialog.entries.filter(func(entry): return entry.state == DialogState.State.ACTIVE)
 	return matches.front()  # Returns the first match or null if empty
 
 func set_active_dialog(npc_id: String, state: int):
-	var dialog = get_active_dialog(npc_id)
+	var dialog = get_active_dialog_entry(npc_id)
 	dialog.state = state
 
 func get_entry_by_id(npc_id: String, entry_id: String) -> DialogEntry:
@@ -114,7 +136,7 @@ func load_dialog(data: Dictionary):
 		push_warning("No dialog found for NPC: " + npc_id)
 		return
 	
-	current_dialog = dialog_data
+	dialog_resource = dialog_data
 	var entries : DialogResource = data.get("entries", {})
 	
 	for entry in dialog_data.entries:

@@ -1,4 +1,5 @@
 extends Node
+class_name DialogState
 
 enum State {
 	ACTIVE = 0,
