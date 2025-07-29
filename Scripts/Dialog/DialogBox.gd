@@ -5,6 +5,8 @@ extends Control
 @onready var options_container: VBoxContainer = $DialogOptionsBox/DialogOptionsContainer
 @onready var dialog_options_box: Panel = $DialogOptionsBox
 
+signal dialog_started
+signal dialog_finished
 signal option_selected(npc_id: String, option: DialogOption)
 
 var dialog_lines: Array = []

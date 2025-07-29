@@ -7,19 +7,13 @@ func set_flag(flag_name: FlagData.FlagName, value: bool = true):
 		if flag.key == flag_name:
 			flag.value = value
 			return
-	
-	# If not found, create a new flag and add it
-	var new_flag := FlagData.new()
-	new_flag.Key = flag_name
-	new_flag.value = value
-	flags.append(new_flag)
 
 func is_flag_set(flag_name: FlagData.FlagName) -> bool:
 	return flags.flags[flag_name].value
 
-func get_flag(flag_name: String) -> FlagData:
+func get_flag(flag_name: FlagData.FlagName) -> FlagData:
 	for flag in flags.flags:
-		if FlagData.FlagName.keys()[flag.Key] == flag_name:
+		if flag.key == flag_name:
 			return flag
 	return null
 

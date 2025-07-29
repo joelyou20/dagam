@@ -1,13 +1,26 @@
-[gd_resource type="Resource" script_class="QuestResource" load_steps=6 format=3 uid="uid://drqljvts7swcl"]
+[gd_resource type="Resource" script_class="QuestResource" load_steps=11 format=3 uid="uid://drqljvts7swcl"]
 
-[ext_resource type="Script" path="res://Scripts/Quests/QuestObjective.gd" id="1_fw6bk"]
+[ext_resource type="Script" path="res://Scripts/Quests/QuestObjective.gd" id="1_43mr3"]
 [ext_resource type="Script" path="res://Scripts/Quests/QuestResource.gd" id="1_tr20g"]
-[ext_resource type="Script" path="res://Scripts/Quests/QuestRequirement.gd" id="2_bkqnn"]
-[ext_resource type="Script" path="res://Scripts/Quests/QuestReward.gd" id="3_obcab"]
+[ext_resource type="Script" path="res://Scripts/Quests/QuestRequirement.gd" id="2_eogx5"]
+[ext_resource type="Script" path="res://Scripts/Quests/Tasks/Task.gd" id="3_mg00f"]
+[ext_resource type="Script" path="res://Scripts/Flags/FlagData.gd" id="4_6j6bu"]
+[ext_resource type="Script" path="res://Scripts/Quests/Rewards/QuestReward.gd" id="4_24rew"]
+[ext_resource type="Script" path="res://Scripts/Quests/Tasks/FlagTask.gd" id="5_hu3we"]
+
+[sub_resource type="Resource" id="Resource_tiug5"]
+script = ExtResource("4_6j6bu")
+key = 1
+value = true
+
+[sub_resource type="Resource" id="Resource_17hbk"]
+script = ExtResource("5_hu3we")
+flag = SubResource("Resource_tiug5")
 
 [sub_resource type="Resource" id="Resource_h4qte"]
-script = ExtResource("2_bkqnn")
+script = ExtResource("2_eogx5")
 flags = Array[int]([1])
+tasks = Array[ExtResource("3_mg00f")]([SubResource("Resource_17hbk")])
 
 [resource]
 script = ExtResource("1_tr20g")
@@ -15,6 +28,6 @@ id = "INTRO_QUEST"
 title = "Introduction Quest"
 description = "This quest exists as a test"
 state = 0
-requirements = Array[ExtResource("2_bkqnn")]([SubResource("Resource_h4qte")])
-objectives = Array[ExtResource("1_fw6bk")]([])
-rewards = Array[ExtResource("3_obcab")]([])
+requirements = Array[ExtResource("2_eogx5")]([SubResource("Resource_h4qte")])
+objectives = Array[ExtResource("1_43mr3")]([])
+rewards = Array[ExtResource("4_24rew")]([])

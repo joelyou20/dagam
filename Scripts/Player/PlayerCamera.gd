@@ -26,6 +26,14 @@ func _process(delta):
 	var moving = input_vector.length() > 0.1
 	var speed = pull_speed if moving else return_speed
 
+	var target_position = camera_lead(input_vector, moving)
+	position = position.lerp(target_position, delta * speed)
+
+func camera_lead(input_vector: Vector2, moving: bool) -> Vector3:
+	if InteractionHandler.is_blocked():
+		target_offset = Vector3.ZERO
+		return default_position
+
 	if moving:
 		input_vector = input_vector.normalized()
 		var full_offset = Vector3(input_vector.x, 0, input_vector.y) * max_offset
@@ -33,5 +41,4 @@ func _process(delta):
 	else:
 		target_offset = Vector3.ZERO
 
-	var target_position = default_position + target_offset
-	position = position.lerp(target_position, delta * speed)
+	return default_position + target_offset

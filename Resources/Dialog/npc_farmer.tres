@@ -1,15 +1,31 @@
-[gd_resource type="Resource" script_class="DialogResource" load_steps=10 format=3 uid="uid://bmvt8ak31j8l1"]
+[gd_resource type="Resource" script_class="DialogResource" load_steps=15 format=3 uid="uid://bmvt8ak31j8l1"]
 
 [ext_resource type="Script" path="res://Scripts/Dialog/DialogEntry.gd" id="1_kxocc"]
 [ext_resource type="Script" path="res://Scripts/Dialog/DialogCondition.gd" id="1_wqsou"]
 [ext_resource type="Script" path="res://Scripts/Dialog/DialogOption.gd" id="2_7bqep"]
+[ext_resource type="Script" path="res://Scripts/Quests/Tasks/Task.gd" id="2_kvntv"]
 [ext_resource type="Script" path="res://Scripts/Dialog/DialogResource.gd" id="3_g5j5n"]
+[ext_resource type="Script" path="res://Scripts/Quests/Tasks/QuestTask.gd" id="3_ohju6"]
+
+[sub_resource type="Resource" id="Resource_aw8kf"]
+script = ExtResource("3_ohju6")
+quest_name = 1
+quest_state = 2
+
+[sub_resource type="Resource" id="Resource_gkt6b"]
+script = ExtResource("1_wqsou")
+flags = Array[int]([])
+tasks = Array[ExtResource("2_kvntv")]([SubResource("Resource_aw8kf")])
+flag_logic = 0
+quest_logic = 0
+next = "kick_again"
+priority = 0
 
 [sub_resource type="Resource" id="Resource_cl7y2"]
 script = ExtResource("2_7bqep")
 text = "Yes"
 next = "mad_about_dog"
-flags = Array[String](["kicked_gregs_dog"])
+flags = Array[int]([])
 accepted_quest = 1
 
 [sub_resource type="Resource" id="Resource_5wa20"]
@@ -25,6 +41,7 @@ id = "default_intro"
 text = Array[String](["Hey!", "Wanna kick Greg's dog?"])
 state = 0
 options = Array[ExtResource("2_7bqep")]([SubResource("Resource_cl7y2"), SubResource("Resource_5wa20")])
+flags = Array[int]([])
 
 [sub_resource type="Resource" id="Resource_nxdak"]
 script = ExtResource("1_kxocc")
@@ -32,6 +49,7 @@ id = "mad_about_dog"
 text = Array[String]([])
 state = 2
 options = Array[ExtResource("2_7bqep")]([])
+flags = Array[int]([])
 
 [sub_resource type="Resource" id="Resource_iqbl3"]
 script = ExtResource("1_kxocc")
@@ -39,10 +57,19 @@ id = "no_kick_dog"
 text = Array[String](["No dog kick?", "Your loss"])
 state = 2
 options = Array[ExtResource("2_7bqep")]([])
+flags = Array[int]([])
+
+[sub_resource type="Resource" id="Resource_j5p2d"]
+script = ExtResource("1_kxocc")
+id = "kick_again"
+text = Array[String](["Back for more?"])
+state = 2
+options = Array[ExtResource("2_7bqep")]([])
+flags = Array[int]([])
 
 [resource]
 script = ExtResource("3_g5j5n")
 npc_id = "farmer"
 npc_name = "Farmer"
-entries = Array[ExtResource("1_kxocc")]([SubResource("Resource_3w2kr"), SubResource("Resource_nxdak"), SubResource("Resource_iqbl3")])
-conditions = Array[ExtResource("1_wqsou")]([])
+entries = Array[ExtResource("1_kxocc")]([SubResource("Resource_3w2kr"), SubResource("Resource_nxdak"), SubResource("Resource_iqbl3"), SubResource("Resource_j5p2d")])
+conditions = Array[ExtResource("1_wqsou")]([SubResource("Resource_gkt6b")])

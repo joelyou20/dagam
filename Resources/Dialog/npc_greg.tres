@@ -8,8 +8,11 @@
 [sub_resource type="Resource" id="Resource_lgheo"]
 script = ExtResource("1_63d3d")
 flags = Array[int]([1])
-logic = 0
+active_quests = Array[int]([])
+flag_logic = 0
+quest_logic = 0
 next = "mad_about_dog"
+priority = 0
 
 [sub_resource type="Resource" id="Resource_3w2kr"]
 script = ExtResource("1_qemr5")
@@ -17,6 +20,7 @@ id = "default_intro"
 text = Array[String](["Hey! I'm Greg!", "What's your name?"])
 state = 0
 options = Array[ExtResource("2_gbwp3")]([])
+flags = Array[int]([])
 
 [sub_resource type="Resource" id="Resource_nxdak"]
 script = ExtResource("1_qemr5")
@@ -24,6 +28,7 @@ id = "mad_about_dog"
 text = Array[String](["Oh no my dog!"])
 state = 2
 options = Array[ExtResource("2_gbwp3")]([])
+flags = Array[int]([])
 
 [resource]
 script = ExtResource("3_rf4bh")

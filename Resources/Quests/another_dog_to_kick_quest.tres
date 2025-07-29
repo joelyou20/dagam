@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="QuestResource" load_steps=8 format=3 uid="uid://bnepuv1crujc5"]
+
+[ext_resource type="Script" path="res://Scripts/Quests/QuestObjective.gd" id="1_6ql8u"]
+[ext_resource type="Script" path="res://Scripts/Quests/QuestRequirement.gd" id="2_30iqj"]
+[ext_resource type="Script" path="res://Scripts/Quests/Tasks/QuestTask.gd" id="3_sua8v"]
+[ext_resource type="Script" path="res://Scripts/Quests/Rewards/QuestReward.gd" id="4_ii827"]
+[ext_resource type="Script" path="res://Scripts/Quests/QuestResource.gd" id="4_n8km2"]
+
+[sub_resource type="Resource" id="Resource_r4sl8"]
+script = ExtResource("3_sua8v")
+quest_name = 1
+quest_state = 2
+
+[sub_resource type="Resource" id="Resource_h4qte"]
+script = ExtResource("2_30iqj")
+flags = Array[int]([])
+quests = Array[ExtResource("3_sua8v")]([SubResource("Resource_r4sl8")])
+
+[resource]
+script = ExtResource("4_n8km2")
+id = "ANOTHER_DOG_TO_KICK"
+title = "Another Dog to Kick"
+description = "I don't know what my problem is with dogs"
+state = 3
+requirements = Array[ExtResource("2_30iqj")]([SubResource("Resource_h4qte")])
+objectives = Array[ExtResource("1_6ql8u")]([])
+rewards = Array[ExtResource("4_ii827")]([])

@@ -9,7 +9,7 @@ enum ConditionLogic {
 }
 
 @export var flags: Array[FlagData.FlagName]
-@export var active_quests: Array[QuestData.QuestName]
+@export var tasks: Array[Task]
 @export var flag_logic: ConditionLogic = ConditionLogic.IF_ANY #References flags
 @export var quest_logic: ConditionLogic = ConditionLogic.IF_ANY #References flags
 @export var next: String

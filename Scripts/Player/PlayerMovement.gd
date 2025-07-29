@@ -4,6 +4,9 @@ extends Node
 @onready var player = get_parent()
 
 func move(delta):
+	if InteractionHandler.is_blocked():
+		return
+	
 	var input = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	var direction = (player.transform.basis * Vector3(input.x, 0, input.y)).normalized()
 	

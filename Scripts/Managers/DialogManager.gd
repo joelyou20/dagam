@@ -2,8 +2,6 @@ extends Node
 
 @onready var dialog_box: Control = get_node("/root/World/DialogBox")
 
-signal dialog_started
-signal dialog_finished
 
 var dialog_registry := {
 	"greg": preload("res://Resources/Dialog/npc_greg.tres"),
@@ -37,6 +35,7 @@ func show_dialog(npc_id: String, entry: DialogEntry, npc_name: String):
 		dialog_box.show_dialog(npc_id, entry.text, dialog_resource.npc_name, entry.options)
 		for flag in entry.flags:
 			FlagManager.set_flag(flag)
+		QuestManager.validate_active_quest_requirements()
 	else:
 		push_error("No valid active dialog options for npc_id: " + npc_id)
 
@@ -52,7 +51,7 @@ func update_dialog(npc_id: String):
 		var flag_logic := condition.flag_logic
 		var flags := condition.flags
 		
-		var quests := condition.active_quests
+		var quest_tasks := condition.tasks.filter(func(t): return t is QuestTask)
 		var quest_logic := condition.quest_logic
 
 		var should_advance: bool = false
@@ -61,9 +60,9 @@ func update_dialog(npc_id: String):
 		should_advance = should_advance or flag_logic == DialogCondition.ConditionLogic.IF_ALL and flags.all(func(flag): return FlagManager.is_flag_set(flag))
 		should_advance = should_advance or flag_logic == DialogCondition.ConditionLogic.IF_NONE and not flags.any(func(flag): return FlagManager.is_flag_set(flag))
 		
-		should_advance = should_advance or quest_logic == DialogCondition.ConditionLogic.IF_ANY and quests.any(func(quest): return QuestManager.is_quest_active(quest))
-		should_advance = should_advance or quest_logic == DialogCondition.ConditionLogic.IF_ALL and quests.all(func(quest): return QuestManager.is_quest_active(quest))
-		should_advance = should_advance or quest_logic == DialogCondition.ConditionLogic.IF_NONE and not quests.any(func(quest): return QuestManager.is_quest_active(quest))
+		should_advance = should_advance or quest_logic == DialogCondition.ConditionLogic.IF_ANY and quest_tasks.any(func(quest): return QuestManager.is_quest_active(quest.quest_name))
+		should_advance = should_advance or quest_logic == DialogCondition.ConditionLogic.IF_ALL and quest_tasks.all(func(quest): return QuestManager.is_quest_active(quest.quest_name))
+		should_advance = should_advance or quest_logic == DialogCondition.ConditionLogic.IF_NONE and not quest_tasks.any(func(quest): return QuestManager.is_quest_active(quest.quest_name))
 
 		if should_advance:
 			active_dialog_entry.state = DialogState.State.COMPLETED
@@ -76,7 +75,7 @@ func update_dialog(npc_id: String):
 func _on_dialog_option_selected(npc_id: String, option: DialogOption):
 	# Set flags from this option if it has any
 	for flag in option.flags:
-		FlagManager.toggle_flag(flag)
+		FlagManager.set_flag(flag)
 	
 	if option.accepted_quest != null:
 		QuestManager.accept_quest(option.accepted_quest)

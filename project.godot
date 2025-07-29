@@ -22,6 +22,7 @@ FlagManager="*res://Scripts/Managers/FlagManager.gd"
 QuestManager="*res://Scripts/Managers/QuestManager.gd"
 GameStateManager="*res://Scripts/Managers/GameStateManager.gd"
 InteractionHandler="*res://Scripts/Utils/InteractionHandler.gd"
+PlayerManager="*res://Scripts/Managers/PlayerManager.gd"
 
 [display]
 

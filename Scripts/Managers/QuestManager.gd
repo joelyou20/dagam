@@ -35,3 +35,26 @@ func is_quest_active(quest: QuestData.QuestName) -> bool:
 	var quest_id : String = QuestData.QuestName.keys()[quest]
 	var result: bool = active_quests.has(quest_id)
 	return result
+
+# TODO
+func validate_active_quest_objectives():
+	for quest_id in active_quests.keys():
+		var quest: QuestResource = active_quests[quest_id]
+		for requirement in quest.requirements:
+			if requirement.validate_requirements() and not completed_quests.has(quest_id):
+				complete_quest(quest_id)
+
+# TODO
+func validate_locked_quest_requirements():
+	for quest_id in active_quests.keys():
+		var quest: QuestResource = active_quests[quest_id]
+		for requirement in quest.requirements:
+			if requirement.validate_requirements() and not completed_quests.has(quest_id):
+				complete_quest(quest_id)
+
+func validate_active_quest_requirements():
+	for quest_id in active_quests.keys():
+		var quest: QuestResource = active_quests[quest_id]
+		for requirement in quest.requirements:
+			if requirement.validate_requirements() and not completed_quests.has(quest_id):
+				complete_quest(quest_id)

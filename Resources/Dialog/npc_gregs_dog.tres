@@ -1,14 +1,21 @@
-[gd_resource type="Resource" script_class="DialogResource" load_steps=8 format=3 uid="uid://7yp0cw3dfkfo"]
+[gd_resource type="Resource" script_class="DialogResource" load_steps=11 format=3 uid="uid://7yp0cw3dfkfo"]
 
 [ext_resource type="Script" path="res://Scripts/Dialog/DialogCondition.gd" id="1_2ha8f"]
 [ext_resource type="Script" path="res://Scripts/Dialog/DialogEntry.gd" id="2_8f8rp"]
+[ext_resource type="Script" path="res://Scripts/Quests/Tasks/Task.gd" id="2_yhefq"]
+[ext_resource type="Script" path="res://Scripts/Quests/Tasks/QuestTask.gd" id="3_2mhew"]
 [ext_resource type="Script" path="res://Scripts/Dialog/DialogOption.gd" id="3_pcpiv"]
 [ext_resource type="Script" path="res://Scripts/Dialog/DialogResource.gd" id="4_15bkn"]
+
+[sub_resource type="Resource" id="Resource_ybfue"]
+script = ExtResource("3_2mhew")
+quest_name = 1
+quest_state = 1
 
 [sub_resource type="Resource" id="Resource_f4mkp"]
 script = ExtResource("1_2ha8f")
 flags = Array[int]([])
-active_quests = Array[int]([1])
+tasks = Array[ExtResource("2_yhefq")]([SubResource("Resource_ybfue")])
 flag_logic = 0
 quest_logic = 0
 next = "quest_kick_gregs_dog"
