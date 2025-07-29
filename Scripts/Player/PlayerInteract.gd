@@ -11,27 +11,21 @@ var can_interact := true
 @onready var player = get_parent()
 
 func check_input():
-	if not can_interact or !current_target:
+	if not can_interact or not current_target or InteractionHandler.is_blocked():
 		return
 
-	var dialog_manager = get_node("/root/DialogManager")
-
 	if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed(interact_input):
-		if dialog_manager.is_showing_dialog():
-			# Let DialogBox handle progression
-			return
-
-		# Run interaction and lock further interaction
+		# Run interaction and lock further input
 		can_interact = false
 		current_target.interact()
 
-		# Wait until dialog finishes AND cooldown expires
-		await _wait_for_dialog_to_finish(dialog_manager)
+		# Wait for interaction blockers to clear (dialog, cutscene, etc.)
+		await _wait_for_unblocked()
 		await get_tree().create_timer(interact_cooldown).timeout
 		can_interact = true
 
-func _wait_for_dialog_to_finish(dialog_manager):
-	while dialog_manager.is_showing_dialog():
+func _wait_for_unblocked():
+	while InteractionHandler.is_blocked():
 		await get_tree().process_frame
 
 func update_last_input(input_vector: Vector2):

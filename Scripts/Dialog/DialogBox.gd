@@ -32,6 +32,7 @@ func show_dialog(npc_id: String, lines: Array, dialog_name: String = "", options
 	if lines.size() == 0:
 		return
 	
+	start_dialog()
 	visible = true
 	current_index = 0
 	dialog_lines = lines
@@ -40,6 +41,14 @@ func show_dialog(npc_id: String, lines: Array, dialog_name: String = "", options
 	_setup_options(npc_id, options)
 	dialog_options_box.visible = false
 
+func start_dialog():
+		InteractionHandler.block("dialog")
+		emit_signal("dialog_started")
+
+func end_dialog():
+	InteractionHandler.unblock("dialog")
+	emit_signal("dialog_finished")
+	
 func _set_name(name: String):
 	name_text.text = name
 
@@ -84,6 +93,7 @@ func _on_option_selected(npc_id: String, option: DialogOption):
 	# Emit the signal (in case others care)
 	emit_signal("option_selected", npc_id, option)
 	visible = false
+	end_dialog()
 
 func _on_typewriter_tick():
 	if char_index < current_text.length():
@@ -110,6 +120,7 @@ func _input(event):
 				dialog_options_box.visible = true
 			else:
 				visible = false
+				end_dialog()
 
 func is_dialog_active() -> bool:
 	return visible and (is_typing or current_index < dialog_lines.size() - 1)

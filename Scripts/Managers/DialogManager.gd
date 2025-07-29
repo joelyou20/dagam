@@ -2,6 +2,9 @@ extends Node
 
 @onready var dialog_box: Control = get_node("/root/World/DialogBox")
 
+signal dialog_started
+signal dialog_finished
+
 var dialog_registry := {
 	"greg": preload("res://Resources/Dialog/npc_greg.tres"),
 	"gregsDog": preload("res://Resources/Dialog/npc_gregs_dog.tres"),
@@ -69,7 +72,6 @@ func update_dialog(npc_id: String):
 				if next_entry:
 					next_entry.state = DialogState.State.ACTIVE
 			break  # stop after first matching condition
-
 
 func _on_dialog_option_selected(npc_id: String, option: DialogOption):
 	# Set flags from this option if it has any

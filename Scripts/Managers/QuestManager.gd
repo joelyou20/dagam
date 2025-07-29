@@ -8,7 +8,7 @@ var completed_quests: Array[String] = []
 func accept_quest(quest_name: QuestData.QuestName):
 	var quest : QuestResource = get_quest(quest_name)
 
-	if quest.id in active_quests:
+	if quest == null or quest.id in active_quests:
 		return
 
 	active_quests[quest.id] = quest
