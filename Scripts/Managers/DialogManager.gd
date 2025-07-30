@@ -2,7 +2,6 @@ extends Node
 
 @onready var dialog_box: Control = get_node("/root/World/DialogBox")
 
-
 var dialog_registry := {
 	"greg": preload("res://Resources/Dialog/npc_greg.tres"),
 	"gregsDog": preload("res://Resources/Dialog/npc_gregs_dog.tres"),
@@ -12,7 +11,8 @@ var dialog_registry := {
 var dialog_resource: DialogResource = null
 
 func _ready():
-	dialog_box.option_selected.connect(_on_dialog_option_selected)
+	if dialog_box != null:
+		dialog_box.option_selected.connect(_on_dialog_option_selected)
 
 func show_dialog_by_npc_id(npc_id: String):
 	update_dialog(npc_id)
@@ -27,7 +27,7 @@ func show_dialog_by_npc_id(npc_id: String):
 
 func show_dialog_by_entry_id(entry_id: String, npc_id: String):
 	if dialog_resource:
-		var entry: DialogEntry = dialog_resource.entries.filter(func(entry): entry.id == entry_id).front()
+		var entry: DialogEntry = dialog_resource.entries.filter(func(e): e.id == entry_id).front()
 		show_dialog(npc_id, entry, dialog_resource.npc_name)
 
 func show_dialog(npc_id: String, entry: DialogEntry, npc_name: String):

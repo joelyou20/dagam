@@ -1,7 +1,7 @@
 extends Node
 
 var nearby_targets: Array = []
-var current_target: Node = null
+var current_target: Interactable = null
 var last_input_vector: Vector3 = Vector3.FORWARD
 var can_interact := true
 
@@ -15,11 +15,9 @@ func check_input():
 		return
 
 	if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed(interact_input):
-		# Run interaction and lock further input
 		can_interact = false
 		current_target.interact()
 
-		# Wait for interaction blockers to clear (dialog, cutscene, etc.)
 		await _wait_for_unblocked()
 		await get_tree().create_timer(interact_cooldown).timeout
 		can_interact = true
@@ -32,11 +30,11 @@ func update_last_input(input_vector: Vector2):
 	if input_vector.length() > 0.1:
 		last_input_vector = Vector3(input_vector.x, 0, input_vector.y).normalized()
 
-func add_target(target: Node):
+func add_target(target: Interactable):
 	if not nearby_targets.has(target):
 		nearby_targets.append(target)
 
-func remove_target(target: Node):
+func remove_target(target: Interactable):
 	nearby_targets.erase(target)
 
 func _process(_delta):
@@ -44,22 +42,19 @@ func _process(_delta):
 
 func _update_best_target():
 	var best_score := -INF
-	var best_target: Node = null
+	var best_target: Interactable = null
 
 	for target in nearby_targets:
-		if not is_instance_valid(target):
+		if not is_instance_valid(target) or not target is Interactable:
+			continue
+		if not target.is_interactable():
 			continue
 
-		var to_target = (target.global_transform.origin - player.global_transform.origin)
-		var distance_score = 1.0 / (to_target.length() + 0.01)  # Prevent div by zero
-		var direction_score = to_target.normalized().dot(last_input_vector)
-		var total_score = distance_score + direction_score
-
-		if total_score > best_score:
-			best_score = total_score
+		var score = target.get_interaction_score(player.global_transform.origin, last_input_vector)
+		if score > best_score:
+			best_score = score
 			best_target = target
 
-	# Update visibility
 	if current_target and current_target != best_target:
 		current_target.hide_action_bubble()
 

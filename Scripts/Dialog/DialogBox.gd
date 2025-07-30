@@ -5,8 +5,6 @@ extends Control
 @onready var options_container: VBoxContainer = $DialogOptionsBox/DialogOptionsContainer
 @onready var dialog_options_box: Panel = $DialogOptionsBox
 
-signal dialog_started
-signal dialog_finished
 signal option_selected(npc_id: String, option: DialogOption)
 
 var dialog_lines: Array = []
@@ -45,11 +43,9 @@ func show_dialog(npc_id: String, lines: Array, dialog_name: String = "", options
 
 func start_dialog():
 		InteractionHandler.block("dialog")
-		emit_signal("dialog_started")
 
 func end_dialog():
 	InteractionHandler.unblock("dialog")
-	emit_signal("dialog_finished")
 	
 func _set_name(name: String):
 	name_text.text = name

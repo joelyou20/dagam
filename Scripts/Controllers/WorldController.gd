@@ -7,6 +7,7 @@ var menu_open := false
 
 func _ready():
 	DialogManager.dialog_box = dialog_box
+	SceneManager._load_scene("res://Scenes/Test.tscn", "PlayerSpawn")
 
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_cancel"):
