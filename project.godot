@@ -33,6 +33,12 @@ window/stretch/mode="viewport"
 
 project/assembly_name="DaGam"
 
+[global_group]
+
+Player=""
+Interactable=""
+NPC=""
+
 [input]
 
 Interact={
