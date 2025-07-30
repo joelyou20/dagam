@@ -19,7 +19,4 @@ func _on_exit():
 	modulate = Color(1, 1, 1)
 
 func _on_load_pressed():
-	print("Load button clicked!")
-	# TODO: add actual load logic here (scene change, file dialog, etc.)
-	# TEST STUFF
-	get_tree().quit()
+	GameStateManager.load_game_from_file()

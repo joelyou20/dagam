@@ -47,30 +47,33 @@ func update_dialog(npc_id: String):
 	var sorted_conditions = dialog_resource.conditions.duplicate()
 	sorted_conditions.sort_custom(func(a, b): return a.priority > b.priority)
 	
+	var should_advance: bool = false
+	var next: String = ""
+	
 	for condition: DialogCondition in sorted_conditions:
-		var flag_logic := condition.flag_logic
-		var flags := condition.flags
-		
-		var quest_tasks := condition.tasks.filter(func(t): return t is QuestTask)
-		var quest_logic := condition.quest_logic
+		match condition.logic:
+			DialogCondition.ConditionLogic.IF_ANY:
+				if condition.tasks.any(func(t): return t.validate_task()):
+					should_advance = true
+					next = condition.next
+					break
+			DialogCondition.ConditionLogic.IF_ALL:
+				if condition.tasks.all(func(t): return t.validate_task()):
+					should_advance = true
+					next = condition.next
+					break
+			DialogCondition.ConditionLogic.IF_NONE:
+				if !condition.tasks.any(func(t): return t.validate_task()):
+					should_advance = true
+					next = condition.next
+					break
 
-		var should_advance: bool = false
-		
-		should_advance = should_advance or flag_logic == DialogCondition.ConditionLogic.IF_ANY and flags.any(func(flag): return FlagManager.is_flag_set(flag))
-		should_advance = should_advance or flag_logic == DialogCondition.ConditionLogic.IF_ALL and flags.all(func(flag): return FlagManager.is_flag_set(flag))
-		should_advance = should_advance or flag_logic == DialogCondition.ConditionLogic.IF_NONE and not flags.any(func(flag): return FlagManager.is_flag_set(flag))
-		
-		should_advance = should_advance or quest_logic == DialogCondition.ConditionLogic.IF_ANY and quest_tasks.any(func(quest): return QuestManager.is_quest_active(quest.quest_name))
-		should_advance = should_advance or quest_logic == DialogCondition.ConditionLogic.IF_ALL and quest_tasks.all(func(quest): return QuestManager.is_quest_active(quest.quest_name))
-		should_advance = should_advance or quest_logic == DialogCondition.ConditionLogic.IF_NONE and not quest_tasks.any(func(quest): return QuestManager.is_quest_active(quest.quest_name))
-
-		if should_advance:
-			active_dialog_entry.state = DialogState.State.COMPLETED
-			if condition.next != "":
-				var next_entry := get_entry_by_id(npc_id, condition.next)
-				if next_entry:
-					next_entry.state = DialogState.State.ACTIVE
-			break  # stop after first matching condition
+	if should_advance:
+		active_dialog_entry.state = DialogState.State.COMPLETED
+		if next != "":
+			var next_entry := get_entry_by_id(npc_id, next)
+			if next_entry:
+				next_entry.state = DialogState.State.ACTIVE
 
 func _on_dialog_option_selected(npc_id: String, option: DialogOption):
 	# Set flags from this option if it has any
@@ -116,40 +119,30 @@ func get_entry_by_id(npc_id: String, entry_id: String) -> DialogEntry:
 			return entry
 	return null  # Not found
 
-func save_dialog(npc_id: String) -> Dictionary:
-	var dialog_data : DialogResource = dialog_registry.get(npc_id)
-	if dialog_data == null:
-		return {}
-	
-	var entry_states := {}
-	for entry in dialog_data.entries:
-		entry_states[entry.id] = entry.state
-	
-	return {
-		"npc_id": npc_id,
-		"entries": entry_states
-	}
-
-func load_dialog(data: Dictionary):
-	var npc_id : Variant = data.get("npc_id", "")
-	var dialog_data: DialogResource = dialog_registry.get(npc_id)
-	if dialog_data == null:
-		push_warning("No dialog found for NPC: " + npc_id)
-		return
-	
-	dialog_resource = dialog_data
-	var entries : DialogResource = data.get("entries", {})
-	
-	for entry in dialog_data.entries:
-		if entries.has(entry.id):
-			entry.state = entries[entry.id]
-
-func save_all_dialogs() -> Dictionary:
+# Save all dialog entry states across all NPCs
+func save_dialogs() -> Dictionary:
 	var all_data := {}
 	for npc_id in dialog_registry.keys():
-		all_data[npc_id] = save_dialog(npc_id)
+		var dialog_data: DialogResource = dialog_registry.get(npc_id)
+		if dialog_data == null:
+			continue
+
+		var entry_states := {}
+		for entry in dialog_data.entries:
+			entry_states[entry.id] = entry.state
+		
+		all_data[npc_id] = entry_states  # Just save { entry_id: state } for each NPC
 	return all_data
 
-func load_all_dialogs(data: Dictionary):
+# Load all dialog entry states from saved data
+func load_dialogs(data: Dictionary):
 	for npc_id in data.keys():
-		load_dialog(data[npc_id])
+		var dialog_data: DialogResource = dialog_registry.get(npc_id)
+		if dialog_data == null:
+			push_warning("Dialog not found for NPC: " + npc_id)
+			continue
+
+		var saved_entries: Dictionary = data[npc_id]
+		for entry in dialog_data.entries:
+			if saved_entries.has(entry.id):
+				entry.state = saved_entries[entry.id]

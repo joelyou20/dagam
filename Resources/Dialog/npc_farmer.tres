@@ -14,10 +14,8 @@ quest_state = 2
 
 [sub_resource type="Resource" id="Resource_gkt6b"]
 script = ExtResource("1_wqsou")
-flags = Array[int]([])
 tasks = Array[ExtResource("2_kvntv")]([SubResource("Resource_aw8kf")])
-flag_logic = 0
-quest_logic = 0
+logic = 0
 next = "kick_again"
 priority = 0
 

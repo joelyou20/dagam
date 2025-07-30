@@ -1,16 +1,26 @@
-[gd_resource type="Resource" script_class="DialogResource" load_steps=8 format=3 uid="uid://b3eknfid05f2v"]
+[gd_resource type="Resource" script_class="DialogResource" load_steps=13 format=3 uid="uid://b3eknfid05f2v"]
 
 [ext_resource type="Script" path="res://Scripts/Dialog/DialogCondition.gd" id="1_63d3d"]
 [ext_resource type="Script" path="res://Scripts/Dialog/DialogEntry.gd" id="1_qemr5"]
 [ext_resource type="Script" path="res://Scripts/Dialog/DialogOption.gd" id="2_gbwp3"]
+[ext_resource type="Script" path="res://Scripts/Quests/Tasks/Task.gd" id="2_ly80g"]
+[ext_resource type="Script" path="res://Scripts/Flags/FlagData.gd" id="3_h0cgw"]
 [ext_resource type="Script" path="res://Scripts/Dialog/DialogResource.gd" id="3_rf4bh"]
+[ext_resource type="Script" path="res://Scripts/Quests/Tasks/FlagTask.gd" id="4_xvar8"]
+
+[sub_resource type="Resource" id="Resource_0gt5x"]
+script = ExtResource("3_h0cgw")
+key = 1
+value = true
+
+[sub_resource type="Resource" id="Resource_a03mw"]
+script = ExtResource("4_xvar8")
+flag = SubResource("Resource_0gt5x")
 
 [sub_resource type="Resource" id="Resource_lgheo"]
 script = ExtResource("1_63d3d")
-flags = Array[int]([1])
-active_quests = Array[int]([])
-flag_logic = 0
-quest_logic = 0
+tasks = Array[ExtResource("2_ly80g")]([SubResource("Resource_a03mw")])
+logic = 0
 next = "mad_about_dog"
 priority = 0
 

@@ -58,3 +58,35 @@ func validate_active_quest_requirements():
 		for requirement in quest.requirements:
 			if requirement.validate_requirements() and not completed_quests.has(quest_id):
 				complete_quest(quest_id)
+
+# Save quests into a Dictionary
+func save_quests() -> Dictionary:
+	return {
+		"active": active_quests.keys(),
+		"completed": completed_quests.duplicate()
+	}
+
+# Load quests from a saved Dictionary
+func load_quests(data: Dictionary):
+	active_quests.clear()
+	completed_quests.clear()
+
+	var active_ids = data.get("active", [])
+	var completed_ids = data.get("completed", [])
+
+	for id in active_ids:
+		# Try to find a matching enum name by ID
+		var quest_enum : QuestData.QuestName = QuestData.QuestName.get(id)
+		if quest_enum == null:
+			push_warning("Unknown quest ID in save data: " + id)
+			continue
+
+		var quest: QuestResource = get_quest(quest_enum)
+		if quest != null:
+			quest.state = QuestResource.QuestState.ACTIVE
+			active_quests[id] = quest
+
+	for id in completed_ids:
+		completed_quests.append(id)
+		if active_quests.has(id):
+			active_quests[id].state = QuestResource.QuestState.COMPLETED
