@@ -4,7 +4,8 @@ class_name FlagData
 enum FlagName {
 	UNSET, # Default no flag name value
 	KICKED_GREGS_DOG,
-	READY_TO_KICK_AGAIN
+	READY_TO_KICK_AGAIN,
+	OPENED_DOOR
 }
 
 @export var key: FlagName = FlagName.UNSET

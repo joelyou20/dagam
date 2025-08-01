@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="FlagsResource" load_steps=6 format=3 uid="uid://dhcbv8cacd04p"]
+[gd_resource type="Resource" script_class="FlagsResource" load_steps=7 format=3 uid="uid://dhcbv8cacd04p"]
 
 [ext_resource type="Script" path="res://Scripts/Flags/FlagData.gd" id="1_pc7o2"]
 [ext_resource type="Script" path="res://Scripts/Flags/FlagsResource.gd" id="1_ulxjv"]
@@ -18,6 +18,11 @@ script = ExtResource("1_pc7o2")
 key = 2
 value = false
 
+[sub_resource type="Resource" id="Resource_jpew3"]
+script = ExtResource("1_pc7o2")
+key = 3
+value = false
+
 [resource]
 script = ExtResource("1_ulxjv")
-flags = Array[ExtResource("1_pc7o2")]([SubResource("Resource_4fj06"), SubResource("Resource_i6oip"), SubResource("Resource_jdcby")])
+flags = Array[ExtResource("1_pc7o2")]([SubResource("Resource_4fj06"), SubResource("Resource_i6oip"), SubResource("Resource_jdcby"), SubResource("Resource_jpew3")])

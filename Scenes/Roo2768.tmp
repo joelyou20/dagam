@@ -1,0 +1,152 @@
+[gd_scene load_steps=20 format=3 uid="uid://bnt6fh6ndihdl"]
+
+[ext_resource type="Script" path="res://Scripts/Controllers/WorldController.gd" id="1_rfg43"]
+[ext_resource type="Script" path="res://Scripts/Controllers/PlayerController.gd" id="2_tsaoi"]
+[ext_resource type="Texture2D" uid="uid://oma61eo6wvaj" path="res://Assets/Sprites/Player.png" id="3_nv2wi"]
+[ext_resource type="Script" path="res://Scripts/Player/PlayerCamera.gd" id="4_68vr5"]
+[ext_resource type="Script" path="res://Scripts/Player/PlayerMovement.gd" id="5_v7cw6"]
+[ext_resource type="Script" path="res://Scripts/Player/PlayerInteract.gd" id="6_fg2ge"]
+[ext_resource type="Script" path="res://Scripts/Menu/Menu.gd" id="7_pdbvl"]
+[ext_resource type="Texture2D" uid="uid://dianihvujteoj" path="res://Assets/Sprites/LoadButton.png" id="8_nq7xy"]
+[ext_resource type="Script" path="res://Scripts/Menu/MenuButton.Load.gd" id="9_sfc7d"]
+[ext_resource type="Script" path="res://Scripts/Menu/MenuButton.Save.gd" id="10_fah2v"]
+[ext_resource type="Script" path="res://Scripts/Menu/MenuButton.Quit.gd" id="11_u50i4"]
+[ext_resource type="Texture2D" uid="uid://beslko0tx1ent" path="res://Assets/Sprites/DialogueBox.png" id="12_dulvy"]
+[ext_resource type="Script" path="res://Scripts/Dialog/DialogBox.gd" id="13_1hltd"]
+[ext_resource type="Texture2D" uid="uid://pvybvw7sar85" path="res://Assets/Sprites/DialogueBoxOptions.png" id="14_xphs7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_47rkc"]
+size = Vector3(0.280029, 0.278374, 0.268194)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kh5kr"]
+texture = ExtResource("12_dulvy")
+
+[sub_resource type="LabelSettings" id="LabelSettings_3hyej"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cywsl"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ahk17"]
+texture = ExtResource("14_xphs7")
+
+[node name="World" type="Node3D"]
+script = ExtResource("1_rfg43")
+
+[node name="Player" type="CharacterBody3D" parent="." groups=["Player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.639471, 0.157096, 0.0645545)
+script = ExtResource("2_tsaoi")
+
+[node name="Sprite" type="Sprite3D" parent="Player"]
+pixel_size = 0.02
+billboard = 1
+texture = ExtResource("3_nv2wi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" groups=["Player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00671387, 0.0181466, 0.00665569)
+shape = SubResource("BoxShape3D_47rkc")
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 0.843701, 0.536814, 0, -0.536814, 0.843701, 0, 0.678, 1.295)
+script = ExtResource("4_68vr5")
+max_offset = 0.25
+pull_speed = 1.0
+
+[node name="Movement" type="Node" parent="Player"]
+script = ExtResource("5_v7cw6")
+
+[node name="Interact" type="Node" parent="Player"]
+script = ExtResource("6_fg2ge")
+interact_cooldown = 0.3
+
+[node name="MenuUI" type="CanvasLayer" parent="."]
+process_mode = 2
+script = ExtResource("7_pdbvl")
+
+[node name="MenuPanel" type="Control" parent="MenuUI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuUI/MenuPanel"]
+layout_mode = 0
+offset_left = 436.0
+offset_top = 207.0
+offset_right = 796.0
+offset_bottom = 387.0
+
+[node name="LoadButton" type="TextureButton" parent="MenuUI/MenuPanel/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("8_nq7xy")
+script = ExtResource("9_sfc7d")
+
+[node name="SaveButton" type="Button" parent="MenuUI/MenuPanel/VBoxContainer"]
+layout_mode = 2
+text = "Save"
+script = ExtResource("10_fah2v")
+
+[node name="QuitButton" type="Button" parent="MenuUI/MenuPanel/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+script = ExtResource("11_u50i4")
+
+[node name="DialogBox" type="Panel" parent="."]
+offset_right = 1151.0
+offset_bottom = 647.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_kh5kr")
+script = ExtResource("13_1hltd")
+
+[node name="NameContainer" type="MarginContainer" parent="DialogBox"]
+layout_mode = 0
+offset_left = 202.0
+offset_top = 432.0
+offset_right = 488.0
+offset_bottom = 459.0
+scale = Vector2(1, 1.16)
+pivot_offset = Vector2(6, 2)
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 16
+
+[node name="NameText" type="Label" parent="DialogBox/NameContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Hello
+"
+label_settings = SubResource("LabelSettings_3hyej")
+clip_text = true
+
+[node name="DialogContainer" type="MarginContainer" parent="DialogBox"]
+layout_mode = 0
+offset_left = 202.0
+offset_top = 471.0
+offset_right = 1115.0
+offset_bottom = 624.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="DialogText" type="Label" parent="DialogBox/DialogContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 1
+text = "Hello, this is a test"
+label_settings = SubResource("LabelSettings_cywsl")
+autowrap_mode = 2
+
+[node name="DialogOptionsBox" type="Panel" parent="DialogBox"]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 643.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ahk17")
+
+[node name="DialogOptionsContainer" type="VBoxContainer" parent="DialogBox/DialogOptionsBox"]
+layout_mode = 0
+offset_left = 529.0
+offset_top = 354.0
+offset_right = 1103.0
+offset_bottom = 452.0
+
+[node name="SceneRoot" type="Node3D" parent="."]

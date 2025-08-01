@@ -5,7 +5,8 @@ extends Node
 var dialog_registry := {
 	"greg": preload("res://Resources/Dialog/npc_greg.tres"),
 	"gregsDog": preload("res://Resources/Dialog/npc_gregs_dog.tres"),
-	"farmer": preload("res://Resources/Dialog/npc_farmer.tres")
+	"farmer": preload("res://Resources/Dialog/npc_farmer.tres"),
+	"door_guy": preload("res://Resources/Dialog/npc_door_guy.tres")
 }
 
 var dialog_resource: DialogResource = null

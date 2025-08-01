@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://65kqyqm52lpl"]
+
+[ext_resource type="Texture2D" uid="uid://1b5m4bpn7ajs" path="res://Assets/Textures/Dirt/Dirt_Metallic.tga" id="1_wfs3p"]
+[ext_resource type="Script" path="res://Scripts/Utils/Door.gd" id="2_anphq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ffevc"]
+albedo_texture = ExtResource("1_wfs3p")
+
+[sub_resource type="BoxMesh" id="BoxMesh_t2t1x"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ur4ku"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q437g"]
+margin = 0.0
+size = Vector3(24.1974, 15.3679, 15.9135)
+
+[sub_resource type="Environment" id="Environment_mff55"]
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.865377, 0.590475, 0.547059, 1)
+volumetric_fog_enabled = true
+
+[node name="HouseInterior" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(6, 0, 0, 0, 0.0656304, 0, 0, 0, 6, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_ffevc")
+mesh = SubResource("BoxMesh_t2t1x")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.413084, 1.15192, -0.196381)
+
+[node name="PlayerSpawn" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.103932, 0.18105, -0.0406306)
+
+[node name="Door" type="MeshInstance3D" parent="." groups=["Interactable"]]
+transform = Transform3D(0.0689041, 0, 0, 0, 1, 0, 0, 0, 1, -2.95651, 0.525488, -0.0647843)
+mesh = SubResource("BoxMesh_ur4ku")
+script = ExtResource("2_anphq")
+target_scene = "Test"
+auto_transition = true
+
+[node name="Area3D" type="Area3D" parent="Door"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door/Area3D"]
+transform = Transform3D(0.0648488, 0, 0, 0, 0.0648488, -7.97022e-13, 0, 0, 0.0648488, 0.123524, -0.0129328, -0.019622)
+shape = SubResource("BoxShape3D_q437g")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mff55")

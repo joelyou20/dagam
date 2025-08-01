@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://d00ra8ehtglsi"]
+
+[ext_resource type="Script" path="res://Scripts/Inventory/InventorySlot.gd" id="1_n3ni8"]
+[ext_resource type="Texture2D" uid="uid://cm42hkpe5cbxc" path="res://Assets/Sprites/Potion.png" id="2_l5h74"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ykh7m"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[node name="InventorySlot" type="Control"]
+custom_minimum_size = Vector2(64, 42)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 64.0
+offset_bottom = 42.0
+script = ExtResource("1_n3ni8")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_l5h74")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 11.0
+offset_right = 60.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "2"
+
+[node name="HoverBorder" type="Panel" parent="."]
+custom_minimum_size = Vector2(64, 42)
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 42.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ykh7m")

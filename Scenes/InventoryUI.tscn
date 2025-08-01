@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://7vrsu00hyeky"]
+
+[ext_resource type="Script" path="res://Scripts/Inventory/InventoryUI.gd" id="1_uajbk"]
+[ext_resource type="Texture2D" uid="uid://bsb6kd1abl1h2" path="res://Assets/Sprites/Inventory.png" id="2_w618v"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_685pi"]
+texture = ExtResource("2_w618v")
+
+[node name="InventoryUI" type="CanvasLayer"]
+script = ExtResource("1_uajbk")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1150.0
+offset_bottom = 647.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_685pi")
+
+[node name="GridContainer" type="GridContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 760.0
+offset_top = 38.0
+offset_right = 1110.0
+offset_bottom = 595.0
+
+[node name="TextureRect" type="TextureRect" parent="Panel/GridContainer"]
+layout_mode = 2

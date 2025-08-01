@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdkouymtbrjkp"]
+
+[ext_resource type="Texture2D" uid="uid://cwp43a6yef1yx" path="res://Assets/Sprites/ActionBubble.png" id="1_ysy7w"]
+
+[node name="ActionBubble3D" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+billboard = 2
+texture = ExtResource("1_ysy7w")
