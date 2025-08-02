@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://jdu2x3334o7g"]
+
+[ext_resource type="Script" path="res://Scripts/Controllers/BattleController.gd" id="1_aswka"]
+[ext_resource type="Texture2D" uid="uid://3g0vbv1xmmvb" path="res://Assets/Textures/Cliff Face/CliffFace_Albedo.tga" id="1_u1eoo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qochq"]
+albedo_texture = ExtResource("1_u1eoo")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_basny"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_aswka")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.97139, 0, 0, 0, 1, 0, 0, 0, 3.01478, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_qochq")
+mesh = SubResource("PlaneMesh_basny")
+
+[node name="BattleCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.844487, 0.535576, 0, -0.535576, 0.844487, 0, 1.768, 3.44478)
+current = true
+
+[node name="AllySlots" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.262712, 0)
+
+[node name="AllySlot1" type="Node3D" parent="AllySlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+
+[node name="AllySlot2" type="Node3D" parent="AllySlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="AllySlot3" type="Node3D" parent="AllySlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
+
+[node name="AllySlot4" type="Node3D" parent="AllySlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="EnemySlots" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.262712, 0)
+
+[node name="EnemySlot1" type="Node3D" parent="EnemySlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+
+[node name="EnemySlot2" type="Node3D" parent="EnemySlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="EnemySlot3" type="Node3D" parent="EnemySlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0)
+
+[node name="EnemySlot4" type="Node3D" parent="EnemySlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)

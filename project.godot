@@ -26,6 +26,8 @@ PlayerManager="*res://Scripts/Managers/PlayerManager.gd"
 SceneManager="*res://Scripts/Managers/SceneManager.gd"
 EnumHelper="*res://Scripts/Utils/EnumHelper.gd"
 InventoryManager="*res://Scripts/Managers/InventoryManager.gd"
+BattleManager="*res://Scripts/Managers/BattleManager.gd"
+PartyManager="*res://Scripts/Managers/PartyManager.gd"
 
 [display]
 

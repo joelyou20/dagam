@@ -1,4 +1,4 @@
-extends CharacterBody3D
+extends Node
 
 @onready var movement = $Movement
 @onready var interaction = $Interact

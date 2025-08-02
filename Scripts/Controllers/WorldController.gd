@@ -10,7 +10,8 @@ var menu_open := false
 
 func _ready():
 	DialogManager.dialog_box = dialog_box
-	SceneManager._load_scene("res://Scenes/Test.tscn", "PlayerSpawn")
+	await SceneManager.initialize()
+	SceneManager.transition_to_scene("res://Scenes/Test.tscn")
 
 	# Instantiate InventoryUI right away
 	inventory_ui = InventoryUIScene.instantiate()

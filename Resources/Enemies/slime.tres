@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=3 format=3 uid="uid://vmucgp7ia23r"]
+
+[ext_resource type="Script" path="res://Scripts/Enemy/EnemyResource.gd" id="1_a30to"]
+[ext_resource type="PackedScene" uid="uid://d006unmlxu5xa" path="res://Scenes/Slime.tscn" id="2_37y8x"]
+
+[resource]
+script = ExtResource("1_a30to")
+id = "slime2"
+name = "Slime2"
+max_hp = 20
+speed = 1
+attack_power = 5
+visual_scene = ExtResource("2_37y8x")
+slot_number = 2

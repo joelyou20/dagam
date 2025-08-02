@@ -1,7 +1,5 @@
 extends CanvasLayer
 
-@onready var load_button = $MenuPanel/VBoxContainer/LoadButton
-
 func _ready():
 	visible = false
 	process_mode = Node.PROCESS_MODE_ALWAYS

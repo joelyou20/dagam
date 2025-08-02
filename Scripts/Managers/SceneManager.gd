@@ -1,16 +1,14 @@
 extends Node
 
 var current_scene: Node = null
-var fade_layer: FadeLayer
-var scene_root: Node
-
-func _ready():
-	scene_root = get_tree().get_root().get_node("World/SceneRoot")
-	fade_layer = preload("res://Scenes/FadeScene.tscn").instantiate() as FadeLayer
+@onready var fade_layer: FadeLayer = preload("res://Scenes/FadeScene.tscn").instantiate() as FadeLayer
+@onready var scene_root: Node = get_tree().get_root().get_node("World/SceneRoot")
+	
+func initialize():
 	get_tree().get_root().add_child(fade_layer)
 	fade_layer.initialize()
 
-func transition_to_scene(path: String, spawn_point_name: String = ""):
+func transition_to_scene(path: String, spawn_point_name: String = "PlayerSpawn"):
 	fade_layer.fade_out()
 	_load_scene(path, spawn_point_name)
 

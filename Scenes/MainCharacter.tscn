@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://pn1fue7h0boy"]
+
+[ext_resource type="Texture2D" uid="uid://oma61eo6wvaj" path="res://Assets/Sprites/Player.png" id="1_1mofv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sassp"]
+size = Vector3(0.280029, 0.278374, 0.268194)
+
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.165836, 0)
+
+[node name="Sprite" type="Sprite3D" parent="."]
+pixel_size = 0.02
+billboard = 1
+texture = ExtResource("1_1mofv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00671387, 0.0181466, 0.00665569)
+shape = SubResource("BoxShape3D_sassp")

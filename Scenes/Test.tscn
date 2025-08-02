@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://d3m7gv82kgk8t"]
+[gd_scene load_steps=27 format=3 uid="uid://d3m7gv82kgk8t"]
 
 [ext_resource type="Texture2D" uid="uid://cex0yttn80owp" path="res://Assets/Textures/Sand/Sand_Albedo.tga" id="1_f2yxx"]
 [ext_resource type="Script" path="res://Scripts/NPC.gd" id="2_5jh5n"]
@@ -8,6 +8,10 @@
 [ext_resource type="Script" path="res://Scripts/Items/Item.gd" id="6_tfncs"]
 [ext_resource type="Resource" uid="uid://dt58eltux7b7u" path="res://Resources/Items/potion.tres" id="7_j6jnd"]
 [ext_resource type="Texture2D" uid="uid://cm42hkpe5cbxc" path="res://Assets/Sprites/Potion.png" id="7_s5f50"]
+[ext_resource type="PackedScene" uid="uid://d006unmlxu5xa" path="res://Scenes/Slime.tscn" id="9_pdvgy"]
+[ext_resource type="Script" path="res://Scripts/Enemy/EnemyResource.gd" id="11_nb7se"]
+[ext_resource type="Resource" uid="uid://vmucgp7ia23r" path="res://Resources/Enemies/slime.tres" id="12_bidyq"]
+[ext_resource type="Script" path="res://Scripts/Battle/EncounterData.gd" id="13_d4pqo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v818v"]
 albedo_texture = ExtResource("1_f2yxx")
@@ -48,6 +52,11 @@ volumetric_fog_enabled = true
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_fh75e"]
 radius = 0.138056
+
+[sub_resource type="Resource" id="Resource_ufqci"]
+script = ExtResource("13_d4pqo")
+enemies = Array[ExtResource("11_nb7se")]([ExtResource("12_bidyq"), ExtResource("12_bidyq")])
+battle_scene_path = "res://Scenes/BattleScenes/TestBattleScene.tscn"
 
 [node name="Node3D" type="Node3D"]
 
@@ -203,7 +212,7 @@ transform = Transform3D(0.037, 0, 0, 0, 0.037, -4.54747e-13, 0, 0, 0.037, 0, 0, 
 shape = SubResource("BoxShape3D_jtsfb")
 
 [node name="PlayerSpawn" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.103932, 0.18105, -0.0406306)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.210354, 0.18105, -0.33662)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.736561, -0.653764, 0.173409, 0.446099, 0.662272, 0.60199, -0.508403, -0.366045, 0.779447, 0.586036, 6.81332, 7.87989)
@@ -251,7 +260,7 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 shape = SubResource("SphereShape3D_fh75e")
 
 [node name="Potion2" type="Node3D" parent="." groups=["Interactable", "Item"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.41545, 0.12367, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.45441, 0.142961, -0.00407481)
 script = ExtResource("6_tfncs")
 item = ExtResource("7_j6jnd")
 
@@ -266,7 +275,7 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 shape = SubResource("SphereShape3D_fh75e")
 
 [node name="Potion3" type="Node3D" parent="." groups=["Interactable", "Item"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.04263, 0.107311, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.12373, 0.107311, 0)
 script = ExtResource("6_tfncs")
 item = ExtResource("7_j6jnd")
 
@@ -279,3 +288,7 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Potion3/Area3D"]
 shape = SubResource("SphereShape3D_fh75e")
+
+[node name="Slime" parent="." instance=ExtResource("9_pdvgy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00684913, 0.0747067, 0.655384)
+encounter = SubResource("Resource_ufqci")

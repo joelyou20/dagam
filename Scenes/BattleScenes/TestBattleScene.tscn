@@ -1,0 +1,96 @@
+[gd_scene load_steps=8 format=3 uid="uid://jdu2x3334o7g"]
+
+[ext_resource type="Script" path="res://Scripts/Controllers/BattleController.gd" id="1_aswka"]
+[ext_resource type="Texture2D" uid="uid://3g0vbv1xmmvb" path="res://Assets/Textures/Cliff Face/CliffFace_Albedo.tga" id="1_u1eoo"]
+[ext_resource type="Material" uid="uid://cakeusr3n2jnt" path="res://Assets/Textures/green.tres" id="3_j52a7"]
+[ext_resource type="Material" uid="uid://cfos46sungdyl" path="res://Assets/Textures/red.tres" id="4_fig5t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qochq"]
+albedo_texture = ExtResource("1_u1eoo")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_basny"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3jlvm"]
+material = ExtResource("3_j52a7")
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_aswka")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.97139, 0, 0, 0, 1, 0, 0, 0, 3.01478, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_qochq")
+mesh = SubResource("PlaneMesh_basny")
+
+[node name="BattleCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.844487, 0.535576, 0, -0.535576, 0.844487, 0, 1.768, 3.44478)
+current = true
+
+[node name="AllySlots" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.262712, 0)
+
+[node name="AllySlot1" type="Node3D" parent="AllySlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="AllySlots/AllySlot1"]
+transform = Transform3D(0.211898, 0, 0, 0, 0.00741816, 0, 0, 0, 0.243809, 0, -0.0849125, 0)
+mesh = SubResource("BoxMesh_3jlvm")
+
+[node name="AllySlot2" type="Node3D" parent="AllySlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="AllySlots/AllySlot2"]
+transform = Transform3D(0.211898, 0, 0, 0, 0.00741816, 0, 0, 0, 0.243809, 0, -0.0849125, 0)
+mesh = SubResource("BoxMesh_3jlvm")
+
+[node name="AllySlot3" type="Node3D" parent="AllySlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="AllySlots/AllySlot3"]
+transform = Transform3D(0.211898, 0, 0, 0, 0.00741816, 0, 0, 0, 0.243809, 0, -0.0849125, 0)
+mesh = SubResource("BoxMesh_3jlvm")
+
+[node name="AllySlot4" type="Node3D" parent="AllySlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="AllySlots/AllySlot4"]
+transform = Transform3D(0.211898, 0, 0, 0, 0.00741816, 0, 0, 0, 0.243809, 0.000555038, -0.0893617, 0.00151157)
+mesh = SubResource("BoxMesh_3jlvm")
+
+[node name="EnemySlots" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.262712, 0)
+
+[node name="EnemySlot1" type="Node3D" parent="EnemySlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="EnemySlots/EnemySlot1"]
+transform = Transform3D(0.211898, 0, 0, 0, 0.00741816, 0, 0, 0, 0.243809, 0, -0.0849125, 0)
+material_override = ExtResource("4_fig5t")
+mesh = SubResource("BoxMesh_3jlvm")
+
+[node name="EnemySlot2" type="Node3D" parent="EnemySlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="EnemySlots/EnemySlot2"]
+transform = Transform3D(0.211898, 0, 0, 0, 0.00741816, 0, 0, 0, 0.243809, 0, -0.0849125, 0)
+material_override = ExtResource("4_fig5t")
+mesh = SubResource("BoxMesh_3jlvm")
+
+[node name="EnemySlot3" type="Node3D" parent="EnemySlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="EnemySlots/EnemySlot3"]
+transform = Transform3D(0.211898, 0, 0, 0, 0.00741816, 0, 0, 0, 0.243809, 0, -0.0849125, 0)
+material_override = ExtResource("4_fig5t")
+mesh = SubResource("BoxMesh_3jlvm")
+
+[node name="EnemySlot4" type="Node3D" parent="EnemySlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="EnemySlots/EnemySlot4"]
+transform = Transform3D(0.211898, 0, 0, 0, 0.00741816, 0, 0, 0, 0.243809, 0, -0.0849125, 0)
+material_override = ExtResource("4_fig5t")
+mesh = SubResource("BoxMesh_3jlvm")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.804894, 0, 0.593419, -0.397444, 0.742584, 0.53908, -0.440663, -0.669753, 0.597701, 2.2393, 1.62062, 2.411)
+shadow_enabled = true

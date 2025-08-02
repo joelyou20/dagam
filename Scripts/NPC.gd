@@ -1,4 +1,5 @@
 extends Interactable
+class_name NPC
 
 @export var display_name: String = ""
 

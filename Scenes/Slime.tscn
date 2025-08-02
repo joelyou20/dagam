@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://d006unmlxu5xa"]
+
+[ext_resource type="Script" path="res://Scripts/Enemy/Enemy.gd" id="1_8t32g"]
+[ext_resource type="Texture2D" uid="uid://5qg7cvf8ty8n" path="res://Assets/Sprites/Slime.png" id="2_evpof"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xu1nm"]
+radius = 0.0479112
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_w15wa"]
+radius = 0.264031
+
+[node name="Slime" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.135406, 0.51414)
+script = ExtResource("1_8t32g")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.223973, 0, 0, 0, 0.285857, 0, 0, 0, 1, 0, 0, 0)
+billboard = 1
+texture = ExtResource("2_evpof")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_xu1nm")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_w15wa")

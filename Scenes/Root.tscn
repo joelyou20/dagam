@@ -1,11 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://bnt6fh6ndihdl"]
+[gd_scene load_steps=15 format=3 uid="uid://bnt6fh6ndihdl"]
 
 [ext_resource type="Script" path="res://Scripts/Controllers/WorldController.gd" id="1_rfg43"]
-[ext_resource type="Script" path="res://Scripts/Controllers/PlayerController.gd" id="2_tsaoi"]
-[ext_resource type="Texture2D" uid="uid://oma61eo6wvaj" path="res://Assets/Sprites/Player.png" id="3_nv2wi"]
-[ext_resource type="Script" path="res://Scripts/Player/PlayerCamera.gd" id="4_68vr5"]
-[ext_resource type="Script" path="res://Scripts/Player/PlayerMovement.gd" id="5_v7cw6"]
-[ext_resource type="Script" path="res://Scripts/Player/PlayerInteract.gd" id="6_fg2ge"]
+[ext_resource type="PackedScene" uid="uid://djnyy262e778e" path="res://Scenes/Player.tscn" id="2_21pou"]
 [ext_resource type="Script" path="res://Scripts/Menu/Menu.gd" id="7_pdbvl"]
 [ext_resource type="Texture2D" uid="uid://dianihvujteoj" path="res://Assets/Sprites/LoadButton.png" id="8_nq7xy"]
 [ext_resource type="Script" path="res://Scripts/Menu/MenuButton.Load.gd" id="9_sfc7d"]
@@ -14,9 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://beslko0tx1ent" path="res://Assets/Sprites/DialogueBox.png" id="12_dulvy"]
 [ext_resource type="Script" path="res://Scripts/Dialog/DialogBox.gd" id="13_1hltd"]
 [ext_resource type="Texture2D" uid="uid://pvybvw7sar85" path="res://Assets/Sprites/DialogueBoxOptions.png" id="14_xphs7"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_47rkc"]
-size = Vector3(0.280029, 0.278374, 0.268194)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kh5kr"]
 texture = ExtResource("12_dulvy")
@@ -33,31 +26,8 @@ texture = ExtResource("14_xphs7")
 [node name="World" type="Node3D"]
 script = ExtResource("1_rfg43")
 
-[node name="Player" type="CharacterBody3D" parent="." groups=["Player"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.639471, 0.157096, 0.0645545)
-script = ExtResource("2_tsaoi")
-
-[node name="Sprite" type="Sprite3D" parent="Player"]
-pixel_size = 0.02
-billboard = 1
-texture = ExtResource("3_nv2wi")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" groups=["Player"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00671387, 0.0181466, 0.00665569)
-shape = SubResource("BoxShape3D_47rkc")
-
-[node name="Camera3D" type="Camera3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 0.843701, 0.536814, 0, -0.536814, 0.843701, 0, 0.678, 1.295)
-script = ExtResource("4_68vr5")
-max_offset = 0.25
-pull_speed = 1.0
-
-[node name="Movement" type="Node" parent="Player"]
-script = ExtResource("5_v7cw6")
-
-[node name="Interact" type="Node" parent="Player"]
-script = ExtResource("6_fg2ge")
-interact_cooldown = 0.3
+[node name="Player" parent="." instance=ExtResource("2_21pou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.108002, 0)
 
 [node name="MenuUI" type="CanvasLayer" parent="."]
 process_mode = 2
