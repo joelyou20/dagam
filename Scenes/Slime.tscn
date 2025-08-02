@@ -10,7 +10,7 @@ radius = 0.0479112
 radius = 0.264031
 
 [node name="Slime" type="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.135406, 0.51414)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.145604, 0)
 script = ExtResource("1_8t32g")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]

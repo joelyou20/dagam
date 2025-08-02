@@ -31,3 +31,25 @@ func add_item(new_item: ItemResource, amount: int = 1) -> bool:
 		return true
 
 	return false
+
+func remove_item(target_item: ItemResource, amount: int = -1) -> bool:
+	for slot in slots:
+		if slot.item == target_item:
+			if amount == -1:
+				slot.quantity == 0
+				slot.item = null
+				return true
+			if slot.quantity >= amount:
+				slot.quantity -= amount
+				if slot.quantity == 0:
+					slot.item = null
+				return true
+			else:
+				# Not enough in this stack, skip or handle partial removal
+				amount -= slot.quantity
+				slot.item = null
+				slot.quantity = 0
+				# Continue checking next stacks
+
+	# If we reached here, not enough of the item was removed
+	return amount <= 0

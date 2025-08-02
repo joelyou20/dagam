@@ -5,6 +5,8 @@ var ally_units: Array[Unit] = []
 var enemy_units: Array[Unit] = []
 var current_battle_data: BattleData = null
 
+signal battle_ended
+
 func build_battle_from_encounter(encounter: EncounterData) -> BattleData:
 	
 	var party = PartyManager.get_party(false)
@@ -15,10 +17,10 @@ func build_battle_from_encounter(encounter: EncounterData) -> BattleData:
 	
 	for ally in party:
 		var unit: Unit = build_unit(ally, Unit.UnitType.ALLY)
-		ally_units.append(ally)
+		ally_units.append(unit)
 	for enemy in encounter.enemies:
 		var unit: Unit = build_unit(enemy, Unit.UnitType.ENEMY)
-		enemy_units.append(enemy)
+		enemy_units.append(unit)
 	
 	var battleData: BattleData = BattleData.new()
 	battleData.set_units(ally_units, enemy_units)
@@ -38,41 +40,31 @@ func build_unit(source: Resource, unit_type: Unit.UnitType) -> Unit:
 	unit.slot_number = source.slot_number
 	unit.visual_scene = source.visual_scene
 	return unit
+
+func place_units(slots: Array[UnitSlot]):
+	if not slots:
+		return
+
+	var unit: Unit
+	for slot in slots:
+		unit = null
+		if slot.type == UnitSlot.UnitSlotType.ALLY:
+			for slot_unit in ally_units:
+				if slot_unit.slot_number == slot.slot_number:
+					unit = slot_unit
+					break
+		elif slot.type == UnitSlot.UnitSlotType.ENEMY:
+			for slot_unit in enemy_units:
+				if slot_unit.slot_number == slot.slot_number:
+					unit = slot_unit
+					break
+		if unit == null:
+			continue
+
+		var vis = unit.visual_scene.instantiate()
+		slot.node.add_child(vis)
+		vis.transform = Transform3D.IDENTITY  # Or set local position manually
 	
-func place_ally(slot: UnitSlot):
-	if not slot:
-		return
-
-	var unit: Unit = null
-	for slot_unit in ally_units:
-		if slot_unit.slot_number == slot.slot_number:
-			unit = slot_unit
-			break
-
-	if unit == null:
-		return
-
-	var vis = unit.visual_scene.instantiate()
-	slot.node.add_child(vis)
-	vis.transform = Transform3D.IDENTITY  # Or set local position manually
-
-
-func place_enemy(slot: UnitSlot):
-	if not slot:
-		push_error("Enemy slot " + str(slot.slot_number) + " does not exist.")
-		return
-
-	var matching_units = enemy_units.filter(func(u): u.slot_number == slot.slot_number)
-	var unit: Unit = null
-	if matching_units.size() > 0:
-		unit = matching_units.front()
-	if not unit:
-		return
-		
-	var vis = unit.visual_scene.instantiate()
-	slot.node.add_child(vis)
-	vis.transform = Transform3D.IDENTITY  # Or set local position manually
-
 func begin_battle():
 	InteractionHandler.block("battle")
 

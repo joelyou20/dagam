@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://d3m7gv82kgk8t"]
+[gd_scene load_steps=28 format=3 uid="uid://d3m7gv82kgk8t"]
 
 [ext_resource type="Texture2D" uid="uid://cex0yttn80owp" path="res://Assets/Textures/Sand/Sand_Albedo.tga" id="1_f2yxx"]
 [ext_resource type="Script" path="res://Scripts/NPC.gd" id="2_5jh5n"]
@@ -10,7 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://cm42hkpe5cbxc" path="res://Assets/Sprites/Potion.png" id="7_s5f50"]
 [ext_resource type="PackedScene" uid="uid://d006unmlxu5xa" path="res://Scenes/Slime.tscn" id="9_pdvgy"]
 [ext_resource type="Script" path="res://Scripts/Enemy/EnemyResource.gd" id="11_nb7se"]
-[ext_resource type="Resource" uid="uid://vmucgp7ia23r" path="res://Resources/Enemies/slime.tres" id="12_bidyq"]
+[ext_resource type="Resource" uid="uid://vmucgp7ia23r" path="res://Resources/Enemies/slime1.tres" id="12_bidyq"]
+[ext_resource type="Resource" uid="uid://cq1etn2nutffk" path="res://Resources/Enemies/slime2.tres" id="12_i1cul"]
 [ext_resource type="Script" path="res://Scripts/Battle/EncounterData.gd" id="13_d4pqo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v818v"]
@@ -55,7 +56,7 @@ radius = 0.138056
 
 [sub_resource type="Resource" id="Resource_ufqci"]
 script = ExtResource("13_d4pqo")
-enemies = Array[ExtResource("11_nb7se")]([ExtResource("12_bidyq"), ExtResource("12_bidyq")])
+enemies = Array[ExtResource("11_nb7se")]([ExtResource("12_bidyq"), ExtResource("12_i1cul")])
 battle_scene_path = "res://Scenes/BattleScenes/TestBattleScene.tscn"
 
 [node name="Node3D" type="Node3D"]

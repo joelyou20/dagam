@@ -8,12 +8,15 @@ func _ready():
 	player.current_hp = player.max_hp
 	player.visual_scene = load("res://Scenes/MainCharacter.tscn")
 
+func get_player_node() -> Node:
+	return $"/root/World/Player"
+
 func add_xp(amount: int):
 	player.experience += amount
 	print("XP: ", player.experience)
 
 func set_hp(amount: int):
-	player.current_hp = clamp(amount, 0, player.max_hp)
+	player.current_hp = amount
 	print("HP: ", player.current_hp)
 
 func add_hp(amount: int):

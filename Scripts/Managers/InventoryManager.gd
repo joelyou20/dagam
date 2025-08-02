@@ -10,14 +10,19 @@ func add_item(item: ItemResource, amount: int = 1):
 	inventory.add_item(item, amount)
 	print("Item added to inventory: " + item.name)
 	
-func remove_item():
-	pass # TODO
+func remove_item(item: ItemResource, amount: int = -1):
+	inventory.remove_item(item, amount)
 	
 func has_item():
 	pass # TODO
 	
-func use_item():
-	pass # TODO
+func use_item(item: ItemResource):
+	if item.effect_script:
+		var effect = item.effect_script.new()
+		if effect is ItemEffect:
+			effect.run()
+		else:
+			push_warning("Effect script does not implement ItemEffect")
 	
 func get_item():
 	pass # TODO
@@ -28,7 +33,6 @@ func save_inventory() -> Dictionary:
 
 	for slot in inventory.slots:
 		if not slot.is_empty():
-			print("Saving:", slot.item.resource_path, "x", slot.quantity)
 			result[str(index)] = {
 				"item_path": slot.item.resource_path,
 				"quantity": slot.quantity
@@ -50,4 +54,3 @@ func load_inventory(data: Dictionary):
 			var item_resource = load(item_path)
 			if item_resource:
 				inventory.add_item(item_resource, quantity)
-				print("Loaded item:", item_resource.resource_path, "x", quantity)
