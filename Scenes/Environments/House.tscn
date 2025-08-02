@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://65kqyqm52lpl"]
 
-[ext_resource type="Texture2D" uid="uid://1b5m4bpn7ajs" path="res://Assets/Textures/Dirt/Dirt_Metallic.tga" id="1_wfs3p"]
-[ext_resource type="Script" path="res://Scripts/Utils/Door.gd" id="2_anphq"]
+[ext_resource type="Texture2D" uid="uid://1b5m4bpn7ajs" path="res://Assets/Textures/Dirt/Dirt_Metallic.tga" id="1_b1juu"]
+[ext_resource type="Script" path="res://Scripts/Utils/Door.gd" id="2_l7vkt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ffevc"]
-albedo_texture = ExtResource("1_wfs3p")
+albedo_texture = ExtResource("1_b1juu")
 
 [sub_resource type="BoxMesh" id="BoxMesh_t2t1x"]
 
@@ -36,7 +36,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.103932, 0.18105, -0.040630
 [node name="Door" type="MeshInstance3D" parent="." groups=["Interactable"]]
 transform = Transform3D(0.0689041, 0, 0, 0, 1, 0, 0, 0, 1, -2.95651, 0.525488, -0.0647843)
 mesh = SubResource("BoxMesh_ur4ku")
-script = ExtResource("2_anphq")
+script = ExtResource("2_l7vkt")
 target_scene = "Test"
 auto_transition = true
 

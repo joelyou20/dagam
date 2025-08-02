@@ -1,10 +1,31 @@
 extends Node
 
+@onready var InventoryUIScene := preload("res://Scenes/UI/Inventory/InventoryUI.tscn") # Change to your actual path
+
+var inventory_ui: InventoryUI = null
 var inventory: Inventory = null
 
 func _ready():
 	inventory = Inventory.new()
 	inventory.initialize(PlayerManager.inventory_slots)
+
+	# Instantiate InventoryUI right away
+	inventory_ui = InventoryUIScene.instantiate()
+	inventory_ui.inventory_manager = InventoryManager
+	inventory_ui.visible = false
+	add_child(inventory_ui)
+	
+func ensure_inventory_ui():
+	if inventory_ui == null:
+		inventory_ui = InventoryUIScene.instantiate()
+		inventory_ui.inventory_manager = self
+		get_tree().get_root().add_child(inventory_ui)
+		inventory_ui.tree_exited.connect(func(): inventory_ui = null)
+
+func toggle_inventory_ui():
+	ensure_inventory_ui()
+	inventory_ui.update_slots()
+	inventory_ui.toggle()
 
 func add_item(item: ItemResource, amount: int = 1):
 	inventory.add_item(item, amount)

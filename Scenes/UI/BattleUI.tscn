@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgitns74dwcu2"]
+
+[ext_resource type="Texture2D" uid="uid://dyjg66x70wtwy" path="res://Assets/Sprites/BattleUI.png" id="1_nov85"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ywdkp"]
+texture = ExtResource("1_nov85")
+
+[node name="BattleUI" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1151.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ywdkp")
+
+[node name="GridContainer" type="GridContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 468.0
+offset_right = 196.0
+offset_bottom = 629.0
+
+[node name="Button" type="Button" parent="Panel/GridContainer"]
+layout_mode = 2
+text = "Attack"
+
+[node name="GridContainer2" type="GridContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 218.0
+offset_top = 470.0
+offset_right = 258.0
+offset_bottom = 510.0
+
+[node name="GridContainer3" type="GridContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 479.0
+offset_top = 468.0
+offset_right = 519.0
+offset_bottom = 508.0

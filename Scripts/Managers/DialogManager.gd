@@ -1,6 +1,7 @@
 extends Node
 
-@onready var dialog_box: Control = get_node("/root/World/DialogBox")
+@onready var DialogUIScene := preload("res://Scenes/UI/DialogUI.tscn")
+var dialog_ui: DialogUI = null
 
 var dialog_registry := {
 	"greg": preload("res://Resources/Dialog/npc_greg.tres"),
@@ -12,10 +13,17 @@ var dialog_registry := {
 var dialog_resource: DialogResource = null
 
 func _ready():
-	if dialog_box != null:
-		dialog_box.option_selected.connect(_on_dialog_option_selected)
+	if dialog_ui != null:
+		dialog_ui.option_selected.connect(_on_dialog_option_selected)
+		
+func ensure_dialog_ui():
+	if dialog_ui == null:
+		dialog_ui = DialogUIScene.instantiate()
+		get_tree().get_root().add_child(dialog_ui)  # Or add to your UI manager node
+		dialog_ui.option_selected.connect(_on_dialog_option_selected)
 
 func show_dialog_by_npc_id(npc_id: String):
+	ensure_dialog_ui()
 	update_dialog(npc_id)
 	get_npc_dialog(npc_id)
 	if dialog_resource:
@@ -27,13 +35,14 @@ func show_dialog_by_npc_id(npc_id: String):
 		show_dialog(npc_id, entry, dialog_resource.npc_name)
 
 func show_dialog_by_entry_id(entry_id: String, npc_id: String):
+	ensure_dialog_ui()
 	if dialog_resource:
 		var entry: DialogEntry = dialog_resource.entries.filter(func(e): e.id == entry_id).front()
 		show_dialog(npc_id, entry, dialog_resource.npc_name)
 
 func show_dialog(npc_id: String, entry: DialogEntry, npc_name: String):
 	if entry:
-		dialog_box.show_dialog(npc_id, entry.text, dialog_resource.npc_name, entry.options)
+		dialog_ui.show_dialog(npc_id, entry.text, dialog_resource.npc_name, entry.options)
 		for flag in entry.flags:
 			FlagManager.set_flag(flag)
 		QuestManager.validate_active_quest_requirements()
@@ -93,7 +102,7 @@ func _on_dialog_option_selected(npc_id: String, option: DialogOption):
 			show_dialog_by_entry_id(next_entry.id, npc_id)
 
 func is_showing_dialog() -> bool:
-	return dialog_box.visible
+	return dialog_ui.visible
 
 func get_npc_dialog(npc_id: String) -> DialogResource:
 	dialog_resource = dialog_registry.get(npc_id)

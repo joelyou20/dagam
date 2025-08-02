@@ -28,6 +28,7 @@ EnumHelper="*res://Scripts/Utils/EnumHelper.gd"
 InventoryManager="*res://Scripts/Managers/InventoryManager.gd"
 BattleManager="*res://Scripts/Managers/BattleManager.gd"
 PartyManager="*res://Scripts/Managers/PartyManager.gd"
+MenuManager="*res://Scripts/Managers/MenuManager.gd"
 
 [display]
 

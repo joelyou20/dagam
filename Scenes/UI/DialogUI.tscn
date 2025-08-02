@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=3 uid="uid://dfmlnwjpd3qxk"]
+
+[ext_resource type="Texture2D" uid="uid://beslko0tx1ent" path="res://Assets/Sprites/DialogueBox.png" id="1_7nqj8"]
+[ext_resource type="Script" path="res://Scripts/Dialog/DialogUI.gd" id="2_gb077"]
+[ext_resource type="Texture2D" uid="uid://pvybvw7sar85" path="res://Assets/Sprites/DialogueBoxOptions.png" id="3_ihc1g"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uufke"]
+texture = ExtResource("1_7nqj8")
+
+[sub_resource type="LabelSettings" id="LabelSettings_51e2e"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yw6md"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fsh0g"]
+texture = ExtResource("3_ihc1g")
+
+[node name="DialogUI" type="CanvasLayer"]
+script = ExtResource("2_gb077")
+
+[node name="DialogBox" type="Panel" parent="."]
+offset_right = 1151.0
+offset_bottom = 647.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_uufke")
+
+[node name="NameContainer" type="MarginContainer" parent="DialogBox"]
+layout_mode = 0
+offset_left = 202.0
+offset_top = 432.0
+offset_right = 488.0
+offset_bottom = 459.0
+scale = Vector2(1, 1.16)
+pivot_offset = Vector2(6, 2)
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 16
+
+[node name="NameText" type="Label" parent="DialogBox/NameContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Hello
+"
+label_settings = SubResource("LabelSettings_51e2e")
+clip_text = true
+
+[node name="DialogContainer" type="MarginContainer" parent="DialogBox"]
+layout_mode = 0
+offset_left = 202.0
+offset_top = 471.0
+offset_right = 1115.0
+offset_bottom = 624.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="DialogText" type="Label" parent="DialogBox/DialogContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 1
+text = "Hello, this is a test"
+label_settings = SubResource("LabelSettings_yw6md")
+autowrap_mode = 2
+
+[node name="DialogOptionsBox" type="Panel" parent="DialogBox"]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 643.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_fsh0g")
+
+[node name="DialogOptionsContainer" type="VBoxContainer" parent="DialogBox/DialogOptionsBox"]
+layout_mode = 0
+offset_left = 529.0
+offset_top = 354.0
+offset_right = 1103.0
+offset_bottom = 452.0

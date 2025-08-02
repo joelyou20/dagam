@@ -1,15 +1,9 @@
-extends CanvasLayer
+extends UIBase
+class_name InventoryUI
+
 @export var inventory_manager: Node
 @onready var slot_container := $Panel/GridContainer
-@onready var slot_scene := preload("res://Scenes/InventorySlot.tscn")
-
-func _ready():
-	visible = false
-
-func toggle():
-	visible = !visible
-	if visible:
-		update_slots()
+@onready var slot_scene := preload("res://Scenes/UI/Inventory/InventorySlot.tscn")
 
 func update_slots():
 	for child in slot_container.get_children():
