@@ -27,3 +27,11 @@ func _unhandled_input(event: InputEvent):
 
 func on_cancel():
 	hide_ui()
+	
+static func ensure_ui(ref: UIBase, scene: PackedScene, parent: Node) -> UIBase:
+	if ref == null:
+		var ui = scene.instantiate() as UIBase
+		parent.add_child(ui)
+		ui.tree_exited.connect(func(): ref = null)
+		return ui
+	return ref

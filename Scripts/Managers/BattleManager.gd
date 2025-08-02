@@ -1,5 +1,7 @@
 extends Node
 
+@onready var BattleUIScene := preload("res://Scenes/UI/BattleUI.tscn")
+var battle_ui: BattleUI = null
 
 var ally_units: Array[Unit] = []
 var enemy_units: Array[Unit] = []
@@ -27,6 +29,12 @@ func build_battle_from_encounter(encounter: EncounterData) -> BattleData:
 	current_battle_data = battleData
 	
 	return battleData
+
+func ensure_battle_ui():
+	if battle_ui == null:
+		battle_ui = BattleUIScene.instantiate()
+		get_tree().get_root().add_child(battle_ui)
+		battle_ui.tree_exited.connect(func(): battle_ui = null)
 
 func build_unit(source: Resource, unit_type: Unit.UnitType) -> Unit:
 	var unit = Unit.new()
@@ -71,6 +79,10 @@ func begin_battle():
 	var cam = get_node_or_null("BattleCamera")
 	if cam and cam is Camera3D:
 		cam.current = true
+
+	# Show the battle UI
+	ensure_battle_ui()
+	battle_ui.show_ui()
 
 func end_battle():
 	InteractionHandler.unblock("battle")
