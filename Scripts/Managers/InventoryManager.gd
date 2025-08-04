@@ -22,6 +22,9 @@ func ensure_inventory_ui():
 		get_tree().get_root().add_child(inventory_ui)
 		inventory_ui.tree_exited.connect(func(): inventory_ui = null)
 
+func hide_inventory_ui():
+	inventory_ui.hide_ui()
+
 func toggle_inventory_ui():
 	ensure_inventory_ui()
 	inventory_ui.update_slots()

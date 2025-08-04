@@ -1,10 +1,13 @@
 extends Node
+class_name PlayerMovement
 
 @export var speed = 5.0
 @onready var player = get_parent()
 
+var interaction_handler := InteractionHandler 
+
 func move(delta):
-	if InteractionHandler.is_blocked():
+	if interaction_handler.is_blocked():
 		return
 	
 	var input = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")

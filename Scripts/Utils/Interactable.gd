@@ -6,6 +6,7 @@ class_name Interactable
 @export var interaction_priority: int = 1
 
 var interact_node: String = "Interact"
+var flag_manager := FlagManager
 
 const BubbleScene := preload("res://Scenes/ActionBubble3D.tscn")
 
@@ -19,7 +20,7 @@ func _ready():
 	
 func interact():
 	for flag in flags_enabled:
-		FlagManager.set_flag(flag)
+		flag_manager.set_flag(flag)
 	_on_interact()
 	
 func _on_interact():
@@ -42,7 +43,6 @@ func _calculate_height() -> float:
 			if top_y > max_height:
 				max_height = top_y
 	return max_height
-
 
 func hide_action_bubble():
 	if action_bubble:

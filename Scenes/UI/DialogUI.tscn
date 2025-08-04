@@ -19,12 +19,12 @@ texture = ExtResource("3_ihc1g")
 [node name="DialogUI" type="CanvasLayer"]
 script = ExtResource("2_gb077")
 
-[node name="DialogBox" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="."]
 offset_right = 1151.0
 offset_bottom = 647.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_uufke")
 
-[node name="NameContainer" type="MarginContainer" parent="DialogBox"]
+[node name="NameContainer" type="MarginContainer" parent="Panel"]
 layout_mode = 0
 offset_left = 202.0
 offset_top = 432.0
@@ -36,7 +36,7 @@ theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 16
 
-[node name="NameText" type="Label" parent="DialogBox/NameContainer"]
+[node name="NameText" type="Label" parent="Panel/NameContainer"]
 layout_mode = 2
 size_flags_vertical = 1
 text = "Hello
@@ -44,7 +44,7 @@ text = "Hello
 label_settings = SubResource("LabelSettings_51e2e")
 clip_text = true
 
-[node name="DialogContainer" type="MarginContainer" parent="DialogBox"]
+[node name="DialogContainer" type="MarginContainer" parent="Panel"]
 layout_mode = 0
 offset_left = 202.0
 offset_top = 471.0
@@ -55,7 +55,7 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="DialogText" type="Label" parent="DialogBox/DialogContainer"]
+[node name="DialogText" type="Label" parent="Panel/DialogContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_vertical = 1
@@ -63,13 +63,13 @@ text = "Hello, this is a test"
 label_settings = SubResource("LabelSettings_yw6md")
 autowrap_mode = 2
 
-[node name="DialogOptionsBox" type="Panel" parent="DialogBox"]
+[node name="DialogOptionsBox" type="Panel" parent="Panel"]
 layout_mode = 0
 offset_right = 1151.0
 offset_bottom = 643.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_fsh0g")
 
-[node name="DialogOptionsContainer" type="VBoxContainer" parent="DialogBox/DialogOptionsBox"]
+[node name="DialogOptionsContainer" type="VBoxContainer" parent="Panel/DialogOptionsBox"]
 layout_mode = 0
 offset_left = 529.0
 offset_top = 354.0

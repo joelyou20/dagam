@@ -4,6 +4,8 @@ extends Interactable
 @export var spawn_point_name: String = "PlayerSpawn"
 @export var auto_transition := false
 
+var scene_manager := SceneManager  # Allow injection for testing
+
 func _on_body_entered(body):
 	if body.is_in_group(player_group):
 		body.get_node(interact_node).add_target(self)
@@ -16,12 +18,12 @@ func _transition():
 		var scene_path := target_scene
 
 		if not scene_path.begins_with("res://Scenes/"):
-			scene_path = "res://Scenes/" + scene_path
+			scene_path = "res://Scenes/Environments/" + scene_path
 
 		if not scene_path.ends_with(".tscn"):
 			scene_path += ".tscn"
 
-		SceneManager.transition_to_scene(scene_path, spawn_point_name)
+		scene_manager.transition_to_scene(scene_path, spawn_point_name)
 
 func _on_interact():
 	_transition()

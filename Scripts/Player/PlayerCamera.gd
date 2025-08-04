@@ -10,6 +10,9 @@ var lead_strength: float = 0.5  # How much lead offset to apply (scaled max_offs
 var default_position: Vector3
 var target_offset: Vector3 = Vector3.ZERO
 
+var interaction_handler := InteractionHandler
+var input_handler = Input  # ← no type, so we can inject fake
+
 func _ready():
 	default_position = position
 
@@ -19,8 +22,8 @@ func _process(delta):
 		return
 
 	var input_vector = Vector2(
-		Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"),
-		Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+		input_handler.get_action_strength("ui_right") - input_handler.get_action_strength("ui_left"),
+		input_handler.get_action_strength("ui_down") - input_handler.get_action_strength("ui_up")
 	)
 
 	var moving = input_vector.length() > 0.1
@@ -30,7 +33,7 @@ func _process(delta):
 	position = position.lerp(target_position, delta * speed)
 
 func camera_lead(input_vector: Vector2, moving: bool) -> Vector3:
-	if InteractionHandler.is_blocked():
+	if interaction_handler.is_blocked():
 		target_offset = Vector3.ZERO
 		return default_position
 

@@ -8,10 +8,15 @@ func fade_out() -> void:
 	var tween := create_tween()
 	tween.tween_property(color_rect, "modulate:a", 1.0, fade_time)
 	tween.finished
+	queue_free()
 
 func fade_in() -> void:
-	color_rect.modulate.a = 1.0
+	call_deferred("_fade_in_deferred")
+
+# In FadeLayer.gd
+func _fade_in_deferred():
+	color_rect.modulate.a = 0.0
 	color_rect.visible = true
 
 	var tween := create_tween()
-	tween.tween_property(color_rect, "modulate:a", 0.0, fade_time)
+	tween.tween_property(color_rect, "modulate:a", 1.0, fade_time)

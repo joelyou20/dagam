@@ -1,6 +1,6 @@
 extends Node
 
-@onready var BattleUIScene := preload("res://Scenes/UI/BattleUI.tscn")
+@onready var BattleUIScene := preload("res://Scenes/UI/Battle/BattleUI.tscn")
 var battle_ui: BattleUI = null
 
 var ally_units: Array[Unit] = []
@@ -60,11 +60,13 @@ func place_units(slots: Array[UnitSlot]):
 			for slot_unit in ally_units:
 				if slot_unit.slot_number == slot.slot_number:
 					unit = slot_unit
+					slot.unit = slot_unit
 					break
 		elif slot.type == UnitSlot.UnitSlotType.ENEMY:
 			for slot_unit in enemy_units:
 				if slot_unit.slot_number == slot.slot_number:
 					unit = slot_unit
+					slot.unit = slot_unit
 					break
 		if unit == null:
 			continue
@@ -72,6 +74,9 @@ func place_units(slots: Array[UnitSlot]):
 		var vis = unit.visual_scene.instantiate()
 		slot.node.add_child(vis)
 		vis.transform = Transform3D.IDENTITY  # Or set local position manually
+		
+func select_target(unit: Unit):
+	print("Target selected: " + unit.title)
 	
 func begin_battle():
 	InteractionHandler.block("battle")
@@ -83,6 +88,7 @@ func begin_battle():
 	# Show the battle UI
 	ensure_battle_ui()
 	battle_ui.show_ui()
+	battle_ui.populate_enemies(enemy_units)
 
 func end_battle():
 	InteractionHandler.unblock("battle")

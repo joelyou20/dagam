@@ -1,0 +1,81 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgitns74dwcu2"]
+
+[ext_resource type="Script" path="res://Scripts/Battle/BattleUI.gd" id="1_n7lxj"]
+[ext_resource type="Texture2D" uid="uid://dyjg66x70wtwy" path="res://Assets/Sprites/BattleUI.png" id="2_axcl0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ywdkp"]
+texture = ExtResource("2_axcl0")
+
+[node name="BattleUI" type="CanvasLayer"]
+script = ExtResource("1_n7lxj")
+
+[node name="Panel" type="Panel" parent="."]
+offset_top = 500.0
+offset_right = 1151.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ywdkp")
+
+[node name="GridContainer" type="Control" parent="Panel"]
+anchors_preset = 0
+offset_left = 15.0
+offset_top = 10.0
+offset_right = 175.0
+offset_bottom = 140.0
+
+[node name="AttackButton" type="Button" parent="Panel/GridContainer"]
+layout_mode = 2
+offset_left = 49.0
+offset_top = 2.0
+offset_right = 109.0
+offset_bottom = 33.0
+theme_override_colors/font_hover_color = Color(0, 0, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Attack"
+flat = true
+
+[node name="SkillsButton" type="Button" parent="Panel/GridContainer"]
+layout_mode = 2
+offset_left = 49.0
+offset_top = 35.0
+offset_right = 109.0
+offset_bottom = 66.0
+theme_override_colors/font_hover_color = Color(0, 0, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Skills"
+flat = true
+
+[node name="ItemsButton" type="Button" parent="Panel/GridContainer"]
+layout_mode = 2
+offset_left = 49.0
+offset_top = 66.0
+offset_right = 109.0
+offset_bottom = 97.0
+theme_override_colors/font_hover_color = Color(0, 0, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Items"
+flat = true
+
+[node name="FleeButton" type="Button" parent="Panel/GridContainer"]
+layout_mode = 2
+offset_left = 49.0
+offset_top = 97.0
+offset_right = 109.0
+offset_bottom = 128.0
+theme_override_colors/font_hover_color = Color(0, 0, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Flee"
+flat = true
+
+[node name="EnemiesContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 10.0
+offset_right = 449.0
+offset_bottom = 142.0
+
+[node name="AlliesContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 474.0
+offset_top = 9.0
+offset_right = 1143.0
+offset_bottom = 142.0

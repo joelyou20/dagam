@@ -1,0 +1,2 @@
+extends PlayerController
+class_name PlayerControllerMock

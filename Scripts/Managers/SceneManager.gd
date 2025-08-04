@@ -1,18 +1,17 @@
 extends Node
-var current_scene: Node = null
+
 @onready var fade_scene = preload("res://Scenes/FadeScene.tscn")
 @onready var scene_root: Node = get_tree().get_root().get_node("World/SceneRoot")
-var fade_layer: FadeLayer
 
-func _ready():
-	fade_layer = fade_scene.instantiate() as FadeLayer
-	get_tree().get_root().call_deferred("add_child", fade_layer)
+var current_scene: Node = null
+var fade_layer: FadeLayer
 
 func transition_to_scene(path: String, spawn_point_name: String = "PlayerSpawn"):
 	call_deferred("_fade_out_and_load", path, spawn_point_name)
 
 func _fade_out_and_load(path: String, spawn_point_name: String):
-	fade_layer.fade_out()
+	if fade_layer:
+		fade_layer.fade_out()
 	load_scene(path, spawn_point_name)
 
 func load_scene(path: String, spawn_point_name: String = ""):
@@ -25,6 +24,8 @@ func load_scene(path: String, spawn_point_name: String = ""):
 	call_deferred("_fade_in")
 
 func _fade_in():
+	fade_layer = fade_scene.instantiate() as FadeLayer
+	get_tree().get_root().call_deferred("add_child", fade_layer)
 	fade_layer.fade_in()
 
 func _position_player(new_scene: Node, spawn_point_name: String):

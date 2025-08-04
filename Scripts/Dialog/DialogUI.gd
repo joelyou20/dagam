@@ -1,11 +1,11 @@
 extends UIBase
 class_name DialogUI
 
-@onready var dialog_box: Panel = $DialogBox
-@onready var dialog_text: Label = $DialogBox/DialogContainer/DialogText
-@onready var name_text: Label = $DialogBox/NameContainer/NameText
-@onready var options_container: VBoxContainer = $DialogBox/DialogOptionsBox/DialogOptionsContainer
-@onready var dialog_options_box: Panel = $DialogBox/DialogOptionsBox
+@onready var dialog_box: Panel = $Panel
+@onready var dialog_text: Label = $Panel/DialogContainer/DialogText
+@onready var name_text: Label = $Panel/NameContainer/NameText
+@onready var options_container: VBoxContainer = $Panel/DialogOptionsBox/DialogOptionsContainer
+@onready var dialog_options_box: Panel = $Panel/DialogOptionsBox
 
 signal option_selected(npc_id: String, option: DialogOption)
 

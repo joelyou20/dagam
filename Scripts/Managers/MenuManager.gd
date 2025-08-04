@@ -27,7 +27,6 @@ func set_menu_open(state: bool):
 		if menu_ui:
 			menu_ui.hide_ui()
 
-	get_tree().paused = menu_open
 	InventoryManager.hide_inventory_ui()
 
 func ensure_menu_ui():

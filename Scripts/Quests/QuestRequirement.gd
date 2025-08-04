@@ -4,10 +4,12 @@ class_name QuestRequirement
 @export var flags: Array[FlagData.FlagName]
 @export var tasks: Array[Task]
 
+var flag_manager := FlagManager
+
 func validate_requirements():
 	var requirements_met: bool = true
 	for flag in flags:
-		if !FlagManager.is_flag_set(flag):
+		if !flag_manager.is_flag_set(flag):
 			requirements_met = false
 	
 	for task in tasks:

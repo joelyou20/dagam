@@ -38,10 +38,6 @@ func _update_ui():
 	textureRect.texture = item.icon
 	label.text = str(quantity) if quantity > 1 else ""
 
-func _gui_input(event):
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		slot_clicked.emit(self)
-
 func _on_hover():
 	hoverBorder.visible = true
 

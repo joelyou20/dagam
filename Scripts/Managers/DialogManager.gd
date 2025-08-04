@@ -11,8 +11,12 @@ var dialog_registry := {
 }
 
 var dialog_resource: DialogResource = null
+var flag_manager := FlagManager
+var quest_manager: QuestManager
 
 func _ready():
+	if quest_manager == null:
+		quest_manager = QuestManager
 	if dialog_ui != null:
 		dialog_ui.option_selected.connect(_on_dialog_option_selected)
 		
@@ -44,8 +48,8 @@ func show_dialog(npc_id: String, entry: DialogEntry, npc_name: String):
 	if entry:
 		dialog_ui.show_dialog(npc_id, entry.text, dialog_resource.npc_name, entry.options)
 		for flag in entry.flags:
-			FlagManager.set_flag(flag)
-		QuestManager.validate_active_quest_requirements()
+			flag_manager.set_flag(flag)
+		quest_manager.validate_active_quest_requirements()
 	else:
 		push_error("No valid active dialog options for npc_id: " + npc_id)
 
@@ -88,7 +92,7 @@ func update_dialog(npc_id: String):
 func _on_dialog_option_selected(npc_id: String, option: DialogOption):
 	# Set flags from this option if it has any
 	for flag in option.flags:
-		FlagManager.set_flag(flag)
+		flag_manager.set_flag(flag)
 	
 	if option.accepted_quest != null:
 		QuestManager.accept_quest(option.accepted_quest)

@@ -1,12 +1,10 @@
-extends Node3D
+extends Area3D
 class_name Enemy
 
 @export var encounter: EncounterData
 
-@onready var area := $Area3D
-
 func _ready():
-	area.body_entered.connect(_on_body_entered)
+	body_entered.connect(_on_body_entered)
 
 func _on_body_entered(body: Node):
 	if body.is_in_group("Player"):

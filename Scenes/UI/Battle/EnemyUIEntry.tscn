@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://ci7qnhbovhxic"]
+
+[ext_resource type="Script" path="res://Scripts/Battle/EnemyUIEntry.gd" id="1_n1l4m"]
+
+[node name="EnemyUIEntry" type="HBoxContainer"]
+offset_right = 299.0
+offset_bottom = 35.0
+script = ExtResource("1_n1l4m")
+
+[node name="NameLabel" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Creature"
+
+[node name="IndexLabel" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "3"

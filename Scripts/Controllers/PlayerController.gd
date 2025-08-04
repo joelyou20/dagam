@@ -1,4 +1,5 @@
-extends Node
+extends CharacterBody3D
+class_name PlayerController
 
 @onready var movement = $Movement
 @onready var interaction = $Interact

@@ -1,24 +1,33 @@
 extends CanvasLayer
 class_name UIBase
 
+var interaction_handler := InteractionHandler  # Default to singleton
+
 func _ready():
 	visible = false
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	_setup_panel_input_filter()
+
+func _setup_panel_input_filter():
+	var panel = get_node_or_null("Panel")
+	if panel:
+		panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
 
 func show_ui():
 	visible = true
-	InteractionHandler.block("UI")
+	interaction_handler.block(self.name)
 
 func hide_ui():
 	visible = false
-	InteractionHandler.unblock("UI")
+	interaction_handler.unblock(self.name)
 
 func toggle():
 	visible = !visible
 	if visible:
-		InteractionHandler.block("UI")
+		interaction_handler.block(self.name)
 	else:
-		InteractionHandler.unblock("UI")
+		interaction_handler.unblock(self.name)
 	
 func _unhandled_input(event: InputEvent):
 	if visible and event.is_action_pressed("ui_cancel"):
