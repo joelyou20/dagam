@@ -24,10 +24,16 @@ func _ready():
 	flee_button.pressed.connect(on_flee_pressed)
 	flee_button.mouse_filter = Control.MOUSE_FILTER_PASS
 	
+func _input(event):
+	if event is InputEventKey and event.pressed:
+		if event.keycode == KEY_ESCAPE and BattleManager.is_targeting_mode:
+			BattleManager.end_targeting()
+			print("Targeting cancelled")
+			
 func on_attack_pressed():
-	print("Attack selected")
-	# Call BattleManager to begin attack target selection
-	# e.g., BattleManager.select_attack_target()
+	var source_slot: int = BattleManager.get_active_unit_slot()
+	var action = BattleAction.new(source_slot, BattleAction.ActionType.ATTACK)
+	BattleManager.start_targeting(action)
 
 func on_skills_pressed():
 	print("Skills selected")
@@ -42,15 +48,22 @@ func on_flee_pressed():
 	# e.g., BattleManager.attempt_flee()
 
 func populate_enemies(units: Array[Unit]):
+	# Clear all children at once
 	for child in enemies_container.get_children():
 		child.queue_free()
-	for i in units.size():
-		var unit = units[i]
-		var entry = EnemyUIEntryScene.instantiate() as EnemyUIEntry
-		entry.initialize(unit, i)
-		entry.enemy_selected.connect(_on_enemy_selected)
-		enemies_container.add_child(entry)
+	
+	# Group enemies and create entries in a single loop
+	var enemy_groups: Dictionary = {}
+	for unit in units:
+		var enemy_name = unit.title
+		if not enemy_groups.has(enemy_name):
+			# First occurrence - create the entry
+			var entry = EnemyUIEntryScene.instantiate() as EnemyUIEntry
+			entry.initialize(unit, 1)
+			enemies_container.add_child(entry)
+			enemy_groups[enemy_name] = entry
+		else:
+			# Additional occurrence - update the count
+			var existing_entry = enemy_groups[enemy_name] as EnemyUIEntry
+			existing_entry.increment_count()  # Assumes you have a count property and update_count method
 		
-func _on_enemy_selected(unit: Unit):
-	print("Selected enemy:", unit.title)
-	BattleManager.select_target(unit)

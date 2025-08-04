@@ -2,6 +2,7 @@ extends CanvasLayer
 class_name UIBase
 
 var interaction_handler := InteractionHandler  # Default to singleton
+@export var is_hideable: bool = true
 
 func _ready():
 	visible = false
@@ -12,7 +13,6 @@ func _setup_panel_input_filter():
 	var panel = get_node_or_null("Panel")
 	if panel:
 		panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
-
 
 func show_ui():
 	visible = true
@@ -35,8 +35,10 @@ func _unhandled_input(event: InputEvent):
 		get_viewport().set_input_as_handled()
 
 func on_cancel():
-	hide_ui()
+	if is_hideable:
+		hide_ui()
 	
+@warning_ignore("confusable_capture_reassignment")
 static func ensure_ui(ref: UIBase, scene: PackedScene, parent: Node) -> UIBase:
 	if ref == null:
 		var ui = scene.instantiate() as UIBase

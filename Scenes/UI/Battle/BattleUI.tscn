@@ -8,6 +8,7 @@ texture = ExtResource("2_axcl0")
 
 [node name="BattleUI" type="CanvasLayer"]
 script = ExtResource("1_n7lxj")
+is_hideable = false
 
 [node name="Panel" type="Panel" parent="."]
 offset_top = 500.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://jdu2x3334o7g"]
+[gd_scene load_steps=13 format=3 uid="uid://jdu2x3334o7g"]
 
 [ext_resource type="Script" path="res://Scripts/Controllers/BattleController.gd" id="1_aswka"]
 [ext_resource type="Texture2D" uid="uid://3g0vbv1xmmvb" path="res://Assets/Textures/Cliff Face/CliffFace_Albedo.tga" id="1_u1eoo"]
@@ -22,6 +22,9 @@ size = Vector3(0.213509, 0.581589, 0.001)
 albedo_texture = ExtResource("1_u1eoo")
 
 [sub_resource type="BoxMesh" id="BoxMesh_4i1ln"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_iluoc"]
+radius = 0.321182
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_aswka")
@@ -171,3 +174,8 @@ mesh = SubResource("BoxMesh_4i1ln")
 transform = Transform3D(12.1196, 0, 0, 0, 13.6805, 0, 0, 0, 1, 12.1066, 0, -4.31032)
 material_override = SubResource("StandardMaterial3D_qy70u")
 mesh = SubResource("BoxMesh_4i1ln")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_iluoc")

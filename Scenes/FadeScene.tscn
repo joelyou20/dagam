@@ -2,13 +2,12 @@
 
 [ext_resource type="Script" path="res://Scripts/FadeLayer.gd" id="1_6xgww"]
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="FadeLayer" type="CanvasLayer"]
 script = ExtResource("1_6xgww")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-modulate = Color(1, 1, 1, 0)
-self_modulate = Color(0, 0, 0, 0)
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

@@ -9,3 +9,4 @@ class_name EnemyResource
 @export var attack_power: int
 @export var visual_scene: PackedScene  # Optional: visual prefab for battle
 @export var slot_number: int
+@export var battle_scale: float = 1.0

@@ -4,6 +4,7 @@ class_name Interactable
 @export var flags_enabled: Array[FlagData.FlagName]
 @export var player_group: String = "Player"
 @export var interaction_priority: int = 1
+@export var action_bubble_height_offset: float = 0.3
 
 var interact_node: String = "Interact"
 var flag_manager := FlagManager
@@ -31,7 +32,7 @@ func show_action_bubble():
 		action_bubble = BubbleScene.instantiate()
 		add_child(action_bubble)
 		var height = _calculate_height()
-		action_bubble.position = Vector3(0, height + 0.3, 0)
+		action_bubble.position = Vector3(0, height + action_bubble_height_offset, 0)
 	action_bubble.visible = true
 	
 func _calculate_height() -> float:

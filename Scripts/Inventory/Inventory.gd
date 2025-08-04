@@ -36,7 +36,7 @@ func remove_item(target_item: ItemResource, amount: int = -1) -> bool:
 	for slot in slots:
 		if slot.item == target_item:
 			if amount == -1:
-				slot.quantity == 0
+				slot.quantity = 0
 				slot.item = null
 				return true
 			if slot.quantity >= amount:

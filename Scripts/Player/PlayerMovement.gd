@@ -6,7 +6,7 @@ class_name PlayerMovement
 
 var interaction_handler := InteractionHandler 
 
-func move(delta):
+func move(_delta):
 	if interaction_handler.is_blocked():
 		return
 	

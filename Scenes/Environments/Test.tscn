@@ -30,6 +30,7 @@ size = Vector3(1.95093, 0.001, 1.90512)
 size = Vector3(0.280029, 0.278374, 0.268194)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_e2b80"]
+radius = 0.321182
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eq864"]
 
@@ -41,9 +42,8 @@ material = SubResource("StandardMaterial3D_eq864")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e68xq"]
 albedo_texture = ExtResource("5_vmhen")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_jtsfb"]
-margin = 0.0
-size = Vector3(0.245, 0.037, 0.416)
+[sub_resource type="BoxShape3D" id="BoxShape3D_rp512"]
+size = Vector3(1, 0.73938, 1)
 
 [sub_resource type="Environment" id="Environment_uvmtv"]
 glow_enabled = true
@@ -194,23 +194,23 @@ skeleton = NodePath("../MeshInstance3D")
 shape = SubResource("BoxShape3D_4lx6t")
 
 [node name="Door" type="Node3D" parent="SimpleBuilding" groups=["Interactable"]]
-transform = Transform3D(0.463541, 0, 0, 0, 0.660812, 0, 0, 0, 0.0170725, 0.199956, 0.177163, 1.66251)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.199956, 0.177163, 1.66251)
 script = ExtResource("4_qwcvo")
 target_scene = "House"
 flags_enabled = Array[int]([3])
+action_bubble_height_offset = 0.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SimpleBuilding/Door"]
-transform = Transform3D(0.510422, 0, 0, 0, 0.000667399, 0.540769, 0, 4.2498, -8.49236e-05, 0, 0, 0)
+transform = Transform3D(0.510422, 0, 0, 0, -5.58067e-06, 0.540855, 0, -0.0355361, -8.4937e-05, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_e68xq")
 mesh = SubResource("BoxMesh_05uy7")
 skeleton = NodePath("../..")
 
 [node name="Area3D" type="Area3D" parent="SimpleBuilding/Door"]
-transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0.228411, 0.204879, 1.66347)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SimpleBuilding/Door/Area3D"]
-transform = Transform3D(0.037, 0, 0, 0, 0.037, -4.54747e-13, 0, 0, 0.037, 0, 0, 0)
-shape = SubResource("BoxShape3D_jtsfb")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.13031, 0)
+shape = SubResource("BoxShape3D_rp512")
 
 [node name="PlayerSpawn" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.210354, 0.18105, -0.33662)

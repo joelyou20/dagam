@@ -1,11 +1,16 @@
 extends Node
 
+var scene_manager := SceneManager
+var menu_manager := MenuManager
+var inventory_manager := InventoryManager
+
 func _ready():
-	SceneManager.transition_to_scene("res://Scenes/Environments/Test.tscn")
+	scene_manager.set_black_screen()
+	scene_manager.load_scene("res://Scenes/Environments/Test.tscn", false, true)
 
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_cancel"):
-		MenuManager.toggle_menu()
+		menu_manager.toggle_menu()
 
 	if event.is_action_pressed("toggle_inventory"):
-		InventoryManager.toggle_inventory_ui()
+		inventory_manager.toggle_inventory_ui()

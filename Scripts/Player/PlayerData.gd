@@ -1,6 +1,7 @@
 extends Resource
 class_name PlayerData
 
+@export var id: String
 @export var name: String = "Hero"
 @export var level: int = 1
 @export var speed: int
@@ -11,3 +12,4 @@ class_name PlayerData
 @export var inventory: Array[ItemResource] = []
 @export var visual_scene: PackedScene
 @export var slot_number: int = 1
+@export var battle_scale: int = 1

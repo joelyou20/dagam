@@ -22,6 +22,15 @@ func _ready():
 
 func _init_battle():
 	BattleManager.place_units(slots)
+	
+	var all_nodes = get_tree().get_nodes_in_group("unit_slots")
+	
+	# NOTE: Uncomment to debug unit slots
+	# Get all unit slots and debug them
+	#for slot in all_nodes:
+		#if slot.has_method("debug_slot"):
+			#slot.debug_slot()
+			
 	start_battle()
 
 func start_battle():

@@ -1,11 +1,14 @@
 extends Control
 class_name InventorySlot
-@export var item: ItemResource
-@export var quantity: int = 1
-signal slot_clicked(inventory_slot)
+
+@export var _item: ItemResource
+@export var _quantity: int = 1
+
 @onready var textureRect: TextureRect = $TextureRect
 @onready var label: Label = $Label
 @onready var hoverBorder: Panel = $HoverBorder
+
+signal slot_clicked(inventory_slot)
 
 func _ready():
 	hoverBorder.visible = false
@@ -35,8 +38,8 @@ func set_item(item: ItemResource, quantity: int):
 		_update_ui()
 
 func _update_ui():
-	textureRect.texture = item.icon
-	label.text = str(quantity) if quantity > 1 else ""
+	textureRect.texture = _item.icon
+	label.text = str(_quantity) if _quantity > 1 else ""
 
 func _on_hover():
 	hoverBorder.visible = true

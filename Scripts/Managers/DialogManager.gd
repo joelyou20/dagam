@@ -38,6 +38,7 @@ func show_dialog_by_npc_id(npc_id: String):
 				break
 		show_dialog(npc_id, entry, dialog_resource.npc_name)
 
+@warning_ignore("standalone_expression")
 func show_dialog_by_entry_id(entry_id: String, npc_id: String):
 	ensure_dialog_ui()
 	if dialog_resource:

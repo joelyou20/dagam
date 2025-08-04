@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://k6rr2odh851c"]
+
+[ext_resource type="Texture2D" uid="uid://5qg7cvf8ty8n" path="res://Assets/Sprites/Slime.png" id="2_xao5s"]
+
+[node name="Sprite3D" type="Sprite3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+billboard = 1
+texture = ExtResource("2_xao5s")

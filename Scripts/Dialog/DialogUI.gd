@@ -7,6 +7,7 @@ class_name DialogUI
 @onready var options_container: VBoxContainer = $Panel/DialogOptionsBox/DialogOptionsContainer
 @onready var dialog_options_box: Panel = $Panel/DialogOptionsBox
 
+@warning_ignore("unused_signal")
 signal option_selected(npc_id: String, option: DialogOption)
 
 var dialog_lines: Array = []
@@ -14,7 +15,7 @@ var current_index: int = 0
 var char_index: int = 0
 var is_typing: bool = false
 var current_text: String = ""
-var npc_id: String = ""
+var _npc_id: String = ""
 
 var typewriter_timer: Timer = Timer.new()
 
@@ -28,11 +29,11 @@ func show_dialog(id: String, lines: Array, dialog_name: String = "", options: Ar
 	if lines.size() == 0:
 		return
 
-	npc_id = id
+	_npc_id = id
 	dialog_lines = lines
 	current_index = 0
 	_set_name(dialog_name)
-	_setup_options(npc_id, options)
+	_setup_options(_npc_id, options)
 	dialog_options_box.visible = false
 	show_ui()
 	_start_typing(dialog_lines[current_index])
@@ -44,8 +45,8 @@ func _start_typing(text: String):
 	is_typing = true
 	typewriter_timer.start()
 
-func _set_name(name: String):
-	name_text.text = name
+func _set_name(value: String):
+	name_text.text = value
 
 func _setup_options(npc_id: String, options: Array[DialogOption]) -> void:
 	options_container.theme = null  # Prevent inherited styling from interfering
@@ -90,7 +91,7 @@ func _on_typewriter_tick():
 		typewriter_timer.stop()
 		is_typing = false
 
-func _input(event):
+func _input(_event):
 	if visible and (Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("Interact")):
 		if dialog_options_box.visible:
 			return
