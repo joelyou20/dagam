@@ -7,7 +7,7 @@ func _ready():
 	player.id = "player"
 	player.name = "Felix"
 	player.current_hp = player.max_hp
-	player.attack_power = 10
+	player.attack_power = 20
 	player.visual_scene = load("res://Scenes/Player_Battler.tscn")
 
 func get_player_node() -> Node:

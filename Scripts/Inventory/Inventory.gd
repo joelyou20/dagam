@@ -53,3 +53,15 @@ func remove_item(target_item: ItemResource, amount: int = -1) -> bool:
 
 	# If we reached here, not enough of the item was removed
 	return amount <= 0
+
+func get_items() -> Array[InventorySlotData]:
+	if not slots:
+		push_error("Inventory slots is null")
+		return []
+	
+	var items: Array[InventorySlotData] = []
+	for slot in slots:
+		if not slot.is_empty():
+			items.append(slot)
+	
+	return items

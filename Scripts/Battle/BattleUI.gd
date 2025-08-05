@@ -2,6 +2,7 @@ extends UIBase
 class_name BattleUI
 
 @onready var EnemyUIEntryScene := preload("res://Scenes/UI/Battle/EnemyUIEntry.tscn")
+@onready var battle_items_ui_scene := preload("res://Scenes/UI/Battle/BattleItemsUI.tscn")
 
 @onready var enemies_container: VBoxContainer = $Panel/EnemiesContainer
 @onready var allies_container: VBoxContainer = $Panel/AlliesContainer
@@ -9,6 +10,8 @@ class_name BattleUI
 @onready var skills_button: Button = $Panel/GridContainer/SkillsButton
 @onready var items_button: Button = $Panel/GridContainer/ItemsButton
 @onready var flee_button: Button = $Panel/GridContainer/FleeButton
+
+var battle_items_ui: BattleItemsUI = null
 
 func _ready():
 	# Connect buttons
@@ -41,11 +44,51 @@ func on_skills_pressed():
 
 func on_items_pressed():
 	print("Items selected")
-	# e.g., InventoryManager.show_inventory_ui_in_battle()
+	var items: Array[InventorySlotData] = InventoryManager.get_usable_items()
+	
+	# Show inventory popup
+	show_item_selector(items, _on_item_selected)
 
+func _on_item_selected(item: ItemResource):
+	print("Selected item: ", item.name)
+
+	#if item.requires_target:
+		#pending_action = BattleAction.new_from_item(item)
+		#is_targeting_mode = true
+		# maybe show: "Select a target"
+	#else:
+		# Apply immediately
+		#item.effect_script.run()  # or however you determine self-target
+	InventoryManager.use_item(item)
+	InventoryManager.remove_item(item, 1)
+	
 func on_flee_pressed():
 	print("Flee selected")
-	# e.g., BattleManager.attempt_flee()
+	BattleManager.attempt_to_flee()
+	
+func show_item_selector(items: Array[InventorySlotData], callback: Callable):
+	# Remove an existing selector if open
+	if battle_items_ui and is_instance_valid(battle_items_ui):
+		battle_items_ui.queue_free()
+		battle_items_ui = null
+
+	# Instance the UI
+	battle_items_ui = battle_items_ui_scene.instantiate() as BattleItemsUI
+	add_child(battle_items_ui)
+
+	# Fill the UI with items
+	battle_items_ui.populate_items(items)
+
+	# Hook up item click → callback
+	for slot in battle_items_ui.vbox_container.get_children():
+		if slot.has_signal("slot_clicked"):
+			slot.slot_clicked.connect(func(inventory_slot):
+				if callback:
+					callback.call(inventory_slot.get_item())
+				# Optionally close the UI after selection
+				#battle_items_ui.queue_free()
+				#battle_items_ui = null
+			)
 
 func populate_enemies(units: Array[Unit]):
 	# Clear all children at once

@@ -20,7 +20,8 @@ func update_slots():
 func connect_slot_signals(slot: InventorySlot):
 	slot.connect("slot_clicked", Callable(self, "_on_slot_clicked"))
 
-func _on_slot_clicked(slot):
-	InventoryManager.use_item(slot.item)
-	InventoryManager.remove_item(slot.item, 1)
+func _on_slot_clicked(slot: InventorySlot):
+	var slot_item = slot.get_item()
+	InventoryManager.use_item(slot_item)
+	InventoryManager.remove_item(slot_item, 1)
 	update_slots()

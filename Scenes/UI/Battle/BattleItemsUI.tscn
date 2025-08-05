@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=3 uid="uid://c02lm5l8cumod"]
+
+[ext_resource type="Script" path="res://Scripts/Battle/BattleItemsUI.gd" id="1_bpo0m"]
+[ext_resource type="Texture2D" uid="uid://di0gdy04vom17" path="res://Assets/Sprites/BattleItemsUI.png" id="1_yq220"]
+[ext_resource type="Texture2D" uid="uid://cmglkaqbcvq7p" path="res://Assets/Sprites/Gold01.png" id="2_4d0iv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aen08"]
+texture = ExtResource("1_yq220")
+
+[node name="BattleItemsUI" type="CanvasLayer"]
+script = ExtResource("1_bpo0m")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 1.0
+offset_right = 1152.0
+offset_bottom = 646.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_aen08")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 191.0
+offset_top = 160.0
+offset_right = 536.0
+offset_bottom = 389.0
+
+[node name="GridContainer" type="GridContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 556.0
+offset_top = 159.0
+offset_right = 780.0
+offset_bottom = 393.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/GridContainer"]
+layout_mode = 2
+
+[node name="SpritePlaceholder" type="Label" parent="Panel/GridContainer/HBoxContainer2"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Tes"
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/GridContainer/HBoxContainer2/SpritePlaceholder"]
+position = Vector2(14, 13)
+scale = Vector2(3.18518, 3.63265)
+texture = ExtResource("2_4d0iv")
+
+[node name="NameLabel" type="Label" parent="Panel/GridContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 1.11
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Test Name"
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Panel/GridContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.324391, 0.0888758, 0.00470738, 1)
+text = "Type"
+
+[node name="EffectContainer" type="VBoxContainer" parent="Panel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3

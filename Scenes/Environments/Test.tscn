@@ -293,3 +293,4 @@ shape = SubResource("SphereShape3D_fh75e")
 [node name="Slime" parent="." instance=ExtResource("9_6svat")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00684913, 0.0747067, 0.655384)
 encounter = SubResource("Resource_ufqci")
+id = "TestSlime"

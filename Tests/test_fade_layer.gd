@@ -25,7 +25,7 @@ func after_each():
 
 func test_fade_in_sets_visible_and_alpha_1():
 	fade.fade_in()
-	await fade.get_tree().create_timer(fade.fade_time + 0.1).timeout
+	await fade.get_tree().create_timer(fade.fade_duration + 0.1).timeout
 	assert_true(color_rect.visible)
 	assert_almost_eq(color_rect.modulate.a, 1.0, 0.01)
 

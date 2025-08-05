@@ -89,7 +89,7 @@ static func clear_arrow():
 func debug_slot():
 	print("=== Slot ", slot_number, " Debug Info ===")
 	print("Type: ", type)
-	print("Unit variable: ", unit.name if unit else "null")
+	print("Unit variable: ", unit.title if unit else "null")
 	print("Children count: ", get_children().size())
 	for i in range(get_children().size()):
 		var child = get_children()[i]

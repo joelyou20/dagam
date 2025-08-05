@@ -48,8 +48,15 @@ func use_item(item: ItemResource):
 		else:
 			push_warning("Effect script does not implement ItemEffect")
 	
-func get_item():
-	pass # TODO
+func get_items() -> Array[InventorySlotData]:
+	return inventory.get_items()
+
+func get_usable_items() -> Array[InventorySlotData]:
+	var items = inventory.get_items()
+	if items.size() > 0:
+		return items.filter(func (i: InventorySlotData): return i.item.can_use_in_battle)
+	else: 
+		return []
 
 func save_inventory() -> Dictionary:
 	var result := {}

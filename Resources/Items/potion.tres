@@ -12,5 +12,6 @@ description = "A simple test potion. Heals 10 HP"
 icon = ExtResource("1_i6ic5")
 stackable = true
 max_stack = 5
-item_type = null
+item_type = 1
 effect_script = ExtResource("1_vq4vu")
+can_use_in_battle = true

@@ -9,22 +9,51 @@ var current_battle_data: BattleData = null
 var is_targeting_mode = false
 var pending_action: BattleAction = null  # Store the action that needs a target
 
+var pre_battle_scene_path: String = ""
+var pre_battle_player_position: Vector3 = Vector3.ZERO
+
+var last_battle_time := -100.0  # some time far in the past
+var battle_cooldown_duration := 5.0  # seconds
+var player_collision_layer: int
+var player_collision_mask: int
+
+@warning_ignore("unused_signal")
+signal battle_started
 @warning_ignore("unused_signal")
 signal battle_ended
 
+func can_start_battle(force: bool = false) -> bool:
+	return force or (Time.get_ticks_msec() / 1000.0 - last_battle_time >= battle_cooldown_duration)
+
 func build_battle_from_encounter(encounter: EncounterData) -> BattleData:
+	if not can_start_battle():
+		push_warning("Tried to start a battle too soon after previous one.")
+		return null
+		
+	current_battle_data = null
+	pre_battle_scene_path = SceneManager.current_scene.scene_file_path
+	var player_node := PlayerManager.get_player_node()
+	if player_node:
+		pre_battle_player_position = player_node.global_transform.origin
+	else:
+		push_error("Player node not found. Cannot save position before battle.")
 	
+	SceneManager.load_scene(encounter.battle_scene_path, true, true, "", 0.1)
 	var party = PartyManager.get_party(false)
 	
 	var player: PlayerData = PlayerManager.player
+	ally_units = []
+	enemy_units = []
+
 	var player_unit = map_resource_to_unit(player, Unit.UnitType.PLAYER)
 	ally_units.append(player_unit)
-	
+
 	for ally in party:
-		var unit: Unit = map_resource_to_unit(ally, Unit.UnitType.ALLY)
+		var unit = map_resource_to_unit(ally, Unit.UnitType.ALLY)
 		ally_units.append(unit)
+
 	for enemy in encounter.enemies:
-		var unit: Unit = map_resource_to_unit(enemy, Unit.UnitType.ENEMY)
+		var unit = map_resource_to_unit(enemy, Unit.UnitType.ENEMY)
 		enemy_units.append(unit)
 	
 	var battleData: BattleData = BattleData.new()
@@ -119,10 +148,53 @@ func execute_action(action: BattleAction, target: Unit):
 		var source_unit = ally_units[source_slot - 1]
 		target.take_damage(source_unit.attack_power)
 		print(target.title + " took " + str(source_unit.attack_power) + " points of damage!")
+		_check_battle_end()
+
+func _check_battle_end():
+	# Check if all enemies are dead
+	var all_enemies_dead := enemy_units.filter(func(u):
+		return is_instance_valid(u) and u.is_alive
+	).is_empty()
+
+	# Check if all allies are dead
+	var all_allies_dead := ally_units.filter(func(u):
+		return is_instance_valid(u) and u.is_alive
+	).is_empty()
+
+	if all_enemies_dead:
+		print("All enemies defeated! Ending battle.")
+		end_battle()
+	elif all_allies_dead:
+		print("All allies defeated! Ending battle.")
+		end_battle()
 
 func get_active_unit_slot() -> int:
 	# TODO: Once the turn system is designed return whoever is acting. For now will default to slot 1
 	return 1
+	
+func attempt_to_flee():
+	var flee_chance := 0.5
+	var party_speed := 0
+	for unit in ally_units.filter(func(u): return is_instance_valid(u) && u.is_alive):
+		party_speed += unit.speed
+	var enemy_speed := 0
+	for unit in enemy_units.filter(func(u): return is_instance_valid(u) && u.is_alive):
+		enemy_speed += unit.speed
+
+	if party_speed > enemy_speed:
+		flee_chance += 0.2
+	else:
+		flee_chance -= 0.2
+	flee_chance = clamp(flee_chance, 0.1, 0.95)
+
+	if randf() < flee_chance:
+		print("Flee successful!")
+		if current_battle_data:
+			current_battle_data.was_fled = true
+		end_battle()
+	else:
+		print("Flee failed!")
+
 	
 func begin_battle():
 	InteractionHandler.block("battle")
@@ -135,6 +207,11 @@ func begin_battle():
 	ensure_battle_ui()
 	battle_ui.show_ui()
 	battle_ui.populate_enemies(enemy_units)
+	
+	var player_node := PlayerManager.get_player_node()
+	player_collision_layer = player_node.collision_layer
+	player_collision_mask = player_node.collision_mask
+	_disable_overworld_player()
 
 func end_battle():
 	InteractionHandler.unblock("battle")
@@ -142,5 +219,48 @@ func end_battle():
 	var cam = get_node_or_null("BattleCamera")
 	if cam and cam is Camera3D:
 		cam.queue_free()
+	battle_ui.hide_ui()
+	battle_ui.queue_free()
+	
+	if pre_battle_scene_path != "":
+		SceneManager.load_scene(pre_battle_scene_path, true, true, "", 0.1)
+		await SceneManager.scene_loaded  # Wait for scene to load
 		
+		# Re-enable player (happens while screen is black, no blip)
+		_enable_overworld_player()
+		
+		# Restore player position
+		var player_node := PlayerManager.get_player_node()
+		if player_node:
+			player_node.global_transform.origin = pre_battle_player_position
+		else:
+			push_error("Player node not found after battle. Cannot restore position.")
+	else:
+		push_error("No pre-battle scene path stored. Cannot return to previous scene.")
+	
+	# Clear stale data
+	ally_units.clear()
+	enemy_units.clear()
+	current_battle_data = null
+	last_battle_time = Time.get_ticks_msec() / 1000.0
+	
+	# Emit signal for enemy cleanup AFTER everything is ready
 	emit_signal("battle_ended")
+
+func _disable_overworld_player():
+	var player_node := PlayerManager.get_player_node()
+		
+	player_node.visible = false
+	player_node.set_process(false)
+	player_node.set_physics_process(false)
+	player_node.set_collision_layer(0)
+	player_node.set_collision_mask(0)
+
+func _enable_overworld_player():
+	var player_node := PlayerManager.get_player_node()
+	
+	player_node.visible = true
+	player_node.set_process(true)
+	player_node.set_physics_process(true)
+	player_node.set_collision_layer(player_collision_layer)
+	player_node.set_collision_mask(player_collision_mask)

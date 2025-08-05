@@ -28,9 +28,12 @@ func _ready():
 	# Wait a frame to ensure layout is calculated
 	await get_tree().process_frame
 
+func get_item() -> ItemResource:
+	return _item
+
 func set_item(item: ItemResource, quantity: int):
-	self.item = item
-	self.quantity = quantity
+	_item = item
+	_quantity = quantity
 	
 	if not textureRect:
 		call_deferred("_update_ui")
