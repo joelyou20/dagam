@@ -11,12 +11,14 @@ var dialog_registry := {
 }
 
 var dialog_resource: DialogResource = null
-var flag_manager := FlagManager
+var flag_manager : FlagManager
 var quest_manager: QuestManager
 
 func _ready():
 	if quest_manager == null:
 		quest_manager = QuestManager
+	if flag_manager == null:
+		flag_manager = FlagManager
 	if dialog_ui != null:
 		dialog_ui.option_selected.connect(_on_dialog_option_selected)
 		
@@ -41,9 +43,11 @@ func show_dialog_by_npc_id(npc_id: String):
 @warning_ignore("standalone_expression")
 func show_dialog_by_entry_id(entry_id: String, npc_id: String):
 	ensure_dialog_ui()
-	if dialog_resource:
-		var entry: DialogEntry = dialog_resource.entries.filter(func(e): e.id == entry_id).front()
+	if dialog_resource && dialog_resource.entries:
+		var entry: DialogEntry = dialog_resource.entries.filter(func(e: DialogEntry): return e.id == entry_id).front()
 		show_dialog(npc_id, entry, dialog_resource.npc_name)
+	else:
+		print ("Dialog entry " + str(entry_id) + " is empty for " + str(npc_id))
 
 func show_dialog(npc_id: String, entry: DialogEntry, npc_name: String):
 	if entry:
@@ -51,8 +55,14 @@ func show_dialog(npc_id: String, entry: DialogEntry, npc_name: String):
 		for flag in entry.flags:
 			flag_manager.set_flag(flag)
 		quest_manager.validate_active_quest_requirements()
+		_run_entry_actions(entry)
 	else:
 		push_error("No valid active dialog options for npc_id: " + npc_id)
+		
+func _run_entry_actions(entry: DialogEntry):
+	for action in entry.actions:
+		if action and action.has_method("execute"):
+			action.execute()
 
 func update_dialog(npc_id: String):
 	var active_dialog_entry: DialogEntry = get_active_dialog_entry(npc_id)
@@ -105,6 +115,8 @@ func _on_dialog_option_selected(npc_id: String, option: DialogOption):
 			set_active_dialog(npc_id, DialogState.State.COMPLETED)
 			next_entry.state = DialogState.State.ACTIVE
 			show_dialog_by_entry_id(next_entry.id, npc_id)
+	else:
+		dialog_ui.hide_ui()
 
 func is_showing_dialog() -> bool:
 	return dialog_ui.visible

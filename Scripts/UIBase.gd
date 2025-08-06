@@ -3,6 +3,10 @@ class_name UIBase
 
 var interaction_handler := InteractionHandler  # Default to singleton
 @export var is_hideable: bool = true
+@export var should_block_interaction: bool = true
+
+signal ui_open
+signal ui_closed
 
 func _ready():
 	visible = false
@@ -16,18 +20,21 @@ func _setup_panel_input_filter():
 
 func show_ui():
 	visible = true
-	interaction_handler.block(self.name)
+	emit_signal("ui_open")
+	if should_block_interaction:
+		interaction_handler.block(self.name)
 
 func hide_ui():
 	visible = false
-	interaction_handler.unblock(self.name)
+	emit_signal("ui_closed")
+	if should_block_interaction:
+		interaction_handler.unblock(self.name)
 
 func toggle():
-	visible = !visible
 	if visible:
-		interaction_handler.block(self.name)
+		hide_ui()
 	else:
-		interaction_handler.unblock(self.name)
+		show_ui()
 	
 func _unhandled_input(event: InputEvent):
 	if visible and event.is_action_pressed("ui_cancel"):

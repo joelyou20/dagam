@@ -40,14 +40,28 @@ func remove_item(item: ItemResource, amount: int = -1):
 func has_item():
 	pass # TODO
 	
-func use_item(item: ItemResource):
+func use_item(item: ItemResource, quantity_used: int = 1, remove_on_use: bool = true):
 	if item.effect_script:
 		var effect = item.effect_script.new()
 		if effect is ItemEffect:
 			effect.run()
 		else:
 			push_warning("Effect script does not implement ItemEffect")
-	
+		
+		if remove_on_use:
+			inventory.remove_item(item, quantity_used)
+
+func use_item_on_unit(item: ItemResource, target_unit: Unit, quantity_used: int = 1, remove_on_use: bool = true):
+	if item.effect_script:
+		var effect = item.effect_script.new()
+		if effect is ItemEffect:
+			effect.run_on_unit(target_unit)
+		else:
+			push_warning("Effect script does not implement ItemEffect")
+
+		if remove_on_use:
+			inventory.remove_item(item, quantity_used)
+
 func get_items() -> Array[InventorySlotData]:
 	return inventory.get_items()
 

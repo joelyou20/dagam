@@ -34,61 +34,50 @@ func _input(event):
 			print("Targeting cancelled")
 			
 func on_attack_pressed():
+	hide_battle_items_ui()
 	var source_slot: int = BattleManager.get_active_unit_slot()
 	var action = BattleAction.new(source_slot, BattleAction.ActionType.ATTACK)
 	BattleManager.start_targeting(action)
 
 func on_skills_pressed():
+	hide_battle_items_ui()
 	print("Skills selected")
 	# e.g., BattleManager.show_skills_menu()
 
 func on_items_pressed():
 	print("Items selected")
-	var items: Array[InventorySlotData] = InventoryManager.get_usable_items()
 	
 	# Show inventory popup
-	show_item_selector(items, _on_item_selected)
-
-func _on_item_selected(item: ItemResource):
-	print("Selected item: ", item.name)
-
-	#if item.requires_target:
-		#pending_action = BattleAction.new_from_item(item)
-		#is_targeting_mode = true
-		# maybe show: "Select a target"
-	#else:
-		# Apply immediately
-		#item.effect_script.run()  # or however you determine self-target
-	InventoryManager.use_item(item)
-	InventoryManager.remove_item(item, 1)
+	show_battle_items_ui()
 	
 func on_flee_pressed():
+	hide_battle_items_ui()
 	print("Flee selected")
 	BattleManager.attempt_to_flee()
 	
-func show_item_selector(items: Array[InventorySlotData], callback: Callable):
+func show_battle_items_ui():
 	# Remove an existing selector if open
 	if battle_items_ui and is_instance_valid(battle_items_ui):
-		battle_items_ui.queue_free()
-		battle_items_ui = null
+				hide_battle_items_ui()
 
 	# Instance the UI
 	battle_items_ui = battle_items_ui_scene.instantiate() as BattleItemsUI
 	add_child(battle_items_ui)
 
 	# Fill the UI with items
-	battle_items_ui.populate_items(items)
+	battle_items_ui.update_ui()
 
 	# Hook up item click → callback
 	for slot in battle_items_ui.vbox_container.get_children():
 		if slot.has_signal("slot_clicked"):
 			slot.slot_clicked.connect(func(inventory_slot):
-				if callback:
-					callback.call(inventory_slot.get_item())
-				# Optionally close the UI after selection
-				#battle_items_ui.queue_free()
-				#battle_items_ui = null
+				hide_battle_items_ui()
 			)
+			
+func hide_battle_items_ui():
+	if battle_items_ui:
+		battle_items_ui.queue_free()
+		battle_items_ui = null
 
 func populate_enemies(units: Array[Unit]):
 	# Clear all children at once

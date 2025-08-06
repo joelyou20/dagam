@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cuqa7f8gt504t"]
+
+[ext_resource type="Script" path="res://Scripts/Ally/AllyController.gd" id="1_mk6ro"]
+[ext_resource type="Texture2D" uid="uid://oma61eo6wvaj" path="res://Assets/Sprites/Player.png" id="2_gw2ja"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tsqug"]
+size = Vector3(0.280029, 0.278374, 0.268194)
+
+[node name="farmer" type="CharacterBody3D" groups=["Interactable", "NPC"]]
+script = ExtResource("1_mk6ro")
+
+[node name="Sprite" type="Sprite3D" parent="."]
+modulate = Color(1, 0.141176, 1, 1)
+pixel_size = 0.02
+billboard = 1
+texture = ExtResource("2_gw2ja")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00671387, 0.0181466, 0.00665569)
+shape = SubResource("BoxShape3D_tsqug")

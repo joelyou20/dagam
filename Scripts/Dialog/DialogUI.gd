@@ -81,7 +81,6 @@ func _setup_options(npc_id: String, options: Array[DialogOption]) -> void:
 func _on_option_selected(npc_id: String, option: DialogOption):
 	dialog_options_box.visible = false
 	emit_signal("option_selected", npc_id, option)
-	hide_ui()
 
 func _on_typewriter_tick():
 	if char_index < current_text.length():

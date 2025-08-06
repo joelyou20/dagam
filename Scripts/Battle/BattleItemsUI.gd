@@ -23,9 +23,11 @@ func clear_ui():
 	for c in effect_container.get_children():
 		c.queue_free()
 
-func populate_items(slot_data_list: Array[InventorySlotData]):
+func update_ui():
 	clear_ui()
 
+	var slot_data_list: Array[InventorySlotData] = InventoryManager.get_usable_items()
+	
 	for slot_data in slot_data_list:
 		var slot = slot_scene.instantiate()
 		slot.set_item(slot_data.item, slot_data.quantity) # Assuming InventorySlot supports this
@@ -34,16 +36,12 @@ func populate_items(slot_data_list: Array[InventorySlotData]):
 		
 		vbox_container.add_child(slot)
 
-func _on_item_hover(slot):
+func _on_item_hover(slot: InventorySlot):
 	# Add black border on hover
 	if slot.has_node("HoverBorder"):
 		slot.get_node("HoverBorder").visible = true
-
-func _on_slot_clicked(slot: InventorySlot):
-	var slot_item = slot.get_item()
-	_on_item_selected(slot_item)
-	
-func _on_item_selected(item: ItemResource):
+		
+	var item = slot.get_item()
 	# Update right-hand preview box
 	preview_sprite.texture = item.icon
 	preview_sprite.scale = Vector2(0.75, 0.75) # Adjust to your desired size
@@ -60,3 +58,17 @@ func _on_item_selected(item: ItemResource):
 	desc_label.autowrap_mode = TextServer.AUTOWRAP_ARBITRARY
 	desc_label.add_theme_color_override("font_color", Color.BLACK)
 	effect_container.add_child(desc_label)
+
+func _on_slot_clicked(slot: InventorySlot):
+	var slot_item = slot.get_item()
+	_on_item_selected(slot_item)
+	
+func _on_item_selected(item: ItemResource):
+	var action := BattleAction.new(
+		BattleManager.get_active_unit_slot(),
+		BattleAction.ActionType.ITEM
+	)
+	action.set_item(item)
+
+	BattleManager.start_targeting(action)
+	visible = false

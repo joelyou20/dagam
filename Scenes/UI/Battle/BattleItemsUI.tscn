@@ -9,26 +9,28 @@ texture = ExtResource("1_yq220")
 
 [node name="BattleItemsUI" type="CanvasLayer"]
 script = ExtResource("1_bpo0m")
+should_block_interaction = false
 
 [node name="Panel" type="Panel" parent="."]
-offset_left = 1.0
-offset_right = 1152.0
-offset_bottom = 646.0
+offset_left = 233.0
+offset_top = 178.0
+offset_right = 869.0
+offset_bottom = 428.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_aen08")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 0
-offset_left = 191.0
-offset_top = 160.0
-offset_right = 536.0
-offset_bottom = 389.0
+offset_left = 11.0
+offset_top = 11.0
+offset_right = 371.0
+offset_bottom = 243.0
 
 [node name="GridContainer" type="GridContainer" parent="Panel"]
 layout_mode = 0
-offset_left = 556.0
-offset_top = 159.0
-offset_right = 780.0
-offset_bottom = 393.0
+offset_left = 397.0
+offset_top = 11.0
+offset_right = 629.0
+offset_bottom = 240.0
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Panel/GridContainer"]
 layout_mode = 2

@@ -8,7 +8,7 @@ func _ready():
 	player.name = "Felix"
 	player.current_hp = player.max_hp
 	player.attack_power = 20
-	player.visual_scene = load("res://Scenes/Player_Battler.tscn")
+	player.visual_scene = load("res://Scenes/Battlers/Player_Battler.tscn")
 
 func get_player_node() -> Node:
 	return $"/root/World/Player"

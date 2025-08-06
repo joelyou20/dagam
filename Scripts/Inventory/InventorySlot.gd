@@ -4,8 +4,9 @@ class_name InventorySlot
 @export var _item: ItemResource
 @export var _quantity: int = 1
 
-@onready var textureRect: TextureRect = $TextureRect
-@onready var label: Label = $Label
+@onready var textureRect: TextureRect = $HBoxContainer/TextureRect
+@onready var itemName: Label = $HBoxContainer/Label
+@onready var itemQuantity: Label = $Label
 @onready var hoverBorder: Panel = $HoverBorder
 
 signal slot_clicked(inventory_slot)
@@ -22,8 +23,9 @@ func _ready():
 	
 	# Prevent children from intercepting mouse input
 	textureRect.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	itemQuantity.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	hoverBorder.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	itemName.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	
 	# Wait a frame to ensure layout is calculated
 	await get_tree().process_frame
@@ -42,7 +44,8 @@ func set_item(item: ItemResource, quantity: int):
 
 func _update_ui():
 	textureRect.texture = _item.icon
-	label.text = str(_quantity) if _quantity > 1 else ""
+	itemQuantity.text = str(_quantity) if _quantity > 1 else ""
+	itemName.text = _item.name
 
 func _on_hover():
 	hoverBorder.visible = true

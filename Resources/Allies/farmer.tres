@@ -1,3 +1,16 @@
-[gd_resource type="Resource" format=3 uid="uid://bj3tyqktewbc4"]
+[gd_resource type="Resource" script_class="AllyResource" load_steps=3 format=3 uid="uid://bj3tyqktewbc4"]
+
+[ext_resource type="Script" path="res://Scripts/Ally/AllyResource.gd" id="1_lo07f"]
+[ext_resource type="PackedScene" uid="uid://djka3nauciahy" path="res://Scenes/Battlers/FarmerAlly_Battler.tscn" id="2_spmmy"]
 
 [resource]
+script = ExtResource("1_lo07f")
+id = "farmer"
+name = "Farmer"
+max_hp = 150
+current_hp = 150
+speed = 3
+attack_power = 10
+slot_number = 2
+battle_scale = 1.0
+visual_scene = ExtResource("2_spmmy")

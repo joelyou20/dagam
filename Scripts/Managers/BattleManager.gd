@@ -143,12 +143,22 @@ func select_target(target_unit):
 		print("Selected unit: ", target_unit.name)
 
 func execute_action(action: BattleAction, target: Unit):
-	if action.get_action_type() == BattleAction.ActionType.ATTACK:
-		var source_slot = action.get_source_slot()
-		var source_unit = ally_units[source_slot - 1]
-		target.take_damage(source_unit.attack_power)
-		print(target.title + " took " + str(source_unit.attack_power) + " points of damage!")
-		_check_battle_end()
+	match action.get_action_type():
+		BattleAction.ActionType.ATTACK:
+			var source_slot = action.get_source_slot()
+			var source_unit = ally_units[source_slot - 1]
+			target.take_damage(source_unit.attack_power)
+			print(target.title + " took " + str(source_unit.attack_power) + " points of damage!")
+			_check_battle_end()
+
+		BattleAction.ActionType.ITEM:
+			var item = action.get_item()
+			_apply_item_to_target(item, target)
+			_check_battle_end()
+
+func _apply_item_to_target(item: ItemResource, target: Unit):
+	print("Using %s on %s" % [item.name, target.title])
+	InventoryManager.use_item_on_unit(item, target)
 
 func _check_battle_end():
 	# Check if all enemies are dead

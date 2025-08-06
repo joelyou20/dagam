@@ -21,7 +21,4 @@ func _init_battle(slots: Array[UnitSlot]):
 		#if slot.has_method("debug_slot"):
 			#slot.debug_slot()
 			
-	start_battle()
-
-func start_battle():
 	BattleManager.begin_battle()

@@ -2,7 +2,7 @@
 extends Node
 
 # List of party members (can include PlayerData or AllyResource)
-var party: Array[Resource] = []  # Use PlayerData, AllyResource, etc.
+var party: Array[AllyResource] = []  # Use PlayerData, AllyResource, etc.
 
 # TODO: Improve this
 func get_party(include_player: bool = true) -> Array:
@@ -11,9 +11,10 @@ func get_party(include_player: bool = true) -> Array:
 		return party.filter(func(member): return member != player)
 	return party
 
-func add_member(member: Resource):
+func add_member(member: AllyResource):
 	if not party.has(member):
 		party.append(member)
+		print(member.name + " has joined the party!")
 
-func remove_member(member: Resource):
+func remove_member(member: AllyResource):
 	party.erase(member)

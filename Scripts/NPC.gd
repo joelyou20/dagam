@@ -1,6 +1,7 @@
 extends Interactable
 class_name NPC
 
+@export var id: String = ""
 @export var display_name: String = ""
 
 var dialog_manager := DialogManager  # Defaults to the singleton
