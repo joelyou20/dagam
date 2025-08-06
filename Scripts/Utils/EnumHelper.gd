@@ -7,10 +7,10 @@ static func get_name_as_string(enum_dict: Dictionary, value: int) -> String:
 		return enum_dict.keys()[value]
 	return ""
 
-## Get the value (int) from a name
-static func get_value(enum_dict: Dictionary, name: String) -> int:
-	if enum_dict.has(name):
-		return enum_dict[name]
+## Get the value (int) from a key
+static func get_value(enum_dict: Dictionary, key: String) -> int:
+	if enum_dict.has(key):
+		return enum_dict[key]
 	return -1
 
 ## Get all enum names

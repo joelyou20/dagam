@@ -1,40 +1,304 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxts40rxkdroj"]
+[gd_scene load_steps=17 format=3 uid="uid://bxts40rxkdroj"]
 
 [ext_resource type="Script" path="res://Scripts/Menu/MenuUI.gd" id="1_5pybe"]
 [ext_resource type="Texture2D" uid="uid://dianihvujteoj" path="res://Assets/Sprites/LoadButton.png" id="2_xcc2d"]
+[ext_resource type="Script" path="res://Scripts/Party/PartyUI.gd" id="3_f2x2b"]
+[ext_resource type="Script" path="res://Scripts/Inventory/InventoryUI.gd" id="3_j8hvn"]
 [ext_resource type="Script" path="res://Scripts/Menu/MenuButton.Load.gd" id="3_r5rcx"]
+[ext_resource type="Texture2D" uid="uid://bc00hq01nm0lu" path="res://Assets/Sprites/PartyMemberUI.png" id="3_yhyh1"]
+[ext_resource type="Texture2D" uid="uid://bsb6kd1abl1h2" path="res://Assets/Sprites/Inventory.png" id="4_a7jjd"]
 [ext_resource type="Script" path="res://Scripts/Menu/MenuButton.Save.gd" id="4_mau8r"]
 [ext_resource type="Script" path="res://Scripts/Menu/MenuButton.Quit.gd" id="5_3tx52"]
+[ext_resource type="Texture2D" uid="uid://dh5ftrtgql1c2" path="res://Assets/Sprites/MenuTopNav.png" id="6_vtt8k"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c61nn"]
+texture = ExtResource("6_vtt8k")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p2shj"]
+texture = ExtResource("3_yhyh1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s63dh"]
+texture = ExtResource("3_yhyh1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aihhk"]
+texture = ExtResource("3_yhyh1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q5u74"]
+texture = ExtResource("3_yhyh1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rgl5l"]
+texture = ExtResource("4_a7jjd")
 
 [node name="MenuUI" type="CanvasLayer"]
-process_mode = 2
 script = ExtResource("1_5pybe")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+[node name="MenuTopNav" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_c61nn")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MenuTopNav"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PartyButton" type="Button" parent="VBoxContainer/MenuTopNav/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Party"
+flat = true
+
+[node name="NA2" type="Button" parent="VBoxContainer/MenuTopNav/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+flat = true
+
+[node name="SkillsButton" type="Button" parent="VBoxContainer/MenuTopNav/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Skills"
+flat = true
+
+[node name="InventoryButton" type="Button" parent="VBoxContainer/MenuTopNav/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Inventory"
+flat = true
+
+[node name="FormationButton" type="Button" parent="VBoxContainer/MenuTopNav/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Formation"
+flat = true
+
+[node name="NA" type="Button" parent="VBoxContainer/MenuTopNav/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+flat = true
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer/MenuTopNav/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Options"
+flat = true
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PartyPanel" type="Panel" parent="VBoxContainer/PanelContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 100)
+layout_direction = 1
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("3_f2x2b")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/PartyPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = 10.0
+offset_right = -12.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PartyMember1" type="Panel" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_p2shj")
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer/PartyMember1"]
+position = Vector2(131, 202.271)
+scale = Vector2(20, 27.9612)
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer/PartyMember1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.022
+anchor_top = 0.707
+anchor_right = 0.022
+anchor_bottom = 0.707
+offset_left = -0.138
+offset_top = 0.181976
+offset_right = 265.862
+offset_bottom = 159.182
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer/PartyMember1/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Name"
+
+[node name="PartyMember2" type="Panel" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_s63dh")
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer/PartyMember2"]
+position = Vector2(131, 202.271)
+scale = Vector2(20, 27.9612)
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer/PartyMember2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.022
+anchor_top = 0.707
+anchor_right = 0.022
+anchor_bottom = 0.707
+offset_left = -0.138
+offset_top = 0.181976
+offset_right = 265.862
+offset_bottom = 159.182
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer/PartyMember2/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Name"
+
+[node name="PartyMember3" type="Panel" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_aihhk")
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer/PartyMember3"]
+position = Vector2(131, 202.271)
+scale = Vector2(20, 27.9612)
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer/PartyMember3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.022
+anchor_top = 0.707
+anchor_right = 0.022
+anchor_bottom = 0.707
+offset_left = -0.138
+offset_top = 0.181976
+offset_right = 265.862
+offset_bottom = 159.182
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer/PartyMember3/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Name"
+
+[node name="PartyMember4" type="Panel" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_q5u74")
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer/PartyMember4"]
+position = Vector2(131, 202.271)
+scale = Vector2(20, 27.9612)
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer/PartyMember4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.021
+anchor_top = 0.707
+anchor_right = 0.021
+anchor_bottom = 0.707
+offset_left = 0.119999
+offset_top = 0.181976
+offset_right = 266.12
+offset_bottom = 159.182
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer/PartyMember4/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Name"
+
+[node name="SkillsPanel" type="Panel" parent="VBoxContainer/PanelContainer"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 100)
+layout_direction = 1
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="InventoryPanel" type="Panel" parent="VBoxContainer/PanelContainer"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 100)
+layout_direction = 1
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("3_j8hvn")
+
+[node name="Panel" type="Panel" parent="VBoxContainer/PanelContainer/InventoryPanel"]
+layout_mode = 0
+offset_left = 760.0
+offset_top = 16.0
+offset_right = 1114.0
+offset_bottom = 561.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_rgl5l")
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/PanelContainer/InventoryPanel/Panel"]
+z_index = 1
+y_sort_enabled = true
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 343.0
+offset_bottom = 537.0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/InventoryPanel/Panel/GridContainer"]
+layout_mode = 2
+
+[node name="FormationPanel" type="Panel" parent="VBoxContainer/PanelContainer"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 100)
+layout_direction = 1
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="OptionsPanel" type="Panel" parent="VBoxContainer/PanelContainer"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 100)
+layout_direction = 1
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/OptionsPanel"]
 layout_mode = 0
 offset_left = 400.0
 offset_top = 207.0
 offset_right = 760.0
 offset_bottom = 457.0
 
-[node name="LoadButton" type="TextureButton" parent="Panel/VBoxContainer"]
+[node name="LoadButton" type="TextureButton" parent="VBoxContainer/PanelContainer/OptionsPanel/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("2_xcc2d")
 script = ExtResource("3_r5rcx")
 
-[node name="SaveButton" type="Button" parent="Panel/VBoxContainer"]
+[node name="SaveButton" type="Button" parent="VBoxContainer/PanelContainer/OptionsPanel/VBoxContainer"]
 layout_mode = 2
 text = "Save"
 script = ExtResource("4_mau8r")
 
-[node name="QuitButton" type="Button" parent="Panel/VBoxContainer"]
+[node name="QuitButton" type="Button" parent="VBoxContainer/PanelContainer/OptionsPanel/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
 script = ExtResource("5_3tx52")

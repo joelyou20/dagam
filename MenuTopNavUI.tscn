@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://ce0kqwli3as5a"]
+
+[ext_resource type="Texture2D" uid="uid://dh5ftrtgql1c2" path="res://Assets/Sprites/MenuTopNav.png" id="1_coaoi"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jlw6o"]
+texture = ExtResource("1_coaoi")
+
+[node name="MenuTopNavUI" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 10.0
+offset_top = 5.0
+offset_right = 1141.0
+offset_bottom = 54.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_jlw6o")
+
+[node name="PartyButton" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 163.0
+offset_bottom = 45.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Party"
+flat = true
+
+[node name="SkillsButton" type="Button" parent="Panel"]
+offset_left = 333.0
+offset_top = 6.0
+offset_right = 488.0
+offset_bottom = 45.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Skills"
+flat = true
+
+[node name="InventoryButton" type="Button" parent="Panel"]
+offset_left = 496.0
+offset_top = 6.0
+offset_right = 651.0
+offset_bottom = 45.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Inventory"
+flat = true
+
+[node name="FormationButton" type="Button" parent="Panel"]
+offset_left = 659.0
+offset_top = 6.0
+offset_right = 814.0
+offset_bottom = 45.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Formation"
+flat = true
+
+[node name="OptionsButton" type="Button" parent="Panel"]
+offset_left = 823.0
+offset_top = 6.0
+offset_right = 978.0
+offset_bottom = 45.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Options"
+flat = true

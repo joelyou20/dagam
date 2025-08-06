@@ -1,9 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://djka3nauciahy"]
 
-[ext_resource type="Texture2D" uid="uid://oma61eo6wvaj" path="res://Assets/Sprites/Player.png" id="1_dq5kn"]
+[ext_resource type="Texture2D" uid="uid://y0kswnh5xqr2" path="res://Assets/Sprites/Farmer.png" id="1_8ke63"]
 
 [node name="Sprite" type="Sprite3D"]
-modulate = Color(1, 0.141176, 1, 1)
 pixel_size = 0.02
 billboard = 1
-texture = ExtResource("1_dq5kn")
+texture = ExtResource("1_8ke63")

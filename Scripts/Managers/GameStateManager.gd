@@ -5,7 +5,8 @@ func save_game_to_file(path: String = "user://savegame.dat"):
 		"dialogs": DialogManager.save_dialogs(),
 		"flags": FlagManager.save_flags(),
 		"quests": QuestManager.save_quests(),
-		"inventory": InventoryManager.save_inventory()
+		"inventory": InventoryManager.save_inventory(),
+		"player": PlayerManager.save_player()
 	}
 	var file := FileAccess.open(path, FileAccess.WRITE)
 	file.store_var(data)
@@ -24,5 +25,6 @@ func load_game_from_file(path: String = "user://savegame.dat"):
 	FlagManager.load_flags(data.get("flags", {}))
 	QuestManager.load_quests(data.get("quests", {}))
 	InventoryManager.load_inventory(data.get("inventory", {}))
+	PlayerManager.load_player(data.get("player", {}))
 	
 	print("Game loaded from " + path)

@@ -13,3 +13,4 @@ attack_power = 5
 visual_scene = ExtResource("2_louaa")
 slot_number = 1
 battle_scale = 0.25
+xp_reward = 100

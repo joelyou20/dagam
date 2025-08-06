@@ -9,7 +9,7 @@ class_name InventorySlot
 @onready var itemQuantity: Label = $Label
 @onready var hoverBorder: Panel = $HoverBorder
 
-signal slot_clicked(inventory_slot)
+signal slot_clicked(inventory_slot: InventorySlot)
 
 func _ready():
 	hoverBorder.visible = false

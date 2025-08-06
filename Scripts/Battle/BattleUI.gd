@@ -70,7 +70,7 @@ func show_battle_items_ui():
 	# Hook up item click → callback
 	for slot in battle_items_ui.vbox_container.get_children():
 		if slot.has_signal("slot_clicked"):
-			slot.slot_clicked.connect(func(inventory_slot):
+			slot.slot_clicked.connect(func():
 				hide_battle_items_ui()
 			)
 			

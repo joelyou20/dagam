@@ -5,7 +5,9 @@ var interaction_handler := InteractionHandler  # Default to singleton
 @export var is_hideable: bool = true
 @export var should_block_interaction: bool = true
 
+@warning_ignore("unused_signal")
 signal ui_open
+@warning_ignore("unused_signal")
 signal ui_closed
 
 func _ready():
@@ -44,12 +46,3 @@ func _unhandled_input(event: InputEvent):
 func on_cancel():
 	if is_hideable:
 		hide_ui()
-	
-@warning_ignore("confusable_capture_reassignment")
-static func ensure_ui(ref: UIBase, scene: PackedScene, parent: Node) -> UIBase:
-	if ref == null:
-		var ui = scene.instantiate() as UIBase
-		parent.add_child(ui)
-		ui.tree_exited.connect(func(): ref = null)
-		return ui
-	return ref

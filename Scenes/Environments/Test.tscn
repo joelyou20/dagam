@@ -1,8 +1,9 @@
-[gd_scene load_steps=30 format=3 uid="uid://d3m7gv82kgk8t"]
+[gd_scene load_steps=31 format=3 uid="uid://d3m7gv82kgk8t"]
 
 [ext_resource type="Texture2D" uid="uid://cex0yttn80owp" path="res://Assets/Textures/Sand/Sand_Albedo.tga" id="1_d6bna"]
 [ext_resource type="Script" path="res://Scripts/NPC.gd" id="2_dbkgc"]
 [ext_resource type="Texture2D" uid="uid://oma61eo6wvaj" path="res://Assets/Sprites/Player.png" id="3_3iyhn"]
+[ext_resource type="Texture2D" uid="uid://y0kswnh5xqr2" path="res://Assets/Sprites/Farmer.png" id="4_6gp10"]
 [ext_resource type="Script" path="res://Scripts/Utils/Door.gd" id="4_qwcvo"]
 [ext_resource type="Texture2D" uid="uid://djxgd06cg2nso" path="res://Assets/Textures/Dirt/Dirt_Albedo.tga" id="5_vmhen"]
 [ext_resource type="Script" path="res://Scripts/Items/Item.gd" id="6_ns5rc"]
@@ -128,10 +129,9 @@ id = "farmer"
 display_name = "Farmer"
 
 [node name="Sprite" type="Sprite3D" parent="farmer"]
-modulate = Color(1, 0.141176, 1, 1)
 pixel_size = 0.02
 billboard = 1
-texture = ExtResource("3_3iyhn")
+texture = ExtResource("4_6gp10")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="farmer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00671387, 0.0181466, 0.00665569)

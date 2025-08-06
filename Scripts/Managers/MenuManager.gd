@@ -4,33 +4,34 @@ extends Node
 
 var menu_ui: MenuUI = null
 var menu_open: bool = false
+var current_tab: MenuTabs.Tab = MenuTabs.Tab.UNSET
 
-func show_menu():
-	set_menu_open(true)
+signal party_tab_open
+signal skills_tab_open
+signal inventory_tab_open
+signal formation_tab_open
+signal options_tab_open
 
 func hide_menu():
-	set_menu_open(false)
+	set_menu(false)
 
-func toggle_menu():
-	set_menu_open(!menu_open)
+func toggle_menu(tab: MenuTabs.Tab = MenuTabs.Tab.PARTY):
+	var menu_open = menu_ui and menu_ui.visible
+	set_menu(!menu_open, tab)
 
-func set_menu_open(state: bool):
-	if menu_open == state:
-		return
-
-	menu_open = state
-
-	if menu_open:
-		ensure_menu_ui()
-		menu_ui.show_ui()
+func set_menu(state: bool, tab: MenuTabs.Tab = MenuTabs.Tab.PARTY):
+	ensure_menu_ui()
+	var change_tab = current_tab == MenuTabs.Tab.UNSET or current_tab != tab
+	if state or change_tab:
+		current_tab = tab
+		menu_ui.show_panel(tab)
 	else:
-		if menu_ui:
-			menu_ui.hide_ui()
-
-	InventoryManager.hide_inventory_ui()
+		current_tab = MenuTabs.Tab.UNSET
+		menu_ui.hide_ui()
 
 func ensure_menu_ui():
 	if menu_ui == null:
 		menu_ui = MenuUIScene.instantiate()
+		menu_ui.visible = false
 		get_tree().get_root().add_child(menu_ui)
 		menu_ui.tree_exited.connect(func(): menu_ui = null)

@@ -25,7 +25,7 @@ func complete_quest(quest_id: String):
 
 func get_quest(quest_enum: QuestData.QuestName) -> QuestResource:
 	var quest_name : String = QuestData.QuestName.keys()[quest_enum]
-	var path := "res://Resources/Quests/%s.tres" % quest_name
+	var path := "res://Resources/Quests/%s.tres" % quest_name.to_lower()
 	var quest = load(path)
 	if quest == null:
 		push_error("Quest not found at path: %s" % path)

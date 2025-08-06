@@ -18,6 +18,7 @@ enum UnitType {
 @export var visual_scene: PackedScene
 @export var slot_number: int
 @export var battle_scale: float = 1.0
+@export var resource: Resource
 
 var is_player_controlled: bool = false
 var is_alive: bool = true

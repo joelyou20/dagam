@@ -13,6 +13,7 @@ var dialog_registry := {
 var dialog_resource: DialogResource = null
 var flag_manager : FlagManager
 var quest_manager: QuestManager
+var pending_actions: Array[DialogAction] = []
 
 func _ready():
 	if quest_manager == null:
@@ -27,6 +28,13 @@ func ensure_dialog_ui():
 		dialog_ui = DialogUIScene.instantiate()
 		get_tree().get_root().add_child(dialog_ui)  # Or add to your UI manager node
 		dialog_ui.option_selected.connect(_on_dialog_option_selected)
+		dialog_ui.ui_closed.connect(_on_dialog_closed)
+		
+func _on_dialog_closed():
+	for action in pending_actions:
+		if action and action.has_method("execute"):
+			action.execute()
+	pending_actions.clear()
 
 func show_dialog_by_npc_id(npc_id: String):
 	ensure_dialog_ui()
@@ -55,14 +63,11 @@ func show_dialog(npc_id: String, entry: DialogEntry, npc_name: String):
 		for flag in entry.flags:
 			flag_manager.set_flag(flag)
 		quest_manager.validate_active_quest_requirements()
-		_run_entry_actions(entry)
+		# After setting flags and quests, queue entry actions
+		if entry.actions.size() > 0:
+			pending_actions.append_array(entry.actions)
 	else:
 		push_error("No valid active dialog options for npc_id: " + npc_id)
-		
-func _run_entry_actions(entry: DialogEntry):
-	for action in entry.actions:
-		if action and action.has_method("execute"):
-			action.execute()
 
 func update_dialog(npc_id: String):
 	var active_dialog_entry: DialogEntry = get_active_dialog_entry(npc_id)
@@ -104,9 +109,10 @@ func _on_dialog_option_selected(npc_id: String, option: DialogOption):
 	# Set flags from this option if it has any
 	for flag in option.flags:
 		flag_manager.set_flag(flag)
-	
-	if option.accepted_quest != null:
-		QuestManager.accept_quest(option.accepted_quest)
+		
+	# Queue option actions instead of running immediately
+	if option.actions.size() > 0:
+		pending_actions.append_array(option.actions)
 
 	# Advance to the next dialog entry if it exists
 	if option.next != "":

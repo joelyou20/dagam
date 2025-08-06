@@ -41,7 +41,7 @@ func build_battle_from_encounter(encounter: EncounterData) -> BattleData:
 	SceneManager.load_scene(encounter.battle_scene_path, true, true, "", 0.1)
 	var party = PartyManager.get_party(false)
 	
-	var player: PlayerData = PlayerManager.player
+	var player: PlayerResource = PlayerManager.player
 	ally_units = []
 	enemy_units = []
 
@@ -58,6 +58,7 @@ func build_battle_from_encounter(encounter: EncounterData) -> BattleData:
 	
 	var battleData: BattleData = BattleData.new()
 	battleData.set_units(ally_units, enemy_units)
+	battleData.set_xp_reward()
 	current_battle_data = battleData
 	
 	return battleData
@@ -81,6 +82,7 @@ func map_resource_to_unit(source: Resource, unit_type: Unit.UnitType) -> Unit:
 	unit.slot_number = source.slot_number
 	unit.visual_scene = source.visual_scene
 	unit.battle_scale = source.battle_scale
+	unit.resource = source
 	return unit
 
 func place_units(slots: Array[UnitSlot]):
@@ -161,18 +163,17 @@ func _apply_item_to_target(item: ItemResource, target: Unit):
 	InventoryManager.use_item_on_unit(item, target)
 
 func _check_battle_end():
-	# Check if all enemies are dead
 	var all_enemies_dead := enemy_units.filter(func(u):
 		return is_instance_valid(u) and u.is_alive
 	).is_empty()
 
-	# Check if all allies are dead
 	var all_allies_dead := ally_units.filter(func(u):
 		return is_instance_valid(u) and u.is_alive
 	).is_empty()
 
 	if all_enemies_dead:
 		print("All enemies defeated! Ending battle.")
+		PartyManager.grant_xp(current_battle_data.xp_reward)
 		end_battle()
 	elif all_allies_dead:
 		print("All allies defeated! Ending battle.")
@@ -181,7 +182,34 @@ func _check_battle_end():
 func get_active_unit_slot() -> int:
 	# TODO: Once the turn system is designed return whoever is acting. For now will default to slot 1
 	return 1
-	
+
+func _sync_units_to_resources():
+	for unit in ally_units:
+		var resource
+		if unit.id == PlayerManager.player.id:
+			resource = PlayerManager.player
+		else:
+			resource = PartyManager.get_member_by_id(unit.id)
+
+		if resource:
+			_update_resource_from_unit(resource, unit)
+
+func _update_resource_from_unit(resource: Resource, unit: Unit):
+	# Core combat stats
+	resource.current_hp = unit.current_hp
+	#if "current_mp" in resource and "current_mp" in unit:
+		#resource.current_mp = unit.current_mp
+
+	# Experience / level
+	#if "experience" in resource and "experience" in unit:
+		#resource.experience = unit.experience
+	#if "level" in resource and "level" in unit:
+		#resource.level = unit.level
+
+	# TODO: Add syncing for status effects, buffs, debuffs
+	# if "status_effects" in resource and "status_effects" in unit:
+	#     resource.status_effects = unit.status_effects.duplicate(true)
+
 func attempt_to_flee():
 	var flee_chance := 0.5
 	var party_speed := 0
@@ -224,6 +252,8 @@ func begin_battle():
 	_disable_overworld_player()
 
 func end_battle():
+	_sync_units_to_resources()
+	
 	InteractionHandler.unblock("battle")
 	
 	var cam = get_node_or_null("BattleCamera")
