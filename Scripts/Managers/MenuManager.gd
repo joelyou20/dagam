@@ -15,11 +15,15 @@ signal options_tab_open
 func hide_menu():
 	set_menu(false)
 
-func toggle_menu(tab: MenuTabs.Tab = MenuTabs.Tab.PARTY):
+func toggle_menu(tab: MenuTabs.Tab = MenuTabs.Tab.UNSET):
 	var menu_open = menu_ui and menu_ui.visible
 	set_menu(!menu_open, tab)
 
-func set_menu(state: bool, tab: MenuTabs.Tab = MenuTabs.Tab.PARTY):
+func set_menu(state: bool, tab: MenuTabs.Tab = MenuTabs.Tab.UNSET):
+	if tab == MenuTabs.Tab.UNSET:
+		menu_ui.hide_ui()
+		return
+	
 	ensure_menu_ui()
 	var change_tab = current_tab == MenuTabs.Tab.UNSET or current_tab != tab
 	if state or change_tab:

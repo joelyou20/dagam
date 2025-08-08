@@ -41,14 +41,20 @@ func save_player() -> Dictionary:
 	return {
 		"id": player.id,
 		"name": player.name,
+		"max_hp": player.max_hp,
+		"current_hp": player.current_hp,
+		"speed": player.speed,
+		"attack_power": player.attack_power,
+		"slot_number": player.slot_number,
+		"battle_scale": player.battle_scale,
+		"visual_scene": player.visual_scene.resource_path,
+		"portrait_texture": player.portrait_texture.resource_path,
 		"level": player.level,
 		"experience": player.experience,
-		"current_hp": player.current_hp,
-		"max_hp": player.max_hp,
-		"attack_power": player.attack_power,
-		"speed": player.speed,
-		"visual_scene": player.visual_scene.resource_path
+		"xp_to_next_level": player.xp_to_next_level,
+		"xp_growth_rate": player.xp_growth_rate
 	}
+
 
 func load_player(data: Dictionary):
 	if not player:
@@ -63,7 +69,10 @@ func load_player(data: Dictionary):
 	player.max_hp = data.get("max_hp", player.max_hp)
 	player.attack_power = data.get("attack_power", player.attack_power)
 	player.speed = data.get("speed", player.speed)
-	
-	var scene_path = data.get("visual_scene", "")
-	if scene_path != "":
-		player.visual_scene = load(scene_path)
+	player.slot_number = data.get("slot_number", player.slot_number)
+	player.battle_scale = data.get("battle_scale", player.battle_scale)
+	player.xp_to_next_level = data.get("xp_to_next_level", player.xp_to_next_level)
+	player.xp_growth_rate = data.get("xp_growth_rate", player.xp_growth_rate)
+
+	player.visual_scene = load(data.get("visual_scene", ""))
+	player.portrait_texture = load(data.get("portrait_texture", ""))
