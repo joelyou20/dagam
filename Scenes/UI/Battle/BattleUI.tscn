@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cgitns74dwcu2"]
 
-[ext_resource type="Script" path="res://Scripts/Battle/BattleUI.gd" id="1_n7lxj"]
+[ext_resource type="Script" uid="uid://c41nso32lyf6l" path="res://Scripts/Battle/BattleUI.gd" id="1_n7lxj"]
 [ext_resource type="Texture2D" uid="uid://dyjg66x70wtwy" path="res://Assets/Sprites/BattleUI.png" id="2_axcl0"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ywdkp"]

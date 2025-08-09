@@ -3,7 +3,6 @@ extends Node
 @onready var MenuUIScene := preload("res://Scenes/UI/MenuUI.tscn")
 
 var menu_ui: MenuUI = null
-var menu_open: bool = false
 var current_tab: MenuTabs.Tab = MenuTabs.Tab.UNSET
 
 signal party_tab_open

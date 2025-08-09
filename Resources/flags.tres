@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="FlagsResource" load_steps=7 format=3 uid="uid://dhcbv8cacd04p"]
 
-[ext_resource type="Script" path="res://Scripts/Flags/FlagData.gd" id="1_pc7o2"]
-[ext_resource type="Script" path="res://Scripts/Flags/FlagsResource.gd" id="1_ulxjv"]
+[ext_resource type="Script" uid="uid://clhwqng6yqoyf" path="res://Scripts/Flags/FlagData.gd" id="1_pc7o2"]
+[ext_resource type="Script" uid="uid://bcnghntm4oqxy" path="res://Scripts/Flags/FlagsResource.gd" id="1_ulxjv"]
 
 [sub_resource type="Resource" id="Resource_4fj06"]
 script = ExtResource("1_pc7o2")

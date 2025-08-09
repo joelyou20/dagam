@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="DialogResource" load_steps=12 format=3 uid="uid://7yp0cw3dfkfo"]
 
-[ext_resource type="Script" path="res://Scripts/Dialog/DialogCondition.gd" id="1_2ha8f"]
-[ext_resource type="Script" path="res://Scripts/Dialog/DialogEntry.gd" id="2_8f8rp"]
-[ext_resource type="Script" path="res://Scripts/Quests/Tasks/Task.gd" id="2_yhefq"]
-[ext_resource type="Script" path="res://Scripts/Quests/Tasks/QuestTask.gd" id="3_2mhew"]
-[ext_resource type="Script" path="res://Scripts/Dialog/DialogOption.gd" id="3_pcpiv"]
-[ext_resource type="Script" path="res://Scripts/Dialog/DialogResource.gd" id="4_15bkn"]
-[ext_resource type="Script" path="res://Scripts/Dialog/Actions/DialogAction.gd" id="5_ntlw4"]
+[ext_resource type="Script" uid="uid://d2650uyh87peo" path="res://Scripts/Dialog/DialogCondition.gd" id="1_2ha8f"]
+[ext_resource type="Script" uid="uid://8g680sangedd" path="res://Scripts/Dialog/DialogEntry.gd" id="2_8f8rp"]
+[ext_resource type="Script" uid="uid://dcpah03xaq5q5" path="res://Scripts/Quests/Tasks/Task.gd" id="2_yhefq"]
+[ext_resource type="Script" uid="uid://b5nixo1oq2st2" path="res://Scripts/Quests/Tasks/QuestTask.gd" id="3_2mhew"]
+[ext_resource type="Script" uid="uid://bcnluyg607u1u" path="res://Scripts/Dialog/DialogOption.gd" id="3_pcpiv"]
+[ext_resource type="Script" uid="uid://b58gpyhxudfod" path="res://Scripts/Dialog/DialogResource.gd" id="4_15bkn"]
+[ext_resource type="Script" uid="uid://dbjfs450x2r4r" path="res://Scripts/Dialog/Actions/DialogAction.gd" id="5_ntlw4"]
 
 [sub_resource type="Resource" id="Resource_ybfue"]
 script = ExtResource("3_2mhew")

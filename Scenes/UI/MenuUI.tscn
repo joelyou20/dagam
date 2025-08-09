@@ -1,18 +1,18 @@
-[gd_scene load_steps=19 format=3 uid="uid://bxts40rxkdroj"]
+[gd_scene load_steps=20 format=3 uid="uid://bxts40rxkdroj"]
 
-[ext_resource type="Script" path="res://Scripts/Menu/MenuUI.gd" id="1_5pybe"]
+[ext_resource type="Script" uid="uid://456uokv0q8xm" path="res://Scripts/Menu/MenuUI.gd" id="1_5pybe"]
 [ext_resource type="Texture2D" uid="uid://dianihvujteoj" path="res://Assets/Sprites/LoadButton.png" id="2_xcc2d"]
-[ext_resource type="Script" path="res://Scripts/Party/PartyUI.gd" id="3_f2x2b"]
-[ext_resource type="Script" path="res://Scripts/Inventory/InventoryUI.gd" id="3_j8hvn"]
-[ext_resource type="Script" path="res://Scripts/Menu/MenuButton.Load.gd" id="3_r5rcx"]
-[ext_resource type="Texture2D" uid="uid://bc00hq01nm0lu" path="res://Assets/Sprites/PartyMemberUI.png" id="3_yhyh1"]
+[ext_resource type="Script" uid="uid://d1kngu6vl7nsg" path="res://Scripts/Party/PartyUI.gd" id="3_f2x2b"]
+[ext_resource type="Script" uid="uid://co5yi5xmcym1b" path="res://Scripts/Inventory/InventoryUI.gd" id="3_j8hvn"]
+[ext_resource type="Script" uid="uid://cx2tk7cnv0acl" path="res://Scripts/Menu/MenuButton.Load.gd" id="3_r5rcx"]
+[ext_resource type="Texture2D" uid="uid://bc00hq01nm0lu" path="res://Assets/Sprites/PartySlotUI.png" id="3_yhyh1"]
 [ext_resource type="Texture2D" uid="uid://bsb6kd1abl1h2" path="res://Assets/Sprites/Inventory.png" id="4_a7jjd"]
-[ext_resource type="Script" path="res://Scripts/Menu/MenuButton.Save.gd" id="4_mau8r"]
-[ext_resource type="Script" path="res://Scripts/Menu/MenuButton.Quit.gd" id="5_3tx52"]
-[ext_resource type="Script" path="res://Scripts/Party/PartyMemberUI.gd" id="5_vyjih"]
+[ext_resource type="Script" uid="uid://d0clt6u0bartm" path="res://Scripts/Menu/MenuButton.Save.gd" id="4_mau8r"]
+[ext_resource type="Script" uid="uid://cxldcxflbhysv" path="res://Scripts/Menu/MenuButton.Quit.gd" id="5_3tx52"]
+[ext_resource type="Script" uid="uid://gglmu0ya7qwj" path="res://Scripts/Party/PartyMemberUI.gd" id="5_vyjih"]
 [ext_resource type="Texture2D" uid="uid://oma61eo6wvaj" path="res://Assets/Sprites/Player.png" id="6_dl4o0"]
 [ext_resource type="Texture2D" uid="uid://dh5ftrtgql1c2" path="res://Assets/Sprites/MenuTopNav.png" id="6_vtt8k"]
-[ext_resource type="Texture2D" uid="uid://cdohsolq73efu" path="res://Assets/Sprites/CharacterSheetUI.png" id="7_058j1"]
+[ext_resource type="Texture2D" uid="uid://cdohsolq73efu" path="res://Assets/Sprites/PartyMemberUI.png" id="7_058j1"]
 [ext_resource type="Texture2D" uid="uid://cmglkaqbcvq7p" path="res://Assets/Sprites/Gold01.png" id="8_4jvtp"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c61nn"]
@@ -20,6 +20,9 @@ texture = ExtResource("6_vtt8k")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p2shj"]
 texture = ExtResource("3_yhyh1")
+
+[sub_resource type="LabelSettings" id="LabelSettings_u6lhc"]
+font_size = 40
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ub1fs"]
 texture = ExtResource("7_058j1")
@@ -29,6 +32,8 @@ texture = ExtResource("4_a7jjd")
 
 [node name="MenuUI" type="CanvasLayer"]
 script = ExtResource("1_5pybe")
+is_hideable = null
+should_block_interaction = null
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 15
@@ -345,11 +350,21 @@ script = ExtResource("5_vyjih")
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/PartyMemberPanel"]
 layout_mode = 0
-offset_left = 35.0
-offset_top = 12.0
-offset_right = 409.0
-offset_bottom = 573.0
+offset_left = 17.0
+offset_top = 7.0
+offset_right = 422.0
+offset_bottom = 568.0
 texture = ExtResource("6_dl4o0")
+expand_mode = 4
+
+[node name="CharacterNameLabel" type="Label" parent="VBoxContainer/PanelContainer/PartyMemberPanel"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 478.0
+offset_right = 374.0
+offset_bottom = 533.0
+text = "Character Name"
+label_settings = SubResource("LabelSettings_u6lhc")
 
 [node name="Panel" type="Panel" parent="VBoxContainer/PanelContainer/PartyMemberPanel"]
 layout_mode = 0

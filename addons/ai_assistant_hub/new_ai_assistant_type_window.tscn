@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c3wrcre1ryiin"]
 
-[ext_resource type="Script" path="res://addons/ai_assistant_hub/new_ai_assistant_type_window.gd" id="1_iekrh"]
+[ext_resource type="Script" uid="uid://bilppo8cep20b" path="res://addons/ai_assistant_hub/new_ai_assistant_type_window.gd" id="1_iekrh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a3a21"]
 bg_color = Color(0.21, 0.24, 0.29, 1)

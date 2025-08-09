@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="QuestResource" load_steps=7 format=3 uid="uid://bnepuv1crujc5"]
 
-[ext_resource type="Script" path="res://Scripts/Quests/QuestObjective.gd" id="1_6ql8u"]
-[ext_resource type="Script" path="res://Scripts/Quests/QuestRequirement.gd" id="2_30iqj"]
-[ext_resource type="Script" path="res://Scripts/Quests/Tasks/Task.gd" id="3_ktikc"]
-[ext_resource type="Script" path="res://Scripts/Quests/Rewards/QuestReward.gd" id="4_ii827"]
-[ext_resource type="Script" path="res://Scripts/Quests/QuestResource.gd" id="4_n8km2"]
+[ext_resource type="Script" uid="uid://babkqh1s5chn8" path="res://Scripts/Quests/QuestObjective.gd" id="1_6ql8u"]
+[ext_resource type="Script" uid="uid://8t3kdf2qhqxh" path="res://Scripts/Quests/QuestRequirement.gd" id="2_30iqj"]
+[ext_resource type="Script" uid="uid://dcpah03xaq5q5" path="res://Scripts/Quests/Tasks/Task.gd" id="3_ktikc"]
+[ext_resource type="Script" uid="uid://1ojy0kv8q1m2" path="res://Scripts/Quests/Rewards/QuestReward.gd" id="4_ii827"]
+[ext_resource type="Script" uid="uid://cx88o17wf8aq3" path="res://Scripts/Quests/QuestResource.gd" id="4_n8km2"]
 
 [sub_resource type="Resource" id="Resource_h4qte"]
 script = ExtResource("2_30iqj")

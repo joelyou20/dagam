@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c02lm5l8cumod"]
 
-[ext_resource type="Script" path="res://Scripts/Battle/BattleItemsUI.gd" id="1_bpo0m"]
+[ext_resource type="Script" uid="uid://ded6jjgwegn3x" path="res://Scripts/Battle/BattleItemsUI.gd" id="1_bpo0m"]
 [ext_resource type="Texture2D" uid="uid://di0gdy04vom17" path="res://Assets/Sprites/BattleItemsUI.png" id="1_yq220"]
 [ext_resource type="Texture2D" uid="uid://cmglkaqbcvq7p" path="res://Assets/Sprites/Gold01.png" id="2_4d0iv"]
 

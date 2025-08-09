@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://djnyy262e778e"]
 
-[ext_resource type="Script" path="res://Scripts/Controllers/PlayerController.gd" id="1_vbw1c"]
+[ext_resource type="Script" uid="uid://hhrtl6dy7dx7" path="res://Scripts/Controllers/PlayerController.gd" id="1_vbw1c"]
 [ext_resource type="Texture2D" uid="uid://oma61eo6wvaj" path="res://Assets/Sprites/Player.png" id="2_qouwo"]
-[ext_resource type="Script" path="res://Scripts/Player/PlayerCamera.gd" id="3_bssik"]
-[ext_resource type="Script" path="res://Scripts/Player/PlayerMovement.gd" id="4_etmuc"]
-[ext_resource type="Script" path="res://Scripts/Player/PlayerInteract.gd" id="5_c7lcn"]
+[ext_resource type="Script" uid="uid://bugps7ibmist8" path="res://Scripts/Player/PlayerCamera.gd" id="3_bssik"]
+[ext_resource type="Script" uid="uid://8jfhxy6j17v0" path="res://Scripts/Player/PlayerMovement.gd" id="4_etmuc"]
+[ext_resource type="Script" uid="uid://dgi650rjvf7jo" path="res://Scripts/Player/PlayerInteract.gd" id="5_c7lcn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sassp"]
 size = Vector3(0.280029, 0.278374, 0.268194)

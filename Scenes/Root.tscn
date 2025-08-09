@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bnt6fh6ndihdl"]
 
-[ext_resource type="Script" path="res://Scripts/Controllers/WorldController.gd" id="1_rfg43"]
+[ext_resource type="Script" uid="uid://cg7ar7p8s1n56" path="res://Scripts/Controllers/WorldController.gd" id="1_rfg43"]
 [ext_resource type="PackedScene" uid="uid://djnyy262e778e" path="res://Scenes/Player.tscn" id="2_21pou"]
 
 [node name="World" type="Node3D"]

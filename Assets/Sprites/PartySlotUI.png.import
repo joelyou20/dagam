@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdohsolq73efu"
-path="res://.godot/imported/CharacterSheetUI.png-a54db44a9be133bd3e5cd8ed36a34a27.ctex"
+uid="uid://bc00hq01nm0lu"
+path="res://.godot/imported/PartySlotUI.png-27b0881c164b59ce343185d01d593b4d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/CharacterSheetUI.png"
-dest_files=["res://.godot/imported/CharacterSheetUI.png-a54db44a9be133bd3e5cd8ed36a34a27.ctex"]
+source_file="res://Assets/Sprites/PartySlotUI.png"
+dest_files=["res://.godot/imported/PartySlotUI.png-27b0881c164b59ce343185d01d593b4d.ctex"]
 
 [params]
 

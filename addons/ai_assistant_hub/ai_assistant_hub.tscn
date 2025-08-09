@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://w1f4dho35qy2"]
 
-[ext_resource type="Script" path="res://addons/ai_assistant_hub/ai_assistant_hub.gd" id="1_x668t"]
+[ext_resource type="Script" uid="uid://dqpf3tih47ju2" path="res://addons/ai_assistant_hub/ai_assistant_hub.gd" id="1_x668t"]
 [ext_resource type="Texture2D" uid="uid://tvel41eepthx" path="res://addons/ai_assistant_hub/graphics/icons/Reload.svg" id="2_6xner"]
 [ext_resource type="Texture2D" uid="uid://cb745elrh1ukv" path="res://addons/ai_assistant_hub/graphics/icons/Add.svg" id="3_57y2f"]
 

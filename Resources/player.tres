@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="PlayerResource" load_steps=5 format=3 uid="uid://c51v2wekosbei"]
 
-[ext_resource type="Script" path="res://Scripts/Items/ItemResource.gd" id="1_0r2kq"]
+[ext_resource type="Script" uid="uid://c5dsuhmbwtnt3" path="res://Scripts/Items/ItemResource.gd" id="1_0r2kq"]
 [ext_resource type="Texture2D" uid="uid://oma61eo6wvaj" path="res://Assets/Sprites/Player.png" id="2_dl0fr"]
-[ext_resource type="Script" path="res://Scripts/Player/PlayerResource.gd" id="2_g44d1"]
+[ext_resource type="Script" uid="uid://bal7h756ivr6v" path="res://Scripts/Player/PlayerResource.gd" id="2_g44d1"]
 [ext_resource type="PackedScene" uid="uid://c3wpmo7sha5w6" path="res://Scenes/Battlers/Player_Battler.tscn" id="3_ndw08"]
 
 [resource]

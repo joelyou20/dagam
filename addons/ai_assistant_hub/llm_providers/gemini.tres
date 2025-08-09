@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="LLMProviderResource" load_steps=2 format=3 uid="uid://b0fti7g31ugs1"]
 
-[ext_resource type="Script" path="res://addons/ai_assistant_hub/llm_providers/llm_provider_resource.gd" id="1_8xs8o"]
+[ext_resource type="Script" uid="uid://65litr3chkr0" path="res://addons/ai_assistant_hub/llm_providers/llm_provider_resource.gd" id="1_8xs8o"]
 
 [resource]
 script = ExtResource("1_8xs8o")

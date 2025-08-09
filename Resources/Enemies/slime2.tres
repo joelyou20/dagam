@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="EnemyResource" load_steps=3 format=3 uid="uid://cq1etn2nutffk"]
 
-[ext_resource type="Script" path="res://Scripts/Enemy/EnemyResource.gd" id="1_tj0cx"]
+[ext_resource type="Script" uid="uid://doevgt28cl0oa" path="res://Scripts/Enemy/EnemyResource.gd" id="1_tj0cx"]
 [ext_resource type="PackedScene" uid="uid://k6rr2odh851c" path="res://Scenes/Enemies/Slime_Battler.tscn" id="2_knp4h"]
 
 [resource]
@@ -13,3 +13,4 @@ attack_power = 5
 visual_scene = ExtResource("2_knp4h")
 slot_number = 2
 battle_scale = 0.25
+xp_reward = 10
