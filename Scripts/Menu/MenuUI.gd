@@ -7,10 +7,7 @@ class_name MenuUI
 	"Inventory": $VBoxContainer/PanelContainer/InventoryPanel,
 	"Formation": $VBoxContainer/PanelContainer/FormationPanel,
 	"Options": $VBoxContainer/PanelContainer/OptionsPanel,
-	"PartyMember1": $VBoxContainer/PanelContainer/PartyMemberPanel,
-	"PartyMember2": $VBoxContainer/PanelContainer/PartyMemberPanel,
-	"PartyMember3": $VBoxContainer/PanelContainer/PartyMemberPanel,
-	"PartyMember4": $VBoxContainer/PanelContainer/PartyMemberPanel
+	"PartyMember": $VBoxContainer/PanelContainer/PartyMemberPanel,
 }
 
 func _ready():
@@ -35,17 +32,20 @@ func show_panel(tab: MenuTabs.Tab):
 		if content_panels["Party"].has_method("update_party_display"):
 			content_panels["Party"].update_party_display()
 	if tab == MenuTabs.Tab.PARTYMEMBER1:
-		if content_panels["PartyMember1"].has_method("update_party_member_display"):
-			content_panels["PartyMember1"].update_party_member_display(1)
+		MenuManager.set_current_party_member_menu_index(1)
+		if content_panels["PartyMember"].has_method("update_party_member_display"):
+			content_panels["PartyMember"].update_party_member_display(1)
 	if tab == MenuTabs.Tab.PARTYMEMBER2:
-		if content_panels["PartyMember2"].has_method("update_party_member_display"):
-			content_panels["PartyMember2"].update_party_member_display(2)
+		MenuManager.set_current_party_member_menu_index(2)
+		if content_panels["PartyMember"].has_method("update_party_member_display"):
+			content_panels["PartyMember"].update_party_member_display(2)
 	if tab == MenuTabs.Tab.PARTYMEMBER3:
-		if content_panels["PartyMember3"].has_method("update_party_member_display"):
-			content_panels["PartyMember3"].update_party_member_display(3)
+		MenuManager.set_current_party_member_menu_index(3)
+		if content_panels["PartyMember"].has_method("update_party_member_display"):
+			content_panels["PartyMember"].update_party_member_display(3)
 	if tab == MenuTabs.Tab.PARTYMEMBER4:
-		if content_panels["PartyMember4"].has_method("update_party_member_display"):
-			content_panels["PartyMember4"].update_party_member_display(4)
+		MenuManager.set_current_party_member_menu_index(4)
+		if content_panels["PartyMember"].has_method("update_party_member_display"):
+			content_panels["PartyMember"].update_party_member_display(4)
 		
-
 	show_ui()

@@ -32,8 +32,6 @@ texture = ExtResource("4_a7jjd")
 
 [node name="MenuUI" type="CanvasLayer"]
 script = ExtResource("1_5pybe")
-is_hideable = null
-should_block_interaction = null
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 15

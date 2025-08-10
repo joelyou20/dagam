@@ -4,6 +4,7 @@ extends Node
 
 var menu_ui: MenuUI = null
 var current_tab: MenuTabs.Tab = MenuTabs.Tab.UNSET
+var current_party_member_menu_index: int = 0
 
 signal party_tab_open
 signal skills_tab_open
@@ -13,6 +14,9 @@ signal options_tab_open
 
 func hide_menu():
 	set_menu(false)
+	
+func set_current_party_member_menu_index(index: int):
+	current_party_member_menu_index = index
 
 func toggle_menu(tab: MenuTabs.Tab = MenuTabs.Tab.UNSET):
 	var menu_open = menu_ui and menu_ui.visible
