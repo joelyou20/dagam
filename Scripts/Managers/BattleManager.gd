@@ -69,20 +69,11 @@ func ensure_battle_ui():
 		get_tree().get_root().add_child(battle_ui)
 		battle_ui.tree_exited.connect(func(): battle_ui = null)
 
-func map_resource_to_unit(source: Resource, unit_type: Unit.UnitType) -> Unit:
+func map_resource_to_unit(source: EntityResource, unit_type: Unit.UnitType) -> Unit:
 	var unit = Unit.new()
-	unit.id = source.id
-	unit.title = source.name
-	unit.max_hp = source.max_hp
-	unit.current_hp = source.max_hp
-	unit.speed = source.speed
-	unit.attack_power = source.attack_power
-	unit.is_player_controlled = unit_type == Unit.UnitType.PLAYER
-	unit.type = unit_type
-	unit.slot_number = source.slot_number
-	unit.visual_scene = source.visual_scene
-	unit.battle_scale = source.battle_scale
 	unit.resource = source
+	unit.type = unit_type
+	
 	return unit
 
 func place_units(slots: Array[UnitSlot]):
@@ -94,26 +85,26 @@ func place_units(slots: Array[UnitSlot]):
 		unit = null
 		if slot.type == UnitSlot.UnitSlotType.ALLY:
 			for slot_unit in ally_units:
-				if slot_unit.slot_number == slot.slot_number:
+				if slot_unit.resource.slot_number == slot.slot_number:
 					unit = slot_unit
 					place_unit_in_slot(unit, slot)
 					break
 		elif slot.type == UnitSlot.UnitSlotType.ENEMY:
 			for slot_unit in enemy_units:
-				if slot_unit.slot_number == slot.slot_number:
+				if slot_unit.resource.slot_number == slot.slot_number:
 					unit = slot_unit
 					place_unit_in_slot(unit, slot)
 					break
 		if unit == null:
 			continue
 		
-func place_unit_in_slot(unit_instance, slot: UnitSlot):
-	slot.add_child(unit_instance)
+func place_unit_in_slot(unit: Unit, slot: UnitSlot):
+	slot.add_child(unit)
 
-	var vis = unit_instance.visual_scene.instantiate()
+	var vis = unit.resource.visual_scene.instantiate()
 	slot.node.add_child(vis)
 	vis.transform = Transform3D.IDENTITY  # Or set local position manually
-	vis.scale = Vector3.ONE * unit_instance.battle_scale
+	vis.scale = Vector3.ONE * unit.resource.battle_scale
 	
 	# Look for any Area3D children that were added to the slot (not just unit_instance children)
 	for child in slot.get_children():
@@ -121,7 +112,7 @@ func place_unit_in_slot(unit_instance, slot: UnitSlot):
 			child.input_ray_pickable = false
 			print("Disabled input on: ", child.name)
 	
-	slot.unit = unit_instance
+	slot.unit = unit
 
 func start_targeting(action: BattleAction):
 	is_targeting_mode = true
@@ -142,15 +133,29 @@ func select_target(target_unit):
 		end_targeting()
 	else:
 		# Regular selection without targeting
-		print("Selected unit: ", target_unit.name)
+		print("Selected unit: ", target_unit.resource.name)
 
+# TODO: Expand on this when I implement skills and weapon types
 func execute_action(action: BattleAction, target: Unit):
 	match action.get_action_type():
 		BattleAction.ActionType.ATTACK:
 			var source_slot = action.get_source_slot()
 			var source_unit = ally_units[source_slot - 1]
-			target.take_damage(source_unit.attack_power)
-			print(target.title + " took " + str(source_unit.attack_power) + " points of damage!")
+			
+			var phys_atk = (
+				EquipmentManager.get_equip_stats(source_unit.resource)[StatOptions.Keys.PHYS_ATK] 
+				if source_unit.type != Unit.UnitType.ENEMY 
+				else source_unit.resource.physical_attack
+			) 
+			var phys_def = (
+				EquipmentManager.get_equip_stats(target.resource)[StatOptions.Keys.PHYS_DEF]
+				if source_unit.type != Unit.UnitType.ENEMY 
+				else source_unit.resource.physical_defense
+			) 
+			
+			var damage_taken = phys_atk - phys_def
+			target.take_damage(damage_taken)
+			print(target.resource.name + " took " + str(damage_taken) + " points of damage!")
 			_check_battle_end()
 
 		BattleAction.ActionType.ITEM:
@@ -159,8 +164,9 @@ func execute_action(action: BattleAction, target: Unit):
 			_check_battle_end()
 
 func _apply_item_to_target(item: ItemResource, target: Unit):
-	print("Using %s on %s" % [item.name, target.title])
-	InventoryManager.use_item_on_unit(item, target)
+	print("Using %s on %s" % [item.name, target.resource.name])
+	if item and target:
+		InventoryManager.use_item(item, target.resource)
 
 func _check_battle_end():
 	var all_enemies_dead := enemy_units.filter(func(u):
@@ -186,17 +192,17 @@ func get_active_unit_slot() -> int:
 func _sync_units_to_resources():
 	for unit in ally_units:
 		var resource
-		if unit.id == PlayerManager.player.id:
+		if unit.resource.id == PlayerManager.player.id:
 			resource = PlayerManager.player
 		else:
-			resource = PartyManager.get_member_by_id(unit.id)
+			resource = PartyManager.get_member_by_id(unit.resource.id)
 
 		if resource:
 			_update_resource_from_unit(resource, unit)
 
 func _update_resource_from_unit(resource: Resource, unit: Unit):
 	# Core combat stats
-	resource.current_hp = unit.current_hp
+	resource.current_hp = unit.resource.current_hp
 	#if "current_mp" in resource and "current_mp" in unit:
 		#resource.current_mp = unit.current_mp
 
@@ -214,10 +220,10 @@ func attempt_to_flee():
 	var flee_chance := 0.5
 	var party_speed := 0
 	for unit in ally_units.filter(func(u): return is_instance_valid(u) && u.is_alive):
-		party_speed += unit.speed
+		party_speed += unit.resource.speed
 	var enemy_speed := 0
 	for unit in enemy_units.filter(func(u): return is_instance_valid(u) && u.is_alive):
-		enemy_speed += unit.speed
+		enemy_speed += unit.resource.speed
 
 	if party_speed > enemy_speed:
 		flee_chance += 0.2

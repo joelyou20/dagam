@@ -9,12 +9,14 @@ func _ready():
 
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_cancel"):
-		menu_manager.toggle_menu(MenuTabs.Tab.OPTIONS)
+		menu_manager.set_menu(true, MenuTabs.Tab.OPTIONS)
 	if event.is_action_pressed("toggle_party_menu"):
-		menu_manager.toggle_menu(MenuTabs.Tab.PARTY)
+		menu_manager.set_menu(true, MenuTabs.Tab.PARTY)
+	if event.is_action_pressed("toggle_equipment_menu"):
+		menu_manager.set_menu(true, MenuTabs.Tab.EQUIPMENT)
 	if event.is_action_pressed("toggle_skills_menu"):
-		menu_manager.toggle_menu(MenuTabs.Tab.SKILLS)
+		menu_manager.set_menu(true, MenuTabs.Tab.SKILLS)
 	if event.is_action_pressed("toggle_inventory_menu"):
-		menu_manager.toggle_menu(MenuTabs.Tab.INVENTORY)
+		menu_manager.set_menu(true, MenuTabs.Tab.INVENTORY)
 	if event.is_action_pressed("toggle_formation_menu"):
-		menu_manager.toggle_menu(MenuTabs.Tab.FORMATION)
+		menu_manager.set_menu(true, MenuTabs.Tab.FORMATION)

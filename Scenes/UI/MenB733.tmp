@@ -1,0 +1,1042 @@
+[gd_scene load_steps=22 format=3 uid="uid://bxts40rxkdroj"]
+
+[ext_resource type="Script" path="res://Scripts/Menu/MenuUI.gd" id="1_5pybe"]
+[ext_resource type="Texture2D" uid="uid://dianihvujteoj" path="res://Assets/Sprites/LoadButton.png" id="2_xcc2d"]
+[ext_resource type="Script" path="res://Scripts/Party/PartyUI.gd" id="3_f2x2b"]
+[ext_resource type="Script" path="res://Scripts/Inventory/InventoryUI.gd" id="3_j8hvn"]
+[ext_resource type="Script" path="res://Scripts/Menu/MenuButton.Load.gd" id="3_r5rcx"]
+[ext_resource type="Texture2D" uid="uid://bc00hq01nm0lu" path="res://Assets/Sprites/PartySlotUI.png" id="3_yhyh1"]
+[ext_resource type="Texture2D" uid="uid://bsb6kd1abl1h2" path="res://Assets/Sprites/Inventory.png" id="4_a7jjd"]
+[ext_resource type="Script" path="res://Scripts/Menu/MenuButton.Save.gd" id="4_mau8r"]
+[ext_resource type="Script" path="res://Scripts/Menu/MenuButton.Quit.gd" id="5_3tx52"]
+[ext_resource type="Script" path="res://Scripts/Party/PartyMemberUI.gd" id="5_vyjih"]
+[ext_resource type="Texture2D" uid="uid://oma61eo6wvaj" path="res://Assets/Sprites/Player.png" id="6_dl4o0"]
+[ext_resource type="Texture2D" uid="uid://dh5ftrtgql1c2" path="res://Assets/Sprites/MenuTopNav.png" id="6_vtt8k"]
+[ext_resource type="Texture2D" uid="uid://cdohsolq73efu" path="res://Assets/Sprites/PartyMemberUI.png" id="7_058j1"]
+[ext_resource type="Texture2D" uid="uid://cmglkaqbcvq7p" path="res://Assets/Sprites/Gold01.png" id="8_4jvtp"]
+[ext_resource type="Script" path="res://Scripts/Items/Equipment/EquipmentUI.gd" id="9_j4frc"]
+[ext_resource type="Texture2D" uid="uid://rxoabv8vn3kc" path="res://Assets/Sprites/Arrow_Up.png" id="9_sjgj7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c61nn"]
+texture = ExtResource("6_vtt8k")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p2shj"]
+texture = ExtResource("3_yhyh1")
+
+[sub_resource type="LabelSettings" id="LabelSettings_u6lhc"]
+font_size = 40
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ub1fs"]
+texture = ExtResource("7_058j1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rgl5l"]
+texture = ExtResource("4_a7jjd")
+
+[node name="MenuUI" type="CanvasLayer"]
+script = ExtResource("1_5pybe")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuTopNav" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_c61nn")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MenuTopNav"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PartyButton" type="Button" parent="VBoxContainer/MenuTopNav/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Party"
+flat = true
+
+[node name="EquipmentButton" type="Button" parent="VBoxContainer/MenuTopNav/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Equip"
+flat = true
+
+[node name="SkillsButton" type="Button" parent="VBoxContainer/MenuTopNav/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Skills"
+flat = true
+
+[node name="InventoryButton" type="Button" parent="VBoxContainer/MenuTopNav/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Inventory"
+flat = true
+
+[node name="FormationButton" type="Button" parent="VBoxContainer/MenuTopNav/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Formation"
+flat = true
+
+[node name="NA" type="Button" parent="VBoxContainer/MenuTopNav/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+flat = true
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer/MenuTopNav/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Options"
+flat = true
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PartyPanel" type="Panel" parent="VBoxContainer/PanelContainer"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 100)
+layout_direction = 1
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("3_f2x2b")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/PartyPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = 10.0
+offset_right = -12.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PartyMember1" type="Button" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+flat = true
+
+[node name="Panel" type="Panel" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer/PartyMember1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_p2shj")
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer/PartyMember1/Panel"]
+position = Vector2(131, 202.271)
+scale = Vector2(20, 27.9612)
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer/PartyMember1/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.022
+anchor_top = 0.707
+anchor_right = 0.022
+anchor_bottom = 0.707
+offset_left = -0.138
+offset_top = 0.181976
+offset_right = 265.862
+offset_bottom = 159.182
+
+[node name="NameLabel" type="Label" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer/PartyMember1/Panel/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Name"
+
+[node name="ExperienceLabel" type="Label" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer/PartyMember1/Panel/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Experience
+"
+
+[node name="LevelLabel" type="Label" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer/PartyMember1/Panel/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Level"
+
+[node name="HealthLabel" type="Label" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer/PartyMember1/Panel/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Health
+"
+
+[node name="PartyMember2" type="Button" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+flat = true
+
+[node name="Panel" type="Panel" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer/PartyMember2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_p2shj")
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer/PartyMember2/Panel"]
+position = Vector2(131, 202.271)
+scale = Vector2(20, 27.9612)
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer/PartyMember2/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.022
+anchor_top = 0.707
+anchor_right = 0.022
+anchor_bottom = 0.707
+offset_left = -0.138
+offset_top = 0.181976
+offset_right = 265.862
+offset_bottom = 159.182
+
+[node name="NameLabel" type="Label" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer/PartyMember2/Panel/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Name"
+
+[node name="ExperienceLabel" type="Label" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer/PartyMember2/Panel/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Experience
+"
+
+[node name="LevelLabel" type="Label" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer/PartyMember2/Panel/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Level"
+
+[node name="HealthLabel" type="Label" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer/PartyMember2/Panel/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Health
+"
+
+[node name="PartyMember3" type="Button" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+flat = true
+
+[node name="Panel" type="Panel" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer/PartyMember3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_p2shj")
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer/PartyMember3/Panel"]
+position = Vector2(131, 202.271)
+scale = Vector2(20, 27.9612)
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer/PartyMember3/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.022
+anchor_top = 0.707
+anchor_right = 0.022
+anchor_bottom = 0.707
+offset_left = -0.138
+offset_top = 0.181976
+offset_right = 265.862
+offset_bottom = 159.182
+
+[node name="NameLabel" type="Label" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer/PartyMember3/Panel/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Name"
+
+[node name="ExperienceLabel" type="Label" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer/PartyMember3/Panel/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Experience
+"
+
+[node name="LevelLabel" type="Label" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer/PartyMember3/Panel/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Level"
+
+[node name="HealthLabel" type="Label" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer/PartyMember3/Panel/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Health
+"
+
+[node name="PartyMember4" type="Button" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+flat = true
+
+[node name="Panel" type="Panel" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer/PartyMember4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_p2shj")
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer/PartyMember4/Panel"]
+position = Vector2(131, 202.271)
+scale = Vector2(20, 27.9612)
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer/PartyMember4/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.022
+anchor_top = 0.707
+anchor_right = 0.022
+anchor_bottom = 0.707
+offset_left = -0.138
+offset_top = 0.181976
+offset_right = 265.862
+offset_bottom = 159.182
+
+[node name="NameLabel" type="Label" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer/PartyMember4/Panel/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Name"
+
+[node name="ExperienceLabel" type="Label" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer/PartyMember4/Panel/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Experience
+"
+
+[node name="LevelLabel" type="Label" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer/PartyMember4/Panel/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Level"
+
+[node name="HealthLabel" type="Label" parent="VBoxContainer/PanelContainer/PartyPanel/HBoxContainer/PartyMember4/Panel/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Health
+"
+
+[node name="PartyMemberPanel" type="Panel" parent="VBoxContainer/PanelContainer"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 100)
+layout_direction = 1
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("5_vyjih")
+
+[node name="PortraitTextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/PartyMemberPanel"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 7.0
+offset_right = 422.0
+offset_bottom = 568.0
+texture = ExtResource("6_dl4o0")
+expand_mode = 4
+
+[node name="CharacterNameLabel" type="Label" parent="VBoxContainer/PanelContainer/PartyMemberPanel"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 478.0
+offset_right = 374.0
+offset_bottom = 533.0
+text = "Character Name"
+label_settings = SubResource("LabelSettings_u6lhc")
+
+[node name="LevelKeyLabel" type="Label" parent="VBoxContainer/PanelContainer/PartyMemberPanel"]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 541.0
+offset_right = 111.0
+offset_bottom = 564.0
+text = "Level: "
+
+[node name="LevelValueLabel" type="Label" parent="VBoxContainer/PanelContainer/PartyMemberPanel"]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 541.0
+offset_right = 148.0
+offset_bottom = 564.0
+text = "0"
+
+[node name="ExpKeyLabel" type="Label" parent="VBoxContainer/PanelContainer/PartyMemberPanel"]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 540.0
+offset_right = 215.0
+offset_bottom = 563.0
+text = "Exp: "
+
+[node name="ExpValueLabel" type="Label" parent="VBoxContainer/PanelContainer/PartyMemberPanel"]
+layout_mode = 0
+offset_left = 212.0
+offset_top = 540.0
+offset_right = 252.0
+offset_bottom = 563.0
+text = "0/0"
+
+[node name="HpKeyLabel" type="Label" parent="VBoxContainer/PanelContainer/PartyMemberPanel"]
+layout_mode = 0
+offset_left = 302.0
+offset_top = 541.0
+offset_right = 342.0
+offset_bottom = 564.0
+text = "HP: "
+
+[node name="HpValueLabel" type="Label" parent="VBoxContainer/PanelContainer/PartyMemberPanel"]
+layout_mode = 0
+offset_left = 332.0
+offset_top = 540.0
+offset_right = 372.0
+offset_bottom = 563.0
+text = "0/0"
+
+[node name="Panel" type="Panel" parent="VBoxContainer/PanelContainer/PartyMemberPanel"]
+layout_mode = 0
+offset_left = 434.0
+offset_top = 9.0
+offset_right = 1141.0
+offset_bottom = 579.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ub1fs")
+
+[node name="EquipmentLabel" type="Label" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 10.0
+offset_right = 265.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Equipment"
+
+[node name="StatsLabel" type="Label" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel"]
+layout_mode = 0
+offset_left = 303.0
+offset_top = 401.0
+offset_right = 381.0
+offset_bottom = 424.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Stats"
+
+[node name="SkillsLabel" type="Label" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel"]
+layout_mode = 0
+offset_left = 305.0
+offset_top = 5.0
+offset_right = 345.0
+offset_bottom = 28.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Skills"
+
+[node name="EquipmentContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 34.0
+offset_right = 264.0
+offset_bottom = 558.0
+
+[node name="HeadContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel/EquipmentContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel/EquipmentContainer/HeadContainer"]
+layout_mode = 2
+texture = ExtResource("8_4jvtp")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel/EquipmentContainer/HeadContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Head"
+
+[node name="ChestContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel/EquipmentContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel/EquipmentContainer/ChestContainer"]
+layout_mode = 2
+texture = ExtResource("8_4jvtp")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel/EquipmentContainer/ChestContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Chest"
+
+[node name="BackContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel/EquipmentContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel/EquipmentContainer/BackContainer"]
+layout_mode = 2
+texture = ExtResource("8_4jvtp")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel/EquipmentContainer/BackContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Back"
+
+[node name="FeetContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel/EquipmentContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel/EquipmentContainer/FeetContainer"]
+layout_mode = 2
+texture = ExtResource("8_4jvtp")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel/EquipmentContainer/FeetContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Feet"
+
+[node name="HandsContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel/EquipmentContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel/EquipmentContainer/HandsContainer"]
+layout_mode = 2
+texture = ExtResource("8_4jvtp")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel/EquipmentContainer/HandsContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Hands"
+
+[node name="MainWeaponContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel/EquipmentContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel/EquipmentContainer/MainWeaponContainer"]
+layout_mode = 2
+texture = ExtResource("8_4jvtp")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel/EquipmentContainer/MainWeaponContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Main Weapon"
+
+[node name="OffhandWeaponContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel/EquipmentContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel/EquipmentContainer/OffhandWeaponContainer"]
+layout_mode = 2
+texture = ExtResource("8_4jvtp")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel/EquipmentContainer/OffhandWeaponContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Off-hand Weapon"
+
+[node name="DescriptionKeyLabel" type="Label" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel"]
+layout_mode = 0
+offset_left = 305.0
+offset_top = 241.0
+offset_right = 394.0
+offset_bottom = 264.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Description"
+
+[node name="DescriptionValueLabel" type="Label" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel"]
+layout_mode = 0
+offset_left = 305.0
+offset_top = 266.0
+offset_right = 694.0
+offset_bottom = 400.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Text"
+
+[node name="StatsContainer" type="GridContainer" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel"]
+layout_mode = 0
+offset_left = 303.0
+offset_top = 426.0
+offset_right = 697.0
+offset_bottom = 561.0
+
+[node name="SpeedContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel/StatsContainer"]
+layout_mode = 2
+
+[node name="SpeedKeyLabel" type="Label" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel/StatsContainer/SpeedContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Speed: "
+
+[node name="SpeedValueLabel" type="Label" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel/StatsContainer/SpeedContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "0"
+
+[node name="PhysAtkContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel/StatsContainer"]
+layout_mode = 2
+
+[node name="PhysAtkKeyLabel" type="Label" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel/StatsContainer/PhysAtkContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Physical Attack: "
+
+[node name="PhysAtkValueLabel" type="Label" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel/StatsContainer/PhysAtkContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "0"
+
+[node name="PhysDefContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel/StatsContainer"]
+layout_mode = 2
+
+[node name="PhysDefKeyLabel" type="Label" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel/StatsContainer/PhysDefContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Physical Defense: "
+
+[node name="PhysDefValueLabel" type="Label" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel/StatsContainer/PhysDefContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "0"
+
+[node name="MagAtkContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel/StatsContainer"]
+layout_mode = 2
+
+[node name="MagAtkKeyLabel" type="Label" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel/StatsContainer/MagAtkContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Magical Attack: "
+
+[node name="MagAtkValueLabel" type="Label" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel/StatsContainer/MagAtkContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "0"
+
+[node name="MagDefContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel/StatsContainer"]
+layout_mode = 2
+
+[node name="MagDefKeyLabel" type="Label" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel/StatsContainer/MagDefContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Magical Defense: "
+
+[node name="MagDefValueLabel" type="Label" parent="VBoxContainer/PanelContainer/PartyMemberPanel/Panel/StatsContainer/MagDefContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "0"
+
+[node name="EquipmentPanel" type="Panel" parent="VBoxContainer/PanelContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+script = ExtResource("9_j4frc")
+
+[node name="PortraitTextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/EquipmentPanel"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 7.0
+offset_right = 422.0
+offset_bottom = 568.0
+texture = ExtResource("6_dl4o0")
+expand_mode = 4
+
+[node name="NextPartyMemberButton" type="Button" parent="VBoxContainer/PanelContainer/EquipmentPanel"]
+layout_mode = 0
+offset_left = 343.0
+offset_top = 455.0
+offset_right = 420.0
+offset_bottom = 487.0
+text = "Next"
+
+[node name="PreviousPartyMemberButton" type="Button" parent="VBoxContainer/PanelContainer/EquipmentPanel"]
+offset_left = 21.0
+offset_top = 455.0
+offset_right = 98.0
+offset_bottom = 487.0
+text = "Previous"
+
+[node name="CharacterNameLabel" type="Label" parent="VBoxContainer/PanelContainer/EquipmentPanel"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 478.0
+offset_right = 374.0
+offset_bottom = 533.0
+text = "Character Name"
+label_settings = SubResource("LabelSettings_u6lhc")
+
+[node name="LevelKeyLabel" type="Label" parent="VBoxContainer/PanelContainer/EquipmentPanel"]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 541.0
+offset_right = 111.0
+offset_bottom = 564.0
+text = "Level: "
+
+[node name="LevelValueLabel" type="Label" parent="VBoxContainer/PanelContainer/EquipmentPanel"]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 541.0
+offset_right = 148.0
+offset_bottom = 564.0
+text = "0"
+
+[node name="ExpKeyLabel" type="Label" parent="VBoxContainer/PanelContainer/EquipmentPanel"]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 540.0
+offset_right = 215.0
+offset_bottom = 563.0
+text = "Exp: "
+
+[node name="ExpValueLabel" type="Label" parent="VBoxContainer/PanelContainer/EquipmentPanel"]
+layout_mode = 0
+offset_left = 212.0
+offset_top = 540.0
+offset_right = 252.0
+offset_bottom = 563.0
+text = "0/0"
+
+[node name="HpKeyLabel" type="Label" parent="VBoxContainer/PanelContainer/EquipmentPanel"]
+layout_mode = 0
+offset_left = 302.0
+offset_top = 541.0
+offset_right = 342.0
+offset_bottom = 564.0
+text = "HP: "
+
+[node name="HpValueLabel" type="Label" parent="VBoxContainer/PanelContainer/EquipmentPanel"]
+layout_mode = 0
+offset_left = 332.0
+offset_top = 540.0
+offset_right = 372.0
+offset_bottom = 563.0
+text = "0/0"
+
+[node name="Panel" type="Panel" parent="VBoxContainer/PanelContainer/EquipmentPanel"]
+layout_mode = 0
+offset_left = 434.0
+offset_top = 9.0
+offset_right = 1141.0
+offset_bottom = 579.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ub1fs")
+
+[node name="EquipmentLabel" type="Label" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 10.0
+offset_right = 265.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Equipment"
+
+[node name="EquipmentContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 34.0
+offset_right = 264.0
+offset_bottom = 558.0
+
+[node name="HeadContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel/EquipmentContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel/EquipmentContainer/HeadContainer"]
+layout_mode = 2
+texture = ExtResource("8_4jvtp")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel/EquipmentContainer/HeadContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Head"
+
+[node name="ChestContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel/EquipmentContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel/EquipmentContainer/ChestContainer"]
+layout_mode = 2
+texture = ExtResource("8_4jvtp")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel/EquipmentContainer/ChestContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Chest"
+
+[node name="BackContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel/EquipmentContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel/EquipmentContainer/BackContainer"]
+layout_mode = 2
+texture = ExtResource("8_4jvtp")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel/EquipmentContainer/BackContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Back"
+
+[node name="FeetContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel/EquipmentContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel/EquipmentContainer/FeetContainer"]
+layout_mode = 2
+texture = ExtResource("8_4jvtp")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel/EquipmentContainer/FeetContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Feet"
+
+[node name="HandsContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel/EquipmentContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel/EquipmentContainer/HandsContainer"]
+layout_mode = 2
+texture = ExtResource("8_4jvtp")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel/EquipmentContainer/HandsContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Hands"
+
+[node name="MainWeaponContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel/EquipmentContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel/EquipmentContainer/MainWeaponContainer"]
+layout_mode = 2
+texture = ExtResource("8_4jvtp")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel/EquipmentContainer/MainWeaponContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Main Weapon"
+
+[node name="OffhandWeaponContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel/EquipmentContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel/EquipmentContainer/OffhandWeaponContainer"]
+layout_mode = 2
+texture = ExtResource("8_4jvtp")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel/EquipmentContainer/OffhandWeaponContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Off-hand Weapon"
+
+[node name="EquipReplaceContainer" type="GridContainer" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel"]
+layout_mode = 0
+offset_left = 303.0
+offset_top = 5.0
+offset_right = 697.0
+offset_bottom = 200.0
+
+[node name="DescriptionKeyLabel" type="Label" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel"]
+layout_mode = 0
+offset_left = 305.0
+offset_top = 241.0
+offset_right = 394.0
+offset_bottom = 264.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Description"
+
+[node name="DescriptionValueLabel" type="Label" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel"]
+layout_mode = 0
+offset_left = 305.0
+offset_top = 266.0
+offset_right = 694.0
+offset_bottom = 400.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Text"
+
+[node name="StatsLabel" type="Label" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel"]
+layout_mode = 0
+offset_left = 303.0
+offset_top = 394.0
+offset_right = 343.0
+offset_bottom = 417.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Stats"
+
+[node name="StatsContainer" type="GridContainer" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel"]
+layout_mode = 0
+offset_left = 303.0
+offset_top = 418.0
+offset_right = 697.0
+offset_bottom = 561.0
+
+[node name="SpeedContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel/StatsContainer"]
+layout_mode = 2
+
+[node name="SpeedKeyLabel" type="Label" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel/StatsContainer/SpeedContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Speed: "
+
+[node name="SpeedValueLabel" type="Label" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel/StatsContainer/SpeedContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel/StatsContainer/SpeedContainer"]
+position = Vector2(180, 11)
+texture = ExtResource("9_sjgj7")
+
+[node name="PhysAtkContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel/StatsContainer"]
+layout_mode = 2
+
+[node name="PhysAtkKeyLabel" type="Label" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel/StatsContainer/PhysAtkContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Physical Attack: "
+
+[node name="PhysAtkValueLabel" type="Label" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel/StatsContainer/PhysAtkContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel/StatsContainer/PhysAtkContainer"]
+position = Vector2(180, 11)
+texture = ExtResource("9_sjgj7")
+
+[node name="PhysDefContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel/StatsContainer"]
+layout_mode = 2
+
+[node name="PhysDefKeyLabel" type="Label" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel/StatsContainer/PhysDefContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Physical Defense: "
+
+[node name="PhysDefValueLabel" type="Label" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel/StatsContainer/PhysDefContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel/StatsContainer/PhysDefContainer"]
+position = Vector2(180, 11)
+texture = ExtResource("9_sjgj7")
+
+[node name="MagAtkContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel/StatsContainer"]
+layout_mode = 2
+
+[node name="MagAtkKeyLabel" type="Label" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel/StatsContainer/MagAtkContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Magical Attack: "
+
+[node name="MagAtkValueLabel" type="Label" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel/StatsContainer/MagAtkContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel/StatsContainer/MagAtkContainer"]
+position = Vector2(180, 11)
+texture = ExtResource("9_sjgj7")
+
+[node name="MagDefContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel/StatsContainer"]
+layout_mode = 2
+
+[node name="MagDefKeyLabel" type="Label" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel/StatsContainer/MagDefContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Magical Defense: "
+
+[node name="MagDefValueLabel" type="Label" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel/StatsContainer/MagDefContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/PanelContainer/EquipmentPanel/Panel/StatsContainer/MagDefContainer"]
+position = Vector2(180, 11)
+texture = ExtResource("9_sjgj7")
+
+[node name="SkillsPanel" type="Panel" parent="VBoxContainer/PanelContainer"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 100)
+layout_direction = 1
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="InventoryPanel" type="Panel" parent="VBoxContainer/PanelContainer"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 100)
+layout_direction = 1
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("3_j8hvn")
+
+[node name="Panel" type="Panel" parent="VBoxContainer/PanelContainer/InventoryPanel"]
+layout_mode = 0
+offset_left = 760.0
+offset_top = 16.0
+offset_right = 1114.0
+offset_bottom = 561.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_rgl5l")
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/PanelContainer/InventoryPanel/Panel"]
+z_index = 1
+y_sort_enabled = true
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 343.0
+offset_bottom = 537.0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/InventoryPanel/Panel/GridContainer"]
+layout_mode = 2
+
+[node name="FormationPanel" type="Panel" parent="VBoxContainer/PanelContainer"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 100)
+layout_direction = 1
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="OptionsPanel" type="Panel" parent="VBoxContainer/PanelContainer"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 100)
+layout_direction = 1
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/OptionsPanel"]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 207.0
+offset_right = 760.0
+offset_bottom = 457.0
+
+[node name="LoadButton" type="TextureButton" parent="VBoxContainer/PanelContainer/OptionsPanel/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_xcc2d")
+script = ExtResource("3_r5rcx")
+
+[node name="SaveButton" type="Button" parent="VBoxContainer/PanelContainer/OptionsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Save"
+script = ExtResource("4_mau8r")
+
+[node name="QuitButton" type="Button" parent="VBoxContainer/PanelContainer/OptionsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+script = ExtResource("5_3tx52")

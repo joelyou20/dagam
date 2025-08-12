@@ -21,24 +21,9 @@ func _make_children_ignore_mouse(node: Node) -> void:
 			(child as Control).mouse_filter = Control.MOUSE_FILTER_IGNORE
 		_make_children_ignore_mouse(child)
 
-		
 func _on_member_slot_pressed(index: int):
-	var party_members = PartyManager.get_party()
-
-	var reversed_index = party_members.size() - 1 - index
-	if reversed_index < 0 or reversed_index >= party_members.size():
-		return
-
-	# Transition to character menu and pass selected_member
-	match reversed_index:
-		0:
-			MenuManager.toggle_menu(MenuTabs.Tab.PARTYMEMBER1)
-		1: 
-			MenuManager.toggle_menu(MenuTabs.Tab.PARTYMEMBER2)
-		2:
-			MenuManager.toggle_menu(MenuTabs.Tab.PARTYMEMBER3)
-		3: 
-			MenuManager.toggle_menu(MenuTabs.Tab.PARTYMEMBER4)
+	MenuManager.set_current_party_member_menu_index(index)
+	MenuManager.set_menu(true, MenuTabs.Tab.PARTYMEMBER)
 
 func update_party_display():
 	var party_members = PartyManager.get_party()

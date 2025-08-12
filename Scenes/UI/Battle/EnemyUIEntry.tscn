@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ci7qnhbovhxic"]
 
-[ext_resource type="Script" uid="uid://bbahhqgsnria3" path="res://Scripts/Battle/EnemyUIEntry.gd" id="1_n1l4m"]
+[ext_resource type="Script" path="res://Scripts/Battle/EnemyUIEntry.gd" id="1_n1l4m"]
 
 [node name="EnemyUIEntry" type="HBoxContainer"]
 offset_right = 299.0

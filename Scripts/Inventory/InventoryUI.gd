@@ -8,7 +8,13 @@ func update_slots():
 	for child in slot_container.get_children():
 		child.queue_free()
 		
-	for slot_data in InventoryManager.inventory.slots:
+	var inventory = InventoryManager.get_inventory()
+	
+	if not inventory:
+		push_error("Inventory is not set.")
+		return
+		
+	for slot_data in inventory.slots:
 		if slot_data.item != null:
 			var slot_ui = slot_scene.instantiate()
 			connect_slot_signals(slot_ui)

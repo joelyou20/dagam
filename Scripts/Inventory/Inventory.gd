@@ -1,5 +1,5 @@
 # Inventory.gd
-extends Node3D
+extends Resource
 class_name Inventory
 
 @export var slots: Array[InventorySlotData] = []
@@ -65,3 +65,7 @@ func get_items() -> Array[InventorySlotData]:
 			items.append(slot)
 	
 	return items
+	
+func has_item(item: ItemResource):
+	var items = get_items()
+	return items.any(func(s: InventorySlotData): return s.item.id == item.id)

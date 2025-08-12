@@ -1,22 +1,28 @@
-[gd_resource type="Resource" script_class="AllyResource" load_steps=4 format=3 uid="uid://bj3tyqktewbc4"]
+[gd_resource type="Resource" script_class="AllyResource" load_steps=5 format=3 uid="uid://bj3tyqktewbc4"]
 
+[ext_resource type="Resource" uid="uid://bo34spef0iti" path="res://Resources/Items/Equipment/sword.tres" id="1_800ai"]
 [ext_resource type="Texture2D" uid="uid://y0kswnh5xqr2" path="res://Assets/Sprites/Farmer.png" id="1_ar7i3"]
-[ext_resource type="Script" uid="uid://bnhrnbokxmcca" path="res://Scripts/Ally/AllyResource.gd" id="1_lo07f"]
+[ext_resource type="Script" path="res://Scripts/Ally/AllyResource.gd" id="1_lo07f"]
 [ext_resource type="PackedScene" uid="uid://djka3nauciahy" path="res://Scenes/Battlers/FarmerAlly_Battler.tscn" id="2_spmmy"]
 
 [resource]
 script = ExtResource("1_lo07f")
-id = "farmer"
-name = "Farmer"
-max_hp = 150
-current_hp = 150
-speed = 3
-attack_power = 10
-slot_number = 2
-battle_scale = 1.0
-visual_scene = ExtResource("2_spmmy")
 portrait_texture = ExtResource("1_ar7i3")
-level = 1
 experience = 0
 xp_to_next_level = 100
 xp_growth_rate = 1.2
+main_weapon_equipment = ExtResource("1_800ai")
+id = "farmer"
+name = "Farmer"
+description = "A simple farmer. Hates dogs."
+max_hp = 150
+current_hp = 150
+slot_number = 2
+battle_scale = 1.0
+visual_scene = ExtResource("2_spmmy")
+level = 1
+speed = 3
+physical_attack = 20
+physical_defense = 10
+magical_attack = 5
+magical_defense = 5

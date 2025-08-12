@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://ct3at2avuf5rt"]
+
+[ext_resource type="Texture2D" uid="uid://bjbw07mmo03i" path="res://Assets/Sprites/LeatherCap.png" id="1_ljqm5"]
+[ext_resource type="Script" path="res://Scripts/Items/PickupItem.gd" id="1_rbide"]
+[ext_resource type="Resource" uid="uid://crms00lkiau4q" path="res://Resources/Items/Equipment/leather-cap.tres" id="2_1xqbg"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_o6gdm"]
+radius = 0.138056
+
+[node name="LeatherCap" type="Node3D"]
+script = ExtResource("1_rbide")
+item = ExtResource("2_1xqbg")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+billboard = 1
+texture = ExtResource("1_ljqm5")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_o6gdm")

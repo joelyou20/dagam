@@ -4,7 +4,6 @@ class_name BattleItemsUI
 @onready var vbox_container: VBoxContainer = $Panel/VBoxContainer
 @onready var preview_sprite: Sprite2D = $Panel/GridContainer/HBoxContainer2/SpritePlaceholder/Sprite2D
 @onready var name_label: Label = $Panel/GridContainer/HBoxContainer2/NameLabel
-@onready var type_label: Label = $Panel/GridContainer/HBoxContainer/Label
 @onready var effect_container: Container = $Panel/GridContainer/EffectContainer
 @onready var slot_scene := preload("res://Scenes/UI/Inventory/InventorySlot.tscn")
 
@@ -19,7 +18,6 @@ func clear_ui():
 		child.queue_free()
 	preview_sprite.texture = null
 	name_label.text = ""
-	type_label.text = ""
 	for c in effect_container.get_children():
 		c.queue_free()
 
@@ -46,7 +44,6 @@ func _on_item_hover(slot: InventorySlot):
 	preview_sprite.texture = item.icon
 	preview_sprite.scale = Vector2(0.75, 0.75) # Adjust to your desired size
 	name_label.text = item.name
-	type_label.text = "Type: %s" % EnumHelper.get_name_as_string(ItemData.ItemType, item.item_type)
 
 	# Clear old effect content
 	for c in effect_container.get_children():

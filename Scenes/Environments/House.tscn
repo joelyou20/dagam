@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://65kqyqm52lpl"]
 
 [ext_resource type="Texture2D" uid="uid://1b5m4bpn7ajs" path="res://Assets/Textures/Dirt/Dirt_Metallic.tga" id="1_b1juu"]
-[ext_resource type="Script" uid="uid://bndcf5igadhrs" path="res://Scripts/Utils/Door.gd" id="2_l7vkt"]
+[ext_resource type="Script" path="res://Scripts/Utils/Door.gd" id="2_l7vkt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ffevc"]
 albedo_texture = ExtResource("1_b1juu")

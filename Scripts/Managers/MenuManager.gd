@@ -7,6 +7,7 @@ var current_tab: MenuTabs.Tab = MenuTabs.Tab.UNSET
 var current_party_member_menu_index: int = 0
 
 signal party_tab_open
+signal equipment_tab_open
 signal skills_tab_open
 signal inventory_tab_open
 signal formation_tab_open

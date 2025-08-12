@@ -10,5 +10,8 @@ func is_empty() -> bool:
 	return result
 
 func can_stack(new_item: ItemResource) -> bool:
+	if item is EquipmentResource:
+		return false
+		
 	var result = item != null and item == new_item and item.stackable and quantity < item.max_stack
 	return result

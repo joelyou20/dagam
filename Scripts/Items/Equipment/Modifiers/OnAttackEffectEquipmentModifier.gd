@@ -1,0 +1,2 @@
+extends EquipmentModifier
+class_name OnAttackEffectEquipmentModifier

@@ -1,25 +1,29 @@
 [gd_resource type="Resource" script_class="PlayerResource" load_steps=5 format=3 uid="uid://c51v2wekosbei"]
 
-[ext_resource type="Script" uid="uid://c5dsuhmbwtnt3" path="res://Scripts/Items/ItemResource.gd" id="1_0r2kq"]
+[ext_resource type="Script" path="res://Scripts/Items/ItemResource.gd" id="1_0r2kq"]
 [ext_resource type="Texture2D" uid="uid://oma61eo6wvaj" path="res://Assets/Sprites/Player.png" id="2_dl0fr"]
-[ext_resource type="Script" uid="uid://bal7h756ivr6v" path="res://Scripts/Player/PlayerResource.gd" id="2_g44d1"]
+[ext_resource type="Script" path="res://Scripts/Player/PlayerResource.gd" id="2_g44d1"]
 [ext_resource type="PackedScene" uid="uid://c3wpmo7sha5w6" path="res://Scenes/Battlers/Player_Battler.tscn" id="3_ndw08"]
 
 [resource]
 script = ExtResource("2_g44d1")
 inventory = Array[ExtResource("1_0r2kq")]([])
 inventory_slots = 10
-id = "hero"
-name = "Hero"
-max_hp = 100
-current_hp = 100
-speed = 1
-attack_power = 20
-slot_number = 1
-battle_scale = 1.0
-visual_scene = ExtResource("3_ndw08")
 portrait_texture = ExtResource("2_dl0fr")
-level = 1
 experience = 0
 xp_to_next_level = 100
 xp_growth_rate = 1.2
+id = "hero"
+name = "Hero"
+description = "Main character. The hero of the story."
+max_hp = 100
+current_hp = 100
+slot_number = 1
+battle_scale = 1.0
+visual_scene = ExtResource("3_ndw08")
+level = 1
+speed = 5
+physical_attack = 20
+physical_defense = 10
+magical_attack = 5
+magical_defense = 10

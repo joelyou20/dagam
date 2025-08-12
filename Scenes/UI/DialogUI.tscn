@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dfmlnwjpd3qxk"]
 
 [ext_resource type="Texture2D" uid="uid://beslko0tx1ent" path="res://Assets/Sprites/DialogueBox.png" id="1_7nqj8"]
-[ext_resource type="Script" uid="uid://ig22ghkfjcvr" path="res://Scripts/Dialog/DialogUI.gd" id="2_gb077"]
+[ext_resource type="Script" path="res://Scripts/Dialog/DialogUI.gd" id="2_gb077"]
 [ext_resource type="Texture2D" uid="uid://pvybvw7sar85" path="res://Assets/Sprites/DialogueBoxOptions.png" id="3_ihc1g"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uufke"]

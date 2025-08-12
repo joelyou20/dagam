@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwb8fehdqhx5a"]
+
+[ext_resource type="Script" path="res://Scripts/Items/PickupItem.gd" id="1_c7dgp"]
+[ext_resource type="Resource" uid="uid://dt58eltux7b7u" path="res://Resources/Items/potion.tres" id="2_uyi44"]
+[ext_resource type="Texture2D" uid="uid://cm42hkpe5cbxc" path="res://Assets/Sprites/Potion.png" id="3_ssa8v"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_oaupd"]
+radius = 0.138056
+
+[node name="Potion" type="Node3D" groups=["Interactable", "Item"]]
+script = ExtResource("1_c7dgp")
+item = ExtResource("2_uyi44")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.49243, 0, 0, 0, 0.623273, 0, 0, 0, 1, 0, 0, 0)
+billboard = 1
+texture = ExtResource("3_ssa8v")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_oaupd")

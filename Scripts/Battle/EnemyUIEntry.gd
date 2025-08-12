@@ -15,7 +15,7 @@ func initialize(unit: Unit, count: int):
 	
 func set_unit_ref(unit: Unit, count: int):
 	unit_ref = unit
-	name_label.text = unit.title
+	name_label.text = unit.resource.name
 	count_label.text = str(count + 1)
 	_count = count
 

@@ -87,7 +87,7 @@ func populate_enemies(units: Array[Unit]):
 	# Group enemies and create entries in a single loop
 	var enemy_groups: Dictionary = {}
 	for unit in units:
-		var enemy_name = unit.title
+		var enemy_name = unit.resource.name
 		if not enemy_groups.has(enemy_name):
 			# First occurrence - create the entry
 			var entry = EnemyUIEntryScene.instantiate() as EnemyUIEntry

@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="EquipmentResource" load_steps=8 format=3 uid="uid://crms00lkiau4q"]
+
+[ext_resource type="Texture2D" uid="uid://bjbw07mmo03i" path="res://Assets/Sprites/LeatherCap.png" id="1_8wafl"]
+[ext_resource type="Script" path="res://Scripts/Items/Equipment/Modifiers/EquipmentModifier.gd" id="1_xtg78"]
+[ext_resource type="Script" path="res://Scripts/Items/Equipment/EquipmentResource.gd" id="2_j8s1e"]
+[ext_resource type="Script" path="res://Scripts/Items/Equipment/Modifiers/PercentageStatChangeEquipmentModifier.gd" id="3_rklgm"]
+[ext_resource type="Script" path="res://Scripts/Items/Equipment/Modifiers/FlatStatChangeEquipmentModifier.gd" id="4_4qlnw"]
+
+[sub_resource type="Resource" id="Resource_r7l7t"]
+script = ExtResource("3_rklgm")
+value = 50.0
+stat = 3
+
+[sub_resource type="Resource" id="Resource_0gpey"]
+script = ExtResource("4_4qlnw")
+value = -5
+stat = 2
+
+[resource]
+script = ExtResource("2_j8s1e")
+is_equipable = true
+equipment_type = 0
+modifiers = Array[ExtResource("1_xtg78")]([SubResource("Resource_r7l7t"), SubResource("Resource_0gpey")])
+id = "leather-cap"
+name = "Leather Cap"
+description = "A simple leather cap. +50% Physical Defense. -5 Physical Attack."
+icon = ExtResource("1_8wafl")

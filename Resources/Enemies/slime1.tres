@@ -1,16 +1,22 @@
 [gd_resource type="Resource" script_class="EnemyResource" load_steps=3 format=3 uid="uid://vmucgp7ia23r"]
 
-[ext_resource type="Script" uid="uid://doevgt28cl0oa" path="res://Scripts/Enemy/EnemyResource.gd" id="1_a30to"]
+[ext_resource type="Script" path="res://Scripts/Enemy/EnemyResource.gd" id="1_a30to"]
 [ext_resource type="PackedScene" uid="uid://k6rr2odh851c" path="res://Scenes/Enemies/Slime_Battler.tscn" id="2_louaa"]
 
 [resource]
 script = ExtResource("1_a30to")
+xp_reward = 100
 id = "slime1"
 name = "Slime"
+description = "A slime. Better than other slimes"
 max_hp = 20
-speed = 1
-attack_power = 5
-visual_scene = ExtResource("2_louaa")
+current_hp = 0
 slot_number = 1
 battle_scale = 0.25
-xp_reward = 100
+visual_scene = ExtResource("2_louaa")
+level = 1
+speed = 1
+physical_attack = 10
+physical_defense = 5
+magical_attack = 0
+magical_defense = 0

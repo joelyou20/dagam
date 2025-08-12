@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="EquipmentResource" load_steps=6 format=3 uid="uid://bo34spef0iti"]
+
+[ext_resource type="Texture2D" uid="uid://q7ch5d4y4gvx" path="res://Assets/Sprites/sword.png" id="1_kaftb"]
+[ext_resource type="Script" path="res://Scripts/Items/Equipment/Modifiers/EquipmentModifier.gd" id="2_3mgw2"]
+[ext_resource type="Script" path="res://Scripts/Items/Equipment/EquipmentResource.gd" id="2_lf4wi"]
+[ext_resource type="Script" path="res://Scripts/Items/Equipment/Modifiers/FlatStatChangeEquipmentModifier.gd" id="3_yhvcm"]
+
+[sub_resource type="Resource" id="Resource_po11j"]
+script = ExtResource("3_yhvcm")
+value = 10
+stat = 2
+
+[resource]
+script = ExtResource("2_lf4wi")
+is_equipable = true
+equipment_type = 5
+modifiers = Array[ExtResource("2_3mgw2")]([SubResource("Resource_po11j"), null])
+id = "sword"
+name = "Sword"
+description = "A simple sword for testing. +10 Phys Atk"
+icon = ExtResource("1_kaftb")

@@ -1,17 +1,16 @@
-[gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://dt58eltux7b7u"]
+[gd_resource type="Resource" script_class="ConsumableResource" load_steps=4 format=3 uid="uid://dt58eltux7b7u"]
 
-[ext_resource type="Script" uid="uid://c5dsuhmbwtnt3" path="res://Scripts/Items/ItemResource.gd" id="1_1fyeo"]
-[ext_resource type="Texture2D" uid="uid://cm42hkpe5cbxc" path="res://Assets/Sprites/Potion.png" id="1_i6ic5"]
-[ext_resource type="Script" uid="uid://dukid8o3u0wgn" path="res://Scripts/Items/Effects/HealthPotionEffect.gd" id="1_vq4vu"]
+[ext_resource type="Script" path="res://Scripts/Items/Consumables/ConsumableResource.gd" id="1_5qix5"]
+[ext_resource type="Script" path="res://Scripts/Items/Effects/HealthPotionEffect.gd" id="1_6katn"]
+[ext_resource type="Texture2D" uid="uid://cm42hkpe5cbxc" path="res://Assets/Sprites/Potion.png" id="2_ttw3r"]
 
 [resource]
-script = ExtResource("1_1fyeo")
+script = ExtResource("1_5qix5")
+stackable = true
+max_stack = 5
+effect_script = ExtResource("1_6katn")
+can_use_in_battle = true
 id = "potion"
 name = "Potion"
 description = "A simple test potion. Heals 10 HP"
-icon = ExtResource("1_i6ic5")
-stackable = true
-max_stack = 5
-item_type = 1
-effect_script = ExtResource("1_vq4vu")
-can_use_in_battle = true
+icon = ExtResource("2_ttw3r")
