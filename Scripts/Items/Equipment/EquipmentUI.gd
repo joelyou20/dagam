@@ -118,14 +118,13 @@ func update_ui():
 	offhand_weapon_texture_rect.texture = current_party_member.offhand_weapon_equipment.icon if current_party_member.offhand_weapon_equipment != null else default_offhand_weapon_texture_rect
 	
 func _clear_equipment_list():
-	var equip_replace_container: GridContainer = $Panel/EquipReplaceContainer
+	var equip_replace_container: GridContainer = $Panel/EquipReplaceContainer/GridContainer
 	
 	for c in equip_replace_container.get_children():
 		c.queue_free()
 
 func _update_equip_list(equipment_type: EquipmentType.Type):
-	var equip_replace_container: GridContainer = $Panel/EquipReplaceContainer
-	equip_replace_container.columns = 1
+	var equip_replace_container: GridContainer = $Panel/EquipReplaceContainer/GridContainer
 	
 	_clear_equipment_list()
 

@@ -102,13 +102,13 @@ func save_party() -> Array[Dictionary]:
 			"magical_attack": member.magical_attack,
 			"magical_defense": member.magical_defense,
 			
-			"head_equipment": member.head_equipment,
-			"chest_equipment": member.chest_equipment,
-			"back_equipment": member.back_equipment,
-			"feet_equipment": member.feet_equipment,
-			"hands_equipment": member.hands_equipment,
-			"main_weapon_equipment": member.main_weapon_equipment,
-			"offhand_weapon_equipment": member.offhand_weapon_equipment
+			"head_equipment": ResUtil.resource_to_path_or_empty(member.head_equipment),
+			"chest_equipment": ResUtil.resource_to_path_or_empty(member.chest_equipment),
+			"back_equipment": ResUtil.resource_to_path_or_empty(member.back_equipment),
+			"feet_equipment": ResUtil.resource_to_path_or_empty(member.feet_equipment),
+			"hands_equipment": ResUtil.resource_to_path_or_empty(member.hands_equipment),
+			"main_weapon_equipment": ResUtil.resource_to_path_or_empty(member.main_weapon_equipment),
+			"offhand_weapon_equipment": ResUtil.resource_to_path_or_empty(member.offhand_weapon_equipment),
 		}
 		saved_members.append(member_data)
 	return saved_members

@@ -17,6 +17,8 @@ var battle_cooldown_duration := 5.0  # seconds
 var player_collision_layer: int
 var player_collision_mask: int
 
+var base_flee_chance: float = 0.5
+
 @warning_ignore("unused_signal")
 signal battle_started
 @warning_ignore("unused_signal")
@@ -59,6 +61,7 @@ func build_battle_from_encounter(encounter: EncounterData) -> BattleData:
 	var battleData: BattleData = BattleData.new()
 	battleData.set_units(ally_units, enemy_units)
 	battleData.set_xp_reward()
+	battleData.flee_chance = base_flee_chance
 	current_battle_data = battleData
 	
 	return battleData
@@ -140,7 +143,15 @@ func execute_action(action: BattleAction, target: Unit):
 	match action.get_action_type():
 		BattleAction.ActionType.ATTACK:
 			var source_slot = action.get_source_slot()
+			# TODO: This should not be specific to allies only. Enemies will want to use the same logic
 			var source_unit = ally_units[source_slot - 1]
+			
+			var on_attack_effects = EquipmentManager.get_equipment_on_attack_effects(source_unit)
+			for effect in on_attack_effects:
+				effect.run(target)
+				var battle_ended = _check_battle_end()
+				if battle_ended or !target.is_alive:
+					return
 			
 			var phys_atk = (
 				EquipmentManager.get_equip_stats(source_unit.resource)[StatOptions.Keys.PHYS_ATK] 
@@ -149,8 +160,8 @@ func execute_action(action: BattleAction, target: Unit):
 			) 
 			var phys_def = (
 				EquipmentManager.get_equip_stats(target.resource)[StatOptions.Keys.PHYS_DEF]
-				if source_unit.type != Unit.UnitType.ENEMY 
-				else source_unit.resource.physical_defense
+				if target.type != Unit.UnitType.ENEMY 
+				else target.resource.physical_defense
 			) 
 			
 			var damage_taken = phys_atk - phys_def
@@ -168,7 +179,7 @@ func _apply_item_to_target(item: ItemResource, target: Unit):
 	if item and target:
 		InventoryManager.use_item(item, target.resource)
 
-func _check_battle_end():
+func _check_battle_end() -> bool:
 	var all_enemies_dead := enemy_units.filter(func(u):
 		return is_instance_valid(u) and u.is_alive
 	).is_empty()
@@ -181,9 +192,13 @@ func _check_battle_end():
 		print("All enemies defeated! Ending battle.")
 		PartyManager.grant_xp(current_battle_data.xp_reward)
 		end_battle()
+		return true
 	elif all_allies_dead:
 		print("All allies defeated! Ending battle.")
 		end_battle()
+		return true
+	
+	return false
 
 func get_active_unit_slot() -> int:
 	# TODO: Once the turn system is designed return whoever is acting. For now will default to slot 1
@@ -217,7 +232,13 @@ func _update_resource_from_unit(resource: Resource, unit: Unit):
 	#     resource.status_effects = unit.status_effects.duplicate(true)
 
 func attempt_to_flee():
-	var flee_chance := 0.5
+	for ally in ally_units:
+		var on_flee_effects = EquipmentManager.get_equipment_on_flee_effects(ally)
+		for effect in on_flee_effects:
+			effect.run()
+			
+	var flee_chance = current_battle_data.flee_chance
+	
 	var party_speed := 0
 	for unit in ally_units.filter(func(u): return is_instance_valid(u) && u.is_alive):
 		party_speed += unit.resource.speed

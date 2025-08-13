@@ -28,15 +28,20 @@ func update_party_member_display():
 	exp_value_label.text = str(selected_party_member.experience) + "/" + str(selected_party_member.xp_to_next_level)
 	hp_value_label.text = str(selected_party_member.current_hp) + "/" + str(selected_party_member.max_hp)
 	description_value_label.text = selected_party_member.description
+	
+	update_stats()
 
+func update_stats(stats: Dictionary = {}):
 	var speed_value_label = $Panel/StatsContainer/SpeedContainer/SpeedValueLabel
 	var phys_atk_value_label = $Panel/StatsContainer/PhysAtkContainer/PhysAtkValueLabel
 	var phys_def_value_label = $Panel/StatsContainer/PhysDefContainer/PhysDefValueLabel
 	var mag_atk_value_label = $Panel/StatsContainer/MagAtkContainer/MagAtkValueLabel
 	var mag_def_value_label = $Panel/StatsContainer/MagDefContainer/MagDefValueLabel
 	
-	speed_value_label.text = str(selected_party_member.speed)
-	phys_atk_value_label.text = str(selected_party_member.physical_attack)
-	phys_def_value_label.text = str(selected_party_member.physical_defense)
-	mag_atk_value_label.text = str(selected_party_member.magical_attack)
-	mag_def_value_label.text = str(selected_party_member.magical_defense)
+	var stats_temp = stats if !stats.is_empty() else EquipmentManager.get_equip_stats(selected_party_member)
+	
+	speed_value_label.text = str(stats_temp[StatOptions.Keys.SPEED])
+	phys_atk_value_label.text = str(stats_temp[StatOptions.Keys.PHYS_ATK])
+	phys_def_value_label.text = str(stats_temp[StatOptions.Keys.PHYS_DEF])
+	mag_atk_value_label.text = str(stats_temp[StatOptions.Keys.MAG_ATK])
+	mag_def_value_label.text = str(stats_temp[StatOptions.Keys.MAG_DEF])

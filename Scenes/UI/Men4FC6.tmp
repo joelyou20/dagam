@@ -342,6 +342,7 @@ text = "Health
 "
 
 [node name="PartyMemberPanel" type="Panel" parent="VBoxContainer/PanelContainer"]
+visible = false
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(0, 100)
 layout_direction = 1
@@ -639,7 +640,6 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "0"
 
 [node name="EquipmentPanel" type="Panel" parent="VBoxContainer/PanelContainer"]
-visible = false
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 script = ExtResource("9_j4frc")

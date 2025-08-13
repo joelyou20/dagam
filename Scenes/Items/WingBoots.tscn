@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://ovahmhp2sbp"]
+
+[ext_resource type="Script" path="res://Scripts/Items/PickupItem.gd" id="1_5vb5r"]
+[ext_resource type="Resource" uid="uid://y3jy5f063idw" path="res://Resources/Items/Equipment/wing-boots.tres" id="2_3cjjh"]
+[ext_resource type="Texture2D" uid="uid://b387w623o5r0g" path="res://Assets/Sprites/Wing-Boots.png" id="3_skt43"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_o6gdm"]
+radius = 0.138056
+
+[node name="WingBoots" type="Node3D"]
+script = ExtResource("1_5vb5r")
+item = ExtResource("2_3cjjh")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+billboard = 1
+texture = ExtResource("3_skt43")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_o6gdm")

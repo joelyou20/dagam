@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://d3m7gv82kgk8t"]
+[gd_scene load_steps=32 format=3 uid="uid://d3m7gv82kgk8t"]
 
 [ext_resource type="Texture2D" uid="uid://cex0yttn80owp" path="res://Assets/Textures/Sand/Sand_Albedo.tga" id="1_d6bna"]
 [ext_resource type="Script" path="res://Scripts/NPC.gd" id="2_dbkgc"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://dnmm4x5s0j6p5" path="res://Scenes/Items/Sword.tscn" id="13_2umcn"]
 [ext_resource type="Script" path="res://Scripts/Battle/EncounterData.gd" id="13_y7yl4"]
 [ext_resource type="PackedScene" uid="uid://ct3at2avuf5rt" path="res://Scenes/Items/LeatherCap.tscn" id="14_rmsrj"]
+[ext_resource type="PackedScene" uid="uid://cqit1lxcfkyq4" path="res://Scenes/Items/Axe.tscn" id="15_esb3w"]
+[ext_resource type="PackedScene" uid="uid://ovahmhp2sbp" path="res://Scenes/Items/WingBoots.tscn" id="16_3p3qq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v818v"]
 albedo_texture = ExtResource("1_d6bna")
@@ -270,3 +272,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.69851, 0.166443, 0.0146559)
 
 [node name="LeatherCap" parent="." instance=ExtResource("14_rmsrj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.85422, 0.0798612, -0.0303952)
+
+[node name="Axe" parent="." instance=ExtResource("15_esb3w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.19633, 0.152139, 0.746347)
+
+[node name="WingBoots" parent="." instance=ExtResource("16_3p3qq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.38118, 0.194672, 0.741359)

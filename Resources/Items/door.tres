@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://co223rermtmsh"]
+
+[ext_resource type="Texture2D" uid="uid://cfhohdwitjgsf" path="res://Assets/Sprites/Door.png" id="1_ibflj"]
+[ext_resource type="Script" path="res://Scripts/Items/ItemResource.gd" id="1_vpd7f"]
+
+[resource]
+script = ExtResource("1_vpd7f")
+id = "door"
+name = "Door"
+description = "A door. Yeah, it is a door."
+icon = ExtResource("1_ibflj")

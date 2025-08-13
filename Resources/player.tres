@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("2_g44d1")
 inventory = Array[ExtResource("1_0r2kq")]([])
-inventory_slots = 10
+inventory_slots = 20
 portrait_texture = ExtResource("2_dl0fr")
 experience = 0
 xp_to_next_level = 100

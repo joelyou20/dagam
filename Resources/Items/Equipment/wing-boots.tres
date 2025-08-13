@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="EquipmentResource" load_steps=8 format=3 uid="uid://y3jy5f063idw"]
+
+[ext_resource type="Texture2D" uid="uid://b387w623o5r0g" path="res://Assets/Sprites/Wing-Boots.png" id="1_2e6px"]
+[ext_resource type="Script" path="res://Scripts/Items/Equipment/Modifiers/EquipmentModifier.gd" id="1_jbtad"]
+[ext_resource type="Script" path="res://Scripts/Items/Equipment/EquipmentResource.gd" id="2_kwoh1"]
+[ext_resource type="Script" path="res://Scripts/Items/Equipment/Modifiers/StaticModifiers/OnFleeStaticModifier.gd" id="3_6ego2"]
+[ext_resource type="Script" path="res://Scripts/Items/Equipment/Modifiers/FlatStatChangeEquipmentModifier.gd" id="4_43bgi"]
+
+[sub_resource type="Resource" id="Resource_ylmpq"]
+script = ExtResource("3_6ego2")
+flee_chance = 100.0
+
+[sub_resource type="Resource" id="Resource_257k3"]
+script = ExtResource("4_43bgi")
+value = 5
+stat = 5
+
+[resource]
+script = ExtResource("2_kwoh1")
+is_equipable = true
+equipment_type = 3
+modifiers = Array[ExtResource("1_jbtad")]([SubResource("Resource_ylmpq"), SubResource("Resource_257k3")])
+id = "wing-boots"
+name = "Wing Boots"
+description = "Boots with wings. 100% Flee Chance"
+icon = ExtResource("1_2e6px")
