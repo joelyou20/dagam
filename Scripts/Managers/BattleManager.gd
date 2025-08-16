@@ -19,6 +19,8 @@ var player_collision_mask: int
 
 var base_flee_chance: float = 0.5
 
+var turn_order_queue: Array[Unit] = []
+
 @warning_ignore("unused_signal")
 signal battle_started
 @warning_ignore("unused_signal")
@@ -57,7 +59,7 @@ func build_battle_from_encounter(encounter: EncounterData) -> BattleData:
 	for enemy in encounter.enemies:
 		var unit = map_resource_to_unit(enemy, Unit.UnitType.ENEMY)
 		enemy_units.append(unit)
-	
+		
 	var battleData: BattleData = BattleData.new()
 	battleData.set_units(ally_units, enemy_units)
 	battleData.set_xp_reward()
@@ -100,6 +102,22 @@ func place_units(slots: Array[UnitSlot]):
 					break
 		if unit == null:
 			continue
+			
+func update_turn_order():
+	var all_units: Array[Unit] = []
+	
+	turn_order_queue.clear()
+	
+	all_units.append_array(ally_units)
+	all_units.append_array(enemy_units)
+	all_units.sort_custom(func(a: Unit, b: Unit): 
+		return a.resource.speed > b.resource.speed
+	)
+	
+	turn_order_queue.append_array(all_units)
+	
+func get_turn_order() -> Array[Unit]:
+	return turn_order_queue
 		
 func place_unit_in_slot(unit: Unit, slot: UnitSlot):
 	slot.add_child(unit)

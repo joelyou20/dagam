@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkyhan0ceh2tw"]
+
+[ext_resource type="Texture2D" uid="uid://c5stiq6kjyboi" path="res://Assets/Sprites/ChestUI.png" id="1_esr27"]
+[ext_resource type="Script" path="res://Scripts/Items/Chest/ChestUI.gd" id="1_i0kb7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v1srb"]
+texture = ExtResource("1_esr27")
+
+[node name="ChestUI" type="CanvasLayer"]
+script = ExtResource("1_i0kb7")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.5
+offset_top = -200.0
+offset_right = 124.5
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_v1srb")
+
+[node name="LootContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 8.0
+offset_right = 244.0
+offset_bottom = 392.0
+
+[node name="TakeAllButton" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 12.5
+offset_top = 358.0
+offset_right = 81.5
+offset_bottom = 389.0
+text = "Take All"
+
+[node name="CloseButton" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.404
+anchor_top = 0.654
+anchor_right = 0.404
+anchor_bottom = 0.654
+offset_left = 85.904
+offset_top = 97.4
+offset_right = 135.904
+offset_bottom = 128.4
+text = "Close"

@@ -11,6 +11,11 @@ func add_item(item: ItemResource, amount: int = 1):
 	_inventory.add_item(item, amount)
 	print("Item added to inventory: " + item.name)
 
+# --- Item Management ---
+func add_item_array(items: Array[ItemResource]):
+	for item in items:
+		_inventory.add_item(item)
+
 func remove_item(item: ItemResource, amount: int = -1):
 	_inventory.remove_item(item, amount)
 
@@ -38,8 +43,8 @@ func get_items() -> Array[InventorySlotData]:
 	return _inventory.get_items()
 
 func get_usable_items() -> Array[InventorySlotData]:
-	var items = _inventory.get_items()
-	return items.filter(func(i: InventorySlotData): return i.item.can_use_in_battle)
+	var items: Array[InventorySlotData] = _inventory.get_items()
+	return items.filter(func(i: InventorySlotData): return i.item is not EquipmentResource and i.item.can_use_in_battle)
 
 func get_inventory() -> Inventory:
 	return _inventory

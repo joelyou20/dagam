@@ -19,10 +19,6 @@ func hide_menu():
 func set_current_party_member_menu_index(index: int):
 	current_party_member_menu_index = index
 
-func toggle_menu(tab: MenuTabs.Tab = MenuTabs.Tab.UNSET):
-	var menu_open = menu_ui and menu_ui.visible
-	set_menu(!menu_open, tab)
-
 func set_menu(state: bool, tab: MenuTabs.Tab = MenuTabs.Tab.UNSET):
 	if tab == MenuTabs.Tab.UNSET:
 		menu_ui.hide_ui()
@@ -30,7 +26,7 @@ func set_menu(state: bool, tab: MenuTabs.Tab = MenuTabs.Tab.UNSET):
 	
 	ensure_menu_ui()
 	var change_tab = current_tab == MenuTabs.Tab.UNSET or current_tab != tab
-	if state or change_tab:
+	if state and change_tab:
 		current_tab = tab
 		menu_ui.show_panel(tab)
 	else:

@@ -13,6 +13,7 @@ func _ready():
 
 func _init_battle(slots: Array[UnitSlot]):
 	BattleManager.place_units(slots)
+	BattleManager.update_turn_order()
 	
 	# NOTE: Uncomment to debug unit slots
 	# Get all unit slots and debug them
