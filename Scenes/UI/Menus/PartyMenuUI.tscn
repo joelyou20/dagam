@@ -1,0 +1,249 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbno1om20n1xm"]
+
+[ext_resource type="Script" path="res://Scripts/Party/PartyMenuUI.gd" id="1_2lihr"]
+[ext_resource type="Texture2D" uid="uid://bc00hq01nm0lu" path="res://Assets/Sprites/PartySlotUI.png" id="2_di2sr"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2ncnp"]
+texture = ExtResource("2_di2sr")
+
+[node name="PartyMenuUI" type="CanvasLayer"]
+script = ExtResource("1_2lihr")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = 10.0
+offset_right = -12.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PartyMember1" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+flat = true
+
+[node name="Panel" type="Panel" parent="HBoxContainer/PartyMember1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 54.0
+offset_right = -1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_2ncnp")
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/PartyMember1/Panel"]
+position = Vector2(131, 202.271)
+scale = Vector2(20, 27.9612)
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer/PartyMember1/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.022
+anchor_top = 0.707
+anchor_right = 0.022
+anchor_bottom = 0.707
+offset_left = -0.138
+offset_top = 0.181976
+offset_right = 265.862
+offset_bottom = 159.182
+
+[node name="NameLabel" type="Label" parent="HBoxContainer/PartyMember1/Panel/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Name"
+
+[node name="ExperienceLabel" type="Label" parent="HBoxContainer/PartyMember1/Panel/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Experience
+"
+
+[node name="LevelLabel" type="Label" parent="HBoxContainer/PartyMember1/Panel/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Level"
+
+[node name="HealthLabel" type="Label" parent="HBoxContainer/PartyMember1/Panel/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Health
+"
+
+[node name="PartyMember2" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+flat = true
+
+[node name="Panel" type="Panel" parent="HBoxContainer/PartyMember2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 54.0
+offset_right = -1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_2ncnp")
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/PartyMember2/Panel"]
+position = Vector2(131, 202.271)
+scale = Vector2(20, 27.9612)
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer/PartyMember2/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.022
+anchor_top = 0.707
+anchor_right = 0.022
+anchor_bottom = 0.707
+offset_left = -0.138
+offset_top = 0.181976
+offset_right = 265.862
+offset_bottom = 159.182
+
+[node name="NameLabel" type="Label" parent="HBoxContainer/PartyMember2/Panel/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Name"
+
+[node name="ExperienceLabel" type="Label" parent="HBoxContainer/PartyMember2/Panel/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Experience
+"
+
+[node name="LevelLabel" type="Label" parent="HBoxContainer/PartyMember2/Panel/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Level"
+
+[node name="HealthLabel" type="Label" parent="HBoxContainer/PartyMember2/Panel/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Health
+"
+
+[node name="PartyMember3" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+flat = true
+
+[node name="Panel" type="Panel" parent="HBoxContainer/PartyMember3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 54.0
+offset_right = -1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_2ncnp")
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/PartyMember3/Panel"]
+position = Vector2(131, 202.271)
+scale = Vector2(20, 27.9612)
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer/PartyMember3/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.022
+anchor_top = 0.707
+anchor_right = 0.022
+anchor_bottom = 0.707
+offset_left = -0.138
+offset_top = 0.181976
+offset_right = 265.862
+offset_bottom = 159.182
+
+[node name="NameLabel" type="Label" parent="HBoxContainer/PartyMember3/Panel/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Name"
+
+[node name="ExperienceLabel" type="Label" parent="HBoxContainer/PartyMember3/Panel/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Experience
+"
+
+[node name="LevelLabel" type="Label" parent="HBoxContainer/PartyMember3/Panel/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Level"
+
+[node name="HealthLabel" type="Label" parent="HBoxContainer/PartyMember3/Panel/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Health
+"
+
+[node name="PartyMember4" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+flat = true
+
+[node name="Panel" type="Panel" parent="HBoxContainer/PartyMember4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 54.0
+offset_right = -1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_2ncnp")
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/PartyMember4/Panel"]
+position = Vector2(131, 202.271)
+scale = Vector2(20, 27.9612)
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer/PartyMember4/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.022
+anchor_top = 0.707
+anchor_right = 0.022
+anchor_bottom = 0.707
+offset_left = -0.138
+offset_top = 0.181976
+offset_right = 265.862
+offset_bottom = 159.182
+
+[node name="NameLabel" type="Label" parent="HBoxContainer/PartyMember4/Panel/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Name"
+
+[node name="ExperienceLabel" type="Label" parent="HBoxContainer/PartyMember4/Panel/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Experience
+"
+
+[node name="LevelLabel" type="Label" parent="HBoxContainer/PartyMember4/Panel/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Level"
+
+[node name="HealthLabel" type="Label" parent="HBoxContainer/PartyMember4/Panel/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Health
+"

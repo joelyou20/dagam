@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2yusvanafv81"]
+
+[ext_resource type="Script" path="res://Scripts/Skills/SkillsMenuUI.gd" id="1_foo0t"]
+
+[node name="SkillsMenuUI" type="CanvasLayer"]
+script = ExtResource("1_foo0t")

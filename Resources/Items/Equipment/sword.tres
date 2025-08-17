@@ -19,3 +19,4 @@ id = "sword"
 name = "Sword"
 description = "A simple sword for testing. +10 Phys Atk"
 icon = ExtResource("1_kaftb")
+can_use_in_battle = false

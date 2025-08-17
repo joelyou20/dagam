@@ -1,5 +1,5 @@
-extends Panel
-class_name PartyMemberUI
+extends UIBase
+class_name PartyMemberMenuUI
 
 var selected_party_member: AllyResource
 

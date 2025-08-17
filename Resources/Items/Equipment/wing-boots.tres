@@ -24,3 +24,4 @@ id = "wing-boots"
 name = "Wing Boots"
 description = "Boots with wings. 100% Flee Chance"
 icon = ExtResource("1_2e6px")
+can_use_in_battle = false

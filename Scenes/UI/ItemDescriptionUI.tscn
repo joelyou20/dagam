@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0jpqlac6gum2"]
+
+[ext_resource type="Script" path="res://Scripts/Items/ItemDescriptionUI.gd" id="1_fmn5b"]
+[ext_resource type="Texture2D" uid="uid://b7k3hmf1eaq2h" path="res://Assets/Sprites/ItemDescriptionPanel.png" id="1_y7ode"]
+[ext_resource type="Texture2D" uid="uid://cmglkaqbcvq7p" path="res://Assets/Sprites/Gold01.png" id="2_jh64g"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rkyn2"]
+texture = ExtResource("1_y7ode")
+
+[node name="ItemDescriptionUI" type="CanvasLayer"]
+script = ExtResource("1_fmn5b")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.5
+offset_top = -117.5
+offset_right = 128.5
+offset_bottom = 117.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_rkyn2")
+
+[node name="GridContainer" type="GridContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 251.0
+offset_bottom = 227.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/GridContainer"]
+layout_mode = 2
+
+[node name="SpritePlaceholder" type="Label" parent="Panel/GridContainer/HBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Tes"
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/GridContainer/HBoxContainer/SpritePlaceholder"]
+position = Vector2(14, 13)
+scale = Vector2(3.18518, 3.63265)
+texture = ExtResource("2_jh64g")
+
+[node name="NameLabel" type="Label" parent="Panel/GridContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 1.11
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Test Name"
+vertical_alignment = 1
+
+[node name="EffectContainer" type="VBoxContainer" parent="Panel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DescriptionLabel" type="Label" parent="Panel/GridContainer"]
+custom_minimum_size = Vector2(235, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Description"
+autowrap_mode = 1

@@ -7,7 +7,6 @@ class_name EnemyUIEntry
 var unit_ref: Unit = null
 var _count: int = 0
 
-@warning_ignore("unused_signal")
 signal enemy_selected(unit: Unit)
 
 func initialize(unit: Unit, count: int):
@@ -27,4 +26,4 @@ func get_count() -> int:
 
 func _gui_input(event):
 	if event is InputEventMouseButton and event.pressed:
-		emit_signal("enemy_selected", unit_ref)
+		enemy_selected.emit(unit_ref)

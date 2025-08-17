@@ -1,6 +1,8 @@
 extends Resource
 class_name EntityResource
 
+@export var portrait_texture: Texture2D
+
 @export var id: String
 @export var name: String
 @export var description: String

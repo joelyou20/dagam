@@ -1,0 +1,295 @@
+[gd_scene load_steps=7 format=3 uid="uid://cc5s7gapdep7q"]
+
+[ext_resource type="Script" path="res://Scripts/Party/PartyMemberMenuUI.gd" id="1_hw4gb"]
+[ext_resource type="Texture2D" uid="uid://oma61eo6wvaj" path="res://Assets/Sprites/Player.png" id="2_j2fjg"]
+[ext_resource type="Texture2D" uid="uid://cdohsolq73efu" path="res://Assets/Sprites/PartyMemberUI.png" id="3_j5o4o"]
+[ext_resource type="Texture2D" uid="uid://cmglkaqbcvq7p" path="res://Assets/Sprites/Gold01.png" id="4_uw02y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vvfyb"]
+font_size = 40
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uk11l"]
+texture = ExtResource("3_j5o4o")
+
+[node name="PartyMemberMenuUI" type="CanvasLayer"]
+script = ExtResource("1_hw4gb")
+
+[node name="PortraitTextureRect" type="TextureRect" parent="."]
+offset_left = 18.0
+offset_top = 66.0
+offset_right = 423.0
+offset_bottom = 577.0
+texture = ExtResource("2_j2fjg")
+expand_mode = 4
+
+[node name="CharacterNameLabel" type="Label" parent="."]
+offset_left = 58.0
+offset_top = 478.0
+offset_right = 374.0
+offset_bottom = 533.0
+text = "Character Name"
+label_settings = SubResource("LabelSettings_vvfyb")
+
+[node name="LevelKeyLabel" type="Label" parent="."]
+offset_left = 62.0
+offset_top = 541.0
+offset_right = 111.0
+offset_bottom = 564.0
+text = "Level: "
+
+[node name="LevelValueLabel" type="Label" parent="."]
+offset_left = 108.0
+offset_top = 541.0
+offset_right = 148.0
+offset_bottom = 564.0
+text = "0"
+
+[node name="ExpKeyLabel" type="Label" parent="."]
+offset_left = 175.0
+offset_top = 540.0
+offset_right = 215.0
+offset_bottom = 563.0
+text = "Exp: "
+
+[node name="ExpValueLabel" type="Label" parent="."]
+offset_left = 212.0
+offset_top = 540.0
+offset_right = 252.0
+offset_bottom = 563.0
+text = "0/0"
+
+[node name="HpKeyLabel" type="Label" parent="."]
+offset_left = 302.0
+offset_top = 541.0
+offset_right = 342.0
+offset_bottom = 564.0
+text = "HP: "
+
+[node name="HpValueLabel" type="Label" parent="."]
+offset_left = 332.0
+offset_top = 540.0
+offset_right = 372.0
+offset_bottom = 563.0
+text = "0/0"
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 434.0
+offset_top = 67.0
+offset_right = 1141.0
+offset_bottom = 579.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_uk11l")
+
+[node name="EquipmentLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 10.0
+offset_right = 265.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Equipment"
+
+[node name="StatsLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 353.0
+offset_right = 382.0
+offset_bottom = 376.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Stats"
+
+[node name="SkillsLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 305.0
+offset_top = 5.0
+offset_right = 345.0
+offset_bottom = 28.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Skills"
+
+[node name="EquipmentContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 34.0
+offset_right = 264.0
+offset_bottom = 558.0
+
+[node name="HeadContainer" type="HBoxContainer" parent="Panel/EquipmentContainer"]
+layout_mode = 2
+
+[node name="HeadTextureRect" type="TextureRect" parent="Panel/EquipmentContainer/HeadContainer"]
+layout_mode = 2
+texture = ExtResource("4_uw02y")
+expand_mode = 2
+
+[node name="HeadLabel" type="Label" parent="Panel/EquipmentContainer/HeadContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Head"
+
+[node name="ChestContainer" type="HBoxContainer" parent="Panel/EquipmentContainer"]
+layout_mode = 2
+
+[node name="ChestTextureRect" type="TextureRect" parent="Panel/EquipmentContainer/ChestContainer"]
+layout_mode = 2
+texture = ExtResource("4_uw02y")
+expand_mode = 2
+
+[node name="ChestLabel" type="Label" parent="Panel/EquipmentContainer/ChestContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Chest"
+
+[node name="BackContainer" type="HBoxContainer" parent="Panel/EquipmentContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel/EquipmentContainer/BackContainer"]
+layout_mode = 2
+texture = ExtResource("4_uw02y")
+expand_mode = 2
+
+[node name="BackLabel" type="Label" parent="Panel/EquipmentContainer/BackContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Back"
+
+[node name="FeetContainer" type="HBoxContainer" parent="Panel/EquipmentContainer"]
+layout_mode = 2
+
+[node name="FeetTextureRect" type="TextureRect" parent="Panel/EquipmentContainer/FeetContainer"]
+layout_mode = 2
+texture = ExtResource("4_uw02y")
+expand_mode = 2
+
+[node name="FeetLabel" type="Label" parent="Panel/EquipmentContainer/FeetContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Feet"
+
+[node name="HandsContainer" type="HBoxContainer" parent="Panel/EquipmentContainer"]
+layout_mode = 2
+
+[node name="HandsTextureRect" type="TextureRect" parent="Panel/EquipmentContainer/HandsContainer"]
+layout_mode = 2
+texture = ExtResource("4_uw02y")
+expand_mode = 2
+
+[node name="HandsLabel" type="Label" parent="Panel/EquipmentContainer/HandsContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Hands"
+
+[node name="MainWeaponContainer" type="HBoxContainer" parent="Panel/EquipmentContainer"]
+layout_mode = 2
+
+[node name="MainWeaponTextureRect" type="TextureRect" parent="Panel/EquipmentContainer/MainWeaponContainer"]
+layout_mode = 2
+texture = ExtResource("4_uw02y")
+expand_mode = 2
+
+[node name="MainWeaponLabel" type="Label" parent="Panel/EquipmentContainer/MainWeaponContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Main Weapon"
+
+[node name="OffhandWeaponContainer" type="HBoxContainer" parent="Panel/EquipmentContainer"]
+layout_mode = 2
+
+[node name="OffhandWeaponTextureRect" type="TextureRect" parent="Panel/EquipmentContainer/OffhandWeaponContainer"]
+layout_mode = 2
+texture = ExtResource("4_uw02y")
+expand_mode = 2
+
+[node name="OffHandWeaponLabel" type="Label" parent="Panel/EquipmentContainer/OffhandWeaponContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Off-hand Weapon"
+
+[node name="DescriptionKeyLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 306.0
+offset_top = 217.0
+offset_right = 395.0
+offset_bottom = 240.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Description"
+
+[node name="DescriptionValueLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 306.0
+offset_top = 237.0
+offset_right = 695.0
+offset_bottom = 354.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Text"
+
+[node name="StatsContainer" type="GridContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 372.0
+offset_right = 698.0
+offset_bottom = 507.0
+
+[node name="SpeedContainer" type="HBoxContainer" parent="Panel/StatsContainer"]
+layout_mode = 2
+
+[node name="SpeedKeyLabel" type="Label" parent="Panel/StatsContainer/SpeedContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Speed: "
+
+[node name="SpeedValueLabel" type="Label" parent="Panel/StatsContainer/SpeedContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "0"
+
+[node name="PhysAtkContainer" type="HBoxContainer" parent="Panel/StatsContainer"]
+layout_mode = 2
+
+[node name="PhysAtkKeyLabel" type="Label" parent="Panel/StatsContainer/PhysAtkContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Physical Attack: "
+
+[node name="PhysAtkValueLabel" type="Label" parent="Panel/StatsContainer/PhysAtkContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "0"
+
+[node name="PhysDefContainer" type="HBoxContainer" parent="Panel/StatsContainer"]
+layout_mode = 2
+
+[node name="PhysDefKeyLabel" type="Label" parent="Panel/StatsContainer/PhysDefContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Physical Defense: "
+
+[node name="PhysDefValueLabel" type="Label" parent="Panel/StatsContainer/PhysDefContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "0"
+
+[node name="MagAtkContainer" type="HBoxContainer" parent="Panel/StatsContainer"]
+layout_mode = 2
+
+[node name="MagAtkKeyLabel" type="Label" parent="Panel/StatsContainer/MagAtkContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Magical Attack: "
+
+[node name="MagAtkValueLabel" type="Label" parent="Panel/StatsContainer/MagAtkContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "0"
+
+[node name="MagDefContainer" type="HBoxContainer" parent="Panel/StatsContainer"]
+layout_mode = 2
+
+[node name="MagDefKeyLabel" type="Label" parent="Panel/StatsContainer/MagDefContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Magical Defense: "
+
+[node name="MagDefValueLabel" type="Label" parent="Panel/StatsContainer/MagDefContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "0"

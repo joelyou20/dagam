@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="EnemyResource" load_steps=3 format=3 uid="uid://vmucgp7ia23r"]
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=4 format=3 uid="uid://vmucgp7ia23r"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy/EnemyResource.gd" id="1_a30to"]
+[ext_resource type="Texture2D" uid="uid://5qg7cvf8ty8n" path="res://Assets/Sprites/Slime.png" id="1_pihns"]
 [ext_resource type="PackedScene" uid="uid://k6rr2odh851c" path="res://Scenes/Enemies/Slime_Battler.tscn" id="2_louaa"]
 
 [resource]
 script = ExtResource("1_a30to")
 xp_reward = 100
+portrait_texture = ExtResource("1_pihns")
 id = "slime1"
 name = "Slime"
 description = "A slime. Better than other slimes"

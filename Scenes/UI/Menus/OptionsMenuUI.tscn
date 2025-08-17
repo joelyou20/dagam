@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://c356p8ioy4ol3"]
+
+[ext_resource type="Script" path="res://Scripts/Menu/OptionsMenuUI.gd" id="1_rvchu"]
+[ext_resource type="Texture2D" uid="uid://dianihvujteoj" path="res://Assets/Sprites/LoadButton.png" id="1_xpbex"]
+[ext_resource type="Script" path="res://Scripts/Menu/MenuButton.Load.gd" id="2_je7hf"]
+[ext_resource type="Script" path="res://Scripts/Menu/MenuButton.Save.gd" id="3_kltdc"]
+[ext_resource type="Script" path="res://Scripts/Menu/MenuButton.Quit.gd" id="4_yqxb7"]
+
+[node name="OptionsMenuUI" type="CanvasLayer"]
+script = ExtResource("1_rvchu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 400.0
+offset_top = 207.0
+offset_right = 760.0
+offset_bottom = 457.0
+
+[node name="LoadButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_xpbex")
+script = ExtResource("2_je7hf")
+
+[node name="SaveButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Save"
+script = ExtResource("3_kltdc")
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+script = ExtResource("4_yqxb7")

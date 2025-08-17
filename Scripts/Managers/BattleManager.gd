@@ -21,9 +21,6 @@ var base_flee_chance: float = 0.5
 
 var turn_order_queue: Array[Unit] = []
 
-@warning_ignore("unused_signal")
-signal battle_started
-@warning_ignore("unused_signal")
 signal battle_ended
 
 func can_start_battle(force: bool = false) -> bool:
@@ -167,8 +164,7 @@ func execute_action(action: BattleAction, target: Unit):
 			var on_attack_effects = EquipmentManager.get_equipment_on_attack_effects(source_unit)
 			for effect in on_attack_effects:
 				effect.run(target)
-				var battle_ended = _check_battle_end()
-				if battle_ended or !target.is_alive:
+				if _check_battle_end() or !target.is_alive:
 					return
 			
 			var phys_atk = (
@@ -329,8 +325,7 @@ func end_battle():
 	current_battle_data = null
 	last_battle_time = Time.get_ticks_msec() / 1000.0
 	
-	# Emit signal for enemy cleanup AFTER everything is ready
-	emit_signal("battle_ended")
+	battle_ended.emit()
 
 func _disable_overworld_player():
 	var player_node := PlayerManager.get_player_node()

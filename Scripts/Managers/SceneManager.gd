@@ -1,9 +1,10 @@
 extends Node
 
-signal scene_loaded  # Add this signal
-
 @onready var fade_scene := preload("res://Scenes/FadeScene.tscn")
 @onready var scene_root: Node = get_tree().get_root().get_node("World/SceneRoot")
+
+signal scene_loaded
+
 var current_scene: Node = null
 var fade_layer: FadeLayer
 
@@ -30,7 +31,7 @@ func load_scene(path: String, should_fade_out: bool = true, should_fade_in: bool
 	# Wait for scene to be added and positioned, then emit signal BEFORE fade-in
 	await get_tree().process_frame
 	await get_tree().process_frame
-	emit_signal("scene_loaded")
+	scene_loaded.emit()
 	
 	if should_fade_in:
 		# Optional: Wait a bit then fade back in

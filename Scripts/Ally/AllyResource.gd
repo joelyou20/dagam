@@ -2,8 +2,6 @@
 extends EntityResource
 class_name AllyResource
 
-@export var portrait_texture: Texture2D
-
 # Experience/Levels
 @export var experience: int = 0
 @export var xp_to_next_level: int = 100

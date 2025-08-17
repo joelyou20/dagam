@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://7vrsu00hyeky"]
+
+[ext_resource type="Script" path="res://Scripts/Inventory/InventoryUI.gd" id="1_sanm1"]
+[ext_resource type="Texture2D" uid="uid://bsb6kd1abl1h2" path="res://Assets/Sprites/Inventory.png" id="2_mr7qv"]
+[ext_resource type="PackedScene" uid="uid://c0jpqlac6gum2" path="res://Scenes/UI/ItemDescriptionUI.tscn" id="3_a4ptb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_685pi"]
+texture = ExtResource("2_mr7qv")
+
+[node name="InventoryMenuUI" type="CanvasLayer"]
+script = ExtResource("1_sanm1")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 12.0
+offset_top = 252.0
+offset_right = 1137.0
+offset_bottom = 591.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_685pi")
+
+[node name="GridContainer" type="GridContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 9.0
+offset_right = 1106.0
+offset_bottom = 332.0
+columns = 5
+
+[node name="ItemDescriptionUI" parent="." instance=ExtResource("3_a4ptb")]
+layer = 2
+visible = false
+offset = Vector2(-435, -150)
+transform = Transform2D(1, 0, 0, 1, -435, -150)

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Controllers/BattleController.gd" id="1_aswka"]
 [ext_resource type="Texture2D" uid="uid://3g0vbv1xmmvb" path="res://Assets/Textures/Cliff Face/CliffFace_Albedo.tga" id="1_u1eoo"]
-[ext_resource type="Script" path="res://Scripts/Battle/UnitSlot.gd" id="3_8wo8u"]
+[ext_resource type="Script" path="res://Scripts/Battle/Unit/UnitSlot.gd" id="3_8wo8u"]
 [ext_resource type="Material" uid="uid://cakeusr3n2jnt" path="res://Assets/Textures/green.tres" id="3_j52a7"]
 [ext_resource type="Material" uid="uid://cfos46sungdyl" path="res://Assets/Textures/red.tres" id="4_fig5t"]
 

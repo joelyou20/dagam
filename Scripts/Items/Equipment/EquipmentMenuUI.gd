@@ -1,5 +1,5 @@
-extends Node
-class_name EquipmentUI
+extends UIBase
+class_name EquipmentMenuUI
 
 var current_party_member: AllyResource
 var current_party_member_index: int = 0
@@ -243,7 +243,7 @@ func _add_equipment_row(container: GridContainer, equip: EquipmentResource, hold
 	)
 	btn.mouse_exited.connect(func():
 		btn.self_modulate = Color(1, 1, 1)        # restore
-		_on_equip_row_unhovered(equip)
+		_on_equip_row_unhovered()
 	)
 
 	container.add_child(btn)
@@ -293,7 +293,7 @@ func _on_equip_row_hovered(equip: EquipmentResource):
 		
 	update_stats(after_equip_stats)
 	
-func _on_equip_row_unhovered(equip: EquipmentResource):
+func _on_equip_row_unhovered():
 	$Panel/DescriptionValueLabel.text = ""
 	
 	var speed_sprite = $Panel/StatsContainer/SpeedContainer/SpeedSprite

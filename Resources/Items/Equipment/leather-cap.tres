@@ -25,3 +25,4 @@ id = "leather-cap"
 name = "Leather Cap"
 description = "A simple leather cap. +50% Physical Defense. -5 Physical Attack."
 icon = ExtResource("1_8wafl")
+can_use_in_battle = false

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcptqgkdvx8s4"]
+
+[ext_resource type="Script" path="res://Scripts/Party/Formation/FormationMenuUI.gd" id="1_jw6s2"]
+
+[node name="FormationMenuUI" type="CanvasLayer"]
+script = ExtResource("1_jw6s2")

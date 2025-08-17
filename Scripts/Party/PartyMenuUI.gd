@@ -1,5 +1,5 @@
-extends Panel
-class_name PartyUI
+extends UIBase
+class_name PartyMenuUI
 
 @onready var member_slots := [
 	$HBoxContainer/PartyMember1,
@@ -22,8 +22,16 @@ func _make_children_ignore_mouse(node: Node) -> void:
 		_make_children_ignore_mouse(child)
 
 func _on_member_slot_pressed(index: int):
-	MenuManager.set_current_party_member_menu_index(index)
-	MenuManager.set_menu(true, MenuTabs.Tab.PARTYMEMBER)
+	var party := PartyManager.get_party(true)
+	if party.is_empty():
+		return
+	# If your display is reversed, map UI index to party index
+	var reversed_index := party.size() - 1 - index
+	if reversed_index < 0 or reversed_index >= party.size():
+		return
+
+	MenuManager.set_current_party_member_menu_index(reversed_index)
+	MenuManager.open_nested(MenuTabs.Tab.PARTYMEMBER, self, reversed_index)
 
 func update_party_display():
 	var party_members = PartyManager.get_party()

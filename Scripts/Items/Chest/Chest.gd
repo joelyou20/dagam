@@ -35,7 +35,6 @@ func _show_chest_ui() -> void:
 
 	# Connect signals once
 	chest_ui.take_all_pressed.connect(_on_take_all_pressed)
-	chest_ui.close_requested.connect(_on_chest_close_requested)
 	chest_ui.slot_clicked.connect(_on_slot_clicked)
 	
 	chest_ui.populate_loot(loot)
@@ -59,3 +58,11 @@ func _close_chest_ui():
 	if chest_ui and is_instance_valid(chest_ui):
 		chest_ui.queue_free()
 		chest_ui = null
+		
+func _unhandled_input(event: InputEvent) -> void:
+	if not chest_ui:
+		return
+	
+	if event.is_action_pressed("take_all"):
+		_on_take_all_pressed()
+		get_viewport().set_input_as_handled()

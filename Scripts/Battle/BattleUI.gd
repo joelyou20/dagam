@@ -3,6 +3,7 @@ class_name BattleUI
 
 @onready var EnemyUIEntryScene := preload("res://Scenes/UI/Battle/EnemyUIEntry.tscn")
 @onready var battle_items_ui_scene := preload("res://Scenes/UI/Battle/BattleItemsUI.tscn")
+@onready var turn_order_ui_scene := preload("res://Scenes/UI/Battle/TurnOrder/TurnOrderUI.tscn")
 
 @onready var enemies_container: VBoxContainer = $Panel/EnemiesContainer
 @onready var allies_container: VBoxContainer = $Panel/AlliesContainer
@@ -12,6 +13,7 @@ class_name BattleUI
 @onready var flee_button: Button = $Panel/GridContainer/FleeButton
 
 var battle_items_ui: BattleItemsUI = null
+var turn_order_ui: TurnOrderUI = null
 
 func _ready():
 	# Connect buttons
@@ -26,6 +28,8 @@ func _ready():
 	
 	flee_button.pressed.connect(on_flee_pressed)
 	flee_button.mouse_filter = Control.MOUSE_FILTER_PASS
+	
+	ensure_turn_order_ui()
 	
 func _input(event):
 	if event is InputEventKey and event.pressed:
@@ -55,6 +59,13 @@ func on_flee_pressed():
 	print("Flee selected")
 	BattleManager.attempt_to_flee()
 	
+func ensure_turn_order_ui():
+	if not turn_order_ui:
+		turn_order_ui = turn_order_ui_scene.instantiate()
+		add_child(turn_order_ui)
+	
+	turn_order_ui.update_ui.call_deferred()
+
 func show_battle_items_ui():
 	# Remove an existing selector if open
 	if battle_items_ui and is_instance_valid(battle_items_ui):

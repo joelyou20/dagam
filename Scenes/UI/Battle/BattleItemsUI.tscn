@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Battle/BattleItemsUI.gd" id="1_bpo0m"]
 [ext_resource type="Texture2D" uid="uid://di0gdy04vom17" path="res://Assets/Sprites/BattleItemsUI.png" id="1_yq220"]
-[ext_resource type="Texture2D" uid="uid://cmglkaqbcvq7p" path="res://Assets/Sprites/Gold01.png" id="2_4d0iv"]
+[ext_resource type="PackedScene" uid="uid://c0jpqlac6gum2" path="res://Scenes/UI/ItemDescriptionUI.tscn" id="3_na081"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aen08"]
 texture = ExtResource("1_yq220")
@@ -12,48 +12,27 @@ script = ExtResource("1_bpo0m")
 should_block_interaction = false
 
 [node name="Panel" type="Panel" parent="."]
-offset_left = 233.0
-offset_top = 178.0
-offset_right = 869.0
-offset_bottom = 428.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.0
+offset_top = -125.0
+offset_right = 156.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_aen08")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 0
 offset_left = 11.0
-offset_top = 11.0
-offset_right = 371.0
-offset_bottom = 243.0
+offset_top = 9.0
+offset_right = 306.0
+offset_bottom = 241.0
 
-[node name="GridContainer" type="GridContainer" parent="Panel"]
-layout_mode = 0
-offset_left = 397.0
-offset_top = 11.0
-offset_right = 629.0
-offset_bottom = 240.0
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/GridContainer"]
-layout_mode = 2
-
-[node name="SpritePlaceholder" type="Label" parent="Panel/GridContainer/HBoxContainer2"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-text = "Tes"
-
-[node name="Sprite2D" type="Sprite2D" parent="Panel/GridContainer/HBoxContainer2/SpritePlaceholder"]
-position = Vector2(14, 13)
-scale = Vector2(3.18518, 3.63265)
-texture = ExtResource("2_4d0iv")
-
-[node name="NameLabel" type="Label" parent="Panel/GridContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-size_flags_stretch_ratio = 1.11
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Test Name"
-vertical_alignment = 1
-
-[node name="EffectContainer" type="VBoxContainer" parent="Panel/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
+[node name="ItemDescriptionUI" parent="Panel" instance=ExtResource("3_na081")]
+visible = false
+offset = Vector2(290, -7)
+transform = Transform2D(1, 0, 0, 1, 290, -7)

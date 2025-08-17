@@ -29,14 +29,16 @@ func use_item(item: ItemResource, target_resource: EntityResource = null):
 		#EquipmentManager.equip_item(item)
 
 func use_consumable(item: ItemResource, target_resource: EntityResource = null):
+	var item_used_successfully: bool = false
 	if item.effect_script:
 		var effect = item.effect_script.new()
 		if effect is ItemEffect:
-			effect.run(target_resource)
+			item_used_successfully = effect.run(target_resource)
 		else:
 			push_warning("Effect script does not implement ItemEffect")
 		
-		remove_item(item, 1)
+		if item_used_successfully:
+			remove_item(item, 1)
 
 # --- Retrieval ---
 func get_items() -> Array[InventorySlotData]:

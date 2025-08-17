@@ -11,7 +11,6 @@ const EQUIP_TYPE_TO_INDEX := {
 }
 
 func get_equipment_from_inventory() -> Array[EquipmentResource]:
-	var inventory = InventoryManager.get_inventory()
 	var items = InventoryManager.get_items()
 	var equipment: Array[EquipmentResource] = []
 

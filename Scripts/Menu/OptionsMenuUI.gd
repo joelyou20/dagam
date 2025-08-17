@@ -1,0 +1,2 @@
+extends UIBase
+class_name OptionsMenuUI

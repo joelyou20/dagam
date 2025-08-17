@@ -1,0 +1,110 @@
+[gd_scene load_steps=12 format=3 uid="uid://bxts40rxkdroj"]
+
+[ext_resource type="Script" path="res://Scripts/Menu/MenuUI.gd" id="1_8yrm3"]
+[ext_resource type="Texture2D" uid="uid://dh5ftrtgql1c2" path="res://Assets/Sprites/MenuTopNav.png" id="2_m83bv"]
+[ext_resource type="PackedScene" uid="uid://bbno1om20n1xm" path="res://Scenes/UI/Menus/PartyMenuUI.tscn" id="3_54dw3"]
+[ext_resource type="PackedScene" uid="uid://cc5s7gapdep7q" path="res://Scenes/UI/Menus/PartyMemberMenuUI.tscn" id="4_105cg"]
+[ext_resource type="PackedScene" uid="uid://d1iqnudqc6hjo" path="res://Scenes/UI/Menus/EquipmentMenuUI.tscn" id="5_qi0qq"]
+[ext_resource type="PackedScene" uid="uid://c2yusvanafv81" path="res://Scenes/UI/Menus/SkillsMenuUI.tscn" id="6_pfsjq"]
+[ext_resource type="PackedScene" uid="uid://dcptqgkdvx8s4" path="res://Scenes/UI/Menus/FormationMenuUI.tscn" id="8_j6wg8"]
+[ext_resource type="PackedScene" uid="uid://c356p8ioy4ol3" path="res://Scenes/UI/Menus/OptionsMenuUI.tscn" id="9_pa7cs"]
+[ext_resource type="Script" path="res://Scripts/Menu/OptionsMenuUI.gd" id="10_05qjo"]
+[ext_resource type="PackedScene" uid="uid://7vrsu00hyeky" path="res://Scenes/UI/Menus/InventoryUI.tscn" id="11_x2wnd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c61nn"]
+texture = ExtResource("2_m83bv")
+
+[node name="MenuUI" type="CanvasLayer"]
+script = ExtResource("1_8yrm3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuTopNav" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_c61nn")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MenuTopNav"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PartyButton" type="Button" parent="VBoxContainer/MenuTopNav/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Party"
+flat = true
+
+[node name="EquipmentButton" type="Button" parent="VBoxContainer/MenuTopNav/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Equip"
+flat = true
+
+[node name="SkillsButton" type="Button" parent="VBoxContainer/MenuTopNav/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Skills"
+flat = true
+
+[node name="InventoryButton" type="Button" parent="VBoxContainer/MenuTopNav/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Inventory"
+flat = true
+
+[node name="FormationButton" type="Button" parent="VBoxContainer/MenuTopNav/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Formation"
+flat = true
+
+[node name="NA" type="Button" parent="VBoxContainer/MenuTopNav/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+flat = true
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer/MenuTopNav/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Options"
+flat = true
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PartyMenuUI" parent="VBoxContainer/PanelContainer" instance=ExtResource("3_54dw3")]
+
+[node name="PartyMemberMenuUI" parent="VBoxContainer/PanelContainer" instance=ExtResource("4_105cg")]
+
+[node name="EquipmentMenuUI" parent="VBoxContainer/PanelContainer" instance=ExtResource("5_qi0qq")]
+
+[node name="SkillsMenuUI" parent="VBoxContainer/PanelContainer" instance=ExtResource("6_pfsjq")]
+visible = false
+
+[node name="InventoryUI" parent="VBoxContainer/PanelContainer" instance=ExtResource("11_x2wnd")]
+layer = 2
+visible = false
+
+[node name="FormationMenuUI" parent="VBoxContainer/PanelContainer" instance=ExtResource("8_j6wg8")]
+visible = false
+
+[node name="OptionsMenuUI" parent="VBoxContainer/PanelContainer" instance=ExtResource("9_pa7cs")]
+script = ExtResource("10_05qjo")

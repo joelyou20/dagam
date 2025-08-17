@@ -39,6 +39,12 @@ func _add_equipment_to_inventory(equip: EquipmentResource):
 func remove_member(member: AllyResource):
 	party.erase(member)
 	
+func get_member_at_index(index: int) -> AllyResource:
+	var members: Array[AllyResource] = get_party(true)  # includes player at [0]
+	if index < 0 or index >= members.size():
+		return null
+	return members[index]
+	
 func grant_xp(total_xp: int):
 	var current_party = get_party(true)
 	

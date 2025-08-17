@@ -7,7 +7,6 @@ class_name DialogUI
 @onready var options_container: VBoxContainer = $Panel/DialogOptionsBox/DialogOptionsContainer
 @onready var dialog_options_box: Panel = $Panel/DialogOptionsBox
 
-@warning_ignore("unused_signal")
 signal option_selected(npc_id: String, option: DialogOption)
 
 var dialog_lines: Array = []
@@ -80,7 +79,7 @@ func _setup_options(npc_id: String, options: Array[DialogOption]) -> void:
 
 func _on_option_selected(npc_id: String, option: DialogOption):
 	dialog_options_box.visible = false
-	emit_signal("option_selected", npc_id, option)
+	option_selected.emit(npc_id, option)
 
 func _on_typewriter_tick():
 	if char_index < current_text.length():

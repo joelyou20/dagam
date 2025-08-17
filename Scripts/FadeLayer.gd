@@ -15,7 +15,6 @@ signal fade_completed
 signal fade_in_started
 signal fade_out_started
 signal wait_started
-@warning_ignore("unused_signal")
 signal ready_to_fade
 
 func _ready():
@@ -44,7 +43,7 @@ func _ready():
 		color_rect.modulate = Color.WHITE
 		
 		# Signal that we're ready to fade
-		call_deferred("emit_signal", "ready_to_fade")
+		ready_to_fade.emit()
 	else:
 		push_error("FadeLayer: No ColorRect found as child!")
 

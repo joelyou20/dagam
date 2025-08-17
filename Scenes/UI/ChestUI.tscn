@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkyhan0ceh2tw"]
+[gd_scene load_steps=5 format=3 uid="uid://dkyhan0ceh2tw"]
 
 [ext_resource type="Texture2D" uid="uid://c5stiq6kjyboi" path="res://Assets/Sprites/ChestUI.png" id="1_esr27"]
 [ext_resource type="Script" path="res://Scripts/Items/Chest/ChestUI.gd" id="1_i0kb7"]
+[ext_resource type="PackedScene" uid="uid://c0jpqlac6gum2" path="res://Scenes/UI/ItemDescriptionUI.tscn" id="3_ftaqk"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v1srb"]
 texture = ExtResource("1_esr27")
@@ -50,3 +51,8 @@ offset_top = 97.4
 offset_right = 135.904
 offset_bottom = 128.4
 text = "Close"
+
+[node name="ItemDescriptionUI" parent="." instance=ExtResource("3_ftaqk")]
+visible = false
+offset = Vector2(255, -83)
+transform = Transform2D(1, 0, 0, 1, 255, -83)
