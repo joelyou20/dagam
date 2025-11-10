@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgitns74dwcu2"]
+[gd_scene load_steps=5 format=3 uid="uid://cgitns74dwcu2"]
 
 [ext_resource type="Script" path="res://Scripts/Battle/BattleUI.gd" id="1_n7lxj"]
 [ext_resource type="Texture2D" uid="uid://dyjg66x70wtwy" path="res://Assets/Sprites/BattleUI.png" id="2_axcl0"]
+[ext_resource type="PackedScene" uid="uid://bvhn2nq61n3hj" path="res://Scenes/UI/Battle/TurnOrder/TurnOrderUI.tscn" id="3_16lov"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ywdkp"]
 texture = ExtResource("2_axcl0")
@@ -74,9 +75,12 @@ offset_top = 10.0
 offset_right = 449.0
 offset_bottom = 142.0
 
-[node name="AlliesContainer" type="VBoxContainer" parent="Panel"]
+[node name="AlliesContainer" type="GridContainer" parent="Panel"]
 layout_mode = 0
 offset_left = 474.0
 offset_top = 9.0
 offset_right = 1143.0
 offset_bottom = 142.0
+columns = 4
+
+[node name="TurnOrderUI" parent="." instance=ExtResource("3_16lov")]

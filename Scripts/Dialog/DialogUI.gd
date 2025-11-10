@@ -28,6 +28,11 @@ func show_dialog(id: String, lines: Array, dialog_name: String = "", options: Ar
 	if lines.size() == 0:
 		return
 
+	# If we’re already showing this exact dialog, don’t reset—fast-forward or go next
+	if visible and _npc_id == id and dialog_lines == lines:
+		_fast_forward_or_next()
+		return
+
 	_npc_id = id
 	dialog_lines = lines
 	current_index = 0
@@ -36,6 +41,20 @@ func show_dialog(id: String, lines: Array, dialog_name: String = "", options: Ar
 	dialog_options_box.visible = false
 	show_ui()
 	_start_typing(dialog_lines[current_index])
+
+func _fast_forward_or_next():
+	if is_typing:
+		typewriter_timer.stop()
+		dialog_text.text = current_text
+		is_typing = false
+	else:
+		current_index += 1
+		if current_index < dialog_lines.size():
+			_start_typing(dialog_lines[current_index])
+		elif options_container.get_child_count() > 0:
+			dialog_options_box.visible = true
+		else:
+			hide_ui()
 
 func _start_typing(text: String):
 	dialog_text.text = ""
@@ -90,22 +109,12 @@ func _on_typewriter_tick():
 		is_typing = false
 
 func _input(_event):
-	if visible and (Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("Interact")):
+	if not visible:
+		return
+	if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("Interact"):
 		if dialog_options_box.visible:
 			return
-
-		if is_typing:
-			typewriter_timer.stop()
-			dialog_text.text = current_text
-			is_typing = false
-		else:
-			current_index += 1
-			if current_index < dialog_lines.size():
-				_start_typing(dialog_lines[current_index])
-			elif options_container.get_child_count() > 0:
-				dialog_options_box.visible = true
-			else:
-				hide_ui()
+		_fast_forward_or_next()
 
 func is_dialog_active() -> bool:
 	return visible and (is_typing or current_index < dialog_lines.size() - 1)

@@ -12,8 +12,7 @@ func _ready():
 	call_deferred("_init_battle", unit_slot_nodes)
 
 func _init_battle(slots: Array[UnitSlot]):
-	BattleManager.place_units(slots)
-	BattleManager.update_turn_order()
+	UnitManager.place_units(slots)
 	
 	# NOTE: Uncomment to debug unit slots
 	# Get all unit slots and debug them

@@ -1,10 +1,12 @@
 extends Node
 
 @onready var BattleUIScene := preload("res://Scenes/UI/Battle/BattleUI.tscn")
+
+var _unit_manager: UnitManager
+var _turn_order_manager: TurnOrderManager
+
 var battle_ui: BattleUI = null
 
-var ally_units: Array[Unit] = []
-var enemy_units: Array[Unit] = []
 var current_battle_data: BattleData = null
 var is_targeting_mode = false
 var pending_action: BattleAction = null  # Store the action that needs a target
@@ -18,11 +20,13 @@ var player_collision_layer: int
 var player_collision_mask: int
 
 var base_flee_chance: float = 0.5
-
-var turn_order_queue: Array[Unit] = []
-
 signal battle_ended
 
+func _ready():
+	_unit_manager = UnitManager
+	_turn_order_manager = TurnOrderManager
+
+#region Public Methods
 func can_start_battle(force: bool = false) -> bool:
 	return force or (Time.get_ticks_msec() / 1000.0 - last_battle_time >= battle_cooldown_duration)
 
@@ -40,25 +44,11 @@ func build_battle_from_encounter(encounter: EncounterData) -> BattleData:
 		push_error("Player node not found. Cannot save position before battle.")
 	
 	SceneManager.load_scene(encounter.battle_scene_path, true, true, "", 0.1)
-	var party = PartyManager.get_party(false)
-	
-	var player: PlayerResource = PlayerManager.player
-	ally_units = []
-	enemy_units = []
-
-	var player_unit = map_resource_to_unit(player, Unit.UnitType.PLAYER)
-	ally_units.append(player_unit)
-
-	for ally in party:
-		var unit = map_resource_to_unit(ally, Unit.UnitType.ALLY)
-		ally_units.append(unit)
-
-	for enemy in encounter.enemies:
-		var unit = map_resource_to_unit(enemy, Unit.UnitType.ENEMY)
-		enemy_units.append(unit)
+	_unit_manager.set_ally_units()
+	_unit_manager.set_enemy_units(encounter.enemies)
 		
 	var battleData: BattleData = BattleData.new()
-	battleData.set_units(ally_units, enemy_units)
+	battleData.set_units(_unit_manager.ally_units, _unit_manager.enemy_units)
 	battleData.set_xp_reward()
 	battleData.flee_chance = base_flee_chance
 	current_battle_data = battleData
@@ -71,66 +61,6 @@ func ensure_battle_ui():
 		get_tree().get_root().add_child(battle_ui)
 		battle_ui.tree_exited.connect(func(): battle_ui = null)
 
-func map_resource_to_unit(source: EntityResource, unit_type: Unit.UnitType) -> Unit:
-	var unit = Unit.new()
-	unit.resource = source
-	unit.type = unit_type
-	
-	return unit
-
-func place_units(slots: Array[UnitSlot]):
-	if not slots:
-		return
-
-	var unit: Unit
-	for slot in slots:
-		unit = null
-		if slot.type == UnitSlot.UnitSlotType.ALLY:
-			for slot_unit in ally_units:
-				if slot_unit.resource.slot_number == slot.slot_number:
-					unit = slot_unit
-					place_unit_in_slot(unit, slot)
-					break
-		elif slot.type == UnitSlot.UnitSlotType.ENEMY:
-			for slot_unit in enemy_units:
-				if slot_unit.resource.slot_number == slot.slot_number:
-					unit = slot_unit
-					place_unit_in_slot(unit, slot)
-					break
-		if unit == null:
-			continue
-			
-func update_turn_order():
-	var all_units: Array[Unit] = []
-	
-	turn_order_queue.clear()
-	
-	all_units.append_array(ally_units)
-	all_units.append_array(enemy_units)
-	all_units.sort_custom(func(a: Unit, b: Unit): 
-		return a.resource.speed > b.resource.speed
-	)
-	
-	turn_order_queue.append_array(all_units)
-	
-func get_turn_order() -> Array[Unit]:
-	return turn_order_queue
-		
-func place_unit_in_slot(unit: Unit, slot: UnitSlot):
-	slot.add_child(unit)
-
-	var vis = unit.resource.visual_scene.instantiate()
-	slot.node.add_child(vis)
-	vis.transform = Transform3D.IDENTITY  # Or set local position manually
-	vis.scale = Vector3.ONE * unit.resource.battle_scale
-	
-	# Look for any Area3D children that were added to the slot (not just unit_instance children)
-	for child in slot.get_children():
-		if child is Area3D and child != slot:  # Don't disable the slot itself
-			child.input_ray_pickable = false
-			print("Disabled input on: ", child.name)
-	
-	slot.unit = unit
 
 func start_targeting(action: BattleAction):
 	is_targeting_mode = true
@@ -155,98 +85,58 @@ func select_target(target_unit):
 
 # TODO: Expand on this when I implement skills and weapon types
 func execute_action(action: BattleAction, target: Unit):
+	var active_unit = _unit_manager.active_unit
+	
+	if active_unit == null:
+		push_error("Active unit is null")
+	
 	match action.get_action_type():
 		BattleAction.ActionType.ATTACK:
-			var source_slot = action.get_source_slot()
-			# TODO: This should not be specific to allies only. Enemies will want to use the same logic
-			var source_unit = ally_units[source_slot - 1]
-			
+			var source_unit: Unit = active_unit
+			if source_unit == null:
+				# Backward-compat: fallback to old source-slot logic if needed
+				var source_slot = action.get_source_slot()
+				if source_slot > 0 and source_slot - 1 < _unit_manager.ally_units.size():
+					source_unit = _unit_manager.ally_units[source_slot - 1]
+				else:
+					push_error("No active unit and invalid source slot; cannot ATTACK.")
+					return
+
+			# On-attack equipment effects (actor)
 			var on_attack_effects = EquipmentManager.get_equipment_on_attack_effects(source_unit)
 			for effect in on_attack_effects:
 				effect.run(target)
-				if _check_battle_end() or !target.is_alive:
-					return
-			
+				if !target.is_alive:
+					break
+
+			# Pull stats from actor/target correctly (ally vs enemy)
 			var phys_atk = (
-				EquipmentManager.get_equip_stats(source_unit.resource)[StatOptions.Keys.PHYS_ATK] 
-				if source_unit.type != Unit.UnitType.ENEMY 
+				EquipmentManager.get_equip_stats(source_unit.resource)[StatOptions.Keys.PHYS_ATK]
+				if source_unit.type != Unit.UnitType.ENEMY
 				else source_unit.resource.physical_attack
-			) 
+			)
+
 			var phys_def = (
 				EquipmentManager.get_equip_stats(target.resource)[StatOptions.Keys.PHYS_DEF]
-				if target.type != Unit.UnitType.ENEMY 
+				if target.type != Unit.UnitType.ENEMY
 				else target.resource.physical_defense
-			) 
-			
-			var damage_taken = phys_atk - phys_def
+			)
+
+			var damage_taken = max(0, phys_atk - phys_def)
 			target.take_damage(damage_taken)
 			print(target.resource.name + " took " + str(damage_taken) + " points of damage!")
-			_check_battle_end()
 
 		BattleAction.ActionType.ITEM:
 			var item = action.get_item()
 			_apply_item_to_target(item, target)
-			_check_battle_end()
-
-func _apply_item_to_target(item: ItemResource, target: Unit):
-	print("Using %s on %s" % [item.name, target.resource.name])
-	if item and target:
-		InventoryManager.use_item(item, target.resource)
-
-func _check_battle_end() -> bool:
-	var all_enemies_dead := enemy_units.filter(func(u):
-		return is_instance_valid(u) and u.is_alive
-	).is_empty()
-
-	var all_allies_dead := ally_units.filter(func(u):
-		return is_instance_valid(u) and u.is_alive
-	).is_empty()
-
-	if all_enemies_dead:
-		print("All enemies defeated! Ending battle.")
-		PartyManager.grant_xp(current_battle_data.xp_reward)
-		end_battle()
-		return true
-	elif all_allies_dead:
-		print("All allies defeated! Ending battle.")
-		end_battle()
-		return true
-	
-	return false
-
-func get_active_unit_slot() -> int:
-	# TODO: Once the turn system is designed return whoever is acting. For now will default to slot 1
-	return 1
-
-func _sync_units_to_resources():
-	for unit in ally_units:
-		var resource
-		if unit.resource.id == PlayerManager.player.id:
-			resource = PlayerManager.player
-		else:
-			resource = PartyManager.get_member_by_id(unit.resource.id)
-
-		if resource:
-			_update_resource_from_unit(resource, unit)
-
-func _update_resource_from_unit(resource: Resource, unit: Unit):
-	# Core combat stats
-	resource.current_hp = unit.resource.current_hp
-	#if "current_mp" in resource and "current_mp" in unit:
-		#resource.current_mp = unit.current_mp
-
-	# Experience / level
-	#if "experience" in resource and "experience" in unit:
-		#resource.experience = unit.experience
-	#if "level" in resource and "level" in unit:
-		#resource.level = unit.level
-
-	# TODO: Add syncing for status effects, buffs, debuffs
-	# if "status_effects" in resource and "status_effects" in unit:
-	#     resource.status_effects = unit.status_effects.duplicate(true)
+		
+	# Recalculate turn order in case speeds/statuses changed, then advance to next unit
+	_turn_order_manager.finish_turn(active_unit)
+	_update_active_unit()
+	_check_battle_end()
 
 func attempt_to_flee():
-	for ally in ally_units:
+	for ally in _unit_manager.ally_units:
 		var on_flee_effects = EquipmentManager.get_equipment_on_flee_effects(ally)
 		for effect in on_flee_effects:
 			effect.run()
@@ -254,10 +144,10 @@ func attempt_to_flee():
 	var flee_chance = current_battle_data.flee_chance
 	
 	var party_speed := 0
-	for unit in ally_units.filter(func(u): return is_instance_valid(u) && u.is_alive):
+	for unit in _unit_manager.ally_units.filter(func(u): return is_instance_valid(u) && u.is_alive):
 		party_speed += unit.resource.speed
 	var enemy_speed := 0
-	for unit in enemy_units.filter(func(u): return is_instance_valid(u) && u.is_alive):
+	for unit in _unit_manager.enemy_units.filter(func(u): return is_instance_valid(u) && u.is_alive):
 		enemy_speed += unit.resource.speed
 
 	if party_speed > enemy_speed:
@@ -274,7 +164,6 @@ func attempt_to_flee():
 	else:
 		print("Flee failed!")
 
-	
 func begin_battle():
 	InteractionHandler.block("battle")
 
@@ -282,18 +171,21 @@ func begin_battle():
 	if cam and cam is Camera3D:
 		cam.current = true
 
-	# Show the battle UI
 	ensure_battle_ui()
 	battle_ui.show_ui()
-	battle_ui.populate_enemies(enemy_units)
-	
+	battle_ui.populate_enemies(_unit_manager.enemy_units)
+	battle_ui.populate_ally_info_container(_unit_manager.ally_units)
+
 	var player_node := PlayerManager.get_player_node()
 	player_collision_layer = player_node.collision_layer
 	player_collision_mask = player_node.collision_mask
 	_disable_overworld_player()
+	
+	_turn_order_manager.setup(_unit_manager.get_all_units())
+	_update_active_unit()
 
 func end_battle():
-	_sync_units_to_resources()
+	_unit_manager.sync_units_to_resources()
 	
 	InteractionHandler.unblock("battle")
 	
@@ -320,12 +212,46 @@ func end_battle():
 		push_error("No pre-battle scene path stored. Cannot return to previous scene.")
 	
 	# Clear stale data
-	ally_units.clear()
-	enemy_units.clear()
+	_unit_manager.ally_units.clear()
+	_unit_manager.enemy_units.clear()
 	current_battle_data = null
 	last_battle_time = Time.get_ticks_msec() / 1000.0
 	
 	battle_ended.emit()
+	
+
+#endregion
+#region Private Methods
+
+func _apply_item_to_target(item: ItemResource, target: Unit):
+	print("Using %s on %s" % [item.name, target.resource.name])
+	if item and target:
+		var temp_resource: EntityResource = target.resource.duplicate()
+		InventoryManager.use_item(item, target.resource)
+		var hp_difference = temp_resource.current_hp - target.resource.current_hp
+		if hp_difference != 0:
+			target.hp_change.emit(hp_difference)
+
+func _check_battle_end() -> bool:
+	var all_enemies_dead := _unit_manager.enemy_units.filter(func(u):
+		return is_instance_valid(u) and u.is_alive
+	).is_empty()
+
+	var all_allies_dead := _unit_manager.ally_units.filter(func(u):
+		return is_instance_valid(u) and u.is_alive
+	).is_empty()
+
+	if all_enemies_dead:
+		print("All enemies defeated! Ending battle.")
+		PartyManager.grant_xp(current_battle_data.xp_reward)
+		end_battle()
+		return true
+	elif all_allies_dead:
+		print("All allies defeated! Ending battle.")
+		end_battle()
+		return true
+	
+	return false
 
 func _disable_overworld_player():
 	var player_node := PlayerManager.get_player_node()
@@ -344,3 +270,12 @@ func _enable_overworld_player():
 	player_node.set_physics_process(true)
 	player_node.set_collision_layer(player_collision_layer)
 	player_node.set_collision_mask(player_collision_mask)
+	
+# TODO Gets all units twice here... May not care?
+func _update_active_unit():
+	var id: String = _turn_order_manager.turn_order_queue.front()
+	var unit: Unit = _unit_manager.find_unit_by_id(id)
+	_unit_manager.set_active_unit(unit)
+	_turn_order_manager.update(_unit_manager.get_all_units())
+	
+#endregion

@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnwyob8b16pq4"]
+
+[ext_resource type="Script" path="res://Scripts/Battle/AllyBattleInfo.gd" id="1_a2pim"]
+[ext_resource type="Texture2D" uid="uid://oma61eo6wvaj" path="res://Assets/Sprites/Player.png" id="2_goo8p"]
+[ext_resource type="PackedScene" uid="uid://3qibydm5xc1g" path="res://Scenes/UI/StatBar.tscn" id="3_8m2wg"]
+
+[node name="AllyBattleInfo" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(20, 20)
+offset_right = 186.0
+offset_bottom = 103.0
+script = ExtResource("1_a2pim")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PortraitTextureRect" type="TextureRect" parent="GridContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("2_goo8p")
+
+[node name="PartyMemberNameLabel" type="Label" parent="GridContainer/HBoxContainer"]
+layout_mode = 2
+text = "Name"
+
+[node name="HealthBar" parent="GridContainer" instance=ExtResource("3_8m2wg")]
+layout_mode = 2
+show_label = true
+
+[node name="ManaBar" parent="GridContainer" instance=ExtResource("3_8m2wg")]
+layout_mode = 2
+color_fill = Color(3.46541e-06, 0.735045, 0.92754, 1)
+color_chip = Color(0.560955, 0.560955, 0.560955, 1)
+show_label = true

@@ -1,14 +1,17 @@
 extends Node
 class_name Unit
 
-enum UnitType { PLAYER, ALLY, ENEMY }
+enum UnitType { UNSET, PLAYER, ALLY, ENEMY }
 
 var resource: EntityResource
 var type: UnitType
 var is_player_controlled := false
 var is_alive := true
+var next_turn_time: int = -1
 
 @onready var _rng := RandomNumberGenerator.new()
+
+signal hp_change(amount: int)
 
 func take_damage(amount: int) -> void:
 	if not is_alive:
@@ -19,6 +22,8 @@ func take_damage(amount: int) -> void:
 
 	if resource.current_hp <= 0:
 		die()
+		
+	hp_change.emit(amount)
 
 func die() -> void:
 	is_alive = false

@@ -92,6 +92,8 @@ func unequip_item(ally: AllyResource, equip: EquipmentResource) -> bool:
 	return did_unequip
 	
 func get_equipment_on_attack_effects(unit: Unit) -> Array[OnAttackEffectEquipmentModifier]:
+	if(unit.type == Unit.UnitType.ENEMY):
+		return []
 	var equipment: Array[EquipmentResource] = PartyManager.get_ally_equipment(unit.resource)
 	var effects: Array[OnAttackEffectEquipmentModifier] = []
 	for item in equipment:

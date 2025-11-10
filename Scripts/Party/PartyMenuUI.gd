@@ -31,7 +31,7 @@ func _on_member_slot_pressed(index: int):
 		return
 
 	MenuManager.set_current_party_member_menu_index(reversed_index)
-	MenuManager.open_nested(MenuTabs.Tab.PARTYMEMBER, self, reversed_index)
+	MenuManager.set_menu(true, MenuTabs.Tab.PARTYMEMBER)
 
 func update_party_display():
 	var party_members = PartyManager.get_party()

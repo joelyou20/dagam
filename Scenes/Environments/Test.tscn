@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://d3m7gv82kgk8t"]
+[gd_scene load_steps=41 format=3 uid="uid://d3m7gv82kgk8t"]
 
 [ext_resource type="Texture2D" uid="uid://cex0yttn80owp" path="res://Assets/Textures/Sand/Sand_Albedo.tga" id="1_d6bna"]
 [ext_resource type="Script" path="res://Scripts/NPC.gd" id="2_dbkgc"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://dwb8fehdqhx5a" path="res://Scenes/Items/Potion.tscn" id="12_tkoom"]
 [ext_resource type="PackedScene" uid="uid://dnmm4x5s0j6p5" path="res://Scenes/Items/Sword.tscn" id="13_2umcn"]
 [ext_resource type="Script" path="res://Scripts/Battle/EncounterData.gd" id="13_y7yl4"]
+[ext_resource type="PackedScene" uid="uid://ct4br8i5w8l3l" path="res://Scenes/SaveBeacon.tscn" id="14_46gb8"]
 [ext_resource type="PackedScene" uid="uid://ct3at2avuf5rt" path="res://Scenes/Items/LeatherCap.tscn" id="14_rmsrj"]
 [ext_resource type="PackedScene" uid="uid://cqit1lxcfkyq4" path="res://Scenes/Items/Axe.tscn" id="15_esb3w"]
 [ext_resource type="PackedScene" uid="uid://ovahmhp2sbp" path="res://Scenes/Items/WingBoots.tscn" id="16_3p3qq"]
@@ -187,7 +188,7 @@ mesh = SubResource("BoxMesh_05uy7")
 shape = SubResource("BoxShape3D_4lx6t")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="SimpleBuilding"]
-transform = Transform3D(2.03486, 0, 0, 0, 0.00136033, 0, 0, 0, 2.02799, 0.229656, -0.0379899, 0.639945)
+transform = Transform3D(2.02452, 0, 0, 0, 0.00135342, 0, 0, 0, 2.01769, 0.229656, -0.0379899, 0.639945)
 mesh = SubResource("BoxMesh_05uy7")
 skeleton = NodePath("../MeshInstance3D")
 
@@ -311,3 +312,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.19633, 0.152139, 0.746347)
 
 [node name="WingBoots" parent="." instance=ExtResource("16_3p3qq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.38118, 0.194672, 0.741359)
+
+[node name="SaveBeacon" parent="." instance=ExtResource("14_46gb8")]
+transform = Transform3D(0.181111, 0, 0, 0, 0.640868, 0, 0, 0, 0.138326, -1.23522, 0.0571728, -1.00799)

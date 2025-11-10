@@ -11,7 +11,7 @@ func _unhandled_input(event):
 	if event.is_action_pressed("ui_cancel"):
 		# If any UI is open, let the UI stack handle it
 		if UIManager.handle_cancel():
-			get_tree().set_input_as_handled()
+			get_viewport().set_input_as_handled()
 			return
 		# Otherwise, open Options (or your pause menu)
 		menu_manager.set_menu(true, MenuTabs.Tab.OPTIONS)

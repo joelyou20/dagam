@@ -31,6 +31,8 @@ MenuManager="*res://Scripts/Managers/MenuManager.gd"
 EnemyManager="*res://Scripts/Managers/EnemyManager.gd"
 EquipmentManager="*res://Scripts/Managers/EquipmentManager.gd"
 UIManager="*res://Scripts/Managers/UIManager.gd"
+TurnOrderManager="*res://Scripts/Managers/TurnOrderManager.gd"
+UnitManager="*res://Scripts/Managers/UnitManager.gd"
 
 [display]
 

@@ -35,10 +35,10 @@ func _ready():
 	$VBoxContainer/MenuTopNav/HBoxContainer/OptionsButton.pressed.connect(func(): open_root(MenuTabs.Tab.OPTIONS))
 
 	# Child UIs should POP, not close the whole menu
-	for name: String in content_uis.keys():
-		var ui : UIBase = content_uis[name]
+	for key: String in content_uis.keys():
+		var ui : UIBase = content_uis[key]
 		if ui:
-			ui.ui_closed.connect(func(): _on_child_ui_closed(name))
+			ui.ui_closed.connect(func(): _on_child_ui_closed(key))
 
 # Public: open a top-level tab (clears stack)
 func open_root(tab: MenuTabs.Tab):

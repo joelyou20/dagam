@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://ct4br8i5w8l3l"]
+
+[ext_resource type="Script" path="res://Scripts/SaveBeacon.gd" id="1_510lp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f5si2"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wnpqt"]
+material = SubResource("StandardMaterial3D_f5si2")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wi6rh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x8ncb"]
+size = Vector3(1, 0.73938, 1)
+
+[node name="SaveBeacon" type="Node3D"]
+transform = Transform3D(0.181111, 0, 0, 0, 0.640868, 0, 0, 0, 0.138326, 0, 0, 0)
+script = ExtResource("1_510lp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_wnpqt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_wi6rh")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.00657752, -0.195245, 0.00413404)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.13031, 0)
+shape = SubResource("BoxShape3D_x8ncb")
