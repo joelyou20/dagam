@@ -4,74 +4,108 @@ signal turn_advanced(prev: int, next: int)
 
 var battle_time: float = 0.0
 
+const PLAN_AHEAD := 10
+
 # Just IDs, no Units here
 var turn_order_queue: Array[String] = []
 
-# Per-ID timing: id -> next_turn_time
-var _next_turn_times: Dictionary = {} # { int: float }
+var _next_time: Dictionary = {}          # id -> float
+var _interval: Dictionary = {}           # id -> float
+var _last_picked_step: Dictionary = {}   # id -> int (lower = longer ago)
+
+var _step := 0
 
 func setup(units: Array[Unit]) -> void:
-	# speeds: { id: speed_int }
 	battle_time = 0.0
-	_next_turn_times.clear()
-	
-	update(units)
-	
-func update(units: Array[Unit]):
+	_step = 0
 	turn_order_queue.clear()
-	for unit in units:
-		var speed : int = unit.resource.speed
-		speed = max(speed, 1)
+	_next_time.clear()
+	_interval.clear()
+	_last_picked_step.clear()
 
-		_next_turn_times[unit.resource.id] = _compute_initial_time(speed)
-		turn_order_queue.append(unit.resource.id)
+	for u in units:
+		var id := u.resource.id
+		var spd : int = max(int(u.resource.speed), 1)
 
-	_sort_turn_order()
+		_interval[id] = spd
+		_next_time[id] = spd           # first action at its interval
+		_last_picked_step[id] = -999999     # never acted -> very old
 
-func _compute_initial_time(speed: int) -> float:
-	# Lower result = acts sooner
-	var spd : int = max(speed, 1)
-	return 100.0 / float(spd)
-
-func _compute_turn_cost(speed: int) -> float:
-	var spd : int = max(speed, 1)
-	return 100.0 / float(spd)
-
-func _sort_turn_order() -> void:
-	turn_order_queue.sort_custom(func(a: int, b: int) -> bool:
-		return _next_turn_times[a] < _next_turn_times[b]
-	)
+	_plan_up_to(PLAN_AHEAD)
 
 func finish_turn(unit: Unit) -> String:
 	if unit == null:
 		return ""
-	var id: String = unit.resource.id
 
+	var finished_id := unit.resource.id
+
+	# If unit died, remove it from future planning
 	if not unit.is_alive:
-		remove_from_turn_order(id)
-		_next_turn_times.erase(id)
-	else:
-		_next_turn_times[id] += _compute_turn_cost(unit.resource.speed)
+		_remove_unit(finished_id)
 
-		# Ensure ID is still in the queue (e.g. if re-added after revival)
-		if not turn_order_queue.has(id):
-			turn_order_queue.append(id)
+	var prev_id := finished_id
 
-	if not turn_order_queue.is_empty():
-		_sort_turn_order()
-	
-	var prev : String = turn_order_queue.front()
-	var next_id: String = turn_order_queue.pop_front()
+	# Pop current (front) if it matches; otherwise just pop front defensively
+	if not turn_order_queue.is_empty() and turn_order_queue.front() == finished_id:
+		turn_order_queue.pop_front()
+	elif not turn_order_queue.is_empty():
+		turn_order_queue.pop_front()
 
-	# Advance global battle time to this unit's time
-	if _next_turn_times.has(next_id):
-		battle_time = _next_turn_times[next_id]
+	# Keep queue filled
+	_plan_up_to(PLAN_AHEAD)
 
-	emit_signal("turn_advanced", prev, next_id)
+	var next_id : String = turn_order_queue.front() if not turn_order_queue.is_empty() else ""
+
+	if next_id != "" and _next_time.has(next_id):
+		battle_time = float(_next_time[next_id])
+
+	emit_signal("turn_advanced", prev_id, next_id)
 	return next_id
 
-func remove_from_turn_order(id: String) -> void:
-	var idx := turn_order_queue.find(id)
-	if idx != -1:
+func _plan_up_to(count: int) -> void:
+	while turn_order_queue.size() < count and _next_time.size() > 0:
+		var id := _pick_next_id()
+		if id == "":
+			break
+
+		turn_order_queue.append(id)
+
+		# schedule this unit's next time
+		_next_time[id] = float(_next_time[id]) + float(_interval[id])
+
+		# record recency for tie-breaks
+		_last_picked_step[id] = _step
+		_step += 1
+
+func _pick_next_id() -> String:
+	var best_id := ""
+	var best_time := INF
+	var best_last := INF  # for tie-break: smaller last = longer ago, so we prefer smaller last
+
+	for id in _next_time.keys():
+		var t := float(_next_time[id])
+		var last := int(_last_picked_step.get(id, -999999))
+
+		if t < best_time:
+			best_time = t
+			best_last = last
+			best_id = id
+		elif is_equal_approx(t, best_time):
+			# Tie-break: whoever acted least recently (smaller last step)
+			if last < best_last:
+				best_last = last
+				best_id = id
+
+	return best_id
+
+func _remove_unit(id: String) -> void:
+	_next_time.erase(id)
+	_interval.erase(id)
+	_last_picked_step.erase(id)
+
+	# remove all future occurrences from the planned queue
+	while true:
+		var idx := turn_order_queue.find(id)
+		if idx == -1:
+			break
 		turn_order_queue.remove_at(idx)
-	_next_turn_times.erase(id)

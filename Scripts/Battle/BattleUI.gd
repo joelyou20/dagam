@@ -129,4 +129,4 @@ func populate_ally_info_container(units: Array[Unit]) -> void:
 	allies_container.queue_sort()
 	
 func set_active_unit(u: Unit):
-	return 1
+	turn_order_ui.turn_order_changed.emit()

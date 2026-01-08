@@ -4,6 +4,7 @@ extends Node
 
 var _unit_manager: UnitManager
 var _turn_order_manager: TurnOrderManager
+var _battle_ai_executor: BattleAiExecutor
 
 var battle_ui: BattleUI = null
 
@@ -25,6 +26,7 @@ signal battle_ended
 func _ready():
 	_unit_manager = UnitManager
 	_turn_order_manager = TurnOrderManager
+	_battle_ai_executor = BattleAiExecutor
 
 #region Public Methods
 func can_start_battle(force: bool = false) -> bool:
@@ -60,7 +62,6 @@ func ensure_battle_ui():
 		battle_ui = BattleUIScene.instantiate()
 		get_tree().get_root().add_child(battle_ui)
 		battle_ui.tree_exited.connect(func(): battle_ui = null)
-
 
 func start_targeting(action: BattleAction):
 	is_targeting_mode = true
@@ -276,6 +277,6 @@ func _update_active_unit():
 	var id: String = _turn_order_manager.turn_order_queue.front()
 	var unit: Unit = _unit_manager.find_unit_by_id(id)
 	_unit_manager.set_active_unit(unit)
-	_turn_order_manager.update(_unit_manager.get_all_units())
+	_battle_ai_executor.take_turn(_unit_manager.active_unit)
 	
 #endregion

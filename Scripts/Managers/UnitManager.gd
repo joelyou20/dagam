@@ -19,6 +19,7 @@ func set_ally_units():
 	var party = PartyManager.get_party(false)
 	var player: PlayerResource = PlayerManager.player
 	var player_unit = map_resource_to_unit(player, Unit.UnitType.PLAYER)
+	player_unit.is_player_controlled = true
 	ally_units.append(player_unit)
 	
 	for ally in party:

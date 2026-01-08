@@ -33,6 +33,7 @@ EquipmentManager="*res://Scripts/Managers/EquipmentManager.gd"
 UIManager="*res://Scripts/Managers/UIManager.gd"
 TurnOrderManager="*res://Scripts/Managers/TurnOrderManager.gd"
 UnitManager="*res://Scripts/Managers/UnitManager.gd"
+BattleAiExecutor="*res://Scripts/Battle/BattleAiExecutor.gd"
 
 [display]
 
@@ -41,6 +42,11 @@ window/stretch/mode="viewport"
 [dotnet]
 
 project/assembly_name="DaGam"
+
+[editor]
+
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
 
 [editor_plugins]
 

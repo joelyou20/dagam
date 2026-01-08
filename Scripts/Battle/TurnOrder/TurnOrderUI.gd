@@ -26,5 +26,9 @@ func update_ui():
 		item.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 
 		turn_order_container.add_child(item)
+		
 		var unit: Unit = _unit_manager.find_unit_by_id(id)
+		if (!unit):
+			return
+		
 		item.call_deferred("set_portrait", unit.resource.portrait_texture)

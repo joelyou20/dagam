@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="EnemyResource" load_steps=4 format=3 uid="uid://cq1etn2nutffk"]
 
-[ext_resource type="Texture2D" uid="uid://5qg7cvf8ty8n" path="res://Assets/Sprites/Slime.png" id="1_pfd0m"]
+[ext_resource type="Texture2D" uid="uid://b5qtd2ldvhfoh" path="res://Assets/Sprites/Slime_Red.png" id="1_gd17b"]
 [ext_resource type="Script" path="res://Scripts/Enemy/EnemyResource.gd" id="1_tj0cx"]
-[ext_resource type="PackedScene" uid="uid://k6rr2odh851c" path="res://Scenes/Enemies/Slime_Battler.tscn" id="2_knp4h"]
+[ext_resource type="PackedScene" uid="uid://cnfek4oosescd" path="res://Scenes/Enemies/Slime_Red_Battler.tscn" id="3_kr8pl"]
 
 [resource]
 script = ExtResource("1_tj0cx")
 xp_reward = 10
-portrait_texture = ExtResource("1_pfd0m")
+portrait_texture = ExtResource("1_gd17b")
 id = "slime2"
 name = "Slime"
 description = "Another slime. Pretty average."
@@ -15,9 +15,9 @@ max_hp = 100
 current_hp = 100
 slot_number = 2
 battle_scale = 0.25
-visual_scene = ExtResource("2_knp4h")
+visual_scene = ExtResource("3_kr8pl")
 level = 1
-speed = 100
+speed = 20
 physical_attack = 10
 physical_defense = 5
 magical_attack = 0
