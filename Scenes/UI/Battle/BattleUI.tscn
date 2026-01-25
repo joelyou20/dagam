@@ -1,86 +1,196 @@
 [gd_scene load_steps=5 format=3 uid="uid://cgitns74dwcu2"]
 
 [ext_resource type="Script" path="res://Scripts/Battle/BattleUI.gd" id="1_n7lxj"]
-[ext_resource type="Texture2D" uid="uid://dyjg66x70wtwy" path="res://Assets/Sprites/BattleUI.png" id="2_axcl0"]
-[ext_resource type="PackedScene" uid="uid://bvhn2nq61n3hj" path="res://Scenes/UI/Battle/TurnOrder/TurnOrderUI.tscn" id="3_16lov"]
+[ext_resource type="Texture2D" uid="uid://c2bwspwj7d0gp" path="res://Assets/Sprites/CardBattleUI.png" id="2_ckaw1"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ywdkp"]
-texture = ExtResource("2_axcl0")
+texture = ExtResource("2_ckaw1")
+
+[sub_resource type="LabelSettings" id="LabelSettings_v2jla"]
+font_color = Color(0, 0, 0, 1)
 
 [node name="BattleUI" type="CanvasLayer"]
 script = ExtResource("1_n7lxj")
 is_hideable = false
 
 [node name="Panel" type="Panel" parent="."]
-offset_top = 500.0
-offset_right = 1151.0
-offset_bottom = 648.0
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 510.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_ywdkp")
 
-[node name="GridContainer" type="Control" parent="Panel"]
-anchors_preset = 0
-offset_left = 15.0
-offset_top = 10.0
-offset_right = 175.0
-offset_bottom = 140.0
+[node name="PlayerHandContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.227
+anchor_top = -0.58
+anchor_right = 0.776
+anchor_bottom = 0.98
+offset_left = -2.50403
+offset_top = -1.95999
+offset_right = 50.048
+offset_bottom = 16.76
+scale = Vector2(0.925, 0.925)
 
-[node name="AttackButton" type="Button" parent="Panel/GridContainer"]
+[node name="DeckLabelHeader" type="Label" parent="Panel"]
 layout_mode = 2
-offset_left = 49.0
+offset_left = 44.0
+offset_top = 5.0
+offset_right = 83.0
+offset_bottom = 28.0
+text = "Deck"
+label_settings = SubResource("LabelSettings_v2jla")
+horizontal_alignment = 1
+
+[node name="DiscardLabelHeader" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 161.0
+offset_top = 4.0
+offset_right = 220.0
+offset_bottom = 27.0
+text = "Discard"
+label_settings = SubResource("LabelSettings_v2jla")
+horizontal_alignment = 1
+
+[node name="TurnLabelHeader" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 78.0
+offset_right = 82.0
+offset_bottom = 101.0
+text = "Turn"
+label_settings = SubResource("LabelSettings_v2jla")
+horizontal_alignment = 1
+
+[node name="LifeLabelHeader" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 171.0
+offset_top = 78.0
+offset_right = 210.0
+offset_bottom = 101.0
+text = "Life"
+label_settings = SubResource("LabelSettings_v2jla")
+horizontal_alignment = 1
+
+[node name="WaterManaLabelHeader" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 940.0
+offset_top = 3.0
+offset_right = 979.0
+offset_bottom = 26.0
+text = "Water"
+label_settings = SubResource("LabelSettings_v2jla")
+horizontal_alignment = 1
+
+[node name="FireManaLabelHeader" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 1057.0
 offset_top = 2.0
-offset_right = 109.0
-offset_bottom = 33.0
-theme_override_colors/font_hover_color = Color(0, 0, 1, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Attack"
-flat = true
+offset_right = 1116.0
+offset_bottom = 25.0
+text = "Fire"
+label_settings = SubResource("LabelSettings_v2jla")
+horizontal_alignment = 1
 
-[node name="SkillsButton" type="Button" parent="Panel/GridContainer"]
-layout_mode = 2
-offset_left = 49.0
-offset_top = 35.0
-offset_right = 109.0
-offset_bottom = 66.0
-theme_override_colors/font_hover_color = Color(0, 0, 1, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Skills"
-flat = true
-
-[node name="ItemsButton" type="Button" parent="Panel/GridContainer"]
-layout_mode = 2
-offset_left = 49.0
-offset_top = 66.0
-offset_right = 109.0
-offset_bottom = 97.0
-theme_override_colors/font_hover_color = Color(0, 0, 1, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Items"
-flat = true
-
-[node name="FleeButton" type="Button" parent="Panel/GridContainer"]
-layout_mode = 2
-offset_left = 49.0
-offset_top = 97.0
-offset_right = 109.0
-offset_bottom = 128.0
-theme_override_colors/font_hover_color = Color(0, 0, 1, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Flee"
-flat = true
-
-[node name="EnemiesContainer" type="VBoxContainer" parent="Panel"]
+[node name="EarthManaLabelHeader" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 200.0
-offset_top = 10.0
-offset_right = 449.0
-offset_bottom = 142.0
+offset_left = 939.0
+offset_top = 76.0
+offset_right = 978.0
+offset_bottom = 99.0
+text = "Earth"
+label_settings = SubResource("LabelSettings_v2jla")
+horizontal_alignment = 1
 
-[node name="AlliesContainer" type="GridContainer" parent="Panel"]
+[node name="AirManaLabelHeader" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 474.0
-offset_top = 9.0
-offset_right = 1143.0
-offset_bottom = 142.0
-columns = 4
+offset_left = 1067.0
+offset_top = 76.0
+offset_right = 1106.0
+offset_bottom = 99.0
+text = "Air"
+label_settings = SubResource("LabelSettings_v2jla")
+horizontal_alignment = 1
 
-[node name="TurnOrderUI" parent="." instance=ExtResource("3_16lov")]
+[node name="DeckTextLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 33.0
+offset_right = 83.0
+offset_bottom = 56.0
+text = "0"
+label_settings = SubResource("LabelSettings_v2jla")
+horizontal_alignment = 1
+
+[node name="DiscardTextLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 161.0
+offset_top = 32.0
+offset_right = 220.0
+offset_bottom = 55.0
+text = "0"
+label_settings = SubResource("LabelSettings_v2jla")
+horizontal_alignment = 1
+
+[node name="TurnTextLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 106.0
+offset_right = 82.0
+offset_bottom = 129.0
+text = "0"
+label_settings = SubResource("LabelSettings_v2jla")
+horizontal_alignment = 1
+
+[node name="LifeTextLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 171.0
+offset_top = 106.0
+offset_right = 210.0
+offset_bottom = 129.0
+text = "0"
+label_settings = SubResource("LabelSettings_v2jla")
+horizontal_alignment = 1
+
+[node name="WaterManaTextLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 940.0
+offset_top = 31.0
+offset_right = 987.0
+offset_bottom = 54.0
+text = "0"
+label_settings = SubResource("LabelSettings_v2jla")
+horizontal_alignment = 1
+
+[node name="FireManaTextLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 1057.0
+offset_top = 30.0
+offset_right = 1116.0
+offset_bottom = 53.0
+text = "0"
+label_settings = SubResource("LabelSettings_v2jla")
+horizontal_alignment = 1
+
+[node name="EarthManaTextLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 939.0
+offset_top = 104.0
+offset_right = 981.0
+offset_bottom = 127.0
+text = "0"
+label_settings = SubResource("LabelSettings_v2jla")
+horizontal_alignment = 1
+
+[node name="AirManaTextLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 1067.0
+offset_top = 104.0
+offset_right = 1106.0
+offset_bottom = 127.0
+text = "0"
+label_settings = SubResource("LabelSettings_v2jla")
+horizontal_alignment = 1

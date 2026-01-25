@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=3 format=3 uid="uid://bph0ahi028yvt"]
+
+[ext_resource type="Texture2D" uid="uid://bpd5rj57wedcf" path="res://Assets/Sprites/Sky.png" id="1_aorkw"]
+[ext_resource type="Script" path="res://Scripts/Cards/CardResource.gd" id="1_xt164"]
+
+[resource]
+script = ExtResource("1_xt164")
+id = "testid"
+name = "testname"
+description = "testDescription"
+card_image = ExtResource("1_aorkw")
+rarity = 0
+card_type = 0
+water_cost = 1
+fire_cost = 1
+earth_cost = 1
+air_cost = 1
+tags = Array[String](["Sky", "Test"])
+card_set = ""
+ability = ""
+strength = 5
+scene_path = "res://Scenes/Cards/TestAttackCard.tscn"
+captured_from_id = ""
+capture_date = ""
+level = 1
+experience = 0
+experience_to_next_level = 100
+abilities = Array[String]([])

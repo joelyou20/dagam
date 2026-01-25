@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfjsjam4xokie"]
+
+[ext_resource type="Texture2D" uid="uid://bshocrcy7upxl" path="res://Assets/Sprites/CardBack.png" id="1_lnsq7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5dv0o"]
+texture = ExtResource("1_lnsq7")
+
+[node name="CardBackUi" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 488.0
+offset_top = 255.0
+offset_right = 645.0
+offset_bottom = 493.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_5dv0o")

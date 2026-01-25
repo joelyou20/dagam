@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bw63ccny21xmf"]
+
+[ext_resource type="Script" path="res://Scripts/Cards/CardInteractable.gd" id="1_ij6bk"]
+[ext_resource type="Texture2D" uid="uid://dihpul6uulsj4" path="res://Assets/Sprites/TurnOrderItem.png" id="1_wrqqh"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hiov5"]
+
+[node name="Card" type="Node3D"]
+script = ExtResource("1_ij6bk")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = ExtResource("1_wrqqh")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_hiov5")

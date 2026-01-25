@@ -25,6 +25,7 @@ text = "Party"
 flat = true
 
 [node name="SkillsButton" type="Button" parent="Panel"]
+layout_mode = 0
 offset_left = 333.0
 offset_top = 6.0
 offset_right = 488.0
@@ -34,6 +35,7 @@ text = "Skills"
 flat = true
 
 [node name="InventoryButton" type="Button" parent="Panel"]
+layout_mode = 0
 offset_left = 496.0
 offset_top = 6.0
 offset_right = 651.0
@@ -43,6 +45,7 @@ text = "Inventory"
 flat = true
 
 [node name="FormationButton" type="Button" parent="Panel"]
+layout_mode = 0
 offset_left = 659.0
 offset_top = 6.0
 offset_right = 814.0
@@ -52,6 +55,7 @@ text = "Formation"
 flat = true
 
 [node name="OptionsButton" type="Button" parent="Panel"]
+layout_mode = 0
 offset_left = 823.0
 offset_top = 6.0
 offset_right = 978.0

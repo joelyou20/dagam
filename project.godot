@@ -34,6 +34,8 @@ UIManager="*res://Scripts/Managers/UIManager.gd"
 TurnOrderManager="*res://Scripts/Managers/TurnOrderManager.gd"
 UnitManager="*res://Scripts/Managers/UnitManager.gd"
 BattleAiExecutor="*res://Scripts/Battle/BattleAiExecutor.gd"
+DeckManager="*res://Scripts/Managers/DeckManager.gd"
+CardManager="*res://Scripts/Managers/CardManager.gd"
 
 [display]
 

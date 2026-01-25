@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=3 uid="uid://b8p611gifg8h6"]
+
+[ext_resource type="Script" path="res://Scripts/Battle/CardUI.gd" id="1_a10nc"]
+[ext_resource type="Texture2D" uid="uid://buis31dohd8xi" path="res://Assets/Sprites/CardTemplate.png" id="1_t701a"]
+[ext_resource type="Texture2D" uid="uid://ylfy4nn3h2g3" path="res://Assets/Sprites/Axe.png" id="2_ly1h1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ln0m0"]
+texture = ExtResource("1_t701a")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_uhokw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_b8u58"]
+font_size = 12
+font_color = Color(0, 0, 0, 1)
+
+[node name="CardUi" type="CanvasLayer"]
+script = ExtResource("1_a10nc")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 488.0
+offset_top = 255.0
+offset_right = 645.0
+offset_bottom = 493.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ln0m0")
+
+[node name="CardImageSprite" type="Sprite2D" parent="Panel"]
+position = Vector2(3.00004, 2.99998)
+scale = Vector2(153, 107)
+texture = SubResource("CanvasTexture_uhokw")
+
+[node name="NameLabelText" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 156.0
+offset_bottom = 26.0
+text = "Card Name"
+label_settings = SubResource("LabelSettings_b8u58")
+
+[node name="AbilityLabelText" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 132.0
+offset_right = 155.0
+offset_bottom = 215.0
+text = "Ability"
+label_settings = SubResource("LabelSettings_b8u58")
+
+[node name="StrengthLabelText" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 217.0
+offset_right = 47.0
+offset_bottom = 234.0
+label_settings = SubResource("LabelSettings_b8u58")
+
+[node name="StrengthIconSprite" type="Sprite2D" parent="Panel"]
+position = Vector2(11.5, 226)
+scale = Vector2(0.9375, 1)
+texture = ExtResource("2_ly1h1")
+
+[node name="TagsLabelText" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 114.0
+offset_right = 154.0
+offset_bottom = 131.0
+text = "Tags"
+label_settings = SubResource("LabelSettings_b8u58")
+
+[node name="SetLabelText" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 217.0
+offset_right = 155.0
+offset_bottom = 234.0
+text = "Set"
+label_settings = SubResource("LabelSettings_b8u58")

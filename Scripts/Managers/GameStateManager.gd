@@ -9,6 +9,7 @@ func save_game_to_file(path: String = "user://savegame.dat"):
 		"inventory": InventoryManager.save_inventory(),
 		"player": PlayerManager.save_player(),
 		"party": PartyManager.save_party(),
+		"deck_manager": DeckManager.save_deck_manager(),
 		"player_scene": get_tree().current_scene.scene_file_path,
 		"player_position": player_node.global_transform.origin  # Use .global_position for 2D
 	}
@@ -50,5 +51,6 @@ func load_game_from_file(path: String = "user://savegame.dat"):
 	InventoryManager.load_inventory(data.get("inventory", {}))
 	PlayerManager.load_player(data.get("player", {}))
 	PartyManager.load_party(data.get("party", {}))
+	DeckManager.load_deck_manager(data.get("deck_manager", {}))
 
 	print("Game loaded from " + path)
