@@ -112,7 +112,7 @@ func _layout() -> void:
 	var menu_button=MenuButton.new();menu_button.text="☰";menu_button.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_RIGHT);menu_button.position=Vector2(-60,-55);menu_button.size=Vector2(42,38);add_child(menu_button)
 	menu_button.tooltip_text="Battle options"
 	utility_menu=menu_button.get_popup()
-	for label in ["Starter deck","Battle log","New battle","Concede","Sound","Leave battle"]: utility_menu.add_item(label)
+	for label in ["Battle deck","Battle log","New battle","Concede","Sound","Leave battle"]: utility_menu.add_item(label)
 	utility_menu.id_pressed.connect(_utility_action)
 	subtitle=Label.new();subtitle.set_anchors_and_offsets_preset(Control.PRESET_CENTER_TOP);subtitle.position=Vector2(-35,18);subtitle.mouse_filter=Control.MOUSE_FILTER_IGNORE;add_child(subtitle)
 	# Retained as an internal capability flag; new battles live in the compact menu.
@@ -407,7 +407,7 @@ func _pile(side: int,zone: String) -> void:
 		_gallery("Your deck · unordered",cards)
 	else: _gallery(("Your " if side==0 else "Enemy ")+zone,engine.state.players[side][zone])
 func _starter() -> void:
-	if not engine.catalog.is_empty(): _gallery("Your starter deck · 20 cards",engine.catalog.starter.map(func(id): return {"id":id,"owner":0,"uid":id}))
+	if not engine.catalog.is_empty(): _gallery("Your battle deck · 20 cards",engine.state.get("playerDeck",engine.catalog.starter).map(func(id): return {"id":id,"owner":0,"uid":id}))
 func _log() -> void:
 	var box:=_window("Battle log")
 	var log:=RichTextLabel.new()
@@ -418,7 +418,7 @@ func _log() -> void:
 func _new_game() -> void:
 	if HexManager.is_encounter(): return
 	var box:=_window("New Standard battle",Vector2i(640,380))
-	_text(box,"Your starter deck is ready. Select an opponent. Starting replaces the current saved match.")
+	_text(box,"Your selected deck is ready. Select an opponent. Starting replaces the current saved match.")
 	var select:=OptionButton.new()
 	for enemy in engine.catalog.get("enemies",[]): select.add_item(enemy.name+" · "+enemy.rank)
 	box.add_child(select)

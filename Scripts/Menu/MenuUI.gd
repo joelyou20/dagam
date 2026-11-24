@@ -2,6 +2,7 @@ extends UIBase
 class_name MenuUI
 
 @onready var content_uis := {
+	"Hex": $VBoxContainer/UIContainer/HexDeckBuilderUI,
 	"Party": $VBoxContainer/UIContainer/PartyMenuUI as PartyMenuUI,
 	"Equipment": $VBoxContainer/UIContainer/EquipmentMenuUI as EquipmentMenuUI,
 	"Skills": $VBoxContainer/UIContainer/SkillsMenuUI as SkillsMenuUI,
@@ -13,6 +14,7 @@ class_name MenuUI
 
 # Map enum -> dictionary key so we don’t rely on string casing
 const TAB_TO_KEY := {
+	MenuTabs.Tab.HEX: "Hex",
 	MenuTabs.Tab.PARTY: "Party",
 	MenuTabs.Tab.EQUIPMENT: "Equipment",
 	MenuTabs.Tab.SKILLS: "Skills",
@@ -26,6 +28,7 @@ const TAB_TO_KEY := {
 var _menu_stack: Array[String] = []
 
 func _ready():
+	$VBoxContainer/MenuTopNav/HBoxContainer/HexButton.pressed.connect(func(): open_root(MenuTabs.Tab.HEX))
 	# Top nav REPLACES root (clears stack, then shows root tab)
 	$VBoxContainer/MenuTopNav/HBoxContainer/PartyButton.pressed.connect(func(): open_root(MenuTabs.Tab.PARTY))
 	$VBoxContainer/MenuTopNav/HBoxContainer/EquipmentButton.pressed.connect(func(): open_root(MenuTabs.Tab.EQUIPMENT))
@@ -50,6 +53,7 @@ func open_root(tab: MenuTabs.Tab):
 	_menu_stack.clear()
 	_show_tab(tab, true)
 	show_ui()
+	MenuManager.current_tab=tab
 	
 # Public: push a nested menu (e.g., Party -> PartyMember)
 func show_menu(tab: MenuTabs.Tab):

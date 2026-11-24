@@ -4,6 +4,7 @@ func save_game_to_file(path: String = "user://savegame.dat"):
 	var player_node = PlayerManager.get_player_node()
 	var data := {
 		"hex": HexManager.save_hex(),
+		"hex_decks": HexManager.save_decks(),
 		"dialogs": DialogManager.save_dialogs(),
 		"flags": FlagManager.save_flags(),
 		"quests": QuestManager.save_quests(),
@@ -53,5 +54,6 @@ func load_game_from_file(path: String = "user://savegame.dat"):
 	PlayerManager.load_player(data.get("player", {}))
 	PartyManager.load_party(data.get("party", {}))
 
+	HexManager.load_decks(data.get("hex_decks", {}))
 	HexManager.load_hex(data.get("hex", {}))
 	print("Game loaded from " + path)
