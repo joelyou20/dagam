@@ -69,7 +69,8 @@ jobs:
       - name: Validate bundle and import
         run: |
           python3 tools/hex/build_engine.py
-          git diff --exit-code Resources/Hex/Engine/battle.js
+          python3 tools/player/build_player_frames.py
+          git diff --exit-code Resources/Hex/Engine/battle.js Resources/Player/adventurer_frames.tres
           Godot_v4.6.3-stable_linux.x86_64 --headless --path . --editor --import
       - name: Native runtime, full match, card coverage and UI
         run: |
@@ -103,6 +104,11 @@ jobs:
           set -o pipefail
           Godot_v4.6.3-stable_linux.x86_64 --headless --path . res://Tests/Hex/RpgTCG.tscn 2>&1 | tee /tmp/rpg-tcg.log
           if grep -E 'SCRIPT ERROR|Hex runtime:|ERROR:' /tmp/rpg-tcg.log; then exit 1; fi
+      - name: Player directional animation and movement
+        run: |
+          set -o pipefail
+          Godot_v4.6.3-stable_linux.x86_64 --headless --path . --script res://Tests/Player/player_animation_test.gd 2>&1 | tee /tmp/player-animation.log
+          if grep -E 'SCRIPT ERROR|ERROR:' /tmp/player-animation.log; then exit 1; fi
       - name: Render the battle UI
         run: xvfb-run -a Godot_v4.6.3-stable_linux.x86_64 --path . --audio-driver Dummy --rendering-method gl_compatibility --rendering-driver opengl3 res://Tests/Hex/Integration.tscn
       - uses: actions/upload-artifact@v4
