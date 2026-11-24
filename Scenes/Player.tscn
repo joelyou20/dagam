@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://djnyy262e778e"]
+[gd_scene load_steps=8 format=3 uid="uid://djnyy262e778e"]
 
 [ext_resource type="Script" path="res://Scripts/Controllers/PlayerController.gd" id="1_vbw1c"]
-[ext_resource type="Texture2D" uid="uid://oma61eo6wvaj" path="res://Assets/Sprites/Player.png" id="2_qouwo"]
+[ext_resource type="SpriteFrames" path="res://Resources/Player/adventurer_frames.tres" id="2_qouwo"]
+[ext_resource type="Script" path="res://Scripts/Player/PlayerAnimation.gd" id="6_animation"]
 [ext_resource type="Script" path="res://Scripts/Player/PlayerCamera.gd" id="3_bssik"]
 [ext_resource type="Script" path="res://Scripts/Player/PlayerMovement.gd" id="4_etmuc"]
 [ext_resource type="Script" path="res://Scripts/Player/PlayerInteract.gd" id="5_c7lcn"]
@@ -13,10 +14,14 @@ size = Vector3(0.280029, 0.278374, 0.268194)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.639471, 0.157096, 0.0645545)
 script = ExtResource("1_vbw1c")
 
-[node name="Sprite" type="Sprite3D" parent="."]
-pixel_size = 0.02
+[node name="Sprite" type="AnimatedSprite3D" parent="."]
+position = Vector3(0, 0.02, 0)
+pixel_size = 0.002
 billboard = 1
-texture = ExtResource("2_qouwo")
+texture_filter = 0
+sprite_frames = ExtResource("2_qouwo")
+animation = &"idle_down"
+autoplay = "idle_down"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00671387, 0.0181466, 0.00665569)
@@ -35,3 +40,6 @@ script = ExtResource("4_etmuc")
 [node name="Interact" type="Node" parent="."]
 script = ExtResource("5_c7lcn")
 interact_cooldown = 0.3
+
+[node name="Animation" type="Node" parent="."]
+script = ExtResource("6_animation")

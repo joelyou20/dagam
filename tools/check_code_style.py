@@ -10,6 +10,9 @@ from gd_spacing import format_readable
 ROOT = Path(__file__).resolve().parents[1]
 GDSCRIPT = [
     "Scripts/Hex",
+    "Scripts/Player/PlayerAnimation.gd",
+    "Tests/Player/player_animation_test.gd",
+    "Scripts/Controllers/PlayerController.gd",
     "Scripts/Compatibility",
     *[
         f"Scripts/Managers/{name}Manager.gd"
@@ -65,6 +68,7 @@ def main():
         "black",
         *check,
         "tools/hex",
+        "tools/player",
         "tools/check_code_style.py",
         "tools/gd_spacing.py",
     )
