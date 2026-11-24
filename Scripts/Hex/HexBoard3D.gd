@@ -7,7 +7,6 @@ var viewport: SubViewport
 var world: Node3D
 var camera: Camera3D
 var pieces: Dictionary = {}
-var pile_nodes: Dictionary = {}
 var enemy_hand: Node3D
 var back_texture: Texture2D
 var retired: Dictionary = {}
@@ -46,8 +45,8 @@ func _resize():
 	camera.projection=Camera3D.PROJECTION_ORTHOGONAL
 	camera.keep_aspect=Camera3D.KEEP_WIDTH
 	camera.size=maxf(17.5,9.4*size.x/maxf(1,size.y))
-	camera.position = Vector3(0.6,10,12.65)
-	camera.look_at(Vector3(0.6,0,0.65))
+	camera.position = Vector3(1.35,10,12.65)
+	camera.look_at(Vector3(1.35,0,0.65))
 func project(point: Vector3) -> Vector2:
 	return camera.unproject_position(point)*size/Vector2(viewport.size)
 func set_active(value: bool):
@@ -118,8 +117,8 @@ func _build_scenery():
 			var lamp=mesh(orb,Vector3(x,1.6,z),Color("ffc884"));lamp.material_override=material(Color("ffc884"),true)
 			var light=OmniLight3D.new();light.position=Vector3(x,1.7,z);light.light_color=Color("ffbd73");light.light_energy=2;light.omni_range=4;world.add_child(light)
 	# Carved lane dividers and center sigil.
-	for x in [-1.15,1.15]: box(Vector3(x,0.3,0),Vector3(0.025,0.015,9.6),Color("98b6a5"))
-	box(Vector3(0,0.3,0),Vector3(7,0.015,0.035),Color("e3c88f"))
+	for x in [-0.7,2.5]: box(Vector3(x,0.3,0),Vector3(0.025,0.015,9.6),Color("98b6a5"))
+	box(Vector3(0.9,0.3,0),Vector3(9.5,0.015,0.035),Color("e3c88f"))
 	# Broken stones and moss at the edge give the arena a place in the forest.
 	for x in [-7.7,7.7]:
 		for z in [-3.0,0.5,3.5]:
@@ -128,11 +127,11 @@ func _build_scenery():
 func location(side: int, slot: int, zone := "board") -> Vector3:
 	if zone=="artifact": return Vector3(-5.5+slot*1.4,0.38, -2.5 if side==1 else 2.5)
 	if zone=="field": return Vector3(-4.7,0.38,0)
-	return Vector3((slot%3-1)*2.3,0.38,(-1 if side==1 else 1)*(1.3 if slot<3 else 3.65))
+	return Vector3(-2.3+(slot%3)*3.2,0.52,(-1 if side==1 else 1)*(1.4 if slot<3 else 4.1))
 func key_for(side: int, slot: int, zone := "board") -> String: return "%s-%d-%d"%[zone,side,slot]
 func slot_rect(side: int, slot: int, zone := "board") -> Rect2:
 	var p=location(side,slot,zone)
-	var half=Vector2(1.03,0.87) if zone=="board" else Vector2(0.57,0.8)
+	var half=Vector2(1.36,1.18) if zone=="board" else Vector2(0.57,0.8)
 	var r=Rect2(project(p+Vector3(-half.x,0,-half.y)),Vector2.ZERO)
 	for v in [Vector3(half.x,0,-half.y),Vector3(-half.x,0,half.y),Vector3(half.x,0,half.y)]: r=r.expand(project(p+v))
 	return r
@@ -144,26 +143,12 @@ func sync(state: Dictionary):
 				var c=cards[slot];var key=key_for(side,slot,zone)
 				_update_piece(key,c,side,slot,zone,state)
 	_update_piece(key_for(0,0,"field"),state.field,0,0,"field",state)
-	for side in [0,1]:
-		for zone in ["deck","discard"]:
-			var key="%s-%s"%[side,zone]
-			var node=pile_nodes.get(key)
-			if node==null:
-				node=Node3D.new();world.add_child(node);pile_nodes[key]=node
-				var shape=PlaneMesh.new();shape.size=Vector2(1.0,1.5)
-				var art=MeshInstance3D.new();art.mesh=shape;art.name="Top";art.position.y=0.18;node.add_child(art)
-				box(Vector3.ZERO,Vector3(1.06,0.28,1.55),Color("c2bfa5"),node)
-				node.position=Vector3(3.9 if zone=="deck" else 5.1,0.45,-2.8 if side==1 else 2.8)
-			var cards=state.players[side].discard
-			var m=StandardMaterial3D.new();m.shading_mode=BaseMaterial3D.SHADING_MODE_UNSHADED
-			m.albedo_texture=back_texture if zone=="deck" or cards.is_empty() else Card.art(cards.back().id)
-			node.get_node("Top").material_override=m
 	var count=mini(8,state.players[1].handCount)
 	if enemy_hand.get_child_count()!=count:
 		for child in enemy_hand.get_children(): enemy_hand.remove_child(child);child.queue_free()
 		for i in range(count):
 			var shape=PlaneMesh.new();shape.size=Vector2(0.6,0.85)
-			var card=MeshInstance3D.new();card.mesh=shape;card.position=Vector3((i-(count-1)*0.5)*0.5,0.5,-5.1);card.rotation.y=(i-(count-1)*0.5)*0.06
+			var card=MeshInstance3D.new();card.mesh=shape;card.position=Vector3((i-(count-1)*0.5)*0.5,0.5,-5.55);card.rotation.y=(i-(count-1)*0.5)*0.06
 			var m=StandardMaterial3D.new();m.albedo_texture=back_texture;m.shading_mode=BaseMaterial3D.SHADING_MODE_UNSHADED;card.material_override=m;enemy_hand.add_child(card)
 func _update_piece(key: String, c, side: int, slot: int, zone: String, state: Dictionary):
 	var id="empty" if c==null else c.uid
@@ -181,22 +166,29 @@ func _update_piece(key: String, c, side: int, slot: int, zone: String, state: Di
 		fade.tween_property(old,"rotation:z",0.09,0.07)
 		fade.tween_property(old,"rotation:z",-0.09,0.07)
 		fade.tween_method(func(value):
-			for child in old.get_children():
-				if child is GeometryInstance3D: child.transparency=value
-				if child is Label3D: child.modulate.a=1-value,0.0,1.0,0.3)
+			for child in old.find_children("*","GeometryInstance3D",true,false):
+				child.transparency=value,0.0,1.0,0.3)
 		fade.parallel().tween_property(old,"scale",Vector3(0.85,0.85,0.85),0.3)
 		fade.tween_callback(old.queue_free)
 	var node=Node3D.new();world.add_child(node);node.position=location(side,slot,zone)
 	node.set_meta("uid",id);node.set_meta("home",node.position);node.set_meta("side",side);node.set_meta("zone",zone)
 	pieces[key]=node
-	var dims=Vector3(2.04,0.06,1.72) if zone=="board" else Vector3(1.15,0.06,1.6)
-	var rim=box(Vector3.ZERO,dims,Color("77b9bd") if side==0 else Color("c59082"),node)
-	rim.name="Rim"
+	var visual=Node3D.new();visual.name="Visual";node.add_child(visual)
+	var dims=Vector3(2.72,0.13,2.36) if zone=="board" else Vector3(1.15,0.08,1.6)
+	var rim=mesh(hex_mesh(dims.x,dims.z,dims.y),Vector3.ZERO,Color("77b9bd") if side==0 else Color("c59082"),visual) if zone=="board" else box(Vector3.ZERO,dims,Color("77b9bd") if side==0 else Color("c59082"),visual)
+	rim.name="Rim";rim.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_ON
 	if c==null:
 		rim.material_override=material(Color("344b50") if side==0 else Color("4e494c"))
 		return
-	var plane=PlaneMesh.new();plane.size=Vector2(dims.x-0.08,dims.z-0.08)
-	var surface=MeshInstance3D.new();surface.mesh=plane;surface.position.y=0.05;surface.name="Art";node.add_child(surface)
+	var shadow=MeshInstance3D.new();shadow.name="Shadow"
+	var shadow_plane=PlaneMesh.new();shadow_plane.size=Vector2(dims.x*1.16,dims.z*1.18);shadow.mesh=shadow_plane;shadow.position=Vector3(0.09,0.29-node.position.y,0.12);shadow.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF;node.add_child(shadow)
+	var shade=Shader.new();shade.code="shader_type spatial; render_mode unshaded, cull_disabled, depth_draw_never; void fragment(){vec2 p=abs(UV*2.0-1.0);float d=max(p.y,p.x*0.8660254+p.y*0.5);ALBEDO=vec3(0.0);ALPHA=(1.0-smoothstep(0.72,1.0,d))*0.42;}"
+	var shadow_material=ShaderMaterial.new();shadow_material.shader=shade;shadow.material_override=shadow_material
+	var surface=MeshInstance3D.new()
+	if zone=="board": surface.mesh=hex_mesh(dims.x-0.13,dims.z-0.13,0)
+	else:
+		var plane=PlaneMesh.new();plane.size=Vector2(dims.x-0.08,dims.z-0.08);surface.mesh=plane
+	surface.position.y=dims.y/2+0.01;surface.name="Art";surface.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_ON;visual.add_child(surface)
 	var m=ShaderMaterial.new();var shader=Shader.new()
 	shader.code="shader_type spatial; render_mode unshaded; uniform sampler2D card_art:filter_linear_mipmap_anisotropic; void fragment(){vec2 uv=UV; uv.y=0.17+uv.y*0.38; ALBEDO=texture(card_art,uv).rgb;}"
 	m.shader=shader;m.set_shader_parameter("card_art",Card.art(c.id));surface.material_override=m
@@ -208,7 +200,7 @@ func _update_piece(key: String, c, side: int, slot: int, zone: String, state: Di
 	tween.tween_property(node,"scale",Vector3.ONE,0.42).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 func _update_labels(node: Node3D,c,state: Dictionary):
 	if c==null: return
-	node.set_meta("ready",c.get("ready",false) and c.get("owner",1)==0 and state.active==0 and state.phase=="combat")
+	node.set_meta("ready",c.get("ready",false) and c.get("owner",1)==state.active and state.phase=="combat")
 func find_piece(uid: String):
 	for node in pieces.values():
 		if node.get_meta("uid")==uid: return node
@@ -246,10 +238,35 @@ func _process(delta):
 	for id in retired.keys():
 		if not is_instance_valid(retired[id]): retired.erase(id)
 	for node in pieces.values():
-		var rim=node.get_node("Rim")
+		var visual=node.get_node("Visual")
+		var rim=visual.get_node("Rim")
 		var color=Color("77b9bd") if node.get_meta("side")==0 else Color("c59082")
 		var glow=node.get_meta("ready",false) or node.get_meta("uid")==selected_uid or node.get_meta("uid") in legal_targets
 		if glow: color=Color(0.8,0.96,1)*(0.9+0.1*sin(time*2.4)) if node.get_meta("side")==0 else Color("f8bd72")
 		rim.material_override.albedo_color=color if node.get_meta("uid")!="empty" else Color("344b50")
 		rim.material_override.emission_enabled=glow
 		if glow: rim.material_override.emission=color*0.5
+		var desired=0.07+sin(time*2.0+float(node.get_meta("home").x))*0.035 if node.get_meta("ready",false) else 0.0
+		visual.position.y=lerpf(visual.position.y,desired,minf(1,delta*6))
+		var shadow=node.get_node_or_null("Shadow")
+		if shadow!=null: shadow.position.y=0.29-node.position.y
+
+func hex_mesh(width: float, depth: float, thickness: float) -> ArrayMesh:
+	var points=[Vector2(-1,0),Vector2(-0.5,-1),Vector2(0.5,-1),Vector2(1,0),Vector2(0.5,1),Vector2(-0.5,1)]
+	var surface=SurfaceTool.new();surface.begin(Mesh.PRIMITIVE_TRIANGLES)
+	for i in range(6):
+		var a=points[i];var b=points[(i+1)%6]
+		var va=Vector3(a.x*width/2,thickness/2,a.y*depth/2);var vb=Vector3(b.x*width/2,thickness/2,b.y*depth/2)
+		_hex_triangle(surface,Vector3(0,thickness/2,0),vb,va,Vector3.UP,width,depth)
+		if thickness>0:
+			var ba=va-Vector3.UP*thickness;var bb=vb-Vector3.UP*thickness
+			_hex_triangle(surface,Vector3(0,-thickness/2,0),ba,bb,Vector3.DOWN,width,depth)
+			var normal=Vector3((a+b).x,0,(a+b).y).normalized()
+			_hex_triangle(surface,va,vb,ba,normal,width,depth);_hex_triangle(surface,vb,bb,ba,normal,width,depth)
+	return surface.commit()
+func _hex_triangle(surface: SurfaceTool,a: Vector3,b: Vector3,c: Vector3,normal: Vector3,width: float,depth: float):
+	for vertex in [a,c,b]:
+		surface.set_normal(normal);surface.set_uv(Vector2(vertex.x/width+0.5,vertex.z/depth+0.5));surface.add_vertex(vertex)
+func piece_position(uid: String) -> Vector3:
+	var node=find_piece(uid)
+	return node.position+node.get_node("Visual").position if node!=null else Vector3.ZERO
