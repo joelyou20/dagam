@@ -70,7 +70,9 @@ jobs:
         run: |
           python3 tools/hex/build_engine.py
           python3 tools/player/build_player_frames.py
-          git diff --exit-code Resources/Hex/Engine/battle.js Resources/Player/adventurer_frames.tres
+          python3 tools/player/build_player_frames.py --atlas Assets/Sprites/Characters/shopkeeper.png --output Resources/Characters/shopkeeper_frames.tres
+          python3 tools/player/build_player_frames.py --atlas Assets/Sprites/Characters/rival.png --output Resources/Characters/rival_frames.tres
+          git diff --exit-code Resources/Hex/Engine/battle.js Resources/Player/adventurer_frames.tres Resources/Characters
           Godot_v4.6.3-stable_linux.x86_64 --headless --path . --editor --import
       - name: Native runtime, full match, card coverage and UI
         run: |
