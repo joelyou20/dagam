@@ -45,6 +45,7 @@ func _ready():
 
 # Public: open a top-level tab (clears stack)
 func open_root(tab: MenuTabs.Tab):
+	if HexManager.is_encounter() and tab != MenuTabs.Tab.HEX: return
 	# Hide everything first
 	for ui: UIBase in content_uis.values():
 		if ui: ui.hide_ui()

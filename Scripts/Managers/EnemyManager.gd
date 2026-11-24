@@ -8,46 +8,50 @@ func _ready():
 	BattleManager.connect("battle_ended", Callable(self, "_on_battle_ended"))
 
 func start_battle_from_enemy(enemy: Enemy):
-	active_enemy_id = enemy.id
-	enemy_scene_path = enemy.get_scene_file_path()  # Store where this enemy came from
+	if not is_instance_valid(enemy) or HexManager.is_encounter() or not BattleManager.can_start_battle():
+		if not HexManager.is_encounter(): InteractionHandler.unblock("Enemy")
+		return
 	enemy.active = false
-	
-	active_battle_data = BattleManager.build_battle_from_encounter(enemy.encounter)
-	
-	if active_battle_data == null:
-		enemy.active = true
-		InteractionHandler.unblock("Enemy")
-		active_enemy_id = ""
-		enemy_scene_path = ""
+	var data := BattleManager.build_battle_from_encounter(enemy.encounter, enemy.id)
+	if data == null:
+		enemy.active = not HexManager.is_encounter() or active_enemy_id != enemy.id
+		if not HexManager.is_encounter(): InteractionHandler.unblock("Enemy")
 		return
-	
-	await SceneManager.fade_layer.fade_completed
+	bind_encounter(enemy.id, data)
 
-func _on_battle_ended():
-	if active_enemy_id.is_empty():
-		return
-	
-	if active_battle_data == null:
-		# Clean up anyway
-		active_enemy_id = ""
-		return
-	
-	InteractionHandler.unblock("Enemy")
-	
-	# Search for the enemy
-	var enemy = _find_enemy_by_id(active_enemy_id)
-		
-	if not active_battle_data.was_fled:
-		enemy.queue_free()
-	else:
-		await get_tree().create_timer(enemy.fled_reactivate_cooldown).timeout
-		if is_instance_valid(enemy):
-			enemy.active = true
-	
-	# Clean up
+func bind_encounter(id: String, data: BattleData) -> void:
+	active_enemy_id = id
+	active_battle_data = data
+	var enemy = find_enemy(id)
+	if is_instance_valid(enemy):
+		enemy.active = false
+		enemy_scene_path = enemy.scene_file_path
+
+func clear_encounter_binding() -> void:
 	active_enemy_id = ""
 	active_battle_data = null
 	enemy_scene_path = ""
+	InteractionHandler.unblock("Enemy")
+
+func find_enemy(id: String) -> Enemy:
+	return _find_enemy_by_id(id) if not id.is_empty() else null
+
+func _on_battle_ended():
+	var enemy = find_enemy(active_enemy_id)
+	var victory: bool = active_battle_data != null and active_battle_data.outcome == "victory"
+	clear_encounter_binding()
+	if not is_instance_valid(enemy): return
+	if victory:
+		enemy.queue_free()
+	else:
+		var timer := Timer.new()
+		timer.one_shot = true
+		timer.wait_time = maxf(0.001, enemy.fled_reactivate_cooldown)
+		enemy.add_child(timer)
+		timer.timeout.connect(func():
+			if is_instance_valid(enemy): enemy.active = true
+			timer.queue_free())
+		timer.start()
 
 func _find_enemy_by_id(id: String) -> Enemy:
 	# First try the expected location

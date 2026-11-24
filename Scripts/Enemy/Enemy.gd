@@ -14,7 +14,7 @@ func _ready():
 	body_entered.connect(_on_body_entered)
 
 func _on_body_entered(body: Node):
-	if not active:
+	if not active or HexManager.is_encounter() or not BattleManager.can_start_battle():
 		return
 	if body.is_in_group("Player"):
 		InteractionHandler.block("Enemy")

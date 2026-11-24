@@ -19,7 +19,7 @@ func save_game_to_file(path: String = "user://savegame.dat"):
 	file.close()
 
 func load_game_from_file(path: String = "user://savegame.dat"):
-	MenuManager.hide_menu()
+	MenuManager.hide_menu(true)
 	
 	if not FileAccess.file_exists(path):
 		return
