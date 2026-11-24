@@ -9,5 +9,7 @@ enum Tab {
 	INVENTORY,
 	FORMATION,
 	OPTIONS,
-	HEX
+	HEX,
+	ADVENTURE,
+	JOURNAL,
 }

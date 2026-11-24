@@ -1,18 +1,8 @@
-extends Node
 class_name BattleData
+extends Node
+## Encounter result data; creature combat is owned by the Hex engine.
 
-var ally_units: Array[Unit]
-var enemy_units: Array[Unit]
-var was_fled: bool = false
-var outcome: String = ""
-var xp_reward: int = 0
-var flee_chance: float = 0
-
-func set_units(allies: Array[Unit], enemies: Array[Unit]):
-	ally_units = allies
-	enemy_units = enemies
-	
-func set_xp_reward():
-	if enemy_units:
-		for enemy in enemy_units:
-			xp_reward += enemy.resource.xp_reward
+var was_fled := false
+var outcome := ""
+var xp_reward := 0
+var flee_chance := 0.0

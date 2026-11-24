@@ -1,73 +1,741 @@
-'use strict';
+"use strict";
 /* War on Elderberry. Every choice and delayed action is saved as ordinary match data. */
-const hexElderNum=c=>c&&hexDef(c)?.set==='war-on-elderberry'?hexDef(c).number:0;
-const hexElderTask=(owner,op,extra={})=>({kind:'elderberry',owner,op,...extra});
-const hexElderLimit=c=>hexDef(c)?.deckLimit||2;
-function hexElderGrant(g,c,id,value=1,until=g.turn){(c.grants||(c.grants=[])).push({id,value,until});}
-function hexElderKeyword(g,c,id){let n=Math.max(0,...(c.grants||[]).filter(k=>k.id===id&&k.until>=g.turn).map(k=>k.value||1));if(id==='resilient'&&hexElderNum(c.eq)===30)n=Math.max(n,1);if(id==='stalwart'){if(hexElderNum(c.eq)===32)n=Math.max(n,2);if(g.players[c.owner].artifacts.some(a=>a&&hexElderNum(a)===32))n=Math.max(n,2);}if(g.field&&hexElderNum(c.eq)!==33){if(hexElderNum(g.field)===20&&hexHasType(c,'Wiskin')&&id==='restore')n=Math.max(n,1);if(hexElderNum(g.field)===21&&hexHasType(c,'Goblin')&&id==='sprint')n=1;}return n;}
-function hexElderStats(g,c,attack,maxHp,skipBrooch=false){const n=hexElderNum(c),eq=hexElderNum(c.eq),mine=g.players[c.owner].board.filter(Boolean);if(n===5)attack+=c.hp>=maxHp?2:-1;if(n===13&&g.active!==c.owner)attack++;if(n===15&&mine.some(t=>t.uid!==c.uid&&hexHasType(t,'Goblin')))attack++;if(hexHasType(c,'Goblin'))attack+=hexAll(g).filter(t=>hexElderNum(t)===24).length;if([23,30].includes(eq))attack++;const stalwart=Math.max(hexKeyword(c,'stalwart'),hexElderKeyword(g,c,'stalwart'));if(stalwart&&!mine.some(t=>t!==c&&t.slot%hexColumns(g)===c.slot%hexColumns(g)))attack+=stalwart;if(!skipBrooch&&eq===31)attack=Math.max(0,...mine.filter(t=>t!==c).map(t=>hexStats(g,t,true).attack));if(c.zeroAttackUntil>=g.turn)attack=0;return {attack:Math.max(0,attack),maxHp};}
-function hexElderExile(g){for(const pl of g.players){const mythics=pl.discard.filter(c=>hexDef(c).rarity==='Mythic');if(mythics.length){(pl.exile||(pl.exile=[])).push(...mythics);pl.discard=pl.discard.filter(c=>hexDef(c).rarity!=='Mythic');}for(const c of pl.board.filter(Boolean))if(c.invisibleUntil<g.turn)delete c.invisibleUntil;}}
-function hexElderSummon(g,p,id,slot){if(g.players[p].board[slot])return null;const c={id,owner:p,originalOwner:p,uid:'hc-'+(++g.serial),spent:{},summoned:true};hexExecute(g,{kind:'play',owner:p,card:c,option:{slot}});return hexFind(g,c.uid);}
-function hexElderChoices(g,p,label,list,op,extra={},optional=false){hexAsk(g,p,label,list.map(c=>({label:hexName(c),task:hexElderTask(p,op,{...extra,target:c.uid})})),optional,!optional);}
-function hexElderOptions(g,p,card){const n=hexElderNum(card),pl=g.players[p],all=hexAll(g).filter(c=>hexSpellTargetable(c)&&(c.owner===p||!hexProtectedFromSpecial(g,c))),mine=all.filter(c=>c.owner===p),one=cs=>cs.map(c=>({label:hexName(c),target:c.uid}));switch(n){case 34:case 39:case 42:return one(all);case 35:case 36:case 37:return one(mine);case 38:return one(g.players.flatMap(pl=>pl.discard).filter(c=>hexDef(c).subtype==='Artifact'));case 40:case 43:case 44:case 46:return [{label:'Cast '+hexName(card)}];default:return [];}}
-function hexElderEntry(g,c){const p=c.owner,n=hexElderNum(c),pl=g.players[p],mine=pl.board.filter(Boolean);
- for(const a of hexAll(g))if(a!==c&&hexElderNum(a)===4&&hexHasType(c,'Goblin'))hexBuff(g,a,1);
- if(n===1)c.pebbles=3;
- if(n===3)hexElderChoices(g,p,'Grant Sprint and +1 Attack',mine,'witch');
- if(n===6)c.sacrificeAtEnd=g.turn;
- if(n===9)hexElderChoices(g,p,'Return a Wiskin from discard',pl.discard.filter(t=>hexHasType(t,'Wiskin')),'recover');
- if(n===12)for(const a of mine.filter(t=>t.slot<hexColumns(g)))hexShield(g,a,1);
- if(n===15&&mine.some(t=>t.uid!==c.uid&&hexHasType(t,'Wiskin')))hexShield(g,c,1);
- if(n===17)hexElderChoices(g,p,'Return one of your creatures',mine,'return');
- if(n===27){const front=c.slot-hexColumns(g);if(!pl.board[front])hexElderSummon(g,p,'WE-008',front);if(pl.board[front])hexShield(g,pl.board[front],3);}
- for(const a of g.players[1-p].artifacts.filter(a=>a&&hexElderNum(a)===28))hexAffect(g,1-p,c,()=>hexStun(g,c),false,a,true);
+const hexElderNum = (c) => (c && hexDef(c)?.set === "war-on-elderberry" ? hexDef(c).number : 0);
+const hexElderTask = (owner, op, extra = {}) => ({
+  kind: "elderberry",
+  owner,
+  op,
+  ...extra,
+});
+const hexElderLimit = (c) => hexDef(c)?.deckLimit || 2;
+function hexElderGrant(g, c, id, value = 1, until = g.turn) {
+  (c.grants || (c.grants = [])).push({ id, value, until });
 }
-function hexElderStart(g,c){if(c.owner!==g.active)return;if(c.enraptureDue<=g.turn){hexStun(g,c);delete c.enraptureDue;}}
-function hexElderPre(g,p){for(const c of g.players[p].board.filter(Boolean))if(hexElderNum(c)===19){c.channel=(c.channel||0)+1;const front=c.slot>=hexColumns(g)?g.players[p].board[c.slot-hexColumns(g)]:null;if(front)hexBuff(g,front,c.channel);}}
-function hexElderAfterDraw(g,p){for(const c of g.players[p].board.filter(Boolean))if(hexElderNum(c)===11)g.tasks.push(hexElderTask(p,'kitten',{source:c.uid,count:0}));}
-function hexElderDraw(g,p){if(g.drawCountTurn!==g.turn){g.drawCountTurn=g.turn;g.drawCounts=[0,0];}g.drawCounts[p]++;if(g.drawCounts[p]===2)for(const a of (g.players[1-p]?.artifacts||[]).filter(c=>c&&hexElderNum(c)===48))g.tasks.push(hexElderTask(1-p,'draw'));}
-function hexElderDeath(g,c){const p=c.owner,n=hexElderNum(c);(g.elderDeaths||(g.elderDeaths=[])).push({uid:c.uid,owner:p,turn:g.turn});if(n===26&&g.players[p].board[c.slot]===null)hexElderSummon(g,p,'WE-002',c.slot);if(n===7&&c.lastCombat)hexElderChoices(g,p,'Spend accumulated Gold to heal',g.players[p].board.filter(t=>t&&t!==c),'heal',{amount:c.gold||0});for(const a of g.players.flatMap(pl=>pl.artifacts).filter(a=>a&&hexElderNum(a)===22))if(hexHasType(c,'Goblin'))g.tasks.push(hexElderTask(a.owner,'draw'));for(const a of g.elderDeathObservers||[])if(a.uid!==c.uid){if(a.owner===p)g.tasks.push(hexElderTask(p,'angel',{source:a}));else g.tasks.push(hexElderTask(a.owner,'angelHeal',{source:a}));}const eq=c.elderFallenEquipment;if(eq&&hexElderNum(eq)===32){g.players[p].discard=g.players[p].discard.filter(d=>d.uid!==eq.uid);g.tasks.push(hexElderTask(p,'banner',{card:eq}));}}
-function hexElderHit(g,e){if(!e.combat)return;const source=e.source,n=hexElderNum(source),dead=!hexFind(g,e.target);
- if(dead&&n===2&&e.targetSnapshot.slot<hexColumns(g)){const rear=g.players[e.targetSnapshot.owner].board[e.targetSnapshot.slot+hexColumns(g)];if(rear)hexAffect(g,source.owner,rear,()=>hexStun(g,rear));}
- if(dead&&hexElderNum(source?.eq)===23&&hexHasType(source,'Wiskin'))hexDraw(g,source.owner);
+function hexElderKeyword(g, c, id) {
+  let n = Math.max(
+    0,
+    ...(c.grants || []).filter((k) => k.id === id && k.until >= g.turn).map((k) => k.value || 1),
+  );
+  if (id === "resilient" && hexElderNum(c.eq) === 30) n = Math.max(n, 1);
+  if (id === "stalwart") {
+    if (hexElderNum(c.eq) === 32) n = Math.max(n, 2);
+    if (g.players[c.owner].artifacts.some((a) => a && hexElderNum(a) === 32)) n = Math.max(n, 2);
+  }
+  if (g.field && hexElderNum(c.eq) !== 33) {
+    if (hexElderNum(g.field) === 20 && hexHasType(c, "Wiskin") && id === "restore")
+      n = Math.max(n, 1);
+    if (hexElderNum(g.field) === 21 && hexHasType(c, "Goblin") && id === "sprint") n = 1;
+  }
+  return n;
 }
-function hexElderAttack(g,c){const p=c.owner;if(hexElderNum(c)===25)for(const a of hexAll(g).filter(a=>a!==c&&hexHasType(a,'Wiskin')))hexBuff(g,a,1);if(hexElderNum(c.eq)===47)hexElderReanimate(g,p,g.players[p].discard.filter(d=>hexType(d,'Creature')),'scepter');}
-function hexElderPost(g,p){for(const c of g.players[p].board.filter(Boolean))if(hexElderNum(c)===10)hexElderChoices(g,p,'Heal 1 HP',g.players[p].board.filter(t=>t&&t.hp<hexStats(g,t).maxHp),'heal',{amount:1});}
-function hexElderEnd(g){for(const c of g.players[g.active].board.filter(Boolean)){const n=Math.max(hexKeyword(c,'restore'),hexElderKeyword(g,c,'restore'));if(n)hexHeal(g,c,n);}for(const c of hexAll(g))if(c.tempShieldUntil===g.turn){c.shield=Math.max(0,c.shield-(c.tempShield||0));delete c.tempShield;delete c.tempShieldUntil;}}
-function hexElderActive(g,p){if(g.active!==p||!['pre','post'].includes(g.phase)||g.choice||g.stack.length||g.winner!==null)return [];return g.players[p].board.filter(c=>c&&hexElderNum(c)===1&&c.pebbles>0&&c.pebbleTurn!==g.turn).flatMap(c=>hexAll(g).filter(hexSpellTargetable).map(t=>({label:'Pebble · '+hexName(t),task:hexElderTask(p,'pebble',{source:c.uid,target:t.uid})})));}
-function hexElderReanimate(g,p,cards,op){if(!g.players[p].board.some(c=>!c))return;const options=cards.flatMap(c=>g.players[p].board.flatMap((t,slot)=>!t&&(hexElderNum(c)!==27||slot>=hexColumns(g))? [{label:hexName(c)+' → '+(slot<hexColumns(g)?'Front':'Back')+' '+(slot%hexColumns(g)+1),task:hexElderTask(p,'reanimate',{target:c.uid,slot,mode:op,remaining:cards.map(c=>c.uid)})}]:[]));hexAsk(g,p,'Return a creature to the battlefield',options,false,true);}
-function hexElderSpell(g,p,card,o){const n=hexElderNum(card),pl=g.players[p],target=fn=>hexArcanaTarget(g,p,o.target,fn,card);
- switch(n){case 34:target(c=>{c.wardRemaining=0;c.shield=0;});break;case 35:{const c=hexFind(g,o.target);if(c)target(t=>hexDamage(g,[{target:t.uid,amount:1,source:card,wardChecked:true},...g.players[1-p].board.filter(a=>a&&a.slot%hexColumns(g)===c.slot%hexColumns(g)).map(a=>({target:a.uid,amount:1,source:card,untargeted:true}))]));break;}
- case 36:target(c=>{hexDamage(g,[{target:c.uid,amount:2,source:card,wardChecked:true}]);hexDraw(g,p,3);});break;
- case 37:target(c=>{c.burn=null;c.stunUntil=0;c.scars=0;c.fuses=0;c.noShieldUntil=0;c.zeroAttackUntil=0;c.mods=(c.mods||[]).filter(m=>(m.attack||0)>=0&&(m.maxHp||0)>=0);hexVisualEvent(g,'status',{...hexVisualCard(c),text:'Cleansed',positive:true});});break;
- case 38:for(const owner of [0,1]){const d=g.players[owner].discard,i=d.findIndex(c=>c.uid===o.target);if(i>=0){const c=d.splice(i,1)[0];c.owner=p;c.blockedUntil=g.turn;pl.hand.push(c);}}break;
- case 39:target(c=>{c.invisibleUntil=g.turn+1;hexVisualEvent(g,'status',{...hexVisualCard(c),text:'Invisible',positive:true});});break;
- case 40:{const before=pl.hand.length;hexDraw(g,p);if(pl.hand.length>before){const c=pl.hand.at(-1);if(hexType(c,'Creature'))hexAsk(g,p,'Play the drawn creature',pl.board.flatMap((t,slot)=>!t&&(hexElderNum(c)!==27||slot>=hexColumns(g))?[{label:hexName(c)+' → slot '+(slot+1),task:hexElderTask(p,'back',{target:c.uid,slot})}]:[]),false,true);}break;}
- case 42:target(c=>{c.zeroAttackUntil=g.turn;});break;
- case 43:{const counts=g.players.map(pl=>pl.board.filter(Boolean).length),owner=counts[0]>counts[1]?0:1;if(counts[0]!==counts[1])hexElderChoices(g,owner,'Sacrifice a creature',g.players[owner].board.filter(Boolean),'sacrifice',{count:Math.abs(counts[0]-counts[1])});break;}
- case 44:hexElderReanimate(g,p,pl.discard.filter(c=>hexType(c,'Creature')&&(g.elderDeaths||[]).some(d=>d.uid===c.uid&&d.owner===p&&d.turn===g.turn)),'raise');break;
- case 46:for(const c of pl.board.filter(Boolean)){hexBuff(g,c,2);const old=c.shield||0;hexShield(g,c,2);c.tempShield=(c.tempShield||0)+(c.shield-old);c.tempShieldUntil=g.turn;c.enraptureDue=g.turn+2;}break;
- }
-
+function hexElderStats(g, c, attack, maxHp, skipBrooch = false) {
+  const n = hexElderNum(c),
+    eq = hexElderNum(c.eq),
+    mine = g.players[c.owner].board.filter(Boolean);
+  if (n === 5) attack += c.hp >= maxHp ? 2 : -1;
+  if (n === 13 && g.active !== c.owner) attack++;
+  if (n === 15 && mine.some((t) => t.uid !== c.uid && hexHasType(t, "Goblin"))) attack++;
+  if (hexHasType(c, "Goblin")) attack += hexAll(g).filter((t) => hexElderNum(t) === 24).length;
+  if ([23, 30].includes(eq)) attack++;
+  const stalwart = Math.max(hexKeyword(c, "stalwart"), hexElderKeyword(g, c, "stalwart"));
+  if (stalwart && !mine.some((t) => t !== c && t.slot % hexColumns(g) === c.slot % hexColumns(g)))
+    attack += stalwart;
+  if (!skipBrooch && eq === 31)
+    attack = Math.max(0, ...mine.filter((t) => t !== c).map((t) => hexStats(g, t, true).attack));
+  if (c.zeroAttackUntil >= g.turn) attack = 0;
+  return { attack: Math.max(0, attack), maxHp };
 }
-function hexElderExecute(g,j){const p=j.owner,pl=g.players[p],c=hexFind(g,j.target),s=hexFind(g,j.source);
- switch(j.op){case 'draw':hexDraw(g,p);break;case 'witch':if(c){hexElderGrant(g,c,'sprint');hexBuff(g,c,1);}break;case 'recover':{const i=pl.discard.findIndex(c=>c.uid===j.target);if(i>=0){const c=pl.discard.splice(i,1)[0];hexResetInstance(c);pl.hand.push(c);}break;}case 'return':hexReturn(g,c);break;case 'heal':hexHeal(g,c,j.amount);break;case 'pebble':if(s&&s.pebbles>0&&s.pebbleTurn!==g.turn&&c){s.pebbles--;s.pebbleTurn=g.turn;hexAbilityDamage(g,p,c.uid,1,s);}break;
- case 'kitten':if(s)hexAsk(g,p,'Discard cards for Magikitten', [...pl.hand.map(c=>({label:'Discard '+hexName(c),task:hexElderTask(p,'kittenDiscard',{source:s.uid,discard:c.uid,count:j.count})})),{label:'Done discarding',task:hexElderTask(p,'kittenDone',{source:s.uid,count:j.count})}],false,true);break;
- case 'kittenDiscard':if(s){const d=hexDiscardFromHand(g,p,j.discard);if(d){pl.discard.push(d);g.tasks.unshift(hexElderTask(p,'kitten',{source:s.uid,count:j.count+1}));}}break;
- case 'kittenDone':if(s&&j.count>0)hexElderChoices(g,p,'Magikitten damage',hexAll(g).filter(hexSpellTargetable),'kittenDamage',{source:s.uid,amount:j.count});break;
- case 'kittenDamage':if(s&&c)hexAbilityDamage(g,p,c.uid,j.amount,s);break;
- case 'angel':hexElderChoices(g,p,'Angel of War · deal 1 damage',hexAll(g).filter(hexSpellTargetable),'angelDamage',{visualSource:hexVisualCard(j.source)});break;
- case 'angelDamage':if(c)hexAbilityDamage(g,p,c.uid,1,j.visualSource);break;
- case 'angelHeal':hexElderChoices(g,p,'Angel of War · heal 1 HP',pl.board.filter(c=>c&&c.hp<hexStats(g,c).maxHp),'heal',{amount:1,visualSource:hexVisualCard(j.source)});break;
- case 'banner':hexAsk(g,p,'Choose an Artifact slot for Torn Banner',pl.artifacts.map((a,slot)=>({label:(a?'Replace '+hexName(a):'Empty slot')+' '+(slot+1),task:hexElderTask(p,'bannerSlot',{card:j.card,slot})})),false,true);break;
- case 'bannerSlot':if(pl.artifacts[j.slot])pl.discard.push(pl.artifacts[j.slot]);j.card.owner=p;pl.artifacts[j.slot]=j.card;break;
- case 'back':{const card=hexDiscardFromHand(g,p,j.target);if(card&&!pl.board[j.slot]){hexExecute(g,{kind:'play',owner:p,card,option:{slot:j.slot}});if(hexFind(g,card.uid))hexElderGrant(g,card,'sprint');}break;}
- case 'sacrifice':if(c){hexArcanaKill(g,c);if(j.count>1&&g.winner===null)hexElderChoices(g,p,'Sacrifice a creature',pl.board.filter(Boolean),'sacrifice',{count:j.count-1});}break;
- case 'reanimate':{const i=pl.discard.findIndex(c=>c.uid===j.target);if(i<0||pl.board[j.slot])break;const c=pl.discard.splice(i,1)[0];hexResetInstance(c);c.summoned=true;hexExecute(g,{kind:'play',owner:p,card:c,option:{slot:j.slot}});if(j.mode==='scepter'&&hexFind(g,c.uid)){hexElderGrant(g,c,'sprint');c.sacrificeAtEnd=g.turn;}else if(j.mode==='raise')hexElderReanimate(g,p,pl.discard.filter(c=>j.remaining.includes(c.uid)),'raise');break;}
- case 'follow':{const a=hexFind(g,j.attacker),t=hexFind(g,j.target);if(a&&t&&a.hp>0&&hexLegalTargets(g,a).some(c=>c===t)){const attack={id:'ha-'+(++g.serial),attacker:a.uid,target:t.uid,follow:true};g.attacks.push(attack);hexElderAttack(g,a);hexCombat(g,attack.id);}break;}
- }
+function hexElderExile(g) {
+  for (const pl of g.players) {
+    const mythics = pl.discard.filter((c) => hexDef(c).rarity === "Mythic");
+    if (mythics.length) {
+      (pl.exile || (pl.exile = [])).push(...mythics);
+      pl.discard = pl.discard.filter((c) => hexDef(c).rarity !== "Mythic");
+    }
+    for (const c of pl.board.filter(Boolean))
+      if (c.invisibleUntil < g.turn) delete c.invisibleUntil;
+  }
 }
-function hexElderSplit(g,hits){return hits.flatMap(h=>{if(h.split||h.amount<=0)return [h];const c=hexFind(g,h.target);if(hexElderNum(c?.eq)!==29)return [h];const other=g.players[c.owner].board.find(t=>t&&t!==c&&hexElderNum(t.eq)===29);return other?[{...h,amount:Math.ceil(h.amount/2),split:true},{...h,target:other.uid,amount:Math.floor(h.amount/2),split:true,wardChecked:false,untargeted:true}]:[h];});}
-function hexElderBotSpell(g,p,card,o){const n=hexElderNum(card),t=hexFind(g,o.target),friend=t?.owner===p,value=t?hexStats(g,t).attack+t.hp:0;switch(n){case 34:return friend?-5:(t?.shield||0)+hexWardRemaining(t||{})*3;case 35:return t?g.players[1-p].board.filter(c=>c&&c.slot%hexColumns(g)===t.slot%hexColumns(g)).length*4-(t.hp<=1?value+10:2):-1;case 36:return t&&t.hp>2?8:-20;case 37:return t&&(t.burn||t.stunUntil>=g.turn||t.zeroAttackUntil>=g.turn)?7:-1;case 39:return friend?6:-2;case 42:return friend?-5:value;case 43:return (g.players[1-p].board.filter(Boolean).length-g.players[p].board.filter(Boolean).length)*5;case 44:return g.players[p].discard.some(c=>(g.elderDeaths||[]).some(d=>d.uid===c.uid&&d.turn===g.turn))?10:-1;case 46:return g.players[p].board.filter(Boolean).length*3-4;default:return 6;}}
-function hexElderBotChoice(g,o){const j=o.task,p=j.owner,t=hexFind(g,j.target);switch(j.op){case 'angelDamage':case 'pebble':case 'kittenDamage':return t?(t.owner===p?-50:6+hexStats(g,t).attack+(t.hp<=j.amount||t.hp<=1?15:0)):-1;case 'heal':return t?Math.min(j.amount,hexStats(g,t).maxHp-t.hp)*5:0;case 'witch':return t?hexStats(g,t).attack+3:0;case 'return':return t?hexStats(g,t).maxHp-t.hp-hexStats(g,t).attack:0;case 'kittenDiscard':return (j.count||0)<2&&g.players[1-p].board.some(Boolean)?5-hexBotCardValue(g,hexCardUid(g,j.discard)):-10;case 'kittenDone':return 1;case 'sacrifice':return t?-hexBotCardValue(g,t):0;case 'reanimate':case 'recover':return hexBotCardValue(g,hexCardUid(g,j.target));default:return 2;}}
-function hexElderCanHit(g,hit,target){if(hit.combat||hit.wardChecked||!hit.source)return true;const previous=g.untargeted;if(hit.untargeted)g.untargeted=true;try{return hexAffect(g,hit.source.owner,target,()=>{},false,hit.source,true);}finally{if(previous)g.untargeted=previous;else delete g.untargeted;}}
+function hexElderSummon(g, p, id, slot) {
+  if (g.players[p].board[slot]) return null;
+  const c = {
+    id,
+    owner: p,
+    originalOwner: p,
+    uid: "hc-" + ++g.serial,
+    spent: {},
+    summoned: true,
+  };
+  hexExecute(g, { kind: "play", owner: p, card: c, option: { slot } });
+  return hexFind(g, c.uid);
+}
+function hexElderChoices(g, p, label, list, op, extra = {}, optional = false) {
+  hexAsk(
+    g,
+    p,
+    label,
+    list.map((c) => ({
+      label: hexName(c),
+      task: hexElderTask(p, op, { ...extra, target: c.uid }),
+    })),
+    optional,
+    !optional,
+  );
+}
+function hexElderOptions(g, p, card) {
+  const n = hexElderNum(card),
+    pl = g.players[p],
+    all = hexAll(g).filter(
+      (c) => hexSpellTargetable(c) && (c.owner === p || !hexProtectedFromSpecial(g, c)),
+    ),
+    mine = all.filter((c) => c.owner === p),
+    one = (cs) => cs.map((c) => ({ label: hexName(c), target: c.uid }));
+  switch (n) {
+    case 34:
+    case 39:
+    case 42:
+      return one(all);
+    case 35:
+    case 36:
+    case 37:
+      return one(mine);
+    case 38:
+      return one(
+        g.players.flatMap((pl) => pl.discard).filter((c) => hexDef(c).subtype === "Artifact"),
+      );
+    case 40:
+    case 43:
+    case 44:
+    case 46:
+      return [{ label: "Cast " + hexName(card) }];
+    default:
+      return [];
+  }
+}
+function hexElderEntry(g, c) {
+  const p = c.owner,
+    n = hexElderNum(c),
+    pl = g.players[p],
+    mine = pl.board.filter(Boolean);
+  for (const a of hexAll(g))
+    if (a !== c && hexElderNum(a) === 4 && hexHasType(c, "Goblin")) hexBuff(g, a, 1);
+  if (n === 1) c.pebbles = 3;
+  if (n === 3) hexElderChoices(g, p, "Grant Sprint and +1 Attack", mine, "witch");
+  if (n === 6) c.sacrificeAtEnd = g.turn;
+  if (n === 9)
+    hexElderChoices(
+      g,
+      p,
+      "Return a Wiskin from discard",
+      pl.discard.filter((t) => hexHasType(t, "Wiskin")),
+      "recover",
+    );
+  if (n === 12) for (const a of mine.filter((t) => t.slot < hexColumns(g))) hexShield(g, a, 1);
+  if (n === 15 && mine.some((t) => t.uid !== c.uid && hexHasType(t, "Wiskin"))) hexShield(g, c, 1);
+  if (n === 17) hexElderChoices(g, p, "Return one of your creatures", mine, "return");
+  if (n === 27) {
+    const front = c.slot - hexColumns(g);
+    if (!pl.board[front]) hexElderSummon(g, p, "WE-008", front);
+    if (pl.board[front]) hexShield(g, pl.board[front], 3);
+  }
+  for (const a of g.players[1 - p].artifacts.filter((a) => a && hexElderNum(a) === 28))
+    hexAffect(g, 1 - p, c, () => hexStun(g, c), false, a, true);
+}
+function hexElderStart(g, c) {
+  if (c.owner !== g.active) return;
+  if (c.enraptureDue <= g.turn) {
+    hexStun(g, c);
+    delete c.enraptureDue;
+  }
+}
+function hexElderPre(g, p) {
+  for (const c of g.players[p].board.filter(Boolean))
+    if (hexElderNum(c) === 19) {
+      c.channel = (c.channel || 0) + 1;
+      const front = c.slot >= hexColumns(g) ? g.players[p].board[c.slot - hexColumns(g)] : null;
+      if (front) hexBuff(g, front, c.channel);
+    }
+}
+function hexElderAfterDraw(g, p) {
+  for (const c of g.players[p].board.filter(Boolean))
+    if (hexElderNum(c) === 11) g.tasks.push(hexElderTask(p, "kitten", { source: c.uid, count: 0 }));
+}
+function hexElderDraw(g, p) {
+  if (g.drawCountTurn !== g.turn) {
+    g.drawCountTurn = g.turn;
+    g.drawCounts = [0, 0];
+  }
+  g.drawCounts[p]++;
+  if (g.drawCounts[p] === 2)
+    for (const a of (g.players[1 - p]?.artifacts || []).filter((c) => c && hexElderNum(c) === 48))
+      g.tasks.push(hexElderTask(1 - p, "draw"));
+}
+function hexElderDeath(g, c) {
+  const p = c.owner,
+    n = hexElderNum(c);
+  (g.elderDeaths || (g.elderDeaths = [])).push({
+    uid: c.uid,
+    owner: p,
+    turn: g.turn,
+  });
+  if (n === 26 && g.players[p].board[c.slot] === null) hexElderSummon(g, p, "WE-002", c.slot);
+  if (n === 7 && c.lastCombat)
+    hexElderChoices(
+      g,
+      p,
+      "Spend accumulated Gold to heal",
+      g.players[p].board.filter((t) => t && t !== c),
+      "heal",
+      { amount: c.gold || 0 },
+    );
+  for (const a of g.players.flatMap((pl) => pl.artifacts).filter((a) => a && hexElderNum(a) === 22))
+    if (hexHasType(c, "Goblin")) g.tasks.push(hexElderTask(a.owner, "draw"));
+  for (const a of g.elderDeathObservers || [])
+    if (a.uid !== c.uid) {
+      if (a.owner === p) g.tasks.push(hexElderTask(p, "angel", { source: a }));
+      else g.tasks.push(hexElderTask(a.owner, "angelHeal", { source: a }));
+    }
+  const eq = c.elderFallenEquipment;
+  if (eq && hexElderNum(eq) === 32) {
+    g.players[p].discard = g.players[p].discard.filter((d) => d.uid !== eq.uid);
+    g.tasks.push(hexElderTask(p, "banner", { card: eq }));
+  }
+}
+function hexElderHit(g, e) {
+  if (!e.combat) return;
+  const source = e.source,
+    n = hexElderNum(source),
+    dead = !hexFind(g, e.target);
+  if (dead && n === 2 && e.targetSnapshot.slot < hexColumns(g)) {
+    const rear = g.players[e.targetSnapshot.owner].board[e.targetSnapshot.slot + hexColumns(g)];
+    if (rear) hexAffect(g, source.owner, rear, () => hexStun(g, rear));
+  }
+  if (dead && hexElderNum(source?.eq) === 23 && hexHasType(source, "Wiskin"))
+    hexDraw(g, source.owner);
+}
+function hexElderAttack(g, c) {
+  const p = c.owner;
+  if (hexElderNum(c) === 25)
+    for (const a of hexAll(g).filter((a) => a !== c && hexHasType(a, "Wiskin"))) hexBuff(g, a, 1);
+  if (hexElderNum(c.eq) === 47)
+    hexElderReanimate(
+      g,
+      p,
+      g.players[p].discard.filter((d) => hexType(d, "Creature")),
+      "scepter",
+    );
+}
+function hexElderPost(g, p) {
+  for (const c of g.players[p].board.filter(Boolean))
+    if (hexElderNum(c) === 10)
+      hexElderChoices(
+        g,
+        p,
+        "Heal 1 HP",
+        g.players[p].board.filter((t) => t && t.hp < hexStats(g, t).maxHp),
+        "heal",
+        { amount: 1 },
+      );
+}
+function hexElderEnd(g) {
+  for (const c of g.players[g.active].board.filter(Boolean)) {
+    const n = Math.max(hexKeyword(c, "restore"), hexElderKeyword(g, c, "restore"));
+    if (n) hexHeal(g, c, n);
+  }
+  for (const c of hexAll(g))
+    if (c.tempShieldUntil === g.turn) {
+      c.shield = Math.max(0, c.shield - (c.tempShield || 0));
+      delete c.tempShield;
+      delete c.tempShieldUntil;
+    }
+}
+function hexElderActive(g, p) {
+  if (
+    g.active !== p ||
+    !["pre", "post"].includes(g.phase) ||
+    g.choice ||
+    g.stack.length ||
+    g.winner !== null
+  )
+    return [];
+  return g.players[p].board
+    .filter((c) => c && hexElderNum(c) === 1 && c.pebbles > 0 && c.pebbleTurn !== g.turn)
+    .flatMap((c) =>
+      hexAll(g)
+        .filter(hexSpellTargetable)
+        .map((t) => ({
+          label: "Pebble · " + hexName(t),
+          task: hexElderTask(p, "pebble", { source: c.uid, target: t.uid }),
+        })),
+    );
+}
+function hexElderReanimate(g, p, cards, op) {
+  if (!g.players[p].board.some((c) => !c)) return;
+  const options = cards.flatMap((c) =>
+    g.players[p].board.flatMap((t, slot) =>
+      !t && (hexElderNum(c) !== 27 || slot >= hexColumns(g))
+        ? [
+            {
+              label:
+                hexName(c) +
+                " → " +
+                (slot < hexColumns(g) ? "Front" : "Back") +
+                " " +
+                ((slot % hexColumns(g)) + 1),
+              task: hexElderTask(p, "reanimate", {
+                target: c.uid,
+                slot,
+                mode: op,
+                remaining: cards.map((c) => c.uid),
+              }),
+            },
+          ]
+        : [],
+    ),
+  );
+  hexAsk(g, p, "Return a creature to the battlefield", options, false, true);
+}
+function hexElderSpell(g, p, card, o) {
+  const n = hexElderNum(card),
+    pl = g.players[p],
+    target = (fn) => hexArcanaTarget(g, p, o.target, fn, card);
+  switch (n) {
+    case 34:
+      target((c) => {
+        c.wardRemaining = 0;
+        c.shield = 0;
+      });
+      break;
+    case 35: {
+      const c = hexFind(g, o.target);
+      if (c)
+        target((t) =>
+          hexDamage(g, [
+            { target: t.uid, amount: 1, source: card, wardChecked: true },
+            ...g.players[1 - p].board
+              .filter((a) => a && a.slot % hexColumns(g) === c.slot % hexColumns(g))
+              .map((a) => ({
+                target: a.uid,
+                amount: 1,
+                source: card,
+                untargeted: true,
+              })),
+          ]),
+        );
+      break;
+    }
+    case 36:
+      target((c) => {
+        hexDamage(g, [{ target: c.uid, amount: 2, source: card, wardChecked: true }]);
+        hexDraw(g, p, 3);
+      });
+      break;
+    case 37:
+      target((c) => {
+        c.burn = null;
+        c.stunUntil = 0;
+        c.scars = 0;
+        c.fuses = 0;
+        c.noShieldUntil = 0;
+        c.zeroAttackUntil = 0;
+        c.mods = (c.mods || []).filter((m) => (m.attack || 0) >= 0 && (m.maxHp || 0) >= 0);
+        hexVisualEvent(g, "status", {
+          ...hexVisualCard(c),
+          text: "Cleansed",
+          positive: true,
+        });
+      });
+      break;
+    case 38:
+      for (const owner of [0, 1]) {
+        const d = g.players[owner].discard,
+          i = d.findIndex((c) => c.uid === o.target);
+        if (i >= 0) {
+          const c = d.splice(i, 1)[0];
+          c.owner = p;
+          c.blockedUntil = g.turn;
+          pl.hand.push(c);
+        }
+      }
+      break;
+    case 39:
+      target((c) => {
+        c.invisibleUntil = g.turn + 1;
+        hexVisualEvent(g, "status", {
+          ...hexVisualCard(c),
+          text: "Invisible",
+          positive: true,
+        });
+      });
+      break;
+    case 40: {
+      const before = pl.hand.length;
+      hexDraw(g, p);
+      if (pl.hand.length > before) {
+        const c = pl.hand.at(-1);
+        if (hexType(c, "Creature"))
+          hexAsk(
+            g,
+            p,
+            "Play the drawn creature",
+            pl.board.flatMap((t, slot) =>
+              !t && (hexElderNum(c) !== 27 || slot >= hexColumns(g))
+                ? [
+                    {
+                      label: hexName(c) + " → slot " + (slot + 1),
+                      task: hexElderTask(p, "back", { target: c.uid, slot }),
+                    },
+                  ]
+                : [],
+            ),
+            false,
+            true,
+          );
+      }
+      break;
+    }
+    case 42:
+      target((c) => {
+        c.zeroAttackUntil = g.turn;
+      });
+      break;
+    case 43: {
+      const counts = g.players.map((pl) => pl.board.filter(Boolean).length),
+        owner = counts[0] > counts[1] ? 0 : 1;
+      if (counts[0] !== counts[1])
+        hexElderChoices(
+          g,
+          owner,
+          "Sacrifice a creature",
+          g.players[owner].board.filter(Boolean),
+          "sacrifice",
+          { count: Math.abs(counts[0] - counts[1]) },
+        );
+      break;
+    }
+    case 44:
+      hexElderReanimate(
+        g,
+        p,
+        pl.discard.filter(
+          (c) =>
+            hexType(c, "Creature") &&
+            (g.elderDeaths || []).some(
+              (d) => d.uid === c.uid && d.owner === p && d.turn === g.turn,
+            ),
+        ),
+        "raise",
+      );
+      break;
+    case 46:
+      for (const c of pl.board.filter(Boolean)) {
+        hexBuff(g, c, 2);
+        const old = c.shield || 0;
+        hexShield(g, c, 2);
+        c.tempShield = (c.tempShield || 0) + (c.shield - old);
+        c.tempShieldUntil = g.turn;
+        c.enraptureDue = g.turn + 2;
+      }
+      break;
+  }
+}
+function hexElderExecute(g, j) {
+  const p = j.owner,
+    pl = g.players[p],
+    c = hexFind(g, j.target),
+    s = hexFind(g, j.source);
+  switch (j.op) {
+    case "draw":
+      hexDraw(g, p);
+      break;
+    case "witch":
+      if (c) {
+        hexElderGrant(g, c, "sprint");
+        hexBuff(g, c, 1);
+      }
+      break;
+    case "recover": {
+      const i = pl.discard.findIndex((c) => c.uid === j.target);
+      if (i >= 0) {
+        const c = pl.discard.splice(i, 1)[0];
+        hexResetInstance(c);
+        pl.hand.push(c);
+      }
+      break;
+    }
+    case "return":
+      hexReturn(g, c);
+      break;
+    case "heal":
+      hexHeal(g, c, j.amount);
+      break;
+    case "pebble":
+      if (s && s.pebbles > 0 && s.pebbleTurn !== g.turn && c) {
+        s.pebbles--;
+        s.pebbleTurn = g.turn;
+        hexAbilityDamage(g, p, c.uid, 1, s);
+      }
+      break;
+    case "kitten":
+      if (s)
+        hexAsk(
+          g,
+          p,
+          "Discard cards for Magikitten",
+          [
+            ...pl.hand.map((c) => ({
+              label: "Discard " + hexName(c),
+              task: hexElderTask(p, "kittenDiscard", {
+                source: s.uid,
+                discard: c.uid,
+                count: j.count,
+              }),
+            })),
+            {
+              label: "Done discarding",
+              task: hexElderTask(p, "kittenDone", {
+                source: s.uid,
+                count: j.count,
+              }),
+            },
+          ],
+          false,
+          true,
+        );
+      break;
+    case "kittenDiscard":
+      if (s) {
+        const d = hexDiscardFromHand(g, p, j.discard);
+        if (d) {
+          pl.discard.push(d);
+          g.tasks.unshift(hexElderTask(p, "kitten", { source: s.uid, count: j.count + 1 }));
+        }
+      }
+      break;
+    case "kittenDone":
+      if (s && j.count > 0)
+        hexElderChoices(
+          g,
+          p,
+          "Magikitten damage",
+          hexAll(g).filter(hexSpellTargetable),
+          "kittenDamage",
+          { source: s.uid, amount: j.count },
+        );
+      break;
+    case "kittenDamage":
+      if (s && c) hexAbilityDamage(g, p, c.uid, j.amount, s);
+      break;
+    case "angel":
+      hexElderChoices(
+        g,
+        p,
+        "Angel of War · deal 1 damage",
+        hexAll(g).filter(hexSpellTargetable),
+        "angelDamage",
+        { visualSource: hexVisualCard(j.source) },
+      );
+      break;
+    case "angelDamage":
+      if (c) hexAbilityDamage(g, p, c.uid, 1, j.visualSource);
+      break;
+    case "angelHeal":
+      hexElderChoices(
+        g,
+        p,
+        "Angel of War · heal 1 HP",
+        pl.board.filter((c) => c && c.hp < hexStats(g, c).maxHp),
+        "heal",
+        { amount: 1, visualSource: hexVisualCard(j.source) },
+      );
+      break;
+    case "banner":
+      hexAsk(
+        g,
+        p,
+        "Choose an Artifact slot for Torn Banner",
+        pl.artifacts.map((a, slot) => ({
+          label: (a ? "Replace " + hexName(a) : "Empty slot") + " " + (slot + 1),
+          task: hexElderTask(p, "bannerSlot", { card: j.card, slot }),
+        })),
+        false,
+        true,
+      );
+      break;
+    case "bannerSlot":
+      if (pl.artifacts[j.slot]) pl.discard.push(pl.artifacts[j.slot]);
+      j.card.owner = p;
+      pl.artifacts[j.slot] = j.card;
+      break;
+    case "back": {
+      const card = hexDiscardFromHand(g, p, j.target);
+      if (card && !pl.board[j.slot]) {
+        hexExecute(g, {
+          kind: "play",
+          owner: p,
+          card,
+          option: { slot: j.slot },
+        });
+        if (hexFind(g, card.uid)) hexElderGrant(g, card, "sprint");
+      }
+      break;
+    }
+    case "sacrifice":
+      if (c) {
+        hexArcanaKill(g, c);
+        if (j.count > 1 && g.winner === null)
+          hexElderChoices(g, p, "Sacrifice a creature", pl.board.filter(Boolean), "sacrifice", {
+            count: j.count - 1,
+          });
+      }
+      break;
+    case "reanimate": {
+      const i = pl.discard.findIndex((c) => c.uid === j.target);
+      if (i < 0 || pl.board[j.slot]) break;
+      const c = pl.discard.splice(i, 1)[0];
+      hexResetInstance(c);
+      c.summoned = true;
+      hexExecute(g, {
+        kind: "play",
+        owner: p,
+        card: c,
+        option: { slot: j.slot },
+      });
+      if (j.mode === "scepter" && hexFind(g, c.uid)) {
+        hexElderGrant(g, c, "sprint");
+        c.sacrificeAtEnd = g.turn;
+      } else if (j.mode === "raise")
+        hexElderReanimate(
+          g,
+          p,
+          pl.discard.filter((c) => j.remaining.includes(c.uid)),
+          "raise",
+        );
+      break;
+    }
+    case "follow": {
+      const a = hexFind(g, j.attacker),
+        t = hexFind(g, j.target);
+      if (a && t && a.hp > 0 && hexLegalTargets(g, a).some((c) => c === t)) {
+        const attack = {
+          id: "ha-" + ++g.serial,
+          attacker: a.uid,
+          target: t.uid,
+          follow: true,
+        };
+        g.attacks.push(attack);
+        hexElderAttack(g, a);
+        hexCombat(g, attack.id);
+      }
+      break;
+    }
+  }
+}
+function hexElderSplit(g, hits) {
+  return hits.flatMap((h) => {
+    if (h.split || h.amount <= 0) return [h];
+    const c = hexFind(g, h.target);
+    if (hexElderNum(c?.eq) !== 29) return [h];
+    const other = g.players[c.owner].board.find((t) => t && t !== c && hexElderNum(t.eq) === 29);
+    return other
+      ? [
+          { ...h, amount: Math.ceil(h.amount / 2), split: true },
+          {
+            ...h,
+            target: other.uid,
+            amount: Math.floor(h.amount / 2),
+            split: true,
+            wardChecked: false,
+            untargeted: true,
+          },
+        ]
+      : [h];
+  });
+}
+function hexElderBotSpell(g, p, card, o) {
+  const n = hexElderNum(card),
+    t = hexFind(g, o.target),
+    friend = t?.owner === p,
+    value = t ? hexStats(g, t).attack + t.hp : 0;
+  switch (n) {
+    case 34:
+      return friend ? -5 : (t?.shield || 0) + hexWardRemaining(t || {}) * 3;
+    case 35:
+      return t
+        ? g.players[1 - p].board.filter(
+            (c) => c && c.slot % hexColumns(g) === t.slot % hexColumns(g),
+          ).length *
+            4 -
+            (t.hp <= 1 ? value + 10 : 2)
+        : -1;
+    case 36:
+      return t && t.hp > 2 ? 8 : -20;
+    case 37:
+      return t && (t.burn || t.stunUntil >= g.turn || t.zeroAttackUntil >= g.turn) ? 7 : -1;
+    case 39:
+      return friend ? 6 : -2;
+    case 42:
+      return friend ? -5 : value;
+    case 43:
+      return (
+        (g.players[1 - p].board.filter(Boolean).length -
+          g.players[p].board.filter(Boolean).length) *
+        5
+      );
+    case 44:
+      return g.players[p].discard.some((c) =>
+        (g.elderDeaths || []).some((d) => d.uid === c.uid && d.turn === g.turn),
+      )
+        ? 10
+        : -1;
+    case 46:
+      return g.players[p].board.filter(Boolean).length * 3 - 4;
+    default:
+      return 6;
+  }
+}
+function hexElderBotChoice(g, o) {
+  const j = o.task,
+    p = j.owner,
+    t = hexFind(g, j.target);
+  switch (j.op) {
+    case "angelDamage":
+    case "pebble":
+    case "kittenDamage":
+      return t
+        ? t.owner === p
+          ? -50
+          : 6 + hexStats(g, t).attack + (t.hp <= j.amount || t.hp <= 1 ? 15 : 0)
+        : -1;
+    case "heal":
+      return t ? Math.min(j.amount, hexStats(g, t).maxHp - t.hp) * 5 : 0;
+    case "witch":
+      return t ? hexStats(g, t).attack + 3 : 0;
+    case "return":
+      return t ? hexStats(g, t).maxHp - t.hp - hexStats(g, t).attack : 0;
+    case "kittenDiscard":
+      return (j.count || 0) < 2 && g.players[1 - p].board.some(Boolean)
+        ? 5 - hexBotCardValue(g, hexCardUid(g, j.discard))
+        : -10;
+    case "kittenDone":
+      return 1;
+    case "sacrifice":
+      return t ? -hexBotCardValue(g, t) : 0;
+    case "reanimate":
+    case "recover":
+      return hexBotCardValue(g, hexCardUid(g, j.target));
+    default:
+      return 2;
+  }
+}
+function hexElderCanHit(g, hit, target) {
+  if (hit.combat || hit.wardChecked || !hit.source) return true;
+  const previous = g.untargeted;
+  if (hit.untargeted) g.untargeted = true;
+  try {
+    return hexAffect(g, hit.source.owner, target, () => {}, false, hit.source, true);
+  } finally {
+    if (previous) g.untargeted = previous;
+    else delete g.untargeted;
+  }
+}

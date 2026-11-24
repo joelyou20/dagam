@@ -1,0 +1,12 @@
+{
+  "name": "dagam-authoring-tools",
+  "private": true,
+  "scripts": {
+    "format:js": "prettier --write Resources/Hex/Engine/*.js",
+    "check:js": "prettier --check Resources/Hex/Engine/*.js && eslint Resources/Hex/Engine"
+  },
+  "devDependencies": {
+    "eslint": "9.39.1",
+    "prettier": "3.6.2"
+  }
+}
