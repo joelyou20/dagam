@@ -2,6 +2,7 @@ extends Control
 signal return_requested
 const Bridge = preload("res://Scripts/Hex/HexSession.gd")
 const Card = preload("res://Scripts/Hex/HexCardUI.gd")
+var status_display: RefCounted
 var visual_effects: RefCounted
 var engine: RefCounted
 var definitions: Dictionary = {}
@@ -245,6 +246,12 @@ func _layout() -> void:
 	inspection.visible = false
 	inspection.z_index = 50
 	overlay.add_child(inspection)
+	status_display = preload("res://Scripts/Hex/HexStatusDisplay.gd").new(overlay)
+	inspection.visibility_changed.connect(
+		func():
+			if not inspection.visible:
+				status_display.tooltip.hide()
+	)
 	preview = inspection
 	opening = preload("res://Scripts/Hex/HexOpeningUI.gd").new()
 	opening.z_index = 100
@@ -274,7 +281,11 @@ func _inspect(c: Dictionary) -> void:
 		return
 
 	inspection.texture = Card.art(c.id)
+	var effects: Array = c.get("statuses", [])
 	var height = clampf(size.y * 0.76, 300, 760)
+
+	if not effects.is_empty():
+		height = minf(height, maxf(120, (size.x - minf(235, size.x * 0.3) - 68) * 1.5))
 
 	inspection.size = Vector2(height * 2.0 / 3.0, height)
 	var source = positions.get(c.get("uid", ""))
@@ -289,7 +300,16 @@ func _inspect(c: Dictionary) -> void:
 		clampf(x, 12, size.x - inspection.size.x - 12),
 		clampf(point.y - height * 0.5, 12, size.y - height - 12)
 	)
+
+	if not effects.is_empty():
+		inspection.position.x = clampf(
+			inspection.position.x,
+			12,
+			maxf(12, size.x - inspection.size.x - minf(235, size.x * 0.3) - 44)
+		)
+
 	inspection.visible = true
+	status_display.show_effects(effects, Rect2(inspection.position, inspection.size), size)
 
 func _card(parent: Node, c, dest: Dictionary, size := board_card_size, glow := false):
 	var button = Card.new()
@@ -322,6 +342,7 @@ func _refresh() -> void:
 	if g.is_empty():
 		return
 
+	inspection.hide()
 	new_game_button.disabled = HexManager.is_encounter()
 	utility_menu.set_item_disabled(2, HexManager.is_encounter())
 	_clear(board)
@@ -965,18 +986,7 @@ func _stat_badge(card: Dictionary, rect: Rect2):
 		label.add_theme_constant_override("outline_size", 4)
 		circle.add_child(label)
 
-	if card.get("shield", 0) > 0 or card.get("ward", 0) > 0:
-		var protection = Label.new()
-
-		protection.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		protection.text = (
-			("◇%d" % card.shield if card.get("shield", 0) > 0 else "")
-			+ ("  W%d" % card.ward if card.get("ward", 0) > 0 else "")
-		)
-		protection.position = Vector2(6, -rect.size.y + 18)
-		protection.add_theme_color_override("font_color", Color("c5efff"))
-		protection.add_theme_constant_override("outline_size", 5)
-		row.add_child(protection)
+	status_display.add_symbols(row, card.get("statuses", []), rect.size.x)
 
 	row.set_meta("offset", Vector2(-rect.size.x / 2, rect.size.y / 2 - 26))
 	stat_badges[card.uid] = row
