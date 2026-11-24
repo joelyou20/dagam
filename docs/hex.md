@@ -40,3 +40,11 @@ godot --headless --path . --script res://Tests/Hex/ui_match.gd
 ```
 
 The integration test runs the real root scene, menu and managers, including shared save/load, inventory/scene preservation, tab switching, Escape, H, UI-stack/input blocking and pause/resume. Native tests cover every opponent and all 160 cards. Existing GUT tests are preserved; the legacy `Tests/test_uibase.gd` references a missing `UIBase.ensure_ui()` method and cannot compile independently of these changes.
+
+## Scenic 3D battlefield
+
+`Scripts/Hex/HexBoard3D.gd` presents the battle in an isolated 3D world inside the existing Hex menu: angled camera, mossy stone arena, woodland scenery, lanterns, physical card piles and a concealed opponent hand. It reuses the RPG's dirt and mossy-cliff textures. The 3D render target follows its displayed pixel size and stops when hidden; the HUD, hand, dialogs and card inspector remain native-resolution UI.
+
+Both sides' art faces the player. Projected controls preserve click/drag targeting, artifact placement, unordered deck inspection and discard inspection. The right-side combat button advances phases, while management controls remain along the top. Ready attackers pulse and legal targets highlight on selection. Drawing moves cards from the deck to the hand; placement lifts and settles onto stone slots; attacks lunge, damage numbers rise together, and removed cards shake and fade. These are presentation effects and never mutate engine rules or AI state.
+
+Run `godot --headless --path . --script res://Tests/Hex/board_3d_test.gd` for framing, draw/placement animation cleanup, drag targeting, simultaneous feedback, state isolation and hidden-viewport checks. Running the same test with a display saves `user://hex-3d-board.png`.

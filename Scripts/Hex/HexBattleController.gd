@@ -8,7 +8,12 @@ var selected:=""
 var paused:=false
 var ai_timer: Timer
 var modal: Window
-var board: VBoxContainer
+var board: Control
+var stage: Control
+var inspection: PanelContainer
+var enemy_summary: Label
+var player_summary: Label
+var hand_snapshot: Dictionary = {}
 var hand: HBoxContainer
 var controls: VBoxContainer
 var subtitle: Label
@@ -42,11 +47,13 @@ func set_battle_active(active: bool) -> void:
 		_close()
 		HexManager.save_match()
 		music.stop()
+		stage.set_active(false)
 		return
 	if not HexManager.ensure_match():
 		_error(engine.last_error)
 		return
 	paused=false
+	stage.set_active(true)
 	for c in engine.catalog.cards: definitions[c.id]=c
 	notice.text=("Encounter · " + str(HexManager.encounter_metadata().get("name", "Enemy"))) if HexManager.is_encounter() else "20 cards · Draw 5 · Six creature defeats to win"
 	_refresh()
@@ -59,104 +66,88 @@ func _button(parent: Node,text: String,callback: Callable) -> Button:
 	b.custom_minimum_size.y=34
 	parent.add_child(b)
 	b.pressed.connect(callback)
+	if text in ["Begin combat","Finish combat","End turn","Return to world"]:
+		b.custom_minimum_size=Vector2(172,76)
+		var style=StyleBoxFlat.new();style.bg_color=Color("3c715e");style.border_color=Color("e7ce91");style.set_border_width_all(3);style.set_corner_radius_all(36)
+		b.add_theme_stylebox_override("normal",style)
+		b.add_theme_font_size_override("font_size",19)
 	return b
 func _text(parent: Node,text: String) -> Label:
 	var label:=Label.new()
 	label.text=text
 	label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
-	label.custom_minimum_size.x=220
+	label.custom_minimum_size.x=160
 	parent.add_child(label)
 	return label
 func _clear(node: Node) -> void:
 	for child in node.get_children(): node.remove_child(child);child.queue_free()
 func _layout() -> void:
-	var background := ColorRect.new()
-	background.color = Color("0a0d15")
-	background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	background.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	add_child(background)
-	var app_theme:=Theme.new()
-	app_theme.default_font_size=17
+	var app_theme=Theme.new()
+	app_theme.default_font_size=16
+	var normal=StyleBoxFlat.new()
+	normal.bg_color=Color("203635");normal.border_color=Color("9eae89");normal.set_border_width_all(1);normal.set_corner_radius_all(9)
+	normal.content_margin_left=12;normal.content_margin_right=12;normal.content_margin_top=6;normal.content_margin_bottom=6
+	app_theme.set_stylebox("normal","Button",normal)
+	var hover=normal.duplicate();hover.bg_color=Color("3e6152");hover.border_color=Color("f4db9d")
+	app_theme.set_stylebox("hover","Button",hover);app_theme.set_stylebox("pressed","Button",hover)
+	var panel_style=StyleBoxFlat.new();panel_style.bg_color=Color(0.06,0.13,0.13,0.94);panel_style.border_color=Color("6e8a74");panel_style.set_border_width_all(1);panel_style.set_corner_radius_all(12)
+	panel_style.content_margin_left=10;panel_style.content_margin_right=10;panel_style.content_margin_top=10;panel_style.content_margin_bottom=10
+	app_theme.set_stylebox("panel","PanelContainer",panel_style)
 	theme=app_theme
-	var margin:=MarginContainer.new()
-	margin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	for edge in ["left","top","right","bottom"]: margin.add_theme_constant_override("margin_"+edge,14)
-	add_child(margin)
-	var layout:=VBoxContainer.new()
-	layout.add_theme_constant_override("separation",10)
-	margin.add_child(layout)
-	var header:=HBoxContainer.new()
-	layout.add_child(header)
-	var logo:=Label.new()
-	logo.text="H E X"
-	logo.add_theme_font_size_override("font_size",30)
-	header.add_child(logo)
-	subtitle=Label.new()
-	subtitle.size_flags_horizontal=Control.SIZE_EXPAND_FILL
-	header.add_child(subtitle)
-	_button(header,"Starter deck",_starter)
-	_button(header,"Log",_log)
-	new_game_button = _button(header,"New game",_new_game)
-	_button(header,"Back to game",func(): return_requested.emit())
-	_button(header,"Sound",func(): AudioServer.set_bus_mute(0,not AudioServer.is_bus_mute(0)))
-	notice=_text(layout,"20 cards · Draw 5 · Three lanes · Six creature defeats to win")
-	notice.add_theme_color_override("font_color",Color("a5afc7"))
-	var body:=HBoxContainer.new()
-	body.add_theme_constant_override("separation",18)
-	body.size_flags_vertical=Control.SIZE_EXPAND_FILL
-	layout.add_child(body)
-	var scroll:=ScrollContainer.new()
-	scroll.size_flags_horizontal=Control.SIZE_EXPAND_FILL
-	body.add_child(scroll)
-	board=VBoxContainer.new()
-	board.size_flags_horizontal=Control.SIZE_EXPAND_FILL
-	board.add_theme_constant_override("separation",6)
-	scroll.add_child(board)
-	var sidebar:=VBoxContainer.new()
-	sidebar.custom_minimum_size.x=270
-	body.add_child(sidebar)
-	controls=VBoxContainer.new()
-	sidebar.add_child(controls)
-	preview=TextureRect.new()
-	preview.custom_minimum_size=Vector2(260,96)
-	preview.size_flags_vertical=Control.SIZE_EXPAND_FILL
-	preview.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
-	preview.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	sidebar.add_child(preview)
-	description=RichTextLabel.new()
-	description.custom_minimum_size.y=145
-	description.bbcode_enabled=true
-	sidebar.add_child(description)
-	var hand_scroll:=ScrollContainer.new()
-	hand_scroller=hand_scroll
-	hand_scroll.custom_minimum_size.y=182
+	var background=ColorRect.new();background.color=Color("101e20");background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);background.mouse_filter=Control.MOUSE_FILTER_IGNORE;add_child(background)
+	stage=preload("res://Scripts/Hex/HexBoard3D.gd").new()
+	stage.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	stage.offset_top=42;stage.offset_bottom=-145
+	add_child(stage)
+	board=Control.new()
+	board.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	board.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	stage.add_child(board)
+	var header=HBoxContainer.new()
+	header.set_anchors_and_offsets_preset(Control.PRESET_TOP_WIDE)
+	header.offset_left=18;header.offset_top=8;header.offset_right=-18
+	header.add_theme_constant_override("separation",8)
+	add_child(header)
+	var logo=Label.new();logo.text="H E X  /  ELDER GROVE";logo.add_theme_color_override("font_color",Color("ead7ac"));header.add_child(logo)
+	subtitle=Label.new();subtitle.size_flags_horizontal=Control.SIZE_EXPAND_FILL;header.add_child(subtitle)
+	_button(header,"Deck",_starter)
+	_button(header,"Chronicle",_log)
+	_button(header,"Concede",_concede)
+	new_game_button=_button(header,"New battle",_new_game)
+	_button(header,"Leave",func(): return_requested.emit())
+	_button(header,"♪",func(): AudioServer.set_bus_mute(0,not AudioServer.is_bus_mute(0)))
+	enemy_summary=Label.new();enemy_summary.position=Vector2(22,56);add_child(enemy_summary)
+	player_summary=Label.new();player_summary.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_LEFT);player_summary.position=Vector2(22,-176);add_child(player_summary)
+	var turn_panel=PanelContainer.new()
+	turn_panel.set_anchors_and_offsets_preset(Control.PRESET_CENTER_RIGHT)
+	turn_panel.position=Vector2(-202,-70);turn_panel.size=Vector2(184,170)
+	add_child(turn_panel)
+	controls=VBoxContainer.new();controls.add_theme_constant_override("separation",8);turn_panel.add_child(controls)
+	inspection=PanelContainer.new();inspection.position=Vector2(16,100);inspection.size=Vector2(210,350);inspection.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	add_child(inspection)
+	var inspect_box=VBoxContainer.new();inspect_box.mouse_filter=Control.MOUSE_FILTER_IGNORE;inspection.add_child(inspect_box)
+	preview=TextureRect.new();preview.custom_minimum_size=Vector2(200,245);preview.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;preview.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED;preview.mouse_filter=Control.MOUSE_FILTER_IGNORE;inspect_box.add_child(preview)
+	description=RichTextLabel.new();description.custom_minimum_size=Vector2(200,110);description.bbcode_enabled=true;description.mouse_filter=Control.MOUSE_FILTER_IGNORE;inspect_box.add_child(description)
+	inspection.visible=false
+	var hand_scroll=ScrollContainer.new();hand_scroller=hand_scroll
+	hand_scroll.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
+	hand_scroll.offset_left=210;hand_scroll.offset_right=-205;hand_scroll.offset_top=-145;hand_scroll.offset_bottom=-8
 	hand_scroll.vertical_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
-	layout.add_child(hand_scroll)
-	hand=HBoxContainer.new()
-	hand.add_theme_constant_override("separation",8)
-	hand_scroll.add_child(hand)
-	overlay=Control.new()
-	overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	overlay.mouse_filter=Control.MOUSE_FILTER_IGNORE
-	add_child(overlay)
-	music=AudioStreamPlayer.new()
-	music.volume_db=-24
-	add_child(music)
+	add_child(hand_scroll)
+	hand=HBoxContainer.new();hand.add_theme_constant_override("separation",-14);hand.alignment=BoxContainer.ALIGNMENT_CENTER;hand.size_flags_horizontal=Control.SIZE_EXPAND_FILL;hand_scroll.add_child(hand)
+	notice=Label.new();notice.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE);notice.offset_left=22;notice.offset_top=-24;notice.offset_right= -22;notice.mouse_filter=Control.MOUSE_FILTER_IGNORE;notice.add_theme_font_size_override("font_size",13);add_child(notice)
+	overlay=Control.new();overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);overlay.mouse_filter=Control.MOUSE_FILTER_IGNORE;add_child(overlay)
+	music=AudioStreamPlayer.new();music.volume_db=-24;add_child(music)
 	if ResourceLoader.exists("res://Assets/Hex/battle.mp3"):
-		music.stream=load("res://Assets/Hex/battle.mp3")
-		music.finished.connect(func(): music.play())
-	effect_sound=AudioStreamPlayer.new()
-	add_child(effect_sound)
-	ai_timer=Timer.new()
-	ai_timer.one_shot=true
-	ai_timer.wait_time=0.35
-	ai_timer.timeout.connect(_ai_tick)
-	add_child(ai_timer)
-	
+		music.stream=load("res://Assets/Hex/battle.mp3");music.finished.connect(func(): music.play())
+	effect_sound=AudioStreamPlayer.new();add_child(effect_sound)
+	ai_timer=Timer.new();ai_timer.one_shot=true;ai_timer.wait_time=0.85;ai_timer.timeout.connect(_ai_tick);add_child(ai_timer)
+
 func _def(id: String) -> Dictionary:
 	return definitions.get(id.replace("-FA","").replace("-IR",""),{})
 func _inspect(c: Dictionary) -> void:
 	if c.is_empty(): return
+	inspection.visible=true
 	preview.texture=Card.art(c.id)
 	var d:=_def(c.id)
 	var tags: Array=[]
@@ -171,6 +162,7 @@ func _card(parent: Node,c,dest: Dictionary,size:=board_card_size,glow:=false):
 	if c!=null: display["display_name"] = _def(c.id).get("name", c.id)
 	button.configure(display,dest,size,glow)
 	button.inspect.connect(_inspect)
+	button.mouse_exited.connect(func(): inspection.visible=false)
 	button.picked.connect(func(value): _clicked(value,dest))
 	button.dropped.connect(_drop)
 	if c!=null:
@@ -186,42 +178,39 @@ func _refresh() -> void:
 	_clear(board);_clear(hand);_clear(controls)
 	positions={}
 	subtitle.text="  Turn %d · %s · %s"%[g.turn,"You" if g.active==0 else "Opponent",str(g.phase).capitalize()]
+	var display=g.duplicate(true)
+	for side in [0,1]:
+		for c in display.players[side].board+display.players[side].artifacts:
+			if c!=null: c["display_name"]=_def(c.id).get("name",c.id)
+	if display.field!=null: display.field["display_name"]=_def(display.field.id).get("name",display.field.id)
+	stage.sync(display)
 	for side in [1,0]:
 		var p: Dictionary=g.players[side]
-		var label:=_text(board,"%s · %d / 6 defeated · %d in hand"%["OPPONENT" if side==1 else "YOU",p.losses,p.handCount])
-		label.add_theme_color_override("font_color",Color("e7a3ae") if side==1 else Color("9ac8ff"))
-		var region:=HBoxContainer.new()
-		region.add_theme_constant_override("separation",12)
-		board.add_child(region)
-		var artifacts:=HBoxContainer.new()
-		artifacts.size_flags_vertical=Control.SIZE_SHRINK_CENTER
-		region.add_child(artifacts)
-		for slot in range(2): _card(artifacts,p.artifacts[slot],{"zone":"artifact","side":side,"slot":slot,"label":"Artifact %s"%(slot+1),"accept":side==0},Vector2(74, minf(100, board_card_size.y * 1.35)))
-		var lanes:=VBoxContainer.new()
-		lanes.size_flags_horizontal=Control.SIZE_EXPAND_FILL
-		region.add_child(lanes)
-		for rank in ([1,0] if side==1 else [0,1]):
-			var row:=HBoxContainer.new()
-			row.alignment=BoxContainer.ALIGNMENT_CENTER
-			row.add_theme_constant_override("separation",24)
-			lanes.add_child(row)
-			for col in range(3):
-				var slot: int=rank*3+col
-				var c=p.board[slot]
-				var glow: bool=side==0 and c!=null and c.ready and g.active==0 and g.phase=="combat"
-				_card(row,c,{"zone":"board","side":side,"slot":slot,"label":"%s %s"%["Front" if rank==0 else "Back",col+1],"accept":true},board_card_size,glow)
-		var piles:=VBoxContainer.new()
-		piles.size_flags_vertical=Control.SIZE_SHRINK_CENTER
-		region.add_child(piles)
-		_button(piles,"Deck · %d"%p.deckCount,func(): _pile(side,"deck"))
-		_button(piles,"Discard · %d"%p.discard.size(),func(): _pile(side,"discard"))
-		if not p.exile.is_empty(): _button(piles,"Removed · %d"%p.exile.size(),func(): _pile(side,"exile"))
-		if side==1:
-			var field=g.field
-			_button(board,"Battlefield · "+(_def(field.id).get("name","") if field!=null else "Empty"),func():
-				if field!=null: _inspect(field))
+		var summary=enemy_summary if side==1 else player_summary
+		summary.text=("OPPONENT" if side==1 else "YOU")+"  ·  %d / 6 defeated  ·  %d in hand"%[p.losses,p.handCount]
+		for zone in ["board","artifact"]:
+			var cards=p.board if zone=="board" else p.artifacts
+			for slot in range(cards.size()):
+				var rect=stage.slot_rect(side,slot,zone)
+				var button=_card(board,cards[slot],{"zone":zone,"side":side,"slot":slot,"accept":true},Vector2.ZERO)
+				button.position=rect.position;button.size=rect.size
+				button.modulate.a=0
+		for zone in ["deck","discard"]:
+			var count=p.deckCount if zone=="deck" else p.discard.size()
+			var pile=_button(board,"%d · %s"%[count,zone.capitalize()],func(): _pile(side,zone))
+			var point=stage.camera.unproject_position(Vector3(3.9 if zone=="deck" else 5.1,0.5,-2.8 if side==1 else 2.8))
+			pile.position=point-Vector2(40,-28);pile.size=Vector2(80,32)
+			pile.add_theme_font_size_override("font_size",13)
+		if not p.exile.is_empty():
+			var removed=_button(board,"Removed · %d"%p.exile.size(),func(): _pile(side,"exile"))
+			removed.position=stage.camera.unproject_position(Vector3(4.4,0.5,-4.4 if side==1 else 4.4))
+	var field_rect=stage.slot_rect(0,0,"field")
+	var field=_button(board,"Battlefield",func():
+		if g.field!=null: _inspect(g.field))
+	field.position=field_rect.position;field.size=field_rect.size;field.modulate.a=0.02
 	for c in g.players[0].hand: _card(hand,c,{"zone":"hand"},hand_card_size)
 	if g.players[0].hand.is_empty(): _text(hand,"Your hand is empty")
+	_animate_hand.call_deferred()
 	_actions(g)
 	var key:="%s-%s-%s"%[g.tick,g.phase,g.winner]
 	if key!=phase_shown:
@@ -262,7 +251,7 @@ func _actions(g: Dictionary) -> void:
 		_text(controls,"Opponent is thinking…" if g.choice==null or g.choice.player==1 else "Choose a target")
 		if g.choice!=null and g.choice.player==0: _button(controls,"Choose target",func(): _options(g.choice.label,g.choice.options,"choice"))
 		elif g.response!=null and g.response.priority==0: _button(controls,"Respond",func(): _reaction(g.response))
-	if g.winner==null and not g.phase in ["coin","coinResult","opening"]: _button(controls,"Concede",_concede)
+
 func _command(command: Dictionary) -> void:
 	if paused: return
 	if command.op=="new":
@@ -276,6 +265,7 @@ func _command(command: Dictionary) -> void:
 	if result.is_empty(): return
 	if not result.get("ok",true): notice.text="That action isn't available now."
 	selected=""
+	stage.select_attacker("",[])
 	HexManager.save_match()
 	_refresh()
 	_effects(engine.state.get("fx",[]),rects)
@@ -311,6 +301,7 @@ func _clicked(c: Dictionary,dest: Dictionary) -> void:
 	elif dest.zone=="board":
 		if dest.side==0 and c.get("ready",false):
 			selected=c.uid
+			stage.select_attacker(selected,engine.state.targets.get(selected,[]))
 			notice.text="Choose an enemy target for "+_def(c.id).get("name",c.id)
 		elif dest.side==1 and not selected.is_empty(): _command({"op":"attack","attacker":selected,"target":c.get("uid","")})
 func _drop(data: Dictionary,dest: Dictionary) -> void:
@@ -351,6 +342,7 @@ func _window(title_text: String,size:=Vector2i(780,620)) -> VBoxContainer:
 	modal.popup_centered()
 	return box
 func _close() -> void:
+	if inspection!=null: inspection.visible=false
 	if modal!=null: modal.queue_free();modal=null
 func _options(title_text: String,options: Array,op: String,uid:="") -> void:
 	var box:=_window(title_text)
@@ -474,10 +466,11 @@ func _announce(message: String,persistent:=false) -> void:
 		tween.tween_property(label,"modulate:a",0,0.7).set_delay(0.9)
 		tween.chain().tween_callback(label.queue_free)
 func _effects(events: Array,rects: Dictionary) -> void:
+	stage.effects(events)
 	for event in events:
 		var target_data=event.get("target",{})
 		var uid: String=event.get("uid",target_data.get("uid","") if target_data is Dictionary else str(target_data))
-		if event.kind=="announcement": continue
+		if event.kind in ["announcement","destroy","return"]: continue
 		if event.kind in ["counter","ward"]:
 			_paired_effect(event)
 			continue
@@ -500,7 +493,7 @@ func _effects(events: Array,rects: Dictionary) -> void:
 			tween.tween_callback(ghost.queue_free)
 func _flash(uid: String,color: Color) -> void:
 	var target=positions.get(uid)
-	if not is_instance_valid(target): return
+	if not is_instance_valid(target) or target.destination.get("zone") in ["board","artifact"]: return
 	target.modulate=color
 	create_tween().tween_property(target,"modulate",Color.WHITE,0.5)
 func _paired_effect(event: Dictionary) -> void:
@@ -540,13 +533,40 @@ func _exit_tree() -> void:
 
 func _resize_battle() -> void:
 	if not is_instance_valid(hand_scroller): return
-	var h := clampf(size.y * 0.18, 108, 188)
-	hand_scroller.custom_minimum_size.y = h
-	hand_card_size = Vector2(h * 0.68, h - 6)
-	var body_height := size.y - h - 134
-	board_card_size = Vector2(clampf((size.x - 752) / 3.0, 96, 190), clampf((body_height - 106) / 4.0, 58, 162))
-	description.custom_minimum_size.y = clampf(size.y * 0.13, 70, 145)
-	if engine != null and not engine.state.is_empty(): _refresh()
+	var h=clampf(size.y*0.23,125,200)
+	hand_scroller.offset_top=-h
+	stage.offset_bottom=-h+10
+	hand_card_size=Vector2((h-14)*0.66,h-14)
+	if engine != null and not engine.state.is_empty(): _refresh.call_deferred()
+
+func _animate_hand():
+	if not is_instance_valid(hand): return
+	var next={}
+	for card in hand.get_children():
+		if not card is Button or card.card.is_empty(): continue
+		var uid=card.card.uid;next[uid]=true
+		if card.has_meta("animated"): continue
+		card.set_meta("animated",true)
+		if not hand_snapshot.has(uid):
+			var ghost=TextureRect.new();ghost.texture=Card.art(card.card.id);ghost.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;ghost.mouse_filter=Control.MOUSE_FILTER_IGNORE;ghost.size=card.size;overlay.add_child(ghost)
+			ghost.position=stage.position+stage.camera.unproject_position(Vector3(4.6,0.5,2.8));ghost.rotation=0.28
+			card.modulate.a=0
+			var card_ref=weakref(card)
+			var tween=create_tween().set_parallel()
+			tween.tween_property(ghost,"position",card.global_position-global_position,0.55).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+			tween.tween_property(ghost,"rotation",0.0,0.5)
+			tween.chain().tween_callback(func():
+				if card_ref.get_ref()!=null: card_ref.get_ref().modulate.a=1
+				ghost.queue_free())
+		card.mouse_entered.connect(func():
+			card.z_index=20
+			card.pivot_offset=card.size/2
+			create_tween().tween_property(card,"scale",Vector2(1.12,1.12),0.14))
+		card.mouse_exited.connect(func():
+			card.z_index=0
+			create_tween().tween_property(card,"scale",Vector2.ONE,0.14)
+			inspection.visible=false)
+	hand_snapshot=next
 
 func confirm_leave_encounter() -> void:
 	var box := _window("Leave this encounter?",Vector2i(520,320))
