@@ -48,6 +48,10 @@ func run():
 	if not check(HexManager.is_encounter() and BattleManager.hex_encounter_active,"World collision did not start Hex"): return
 	if not check(SceneManager.current_scene == original_scene and BattleManager.battle_ui == null,"Encounter changed world or opened legacy battle UI"): return
 	if not check(not player.visible and not player.is_physics_processing() and player.collision_layer == 0,"World player not frozen"): return
+	await frames()
+	if not check(hex.battle.board.size.x <= hex.battle.board.get_parent().size.x + 1,"Battlefield overflows horizontally"): return
+	var image = hex.battle.Card.art("LT-001").get_image()
+	if not check(image.get_width()==1024 and image.has_mipmaps(),"Full-size mipmapped card texture missing"): return
 	if not check(hex.visible and hex.battle.get_viewport()==get_viewport(),"Battle must use main viewport at native resolution"): return
 	if not check(get_window().content_scale_mode==Window.CONTENT_SCALE_MODE_CANVAS_ITEMS,"Hex should render UI at window resolution"): return
 	HexManager.request({"op":"new","seed":99})
@@ -86,7 +90,9 @@ func run():
 	HexManager.load_hex(encounter)
 	await frames()
 	if not check(HexManager.is_encounter() and EnemyManager.active_enemy_id==resumed.id and not player.visible,"Saved encounter did not rebind world enemy"): return
-	await finish(1)
+	HexManager.load_hex({})
+	await frames()
+	if not check(not HexManager.is_encounter() and not BattleManager.hex_encounter_active,"Legacy save kept old encounter"): return
 	resumed.queue_free()
 	print("Hex encounter and rendering checks passed: ",checks)
 	MenuManager.menu_ui.queue_free()

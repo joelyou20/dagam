@@ -544,7 +544,7 @@ func _resize_battle() -> void:
 	hand_scroller.custom_minimum_size.y = h
 	hand_card_size = Vector2(h * 0.68, h - 6)
 	var body_height := size.y - h - 134
-	board_card_size = Vector2(clampf((size.x - 540) / 3.0, 116, 190), clampf((body_height - 106) / 4.0, 58, 162))
+	board_card_size = Vector2(clampf((size.x - 752) / 3.0, 96, 190), clampf((body_height - 106) / 4.0, 58, 162))
 	description.custom_minimum_size.y = clampf(size.y * 0.13, 70, 145)
 	if engine != null and not engine.state.is_empty(): _refresh()
 

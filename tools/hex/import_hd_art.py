@@ -44,6 +44,9 @@ run(S/'tools/render-hex-text.py',['--composites',str(blanks)],[("image.resize((7
 for c in current:
  if c['set']=='first-light':install(c['id'],regular/(c['id']+'.webp'))
  else:
+  # Authored prints must match the current rules/stats before reuse.
+  authored=next(row for row in json.loads((S/f'artwork/{c["set"]}/manifest.json').read_text()) if row['id']==c['id'])
+  for key in ['attack','hp','rarity']:assert authored.get(key)==c.get(key),(c['id'],key,'Stale authored print')
   for finish,suffix in [('regular',''),('full-art','-FA')]:install(c['id']+suffix,S/f'artwork/{c["set"]}/{finish}/{c["id"]}.webp')
 full=work/'full-art'
 run(S/'tools/hex-full-art/render.py',['--sources',str(collection/'sources')],[("OUT=ROOT/'css/hex/full-art'",f"OUT=Path({str(full)!r})"),("canvas.resize((768,1152),Image.Resampling.LANCZOS).save","canvas.save"),("quality=90,method=6","quality=92,method=4")])

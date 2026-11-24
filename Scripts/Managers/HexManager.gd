@@ -45,7 +45,12 @@ func save_hex() -> Dictionary:
 	if not initialized or session.state.is_empty(): return {}
 	return session.request({"op":"save"})
 func load_hex(data: Dictionary) -> bool:
-	if data.is_empty(): return true
+	if data.is_empty():
+		if is_encounter():
+			restore_practice()
+			BattleManager.on_hex_state_loaded()
+			match_restored.emit()
+		return true
 	if data.get("version") != 1 or not data.get("game") is Dictionary:
 		match_error.emit("Unsupported Hex match in game save.")
 		return false
