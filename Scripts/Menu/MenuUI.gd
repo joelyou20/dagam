@@ -2,6 +2,7 @@ extends UIBase
 class_name MenuUI
 
 @onready var content_uis := {
+	"Hex": $VBoxContainer/UIContainer/HexMenuUI as HexMenuUI,
 	"Party": $VBoxContainer/UIContainer/PartyMenuUI as PartyMenuUI,
 	"Equipment": $VBoxContainer/UIContainer/EquipmentMenuUI as EquipmentMenuUI,
 	"Skills": $VBoxContainer/UIContainer/SkillsMenuUI as SkillsMenuUI,
@@ -13,6 +14,7 @@ class_name MenuUI
 
 # Map enum -> dictionary key so we don’t rely on string casing
 const TAB_TO_KEY := {
+	MenuTabs.Tab.HEX: "Hex",
 	MenuTabs.Tab.PARTY: "Party",
 	MenuTabs.Tab.EQUIPMENT: "Equipment",
 	MenuTabs.Tab.SKILLS: "Skills",
@@ -26,6 +28,7 @@ const TAB_TO_KEY := {
 var _menu_stack: Array[String] = []
 
 func _ready():
+	$VBoxContainer/MenuTopNav/HBoxContainer/HexButton.pressed.connect(func(): open_root(MenuTabs.Tab.HEX))
 	# Top nav REPLACES root (clears stack, then shows root tab)
 	$VBoxContainer/MenuTopNav/HBoxContainer/PartyButton.pressed.connect(func(): open_root(MenuTabs.Tab.PARTY))
 	$VBoxContainer/MenuTopNav/HBoxContainer/EquipmentButton.pressed.connect(func(): open_root(MenuTabs.Tab.EQUIPMENT))
@@ -131,6 +134,10 @@ func _pop_current_and_show_previous():
 		hide_ui()
 		
 func on_cancel() -> bool:
+	if not _menu_stack.is_empty():
+		var current: UIBase = content_uis.get(_menu_stack.back())
+		if current and current.has_method("consume_cancel") and current.consume_cancel():
+			return true
 	# If there are multiple levels, pop back to previous tab
 	if _menu_stack.size() > 1:
 		_pop_current_and_show_previous()

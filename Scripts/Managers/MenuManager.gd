@@ -14,14 +14,17 @@ func set_current_party_member_menu_index(index: int):
 
 func set_menu(state: bool, tab: MenuTabs.Tab = MenuTabs.Tab.UNSET):
 	if tab == MenuTabs.Tab.UNSET:
+		if menu_ui == null:
+			current_tab = MenuTabs.Tab.UNSET
+			return
 		menu_ui.close_menu(tab)
 		return
 	
 	ensure_menu_ui()
 	var change_tab = current_tab == MenuTabs.Tab.UNSET or current_tab != tab
 	if state and change_tab:
-		current_tab = tab
 		menu_ui.show_menu(tab)
+		current_tab = tab
 	else:
 		current_tab = MenuTabs.Tab.UNSET
 		menu_ui.close_menu(tab)
@@ -32,3 +35,4 @@ func ensure_menu_ui():
 		menu_ui.visible = false
 		get_tree().get_root().add_child(menu_ui)
 		menu_ui.tree_exited.connect(func(): menu_ui = null)
+		menu_ui.ui_closed.connect(func(): current_tab = MenuTabs.Tab.UNSET)

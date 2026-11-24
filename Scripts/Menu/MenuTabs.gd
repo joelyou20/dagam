@@ -8,5 +8,6 @@ enum Tab {
 	SKILLS,
 	INVENTORY,
 	FORMATION,
-	OPTIONS
+	OPTIONS,
+	HEX
 }

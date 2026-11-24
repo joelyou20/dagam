@@ -1,0 +1,13 @@
+[configuration]
+entry_symbol = "hex_library_init"
+compatibility_minimum = "4.3"
+reloadable = false
+[libraries]
+linux.debug.x86_64 = "res://addons/hex_runtime/bin/libhex_runtime.linux.x86_64.so"
+linux.release.x86_64 = "res://addons/hex_runtime/bin/libhex_runtime.linux.x86_64.so"
+windows.debug.x86_64 = "res://addons/hex_runtime/bin/hex_runtime.windows.x86_64.dll"
+windows.release.x86_64 = "res://addons/hex_runtime/bin/hex_runtime.windows.x86_64.dll"
+macos.debug.arm64 = "res://addons/hex_runtime/bin/libhex_runtime.macos.arm64.dylib"
+macos.release.arm64 = "res://addons/hex_runtime/bin/libhex_runtime.macos.arm64.dylib"
+macos.debug.x86_64 = "res://addons/hex_runtime/bin/libhex_runtime.macos.x86_64.dylib"
+macos.release.x86_64 = "res://addons/hex_runtime/bin/libhex_runtime.macos.x86_64.dylib"
