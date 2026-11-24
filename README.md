@@ -1,6 +1,4 @@
 # dagam
 ## Hex
 
-The standalone Hex Standard battle is in [`Hex/project.godot`](Hex/project.godot).
-Open that project in Godot and run it. See [Hex setup, controls and tests](Hex/README.md).
-The original RPG project remains at the repository root.
+Open the root `project.godot`, run the existing `Scenes/Root.tscn`, and press **H** or select **Hex** from the menu. Hex uses the same project, managers, UI stack and game saves. See [Hex integration](docs/hex.md).

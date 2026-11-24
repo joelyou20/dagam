@@ -8,9 +8,10 @@ func _check(ok: bool,message: String) -> bool:
   quit(1)
  return ok
 func _run():
- game=load("res://battle.tscn").instantiate()
+ game=load("res://Scenes/Hex/HexBattle.tscn").instantiate()
  root.add_child(game)
  await process_frame
+ game.set_battle_active(true)
  if not _check(game.engine.runtime!=null,"Engine unavailable"): return
  game.paused=false
  game._command({"op":"new","seed":42})

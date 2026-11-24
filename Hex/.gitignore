@@ -1,6 +1,0 @@
-.godot/
-*.tmp
-native/*.o
-__pycache__/
-build/
-*.pyc

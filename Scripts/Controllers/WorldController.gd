@@ -25,3 +25,6 @@ func _unhandled_input(event):
 		menu_manager.set_menu(true, MenuTabs.Tab.INVENTORY)
 	if event.is_action_pressed("toggle_formation_menu"):
 		menu_manager.set_menu(true, MenuTabs.Tab.FORMATION)
+
+	if event.is_action_pressed("toggle_hex_menu"):
+		menu_manager.set_menu(true, MenuTabs.Tab.HEX)

@@ -2,9 +2,10 @@ extends SceneTree
 var game
 func _initialize(): call_deferred("_run")
 func _run():
- game=load("res://battle.tscn").instantiate()
+ game=load("res://Scenes/Hex/HexBattle.tscn").instantiate()
  root.add_child(game)
  await process_frame
+ game.set_battle_active(true)
  game.paused=false
  game._command({"op":"new","seed":42,"enemy":"thornbound"})
  game._command({"op":"coin","call":"heads"})

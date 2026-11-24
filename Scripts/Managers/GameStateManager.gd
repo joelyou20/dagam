@@ -3,13 +3,14 @@ extends Node
 func save_game_to_file(path: String = "user://savegame.dat"):
 	var player_node = PlayerManager.get_player_node()
 	var data := {
+		"hex": HexManager.save_hex(),
 		"dialogs": DialogManager.save_dialogs(),
 		"flags": FlagManager.save_flags(),
 		"quests": QuestManager.save_quests(),
 		"inventory": InventoryManager.save_inventory(),
 		"player": PlayerManager.save_player(),
 		"party": PartyManager.save_party(),
-		"player_scene": get_tree().current_scene.scene_file_path,
+		"player_scene": SceneManager.current_scene.scene_file_path if is_instance_valid(SceneManager.current_scene) else get_tree().current_scene.scene_file_path,
 		"player_position": player_node.global_transform.origin  # Use .global_position for 2D
 	}
 	var file := FileAccess.open(path, FileAccess.WRITE)
@@ -51,4 +52,5 @@ func load_game_from_file(path: String = "user://savegame.dat"):
 	PlayerManager.load_player(data.get("player", {}))
 	PartyManager.load_party(data.get("party", {}))
 
+	HexManager.load_hex(data.get("hex", {}))
 	print("Game loaded from " + path)

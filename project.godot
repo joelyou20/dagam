@@ -37,6 +37,7 @@ EquipmentManager="*res://Scripts/Managers/EquipmentManager.gd"
 UIManager="*res://Scripts/Managers/UIManager.gd"
 TurnOrderManager="*res://Scripts/Managers/TurnOrderManager.gd"
 UnitManager="*res://Scripts/Managers/UnitManager.gd"
+HexManager="*res://Scripts/Managers/HexManager.gd"
 
 [display]
 
@@ -93,6 +94,11 @@ take_all={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":82,"key_label":0,"unicode":114,"location":0,"echo":false,"script":null)
 ]
+}
+
+toggle_hex_menu={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"physical_keycode":72,"unicode":104)]
 }
 
 [plugins]

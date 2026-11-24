@@ -1,9 +1,9 @@
 extends SceneTree
-const Bridge=preload("res://ui/bridge.gd")
+const Bridge=preload("res://Scripts/Hex/HexSession.gd")
 func _initialize():
  var bridge=Bridge.new()
  if not bridge.initialize(): push_error(bridge.last_error);quit(1);return
- bridge.runtime.evaluate(FileAccess.get_file_as_string("res://tests/rules.js"))
+ bridge.runtime.evaluate(FileAccess.get_file_as_string("res://Tests/Hex/rules.js"))
  var regression=JSON.parse_string(bridge.runtime.evaluate("JSON.stringify(HexTests.regressions())"))
  if regression.get("passed",0)!=11: push_error(str(regression));quit(1);return
  var matches: Array=[]

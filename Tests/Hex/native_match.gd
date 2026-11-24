@@ -1,5 +1,5 @@
 extends SceneTree
-const Bridge=preload("res://ui/bridge.gd")
+const Bridge=preload("res://Scripts/Hex/HexSession.gd")
 func _initialize():
  var bridge=Bridge.new()
  assert(bridge.initialize(),bridge.last_error)

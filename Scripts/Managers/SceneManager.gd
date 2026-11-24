@@ -1,7 +1,7 @@
 extends Node
 
 @onready var fade_scene := preload("res://Scenes/FadeScene.tscn")
-@onready var scene_root: Node = get_tree().get_root().get_node("World/SceneRoot")
+@onready var scene_root: Node = get_tree().get_root().get_node_or_null("World/SceneRoot")
 
 signal scene_loaded
 
@@ -9,6 +9,11 @@ var current_scene: Node = null
 var fade_layer: FadeLayer
 
 func load_scene(path: String, should_fade_out: bool = true, should_fade_in: bool = true, spawn_point_name: String = "", fade_speed: float = 1.0) -> void:
+	if not is_instance_valid(scene_root):
+		scene_root = get_tree().get_root().get_node_or_null("World/SceneRoot")
+	if scene_root == null:
+		push_error("SceneManager needs World/SceneRoot before loading a world scene.")
+		return
 	# Initialize fade layer if it doesn't exist or color_rect is null
 	if not fade_layer or not fade_layer.color_rect:
 		await initialize_fade_layer()
