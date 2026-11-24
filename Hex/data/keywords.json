@@ -1,0 +1,121 @@
+[
+  {
+    "id": "sprint",
+    "name": "Sprint",
+    "description": "May attack on the turn it is played.",
+    "icon": "⚡",
+    "parameter": false
+  },
+  {
+    "id": "ranged",
+    "name": "Ranged",
+    "description": "May attack back-row creatures even while they have a front protector.",
+    "icon": "🏹",
+    "parameter": false
+  },
+  {
+    "id": "shield",
+    "name": "Shield X",
+    "description": "Gains X shield when played. Shield absorbs damage before HP.",
+    "icon": "🛡",
+    "parameter": true
+  },
+  {
+    "id": "resilient",
+    "name": "Resilient",
+    "description": "The first time this creature would take lethal damage each game, it survives with 1 HP instead. Returning it to hand does not reset this protection.",
+    "icon": "💎",
+    "parameter": false
+  },
+  {
+    "id": "regeneration",
+    "name": "Regeneration X",
+    "description": "Heals X HP at the end of its owner’s turn, up to its maximum HP.",
+    "icon": "💚",
+    "parameter": true
+  },
+  {
+    "id": "ward",
+    "name": "Ward X",
+    "description": "Enters with X Ward counters. Each negative card effect prevented consumes 1 Ward. Ward does not refresh each turn; combat damage and sacrifice costs do not consume Ward.",
+    "icon": "✨",
+    "parameter": true
+  },
+  {
+    "id": "scorch",
+    "name": "Scorch",
+    "description": "After dealing combat damage to a creature, apply Burn. Burn deals 2 damage at its next turn start, then clears.",
+    "icon": "🔥",
+    "parameter": false
+  },
+  {
+    "id": "stunning",
+    "name": "Stunning",
+    "description": "After dealing combat damage to a creature, stun it. Stun skips its next eligible combat; it can still retaliate.",
+    "icon": "💫",
+    "parameter": false
+  },
+  {
+    "id": "deathburst",
+    "name": "Deathburst X",
+    "description": "When this creature dies, deal X damage to its last attacker, if it is still in play.",
+    "icon": "💥",
+    "parameter": true
+  },
+  {
+    "id": "packbond",
+    "name": "Packbond",
+    "description": "When another friendly creature with the same base card dies, this creature gains +1 Attack for the rest of the game.",
+    "icon": "🐾",
+    "parameter": false
+  },
+  {
+    "id": "reflect",
+    "name": "Reflect",
+    "description": "While shielded, reflect the amount of damage absorbed by shield back to the source creature. Reflected damage cannot reflect again.",
+    "icon": "🪞",
+    "parameter": false
+  },
+  {
+    "id": "stalwart",
+    "name": "Stalwart X",
+    "description": "Gain +X Attack while there is no other friendly creature in this creature’s lane.",
+    "icon": "🛡️",
+    "parameter": true
+  },
+  {
+    "id": "ambush",
+    "name": "Ambush",
+    "description": "May be played during the opponent’s Combat phase, before they declare any attacks.",
+    "icon": "🌑",
+    "parameter": false
+  },
+  {
+    "id": "follow-up",
+    "name": "Follow up",
+    "description": "Attacks twice against the same target.",
+    "icon": "⚔️",
+    "parameter": false
+  },
+  {
+    "id": "penetrate",
+    "name": "Penetrate",
+    "description": "This creature’s damage ignores Shield.",
+    "icon": "🗡️",
+    "parameter": false
+  },
+  {
+    "id": "restore",
+    "name": "Restore X",
+    "description": "Heal X HP at the end of each of this creature’s controller’s turns, not at the end of the opponent’s turns.",
+    "icon": "💚",
+    "parameter": true
+  },
+  {
+    "id": "invisible",
+    "name": "Invisible",
+    "description": "Cannot be targeted by attacks, Spells or effects. Effects that do not directly target this creature can still affect it.",
+    "icon": "👻",
+    "parameter": false
+  }
+]

@@ -1,0 +1,2319 @@
+[
+  {
+    "number": 1,
+    "name": "Loyal Pup",
+    "rarity": "Common",
+    "id": "LT-001",
+    "card_type": "Creature",
+    "subtype": "Beast \u2014 Hound",
+    "rules": "",
+    "attack": 2,
+    "hp": 5,
+    "set": "first-light",
+    "types": [
+      "Beast",
+      "Hound"
+    ],
+    "keywords": [
+      {
+        "id": "ward",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "number": 2,
+    "name": "Amberstinger",
+    "rarity": "Uncommon",
+    "id": "LT-002",
+    "card_type": "Creature",
+    "subtype": "Beast \u2014 Scorpion",
+    "rules": "Creatures stunned by this creature take 1 less damage from each source while that Stun lasts.",
+    "attack": 2,
+    "hp": 4,
+    "set": "first-light",
+    "types": [
+      "Beast",
+      "Scorpion"
+    ],
+    "keywords": [
+      {
+        "id": "stunning"
+      }
+    ]
+  },
+  {
+    "number": 3,
+    "name": "Abysscoil",
+    "rarity": "Common",
+    "id": "LT-003",
+    "card_type": "Creature",
+    "subtype": "Beast \u2014 Eel",
+    "rules": "This creature cannot attack. At your turn start, deal 1 damage to an enemy front creature. If it was already damaged, stun it.",
+    "attack": 0,
+    "hp": 5,
+    "set": "first-light",
+    "types": [
+      "Beast",
+      "Eel"
+    ],
+    "keywords": []
+  },
+  {
+    "number": 4,
+    "name": "Moonface Owl",
+    "rarity": "Uncommon",
+    "id": "LT-004",
+    "card_type": "Creature",
+    "subtype": "Bird \u2014 Owl",
+    "rules": "At your turn start, look at the top 2 cards of your deck. Put one on top and the other on the bottom.",
+    "attack": 1,
+    "hp": 4,
+    "set": "first-light",
+    "types": [
+      "Bird",
+      "Owl"
+    ],
+    "keywords": []
+  },
+  {
+    "number": 5,
+    "name": "Hatchling of the Hoard",
+    "rarity": "Common",
+    "id": "LT-005",
+    "card_type": "Creature",
+    "subtype": "Dragon",
+    "rules": "When you play this creature, look at the top 3 cards of your deck. You may reveal an Equipment from them and put it in your hand. Put the rest on the bottom in any order.",
+    "attack": 2,
+    "hp": 4,
+    "set": "first-light",
+    "types": [
+      "Dragon"
+    ],
+    "keywords": []
+  },
+  {
+    "number": 6,
+    "name": "Gym Mouse",
+    "rarity": "Uncommon",
+    "id": "LT-006",
+    "card_type": "Creature",
+    "subtype": "Beast \u2014 Mouse",
+    "rules": "After this creature survives combat damage, it gets +1 Attack for the rest of the game. This can trigger once each turn.",
+    "attack": 2,
+    "hp": 4,
+    "set": "first-light",
+    "types": [
+      "Beast",
+      "Mouse"
+    ],
+    "keywords": []
+  },
+  {
+    "number": 7,
+    "name": "Ashwing",
+    "rarity": "Epic",
+    "id": "LT-007",
+    "card_type": "Creature",
+    "subtype": "Elemental \u2014 Phoenix",
+    "rules": "The first time this creature dies, return it to your hand after combat. Its death still counts as a loss. When replayed, it enters with 3 HP instead of 5.",
+    "attack": 3,
+    "hp": 5,
+    "set": "first-light",
+    "types": [
+      "Elemental",
+      "Phoenix"
+    ],
+    "keywords": []
+  },
+  {
+    "number": 8,
+    "name": "Amethyst Colossus",
+    "rarity": "Epic",
+    "id": "LT-008",
+    "card_type": "Creature",
+    "subtype": "Construct \u2014 Golem",
+    "rules": "This creature can only be played in a front slot. When it dies, deal 1 damage to each enemy creature. This creature cannot attack back-row creatures.",
+    "attack": 3,
+    "hp": 7,
+    "set": "first-light",
+    "types": [
+      "Construct",
+      "Golem"
+    ],
+    "keywords": []
+  },
+  {
+    "number": 9,
+    "name": "Bonecaller",
+    "rarity": "Common",
+    "id": "LT-009",
+    "card_type": "Creature",
+    "subtype": "Undead \u2014 Mage",
+    "rules": "Once during your pre-combat, combat, or post-combat phase, discard a card to return a Creature with printed Attack 1 or less from your discard pile to your hand.",
+    "attack": 1,
+    "hp": 4,
+    "set": "first-light",
+    "types": [
+      "Undead",
+      "Mage"
+    ],
+    "keywords": []
+  },
+  {
+    "number": 10,
+    "name": "Bloomstone",
+    "rarity": "Uncommon",
+    "id": "LT-010",
+    "card_type": "Creature",
+    "subtype": "Construct \u2014 Guardian",
+    "rules": "At your turn start, heal 1 HP on each other creature in this creature\u2019s column.",
+    "attack": 1,
+    "hp": 6,
+    "set": "first-light",
+    "types": [
+      "Construct",
+      "Guardian"
+    ],
+    "keywords": []
+  },
+  {
+    "number": 11,
+    "name": "Azure Myconid",
+    "rarity": "Common",
+    "id": "LT-011",
+    "card_type": "Creature",
+    "subtype": "Fungus",
+    "rules": "After this creature deals combat damage to a creature, that creature gets \u22121 Attack until the end of its controller\u2019s next turn.",
+    "attack": 2,
+    "hp": 4,
+    "set": "first-light",
+    "types": [
+      "Fungus"
+    ],
+    "keywords": []
+  },
+  {
+    "number": 12,
+    "name": "Aurora Stag",
+    "rarity": "Epic",
+    "id": "LT-012",
+    "card_type": "Creature",
+    "subtype": "Beast \u2014 Stag",
+    "rules": "When you play this creature, choose an enemy creature. It gets \u22122 Attack until the end of its controller\u2019s next turn.",
+    "attack": 3,
+    "hp": 5,
+    "set": "first-light",
+    "types": [
+      "Beast",
+      "Stag"
+    ],
+    "keywords": []
+  },
+  {
+    "number": 13,
+    "name": "Cinder Jelly",
+    "rarity": "Common",
+    "id": "LT-013",
+    "card_type": "Creature",
+    "subtype": "Elemental \u2014 Slime",
+    "rules": "",
+    "attack": 2,
+    "hp": 3,
+    "set": "first-light",
+    "types": [
+      "Elemental",
+      "Slime"
+    ],
+    "keywords": [
+      {
+        "id": "scorch"
+      },
+      {
+        "id": "deathburst",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "number": 14,
+    "name": "Bramble Shiv",
+    "rarity": "Uncommon",
+    "id": "LT-014",
+    "card_type": "Creature",
+    "subtype": "Goblin \u2014 Rogue",
+    "rules": "When this creature attacks a damaged creature, it gets +1 Attack for that combat.",
+    "attack": 2,
+    "hp": 3,
+    "set": "first-light",
+    "types": [
+      "Goblin",
+      "Rogue"
+    ],
+    "keywords": [
+      {
+        "id": "sprint"
+      }
+    ]
+  },
+  {
+    "number": 15,
+    "name": "Cloud Sovereign",
+    "rarity": "Legendary",
+    "id": "LT-015",
+    "card_type": "Creature",
+    "subtype": "Elemental \u2014 Sovereign",
+    "rules": "While this creature is in a back slot, its front protector gets +2 maximum HP. When that protector dies, stun this creature.",
+    "attack": 3,
+    "hp": 5,
+    "set": "first-light",
+    "types": [
+      "Elemental",
+      "Sovereign"
+    ],
+    "keywords": []
+  },
+  {
+    "number": 16,
+    "name": "Cindermaw",
+    "rarity": "Epic",
+    "id": "LT-016",
+    "card_type": "Creature",
+    "subtype": "Dragon \u2014 Salamander",
+    "rules": "When this creature attacks, deal 1 damage to the creature directly behind its target, if any. This creature cannot attack until your second turn after it is played.",
+    "attack": 4,
+    "hp": 6,
+    "set": "first-light",
+    "types": [
+      "Dragon",
+      "Salamander"
+    ],
+    "keywords": []
+  },
+  {
+    "number": 17,
+    "name": "Dewdrop Ooze",
+    "rarity": "Common",
+    "id": "LT-017",
+    "card_type": "Creature",
+    "subtype": "Slime",
+    "rules": "When you play this creature, remove Burn from a friendly creature and heal 2 HP on that creature.",
+    "attack": 1,
+    "hp": 5,
+    "set": "first-light",
+    "types": [
+      "Slime"
+    ],
+    "keywords": []
+  },
+  {
+    "number": 18,
+    "name": "Crimson Fletcher",
+    "rarity": "Uncommon",
+    "id": "LT-018",
+    "card_type": "Creature",
+    "subtype": "Bird \u2014 Archer",
+    "rules": "While this creature has a front protector, it gets +2 Attack. Otherwise it has \u22121 Attack.",
+    "attack": 2,
+    "hp": 4,
+    "set": "first-light",
+    "types": [
+      "Bird",
+      "Archer"
+    ],
+    "keywords": []
+  },
+  {
+    "number": 19,
+    "name": "Dustdancer",
+    "rarity": "Common",
+    "id": "LT-019",
+    "card_type": "Creature",
+    "subtype": "Elemental \u2014 Wind",
+    "rules": "When you play this creature, you may swap an enemy front creature with the creature directly behind it. Both slots must be occupied.",
+    "attack": 1,
+    "hp": 4,
+    "set": "first-light",
+    "types": [
+      "Elemental",
+      "Wind"
+    ],
+    "keywords": []
+  },
+  {
+    "number": 20,
+    "name": "Crystal Gale",
+    "rarity": "Uncommon",
+    "id": "LT-020",
+    "card_type": "Creature",
+    "subtype": "Elemental \u2014 Serpent",
+    "rules": "After this creature deals combat damage to a back-row creature, you may return that creature to its owner\u2019s hand. Returning it is not a death.",
+    "attack": 2,
+    "hp": 4,
+    "set": "first-light",
+    "types": [
+      "Elemental",
+      "Serpent"
+    ],
+    "keywords": []
+  },
+  {
+    "number": 21,
+    "name": "Dustbound",
+    "rarity": "Common",
+    "id": "LT-021",
+    "card_type": "Creature",
+    "subtype": "Construct \u2014 Sentinel",
+    "rules": "When you play this creature, remove all shield from an enemy front creature. That creature cannot gain shield until the end of your next turn.",
+    "attack": 2,
+    "hp": 5,
+    "set": "first-light",
+    "types": [
+      "Construct",
+      "Sentinel"
+    ],
+    "keywords": []
+  },
+  {
+    "number": 22,
+    "name": "Velvet Bat",
+    "rarity": "Uncommon",
+    "id": "LT-022",
+    "card_type": "Creature",
+    "subtype": "Beast \u2014 Bat",
+    "rules": "After this creature deals combat damage to a back-row creature, heal 1 HP on it.",
+    "attack": 1,
+    "hp": 3,
+    "set": "first-light",
+    "types": [
+      "Beast",
+      "Bat"
+    ],
+    "keywords": [
+      {
+        "id": "ranged"
+      }
+    ]
+  },
+  {
+    "number": 23,
+    "name": "Moonweave Cloak",
+    "rarity": "Common",
+    "id": "LT-023",
+    "card_type": "Item",
+    "subtype": "Equipment",
+    "rules": "Equipped creature gets +1 maximum HP. The first time each turn an enemy Spell would damage it, prevent 1 of that damage.",
+    "attack": null,
+    "hp": null,
+    "set": "first-light",
+    "keywords": []
+  },
+  {
+    "number": 24,
+    "name": "Coralcrusher",
+    "rarity": "Uncommon",
+    "id": "LT-024",
+    "card_type": "Creature",
+    "subtype": "Beast \u2014 Crab",
+    "rules": "While this creature has half its maximum HP or less, rounded down, it takes 1 less damage from each source.",
+    "attack": 2,
+    "hp": 6,
+    "set": "first-light",
+    "types": [
+      "Beast",
+      "Crab"
+    ],
+    "keywords": []
+  },
+  {
+    "number": 25,
+    "name": "Hoardkeeper Coin",
+    "rarity": "Common",
+    "id": "LT-025",
+    "card_type": "Item",
+    "subtype": "Artifact",
+    "rules": "The first time each turn you play an Equipment, look at the top card of your deck. You may put it on the bottom.",
+    "attack": null,
+    "hp": null,
+    "set": "first-light",
+    "keywords": []
+  },
+  {
+    "number": 26,
+    "name": "Glacier Cube",
+    "rarity": "Uncommon",
+    "id": "LT-026",
+    "card_type": "Creature",
+    "subtype": "Elemental \u2014 Slime",
+    "rules": "When this creature attacks an already stunned creature, it gets +2 Attack for that combat.",
+    "attack": 1,
+    "hp": 5,
+    "set": "first-light",
+    "types": [
+      "Elemental",
+      "Slime"
+    ],
+    "keywords": [
+      {
+        "id": "stunning"
+      }
+    ]
+  },
+  {
+    "number": 27,
+    "name": "Dawnwing",
+    "rarity": "Common",
+    "id": "LT-027",
+    "card_type": "Creature",
+    "subtype": "Insect \u2014 Moth",
+    "rules": "When you play this creature, remove Stun or Burn from a friendly creature. If you removed an effect, heal 1 HP on that creature.",
+    "attack": 1,
+    "hp": 4,
+    "set": "first-light",
+    "types": [
+      "Insect",
+      "Moth"
+    ],
+    "keywords": []
+  },
+  {
+    "number": 28,
+    "name": "Hourglass of Embers",
+    "rarity": "Rare",
+    "id": "LT-028",
+    "card_type": "Item",
+    "subtype": "Artifact",
+    "rules": "At your turn start, put an ember counter here. Then you may remove 3 ember counters from here to deal 2 damage to an enemy front creature.",
+    "attack": null,
+    "hp": null,
+    "set": "first-light",
+    "keywords": []
+  },
+  {
+    "number": 29,
+    "name": "Mossgrub",
+    "rarity": "Common",
+    "id": "LT-029",
+    "card_type": "Creature",
+    "subtype": "Insect \u2014 Grub",
+    "rules": "",
+    "attack": 1,
+    "hp": 4,
+    "set": "first-light",
+    "types": [
+      "Insect",
+      "Grub"
+    ],
+    "keywords": [
+      {
+        "id": "packbond"
+      }
+    ]
+  },
+  {
+    "number": 30,
+    "name": "Crownless Lich",
+    "rarity": "Legendary",
+    "id": "LT-030",
+    "card_type": "Creature",
+    "subtype": "Undead \u2014 Lich",
+    "rules": "After this creature deals combat damage, reduce the damaged creature\u2019s maximum HP by 1.",
+    "attack": 3,
+    "hp": 6,
+    "set": "first-light",
+    "types": [
+      "Undead",
+      "Lich"
+    ],
+    "keywords": [
+      {
+        "id": "resilient"
+      }
+    ]
+  },
+  {
+    "number": 31,
+    "name": "Heart of the Grove",
+    "rarity": "Rare",
+    "id": "LT-031",
+    "card_type": "Item",
+    "subtype": "Artifact",
+    "rules": "Once per turn, after a friendly creature survives combat damage, heal 1 HP on it during post-combat. Choose only one creature.",
+    "attack": null,
+    "hp": null,
+    "set": "first-light",
+    "keywords": []
+  },
+  {
+    "number": 32,
+    "name": "Fizzlewick",
+    "rarity": "Uncommon",
+    "id": "LT-032",
+    "card_type": "Creature",
+    "subtype": "Goblin \u2014 Alchemist",
+    "rules": "After this creature deals combat damage to a creature, put a fuse counter on it. At 2 fuse counters, remove those counters and deal 3 damage to that creature.",
+    "attack": 1,
+    "hp": 4,
+    "set": "first-light",
+    "types": [
+      "Goblin",
+      "Alchemist"
+    ],
+    "keywords": []
+  },
+  {
+    "number": 33,
+    "name": "Prism of Echoes",
+    "rarity": "Epic",
+    "id": "LT-033",
+    "card_type": "Spell",
+    "subtype": "Reaction",
+    "rules": "Play only immediately after an enemy Artifact\u2019s turn-start ability heals a creature or deals damage. Choose one: heal 2 HP on a friendly creature; or deal 1 damage to an enemy front creature.",
+    "attack": null,
+    "hp": null,
+    "set": "first-light",
+    "keywords": []
+  },
+  {
+    "number": 34,
+    "name": "Sunforged Blade",
+    "rarity": "Rare",
+    "id": "LT-034",
+    "card_type": "Item",
+    "subtype": "Equipment",
+    "rules": "Equipped creature gets +1 Attack. When it attacks an Undead creature, it gets another +1 Attack for that combat.",
+    "attack": null,
+    "hp": null,
+    "set": "first-light",
+    "keywords": []
+  },
+  {
+    "number": 35,
+    "name": "Moonstone Bell",
+    "rarity": "Common",
+    "id": "LT-035",
+    "card_type": "Item",
+    "subtype": "Artifact",
+    "rules": "At your turn start, you may remove Stun from one friendly creature. If you do, discard a card.",
+    "attack": null,
+    "hp": null,
+    "set": "first-light",
+    "keywords": []
+  },
+  {
+    "number": 36,
+    "name": "Thunderhead",
+    "rarity": "Uncommon",
+    "id": "LT-036",
+    "card_type": "Creature",
+    "subtype": "Elemental \u2014 Storm",
+    "rules": "At your turn start, if this creature is in a back slot, give it a charge counter. When it attacks, you may remove a charge counter to gain +2 Attack for that combat.",
+    "attack": 1,
+    "hp": 4,
+    "set": "first-light",
+    "types": [
+      "Elemental",
+      "Storm"
+    ],
+    "keywords": []
+  },
+  {
+    "number": 37,
+    "name": "Rootbound Idol",
+    "rarity": "Common",
+    "id": "LT-037",
+    "card_type": "Item",
+    "subtype": "Artifact",
+    "rules": "The first time each turn an enemy creature is played in a back slot, give its front protector \u22121 Attack until the end of that turn.",
+    "attack": null,
+    "hp": null,
+    "set": "first-light",
+    "keywords": []
+  },
+  {
+    "number": 38,
+    "name": "Frostwalker Boots",
+    "rarity": "Uncommon",
+    "id": "LT-038",
+    "card_type": "Item",
+    "subtype": "Equipment",
+    "rules": "Equipped creature gets +1 maximum HP. It cannot be swapped or moved by enemy abilities.",
+    "attack": null,
+    "hp": null,
+    "set": "first-light",
+    "keywords": []
+  },
+  {
+    "number": 39,
+    "name": "Phoenix Feather",
+    "rarity": "Rare",
+    "id": "LT-039",
+    "card_type": "Spell",
+    "subtype": "Reaction",
+    "rules": "Play only immediately after a friendly creature dies. Return that card to your hand. The death still counts as a loss, and it cannot be replayed this turn.",
+    "attack": null,
+    "hp": null,
+    "set": "first-light",
+    "keywords": []
+  },
+  {
+    "number": 40,
+    "name": "Tideglass Bow",
+    "rarity": "Uncommon",
+    "id": "LT-040",
+    "card_type": "Item",
+    "subtype": "Equipment",
+    "rules": "Equipped creature may target protected back-row creatures. It gets \u22121 Attack when it attacks a back-row creature.",
+    "attack": null,
+    "hp": null,
+    "set": "first-light",
+    "keywords": []
+  },
+  {
+    "number": 41,
+    "name": "Snowswirl",
+    "rarity": "Common",
+    "id": "LT-041",
+    "card_type": "Creature",
+    "subtype": "Elemental \u2014 Fox",
+    "rules": "When you play this creature in a back slot, give its front protector 2 shield. Shield from this ability does not stack with itself.",
+    "attack": 1,
+    "hp": 4,
+    "set": "first-light",
+    "types": [
+      "Elemental",
+      "Fox"
+    ],
+    "keywords": []
+  },
+  {
+    "number": 42,
+    "name": "Sunken Compass",
+    "rarity": "Uncommon",
+    "id": "LT-042",
+    "card_type": "Item",
+    "subtype": "Artifact",
+    "rules": "Once during your pre-combat, combat, or post-combat phase, you may swap two friendly creatures in the same column. Swapping does not make a creature ready to attack.",
+    "attack": null,
+    "hp": null,
+    "set": "first-light",
+    "keywords": []
+  },
+  {
+    "number": 43,
+    "name": "Starlight Locket",
+    "rarity": "Rare",
+    "id": "LT-043",
+    "card_type": "Item",
+    "subtype": "Artifact",
+    "rules": "At your turn start, if you control exactly 3 creatures, you may discard a card to draw a card.",
+    "attack": null,
+    "hp": null,
+    "set": "first-light",
+    "keywords": []
+  },
+  {
+    "number": 44,
+    "name": "Rainbow Vale",
+    "rarity": "Uncommon",
+    "id": "LT-044",
+    "card_type": "Battlefield",
+    "subtype": "Sanctuary",
+    "rules": "During each player\u2019s post-combat phase, that player may heal 1 HP on one of their creatures that did not attack this turn.",
+    "attack": null,
+    "hp": null,
+    "set": "first-light",
+    "keywords": []
+  },
+  {
+    "number": 45,
+    "name": "Stormcaller Hammer",
+    "rarity": "Rare",
+    "id": "LT-045",
+    "card_type": "Item",
+    "subtype": "Equipment",
+    "rules": "Equipped creature gets +2 Attack and takes 1 damage after each combat in which it attacked.",
+    "attack": null,
+    "hp": null,
+    "set": "first-light",
+    "keywords": []
+  },
+  {
+    "number": 46,
+    "name": "Obsidian Mirror",
+    "rarity": "Rare",
+    "id": "LT-046",
+    "card_type": "Spell",
+    "subtype": "Reaction",
+    "rules": "Play only immediately after an enemy Spell chooses a single friendly creature as its target. Change that target to another legal creature. Do not copy the Spell.",
+    "attack": null,
+    "hp": null,
+    "set": "first-light",
+    "keywords": []
+  },
+  {
+    "number": 47,
+    "name": "Brambleguard Shield",
+    "rarity": "Uncommon",
+    "id": "LT-047",
+    "card_type": "Item",
+    "subtype": "Equipment",
+    "rules": "Equipped creature gets +2 maximum HP. It deals 1 damage to any creature that deals combat damage to it.",
+    "attack": null,
+    "hp": null,
+    "set": "first-light",
+    "keywords": []
+  },
+  {
+    "number": 48,
+    "name": "Dragonwatch Crags",
+    "rarity": "Uncommon",
+    "id": "LT-048",
+    "card_type": "Battlefield",
+    "subtype": "Highlands",
+    "rules": "Creatures in front slots get +1 Attack when attacking Dragons. Both players\u2019 Dragons get +1 maximum HP.",
+    "attack": null,
+    "hp": null,
+    "set": "first-light",
+    "keywords": []
+  },
+  {
+    "number": 49,
+    "name": "Dragonbone Spear",
+    "rarity": "Rare",
+    "id": "LT-049",
+    "card_type": "Item",
+    "subtype": "Equipment",
+    "rules": "Equipped creature gets +1 Attack. Once each turn, after it deals combat damage to a front creature, deal 1 damage to the creature directly behind that target, if any.",
+    "attack": null,
+    "hp": null,
+    "set": "first-light",
+    "keywords": []
+  },
+  {
+    "number": 50,
+    "name": "Astral Lens",
+    "rarity": "Uncommon",
+    "id": "LT-050",
+    "card_type": "Item",
+    "subtype": "Equipment",
+    "rules": "Equipped creature gets +1 Attack while in a back slot. At your turn start, you may look at the top card of your deck.",
+    "attack": null,
+    "hp": null,
+    "set": "first-light",
+    "keywords": []
+  },
+  {
+    "number": 51,
+    "name": "Lantern Tortoise",
+    "rarity": "Common",
+    "id": "LT-051",
+    "card_type": "Creature",
+    "subtype": "Beast \u2014 Tortoise",
+    "rules": "While this creature is in a front slot, its back-row companion cannot be chosen by enemy Spell cards.",
+    "attack": 1,
+    "hp": 6,
+    "set": "first-light",
+    "types": [
+      "Beast",
+      "Tortoise"
+    ],
+    "keywords": []
+  },
+  {
+    "number": 52,
+    "name": "Starlit Expanse",
+    "rarity": "Uncommon",
+    "id": "LT-052",
+    "card_type": "Battlefield",
+    "subtype": "Night Sky",
+    "rules": "At each player\u2019s turn start, that player looks at the top card of their deck and may put it on the bottom before drawing.",
+    "attack": null,
+    "hp": null,
+    "set": "first-light",
+    "keywords": []
+  },
+  {
+    "number": 53,
+    "name": "Emberheart Armor",
+    "rarity": "Rare",
+    "id": "LT-053",
+    "card_type": "Item",
+    "subtype": "Equipment",
+    "rules": "Equipped creature gets +1 Attack and +1 maximum HP. It cannot be burned.",
+    "attack": null,
+    "hp": null,
+    "set": "first-light",
+    "keywords": []
+  },
+  {
+    "number": 54,
+    "name": "Silkstep Sandals",
+    "rarity": "Uncommon",
+    "id": "LT-054",
+    "card_type": "Item",
+    "subtype": "Equipment",
+    "rules": "Once during your pre-combat, combat, or post-combat phase, you may swap equipped creature with its friendly creature in the same column. Equipped creature gets +1 Attack until end of turn.",
+    "attack": null,
+    "hp": null,
+    "set": "first-light",
+    "keywords": []
+  },
+  {
+    "number": 55,
+    "name": "Wayfarer Satchel",
+    "rarity": "Common",
+    "id": "LT-055",
+    "card_type": "Item",
+    "subtype": "Equipment",
+    "rules": "When you attach this card, look at the top 2 cards of your deck. Put them back in any order. Equipped creature gets +1 maximum HP.",
+    "attack": null,
+    "hp": null,
+    "set": "first-light",
+    "keywords": []
+  },
+  {
+    "number": 56,
+    "name": "Runesmith Gauntlets",
+    "rarity": "Uncommon",
+    "id": "LT-056",
+    "card_type": "Item",
+    "subtype": "Equipment",
+    "rules": "Equipped creature gets +1 Attack. The first time each turn it would take damage from an Artifact, prevent 1 of that damage.",
+    "attack": null,
+    "hp": null,
+    "set": "first-light",
+    "keywords": []
+  },
+  {
+    "number": 57,
+    "name": "Hearthkeeper Apron",
+    "rarity": "Common",
+    "id": "LT-057",
+    "card_type": "Item",
+    "subtype": "Equipment",
+    "rules": "Equipped creature gets +1 maximum HP. During your post-combat phase, if it did not attack this turn, heal 1 HP on it.",
+    "attack": null,
+    "hp": null,
+    "set": "first-light",
+    "keywords": []
+  },
+  {
+    "number": 58,
+    "name": "Garden of Stars",
+    "rarity": "Rare",
+    "id": "LT-058",
+    "card_type": "Item",
+    "subtype": "Artifact",
+    "rules": "At your turn start, choose one: remove Burn from a friendly creature; or give 1 shield to a friendly creature with printed Attack 1 or less.",
+    "attack": null,
+    "hp": null,
+    "set": "first-light",
+    "keywords": []
+  },
+  {
+    "number": 59,
+    "name": "Wildflower Crown",
+    "rarity": "Common",
+    "id": "LT-059",
+    "card_type": "Item",
+    "subtype": "Equipment",
+    "rules": "Equipped creature gets +1 maximum HP. When it is healed, it gets +1 Attack until end of turn. This can trigger once each turn.",
+    "attack": null,
+    "hp": null,
+    "set": "first-light",
+    "keywords": []
+  },
+  {
+    "number": 60,
+    "name": "Cloud Kingdom",
+    "rarity": "Legendary",
+    "id": "LT-060",
+    "card_type": "Battlefield",
+    "subtype": "Sky Realm",
+    "rules": "Protected back-row creatures take 1 less damage from each source. Front-row creatures cannot gain shield.",
+    "attack": null,
+    "hp": null,
+    "set": "first-light",
+    "keywords": []
+  },
+  {
+    "number": 61,
+    "name": "Ocean Pearl Ring",
+    "rarity": "Rare",
+    "id": "LT-061",
+    "card_type": "Item",
+    "subtype": "Equipment",
+    "rules": "Equipped creature gets +1 maximum HP. Once per turn, prevent the first 1 damage it would take during an enemy turn.",
+    "attack": null,
+    "hp": null,
+    "set": "first-light",
+    "keywords": []
+  },
+  {
+    "number": 62,
+    "name": "Amber Memory",
+    "rarity": "Uncommon",
+    "id": "LT-062",
+    "card_type": "Spell",
+    "subtype": "Reaction",
+    "rules": "Play only immediately after an enemy creature declares an attack against a friendly creature. Cancel that attack. That attacker cannot declare another attack this turn.",
+    "attack": null,
+    "hp": null,
+    "set": "first-light",
+    "keywords": []
+  },
+  {
+    "number": 63,
+    "name": "Thunderseed",
+    "rarity": "Rare",
+    "id": "LT-063",
+    "card_type": "Item",
+    "subtype": "Artifact",
+    "rules": "The first time each turn you play a creature, put a spark counter here. Once during your pre-combat, combat, or post-combat phase, remove 3 spark counters to destroy an enemy Equipment.",
+    "attack": null,
+    "hp": null,
+    "set": "first-light",
+    "keywords": []
+  },
+  {
+    "number": 64,
+    "name": "Hollow Crown",
+    "rarity": "Epic",
+    "id": "LT-064",
+    "card_type": "Spell",
+    "subtype": "Reaction",
+    "rules": "Play only immediately after the enemy plays an Artifact or Battlefield. Cancel that card: discard it without resolving its entry effects or replacing the current Battlefield.",
+    "attack": null,
+    "hp": null,
+    "set": "first-light",
+    "keywords": []
+  },
+  {
+    "id": "SA-001",
+    "number": 1,
+    "name": "Transposition",
+    "rarity": "Uncommon",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "rules": "Swap the positions of two of any of your active creatures",
+    "attack": null,
+    "hp": null,
+    "set": "shattered-arcana"
+  },
+  {
+    "id": "SA-002",
+    "number": 2,
+    "name": "Zap",
+    "rarity": "Common",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "rules": "Deal 2 damage to an enemy creature",
+    "attack": null,
+    "hp": null,
+    "set": "shattered-arcana"
+  },
+  {
+    "id": "SA-003",
+    "number": 3,
+    "name": "Bounce Back",
+    "rarity": "Common",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "rules": "Return one creature back to the enemy's hand",
+    "attack": null,
+    "hp": null,
+    "set": "shattered-arcana"
+  },
+  {
+    "id": "SA-004",
+    "number": 4,
+    "name": "Unbury",
+    "rarity": "Common",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "rules": "Return one creature from your discard pile to your hand",
+    "attack": null,
+    "hp": null,
+    "set": "shattered-arcana"
+  },
+  {
+    "id": "SA-005",
+    "number": 5,
+    "name": "Quicken",
+    "rarity": "Common",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "rules": "Grant one creature Sprint until the end of your turn",
+    "attack": null,
+    "hp": null,
+    "set": "shattered-arcana"
+  },
+  {
+    "id": "SA-006",
+    "number": 6,
+    "name": "Foresight",
+    "rarity": "Common",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "rules": "Look at the top 3 cards of your draw pile and place them back in any order",
+    "attack": null,
+    "hp": null,
+    "set": "shattered-arcana"
+  },
+  {
+    "id": "SA-007",
+    "number": 7,
+    "name": "Sooth Wounds",
+    "rarity": "Common",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "rules": "Heal 2 HP from one of your creatures",
+    "attack": null,
+    "hp": null,
+    "set": "shattered-arcana"
+  },
+  {
+    "id": "SA-008",
+    "number": 8,
+    "name": "Mind Control",
+    "rarity": "Rare",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "rules": "Take Control of one of the other player's creatures and give it Sprint. Place it anywhere on your side of the battle map. This card will Fail if you have no empty spaces available. At the end of your turn, return it to it's original space. If that is not possible, discard it to the owner's discard pile.",
+    "attack": null,
+    "hp": null,
+    "set": "shattered-arcana"
+  },
+  {
+    "id": "SA-009",
+    "number": 9,
+    "name": "Willful Protection",
+    "rarity": "Common",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "rules": "Grant one of your creatures 3 shield",
+    "attack": null,
+    "hp": null,
+    "set": "shattered-arcana"
+  },
+  {
+    "id": "SA-010",
+    "number": 10,
+    "name": "Duplicate",
+    "rarity": "Rare",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "rules": "Create a copy of a creature on the board in an empty slot on your side. The copy gains the Summon type and Sprint. Sacrifice it at the end of the turn.",
+    "attack": null,
+    "hp": null,
+    "set": "shattered-arcana"
+  },
+  {
+    "id": "SA-011",
+    "number": 11,
+    "name": "Delve",
+    "rarity": "Common",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "rules": "Draw two cards",
+    "attack": null,
+    "hp": null,
+    "set": "shattered-arcana"
+  },
+  {
+    "id": "SA-012",
+    "number": 12,
+    "name": "Esoteric Implosion",
+    "rarity": "Uncommon",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "rules": "Destroy one Artifact or Equipment",
+    "attack": null,
+    "hp": null,
+    "set": "shattered-arcana"
+  },
+  {
+    "id": "SA-013",
+    "number": 13,
+    "name": "Dismay",
+    "rarity": "Common",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "rules": "Force target player to discard 1 card of their choice from their hand.",
+    "attack": null,
+    "hp": null,
+    "set": "shattered-arcana"
+  },
+  {
+    "id": "SA-014",
+    "number": 14,
+    "name": "Pierce the Veil",
+    "rarity": "Common",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "rules": "Target creature may ignore front line protectors and attack backline creatures until end of turn",
+    "attack": null,
+    "hp": null,
+    "set": "shattered-arcana"
+  },
+  {
+    "id": "SA-015",
+    "number": 15,
+    "name": "Suffer the Dead",
+    "rarity": "Uncommon",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "rules": "Sacrifice one active creature and return 2 cards from your discard pile to your hand",
+    "attack": null,
+    "hp": null,
+    "set": "shattered-arcana"
+  },
+  {
+    "id": "SA-016",
+    "number": 16,
+    "name": "Directed Ire",
+    "rarity": "Uncommon",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "rules": "Until end of your next turn, the target friendly creature must be defeated before any other of your creatures can be attacked",
+    "attack": null,
+    "hp": null,
+    "set": "shattered-arcana"
+  },
+  {
+    "id": "SA-017",
+    "number": 17,
+    "name": "Bring it On!",
+    "rarity": "Uncommon",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "rules": "Target creature gains +3 Attack until end of turn",
+    "attack": null,
+    "hp": null,
+    "set": "shattered-arcana"
+  },
+  {
+    "id": "SA-018",
+    "number": 18,
+    "name": "Spring to Life",
+    "rarity": "Uncommon",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "rules": "Heal all your creatures 1 HP and grant them 1 Shield",
+    "attack": null,
+    "hp": null,
+    "set": "shattered-arcana"
+  },
+  {
+    "id": "SA-019",
+    "number": 19,
+    "name": "Choices, Choices",
+    "rarity": "Uncommon",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "rules": "Pick one: Deal 1 damage to creature, Heal 1 HP from creature, or draw 1 card",
+    "attack": null,
+    "hp": null,
+    "set": "shattered-arcana"
+  },
+  {
+    "id": "SA-020",
+    "number": 20,
+    "name": "Set the Trap",
+    "rarity": "Rare",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "rules": "Mark one empty enemy creature slot. If a creature is placed on that slot, deal 10 damage to that creature. This effect lasts for 3 turns.",
+    "attack": null,
+    "hp": null,
+    "set": "shattered-arcana"
+  },
+  {
+    "id": "SA-021",
+    "number": 21,
+    "name": "Fade to Nothing",
+    "rarity": "Rare",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "rules": "Destroy target creature",
+    "attack": null,
+    "hp": null,
+    "set": "shattered-arcana"
+  },
+  {
+    "id": "SA-022",
+    "number": 22,
+    "name": "Benevolent Infection",
+    "rarity": "Rare",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "rules": "All creatures gain -1 HP until end of turn",
+    "attack": null,
+    "hp": null,
+    "set": "shattered-arcana"
+  },
+  {
+    "id": "SA-023",
+    "number": 23,
+    "name": "Disruption Pact",
+    "rarity": "Rare",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "rules": "Look at the enemy players hand and select a card. The selected card is discarded.",
+    "attack": null,
+    "hp": null,
+    "set": "shattered-arcana"
+  },
+  {
+    "id": "SA-024",
+    "number": 24,
+    "name": "Vanguard",
+    "rarity": "Epic",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "rules": "Give all your creatures 1 Shield and Reflect while they are shielded until the end of the next turn.",
+    "attack": null,
+    "hp": null,
+    "set": "shattered-arcana"
+  },
+  {
+    "id": "SA-025",
+    "number": 25,
+    "name": "Control the Future",
+    "rarity": "Epic",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "rules": "Draw 3 cards and then discard 1 card from your hand.",
+    "attack": null,
+    "hp": null,
+    "set": "shattered-arcana"
+  },
+  {
+    "id": "SA-026",
+    "number": 26,
+    "name": "In Fate's Hands",
+    "rarity": "Epic",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "rules": "Flip a coin, if Heads, Destroy two target creatures, if Tails, sacrifice a creature",
+    "attack": null,
+    "hp": null,
+    "set": "shattered-arcana"
+  },
+  {
+    "id": "SA-027",
+    "number": 27,
+    "name": "Begin Anew",
+    "rarity": "Legendary",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "rules": "Both players discard their hands and draw 5 cards",
+    "attack": null,
+    "hp": null,
+    "set": "shattered-arcana"
+  },
+  {
+    "id": "SA-028",
+    "number": 28,
+    "name": "Search the Archives",
+    "rarity": "Legendary",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "rules": "Select one card from your deck and place it into your hand. Shuffle your deck.",
+    "attack": null,
+    "hp": null,
+    "set": "shattered-arcana"
+  },
+  {
+    "id": "SA-029",
+    "number": 29,
+    "name": "Decimate",
+    "rarity": "Legendary",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "rules": "Destroy all creatures on the board. Can only be played from turn 3 onward",
+    "attack": null,
+    "hp": null,
+    "set": "shattered-arcana"
+  },
+  {
+    "id": "SA-030",
+    "number": 30,
+    "name": "Spellproof Cowl",
+    "rarity": "Rare",
+    "card_type": "Item",
+    "subtype": "Equipment",
+    "rules": "Cannot be targetted by any spells",
+    "attack": null,
+    "hp": null,
+    "set": "shattered-arcana"
+  },
+  {
+    "id": "SA-031",
+    "number": 31,
+    "name": "Mirror Plate",
+    "rarity": "Epic",
+    "card_type": "Item",
+    "subtype": "Equipment",
+    "rules": "When the equipped creature is targetted by a spell, copy the spell and choose a new target",
+    "attack": null,
+    "hp": null,
+    "set": "shattered-arcana"
+  },
+  {
+    "id": "SA-032",
+    "number": 32,
+    "name": "Liquid Magic",
+    "rarity": "Uncommon",
+    "card_type": "Item",
+    "subtype": "Artifact",
+    "rules": "Whenever you play a Spell card, choose a creature, that creature gains +1 Attack this turn",
+    "attack": null,
+    "hp": null,
+    "set": "shattered-arcana"
+  },
+  {
+    "id": "SA-033",
+    "number": 33,
+    "name": "Arcane Amplifier",
+    "rarity": "Rare",
+    "card_type": "Item",
+    "subtype": "Artifact",
+    "rules": "Spells you cast that deal damage will deal +1 extra damage",
+    "attack": null,
+    "hp": null,
+    "set": "shattered-arcana"
+  },
+  {
+    "id": "SA-034",
+    "number": 34,
+    "name": "Portal to the Shattered Realms",
+    "rarity": "Epic",
+    "card_type": "Item",
+    "subtype": "Artifact",
+    "rules": "Whenever any player draws a card, gain one stack of Displacement. At 5 stacks you must move one creature to another free slot on the board. The chosen slot must be on the same side of the board that the creature originated from. If no slots are available, nothing happens. All stacks are expended regardless of if the movement was successful or not.",
+    "attack": null,
+    "hp": null,
+    "set": "shattered-arcana"
+  },
+  {
+    "id": "SA-035",
+    "number": 35,
+    "name": "Countermagic",
+    "rarity": "Rare",
+    "card_type": "Spell",
+    "subtype": "Reaction",
+    "rules": "When an enemy spell is played, cancel the effect of the Spell card and discard it.",
+    "attack": null,
+    "hp": null,
+    "set": "shattered-arcana"
+  },
+  {
+    "id": "SA-036",
+    "number": 36,
+    "name": "Realmskipper",
+    "rarity": "Common",
+    "card_type": "Creature",
+    "subtype": "Goblin \u00b7 Mage",
+    "rules": "Whenever you play a spell, this creature gains +1 Attack until end of turn",
+    "attack": 1,
+    "hp": 3,
+    "set": "shattered-arcana",
+    "types": [
+      "Goblin",
+      "Mage"
+    ]
+  },
+  {
+    "id": "SA-037",
+    "number": 37,
+    "name": "Mystical Woolie",
+    "rarity": "Common",
+    "card_type": "Creature",
+    "subtype": "Beast \u00b7 Sheep",
+    "rules": "",
+    "attack": 2,
+    "hp": 4,
+    "set": "shattered-arcana",
+    "types": [
+      "Beast",
+      "Sheep"
+    ],
+    "keywords": [
+      {
+        "id": "ward",
+        "value": 1
+      },
+      {
+        "id": "shield",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": "SA-038",
+    "number": 38,
+    "name": "Cerulean Sprite",
+    "rarity": "Common",
+    "card_type": "Creature",
+    "subtype": "Fairie",
+    "rules": "When this card is played, Draw 1 card",
+    "attack": 2,
+    "hp": 3,
+    "set": "shattered-arcana",
+    "types": [
+      "Fairie"
+    ]
+  },
+  {
+    "id": "SA-039",
+    "number": 39,
+    "name": "Animated Tome",
+    "rarity": "Common",
+    "card_type": "Creature",
+    "subtype": "Goblin \u00b7 Mage",
+    "rules": "When this card is played, return one Spell card from your discard pile to your hand",
+    "attack": 1,
+    "hp": 3,
+    "set": "shattered-arcana",
+    "types": [
+      "Goblin",
+      "Mage"
+    ]
+  },
+  {
+    "id": "SA-040",
+    "number": 40,
+    "name": "Feverish Academic",
+    "rarity": "Common",
+    "card_type": "Creature",
+    "subtype": "Bird \u00b7 Mage",
+    "rules": "When this creature attacks you may discard a spell card and Feverish Academic gains +2 Attack",
+    "attack": 3,
+    "hp": 1,
+    "set": "shattered-arcana",
+    "types": [
+      "Bird",
+      "Mage"
+    ],
+    "keywords": [
+      {
+        "id": "sprint"
+      }
+    ]
+  },
+  {
+    "id": "SA-041",
+    "number": 41,
+    "name": "Dirge Scuttler",
+    "rarity": "Uncommon",
+    "card_type": "Creature",
+    "subtype": "Insect \u00b7 Beetle",
+    "rules": "When this creature deals damage to a creature, destroy that creature",
+    "attack": 1,
+    "hp": 1,
+    "set": "shattered-arcana",
+    "types": [
+      "Insect",
+      "Beetle"
+    ]
+  },
+  {
+    "id": "SA-042",
+    "number": 42,
+    "name": "Gifted Aspirant",
+    "rarity": "Uncommon",
+    "card_type": "Creature",
+    "subtype": "Undead \u00b7 Mage",
+    "rules": "When this creature receives combat damage, draw 1 card",
+    "attack": 1,
+    "hp": 4,
+    "set": "shattered-arcana",
+    "types": [
+      "Undead",
+      "Mage"
+    ]
+  },
+  {
+    "id": "SA-043",
+    "number": 43,
+    "name": "Seer of the Realms",
+    "rarity": "Rare",
+    "card_type": "Creature",
+    "subtype": "Elemental \u00b7 Mage",
+    "rules": "Whenever you draw a card, deal 1 damage to a target creature",
+    "attack": 1,
+    "hp": 3,
+    "set": "shattered-arcana",
+    "types": [
+      "Elemental",
+      "Mage"
+    ]
+  },
+  {
+    "id": "SA-044",
+    "number": 44,
+    "name": "Professor Riddledum",
+    "rarity": "Epic",
+    "card_type": "Creature",
+    "subtype": "Dragon \u00b7 Mage",
+    "rules": "Other Mages you control gain +1 Attack. Whenever a Mage you control dies, draw 1 card.",
+    "attack": 3,
+    "hp": 4,
+    "set": "shattered-arcana",
+    "types": [
+      "Dragon",
+      "Mage"
+    ]
+  },
+  {
+    "id": "SA-045",
+    "number": 45,
+    "name": "Soultorn Recluse",
+    "rarity": "Rare",
+    "card_type": "Creature",
+    "subtype": "Construct \u00b7 Mage",
+    "rules": "Whenever another Mage is played, gain +1 Attack and +1 Shield",
+    "attack": 3,
+    "hp": 3,
+    "set": "shattered-arcana",
+    "types": [
+      "Construct",
+      "Mage"
+    ]
+  },
+  {
+    "id": "SA-046",
+    "number": 46,
+    "name": "Rhodovan",
+    "rarity": "Epic",
+    "card_type": "Creature",
+    "subtype": "Wiskin \u00b7 Soldier",
+    "rules": "All enemy creatures in the lane opposite of Rhodovan deal -1 Attack damage. When Rhodovan is defeated return the card to your hand.",
+    "attack": 5,
+    "hp": 2,
+    "set": "shattered-arcana",
+    "types": [
+      "Wiskin",
+      "Soldier"
+    ]
+  },
+  {
+    "id": "SA-047",
+    "number": 47,
+    "name": "The Orator of the Void",
+    "rarity": "Legendary",
+    "card_type": "Creature",
+    "subtype": "Voidling \u00b7 Mage",
+    "rules": "When played, search your library for a Spell card and put it into your hand. Whenever you play a spell card, you may heal all mages 1 HP.",
+    "attack": 3,
+    "hp": 6,
+    "set": "shattered-arcana",
+    "types": [
+      "Voidling",
+      "Mage"
+    ]
+  },
+  {
+    "id": "WE-001",
+    "number": 1,
+    "name": "Pebble Slinger",
+    "set": "war-on-elderberry",
+    "card_type": "Creature",
+    "subtype": "Goblin",
+    "rarity": "Common",
+    "rules": "When played gained 3 stacks of \"Pebbles\". Each turn on either the pre-combat or post-combat phase, you may consume one stack and deal 1 damage to target creature.",
+    "keywords": [],
+    "attack": 1,
+    "hp": 2,
+    "types": [
+      "Goblin"
+    ]
+  },
+  {
+    "id": "WE-002",
+    "number": 2,
+    "name": "Fireback Basilisk",
+    "set": "war-on-elderberry",
+    "card_type": "Creature",
+    "subtype": "Dragon",
+    "rarity": "Common",
+    "rules": "When this creature defeats a front-line enemy, stun the enemy behind them if there is one.",
+    "keywords": [],
+    "attack": 2,
+    "hp": 4,
+    "types": [
+      "Dragon"
+    ]
+  },
+  {
+    "id": "WE-003",
+    "number": 3,
+    "name": "Flamebrew Witch",
+    "set": "war-on-elderberry",
+    "card_type": "Creature",
+    "subtype": "Goblin \u2014 Mage",
+    "rarity": "Common",
+    "rules": "When played, grant one friendly creature Sprint and +1 Attack until end of turn.",
+    "keywords": [],
+    "attack": 1,
+    "hp": 1,
+    "types": [
+      "Goblin",
+      "Mage"
+    ]
+  },
+  {
+    "id": "WE-004",
+    "number": 4,
+    "name": "Goblin Punk",
+    "set": "war-on-elderberry",
+    "card_type": "Creature",
+    "subtype": "Goblin",
+    "rarity": "Common",
+    "rules": "Gain +1 Attack whenever another Goblin creature is played until end of turn",
+    "keywords": [],
+    "attack": 1,
+    "hp": 2,
+    "types": [
+      "Goblin"
+    ]
+  },
+  {
+    "id": "WE-005",
+    "number": 5,
+    "name": "Warg Runt",
+    "set": "war-on-elderberry",
+    "card_type": "Creature",
+    "subtype": "Beast \u2014 Warg",
+    "rarity": "Common",
+    "rules": "Gain +2 Attack when at full HP and -1 Attack when less than full HP.",
+    "keywords": [],
+    "attack": 2,
+    "hp": 3,
+    "types": [
+      "Beast",
+      "Warg"
+    ]
+  },
+  {
+    "id": "WE-006",
+    "number": 6,
+    "name": "Flamespark Elemental",
+    "set": "war-on-elderberry",
+    "card_type": "Creature",
+    "subtype": "Elemental",
+    "rarity": "Common",
+    "rules": "Sacrifice at the end of your turn",
+    "keywords": [
+      {
+        "id": "sprint"
+      }
+    ],
+    "attack": 5,
+    "hp": 1,
+    "types": [
+      "Elemental"
+    ]
+  },
+  {
+    "id": "WE-007",
+    "number": 7,
+    "name": "Riggel, Gold Glutton",
+    "set": "war-on-elderberry",
+    "card_type": "Creature",
+    "subtype": "Goblin",
+    "rarity": "Common",
+    "rules": "Whenever this creature takes combat damage, generate a \"Gold\" stack. When this creature is defeated by combat damage, heal another friendly creature X HP where X is the number of Gold stacks accumlated.",
+    "keywords": [],
+    "attack": 1,
+    "hp": 4,
+    "types": [
+      "Goblin"
+    ]
+  },
+  {
+    "id": "WE-008",
+    "number": 8,
+    "name": "Soldier of Edelberry",
+    "set": "war-on-elderberry",
+    "card_type": "Creature",
+    "subtype": "Wiskin \u2014 Soldier",
+    "rarity": "Common",
+    "rules": "",
+    "keywords": [
+      {
+        "id": "stalwart",
+        "value": 1
+      }
+    ],
+    "attack": 2,
+    "hp": 5,
+    "types": [
+      "Wiskin",
+      "Soldier"
+    ]
+  },
+  {
+    "id": "WE-009",
+    "number": 9,
+    "name": "Rebel Rouser",
+    "set": "war-on-elderberry",
+    "card_type": "Creature",
+    "subtype": "Wiskin",
+    "rarity": "Common",
+    "rules": "When played, return one Wiskin creature from your discard to your hand",
+    "keywords": [],
+    "attack": 3,
+    "hp": 1,
+    "types": [
+      "Wiskin"
+    ]
+  },
+  {
+    "id": "WE-010",
+    "number": 10,
+    "name": "Greyfur Physician",
+    "set": "war-on-elderberry",
+    "card_type": "Creature",
+    "subtype": "Wiskin \u2014 Cleric",
+    "rarity": "Common",
+    "rules": "At the end of your combat phase, heal 1 HP from one of your creatures",
+    "keywords": [],
+    "attack": 1,
+    "hp": 4,
+    "types": [
+      "Wiskin",
+      "Cleric"
+    ]
+  },
+  {
+    "id": "WE-011",
+    "number": 11,
+    "name": "Burrowborn Magikitten",
+    "set": "war-on-elderberry",
+    "card_type": "Creature",
+    "subtype": "Beast \u2014 Cat",
+    "rarity": "Common",
+    "rules": "After each of your Draw Phases, you may choose to discard as many cards as you wish. Deal X damage to target creature, where X is the number of cards discarded this way",
+    "keywords": [],
+    "attack": 2,
+    "hp": 2,
+    "types": [
+      "Beast",
+      "Cat"
+    ]
+  },
+  {
+    "id": "WE-012",
+    "number": 12,
+    "name": "Wiskin Bannerling",
+    "set": "war-on-elderberry",
+    "card_type": "Creature",
+    "subtype": "Wiskin \u2014 Soldier",
+    "rarity": "Common",
+    "rules": "When played, give all creatures in your front rank 1 Shield",
+    "keywords": [],
+    "attack": 3,
+    "hp": 1,
+    "types": [
+      "Wiskin",
+      "Soldier"
+    ]
+  },
+  {
+    "id": "WE-013",
+    "number": 13,
+    "name": "Prodfoot Steer",
+    "set": "war-on-elderberry",
+    "card_type": "Creature",
+    "subtype": "Beast",
+    "rarity": "Common",
+    "rules": "This creature attacks every turn, if able. This creature gains +1 Attack during the enemy's turn.",
+    "keywords": [],
+    "attack": 3,
+    "hp": 3,
+    "types": [
+      "Beast"
+    ]
+  },
+  {
+    "id": "WE-014",
+    "number": 14,
+    "name": "Makeshift Battering Ram",
+    "set": "war-on-elderberry",
+    "card_type": "Creature",
+    "subtype": "Construct",
+    "rarity": "Common",
+    "rules": "If this creature's combat damage is reduced to 0, stun this creature. ",
+    "keywords": [],
+    "attack": 4,
+    "hp": 4,
+    "types": [
+      "Construct"
+    ]
+  },
+  {
+    "id": "WE-015",
+    "number": 15,
+    "name": "Gobskin Sympathizer",
+    "set": "war-on-elderberry",
+    "card_type": "Creature",
+    "subtype": "Wiskin \u2014 Goblin",
+    "rarity": "Common",
+    "rules": "Gain +1 Attack if you control another Goblin. Gain +1 Shield if you control another Wiskin.",
+    "keywords": [],
+    "attack": 3,
+    "hp": 3,
+    "types": [
+      "Wiskin",
+      "Goblin"
+    ]
+  },
+  {
+    "id": "WE-016",
+    "number": 16,
+    "name": "Solblade Cutthroat",
+    "set": "war-on-elderberry",
+    "card_type": "Creature",
+    "subtype": "Assassin",
+    "rarity": "Common",
+    "rules": "",
+    "keywords": [
+      {
+        "id": "ambush"
+      }
+    ],
+    "attack": 4,
+    "hp": 1,
+    "types": [
+      "Assassin"
+    ]
+  },
+  {
+    "id": "WE-017",
+    "number": 17,
+    "name": "Messenger Hawk",
+    "set": "war-on-elderberry",
+    "card_type": "Creature",
+    "subtype": "Bird",
+    "rarity": "Common",
+    "rules": "When played, return one of your creatures to your hand",
+    "keywords": [],
+    "attack": 2,
+    "hp": 2,
+    "types": [
+      "Bird"
+    ]
+  },
+  {
+    "id": "WE-018",
+    "number": 18,
+    "name": "The Bullseye Brothers",
+    "set": "war-on-elderberry",
+    "card_type": "Creature",
+    "subtype": "Wiskin",
+    "rarity": "Uncommon",
+    "rules": "",
+    "keywords": [
+      {
+        "id": "follow-up"
+      },
+      {
+        "id": "penetrate"
+      }
+    ],
+    "attack": 3,
+    "hp": 3,
+    "types": [
+      "Wiskin"
+    ]
+  },
+  {
+    "id": "WE-019",
+    "number": 19,
+    "name": "Goblin Channeler",
+    "set": "war-on-elderberry",
+    "card_type": "Creature",
+    "subtype": "Goblin \u2014 Mage",
+    "rarity": "Uncommon",
+    "rules": "At each of your pre-combat phases, grant Goblin Channeler one stack of \"Channel\". If there is a creature in front of Goblin Channeler, grant that creature +X Attack where X is the number of \"Channel\" stacks.",
+    "keywords": [],
+    "attack": 0,
+    "hp": 3,
+    "types": [
+      "Goblin",
+      "Mage"
+    ]
+  },
+  {
+    "id": "WE-020",
+    "number": 20,
+    "name": "Edelberry Burrow",
+    "set": "war-on-elderberry",
+    "card_type": "Battlefield",
+    "subtype": "Battlefield",
+    "rarity": "Uncommon",
+    "rules": "Wiskin gain Restore 1",
+    "keywords": []
+  },
+  {
+    "id": "WE-021",
+    "number": 21,
+    "name": "The Vicious Maw",
+    "set": "war-on-elderberry",
+    "card_type": "Battlefield",
+    "subtype": "Battlefield",
+    "rarity": "Uncommon",
+    "rules": "Goblins gain Sprint",
+    "keywords": []
+  },
+  {
+    "id": "WE-022",
+    "number": 22,
+    "name": "Goblin Totem",
+    "set": "war-on-elderberry",
+    "card_type": "Item",
+    "subtype": "Artifact",
+    "rarity": "Uncommon",
+    "rules": "Whenever a Goblin dies, draw a card",
+    "keywords": []
+  },
+  {
+    "id": "WE-023",
+    "number": 23,
+    "name": "Wiskin Cutlass",
+    "set": "war-on-elderberry",
+    "card_type": "Item",
+    "subtype": "Equipment",
+    "rarity": "Uncommon",
+    "rules": "+1 Attack. Also, if this is equipped to a Wiskin, whenever the equipped creature defeats an enemy draw 1 card",
+    "keywords": []
+  },
+  {
+    "id": "WE-024",
+    "number": 24,
+    "name": "Urkjaw Bloodfist",
+    "set": "war-on-elderberry",
+    "card_type": "Creature",
+    "subtype": "Goblin \u2014 Chieftain",
+    "rarity": "Rare",
+    "rules": "All Goblins gain +1 Attack",
+    "keywords": [],
+    "attack": 4,
+    "hp": 3,
+    "types": [
+      "Goblin",
+      "Chieftain"
+    ]
+  },
+  {
+    "id": "WE-025",
+    "number": 25,
+    "name": "Royal Knight Eklo",
+    "set": "war-on-elderberry",
+    "card_type": "Creature",
+    "subtype": "Wiskin \u2014 Knight",
+    "rarity": "Rare",
+    "rules": "Whenever this creature attacks, all other Wiskin gain +1 Attack until end of turn",
+    "keywords": [
+      {
+        "id": "shield",
+        "value": 1
+      }
+    ],
+    "attack": 4,
+    "hp": 3,
+    "types": [
+      "Wiskin",
+      "Knight"
+    ]
+  },
+  {
+    "id": "WE-026",
+    "number": 26,
+    "name": "Fireback Rider",
+    "set": "war-on-elderberry",
+    "card_type": "Creature",
+    "subtype": "Goblin \u2014 Knight",
+    "rarity": "Epic",
+    "rules": "When Fireback Rider dies, summon a Fireback Basilisk in it's place.",
+    "keywords": [
+      {
+        "id": "sprint"
+      }
+    ],
+    "attack": 3,
+    "hp": 4,
+    "types": [
+      "Goblin",
+      "Knight"
+    ]
+  },
+  {
+    "id": "WE-027",
+    "number": 27,
+    "name": "Cloudcarriage Captain",
+    "set": "war-on-elderberry",
+    "card_type": "Creature",
+    "subtype": "Wiskin \u2014 Captain",
+    "rarity": "Epic",
+    "rules": "Cloudcarriage Captain may only be played in the back rank. When played, summon 1 Soldier of Edelberry to the space in front of it, if available, then grant the creature in front of it shield 3",
+    "keywords": [],
+    "attack": 1,
+    "hp": 8,
+    "types": [
+      "Wiskin",
+      "Captain"
+    ]
+  },
+  {
+    "id": "WE-028",
+    "number": 28,
+    "name": "Obelisk of Fis'Duum",
+    "set": "war-on-elderberry",
+    "card_type": "Item",
+    "subtype": "Artifact",
+    "rarity": "Legendary",
+    "rules": "Creatures the enemy plays enter stunned",
+    "keywords": []
+  },
+  {
+    "id": "WE-029",
+    "number": 29,
+    "name": "Shackles of Nim",
+    "set": "war-on-elderberry",
+    "card_type": "Item",
+    "subtype": "Equipment",
+    "rarity": "Uncommon",
+    "rules": "Equipped creature splits damage between itself and any other friendly creature equipped with Shackles of Nim. For odd numbered damage, the targetted friendly creature will take the higher of the two split values.",
+    "keywords": []
+  },
+  {
+    "id": "WE-030",
+    "number": 30,
+    "name": "Champion's Tunic",
+    "set": "war-on-elderberry",
+    "card_type": "Item",
+    "subtype": "Equipment",
+    "rarity": "Rare",
+    "rules": "Equipped creature gains Resilient and +1 Attack",
+    "keywords": []
+  },
+  {
+    "id": "WE-031",
+    "number": 31,
+    "name": "Brooch of the Ancients",
+    "set": "war-on-elderberry",
+    "card_type": "Item",
+    "subtype": "Equipment",
+    "rarity": "Epic",
+    "rules": "Equipped creature's Attack is equal to the highest attack among other active friendly creatures",
+    "keywords": []
+  },
+  {
+    "id": "WE-032",
+    "number": 32,
+    "name": "Torn Banner",
+    "set": "war-on-elderberry",
+    "card_type": "Item",
+    "subtype": "Equipment",
+    "rarity": "Rare",
+    "rules": "Equipped creature gains Stalwart 2. If the Equipped creature dies, Torn Banner becomes an Artifact and you must choose one of your artifact slots to assign it. It's effect becomes \"Friendly creatures gain Stalwart 2\"",
+    "keywords": []
+  },
+  {
+    "id": "WE-033",
+    "number": 33,
+    "name": "Ring of Disassociation",
+    "set": "war-on-elderberry",
+    "card_type": "Item",
+    "subtype": "Equipment",
+    "rarity": "Uncommon",
+    "rules": "Equipped creature ignores the effect of the active Battlefield card.",
+    "keywords": []
+  },
+  {
+    "id": "WE-034",
+    "number": 34,
+    "name": "Dissect",
+    "set": "war-on-elderberry",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "rarity": "Common",
+    "rules": "Remove all Ward and Shield from a creature",
+    "keywords": []
+  },
+  {
+    "id": "WE-035",
+    "number": 35,
+    "name": "Share the Pain",
+    "set": "war-on-elderberry",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "rarity": "Common",
+    "rules": "Deal 1 damage to a friendly creature and 1 damage to each of the enemy creatures in the same lane opposite to the targetted friendly creature",
+    "keywords": []
+  },
+  {
+    "id": "WE-036",
+    "number": 36,
+    "name": "Blood for Blood",
+    "set": "war-on-elderberry",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "rarity": "Common",
+    "rules": "Deal 2 damage to target friendly creature, Draw 3 cards",
+    "keywords": []
+  },
+  {
+    "id": "WE-037",
+    "number": 37,
+    "name": "Cure All",
+    "set": "war-on-elderberry",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "rarity": "Uncommon",
+    "rules": "Remove all negative statuses from a target friendly creature",
+    "keywords": []
+  },
+  {
+    "id": "WE-038",
+    "number": 38,
+    "name": "Unearth Antiquities",
+    "set": "war-on-elderberry",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "rarity": "Uncommon",
+    "rules": "Put one Artifact card from either discard pile into your hand. That card cannot be played until the next turn",
+    "keywords": []
+  },
+  {
+    "id": "WE-039",
+    "number": 39,
+    "name": "Invisibility",
+    "set": "war-on-elderberry",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "rarity": "Rare",
+    "rules": "Grant 1 creature \"Invisible\" until next turn",
+    "keywords": []
+  },
+  {
+    "id": "WE-040",
+    "number": 40,
+    "name": "Back in Action",
+    "set": "war-on-elderberry",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "rarity": "Uncommon",
+    "rules": "Draw 1 card, if that card is a creature card, play it immediately and it gains Sprint until end of turn",
+    "keywords": []
+  },
+  {
+    "id": "WE-041",
+    "number": 41,
+    "name": "Unsummon",
+    "set": "war-on-elderberry",
+    "card_type": "Spell",
+    "subtype": "Reaction",
+    "rarity": "Uncommon",
+    "rules": "If the enemy player plays a creature of type \"Summon\", destroy that creature",
+    "keywords": []
+  },
+  {
+    "id": "WE-042",
+    "number": 42,
+    "name": "Demotivate",
+    "set": "war-on-elderberry",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "rarity": "Common",
+    "rules": "Target creature's attack becomes 0 until end of turn",
+    "keywords": []
+  },
+  {
+    "id": "WE-043",
+    "number": 43,
+    "name": "Level the Field",
+    "set": "war-on-elderberry",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "rarity": "Epic",
+    "rules": "The player with the most amount of active creatures sacrifices creatures until they have the same number of active creatures as the player with the least amount of active creatures",
+    "keywords": []
+  },
+  {
+    "id": "WE-044",
+    "number": 44,
+    "name": "Raise the Dead",
+    "set": "war-on-elderberry",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "rarity": "Legendary",
+    "rules": "Return all friendly creatures that were put into the discard pile this turn back onto the battlefield. You may choose new placements for these creatures.",
+    "keywords": []
+  },
+  {
+    "id": "WE-045",
+    "number": 45,
+    "name": "Loriadre, Angel of War",
+    "set": "war-on-elderberry",
+    "card_type": "Creature",
+    "subtype": "Angel",
+    "rarity": "Mythic",
+    "rules": "You may only have a single Loriadre in your deck. Whenever a friendly creature dies, deal 1 damage to target creature. Whenever an enemy creature dies, heal a friendly creature 1 HP. Mythic: Removed from the game instead of entering a discard pile.",
+    "keywords": [],
+    "attack": 5,
+    "hp": 3,
+    "types": [
+      "Angel"
+    ],
+    "deckLimit": 1
+  },
+  {
+    "id": "WE-046",
+    "number": 46,
+    "name": "Enrapture",
+    "set": "war-on-elderberry",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "rarity": "Epic",
+    "rules": "All allied creatures gain +2 Attack and Shield 2 until end of turn. Apply Stun to all affected creatures at the start of your next turn.",
+    "keywords": []
+  },
+  {
+    "id": "WE-047",
+    "number": 47,
+    "name": "Seraphim Scepter",
+    "set": "war-on-elderberry",
+    "card_type": "Item",
+    "subtype": "Equipment",
+    "rarity": "Mythic",
+    "rules": "When equipped creature attacks return a creature from your discard pile and put it into play in an empty slot, if there is one. That creature gains Sprint and is sacrificed at the end of the turn. Mythic: Removed from the game instead of entering a discard pile.",
+    "keywords": []
+  },
+  {
+    "id": "WE-048",
+    "number": 48,
+    "name": "Spelltwine Altar",
+    "set": "war-on-elderberry",
+    "card_type": "Item",
+    "subtype": "Artifact",
+    "rarity": "Rare",
+    "rules": "Whenever the enemy draws their second card of the turn, you draw a card as well.",
+    "keywords": []
+  },
+  {
+    "id": "WE-049",
+    "number": 49,
+    "name": "Momentary Allegiance",
+    "set": "war-on-elderberry",
+    "card_type": "Spell",
+    "subtype": "Reaction",
+    "rarity": "Epic",
+    "rules": "If the enemy puts a creature into play, you may play this card and gain control of the creature until the end of your next turn. That creature gains Sprint.",
+    "keywords": []
+  }
+]

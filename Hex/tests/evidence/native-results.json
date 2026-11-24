@@ -1,0 +1,1557 @@
+{
+  "conditional_scenarios": [
+    {
+      "id": "LT-033",
+      "played": true,
+      "resolved": true
+    },
+    {
+      "id": "LT-046",
+      "played": true,
+      "resolved": true
+    },
+    {
+      "id": "LT-064",
+      "played": true,
+      "resolved": true
+    },
+    {
+      "id": "SA-004",
+      "played": true,
+      "resolved": true
+    },
+    {
+      "id": "WE-038",
+      "played": true,
+      "resolved": true
+    },
+    {
+      "id": "WE-041",
+      "played": true,
+      "resolved": true
+    },
+    {
+      "id": "WE-036",
+      "played": true,
+      "resolved": true
+    }
+  ],
+  "coverage": [
+    {
+      "id": "LT-001",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-002",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-003",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-004",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-005",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-006",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 0.0
+    },
+    {
+      "id": "LT-007",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 0.0
+    },
+    {
+      "id": "LT-008",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-009",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-010",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-011",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-012",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-013",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-014",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-015",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-016",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-017",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-018",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-019",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-020",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-021",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-022",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-023",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-024",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 0.0
+    },
+    {
+      "id": "LT-025",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-026",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 0.0
+    },
+    {
+      "id": "LT-027",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-028",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-029",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-030",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-031",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-032",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-033",
+      "included": true,
+      "played": false,
+      "resolved": false,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-034",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-035",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-036",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-037",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-038",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 0.0
+    },
+    {
+      "id": "LT-039",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-040",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-041",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-042",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-043",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-044",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-045",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-046",
+      "included": true,
+      "played": false,
+      "resolved": false,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-047",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-048",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-049",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-050",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-051",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-052",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-053",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-054",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-055",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-056",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 0.0
+    },
+    {
+      "id": "LT-057",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-058",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-059",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-060",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-061",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-062",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-063",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "LT-064",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "SA-001",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "SA-002",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "SA-003",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "SA-004",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "SA-005",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "SA-006",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "SA-007",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "SA-008",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "SA-009",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "SA-010",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 0.0
+    },
+    {
+      "id": "SA-011",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "SA-012",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "SA-013",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 0.0
+    },
+    {
+      "id": "SA-014",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "SA-015",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "SA-016",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "SA-017",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "SA-018",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "SA-019",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "SA-020",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "SA-021",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "SA-022",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "SA-023",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "SA-024",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "SA-025",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "SA-026",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "SA-027",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "SA-028",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "SA-029",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "SA-030",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "SA-031",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "SA-032",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "SA-033",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "SA-034",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "SA-035",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "SA-036",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "SA-037",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "SA-038",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 0.0
+    },
+    {
+      "id": "SA-039",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "SA-040",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "SA-041",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "SA-042",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 0.0
+    },
+    {
+      "id": "SA-043",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "SA-044",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 0.0
+    },
+    {
+      "id": "SA-045",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 0.0
+    },
+    {
+      "id": "SA-046",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 0.0
+    },
+    {
+      "id": "SA-047",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-001",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-002",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-003",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-004",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-005",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-006",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-007",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-008",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 0.0
+    },
+    {
+      "id": "WE-009",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-010",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-011",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-012",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-013",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-014",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-015",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 0.0
+    },
+    {
+      "id": "WE-016",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-017",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-018",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-019",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-020",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-021",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-022",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-023",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-024",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-025",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 0.0
+    },
+    {
+      "id": "WE-026",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 0.0
+    },
+    {
+      "id": "WE-027",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 0.0
+    },
+    {
+      "id": "WE-028",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-029",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-030",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-031",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-032",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-033",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-034",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-035",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-036",
+      "included": true,
+      "played": false,
+      "resolved": false,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-037",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-038",
+      "included": true,
+      "played": false,
+      "resolved": false,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-039",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-040",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-041",
+      "included": true,
+      "played": false,
+      "resolved": false,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-042",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-043",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-044",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-045",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-046",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-047",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-048",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    },
+    {
+      "id": "WE-049",
+      "included": true,
+      "played": true,
+      "resolved": true,
+      "winner": 1.0
+    }
+  ],
+  "native_matches": [
+    {
+      "enemy": "thornbound",
+      "round": 5.0,
+      "seed": 42.0,
+      "steps": 68.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "thornbound",
+      "round": 9.0,
+      "seed": 1337.0,
+      "steps": 110.0,
+      "winner": 0.0
+    },
+    {
+      "enemy": "stormcourt",
+      "round": 5.0,
+      "seed": 42.0,
+      "steps": 67.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "stormcourt",
+      "round": 4.0,
+      "seed": 1337.0,
+      "steps": 59.0,
+      "winner": 0.0
+    },
+    {
+      "enemy": "gravekeepers",
+      "round": 5.0,
+      "seed": 42.0,
+      "steps": 74.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "gravekeepers",
+      "round": 6.0,
+      "seed": 1337.0,
+      "steps": 69.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "dawnchorus",
+      "round": 6.0,
+      "seed": 42.0,
+      "steps": 80.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "dawnchorus",
+      "round": 5.0,
+      "seed": 1337.0,
+      "steps": 62.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "cinderforge",
+      "round": 3.0,
+      "seed": 42.0,
+      "steps": 40.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "cinderforge",
+      "round": 5.0,
+      "seed": 1337.0,
+      "steps": 56.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "tidecallers",
+      "round": 10.0,
+      "seed": 42.0,
+      "steps": 134.0,
+      "winner": -1.0
+    },
+    {
+      "enemy": "tidecallers",
+      "round": 8.0,
+      "seed": 1337.0,
+      "steps": 100.0,
+      "winner": 0.0
+    },
+    {
+      "enemy": "skyward",
+      "round": 3.0,
+      "seed": 42.0,
+      "steps": 44.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "skyward",
+      "round": 6.0,
+      "seed": 1337.0,
+      "steps": 74.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "ironclad",
+      "round": 6.0,
+      "seed": 42.0,
+      "steps": 73.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "ironclad",
+      "round": 6.0,
+      "seed": 1337.0,
+      "steps": 70.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "hoardkeepers",
+      "round": 5.0,
+      "seed": 42.0,
+      "steps": 77.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "hoardkeepers",
+      "round": 5.0,
+      "seed": 1337.0,
+      "steps": 74.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "wildhunt",
+      "round": 3.0,
+      "seed": 42.0,
+      "steps": 40.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "wildhunt",
+      "round": 4.0,
+      "seed": 1337.0,
+      "steps": 48.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "meadowfolk",
+      "round": 8.0,
+      "seed": 42.0,
+      "steps": 108.0,
+      "winner": 0.0
+    },
+    {
+      "enemy": "meadowfolk",
+      "round": 7.0,
+      "seed": 1337.0,
+      "steps": 91.0,
+      "winner": 0.0
+    },
+    {
+      "enemy": "reedwatch",
+      "round": 10.0,
+      "seed": 42.0,
+      "steps": 126.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "reedwatch",
+      "round": 7.0,
+      "seed": 1337.0,
+      "steps": 88.0,
+      "winner": 0.0
+    },
+    {
+      "enemy": "moonkeepers",
+      "round": 9.0,
+      "seed": 42.0,
+      "steps": 122.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "moonkeepers",
+      "round": 7.0,
+      "seed": 1337.0,
+      "steps": 111.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "amberguard",
+      "round": 5.0,
+      "seed": 42.0,
+      "steps": 65.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "amberguard",
+      "round": 5.0,
+      "seed": 1337.0,
+      "steps": 63.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "fuseworks",
+      "round": 3.0,
+      "seed": 42.0,
+      "steps": 40.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "fuseworks",
+      "round": 6.0,
+      "seed": 1337.0,
+      "steps": 74.0,
+      "winner": 0.0
+    },
+    {
+      "enemy": "mosskin",
+      "round": 5.0,
+      "seed": 42.0,
+      "steps": 73.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "mosskin",
+      "round": 5.0,
+      "seed": 1337.0,
+      "steps": 65.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "auroracourt",
+      "round": 3.0,
+      "seed": 42.0,
+      "steps": 40.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "auroracourt",
+      "round": 8.0,
+      "seed": 1337.0,
+      "steps": 91.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "eternalcourt",
+      "round": 3.0,
+      "seed": 42.0,
+      "steps": 38.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "eternalcourt",
+      "round": 5.0,
+      "seed": 1337.0,
+      "steps": 68.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "skytyrants",
+      "round": 3.0,
+      "seed": 42.0,
+      "steps": 40.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "skytyrants",
+      "round": 4.0,
+      "seed": 1337.0,
+      "steps": 47.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "crownimperium",
+      "round": 3.0,
+      "seed": 42.0,
+      "steps": 43.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "crownimperium",
+      "round": 4.0,
+      "seed": 1337.0,
+      "steps": 54.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "pebble-patrol",
+      "round": 7.0,
+      "seed": 42.0,
+      "steps": 82.0,
+      "winner": 0.0
+    },
+    {
+      "enemy": "pebble-patrol",
+      "round": 4.0,
+      "seed": 1337.0,
+      "steps": 53.0,
+      "winner": 0.0
+    },
+    {
+      "enemy": "burrow-watch",
+      "round": 6.0,
+      "seed": 42.0,
+      "steps": 72.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "burrow-watch",
+      "round": 2.0,
+      "seed": 1337.0,
+      "steps": 53.0,
+      "winner": 0.0
+    },
+    {
+      "enemy": "ram-raiders",
+      "round": 10.0,
+      "seed": 42.0,
+      "steps": 103.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "ram-raiders",
+      "round": 6.0,
+      "seed": 1337.0,
+      "steps": 67.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "bloodfist-horde",
+      "round": 3.0,
+      "seed": 42.0,
+      "steps": 35.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "bloodfist-horde",
+      "round": 8.0,
+      "seed": 1337.0,
+      "steps": 87.0,
+      "winner": 0.0
+    },
+    {
+      "enemy": "cloudcarriage-guard",
+      "round": 3.0,
+      "seed": 42.0,
+      "steps": 38.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "cloudcarriage-guard",
+      "round": 6.0,
+      "seed": 1337.0,
+      "steps": 66.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "rootbound-alliance",
+      "round": 3.0,
+      "seed": 42.0,
+      "steps": 36.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "rootbound-alliance",
+      "round": 9.0,
+      "seed": 1337.0,
+      "steps": 95.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "fisduum-coven",
+      "round": 6.0,
+      "seed": 42.0,
+      "steps": 79.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "fisduum-coven",
+      "round": 4.0,
+      "seed": 1337.0,
+      "steps": 56.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "seraphic-warhost",
+      "round": 9.0,
+      "seed": 42.0,
+      "steps": 106.0,
+      "winner": 1.0
+    },
+    {
+      "enemy": "seraphic-warhost",
+      "round": 7.0,
+      "seed": 1337.0,
+      "steps": 85.0,
+      "winner": 1.0
+    }
+  ],
+  "regression_tests": 11.0,
+  "played_and_resolved": 160
+}
