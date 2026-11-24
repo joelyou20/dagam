@@ -81,13 +81,25 @@ func _build_scenery():
 	env.environment=settings;world.add_child(env)
 	var sun=DirectionalLight3D.new();sun.rotation_degrees=Vector3(-52,-35,0);sun.light_color=Color("ffe5b5");sun.light_energy=0.9;sun.shadow_enabled=true;world.add_child(sun)
 	camera=Camera3D.new();camera.fov=48;camera.current=true;world.add_child(camera)
-	box(Vector3(0,-0.65,0),Vector3(40,0.5,35),Color("293e32"))
-	box(Vector3(0,-0.23,0),Vector3(13.8,0.7,11.5),Color("35444a"))
+	var earth=box(Vector3(0,-0.65,0),Vector3(40,0.5,35),Color("56664c"))
+	earth.material_override.albedo_texture=load("res://Assets/Textures/Dirt/Dirt_Albedo.tga")
+	earth.material_override.uv1_scale=Vector3(8,8,8)
+	var foundation=box(Vector3(0,-0.23,0),Vector3(13.8,0.7,11.5),Color("839c8c"))
+	foundation.material_override.albedo_texture=load("res://Assets/Textures/Cliff Face Mossy/CliffFaceMossy_Albedo.tga")
+	foundation.material_override.uv1_scale=Vector3(3,1,3)
 	box(Vector3(0,0.14,0),Vector3(13.4,0.12,11.1),Color("566268"))
 	# Individual slate tiles and seams form the arena floor.
+	var tiles=MultiMeshInstance3D.new();var instances=MultiMesh.new()
+	instances.transform_format=MultiMesh.TRANSFORM_3D;instances.use_colors=true
+	var tile_shape=BoxMesh.new();tile_shape.size=Vector3(0.97,0.08,0.97)
+	instances.mesh=tile_shape;instances.instance_count=143
+	var tile_material=material(Color.WHITE);tile_material.vertex_color_use_as_albedo=true
+	tiles.material_override=tile_material;tiles.multimesh=instances;world.add_child(tiles)
+	var index=0
 	for x in range(-6,7):
 		for z in range(-5,6):
-			box(Vector3(x,0.23,z),Vector3(0.97,0.08,0.97),Color("4b5b60") if (x+z)%3 else Color("53696a"))
+			instances.set_instance_transform(index,Transform3D(Basis.IDENTITY,Vector3(x,0.23,z)))
+			instances.set_instance_color(index,Color("526966") if (x+z)%3 else Color("617671"));index+=1
 	for x in [-6.85,6.85]:
 		box(Vector3(x,0.35,0),Vector3(0.18,0.5,11.8),Color("82928a"))
 	for z in [-5.75,5.75]: box(Vector3(0,0.35,z),Vector3(13.9,0.5,0.18),Color("82928a"))
@@ -127,12 +139,11 @@ func slot_rect(side: int, slot: int, zone := "board") -> Rect2:
 	for v in [Vector3(half.x,0,-half.y),Vector3(-half.x,0,half.y),Vector3(half.x,0,half.y)]: r=r.expand(camera.unproject_position(p+v))
 	return r
 func sync(state: Dictionary):
-	var seen={}
 	for side in [1,0]:
 		for zone in ["board","artifact"]:
 			var cards=state.players[side].board if zone=="board" else state.players[side].artifacts
 			for slot in range(cards.size()):
-				var c=cards[slot];var key=key_for(side,slot,zone);seen[key]=true
+				var c=cards[slot];var key=key_for(side,slot,zone)
 				_update_piece(key,c,side,slot,zone,state)
 	_update_piece(key_for(0,0,"field"),state.field,0,0,"field",state)
 	for side in [0,1]:
@@ -162,6 +173,8 @@ func _update_piece(key: String, c, side: int, slot: int, zone: String, state: Di
 	if old!=null and old.get_meta("uid")==id:
 		_update_labels(old,c,state)
 		return
+	if old!=null and old.get_meta("uid")=="empty":
+		old.queue_free();old=null
 	if old!=null:
 		pieces.erase(key)
 		retired[str(old.get_meta("uid"))]=old

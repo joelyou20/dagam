@@ -90,7 +90,11 @@ func _layout() -> void:
 	app_theme.set_stylebox("normal","Button",normal)
 	var hover=normal.duplicate();hover.bg_color=Color("3e6152");hover.border_color=Color("f4db9d")
 	app_theme.set_stylebox("hover","Button",hover);app_theme.set_stylebox("pressed","Button",hover)
+	var panel_style=StyleBoxFlat.new();panel_style.bg_color=Color(0.06,0.13,0.13,0.94);panel_style.border_color=Color("6e8a74");panel_style.set_border_width_all(1);panel_style.set_corner_radius_all(12)
+	panel_style.content_margin_left=10;panel_style.content_margin_right=10;panel_style.content_margin_top=10;panel_style.content_margin_bottom=10
+	app_theme.set_stylebox("panel","PanelContainer",panel_style)
 	theme=app_theme
+	var background=ColorRect.new();background.color=Color("101e20");background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);background.mouse_filter=Control.MOUSE_FILTER_IGNORE;add_child(background)
 	stage=preload("res://Scripts/Hex/HexBoard3D.gd").new()
 	stage.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	stage.offset_top=42;stage.offset_bottom=-145
