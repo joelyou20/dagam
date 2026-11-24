@@ -76,3 +76,5 @@ Deck and discard controls sit outside the stone field along the right side, with
 Battles begin with a centered, softly fading coin overlay. Heads and Tails trigger the native seeded toss; a vector gold coin rises and rotates through both faces, then settles on that exact result. Turn-order choices appear after landing. The winning player can go first or second; an opponent win automatically proceeds to the opening hand. Resuming an already resolved toss reveals its saved result without rerolling or replaying it. Hiding battle cancels animation and auto-advance callbacks.
 
 Keeping the original hand still starts the selected first player. Mulliganing replaces the hand with five cards and immediately starts turn one, with no second Keep prompt. Legacy opening saves whose player already mulliganed are advanced once on load. `Tests/Hex/Opening.tscn` covers the overlay, animation/result agreement, both winners, first/second choices, save resume, interrupted animations and mulligan/Keep transitions.
+
+[Opening coin screenshot](hex-opening/opening-coin.jpg)
