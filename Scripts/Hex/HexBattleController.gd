@@ -32,6 +32,8 @@ var hand_scroller: ScrollContainer
 var new_game_button: Button
 var utility_menu: PopupMenu
 var stat_badges: Dictionary = {}
+var pile_controls: Dictionary = {}
+var piles_layer: Control
 var hint_tween: Tween
 
 func _ready() -> void:
@@ -105,6 +107,7 @@ func _layout() -> void:
 	board.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	board.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	stage.add_child(board)
+	piles_layer=Control.new();piles_layer.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);piles_layer.mouse_filter=Control.MOUSE_FILTER_IGNORE;add_child(piles_layer)
 	stage.impact.connect(_damage_number)
 	var menu_button=MenuButton.new();menu_button.text="☰";menu_button.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_RIGHT);menu_button.position=Vector2(-60,-55);menu_button.size=Vector2(42,38);add_child(menu_button)
 	menu_button.tooltip_text="Battle options"
@@ -173,6 +176,7 @@ func _refresh() -> void:
 	utility_menu.set_item_disabled(2,HexManager.is_encounter())
 	_clear(board);_clear(hand);_clear(controls)
 	stat_badges.clear()
+	_clear(piles_layer);pile_controls.clear()
 	positions={}
 	subtitle.text="Turn %d"%g.turn
 	var display=g.duplicate(true)
@@ -195,14 +199,10 @@ func _refresh() -> void:
 				if cards[slot]!=null and cards[slot].has("hp"):
 					_stat_badge(cards[slot],rect)
 		for zone in ["deck","discard"]:
-			var count=p.deckCount if zone=="deck" else p.discard.size()
-			var pile=_button(board,"%d · %s"%[count,zone.capitalize()],func(): _pile(side,zone))
-			var point=stage.project(Vector3(3.9 if zone=="deck" else 5.1,0.5,-2.8 if side==1 else 2.8))
-			pile.position=point-Vector2(40,-28);pile.size=Vector2(80,32)
-			pile.add_theme_font_size_override("font_size",13)
+			_pile_control(side,zone,p)
 		if not p.exile.is_empty():
-			var removed=_button(board,"Removed · %d"%p.exile.size(),func(): _pile(side,"exile"))
-			removed.position=stage.project(Vector3(4.4,0.5,-4.4 if side==1 else 4.4))
+			var removed=_button(piles_layer,"Removed · %d"%p.exile.size(),func(): _pile(side,"exile"))
+			var place=_pile_rect(side,"deck");removed.position=place.position+Vector2(0,place.size.y+10)
 	var field_rect=stage.slot_rect(0,0,"field")
 	var field=_button(board,"Battlefield",func():
 		if g.field!=null: _inspect(g.field))
@@ -549,7 +549,7 @@ func _animate_hand():
 		card.set_meta("animated",true)
 		if not hand_snapshot.has(uid):
 			var ghost=TextureRect.new();ghost.texture=Card.art(card.card.id);ghost.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;ghost.mouse_filter=Control.MOUSE_FILTER_IGNORE;ghost.size=card.size;overlay.add_child(ghost)
-			ghost.position=stage.position+stage.project(Vector3(4.6,0.5,2.8));ghost.rotation=0.28
+			ghost.position=_pile_rect(0,"deck").position;ghost.rotation=0.28
 			card.modulate.a=0
 			var card_ref=weakref(card)
 			var tween=create_tween().set_parallel()
@@ -578,22 +578,41 @@ func confirm_leave_encounter() -> void:
 	_button(box,"Keep playing",_close)
 
 func _stat_badge(card: Dictionary, rect: Rect2):
-	var row=HBoxContainer.new();row.mouse_filter=Control.MOUSE_FILTER_IGNORE
-	row.position=rect.position+Vector2(0,rect.size.y-24);row.size=Vector2(rect.size.x,28)
-	row.add_theme_constant_override("separation",0);board.add_child(row)
-	for value in [card.attack,card.hp]:
-		var label=Label.new();label.text=str(int(value));label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;label.size_flags_horizontal=Control.SIZE_EXPAND_FILL;label.mouse_filter=Control.MOUSE_FILTER_IGNORE
-		label.add_theme_font_size_override("font_size",22);label.add_theme_color_override("font_color",Color("ffe1a1") if row.get_child_count()==0 else Color("ffb9ad"));label.add_theme_color_override("font_outline_color",Color("10211f"));label.add_theme_constant_override("outline_size",7);row.add_child(label)
+	var row=Control.new();row.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	row.position=rect.position+Vector2(0,rect.size.y-26);row.size=Vector2(rect.size.x,34);board.add_child(row)
+	for index in range(2):
+		var circle=PanelContainer.new();circle.name="Attack" if index==0 else "Health";circle.mouse_filter=Control.MOUSE_FILTER_IGNORE;circle.size=Vector2(34,34)
+		circle.position=Vector2(rect.size.x*(0.25 if index==0 else 0.75)-17,0)
+		var style=StyleBoxFlat.new();style.bg_color=Color("9c7027") if index==0 else Color("963f49");style.border_color=Color("f1d59b") if index==0 else Color("f5b5a8");style.set_border_width_all(2);style.set_corner_radius_all(17);style.shadow_color=Color(0,0,0,0.5);style.shadow_size=3
+		circle.add_theme_stylebox_override("panel",style);row.add_child(circle)
+		var label=Label.new();label.text=str(int(card.attack if index==0 else card.hp));label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;label.vertical_alignment=VERTICAL_ALIGNMENT_CENTER;label.mouse_filter=Control.MOUSE_FILTER_IGNORE;label.add_theme_font_size_override("font_size",22);label.add_theme_constant_override("outline_size",4);circle.add_child(label)
 	if card.get("shield",0)>0 or card.get("ward",0)>0:
-		var protection=Label.new();protection.mouse_filter=Control.MOUSE_FILTER_IGNORE;protection.text=("◇%d"%card.shield if card.get("shield",0)>0 else "")+("  W%d"%card.ward if card.get("ward",0)>0 else "");protection.position=rect.position+Vector2(0,-8);protection.add_theme_color_override("font_color",Color("c5efff"));protection.add_theme_constant_override("outline_size",5);board.add_child(protection)
-	row.set_meta("offset",Vector2(-rect.size.x/2,rect.size.y/2-24))
+		var protection=Label.new();protection.mouse_filter=Control.MOUSE_FILTER_IGNORE;protection.text=("◇%d"%card.shield if card.get("shield",0)>0 else "")+("  W%d"%card.ward if card.get("ward",0)>0 else "");protection.position=Vector2(6,-rect.size.y+18);protection.add_theme_color_override("font_color",Color("c5efff"));protection.add_theme_constant_override("outline_size",5);row.add_child(protection)
+	row.set_meta("offset",Vector2(-rect.size.x/2,rect.size.y/2-26))
 	stat_badges[card.uid]=row
+func _pile_rect(side: int, zone: String) -> Rect2:
+	var height=clampf(size.y*0.20,110,170);var width=height*2.0/3.0
+	var x=size.x-16-width*2-14+(width+14 if zone=="discard" else 0)
+	return Rect2(Vector2(x,size.y*(0.14 if side==1 else 0.66)),Vector2(width,height))
+func _pile_control(side: int, zone: String, player: Dictionary):
+	var rect=_pile_rect(side,zone);var pile=Button.new();pile.position=rect.position;pile.size=rect.size;pile.mouse_default_cursor_shape=Control.CURSOR_POINTING_HAND
+	var style=StyleBoxFlat.new();style.bg_color=Color("aaa28e");style.border_color=Color("d3d1b7");style.set_border_width_all(2);style.set_corner_radius_all(6);style.shadow_color=Color(0,0,0,0.65);style.shadow_size=7;style.shadow_offset=Vector2(3,5);pile.add_theme_stylebox_override("normal",style)
+	pile.tooltip_text=("Your " if side==0 else "Opponent's ")+zone;pile.set_meta("side",side);pile.set_meta("zone",zone)
+	piles_layer.add_child(pile);pile_controls["%d-%s"%[side,zone]]=pile
+	var image=TextureRect.new();image.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);image.offset_left=2;image.offset_top=2;image.offset_right=-2;image.offset_bottom=-2;image.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;image.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED;image.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	image.texture=Card.art(player.discard.back().id) if zone=="discard" and not player.discard.is_empty() else stage.back_texture
+	if zone=="discard" and player.discard.is_empty(): image.modulate=Color(0.5,0.6,0.6,0.65)
+	pile.add_child(image)
+	var count=Label.new();count.text=str(int(player.deckCount if zone=="deck" else player.discard.size()));count.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE);count.offset_top=-34;count.offset_bottom=-4;count.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;count.mouse_filter=Control.MOUSE_FILTER_IGNORE;count.add_theme_font_size_override("font_size",24);count.add_theme_constant_override("outline_size",8);pile.add_child(count)
+	pile.pressed.connect(func(): _pile(side,zone))
+	if zone=="discard" and not player.discard.is_empty(): pile.mouse_entered.connect(func(): _inspect(player.discard.back()))
+	pile.mouse_exited.connect(func(): inspection.visible=false)
 func _damage_number(uid: String, amount, positive: bool):
 	var node=stage.find_piece(uid)
 	if not is_instance_valid(node): return
 	var label=Label.new();label.text=("+" if positive else "−")+str(amount);label.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	label.add_theme_font_size_override("font_size",38);label.add_theme_color_override("font_color",Color("a4ffe1") if positive else Color("ffcfb5"));label.add_theme_constant_override("outline_size",8);label.add_theme_color_override("font_outline_color",Color("152222"))
-	label.position=stage.position+stage.project(node.position)-Vector2(20,20);overlay.add_child(label);label.set_meta("damage_number",true)
+	label.position=stage.position+stage.project(stage.piece_position(uid))-Vector2(20,20);overlay.add_child(label);label.set_meta("damage_number",true)
 	var tween=create_tween().set_parallel();tween.tween_property(label,"position:y",label.position.y-70,0.75);tween.tween_property(label,"modulate:a",0,0.3).set_delay(0.45);tween.chain().tween_callback(label.queue_free)
 
 func _utility_action(id: int):
@@ -611,7 +630,7 @@ func _process(_delta: float):
 		var piece=stage.find_piece(uid)
 		var badge=stat_badges[uid]
 		if is_instance_valid(piece) and is_instance_valid(badge):
-			badge.position=stage.project(piece.position)+badge.get_meta("offset")
+			badge.position=stage.project(stage.piece_position(uid))+badge.get_meta("offset")
 
 func _hint(message: String):
 	if hint_tween!=null: hint_tween.kill()

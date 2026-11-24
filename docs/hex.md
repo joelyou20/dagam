@@ -54,3 +54,9 @@ The battlefield fills the window behind the overlapping hand, without menu offse
 Closing the battle restores the RPG's rendering/scaling settings. While battle is open, only its own 3D viewport renders, avoiding a second render of the hidden overworld.
 
 [Full-window battlefield](hex-fullscreen/battle.jpg) · [Card-only hover](hex-fullscreen/hover.jpg)
+
+## Hex portraits and side piles
+
+Creature slots use enlarged extruded hexagonal meshes and hex-shaped hit areas, spreading the three lanes across the space previously occupied by piles. Attack and HP appear in separate gold/red circular badges at the lower corners. Real cast shadows and soft contact shadows lift cards off the stone. Ready creatures gently bob on an independent visual child, so placement, lunges and hit reactions retain their own transforms; spent creatures settle back down.
+
+Deck and discard controls sit outside the stone field along the right side, with unsquashed 2:3 portrait artwork and number-only counts. Hover/tooltips and click-to-browse still distinguish the piles. Draw animations start at the relocated player deck. Both sides use the same arrangement, clear of the phase button.

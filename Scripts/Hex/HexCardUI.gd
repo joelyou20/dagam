@@ -103,3 +103,9 @@ func _can_drop_data(_position: Vector2,data) -> bool:
 	return data is Dictionary and data.has("uid") and destination.get("accept",false)
 func _drop_data(_position: Vector2,data) -> void:
 	dropped.emit(data,destination)
+
+func _has_point(point: Vector2) -> bool:
+	if destination.get("zone")=="board" and size.x>0 and size.y>0:
+		var p=((point/size-Vector2(0.5,0.5))*2).abs()
+		return p.y<=1 and p.x<=1-0.5*p.y
+	return Rect2(Vector2.ZERO,size).has_point(point)
