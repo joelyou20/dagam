@@ -20,7 +20,7 @@ Click a hand card to choose legal placements/targets, or drag it onto a slot/cre
 
 The rules run in-process through a small C GDExtension embedding QuickJS, not through Node, a browser or a server. All 160 base cards and 345 game images retain stable IDs. Cosmetic variants share gameplay data. `.hextex` assets are compact WebP images loaded directly; root export presets include them and the JS/JSON data. Source hashes are in `Resources/Hex/Data/source-manifest.json`. High-resolution originals/templates remain in LifestyleTracker.
 
-Refresh data with `python tools/hex/import_hex.py /path/to/lifestyleTracker-repo`, then `python tools/hex/build_engine.py`. Build native support with `bash addons/hex_runtime/build.sh`; Windows uses MSYS2 MINGW64 with `HEX_PLATFORM=Windows CC=gcc`, and macOS uses Xcode Command Line Tools. CI builds the complete integrated project for Linux, Windows and macOS. QuickJS and the Godot C header retain their upstream license notices.
+Refresh data with `python tools/hex/import_hex.py /path/to/lifestyleTracker-repo`, then `python tools/hex/build_engine.py`. Linux and Windows x86-64 runtimes are included. Build native support with `bash addons/hex_runtime/build.sh`; Windows uses MSYS2 MINGW64 with `HEX_PLATFORM=Windows CC=gcc`, and macOS uses Xcode Command Line Tools. CI builds the complete integrated project for Linux, Windows and macOS. QuickJS and the Godot C header retain their upstream license notices.
 
 ## Verification
 
