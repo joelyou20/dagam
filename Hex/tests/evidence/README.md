@@ -10,3 +10,5 @@ Executed on 24 November 2026 with Godot 4.6.3 and the embedded QuickJS runtime t
 - A clean editor import finds the native extension; no Node executable or browser is used by the game.
 
 `native-results.json` contains seeds, outcomes, card coverage, and conditional results. Match simulation drives both sides with the tactical AI for repeatability; the live player uses the Godot interface. CI repeats these tests on Godot 4.3 and captures the rendered UI under Xvfb.
+
+A complete match was also driven through the actual Godot battle scene: 68 actions to a result, including hand placement, choices, AI actions, effects, and save updates. The screen was rendered with software OpenGL under Xvfb and visually checked; `battle-screen.png` records the board, hand and inspector. Cross-platform CI is configured but could not be launched because GitHub denied repository writes.

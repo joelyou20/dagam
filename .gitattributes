@@ -2,7 +2,7 @@
 * text=auto eol=lf
 
 # Hex native dependency and generated game assets.
-Hex/native/vendor/** linguist-vendored=true
+Hex/native/vendor/** linguist-vendored=true whitespace=-trailing-space
 Hex/native/gdextension_interface.h linguist-vendored=true
 Hex/engine/battle.js linguist-generated=true
 Hex/assets/** binary

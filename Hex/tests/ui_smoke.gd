@@ -53,9 +53,11 @@ func _run():
  if not _check(game.paused,"Save/pause failed"): return
  if not _check(game.engine.save_match(),"Save failed"): return
  game.paused=false
+ game.notice.text="Click a hand card to play it, or drag it to a slot."
  game._refresh()
  await process_frame
  await process_frame
+ await create_timer(1.7).timeout
  if DisplayServer.get_name()!="headless":
   var screenshot:=root.get_texture().get_image()
   screenshot.save_png("/tmp/hex-godot-screen.png")

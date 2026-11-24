@@ -17,6 +17,8 @@ var description: RichTextLabel
 var overlay: Control
 var positions: Dictionary={}
 var phase_shown:=""
+var announcement: Label
+var announce_tween: Tween
 var effect_sound: AudioStreamPlayer
 var music: AudioStreamPlayer
 
@@ -155,10 +157,10 @@ func _refresh() -> void:
  if g.is_empty(): return
  _clear(board);_clear(hand);_clear(controls)
  positions={}
- subtitle.text="  Turn %s · %s · %s"%[g.turn,"You" if g.active==0 else "Opponent",str(g.phase).capitalize()]
+ subtitle.text="  Turn %d · %s · %s"%[g.turn,"You" if g.active==0 else "Opponent",str(g.phase).capitalize()]
  for side in [1,0]:
   var p: Dictionary=g.players[side]
-  var label:=_text(board,"%s · %s / 6 defeated · %s in hand"%["OPPONENT" if side==1 else "YOU",p.losses,p.handCount])
+  var label:=_text(board,"%s · %d / 6 defeated · %d in hand"%["OPPONENT" if side==1 else "YOU",p.losses,p.handCount])
   label.add_theme_color_override("font_color",Color("e7a3ae") if side==1 else Color("9ac8ff"))
   var region:=HBoxContainer.new()
   region.add_theme_constant_override("separation",12)
@@ -183,9 +185,9 @@ func _refresh() -> void:
   var piles:=VBoxContainer.new()
   piles.size_flags_vertical=Control.SIZE_SHRINK_CENTER
   region.add_child(piles)
-  _button(piles,"Deck · %s"%p.deckCount,func(): _pile(side,"deck"))
-  _button(piles,"Discard · %s"%p.discard.size(),func(): _pile(side,"discard"))
-  if not p.exile.is_empty(): _button(piles,"Removed · %s"%p.exile.size(),func(): _pile(side,"exile"))
+  _button(piles,"Deck · %d"%p.deckCount,func(): _pile(side,"deck"))
+  _button(piles,"Discard · %d"%p.discard.size(),func(): _pile(side,"discard"))
+  if not p.exile.is_empty(): _button(piles,"Removed · %d"%p.exile.size(),func(): _pile(side,"exile"))
   if side==1:
    var field=g.field
    _button(board,"Battlefield · "+(_def(field.id).get("name","") if field!=null else "Empty"),func():
@@ -200,12 +202,12 @@ func _refresh() -> void:
    music.stop()
    var track: String="res://assets/victory.mp3" if g.winner==0 else "res://assets/defeat.mp3"
    if ResourceLoader.exists(track): effect_sound.stream=load(track);effect_sound.play()
-   _announce("Victory" if g.winner==0 else "Defeat" if g.winner==1 else "Draw")
+   _announce("Victory" if g.winner==0 else "Defeat" if g.winner==1 else "Draw",true)
   elif g.phase in ["pre","combat","post"]: _announce((("Your Turn\n" if g.active==0 else "Enemy’s Turn\n") if g.phase=="pre" else "")+{"pre":"Pre-Combat Phase","combat":"Combat Phase","post":"Post-Combat Phase"}[g.phase])
  if not paused and g.choice!=null and g.choice.player==0 and modal==null: _options(g.choice.label,g.choice.options,"choice")
  elif not paused and g.response!=null and g.response.priority==0 and not g.response.reactions.is_empty() and modal==null: _reaction(g.response)
 func _actions(g: Dictionary) -> void:
- if paused: _button(controls,"Resume",func(): paused=false;_refresh();_schedule_ai());return
+ if paused: _button(controls,"Resume",func(): paused=false;notice.text="Game resumed.";_refresh();_schedule_ai());return
  if g.winner!=null:
   _text(controls,"Victory" if g.winner==0 else "Defeat" if g.winner==1 else "Draw")
   if g.reason=="emptyField": _text(controls,"You ended a turn with no creatures while the opponent had creatures.")
@@ -234,7 +236,10 @@ func _actions(g: Dictionary) -> void:
  if g.winner==null and not g.phase in ["coin","coinResult","opening"]: _button(controls,"Concede",_concede)
 func _command(command: Dictionary) -> void:
  if paused: return
- if command.op=="new": ai_timer.stop()
+ if command.op=="new":
+  ai_timer.stop()
+  if announce_tween!=null: announce_tween.kill()
+  if is_instance_valid(announcement): announcement.queue_free()
  var rects: Dictionary={}
  for uid in positions:
   if is_instance_valid(positions[uid]): rects[uid]=positions[uid].get_global_rect()
@@ -423,8 +428,11 @@ func _error(message: String) -> void:
  paused=true
  if notice!=null: notice.text=message
  push_error(message)
-func _announce(message: String) -> void:
+func _announce(message: String,persistent:=false) -> void:
+ if announce_tween!=null: announce_tween.kill()
+ if is_instance_valid(announcement): announcement.queue_free()
  var label:=Label.new()
+ announcement=label
  label.text=message
  label.add_theme_font_size_override("font_size",46)
  label.add_theme_color_override("font_color",Color("f2dfb0"))
@@ -438,9 +446,11 @@ func _announce(message: String) -> void:
  label.mouse_filter=Control.MOUSE_FILTER_IGNORE
  overlay.add_child(label)
  var tween:=create_tween().set_parallel()
+ announce_tween=tween
  tween.tween_property(label,"scale",Vector2(1.15,1.15),1.6)
- tween.tween_property(label,"modulate:a",0,0.7).set_delay(0.9)
- tween.chain().tween_callback(label.queue_free)
+ if not persistent:
+  tween.tween_property(label,"modulate:a",0,0.7).set_delay(0.9)
+  tween.chain().tween_callback(label.queue_free)
 func _effects(events: Array,rects: Dictionary) -> void:
  for event in events:
   var target_data=event.get("target",{})

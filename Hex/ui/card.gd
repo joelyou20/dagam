@@ -50,11 +50,12 @@ func configure(value: Dictionary,dest: Dictionary,size:=Vector2(112,148),glow:=f
   add_child(image)
   if value.has("hp"):
    var stats:=Label.new()
-   stats.text="%s ATK  %s HP"%[value.get("attack",0),value.hp]
-   if value.get("shield",0)>0: stats.text+=" ◇%s"%value.shield
-   if value.get("ward",0)>0: stats.text+=" W%s"%value.ward
+   stats.text="%d ATK · %d HP"%[value.get("attack",0),value.hp]
+   if value.get("shield",0)>0: stats.text+=" ◇%d"%value.shield
+   if value.get("ward",0)>0: stats.text+=" W%d"%value.ward
    stats.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
-   stats.add_theme_font_size_override("font_size",14)
+   stats.clip_text=true
+   stats.add_theme_font_size_override("font_size",11)
    stats.add_theme_color_override("font_shadow_color",Color.BLACK)
    stats.add_theme_constant_override("shadow_outline_size",6)
    stats.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)

@@ -58,12 +58,12 @@ jobs:
       - name: Native runtime, full match, card coverage and UI
         run: |
           set -o pipefail
-          for test in runtime_smoke native_match rules_test ui_smoke; do
+          for test in runtime_smoke native_match rules_test ui_smoke ui_match; do
             Godot_v4.3-stable_linux.x86_64 --headless --path Hex --script "res://tests/$test.gd" 2>&1 | tee "/tmp/$test.log"
             if grep -E 'SCRIPT ERROR|Hex runtime:|ERROR:' "/tmp/$test.log"; then exit 1; fi
           done
       - name: Render the battle UI
-        run: xvfb-run -a Godot_v4.3-stable_linux.x86_64 --path Hex --rendering-driver opengl3 --script res://tests/ui_smoke.gd
+        run: xvfb-run -a Godot_v4.3-stable_linux.x86_64 --path Hex --audio-driver Dummy --rendering-driver opengl3 --script res://tests/ui_smoke.gd
       - uses: actions/upload-artifact@v4
         if: always()
         with:
