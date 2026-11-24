@@ -70,3 +70,11 @@ Closing the battle restores the RPG's rendering/scaling settings. While battle i
 Creature slots use enlarged extruded hexagonal meshes and hex-shaped hit areas, spreading the three lanes across the space previously occupied by piles. Attack and HP appear in separate gold/red circular badges at the lower corners. Real cast shadows and soft contact shadows lift cards off the stone. Ready creatures gently bob on an independent visual child, so placement, lunges and hit reactions retain their own transforms; spent creatures settle back down.
 
 Deck and discard controls sit outside the stone field along the right side, with unsquashed 2:3 portrait artwork and number-only counts. Hover/tooltips and click-to-browse still distinguish the piles. Draw animations start at the relocated player deck. Both sides use the same arrangement, clear of the phase button.
+
+## Opening coin and mulligan
+
+Battles begin with a centered, softly fading coin overlay. Heads and Tails trigger the native seeded toss; a vector gold coin rises and rotates through both faces, then settles on that exact result. Turn-order choices appear after landing. The winning player can go first or second; an opponent win automatically proceeds to the opening hand. Resuming an already resolved toss reveals its saved result without rerolling or replaying it. Hiding battle cancels animation and auto-advance callbacks.
+
+Keeping the original hand still starts the selected first player. Mulliganing replaces the hand with five cards and immediately starts turn one, with no second Keep prompt. Legacy opening saves whose player already mulliganed are advanced once on load. `Tests/Hex/Opening.tscn` covers the overlay, animation/result agreement, both winners, first/second choices, save resume, interrupted animations and mulligan/Keep transitions.
+
+[Opening coin screenshot](hex-opening/opening-coin.jpg)

@@ -24,7 +24,7 @@ function hexNewGame(playerDeck,botDeck,seed=Date.now(),options={}){
  return g;
 }
 function hexDraw(g,p,n=1){const pl=g.players[p];for(let i=0;i<n&&pl.deck.length;i++){const c=pl.deck.shift();pl.hand.push(c);hexVisualEvent(g,'draw',{player:p,uid:c.uid,id:c.id});hexArcanaDraw(g,p,c);hexElderDraw(g,p);}}
-function hexMulligan(g,p){if(g.phase!=='opening'||g.players[p].mulligan)return false;const pl=g.players[p];pl.deck=hexShuffle(g,pl.deck.concat(pl.hand));pl.hand=[];hexDraw(g,p,hexRules(g).opening);pl.mulligan=true;return true;}
+function hexMulligan(g,p){if(g.phase!=='opening'||g.players[p].mulligan)return false;const pl=g.players[p];pl.deck=hexShuffle(g,pl.deck.concat(pl.hand));pl.hand=[];hexDraw(g,p,hexRules(g).opening);pl.mulligan=true;if(p===0)hexBeginTurn(g);return true;}
 function hexKeep(g){if(g.phase!=='opening')return false;hexBeginTurn(g);return true;}
 function hexBeginTurn(g){
  if(g.winner!==null)return;if(!g.context?.dailyDay&&g.turn>=HEX_MATCH_ROUND_LIMIT*2){g.winner=-1;g.phase='over';g.drawReason='roundLimit';g.tasks=[];g.stack=[];g.choice=null;hexLog(g,'Draw · Match reached '+HEX_MATCH_ROUND_LIMIT+' full rounds.');return;}if(g.context?.dailyDay&&g.turn>=HEX_DAILY_ROUND_LIMIT*2){g.winner=-1;g.phase='over';g.drawReason='dailyRoundLimit';g.tasks=[];g.stack=[];g.choice=null;hexLog(g,'Draw · Daily Challenge reached '+HEX_DAILY_ROUND_LIMIT+' full rounds.');return;}g.turn++;const p=g.players[g.active];p.turns++;g.phase='start';g.attacks=[];hexVisualEvent(g,'announcement',{text:g.active===0?'Your Turn':"Enemy’s Turn",tone:g.active===0?'player':'enemy'});hexLog(g,'Turn '+hexTurnNumber(g)+' · '+hexOwnerLabel(g.active)+'.');

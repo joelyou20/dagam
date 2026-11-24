@@ -34,6 +34,7 @@ var utility_menu: PopupMenu
 var stat_badges: Dictionary = {}
 var pile_controls: Dictionary = {}
 var piles_layer: Control
+var opening: Control
 var hint_tween: Tween
 
 func _ready() -> void:
@@ -52,6 +53,7 @@ func set_battle_active(active: bool) -> void:
 		HexManager.save_match()
 		music.stop()
 		stage.set_active(false)
+		opening.dismiss()
 		return
 	if not HexManager.ensure_match():
 		_error(engine.last_error)
@@ -134,6 +136,7 @@ func _layout() -> void:
 	overlay=Control.new();overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);overlay.mouse_filter=Control.MOUSE_FILTER_IGNORE;add_child(overlay)
 	inspection=TextureRect.new();inspection.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;inspection.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED;inspection.mouse_filter=Control.MOUSE_FILTER_IGNORE;inspection.texture_filter=CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS;inspection.visible=false;inspection.z_index=50;overlay.add_child(inspection)
 	preview=inspection
+	opening=preload("res://Scripts/Hex/HexOpeningUI.gd").new();opening.z_index=100;overlay.add_child(opening);opening.action.connect(_command)
 	music=AudioStreamPlayer.new();music.volume_db=-24;add_child(music)
 	if ResourceLoader.exists("res://Assets/Hex/battle.mp3"):
 		music.stream=load("res://Assets/Hex/battle.mp3");music.finished.connect(func(): music.play())
@@ -210,6 +213,7 @@ func _refresh() -> void:
 	for c in g.players[0].hand: _card(hand,c,{"zone":"hand"},hand_card_size)
 
 	_animate_hand.call_deferred()
+	opening.sync(g if not paused else {})
 	_actions(g)
 	var key:="%s-%s-%s"%[g.tick,g.phase,g.winner]
 	if key!=phase_shown:
@@ -230,15 +234,8 @@ func _actions(g: Dictionary) -> void:
 		if g.reason=="roundLimit": _text(controls,"60 complete rounds reached.")
 		if HexManager.is_encounter(): _button(controls,"Return to world",func(): return_requested.emit())
 		else: _button(controls,"Play again",_new_game)
-	elif g.phase=="coin":
-		_text(controls,"Call the coin")
-		for call in ["heads","tails"]: _button(controls,call.capitalize(),func(): _command({"op":"coin","call":call}))
-	elif g.phase=="coinResult":
-		_text(controls,"%s · %s won the flip"%[g.coin.face,"You" if g.coin.winner==0 else "Opponent"])
-		if g.coin.winner==0:
-			_button(controls,"Go first",func(): _command({"op":"first","side":0}))
-			_button(controls,"Go second",func(): _command({"op":"first","side":1}))
-		else: _button(controls,"Continue",func(): _command({"op":"first","side":1}))
+	elif g.phase in ["coin","coinResult"]:
+		return
 	elif g.phase=="opening":
 		_button(controls,"Keep opening hand",func(): _command({"op":"keep"}))
 		if not g.players[0].mulligan: _button(controls,"Redraw once",func(): _command({"op":"mulligan"}))
