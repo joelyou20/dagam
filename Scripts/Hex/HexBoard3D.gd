@@ -155,7 +155,7 @@ func sync(state: Dictionary):
 				var shape=PlaneMesh.new();shape.size=Vector2(1.0,1.5)
 				var art=MeshInstance3D.new();art.mesh=shape;art.name="Top";art.position.y=0.18;node.add_child(art)
 				box(Vector3.ZERO,Vector3(1.06,0.28,1.55),Color("c2bfa5"),node)
-				node.position=Vector3(4.4 if zone=="deck" else 6.0,0.45,-2.8 if side==1 else 2.8)
+				node.position=Vector3(4.15 if zone=="deck" else 5.5,0.45,-2.8 if side==1 else 2.8)
 			var cards=state.players[side].discard
 			var m=StandardMaterial3D.new();m.shading_mode=BaseMaterial3D.SHADING_MODE_UNSHADED
 			m.albedo_texture=back_texture if zone=="deck" or cards.is_empty() else Card.art(cards.back().id)

@@ -197,8 +197,8 @@ func _refresh() -> void:
 				button.modulate.a=0
 		for zone in ["deck","discard"]:
 			var count=p.deckCount if zone=="deck" else p.discard.size()
-			var pile=_button(board,str(count)+" · "+zone.capitalize(),func(): _pile(side,zone))
-			var point=stage.camera.unproject_position(Vector3(4.4 if zone=="deck" else 6.0,0.5,-2.8 if side==1 else 2.8))
+			var pile=_button(board,"%d · %s"%[count,zone.capitalize()],func(): _pile(side,zone))
+			var point=stage.camera.unproject_position(Vector3(4.15 if zone=="deck" else 5.5,0.5,-2.8 if side==1 else 2.8))
 			pile.position=point-Vector2(40,-28);pile.size=Vector2(80,32)
 			pile.add_theme_font_size_override("font_size",13)
 		if not p.exile.is_empty():
