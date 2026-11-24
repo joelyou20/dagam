@@ -21,7 +21,7 @@ func run():
 	if not check(game.stage.camera.position.y>0 and game.stage.camera.position.z>0,"Camera must be angled above the board"): return
 	for pile in game.board.get_children():
 		if pile is Button and "Discard" in pile.text:
-			if not check(not pile.get_global_rect().intersects(game.controls.get_parent().get_global_rect()),"Turn panel covers a discard control"): return
+			if not check(not pile.get_global_rect().intersects(game.controls.get_parent().get_global_rect()),"Turn panel covers a discard control: "+str(pile.get_global_rect())+" vs "+str(game.controls.get_parent().get_global_rect())): return
 	var draws=game.overlay.get_children().filter(func(n):return n is TextureRect)
 	if not check(draws.size()==5,"Opening hand must animate five cards from deck"): return
 	await create_timer(0.7).timeout
