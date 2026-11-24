@@ -166,9 +166,8 @@ func _update_piece(key: String, c, side: int, slot: int, zone: String, state: Di
 		fade.tween_property(old,"rotation:z",0.09,0.07)
 		fade.tween_property(old,"rotation:z",-0.09,0.07)
 		fade.tween_method(func(value):
-			for child in old.get_children():
-				if child is GeometryInstance3D: child.transparency=value
-				if child is Label3D: child.modulate.a=1-value,0.0,1.0,0.3)
+			for child in old.find_children("*","GeometryInstance3D",true,false):
+				child.transparency=value,0.0,1.0,0.3)
 		fade.parallel().tween_property(old,"scale",Vector3(0.85,0.85,0.85),0.3)
 		fade.tween_callback(old.queue_free)
 	var node=Node3D.new();world.add_child(node);node.position=location(side,slot,zone)
@@ -266,7 +265,7 @@ func hex_mesh(width: float, depth: float, thickness: float) -> ArrayMesh:
 			_hex_triangle(surface,va,vb,ba,normal,width,depth);_hex_triangle(surface,vb,bb,ba,normal,width,depth)
 	return surface.commit()
 func _hex_triangle(surface: SurfaceTool,a: Vector3,b: Vector3,c: Vector3,normal: Vector3,width: float,depth: float):
-	for vertex in [a,b,c]:
+	for vertex in [a,c,b]:
 		surface.set_normal(normal);surface.set_uv(Vector2(vertex.x/width+0.5,vertex.z/depth+0.5));surface.add_vertex(vertex)
 func piece_position(uid: String) -> Vector3:
 	var node=find_piece(uid)

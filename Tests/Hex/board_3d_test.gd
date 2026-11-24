@@ -27,6 +27,9 @@ func run():
 		if not check(count.size()==1 and count[0].text.is_valid_int(),"Pile label must show only the count"): return
 		var edge=game.stage.project(Vector3(6.95,0.4,-2.8 if pile.get_meta("side")==1 else 2.8))
 		if not check(pile.position.x>edge.x,"Pile is still inside the stone battlefield"): return
+	game.pile_controls["0-deck"].pressed.emit()
+	if not check(game.modal!=null,"Relocated deck does not open its viewer"): return
+	game._close()
 	var draws=game.overlay.get_children().filter(func(n):return n is TextureRect and n!=game.inspection)
 	if not check(draws.size()==5,"Opening hand must animate five cards from deck"): return
 	await create_timer(0.7).timeout
@@ -58,6 +61,8 @@ func run():
 	if not check(node.get_node("Shadow").material_override is ShaderMaterial,"Card contact shadow missing"): return
 	var hit=game.positions[played.uid]
 	if not check(hit._has_point(hit.size/2) and not hit._has_point(Vector2(1,1)),"Hex targeting includes rectangular corners"): return
+	var vertices=node.get_node("Visual/Art").mesh.surface_get_arrays(0)[Mesh.ARRAY_VERTEX]
+	if not check((vertices[1]-vertices[0]).cross(vertices[2]-vertices[0]).y<0,"Hex art must use Godot clockwise front faces"): return
 	var saved_home=node.position
 	node.set_meta("ready",true)
 	game.stage._process(0.2)
@@ -90,6 +95,15 @@ func run():
 		if not check(Rect2(Vector2.ZERO,game.size).encloses(game.inspection.get_rect()),"Hover card leaves resized window"): return
 	root.size=old_size
 	await frames()
+	var image_state=game.engine.state.duplicate(true)
+	for slot in range(6):
+		if image_state.players[0].board[slot]!=null and image_state.players[0].board[slot].uid==played.uid: image_state.players[0].board[slot]=null
+	var retiring=game.stage.find_piece(played.uid)
+	game.stage.sync(image_state)
+	await create_timer(0.83).timeout
+	if not check(is_instance_valid(retiring) and retiring.get_node("Visual/Art").transparency>0,"Nested hex art did not fade on removal"): return
+	await create_timer(0.3).timeout
+	if not check(not is_instance_valid(retiring),"Removed hex portrait leaked"): return
 	game.set_battle_active(false)
 	if not check(game.stage.viewport.render_target_update_mode==SubViewport.UPDATE_DISABLED,"Hidden arena must stop rendering"): return
 	print("3D board, draw, placement, targeting and effect checks passed: ",checks)
