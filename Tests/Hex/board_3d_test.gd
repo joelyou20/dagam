@@ -17,12 +17,13 @@ func run():
 	game._command({"op":"coin","call":"heads"})
 	game._command({"op":"first","side":0 if game.engine.state.coin.winner==0 else 1})
 	await frames()
-	if not check(game.stage.viewport.size==Vector2i(game.stage.size),"3D viewport must render at its displayed resolution"): return
+	if not check(game.stage.viewport.size.x>=game.stage.size.x*1.49 and game.stage.viewport.size.y>=game.stage.size.y*1.49,"3D viewport must supersample the displayed resolution"): return
+	if not check(game.stage.position==Vector2.ZERO and game.stage.size==game.size,"Battlefield must fill the window behind the hand"): return
 	if not check(game.stage.camera.position.y>0 and game.stage.camera.position.z>0,"Camera must be angled above the board"): return
 	for pile in game.board.get_children():
 		if pile is Button and "Discard" in pile.text:
 			if not check(not pile.get_global_rect().intersects(game.controls.get_parent().get_global_rect()),"Turn panel covers a discard control: "+str(pile.get_global_rect())+" vs "+str(game.controls.get_parent().get_global_rect())): return
-	var draws=game.overlay.get_children().filter(func(n):return n is TextureRect)
+	var draws=game.overlay.get_children().filter(func(n):return n is TextureRect and n!=game.inspection)
 	if not check(draws.size()==5,"Opening hand must animate five cards from deck"): return
 	await create_timer(0.7).timeout
 	if not check(draws.all(func(n):return not is_instance_valid(n)),"Draw ghosts were not cleaned up"): return
@@ -46,15 +47,31 @@ func run():
 	if not check(node!=null and node.get_node("Art").mesh is PlaneMesh,"Played creature must become a textured 3D card"): return
 	await create_timer(0.6).timeout
 	if not check(node.position.is_equal_approx(node.get_meta("home")),"Card placement did not settle on its slot"): return
+	if not check(node.get_children().all(func(n):return not n is Label3D),"Card names/stats must not be rasterized as world-space labels"): return
+	if not check(game.stat_badges.has(played.uid),"Crisp combat stats missing"): return
+	game._inspect(played)
+	if not check(game.inspection is TextureRect and game.inspection.get_child_count()==0,"Hover must show only the card"): return
+	if not check(game.inspection.texture.get_width()==1024 and game.inspection.size.y>=game.size.y*0.7,"Hover card must be large and use HD artwork"): return
+	game.inspection.visible=false
 	if DisplayServer.get_name()!="headless":
 		await create_timer(1.2).timeout
 		root.get_texture().get_image().save_png("user://hex-3d-board.png")
 	var serial=game.engine.state.players[0].board.filter(func(c):return c!=null).size()
 	game.stage.effects([{"kind":"damage","uid":played.uid,"amount":2},{"kind":"heal","uid":played.uid,"amount":1}])
-	if not check(node.get_children().filter(func(n):return n is Label3D).size()==4,"Damage and healing should display together"): return
+	if not check(game.overlay.get_children().filter(func(n):return n.has_meta("damage_number")).size()==2,"Damage and healing should display together"): return
 	await create_timer(0.9).timeout
-	if not check(node.get_children().filter(func(n):return n is Label3D).size()==2,"Floating damage labels leaked"): return
+	if not check(game.overlay.get_children().filter(func(n):return n.has_meta("damage_number")).is_empty(),"Floating damage labels leaked"): return
 	if not check(game.engine.state.players[0].board.filter(func(c):return c!=null).size()==serial,"Presentation changed authoritative game state"): return
+	var old_size=root.size
+	for dimensions in [Vector2i(1920,1080),Vector2i(1280,720)]:
+		root.size=dimensions
+		await frames()
+		if not check(game.stage.size==game.size,"Resizing introduced a reserved battlefield gap"): return
+		if not check(game.stage.viewport.size.x>=game.stage.size.x*1.49,"Resizing reduced render quality"): return
+		game._inspect(played)
+		if not check(Rect2(Vector2.ZERO,game.size).encloses(game.inspection.get_rect()),"Hover card leaves resized window"): return
+	root.size=old_size
+	await frames()
 	game.set_battle_active(false)
 	if not check(game.stage.viewport.render_target_update_mode==SubViewport.UPDATE_DISABLED,"Hidden arena must stop rendering"): return
 	print("3D board, draw, placement, targeting and effect checks passed: ",checks)

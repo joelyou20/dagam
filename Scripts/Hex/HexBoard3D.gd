@@ -1,6 +1,8 @@
 extends Control
 ## Presentation only: the native rules engine remains authoritative.
 const Card = preload("res://Scripts/Hex/HexCardUI.gd")
+signal impact(uid: String, amount, positive: bool)
+const RENDER_SCALE := 1.5
 var viewport: SubViewport
 var world: Node3D
 var camera: Camera3D
@@ -26,6 +28,7 @@ func _ready():
 	viewport.msaa_3d = Viewport.MSAA_4X
 	viewport.render_target_update_mode = SubViewport.UPDATE_DISABLED
 	add_child(viewport)
+	screen.texture_filter=CanvasItem.TEXTURE_FILTER_LINEAR
 	screen.texture = viewport.get_texture()
 	world = Node3D.new()
 	viewport.add_child(world)
@@ -38,13 +41,15 @@ func _ready():
 	_resize()
 func _resize():
 	if viewport == null: return
-	viewport.size = Vector2i(maxi(2,int(size.x)),maxi(2,int(size.y)))
+	viewport.size = Vector2i(maxi(2,int(ceil(size.x*RENDER_SCALE))),maxi(2,int(ceil(size.y*RENDER_SCALE))))
 	# Preserve all lanes on both narrow and wide windows.
 	camera.projection=Camera3D.PROJECTION_ORTHOGONAL
 	camera.keep_aspect=Camera3D.KEEP_WIDTH
-	camera.size=20.0
-	camera.position = Vector3(0,10,12)
-	camera.look_at(Vector3(0,0,0))
+	camera.size=maxf(17.5,9.4*size.x/maxf(1,size.y))
+	camera.position = Vector3(0.6,10,12.65)
+	camera.look_at(Vector3(0.6,0,0.65))
+func project(point: Vector3) -> Vector2:
+	return camera.unproject_position(point)*size/Vector2(viewport.size)
 func set_active(value: bool):
 	active = value
 	if viewport: viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS if value else SubViewport.UPDATE_DISABLED
@@ -66,13 +71,6 @@ func box(pos: Vector3, dimensions: Vector3, color: Color, parent: Node3D = world
 func cylinder(pos: Vector3, radius: float, height: float, color: Color, parent: Node3D = world):
 	var shape=CylinderMesh.new();shape.top_radius=radius;shape.bottom_radius=radius*1.08;shape.height=height;shape.radial_segments=12
 	return mesh(shape,pos,color,parent)
-func text3d(value: String, pos: Vector3, color: Color, parent: Node3D, font_size := 40):
-	var label=Label3D.new()
-	label.text=value;label.position=pos;label.font_size=font_size;label.pixel_size=0.008
-	label.modulate=color;label.outline_size=7;label.billboard=BaseMaterial3D.BILLBOARD_ENABLED
-	label.no_depth_test=true
-	parent.add_child(label)
-	return label
 func _build_scenery():
 	var env=WorldEnvironment.new();var settings=Environment.new()
 	settings.background_mode=Environment.BG_COLOR;settings.background_color=Color("172c31")
@@ -135,8 +133,8 @@ func key_for(side: int, slot: int, zone := "board") -> String: return "%s-%d-%d"
 func slot_rect(side: int, slot: int, zone := "board") -> Rect2:
 	var p=location(side,slot,zone)
 	var half=Vector2(1.03,0.87) if zone=="board" else Vector2(0.57,0.8)
-	var r=Rect2(camera.unproject_position(p+Vector3(-half.x,0,-half.y)),Vector2.ZERO)
-	for v in [Vector3(half.x,0,-half.y),Vector3(-half.x,0,half.y),Vector3(half.x,0,half.y)]: r=r.expand(camera.unproject_position(p+v))
+	var r=Rect2(project(p+Vector3(-half.x,0,-half.y)),Vector2.ZERO)
+	for v in [Vector3(half.x,0,-half.y),Vector3(-half.x,0,half.y),Vector3(half.x,0,half.y)]: r=r.expand(project(p+v))
 	return r
 func sync(state: Dictionary):
 	for side in [1,0]:
@@ -196,15 +194,12 @@ func _update_piece(key: String, c, side: int, slot: int, zone: String, state: Di
 	rim.name="Rim"
 	if c==null:
 		rim.material_override=material(Color("344b50") if side==0 else Color("4e494c"))
-		text3d(("FRONT" if slot<3 else "BACK") if zone=="board" else "ARTIFACT" if zone=="artifact" else "BATTLEFIELD",Vector3(0,0.08,0),Color("a7bab7"),node,22)
 		return
 	var plane=PlaneMesh.new();plane.size=Vector2(dims.x-0.08,dims.z-0.08)
 	var surface=MeshInstance3D.new();surface.mesh=plane;surface.position.y=0.05;surface.name="Art";node.add_child(surface)
 	var m=ShaderMaterial.new();var shader=Shader.new()
-	shader.code="shader_type spatial; render_mode unshaded; uniform sampler2D card_art:filter_linear_mipmap; void fragment(){vec2 uv=UV; uv.y=0.16+uv.y*0.49; ALBEDO=texture(card_art,uv).rgb;}"
+	shader.code="shader_type spatial; render_mode unshaded; uniform sampler2D card_art:filter_linear_mipmap_anisotropic; void fragment(){vec2 uv=UV; uv.y=0.17+uv.y*0.38; ALBEDO=texture(card_art,uv).rgb;}"
 	m.shader=shader;m.set_shader_parameter("card_art",Card.art(c.id));surface.material_override=m
-	var title=text3d("",Vector3(0,0.13,-0.55),Color("fff5dc"),node,28);title.name="Title"
-	var stats=text3d("",Vector3(0,0.16,0.58),Color.WHITE,node,32);stats.name="Stats"
 	_update_labels(node,c,state)
 	# Cards rise above the arena and settle with a small overshoot.
 	node.position+=Vector3(0,1.8,0.45);node.scale=Vector3(0.7,0.7,0.7)
@@ -213,9 +208,6 @@ func _update_piece(key: String, c, side: int, slot: int, zone: String, state: Di
 	tween.tween_property(node,"scale",Vector3.ONE,0.42).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 func _update_labels(node: Node3D,c,state: Dictionary):
 	if c==null: return
-	var title=node.get_node_or_null("Title");var stats=node.get_node_or_null("Stats")
-	if title: title.text=c.get("display_name",c.id)
-	if stats: stats.text=("%d  /  %d"%[c.get("attack",0),c.hp])+ ("   ◇%d"%c.get("shield",0) if c.get("shield",0)>0 else "") if c.has("hp") else str(node.get_meta("zone")).to_upper()
 	node.set_meta("ready",c.get("ready",false) and c.get("owner",1)==0 and state.active==0 and state.phase=="combat")
 func find_piece(uid: String):
 	for node in pieces.values():
@@ -241,12 +233,7 @@ func effects(events: Array):
 			_impact(node,event.get("amount",event.get("text",event.kind.to_upper())),event.kind!="damage")
 func _impact(node: Node3D,amount,positive: bool):
 	if str(amount)=="0": return
-	var color=Color("94ffe1") if positive else Color("ffb0a3")
-	var pop=text3d(("+" if positive else "−")+str(amount),Vector3(0,0.9,0),color,node,66)
-	var tween=create_tween().set_parallel()
-	tween.tween_property(pop,"position:y",2.0,0.75)
-	tween.tween_property(pop,"modulate:a",0,0.35).set_delay(0.4)
-	tween.chain().tween_callback(pop.queue_free)
+	impact.emit(str(node.get_meta("uid")),amount,positive)
 	var shake=create_tween()
 	shake.tween_interval(0.15)
 	shake.tween_property(node,"rotation:z",0.07,0.06)

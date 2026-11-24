@@ -53,7 +53,7 @@ func build_battle_from_encounter(encounter: EncounterData, enemy_id: String = ""
 	current_battle_data.flee_chance = base_flee_chance
 	hex_encounter_active = true
 	_freeze_hex_player()
-	MenuManager.set_menu(true, MenuTabs.Tab.HEX)
+	HexManager.open_battle()
 	return current_battle_data
 
 func ensure_battle_ui():
@@ -329,7 +329,7 @@ func _end_hex_encounter() -> void:
 	hex_encounter_active = false
 	current_battle_data = null
 	HexManager.restore_practice()
-	MenuManager.hide_menu(true)
+	HexManager.close_battle(true)
 	_restore_hex_player()
 	last_battle_time = Time.get_ticks_msec() / 1000.0
 	battle_ended.emit()
@@ -362,4 +362,4 @@ func resume_hex_encounter() -> void:
 	var position: Dictionary = metadata.get("position", {})
 	if position.has("x"): pre_battle_player_position = Vector3(position.x, position.y, position.z)
 	EnemyManager.bind_encounter(metadata.get("enemy_id", ""), current_battle_data)
-	MenuManager.set_menu.call_deferred(true, MenuTabs.Tab.HEX)
+	HexManager.open_battle.call_deferred()

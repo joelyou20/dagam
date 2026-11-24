@@ -81,5 +81,6 @@ jobs:
           name: Hex-test-evidence
           path: |
             /home/runner/.local/share/godot/app_userdata/DaGam/hex-integrated-screen.png
+            /home/runner/.local/share/godot/app_userdata/DaGam/hex-hover-screen.png
             /tmp/*_smoke.log
             /home/runner/.local/share/godot/app_userdata/DaGam/native-test-results.json

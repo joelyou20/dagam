@@ -2,7 +2,6 @@ extends UIBase
 class_name MenuUI
 
 @onready var content_uis := {
-	"Hex": $VBoxContainer/UIContainer/HexMenuUI as HexMenuUI,
 	"Party": $VBoxContainer/UIContainer/PartyMenuUI as PartyMenuUI,
 	"Equipment": $VBoxContainer/UIContainer/EquipmentMenuUI as EquipmentMenuUI,
 	"Skills": $VBoxContainer/UIContainer/SkillsMenuUI as SkillsMenuUI,
@@ -14,7 +13,6 @@ class_name MenuUI
 
 # Map enum -> dictionary key so we don’t rely on string casing
 const TAB_TO_KEY := {
-	MenuTabs.Tab.HEX: "Hex",
 	MenuTabs.Tab.PARTY: "Party",
 	MenuTabs.Tab.EQUIPMENT: "Equipment",
 	MenuTabs.Tab.SKILLS: "Skills",
@@ -28,7 +26,6 @@ const TAB_TO_KEY := {
 var _menu_stack: Array[String] = []
 
 func _ready():
-	$VBoxContainer/MenuTopNav/HBoxContainer/HexButton.pressed.connect(func(): open_root(MenuTabs.Tab.HEX))
 	# Top nav REPLACES root (clears stack, then shows root tab)
 	$VBoxContainer/MenuTopNav/HBoxContainer/PartyButton.pressed.connect(func(): open_root(MenuTabs.Tab.PARTY))
 	$VBoxContainer/MenuTopNav/HBoxContainer/EquipmentButton.pressed.connect(func(): open_root(MenuTabs.Tab.EQUIPMENT))
@@ -45,7 +42,7 @@ func _ready():
 
 # Public: open a top-level tab (clears stack)
 func open_root(tab: MenuTabs.Tab):
-	if HexManager.is_encounter() and tab != MenuTabs.Tab.HEX: return
+	if HexManager.is_battle_open(): return
 	# Hide everything first
 	for ui: UIBase in content_uis.values():
 		if ui: ui.hide_ui()

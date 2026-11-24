@@ -63,3 +63,21 @@ func load_hex(data: Dictionary) -> bool:
 	return true
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST: save_match()
+
+var battle_ui: HexBattleUI
+func is_battle_open() -> bool:
+	return is_instance_valid(battle_ui) and battle_ui.visible
+func open_battle() -> void:
+	if not ensure_match(): return
+	MenuManager.hide_menu(true)
+	if not is_instance_valid(battle_ui):
+		battle_ui=load("res://Scenes/Hex/HexBattleUI.tscn").instantiate()
+		get_tree().root.add_child(battle_ui)
+	battle_ui.show_ui()
+func close_battle(force: bool = false) -> void:
+	if not is_battle_open(): return
+	if force: battle_ui.hide_ui()
+	else: battle_ui.on_cancel()
+func toggle_battle() -> void:
+	if is_battle_open(): close_battle()
+	else: open_battle()

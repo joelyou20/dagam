@@ -1,12 +1,12 @@
 # Hex in DaGam
 
-Open the root `project.godot`, run the existing `Scenes/Root.tscn`, and press **H** or select **Hex** from the menu. There is one project: no nested project or hidden Hex directory.
+Open the root `project.godot`, run the existing `Scenes/Root.tscn`, and press **H** for a practice battle or touch a world enemy for an encounter. There is one project: no nested project or hidden Hex directory.
 
 ## Existing architecture
 
 - `Scripts/Managers/HexManager.gd` owns the match as an autoload, alongside the other managers. The session initializes only when Hex is opened.
-- `Scenes/Hex/HexMenuUI.tscn` and `Scripts/Hex/HexMenuUI.gd` extend the existing `UIBase`, live in `MenuUI`'s tab container, and use `UIManager` and `InteractionHandler` for navigation and world-input blocking.
-- `MenuTabs.Tab.HEX` replaces the unused menu button. `WorldController` routes H through `MenuManager`. Escape first dismisses a Hex dialog, then closes the menu and returns control to the world.
+- `Scenes/Hex/HexBattleUI.tscn` and `Scripts/Hex/HexBattleUI.gd` extend `UIBase` as a dedicated full-window root layer owned by `HexManager`. They use the existing `UIManager` and `InteractionHandler`, without instantiating the RPG menu.
+- `WorldController` routes H directly to `HexManager`; encounters open the same dedicated battle screen. Escape dismisses a battle dialog first, then closes practice or confirms leaving an encounter. Other menu hotkeys cannot cover an active battle.
 - `GameStateManager` includes Hex in normal RPG saves/loads. Older saves without Hex remain valid. The current match also autosaves to checksum-protected `user://dagam-hex-match-v1.json`, keeping a backup of the previous file.
 - Hiding the screen stops AI activity and music and saves the match. Reopening resumes it. The existing world, RPG managers and root scene remain in place.
 
@@ -43,8 +43,14 @@ The integration test runs the real root scene, menu and managers, including shar
 
 ## Scenic 3D battlefield
 
-`Scripts/Hex/HexBoard3D.gd` presents the battle in an isolated 3D world inside the existing Hex menu: angled camera, mossy stone arena, woodland scenery, lanterns, physical card piles and a concealed opponent hand. It reuses the RPG's dirt and mossy-cliff textures. The 3D render target follows its displayed pixel size and stops when hidden; the HUD, hand, dialogs and card inspector remain native-resolution UI.
+`Scripts/Hex/HexBoard3D.gd` presents the battle in an isolated 3D world inside the dedicated full-window battle layer: angled camera, mossy stone arena, woodland scenery, lanterns, physical card piles and a concealed opponent hand. It reuses the RPG's dirt and mossy-cliff textures. The 3D render target supersamples its displayed size at 1.5× with anisotropic card filtering and stops when hidden; the HUD, hand, dialogs and card inspector remain native-resolution UI.
 
 Both sides' art faces the player. Projected controls preserve click/drag targeting, artifact placement, unordered deck inspection and discard inspection. The right-side combat button advances phases, while management controls remain along the top. Ready attackers pulse and legal targets highlight on selection. Drawing moves cards from the deck to the hand; placement lifts and settles onto stone slots; attacks lunge, damage numbers rise together, and removed cards shake and fade. These are presentation effects and never mutate engine rules or AI state.
 
 Run `godot --headless --path . --script res://Tests/Hex/board_3d_test.gd` for framing, draw/placement animation cleanup, drag targeting, simultaneous feedback, state isolation and hidden-viewport checks. Running the same test with a display saves `user://hex-3d-board.png`.
+
+The battlefield fills the window behind the overlapping hand, without menu offsets or a reserved bottom panel. Card names and empty-slot labels are omitted from the field. Attack/HP and protection counts use sharp screen-space UI that follows card movement; damage numbers use the same native-resolution approach. Hover shows the 1024×1536 card alone, with no description panel. A compact battle-options button holds secondary actions.
+
+Closing the battle restores the RPG's rendering/scaling settings. While battle is open, only its own 3D viewport renders, avoiding a second render of the hidden overworld.
+
+[Full-window battlefield](hex-fullscreen/battle.jpg) · [Card-only hover](hex-fullscreen/hover.jpg)

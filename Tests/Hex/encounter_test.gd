@@ -44,7 +44,7 @@ func run():
 	var enemy := fixture("hex-victory-test")
 	enemy._on_body_entered(player)
 	await frames()
-	var hex: HexMenuUI = MenuManager.menu_ui.content_uis.Hex
+	var hex: HexBattleUI = HexManager.battle_ui
 	if not check(HexManager.is_encounter() and BattleManager.hex_encounter_active,"World collision did not start Hex"): return
 	if not check(SceneManager.current_scene == original_scene and BattleManager.battle_ui == null,"Encounter changed world or opened legacy battle UI"): return
 	if not check(not player.visible and not player.is_physics_processing() and player.collision_layer == 0,"World player not frozen"): return
@@ -95,7 +95,8 @@ func run():
 	if not check(not HexManager.is_encounter() and not BattleManager.hex_encounter_active,"Legacy save kept old encounter"): return
 	resumed.queue_free()
 	print("Hex encounter and rendering checks passed: ",checks)
-	MenuManager.menu_ui.queue_free()
+	if is_instance_valid(MenuManager.menu_ui): MenuManager.menu_ui.queue_free()
+	HexManager.battle_ui.queue_free()
 	world.queue_free()
 	await get_tree().create_timer(0.4).timeout
 	get_tree().quit()
