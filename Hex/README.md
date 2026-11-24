@@ -62,6 +62,3 @@ The rules suite executes inside QuickJS through the same GDExtension as the game
 
 The Actions workflow builds native runtimes for Linux, Windows and macOS, runs the suite on Godot 4.3, and captures the UI under Xvfb. Export presets are included for Linux and Windows; install the matching Godot export templates and use the matching native artifact. Mobile and web exports require additional native builds and are outside this slice.
 
-### Publishing this migration
-
-The implementation is committed on `codex/hex-standard-battle`. At preparation time both git push and the connected GitHub write API returned HTTP 403 for `joelyou20/dagam`; the branch and PR could not be published. Read access works. Enable this repository for the GitHub integration with contents/write access before pushing. The local Linux runtime and native/UI tests are verified; Windows/macOS builds are configured in CI but have not run yet.
