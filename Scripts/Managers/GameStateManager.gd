@@ -19,6 +19,7 @@ func save_game_to_file(path: String = "user://savegame.dat"):
 	file.close()
 
 func load_game_from_file(path: String = "user://savegame.dat"):
+	HexManager.close_battle(true)
 	MenuManager.hide_menu(true)
 	
 	if not FileAccess.file_exists(path):

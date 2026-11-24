@@ -1,5 +1,5 @@
 extends UIBase
-class_name HexMenuUI
+class_name HexBattleUI
 @onready var battle: Control = $Panel/Battle
 var _previous_scale_mode: int = -1
 func _ready() -> void:

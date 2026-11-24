@@ -18,20 +18,22 @@ func _run():
 	get_tree().current_scene = world
 	for i in range(12): await get_tree().process_frame
 	if not check(not HexManager.initialized,"Hex must stay lazy until opened"): return
-	MenuManager.set_menu(true, MenuTabs.Tab.HEX)
+	HexManager.open_battle()
 	await frames()
-	var menu: MenuUI = MenuManager.menu_ui
-	var hex: HexMenuUI = menu.content_uis.Hex
-	if not check(hex.visible and UIManager.top()==menu,"Hex did not enter the existing menu/UI stack"): return
+	var hex: HexBattleUI = HexManager.battle_ui
+	if not check(hex.visible and UIManager.top()==hex and hex.get_parent()==get_tree().root,"Battle must be a dedicated root UI"): return
 	if not check(InteractionHandler.is_blocked(),"Hex must block world interaction"): return
 	if not check(HexManager.initialized and hex.battle.engine==HexManager.session,"Manager does not own match"): return
 	if not check(HexManager.session.catalog.starter.size()==20,"Starter must contain 20 cards"): return
 	hex.battle._command({"op":"new", "seed":42})
 	var original: Dictionary = HexManager.save_hex()
+	if not check(MenuManager.menu_ui==null,"Opening battle instantiated the RPG menu"): return
+	if not check(hex.battle.size==get_viewport().get_visible_rect().size,"Battle does not fill the window"): return
+	HexManager.close_battle(true)
 	MenuManager.set_menu(true, MenuTabs.Tab.OPTIONS)
 	await frames()
 	if not check(hex.battle.paused and hex.battle.ai_timer.is_stopped(),"Hidden Hex kept AI running"): return
-	MenuManager.set_menu(true, MenuTabs.Tab.HEX)
+	HexManager.open_battle()
 	await frames()
 	if not check(HexManager.save_hex().game.serial==original.game.serial,"Reopening replaced the game"): return
 	GameStateManager.save_game_to_file("user://hex-integration-game.dat")
@@ -45,7 +47,7 @@ func _run():
 	if not check(SceneManager.current_scene.scene_file_path==saved.player_scene,"World scene was not restored"): return
 	if not check(InventoryManager.save_inventory()==saved.inventory,"RPG inventory changed during load"): return
 	if not check(HexManager.load_hex({}),"Legacy RPG save without Hex rejected"): return
-	MenuManager.set_menu(true, MenuTabs.Tab.HEX)
+	HexManager.open_battle()
 	await frames()
 	hex.battle._starter()
 	if not check(UIManager.handle_cancel() and hex.battle.modal==null and hex.visible,"Escape must dismiss the dialog first"): return
@@ -63,7 +65,7 @@ func _run():
 	if not check(not hex.visible and not InteractionHandler.is_blocked(),"H did not return control to world"): return
 	print("Root-project Hex integration checks passed: ",checks)
 	if DisplayServer.get_name()!="headless":
-		MenuManager.set_menu(true,MenuTabs.Tab.HEX)
+		HexManager.open_battle()
 		await frames()
 		var controller=hex.battle
 		controller._command({"op":"coin","call":"heads"})
@@ -83,9 +85,16 @@ func _run():
 		controller.paused=true
 		controller.ai_timer.stop()
 		await get_tree().create_timer(1.8).timeout
+		controller.inspection.visible=false
+		await frames()
 		get_tree().root.get_texture().get_image().save_png("user://hex-integrated-screen.png")
+		var card=controller.engine.state.players[0].hand.front()
+		controller._inspect(card)
+		await frames()
+		get_tree().root.get_texture().get_image().save_png("user://hex-hover-screen.png")
 	HexManager.save_match()
-	MenuManager.menu_ui.queue_free()
+	if is_instance_valid(MenuManager.menu_ui): MenuManager.menu_ui.queue_free()
+	HexManager.battle_ui.queue_free()
 	world.queue_free()
 	await get_tree().create_timer(0.4).timeout
 	get_tree().quit()
