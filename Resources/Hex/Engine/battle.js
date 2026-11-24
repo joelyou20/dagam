@@ -14358,6 +14358,71 @@ globalThis.Hex = (() => {
   const starter = [1, 2, 3, 4, 5, 6, 9, 10, 11, 13, 14, 17, 23, 25, 35, 37, 38, 40, 42, 47].map(
     (n) => "LT-" + String(n).padStart(3, "0"),
   );
+  // Presentation metadata only: read current rules state without mutating it.
+  function statuses(c) {
+    if (c.hp == null) return [];
+    const result = [];
+    const add = (id, name, description, amount = 0) =>
+      result.push({ id, name, description, amount });
+    const active = (key) => c[key] != null && c[key] >= game.turn;
+    if (c.shield > 0) add("shield", "Shield", "Absorbs incoming damage.", c.shield);
+    const ward = hexWardRemaining(c);
+    if (ward > 0) add("ward", "Ward", "Blocks this many hostile effects; does not refresh.", ward);
+    if (active("stunUntil")) add("stun", "Stunned", "Cannot attack while stunned.");
+    if (c.burn) add("burn", "Burning", "Takes 2 damage at the start of its next owner turn.");
+    if (c.invisibleUntil != null)
+      add("invisible", "Invisible", "Cannot be directly targeted by attacks or effects.");
+    if (active("tauntUntil")) add("taunt", "Taunt", "Enemies must attack a creature with Taunt.");
+    if (active("reflectUntil"))
+      add("reflect", "Reflect", "Reflects damage absorbed by Shield back to its source.");
+    if (active("noShieldUntil")) add("no-shield", "Shield blocked", "Cannot gain Shield.");
+    if (active("zeroAttackUntil"))
+      add("zero-attack", "Attack suppressed", "Attack is reduced to zero.");
+    if (active("amberUntil") && active("stunUntil"))
+      add("amber", "Amber protection", "Takes 1 less damage while stunned.");
+    if (c.control) add("control", "Controlled", "Temporarily controlled by the opposing player.");
+    if (c.sacrificeAtEnd != null)
+      add("sacrifice", "Doomed", "Will be sacrificed at the end of the turn.");
+    if (c.enraptureDue != null)
+      add("delayed-stun", "Enraptured", "Will be stunned at the start of its next owner turn.");
+    if (c.scars > 0) add("scars", "Scarred", "Maximum HP reduced.", c.scars);
+    const attack = (c.mods || [])
+      .filter((m) => m.until >= game.turn)
+      .reduce((sum, m) => sum + (m.attack || 0), c.attackBonus || 0);
+    const health = (c.mods || [])
+      .filter((m) => m.until >= game.turn)
+      .reduce((sum, m) => sum + (m.maxHp || 0), 0);
+    if (attack) add("attack", "Attack modifier", "Current bonus or penalty to Attack.", attack);
+    if (health) add("health", "Health modifier", "Current bonus or penalty to maximum HP.", health);
+    for (const [key, name, description] of [
+      ["fuses", "Fuse", "Explodes when a second Fuse is applied."],
+      ["charge", "Charge", "Each charge may be spent for +2 damage on an attack."],
+      ["pebbles", "Pebbles", "Remaining stones available to throw."],
+      ["gold", "Gold", "Accumulated healing available on combat death."],
+      ["channel", "Channel", "Growing Attack bonus granted to the creature in front."],
+    ]) {
+      if (c[key] > 0) add(key, name, description, c[key]);
+    }
+    const grants = new Map();
+    for (const grant of c.grants || []) {
+      if (grant.until >= game.turn)
+        grants.set(grant.id, Math.max(grants.get(grant.id) || 0, grant.value || 1));
+    }
+    for (const [id, value] of grants) {
+      const name = id
+        .split("-")
+        .map((word) => word[0].toUpperCase() + word.slice(1))
+        .join(" ");
+      const keyword = HEX_KEYWORDS.find((entry) => entry.id === id);
+      add(
+        "grant-" + id,
+        name,
+        keyword?.description || "Temporarily granted ability.",
+        value > 1 ? value : 0,
+      );
+    }
+    return result;
+  }
   function enrich(c) {
     return c
       ? {
@@ -14368,6 +14433,7 @@ globalThis.Hex = (() => {
                 maxHp: hexStats(game, c).maxHp,
                 ready: game.phase === "combat" && hexReady(game, c),
                 ward: hexWardRemaining(c),
+                statuses: statuses(c),
               }
             : {}),
         }

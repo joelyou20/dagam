@@ -61,3 +61,13 @@ The Hex GitHub workflow runs formatting/lint, native builds and battle/world
 regressions. Tests/Hex/RpgTCG.tscn covers Farmer’s dialogue action, recruitment,
 old/new saves, earlier checkpoints, inventory, menu navigation and solo XP.
 Tests/Hex/rules_test.gd covers all 160 base cards and 56 simulated matches.
+
+## Creature status presentation
+
+The native bridge exports a read-only `statuses` list for each creature. Both the
+hex-frame symbols and hover descriptions use that same list, including current
+Ward/Shield counts and active timers. Expired modifiers and grants are excluded.
+HexStatusIcon draws resolution-independent symbols; HexStatusDisplay owns the
+borderless translucent hover list and wrapped symbol rows. Update the bridge
+metadata when adding a new persistent effect. `Tests/Hex/status_test.gd` covers
+live counts, effect expiry, symbols, hover placement and transparent styling.
