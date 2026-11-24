@@ -1,14 +1,15 @@
-extends DialogAction
 class_name PartyJoinDialogAction
+extends DialogAction
 
 @export var ally_id: String
 @export var remove_npc: bool = true
+
 
 func execute():
 	# Add ally
 	var ally_data = load("res://Resources/Allies/%s.tres" % ally_id)
 	if ally_data:
-		PartyManager.add_member(ally_data)
+		CompanionManager.recruit(ally_data, remove_npc)
 
 	# Remove NPC if flagged
 	if remove_npc:

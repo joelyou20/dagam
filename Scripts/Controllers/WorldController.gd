@@ -3,9 +3,11 @@ extends Node
 var scene_manager := SceneManager
 var menu_manager := MenuManager
 
+
 func _ready():
 	scene_manager.set_black_screen()
 	scene_manager.load_scene("res://Scenes/Environments/Test.tscn", false, true)
+
 
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_cancel"):
@@ -16,15 +18,15 @@ func _unhandled_input(event):
 		# Otherwise, open Options (or your pause menu)
 		menu_manager.set_menu(true, MenuTabs.Tab.OPTIONS)
 	if event.is_action_pressed("toggle_party_menu"):
-		menu_manager.set_menu(true, MenuTabs.Tab.PARTY)
+		menu_manager.set_menu(true, MenuTabs.Tab.ADVENTURE)
 	if event.is_action_pressed("toggle_equipment_menu"):
-		menu_manager.set_menu(true, MenuTabs.Tab.EQUIPMENT)
+		menu_manager.set_menu(true, MenuTabs.Tab.HEX)
 	if event.is_action_pressed("toggle_skills_menu"):
-		menu_manager.set_menu(true, MenuTabs.Tab.SKILLS)
+		menu_manager.set_menu(true, MenuTabs.Tab.JOURNAL)
 	if event.is_action_pressed("toggle_inventory_menu"):
 		menu_manager.set_menu(true, MenuTabs.Tab.INVENTORY)
 	if event.is_action_pressed("toggle_formation_menu"):
-		menu_manager.set_menu(true, MenuTabs.Tab.FORMATION)
+		menu_manager.set_menu(true, MenuTabs.Tab.HEX)
 
 	if event.is_action_pressed("toggle_hex_menu"):
 		menu_manager.set_menu(true, MenuTabs.Tab.HEX)

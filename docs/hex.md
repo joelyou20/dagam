@@ -14,7 +14,7 @@ Code follows the host layout: `Scripts/Hex`, `Scenes/Hex`, `Resources/Hex`, `Ass
 
 ## World encounters
 
-Touching an active enemy now starts a Standard Hex match using the starter deck and tactical AI, within the current world. `EncounterData.hex_deck_id` selects an opponent (default `thornbound`); existing enemy resources still supply XP. Victory grants party XP once and removes the enemy. Defeat, draw or fleeing grants no XP and retains the enemy with its reactivation cooldown. Escape prompts before conceding. Other tabs and new-game controls cannot bypass an encounter. The previous practice match is restored afterward. Shared saves/autosaves retain the encounter, its original world enemy and the practice snapshot.
+Touching an active enemy now starts a Standard Hex match using the starter deck and tactical AI, within the current world. `EncounterData.hex_deck_id` selects an opponent (default `thornbound`); existing enemy resources still supply XP. Victory grants player XP once and removes the enemy. Defeat, draw or fleeing grants no XP and retains the enemy with its reactivation cooldown. Escape prompts before conceding. Other tabs and new-game controls cannot bypass an encounter. The previous practice match is restored afterward. Shared saves/autosaves retain the encounter, its original world enemy and the practice snapshot.
 
 ## Scope and controls
 

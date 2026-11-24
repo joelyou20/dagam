@@ -1,5 +1,6 @@
 extends Node
 
+
 func save_game_to_file(path: String = "user://savegame.dat"):
 	var player_node = PlayerManager.get_player_node()
 	var data := {
@@ -10,8 +11,14 @@ func save_game_to_file(path: String = "user://savegame.dat"):
 		"quests": QuestManager.save_quests(),
 		"inventory": InventoryManager.save_inventory(),
 		"player": PlayerManager.save_player(),
+		"companions": CompanionManager.save_companions(),
 		"party": PartyManager.save_party(),
-		"player_scene": SceneManager.current_scene.scene_file_path if is_instance_valid(SceneManager.current_scene) else get_tree().current_scene.scene_file_path,
+		"player_scene":
+		(  # Older saves/readers still recognize this key.
+			SceneManager.current_scene.scene_file_path
+			if is_instance_valid(SceneManager.current_scene)
+			else get_tree().current_scene.scene_file_path
+		),
 		"player_position": player_node.global_transform.origin  # Use .global_position for 2D
 	}
 	var file := FileAccess.open(path, FileAccess.WRITE)
@@ -19,16 +26,20 @@ func save_game_to_file(path: String = "user://savegame.dat"):
 	print("Game saved to " + path)
 	file.close()
 
+
 func load_game_from_file(path: String = "user://savegame.dat"):
 	HexManager.close_battle(true)
 	MenuManager.hide_menu(true)
-	
+
 	if not FileAccess.file_exists(path):
 		return
-	
+
 	var file := FileAccess.open(path, FileAccess.READ)
-	var data : Variant = file.get_var()
+	var data: Variant = file.get_var()
 	file.close()
+
+	# Recruitments must be restored before NPC ready callbacks in the destination scene.
+	CompanionManager.load_companions(data.get("companions", data.get("party", [])))
 
 	# Scene and position come first
 	var scene_path = data.get("player_scene", "")
@@ -36,23 +47,22 @@ func load_game_from_file(path: String = "user://savegame.dat"):
 
 	if scene_path != "":
 		await SceneManager.load_scene(scene_path, true, false)
-		
+
 		# Defer position assignment until scene loads
 		await get_tree().create_timer(0.1).timeout
-		
+
 		var player_node = PlayerManager.get_player_node()
 		if player_node:
 			player_node.global_transform.origin = player_position  # Use .global_position for 2D
-			
+
 		SceneManager.fade_layer.fade_in()
 
 	# Load systems
 	DialogManager.load_dialogs(data.get("dialogs", {}))
 	FlagManager.load_flags(data.get("flags", {}))
 	QuestManager.load_quests(data.get("quests", {}))
-	InventoryManager.load_inventory(data.get("inventory", {}))
 	PlayerManager.load_player(data.get("player", {}))
-	PartyManager.load_party(data.get("party", {}))
+	InventoryManager.load_inventory(data.get("inventory", {}))
 
 	HexManager.load_decks(data.get("hex_decks", {}))
 	HexManager.load_hex(data.get("hex", {}))

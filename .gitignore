@@ -19,3 +19,6 @@ mono_crash.*.json
 __pycache__/
 *.pyc
 /build/
+
+# Pinned development tools are installed locally.
+node_modules/

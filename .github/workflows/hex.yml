@@ -1,13 +1,28 @@
 name: Hex project integration
 on:
   push:
-    paths: ['Scripts/**', 'Scenes/**', 'Resources/**', 'Assets/Hex/**', 'addons/hex_runtime/**', 'Tests/**', 'tools/hex/**', 'project.godot', '.github/workflows/hex.yml']
+    paths: ['Scripts/**', 'Scenes/**', 'Resources/**', 'Assets/Hex/**', 'addons/hex_runtime/**', 'Tests/**', 'tools/**', 'package*.json', 'requirements-dev.txt', '.editorconfig', '.clang-format', '.prettier*', 'eslint.config.cjs', 'project.godot', '.github/workflows/hex.yml']
   pull_request:
-    paths: ['Scripts/**', 'Scenes/**', 'Resources/**', 'Assets/Hex/**', 'addons/hex_runtime/**', 'Tests/**', 'tools/hex/**', 'project.godot', '.github/workflows/hex.yml']
+    paths: ['Scripts/**', 'Scenes/**', 'Resources/**', 'Assets/Hex/**', 'addons/hex_runtime/**', 'Tests/**', 'tools/**', 'package*.json', 'requirements-dev.txt', '.editorconfig', '.clang-format', '.prettier*', 'eslint.config.cjs', 'project.godot', '.github/workflows/hex.yml']
   workflow_dispatch:
 permissions:
   contents: read
 jobs:
+  style:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: python -m pip install -r requirements-dev.txt
+      - run: npm ci --ignore-scripts
+      - run: python tools/check_code_style.py
+      - run: npm run check:js
   native:
     strategy:
       fail-fast: false
@@ -83,6 +98,11 @@ jobs:
           set -o pipefail
           Godot_v4.6.3-stable_linux.x86_64 --headless --path . res://Tests/Hex/Opening.tscn 2>&1 | tee /tmp/opening.log
           if grep -E 'SCRIPT ERROR|Hex runtime:|ERROR:' /tmp/opening.log; then exit 1; fi
+      - name: RPG-TCG menus and Farmer save compatibility
+        run: |
+          set -o pipefail
+          Godot_v4.6.3-stable_linux.x86_64 --headless --path . res://Tests/Hex/RpgTCG.tscn 2>&1 | tee /tmp/rpg-tcg.log
+          if grep -E 'SCRIPT ERROR|Hex runtime:|ERROR:' /tmp/rpg-tcg.log; then exit 1; fi
       - name: Render the battle UI
         run: xvfb-run -a Godot_v4.6.3-stable_linux.x86_64 --path . --audio-driver Dummy --rendering-method gl_compatibility --rendering-driver opengl3 res://Tests/Hex/Integration.tscn
       - uses: actions/upload-artifact@v4

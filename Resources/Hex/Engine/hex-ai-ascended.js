@@ -1,27 +1,338 @@
-'use strict';
+"use strict";
 /* Bounded tactical search. Simulations use public zones and this bot's own hand only. */
-const hexOpponentAI=g=>g.context?.opponentAI==='ascended'?'ascended':'classic';
-function hexBotStep(g,side=1){return side===1&&hexOpponentAI(g)==='ascended'?hexAscendedStep(g,side):hexClassicBotStep(g,side);}
+const hexOpponentAI = (g) => (g.context?.opponentAI === "ascended" ? "ascended" : "classic");
+function hexBotStep(g, side = 1) {
+  return side === 1 && hexOpponentAI(g) === "ascended"
+    ? hexAscendedStep(g, side)
+    : hexClassicBotStep(g, side);
+}
 
-function hexBotPlayKey(g,side,uid,index){const pl=g.players[side],enemy=g.players[1-side];return JSON.stringify({uid,index,phase:g.phase,hand:pl.hand,board:pl.board,artifacts:pl.artifacts,discard:pl.discard,deck:pl.deck.length,enemyBoard:enemy.board,enemyArtifacts:enemy.artifacts,enemyDiscard:enemy.discard,enemyHand:enemy.hand.length,enemyDeck:enemy.deck.length,losses:[pl.losses,enemy.losses],field:g.field});}
-function hexBotPlayRepeated(g,side,uid,index){return g.botPlayHistory?.turn===g.turn&&g.botPlayHistory[side]?.includes(hexBotPlayKey(g,side,uid,index));}
-function hexBotPlay(g,side,uid,index){const key=hexBotPlayKey(g,side,uid,index);if(hexBotPlayRepeated(g,side,uid,index))return false;if(!hexPlay(g,side,uid,index))return false;if(g.botPlayHistory?.turn!==g.turn)g.botPlayHistory={turn:g.turn,0:[],1:[]};const history=g.botPlayHistory[side];history.push(key);if(history.length>128)history.shift();return true;}
-function hexAscendedView(g,side){const v=JSON.parse(JSON.stringify(g));v.seed=173;v.fx=[];v.log=[];if(v.botPlayHistory)v.botPlayHistory[1-side]=[];v.context={opponentAI:'classic',...(g.context?.dailyModifiers?{dailyModifiers:[...g.context.dailyModifiers],dailyDay:g.context.dailyDay}:{})};for(const zone of ['hand','deck'])v.players[1-side][zone]=g.players[1-side][zone].map((_,i)=>({id:'SA-002',uid:'unknown-'+zone+'-'+i,owner:1-side,spent:{}}));v.players[side].deck.sort((a,b)=>a.id.localeCompare(b.id)||a.uid.localeCompare(b.uid));return v;}
-function hexAscendedValue(g,side){if(g.winner!==null)return g.winner===-1?0:g.winner===side?100000:-100000;const score=p=>{const pl=g.players[p];let v=-pl.losses*24+pl.hand.length*1.6+Math.min(pl.deck.length,5)*.15;for(const c of pl.board.filter(Boolean)){const stats=hexStats(g,c),power=HEX_CARD_ABILITY_POWER[hexNum(c)]||0;v+=9+stats.attack*2.3+c.hp*.8+(c.shield||0)*.55+power;if(hexReady(g,c))v+=1.3;if(c.stunUntil>=g.turn)v-=2.5;if(c.burn)v-=Math.min(2,c.hp);if(c.eq)v+=2;const front=c.slot<hexColumns(g),rear=front&&pl.board[c.slot+hexColumns(g)];if(rear){const guard=c.hp+(c.shield||0),fragile=rear.hp+(rear.shield||0);v+=2+Math.min(6,guard*.8)+Math.max(0,guard-fragile)*1.1+(rear.hp<=2?5:0)-Math.max(0,fragile-guard)*.9;}if(!front&&!pl.board[c.slot-hexColumns(g)]&&c.hp<=2)v-=5;v+=Math.min(3,hexWardRemaining(c));}v+=pl.artifacts.filter(Boolean).reduce((n,c)=>n+2+(HEX_SUPPORT_POWER[hexNum(c)]||0),0);return v;};return score(side)-score(1-side);}
-function hexAscendedActions(g,side){if(g.winner!==null)return [];if(g.choice)return g.choice.player===side?g.choice.options.map((o,index)=>({kind:'choice',index,hint:hexBotChoiceScore(g,o)})):[];const frame=g.stack.at(-1);if(frame){if(frame.priority!==side)return [];return [{kind:'pass',hint:0},...hexReactionCards(g,side).flatMap(c=>hexSpecialOptions(g,side,c,frame).map((o,index)=>({kind:'play',uid:c.uid,index,hint:4})))];}if(g.active!==side||g.phase==='opening')return [];const forced=g.phase==='combat'&&g.players[side].board.some(c=>c&&hexElderNum(c)===13&&hexReady(g,c)&&hexLegalTargets(g,c).length);const out=forced?[]:[{kind:'next',hint:-1}];if(['pre','post'].includes(g.phase)){for(const c of g.players[side].hand){if(hexIsReaction(c))continue;for(const [index,o]of hexPlayOptions(g,side,c).entries())if(!hexBotPlayRepeated(g,side,c.uid,index)&&(hexArcanaNum(c)!==5||hexCanUseQuicken(g,side,hexFind(g,o.target))))out.push({kind:'play',uid:c.uid,index,hint:hexType(c,'Spell')?hexArcanaBotScore(g,side,c,o):hexBotCardValue(g,c)});} }if(['pre','combat','post'].includes(g.phase))for(const [index,o]of hexActiveOptions(g,side).entries())if(o.task.kind!=='discardArtifact')out.push({kind:'active',index,hint:hexBotChoiceScore(g,o)});if(g.phase==='combat')for(const a of g.players[side].board.filter(c=>c&&hexReady(g,c)))for(const t of hexLegalTargets(g,a))out.push({kind:'attack',attacker:a.uid,target:t.uid,hint:hexStats(g,a).attack>=t.hp+(t.shield||0)?10:0});const ranked=out.sort((a,b)=>b.hint-a.hint),next=out.find(a=>a.kind==='next');return ranked.length<=64?ranked:[...ranked.filter(a=>a!==next).slice(0,next?63:64),...(next?[next]:[])];}
-function hexAscendedApply(g,side,a){switch(a.kind){case 'choice':return hexChoose(g,side,a.index);case 'pass':return hexPass(g,side);case 'play':return hexBotPlay(g,side,a.uid,a.index);case 'active':return hexActivate(g,side,a.index);case 'attack':return hexDeclare(g,side,a.attacker,a.target);case 'next':return hexNext(g,side);}return false;}
-function hexAscendedSettle(g){for(let i=0;i<40&&g.winner===null;i++){if(g.choice){const scores=g.choice.options.map(o=>hexBotChoiceScore(g,o));hexChoose(g,g.choice.player,scores.indexOf(Math.max(...scores)));}else if(g.stack.length)hexPass(g,g.stack.at(-1).priority);else if(g.tasks.length)hexPump(g);else break;}}
-function hexAscendedSimulate(g,side,a){const v=JSON.parse(JSON.stringify(g));if(!hexAscendedApply(v,side,a))return null;hexAscendedSettle(v);v.fx=[];v.log=[];return v;}
-function hexAscendedPlan(g,side=1){const visible=hexAscendedView(g,side),actions=hexAscendedActions(visible,side);let budget=180;const scored=actions.map(action=>{const state=hexAscendedSimulate(visible,side,action);budget--;return {action,state,score:state?hexAscendedValue(state,side):-Infinity};}).sort((a,b)=>b.score-a.score);for(const entry of scored.slice(0,4)){if(!entry.state||entry.state.winner!==null)continue;let continuation=entry.score;for(const next of hexAscendedActions(entry.state,side)){if(budget--<=0)break;const state=hexAscendedSimulate(entry.state,side,next);if(state)continuation=Math.max(continuation,hexAscendedValue(state,side));}entry.score=continuation;}
- // When combat ends, assess the opponent's strongest public counterattack instead of feeding a free kill.
- for(const entry of scored){const state=entry.state;if(!state||state.winner!==null||state.phase!=='post')continue;const enemy=1-side;let threat=0;for(const a of state.players[enemy].board.filter(Boolean))for(const t of hexLegalTargets(state,a)){const atk=hexStats(state,a).attack,ret=hexStats(state,t).attack;const kill=atk>=t.hp+(t.shield||0),dies=ret>=a.hp+(a.shield||0);threat=Math.max(threat,(kill?12:0)-(dies?10:0));}entry.score-=threat*.35;}
- scored.sort((a,b)=>b.score-a.score);return scored.find(entry=>entry.action.kind!=='attack'||hexAttackWorthwhile(g,side,entry.action.attacker,entry.action.target))?.action||scored.find(entry=>entry.state&&entry.action.kind==='attack')?.action||null;}
-function hexAscendedStep(g,side=1){if(g.winner!==null)return false;const action=hexAscendedPlan(g,side);return action?hexAscendedApply(g,side,action):false;}
-function hexEndTurnPreview(g,side){const end=JSON.parse(JSON.stringify(g));end.active=side;if(end.phase==='combat'){hexNext(end,side);hexAscendedSettle(end);}if(end.winner===null&&end.phase==='post'){hexNext(end,side);hexAscendedSettle(end);}return end;}
+function hexBotPlayKey(g, side, uid, index) {
+  const pl = g.players[side],
+    enemy = g.players[1 - side];
+  return JSON.stringify({
+    uid,
+    index,
+    phase: g.phase,
+    hand: pl.hand,
+    board: pl.board,
+    artifacts: pl.artifacts,
+    discard: pl.discard,
+    deck: pl.deck.length,
+    enemyBoard: enemy.board,
+    enemyArtifacts: enemy.artifacts,
+    enemyDiscard: enemy.discard,
+    enemyHand: enemy.hand.length,
+    enemyDeck: enemy.deck.length,
+    losses: [pl.losses, enemy.losses],
+    field: g.field,
+  });
+}
+function hexBotPlayRepeated(g, side, uid, index) {
+  return (
+    g.botPlayHistory?.turn === g.turn &&
+    g.botPlayHistory[side]?.includes(hexBotPlayKey(g, side, uid, index))
+  );
+}
+function hexBotPlay(g, side, uid, index) {
+  const key = hexBotPlayKey(g, side, uid, index);
+  if (hexBotPlayRepeated(g, side, uid, index)) return false;
+  if (!hexPlay(g, side, uid, index)) return false;
+  if (g.botPlayHistory?.turn !== g.turn) g.botPlayHistory = { turn: g.turn, 0: [], 1: [] };
+  const history = g.botPlayHistory[side];
+  history.push(key);
+  if (history.length > 128) history.shift();
+  return true;
+}
+function hexAscendedView(g, side) {
+  const v = JSON.parse(JSON.stringify(g));
+  v.seed = 173;
+  v.fx = [];
+  v.log = [];
+  if (v.botPlayHistory) v.botPlayHistory[1 - side] = [];
+  v.context = {
+    opponentAI: "classic",
+    ...(g.context?.dailyModifiers
+      ? {
+          dailyModifiers: [...g.context.dailyModifiers],
+          dailyDay: g.context.dailyDay,
+        }
+      : {}),
+  };
+  for (const zone of ["hand", "deck"])
+    v.players[1 - side][zone] = g.players[1 - side][zone].map((_, i) => ({
+      id: "SA-002",
+      uid: "unknown-" + zone + "-" + i,
+      owner: 1 - side,
+      spent: {},
+    }));
+  v.players[side].deck.sort((a, b) => a.id.localeCompare(b.id) || a.uid.localeCompare(b.uid));
+  return v;
+}
+function hexAscendedValue(g, side) {
+  if (g.winner !== null) return g.winner === -1 ? 0 : g.winner === side ? 100000 : -100000;
+  const score = (p) => {
+    const pl = g.players[p];
+    let v = -pl.losses * 24 + pl.hand.length * 1.6 + Math.min(pl.deck.length, 5) * 0.15;
+    for (const c of pl.board.filter(Boolean)) {
+      const stats = hexStats(g, c),
+        power = HEX_CARD_ABILITY_POWER[hexNum(c)] || 0;
+      v += 9 + stats.attack * 2.3 + c.hp * 0.8 + (c.shield || 0) * 0.55 + power;
+      if (hexReady(g, c)) v += 1.3;
+      if (c.stunUntil >= g.turn) v -= 2.5;
+      if (c.burn) v -= Math.min(2, c.hp);
+      if (c.eq) v += 2;
+      const front = c.slot < hexColumns(g),
+        rear = front && pl.board[c.slot + hexColumns(g)];
+      if (rear) {
+        const guard = c.hp + (c.shield || 0),
+          fragile = rear.hp + (rear.shield || 0);
+        v +=
+          2 +
+          Math.min(6, guard * 0.8) +
+          Math.max(0, guard - fragile) * 1.1 +
+          (rear.hp <= 2 ? 5 : 0) -
+          Math.max(0, fragile - guard) * 0.9;
+      }
+      if (!front && !pl.board[c.slot - hexColumns(g)] && c.hp <= 2) v -= 5;
+      v += Math.min(3, hexWardRemaining(c));
+    }
+    v += pl.artifacts
+      .filter(Boolean)
+      .reduce((n, c) => n + 2 + (HEX_SUPPORT_POWER[hexNum(c)] || 0), 0);
+    return v;
+  };
+  return score(side) - score(1 - side);
+}
+function hexAscendedActions(g, side) {
+  if (g.winner !== null) return [];
+  if (g.choice)
+    return g.choice.player === side
+      ? g.choice.options.map((o, index) => ({
+          kind: "choice",
+          index,
+          hint: hexBotChoiceScore(g, o),
+        }))
+      : [];
+  const frame = g.stack.at(-1);
+  if (frame) {
+    if (frame.priority !== side) return [];
+    return [
+      { kind: "pass", hint: 0 },
+      ...hexReactionCards(g, side).flatMap((c) =>
+        hexSpecialOptions(g, side, c, frame).map((o, index) => ({
+          kind: "play",
+          uid: c.uid,
+          index,
+          hint: 4,
+        })),
+      ),
+    ];
+  }
+  if (g.active !== side || g.phase === "opening") return [];
+  const forced =
+    g.phase === "combat" &&
+    g.players[side].board.some(
+      (c) => c && hexElderNum(c) === 13 && hexReady(g, c) && hexLegalTargets(g, c).length,
+    );
+  const out = forced ? [] : [{ kind: "next", hint: -1 }];
+  if (["pre", "post"].includes(g.phase)) {
+    for (const c of g.players[side].hand) {
+      if (hexIsReaction(c)) continue;
+      for (const [index, o] of hexPlayOptions(g, side, c).entries())
+        if (
+          !hexBotPlayRepeated(g, side, c.uid, index) &&
+          (hexArcanaNum(c) !== 5 || hexCanUseQuicken(g, side, hexFind(g, o.target)))
+        )
+          out.push({
+            kind: "play",
+            uid: c.uid,
+            index,
+            hint: hexType(c, "Spell") ? hexArcanaBotScore(g, side, c, o) : hexBotCardValue(g, c),
+          });
+    }
+  }
+  if (["pre", "combat", "post"].includes(g.phase))
+    for (const [index, o] of hexActiveOptions(g, side).entries())
+      if (o.task.kind !== "discardArtifact")
+        out.push({ kind: "active", index, hint: hexBotChoiceScore(g, o) });
+  if (g.phase === "combat")
+    for (const a of g.players[side].board.filter((c) => c && hexReady(g, c)))
+      for (const t of hexLegalTargets(g, a))
+        out.push({
+          kind: "attack",
+          attacker: a.uid,
+          target: t.uid,
+          hint: hexStats(g, a).attack >= t.hp + (t.shield || 0) ? 10 : 0,
+        });
+  const ranked = out.sort((a, b) => b.hint - a.hint),
+    next = out.find((a) => a.kind === "next");
+  return ranked.length <= 64
+    ? ranked
+    : [...ranked.filter((a) => a !== next).slice(0, next ? 63 : 64), ...(next ? [next] : [])];
+}
+function hexAscendedApply(g, side, a) {
+  switch (a.kind) {
+    case "choice":
+      return hexChoose(g, side, a.index);
+    case "pass":
+      return hexPass(g, side);
+    case "play":
+      return hexBotPlay(g, side, a.uid, a.index);
+    case "active":
+      return hexActivate(g, side, a.index);
+    case "attack":
+      return hexDeclare(g, side, a.attacker, a.target);
+    case "next":
+      return hexNext(g, side);
+  }
+  return false;
+}
+function hexAscendedSettle(g) {
+  for (let i = 0; i < 40 && g.winner === null; i++) {
+    if (g.choice) {
+      const scores = g.choice.options.map((o) => hexBotChoiceScore(g, o));
+      hexChoose(g, g.choice.player, scores.indexOf(Math.max(...scores)));
+    } else if (g.stack.length) hexPass(g, g.stack.at(-1).priority);
+    else if (g.tasks.length) hexPump(g);
+    else break;
+  }
+}
+function hexAscendedSimulate(g, side, a) {
+  const v = JSON.parse(JSON.stringify(g));
+  if (!hexAscendedApply(v, side, a)) return null;
+  hexAscendedSettle(v);
+  v.fx = [];
+  v.log = [];
+  return v;
+}
+function hexAscendedPlan(g, side = 1) {
+  const visible = hexAscendedView(g, side),
+    actions = hexAscendedActions(visible, side);
+  let budget = 180;
+  const scored = actions
+    .map((action) => {
+      const state = hexAscendedSimulate(visible, side, action);
+      budget--;
+      return {
+        action,
+        state,
+        score: state ? hexAscendedValue(state, side) : -Infinity,
+      };
+    })
+    .sort((a, b) => b.score - a.score);
+  for (const entry of scored.slice(0, 4)) {
+    if (!entry.state || entry.state.winner !== null) continue;
+    let continuation = entry.score;
+    for (const next of hexAscendedActions(entry.state, side)) {
+      if (budget-- <= 0) break;
+      const state = hexAscendedSimulate(entry.state, side, next);
+      if (state) continuation = Math.max(continuation, hexAscendedValue(state, side));
+    }
+    entry.score = continuation;
+  }
+  // When combat ends, assess the opponent's strongest public counterattack instead of feeding a free kill.
+  for (const entry of scored) {
+    const state = entry.state;
+    if (!state || state.winner !== null || state.phase !== "post") continue;
+    const enemy = 1 - side;
+    let threat = 0;
+    for (const a of state.players[enemy].board.filter(Boolean))
+      for (const t of hexLegalTargets(state, a)) {
+        const atk = hexStats(state, a).attack,
+          ret = hexStats(state, t).attack;
+        const kill = atk >= t.hp + (t.shield || 0),
+          dies = ret >= a.hp + (a.shield || 0);
+        threat = Math.max(threat, (kill ? 12 : 0) - (dies ? 10 : 0));
+      }
+    entry.score -= threat * 0.35;
+  }
+  scored.sort((a, b) => b.score - a.score);
+  return (
+    scored.find(
+      (entry) =>
+        entry.action.kind !== "attack" ||
+        hexAttackWorthwhile(g, side, entry.action.attacker, entry.action.target),
+    )?.action ||
+    scored.find((entry) => entry.state && entry.action.kind === "attack")?.action ||
+    null
+  );
+}
+function hexAscendedStep(g, side = 1) {
+  if (g.winner !== null) return false;
+  const action = hexAscendedPlan(g, side);
+  return action ? hexAscendedApply(g, side, action) : false;
+}
+function hexEndTurnPreview(g, side) {
+  const end = JSON.parse(JSON.stringify(g));
+  end.active = side;
+  if (end.phase === "combat") {
+    hexNext(end, side);
+    hexAscendedSettle(end);
+  }
+  if (end.winner === null && end.phase === "post") {
+    hexNext(end, side);
+    hexAscendedSettle(end);
+  }
+  return end;
+}
 /* Shared combat safety: Classic keeps its policy but no longer commits known losing attacks. */
-function hexPostCombatRescue(g,side,depth=2,budget={left:32}){if(g.winner!==null)return g.winner!==1-side;const end=hexEndTurnPreview(g,side);if(end.winner!==1-side)return true;if(depth<=0||budget.left<=0)return false;const post=JSON.parse(JSON.stringify(g));post.active=side;if(post.phase==='combat'){hexNext(post,side);hexAscendedSettle(post);}if(post.winner!==null)return post.winner!==1-side;post.phase='post';for(const action of hexAscendedActions(post,side).filter(a=>a.kind==='play'||a.kind==='active')){if(budget.left--<=0)break;const state=hexAscendedSimulate(post,side,action);if(!state||state.winner===1-side)continue;if(state.winner===side||hexPostCombatRescue(state,side,depth-1,budget))return true;}return false;}
-function hexAttackWouldLose(g,side){if(g.winner!==null)return g.winner===1-side;const end=hexEndTurnPreview(g,side);return end.winner===1-side&&!hexPostCombatRescue(g,side);}
-function hexAttackWorthwhile(g,side,attacker,target){const visible=hexAscendedView(g,side),before=hexAscendedValue(visible,side),after=hexAscendedSimulate(visible,side,{kind:'attack',attacker,target});if(!after||hexAttackWouldLose(after,side))return false;if(after.winner!==null)return after.winner===side||after.winner===-1&&before<=0;
- const gain=hexAscendedValue(after,side)-before+1.3;if(gain>=-.01)return true;
- // A sacrifice can be worthwhile when it exposes a rear creature for another ready attacker.
- let budget=24;for(const ally of after.players[side].board.filter(c=>c&&hexReady(after,c)))for(const enemy of hexLegalTargets(after,ally)){if(budget--<=0)return false;const follow=hexAscendedSimulate(after,side,{kind:'attack',attacker:ally.uid,target:enemy.uid});if(follow&&!hexAttackWouldLose(follow,side)&&(follow.winner===side||hexAscendedValue(follow,side)-before+2.6>=0))return true;}return false;}
+function hexPostCombatRescue(g, side, depth = 2, budget = { left: 32 }) {
+  if (g.winner !== null) return g.winner !== 1 - side;
+  const end = hexEndTurnPreview(g, side);
+  if (end.winner !== 1 - side) return true;
+  if (depth <= 0 || budget.left <= 0) return false;
+  const post = JSON.parse(JSON.stringify(g));
+  post.active = side;
+  if (post.phase === "combat") {
+    hexNext(post, side);
+    hexAscendedSettle(post);
+  }
+  if (post.winner !== null) return post.winner !== 1 - side;
+  post.phase = "post";
+  for (const action of hexAscendedActions(post, side).filter(
+    (a) => a.kind === "play" || a.kind === "active",
+  )) {
+    if (budget.left-- <= 0) break;
+    const state = hexAscendedSimulate(post, side, action);
+    if (!state || state.winner === 1 - side) continue;
+    if (state.winner === side || hexPostCombatRescue(state, side, depth - 1, budget)) return true;
+  }
+  return false;
+}
+function hexAttackWouldLose(g, side) {
+  if (g.winner !== null) return g.winner === 1 - side;
+  const end = hexEndTurnPreview(g, side);
+  return end.winner === 1 - side && !hexPostCombatRescue(g, side);
+}
+function hexAttackWorthwhile(g, side, attacker, target) {
+  const visible = hexAscendedView(g, side),
+    before = hexAscendedValue(visible, side),
+    after = hexAscendedSimulate(visible, side, {
+      kind: "attack",
+      attacker,
+      target,
+    });
+  if (!after || hexAttackWouldLose(after, side)) return false;
+  if (after.winner !== null) return after.winner === side || (after.winner === -1 && before <= 0);
+  const gain = hexAscendedValue(after, side) - before + 1.3;
+  if (gain >= -0.01) return true;
+  // A sacrifice can be worthwhile when it exposes a rear creature for another ready attacker.
+  let budget = 24;
+  for (const ally of after.players[side].board.filter((c) => c && hexReady(after, c)))
+    for (const enemy of hexLegalTargets(after, ally)) {
+      if (budget-- <= 0) return false;
+      const follow = hexAscendedSimulate(after, side, {
+        kind: "attack",
+        attacker: ally.uid,
+        target: enemy.uid,
+      });
+      if (
+        follow &&
+        !hexAttackWouldLose(follow, side) &&
+        (follow.winner === side || hexAscendedValue(follow, side) - before + 2.6 >= 0)
+      )
+        return true;
+    }
+  return false;
+}
