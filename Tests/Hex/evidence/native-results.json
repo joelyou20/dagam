@@ -1552,6 +1552,6 @@
       "winner": 1.0
     }
   ],
-  "regression_tests": 11.0,
-  "played_and_resolved": 160
+  "played_and_resolved": 160,
+  "regression_tests": 11.0
 }
