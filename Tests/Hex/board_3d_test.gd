@@ -2,24 +2,23 @@ extends SceneTree
 var game
 var checks := 0
 
-
 func _initialize():
 	call_deferred("run")
-
 
 func check(ok: bool, message: String) -> bool:
 	if not ok:
 		push_error(message)
 		quit(1)
-		return false
-	checks += 1
-	return true
 
+		return false
+
+	checks += 1
+
+	return true
 
 func frames():
 	await process_frame
 	await process_frame
-
 
 func run():
 	game = load("res://Scenes/Hex/HexBattle.tscn").instantiate()
@@ -31,6 +30,7 @@ func run():
 	game._command({"op": "coin", "call": "heads"})
 	game._command({"op": "first", "side": 0 if game.engine.state.coin.winner == 0 else 1})
 	await frames()
+
 	if not check(
 		(
 			game.stage.viewport.size.x >= game.stage.size.x * 1.49
@@ -39,68 +39,90 @@ func run():
 		"3D viewport must supersample the displayed resolution"
 	):
 		return
+
 	if not check(
 		game.stage.position == Vector2.ZERO and game.stage.size == game.size,
 		"Battlefield must fill the window behind the hand"
 	):
 		return
+
 	if not check(
 		game.stage.camera.position.y > 0 and game.stage.camera.position.z > 0,
 		"Camera must be angled above the board"
 	):
 		return
+
 	for pile in game.pile_controls.values():
 		if not check(
 			not pile.get_global_rect().intersects(game.controls.get_parent().get_global_rect()),
 			"Turn button covers a pile"
 		):
 			return
+
 		if not check(
 			is_equal_approx(pile.size.y / pile.size.x, 1.5), "Piles must keep portrait proportions"
 		):
 			return
+
 		var count = pile.get_children().filter(func(n): return n is Label)
+
 		if not check(
 			count.size() == 1 and count[0].text.is_valid_int(),
 			"Pile label must show only the count"
 		):
 			return
+
 		var edge = game.stage.project(
 			Vector3(6.95, 0.4, -2.8 if pile.get_meta("side") == 1 else 2.8)
 		)
+
 		if not check(pile.position.x > edge.x, "Pile is still inside the stone battlefield"):
 			return
+
 	game.pile_controls["0-deck"].pressed.emit()
+
 	if not check(game.modal != null, "Relocated deck does not open its viewer"):
 		return
+
 	game._close()
 	var draws = game.overlay.get_children().filter(
 		func(n): return n is TextureRect and n != game.inspection
 	)
+
 	if not check(draws.size() == 5, "Opening hand must animate five cards from deck"):
 		return
+
 	await create_timer(0.7).timeout
+
 	if not check(
 		draws.all(func(n): return not is_instance_valid(n)), "Draw ghosts were not cleaned up"
 	):
 		return
+
 	for side in [0, 1]:
 		for slot in range(6):
 			var rect = game.stage.slot_rect(side, slot)
+
 			if not check(
 				Rect2(Vector2.ZERO, game.stage.size).encloses(rect),
 				"A creature slot lies outside the camera frame"
 			):
 				return
+
 	game._command({"op": "keep"})
+
 	for i in range(50):
 		if not game._ai_can_act():
 			break
+
 		game.ai_timer.stop()
 		game._ai_tick()
+
 	var played = {}
+
 	for card in game.engine.state.players[0].hand:
 		var options: Array = game.engine.state.handOptions.get(card.uid, [])
+
 		if game._def(card.id).card_type == "Creature" and not options.is_empty():
 			played = card
 			game._drop(
@@ -108,148 +130,195 @@ func run():
 				{"zone": "board", "side": 0, "slot": options[0].slot}
 			)
 			break
+
 	if not check(not played.is_empty(), "No creature could be placed by drag destination"):
 		return
+
 	var node = game.stage.find_piece(played.uid)
+
 	if not check(
 		node != null and node.get_node("Visual/Art").mesh is ArrayMesh,
 		"Played creature must become a textured 3D card"
 	):
 		return
+
 	await create_timer(0.6).timeout
+
 	if not check(
 		node.position.is_equal_approx(node.get_meta("home")),
 		"Card placement did not settle on its slot"
 	):
 		return
+
 	if not check(
 		node.get_children().all(func(n): return not n is Label3D),
 		"Card names/stats must not be rasterized as world-space labels"
 	):
 		return
+
 	if not check(game.stat_badges.has(played.uid), "Crisp combat stats missing"):
 		return
+
 	var badges = game.stat_badges[played.uid]
+
 	if not check(
 		badges.get_node("Attack") is PanelContainer and badges.get_node("Health") is PanelContainer,
 		"Attack/health circles missing"
 	):
 		return
+
 	if not check(
 		node.get_node("Shadow").material_override is ShaderMaterial, "Card contact shadow missing"
 	):
 		return
+
 	var hit = game.positions[played.uid]
+
 	if not check(
 		hit._has_point(hit.size / 2) and not hit._has_point(Vector2(1, 1)),
 		"Hex targeting includes rectangular corners"
 	):
 		return
+
 	var vertices = node.get_node("Visual/Art").mesh.surface_get_arrays(0)[Mesh.ARRAY_VERTEX]
+
 	if not check(
 		(vertices[1] - vertices[0]).cross(vertices[2] - vertices[0]).y < 0,
 		"Hex art must use Godot clockwise front faces"
 	):
 		return
+
 	var saved_home = node.position
+
 	node.set_meta("ready", true)
 	game.stage._process(0.2)
 	var first_height = node.get_node("Visual").position.y
+
 	game.stage._process(0.4)
+
 	if not check(
 		node.get_node("Visual").position.y != first_height and node.position == saved_home,
 		"Hover must animate independently of placement/attack position"
 	):
 		return
+
 	node.set_meta("ready", false)
 	game.stage._process(1.0)
+
 	if not check(
 		is_zero_approx(node.get_node("Visual").position.y), "Spent creature did not settle"
 	):
 		return
+
 	game._inspect(played)
+
 	if not check(
 		game.inspection is TextureRect and game.inspection.get_child_count() == 0,
 		"Hover must show only the card"
 	):
 		return
+
 	if not check(
 		game.inspection.texture.get_width() == 1024 and game.inspection.size.y >= game.size.y * 0.7,
 		"Hover card must be large and use HD artwork"
 	):
 		return
+
 	game.inspection.visible = false
+
 	if DisplayServer.get_name() != "headless":
 		await create_timer(1.2).timeout
 		root.get_texture().get_image().save_png("user://hex-3d-board.png")
+
 	var serial = game.engine.state.players[0].board.filter(func(c): return c != null).size()
+
 	game.stage.effects(
 		[
 			{"kind": "damage", "uid": played.uid, "amount": 2},
 			{"kind": "heal", "uid": played.uid, "amount": 1}
 		]
 	)
+
 	if not check(
 		game.overlay.get_children().filter(func(n): return n.has_meta("damage_number")).size() == 2,
 		"Damage and healing should display together"
 	):
 		return
+
 	await create_timer(0.9).timeout
+
 	if not check(
 		game.overlay.get_children().filter(func(n): return n.has_meta("damage_number")).is_empty(),
 		"Floating damage labels leaked"
 	):
 		return
+
 	if not check(
 		game.engine.state.players[0].board.filter(func(c): return c != null).size() == serial,
 		"Presentation changed authoritative game state"
 	):
 		return
+
 	var old_size = root.size
+
 	for dimensions in [Vector2i(1920, 1080), Vector2i(1280, 720)]:
 		root.size = dimensions
 		await frames()
+
 		if not check(
 			game.stage.size == game.size, "Resizing introduced a reserved battlefield gap"
 		):
 			return
+
 		if not check(
 			game.stage.viewport.size.x >= game.stage.size.x * 1.49,
 			"Resizing reduced render quality"
 		):
 			return
+
 		game._inspect(played)
+
 		if not check(
 			Rect2(Vector2.ZERO, game.size).encloses(game.inspection.get_rect()),
 			"Hover card leaves resized window"
 		):
 			return
+
 	root.size = old_size
 	await frames()
 	var image_state = game.engine.state.duplicate(true)
+
 	for slot in range(6):
 		if (
 			image_state.players[0].board[slot] != null
 			and image_state.players[0].board[slot].uid == played.uid
 		):
 			image_state.players[0].board[slot] = null
+
 	var retiring = game.stage.find_piece(played.uid)
+
 	game.stage.sync(image_state)
 	await create_timer(0.83).timeout
+
 	if not check(
 		is_instance_valid(retiring) and retiring.get_node("Visual/Art").transparency > 0,
 		"Nested hex art did not fade on removal"
 	):
 		return
+
 	await create_timer(0.3).timeout
+
 	if not check(not is_instance_valid(retiring), "Removed hex portrait leaked"):
 		return
+
 	game.set_battle_active(false)
+
 	if not check(
 		game.stage.viewport.render_target_update_mode == SubViewport.UPDATE_DISABLED,
 		"Hidden arena must stop rendering"
 	):
 		return
+
 	print("3D board, draw, placement, targeting and effect checks passed: ", checks)
 	game.queue_free()
 	await create_timer(0.5).timeout

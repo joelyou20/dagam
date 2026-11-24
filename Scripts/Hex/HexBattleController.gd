@@ -36,7 +36,6 @@ var piles_layer: Control
 var opening: Control
 var hint_tween: Tween
 
-
 func _ready() -> void:
 	visual_effects = preload("res://Scripts/Hex/HexBattleEffects.gd").new(self)
 	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
@@ -47,7 +46,6 @@ func _ready() -> void:
 	resized.connect(_resize_battle)
 	_resize_battle.call_deferred()
 
-
 func set_battle_active(active: bool) -> void:
 	if not active:
 		paused = true
@@ -57,14 +55,20 @@ func set_battle_active(active: bool) -> void:
 		music.stop()
 		stage.set_active(false)
 		opening.dismiss()
+
 		return
+
 	if not HexManager.ensure_match():
 		_error(engine.last_error)
+
 		return
+
 	paused = false
 	stage.set_active(true)
+
 	for c in engine.catalog.cards:
 		definitions[c.id] = c
+
 	notice.text = (
 		("Encounter · " + str(HexManager.encounter_metadata().get("name", "Enemy")))
 		if HexManager.is_encounter()
@@ -72,47 +76,52 @@ func set_battle_active(active: bool) -> void:
 	)
 	_refresh()
 	_schedule_ai()
+
 	if engine.state.get("winner") == null and music.stream != null:
 		music.play()
 
-
 func _button(parent: Node, text: String, callback: Callable) -> Button:
 	var b := Button.new()
+
 	b.text = text
 	b.custom_minimum_size.y = 34
 	parent.add_child(b)
 	b.pressed.connect(callback)
+
 	if text in ["Begin combat", "Finish combat", "End turn", "Return to world"]:
 		b.custom_minimum_size = Vector2(172, 76)
 		var style = StyleBoxFlat.new()
+
 		style.bg_color = Color("3c715e")
 		style.border_color = Color("e7ce91")
 		style.set_border_width_all(3)
 		style.set_corner_radius_all(36)
 		b.add_theme_stylebox_override("normal", style)
 		b.add_theme_font_size_override("font_size", 19)
-	return b
 
+	return b
 
 func _text(parent: Node, text: String) -> Label:
 	var label := Label.new()
+
 	label.text = text
 	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	label.custom_minimum_size.x = 160
 	parent.add_child(label)
-	return label
 
+	return label
 
 func _clear(node: Node) -> void:
 	for child in node.get_children():
 		node.remove_child(child)
 		child.queue_free()
 
-
 func _layout() -> void:
 	var app_theme = Theme.new()
+
 	app_theme.default_font_size = 16
 	var normal = StyleBoxFlat.new()
+
 	normal.bg_color = Color("203635")
 	normal.border_color = Color("9eae89")
 	normal.set_border_width_all(1)
@@ -123,11 +132,13 @@ func _layout() -> void:
 	normal.content_margin_bottom = 6
 	app_theme.set_stylebox("normal", "Button", normal)
 	var hover = normal.duplicate()
+
 	hover.bg_color = Color("3e6152")
 	hover.border_color = Color("f4db9d")
 	app_theme.set_stylebox("hover", "Button", hover)
 	app_theme.set_stylebox("pressed", "Button", hover)
 	var panel_style = StyleBoxFlat.new()
+
 	panel_style.bg_color = Color(0.06, 0.13, 0.13, 0.94)
 	panel_style.border_color = Color("6e8a74")
 	panel_style.set_border_width_all(1)
@@ -139,6 +150,7 @@ func _layout() -> void:
 	app_theme.set_stylebox("panel", "PanelContainer", panel_style)
 	theme = app_theme
 	var background = ColorRect.new()
+
 	background.color = Color("101e20")
 	background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	background.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -158,6 +170,7 @@ func _layout() -> void:
 	add_child(piles_layer)
 	stage.impact.connect(_damage_number)
 	var menu_button = MenuButton.new()
+
 	menu_button.text = "☰"
 	menu_button.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_RIGHT)
 	menu_button.position = Vector2(-60, -55)
@@ -165,8 +178,10 @@ func _layout() -> void:
 	add_child(menu_button)
 	menu_button.tooltip_text = "Battle options"
 	utility_menu = menu_button.get_popup()
+
 	for label in ["Battle deck", "Battle log", "New battle", "Concede", "Sound", "Leave battle"]:
 		utility_menu.add_item(label)
+
 	utility_menu.id_pressed.connect(_utility_action)
 	subtitle = Label.new()
 	subtitle.set_anchors_and_offsets_preset(Control.PRESET_CENTER_TOP)
@@ -185,6 +200,7 @@ func _layout() -> void:
 	player_summary.position = Vector2(20, -40)
 	add_child(player_summary)
 	var turn_panel = PanelContainer.new()
+
 	turn_panel.set_anchors_and_offsets_preset(Control.PRESET_CENTER_RIGHT)
 	turn_panel.position = Vector2(-202, -45)
 	turn_panel.size = Vector2(184, 90)
@@ -194,6 +210,7 @@ func _layout() -> void:
 	controls.add_theme_constant_override("separation", 8)
 	turn_panel.add_child(controls)
 	var hand_scroll = ScrollContainer.new()
+
 	hand_scroller = hand_scroll
 	hand_scroll.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
 	hand_scroll.offset_left = 200
@@ -236,9 +253,11 @@ func _layout() -> void:
 	music = AudioStreamPlayer.new()
 	music.volume_db = -24
 	add_child(music)
+
 	if ResourceLoader.exists("res://Assets/Hex/battle.mp3"):
 		music.stream = load("res://Assets/Hex/battle.mp3")
 		music.finished.connect(func(): music.play())
+
 	effect_sound = AudioStreamPlayer.new()
 	add_child(effect_sound)
 	ai_timer = Timer.new()
@@ -247,40 +266,46 @@ func _layout() -> void:
 	ai_timer.timeout.connect(_ai_tick)
 	add_child(ai_timer)
 
-
 func _def(id: String) -> Dictionary:
 	return definitions.get(id.replace("-FA", "").replace("-IR", ""), {})
-
 
 func _inspect(c: Dictionary) -> void:
 	if c.is_empty():
 		return
+
 	inspection.texture = Card.art(c.id)
 	var height = clampf(size.y * 0.76, 300, 760)
+
 	inspection.size = Vector2(height * 2.0 / 3.0, height)
 	var source = positions.get(c.get("uid", ""))
 	var point = get_local_mouse_position()
+
 	if is_instance_valid(source):
 		point = source.get_global_rect().get_center() - global_position
+
 	var x = point.x + 65 if point.x < size.x * 0.58 else point.x - inspection.size.x - 65
+
 	inspection.position = Vector2(
 		clampf(x, 12, size.x - inspection.size.x - 12),
 		clampf(point.y - height * 0.5, 12, size.y - height - 12)
 	)
 	inspection.visible = true
 
-
 func _card(parent: Node, c, dest: Dictionary, size := board_card_size, glow := false):
 	var button = Card.new()
+
 	parent.add_child(button)
 	var display: Dictionary = c.duplicate() if c != null else {}
+
 	if c != null:
 		display["display_name"] = _def(c.id).get("name", c.id)
+
 	button.configure(display, dest, size, glow)
 	button.inspect.connect(_inspect)
 	button.mouse_exited.connect(func(): inspection.visible = false)
 	button.picked.connect(func(value): _clicked(value, dest))
 	button.dropped.connect(_drop)
+
 	if c != null:
 		button.draggable = (
 			dest.get("zone", "") == "hand" or (c.get("owner", -1) == 0 and c.get("ready", false))
@@ -288,13 +313,15 @@ func _card(parent: Node, c, dest: Dictionary, size := board_card_size, glow := f
 		button.is_attacker = dest.get("zone", "") == "board"
 		button.tooltip_text = ""
 		positions[c.uid] = button
-	return button
 
+	return button
 
 func _refresh() -> void:
 	var g: Dictionary = engine.state
+
 	if g.is_empty():
 		return
+
 	new_game_button.disabled = HexManager.is_encounter()
 	utility_menu.set_item_disabled(2, HexManager.is_encounter())
 	_clear(board)
@@ -306,19 +333,26 @@ func _refresh() -> void:
 	positions = {}
 	subtitle.text = "Turn %d" % g.turn
 	var display = g.duplicate(true)
+
 	for side in [0, 1]:
 		for c in display.players[side].board + display.players[side].artifacts:
 			if c != null:
 				c["display_name"] = _def(c.id).get("name", c.id)
+
 	if display.field != null:
 		display.field["display_name"] = _def(display.field.id).get("name", display.field.id)
+
 	stage.sync(display)
+
 	for side in [1, 0]:
 		var p: Dictionary = g.players[side]
 		var summary = enemy_summary if side == 1 else player_summary
+
 		summary.text = ("OPPONENT" if side == 1 else "YOU") + "   %d / 6" % p.losses
+
 		for zone in ["board", "artifact"]:
 			var cards = p.board if zone == "board" else p.artifacts
+
 			for slot in range(cards.size()):
 				var rect = stage.slot_rect(side, slot, zone)
 				var button = _card(
@@ -327,19 +361,25 @@ func _refresh() -> void:
 					{"zone": zone, "side": side, "slot": slot, "accept": true},
 					Vector2.ZERO
 				)
+
 				button.position = rect.position
 				button.size = rect.size
 				button.modulate.a = 0
+
 				if cards[slot] != null and cards[slot].has("hp"):
 					_stat_badge(cards[slot], rect)
+
 		for zone in ["deck", "discard"]:
 			_pile_control(side, zone, p)
+
 		if not p.exile.is_empty():
 			var removed = _button(
 				piles_layer, "Removed · %d" % p.exile.size(), func(): _pile(side, "exile")
 			)
 			var place = _pile_rect(side, "deck")
+
 			removed.position = place.position + Vector2(0, place.size.y + 10)
+
 	var field_rect = stage.slot_rect(0, 0, "field")
 	var field = _button(
 		board,
@@ -348,9 +388,11 @@ func _refresh() -> void:
 			if g.field != null:
 				_inspect(g.field)
 	)
+
 	field.position = field_rect.position
 	field.size = field_rect.size
 	field.modulate.a = 0
+
 	for c in g.players[0].hand:
 		_card(hand, c, {"zone": "hand"}, hand_card_size)
 
@@ -358,16 +400,20 @@ func _refresh() -> void:
 	opening.sync(g if not paused else {})
 	_actions(g)
 	var key := "%s-%s-%s" % [g.tick, g.phase, g.winner]
+
 	if key != phase_shown:
 		phase_shown = key
+
 		if g.winner != null:
 			music.stop()
 			var track: String = (
 				"res://Assets/Hex/victory.mp3" if g.winner == 0 else "res://Assets/Hex/defeat.mp3"
 			)
+
 			if ResourceLoader.exists(track):
 				effect_sound.stream = load(track)
 				effect_sound.play()
+
 			_announce("Victory" if g.winner == 0 else "Defeat" if g.winner == 1 else "Draw", true)
 		elif g.phase in ["pre", "combat", "post"]:
 			_announce(
@@ -384,6 +430,7 @@ func _refresh() -> void:
 					}[g.phase]
 				)
 			)
+
 	if not paused and g.choice != null and g.choice.player == 0 and modal == null:
 		_options(g.choice.label, g.choice.options, "choice")
 	elif (
@@ -394,7 +441,6 @@ func _refresh() -> void:
 		and modal == null
 	):
 		_reaction(g.response)
-
 
 func _actions(g: Dictionary) -> void:
 	if paused:
@@ -407,15 +453,20 @@ func _actions(g: Dictionary) -> void:
 				_refresh()
 				_schedule_ai()
 		)
+
 		return
+
 	if g.winner != null:
 		_text(controls, "Victory" if g.winner == 0 else "Defeat" if g.winner == 1 else "Draw")
+
 		if g.reason == "emptyField":
 			_text(
 				controls, "A turn ended with no creatures while the opponent still had creatures."
 			)
+
 		if g.reason == "roundLimit":
 			_text(controls, "60 complete rounds reached.")
+
 		if HexManager.is_encounter():
 			_button(controls, "Return to world", func(): return_requested.emit())
 		else:
@@ -424,6 +475,7 @@ func _actions(g: Dictionary) -> void:
 		return
 	elif g.phase == "opening":
 		_button(controls, "Keep opening hand", func(): _command({"op": "keep"}))
+
 		if not g.players[0].mulligan:
 			_button(controls, "Redraw once", func(): _command({"op": "mulligan"}))
 	elif g.active == 0 and g.choice == null and g.response == null:
@@ -434,6 +486,7 @@ func _actions(g: Dictionary) -> void:
 			),
 			func(): _command({"op": "next"})
 		)
+
 		if not g.activeOptions.is_empty():
 			_button(
 				controls,
@@ -449,6 +502,7 @@ func _actions(g: Dictionary) -> void:
 				else "Choose a target"
 			)
 		)
+
 		if g.choice != null and g.choice.player == 0:
 			_button(
 				controls,
@@ -458,22 +512,28 @@ func _actions(g: Dictionary) -> void:
 		elif g.response != null and g.response.priority == 0:
 			_button(controls, "Respond", func(): _reaction(g.response))
 
-
 func _command(command: Dictionary) -> void:
 	if paused:
 		return
+
 	if command.op == "new":
 		ai_timer.stop()
 		visual_effects.clear_announcement()
+
 	var rects: Dictionary = {}
+
 	for uid in positions:
 		if is_instance_valid(positions[uid]):
 			rects[uid] = positions[uid].get_global_rect()
+
 	var result: Dictionary = HexManager.request(command)
+
 	if result.is_empty():
 		return
+
 	if not result.get("ok", true):
 		_hint("That action isn't available now.")
+
 	selected = ""
 	stage.select_attacker("", [])
 	HexManager.save_match()
@@ -482,53 +542,63 @@ func _command(command: Dictionary) -> void:
 	engine.request({"op": "ack"})
 	_schedule_ai()
 
-
 func _ai_can_act() -> bool:
 	if paused or engine.state.is_empty():
 		return false
+
 	var g: Dictionary = engine.state
+
 	if g.winner != null or g.phase in ["coin", "coinResult", "opening"]:
 		return false
+
 	var side = (
 		g.choice.player
 		if g.choice != null
 		else g.response.priority if g.response != null else g.active
 	)
-	return side == 1
 
+	return side == 1
 
 func _schedule_ai() -> void:
 	if _ai_can_act() and ai_timer.is_stopped():
 		ai_timer.start()
 
-
 func _ai_tick() -> void:
 	if not _ai_can_act():
 		return
+
 	var rects: Dictionary = {}
+
 	for uid in positions:
 		if is_instance_valid(positions[uid]):
 			rects[uid] = positions[uid].get_global_rect()
+
 	var result: Dictionary = HexManager.request({"op": "ai"})
+
 	if result.is_empty():
 		return
+
 	HexManager.save_match()
 	_refresh()
 	_effects(engine.state.get("fx", []), rects)
 	engine.request({"op": "ack"})
 	_schedule_ai()
 
-
 func _clicked(c: Dictionary, dest: Dictionary) -> void:
 	if not c.is_empty():
 		_inspect(c)
+
 	if paused or engine.state.get("winner") != null:
 		return
+
 	if dest.zone == "hand":
 		var options: Array = engine.state.handOptions.get(c.uid, [])
+
 		if options.is_empty():
 			_hint("This card cannot be played right now.")
+
 			return
+
 		_options("Play " + _def(c.id).get("name", c.id), options, "play", c.uid)
 	elif dest.zone == "board":
 		if dest.side == 0 and c.get("ready", false):
@@ -538,19 +608,22 @@ func _clicked(c: Dictionary, dest: Dictionary) -> void:
 		elif dest.side == 1 and not selected.is_empty():
 			_command({"op": "attack", "attacker": selected, "target": c.get("uid", "")})
 
-
 func _drop(data: Dictionary, dest: Dictionary) -> void:
 	if paused:
 		return
+
 	if data.kind == "attack" and dest.zone == "board" and dest.side == 1:
 		var c = engine.state.players[1].board[dest.slot]
+
 		if c != null:
 			_command({"op": "attack", "attacker": data.uid, "target": c.uid})
 	elif data.kind == "hand":
 		var options: Array = []
 		var target = ""
+
 		if dest.zone == "board" and engine.state.players[dest.side].board[dest.slot] != null:
 			target = engine.state.players[dest.side].board[dest.slot].uid
+
 		for o in engine.state.handOptions.get(data.uid, []):
 			if not target.is_empty() and o.get("target", "") == target:
 				options.append(o)
@@ -562,20 +635,22 @@ func _drop(data: Dictionary, dest: Dictionary) -> void:
 				var cards: Array = engine.state.players[0].hand.filter(
 					func(c): return c.uid == data.uid
 				)
+
 				if not cards.is_empty():
 					var d := _def(cards[0].id)
+
 					if (
 						(dest.zone == "board" and d.card_type == "Creature")
 						or (dest.zone == "artifact" and d.subtype == "Artifact")
 					):
 						options.append(o)
+
 		if options.size() == 1:
 			_command({"op": "play", "uid": data.uid, "index": options[0].index})
 		elif not options.is_empty():
 			_options("Choose effect", options, "play", data.uid)
 		else:
 			_hint("That isn't a legal target for this card.")
-
 
 func _window(title_text: String, size := Vector2i(780, 620)) -> VBoxContainer:
 	_close()
@@ -586,74 +661,94 @@ func _window(title_text: String, size := Vector2i(780, 620)) -> VBoxContainer:
 	add_child(modal)
 	modal.close_requested.connect(_close)
 	var margin := MarginContainer.new()
+
 	margin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+
 	for edge in ["left", "top", "right", "bottom"]:
 		margin.add_theme_constant_override("margin_" + edge, 16)
+
 	modal.add_child(margin)
 	var box := VBoxContainer.new()
+
 	margin.add_child(box)
 	var heading := _text(box, title_text)
+
 	heading.add_theme_font_size_override("font_size", 22)
 	modal.popup_centered()
-	return box
 
+	return box
 
 func _close() -> void:
 	if inspection != null:
 		inspection.visible = false
+
 	if modal != null:
 		modal.queue_free()
 		modal = null
 
-
 func _options(title_text: String, options: Array, op: String, uid := "") -> void:
 	var box := _window(title_text)
 	var scroll := ScrollContainer.new()
+
 	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	box.add_child(scroll)
 	var grid := GridContainer.new()
+
 	grid.columns = 3
 	grid.add_theme_constant_override("h_separation", 12)
 	grid.add_theme_constant_override("v_separation", 12)
 	scroll.add_child(grid)
+
 	for o in options:
 		var column := VBoxContainer.new()
+
 		column.custom_minimum_size.x = 225
 		grid.add_child(column)
+
 		if o.get("card") != null:
 			var c: Dictionary = o.card
 			var owner := _text(column, "YOUR CARD" if c.owner == 0 else "ENEMY'S CARD")
+
 			owner.add_theme_color_override(
 				"font_color", Color("9ac8ff") if c.owner == 0 else Color("f1a0ac")
 			)
 			var image = Card.new()
+
 			column.add_child(image)
 			image.configure(c, {}, Vector2(150, 205))
 			image.inspect.connect(_inspect)
+
 		var b := _button(
 			column,
 			o.label,
 			func():
 				var command := {"op": op, "index": o.index}
+
 				if not uid.is_empty():
 					command.uid = uid
+
 				_close()
 				_command(command)
 		)
+
 		b.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		b.custom_minimum_size.y = 54
-	_button(box, "Close" if op != "choice" else "Return to board", _close)
 
+	_button(box, "Close" if op != "choice" else "Return to board", _close)
 
 func _reaction(response: Dictionary) -> void:
 	var box := _window("Respond to opponent's card", Vector2i(760, 550))
 	var row := HBoxContainer.new()
+
 	row.alignment = BoxContainer.ALIGNMENT_CENTER
 	box.add_child(row)
+
 	if response.trigger != null:
 		_card(row, response.trigger, {"zone": "inspect"}, Vector2(190, 270))
+
 	for c in response.reactions:
 		var column := VBoxContainer.new()
+
 		row.add_child(column)
 		_card(column, c, {"zone": "inspect"}, Vector2(180, 260))
 		_button(
@@ -663,6 +758,7 @@ func _reaction(response: Dictionary) -> void:
 				_close()
 				_options("Choose response", engine.state.handOptions.get(c.uid, []), "play", c.uid)
 		)
+
 	_button(
 		box,
 		"Skip response",
@@ -671,38 +767,43 @@ func _reaction(response: Dictionary) -> void:
 			_command({"op": "pass"})
 	)
 
-
 func _gallery(title_text: String, cards: Array) -> void:
 	var box := _window(title_text, Vector2i(900, 700))
 	var scroll := ScrollContainer.new()
+
 	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	box.add_child(scroll)
 	var grid := GridContainer.new()
+
 	grid.columns = 4
 	grid.add_theme_constant_override("h_separation", 12)
 	grid.add_theme_constant_override("v_separation", 12)
 	scroll.add_child(grid)
+
 	for c in cards:
 		_card(grid, c, {"zone": "inspect"}, Vector2(190, 270))
+
 	if cards.is_empty():
 		_text(grid, "No cards here.")
-	_button(box, "Close", _close)
 
+	_button(box, "Close", _close)
 
 func _pile(side: int, zone: String) -> void:
 	if zone == "deck":
 		if side == 1:
 			_hint("The opponent's deck is hidden.")
+
 			return
+
 		var saved: Dictionary = engine.request({"op": "save"})
 		var cards: Array = saved.game.players[0].deck.duplicate()
+
 		cards.sort_custom(
 			func(a, b): return _def(a.id).get("name", a.id) < _def(b.id).get("name", b.id)
 		)
 		_gallery("Your deck · unordered", cards)
 	else:
 		_gallery(("Your " if side == 0 else "Enemy ") + zone, engine.state.players[side][zone])
-
 
 func _starter() -> void:
 	if not engine.catalog.is_empty():
@@ -713,33 +814,37 @@ func _starter() -> void:
 			)
 		)
 
-
 func _log() -> void:
 	var box := _window("Battle log")
 	var log := RichTextLabel.new()
+
 	log.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	log.text = "\n".join(engine.state.get("log", []))
 	box.add_child(log)
 	_button(box, "Close", _close)
 
-
 func _new_game() -> void:
 	if HexManager.is_encounter():
 		return
+
 	var box := _window("New Standard battle", Vector2i(640, 380))
+
 	_text(
 		box,
 		"Your selected deck is ready. Select an opponent. Starting replaces the current saved match."
 	)
 	var select := OptionButton.new()
+
 	for enemy in engine.catalog.get("enemies", []):
 		select.add_item(enemy.name + " · " + enemy.rank)
+
 	box.add_child(select)
 	_button(
 		box,
 		"Start game",
 		func():
 			var enemy_id: String = engine.catalog.enemies[select.selected].id
+
 			_close()
 			paused = false
 			_command(
@@ -748,9 +853,9 @@ func _new_game() -> void:
 	)
 	_button(box, "Cancel", _close)
 
-
 func _concede() -> void:
 	var box := _window("Concede this game?", Vector2i(480, 300))
+
 	_button(
 		box,
 		"Concede",
@@ -759,7 +864,6 @@ func _concede() -> void:
 			_command({"op": "concede"})
 	)
 	_button(box, "Keep playing", _close)
-
 
 func _pause() -> void:
 	paused = true
@@ -771,43 +875,47 @@ func _pause() -> void:
 	)
 	_refresh()
 
-
 func _error(message: String) -> void:
 	paused = true
+
 	if notice != null:
 		_hint(message)
-	push_error(message)
 
+	push_error(message)
 
 func _exit_tree() -> void:
 	paused = true
+
 	if is_instance_valid(music):
 		music.stop()
 		music.stream = null
+
 	if is_instance_valid(effect_sound):
 		effect_sound.stop()
 		effect_sound.stream = null
 
-
 func _resize_battle() -> void:
 	if not is_instance_valid(hand_scroller):
 		return
+
 	var h = clampf(size.y * 0.23, 135, 240)
+
 	hand_scroller.offset_top = -h + 24
 	hand_scroller.offset_bottom = 24
 	hand_card_size = Vector2((h - 14) * 0.66, h - 14)
+
 	if inspection != null:
 		inspection.visible = false
+
 	if engine != null and not engine.state.is_empty():
 		_refresh.call_deferred()
-
 
 func _animate_hand():
 	visual_effects.animate_hand()
 
-
 func confirm_leave_encounter() -> void:
 	var box := _window("Leave this encounter?", Vector2i(520, 320))
+
 	_text(
 		box,
 		"Leaving counts as a defeat. The enemy stays in the world and no victory XP is awarded."
@@ -822,20 +930,23 @@ func confirm_leave_encounter() -> void:
 	)
 	_button(box, "Keep playing", _close)
 
-
 func _stat_badge(card: Dictionary, rect: Rect2):
 	var row = Control.new()
+
 	row.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	row.position = rect.position + Vector2(0, rect.size.y - 26)
 	row.size = Vector2(rect.size.x, 34)
 	board.add_child(row)
+
 	for index in range(2):
 		var circle = PanelContainer.new()
+
 		circle.name = "Attack" if index == 0 else "Health"
 		circle.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		circle.size = Vector2(34, 34)
 		circle.position = Vector2(rect.size.x * (0.25 if index == 0 else 0.75) - 17, 0)
 		var style = StyleBoxFlat.new()
+
 		style.bg_color = Color("9c7027") if index == 0 else Color("963f49")
 		style.border_color = Color("f1d59b") if index == 0 else Color("f5b5a8")
 		style.set_border_width_all(2)
@@ -845,6 +956,7 @@ func _stat_badge(card: Dictionary, rect: Rect2):
 		circle.add_theme_stylebox_override("panel", style)
 		row.add_child(circle)
 		var label = Label.new()
+
 		label.text = str(int(card.attack if index == 0 else card.hp))
 		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
@@ -852,8 +964,10 @@ func _stat_badge(card: Dictionary, rect: Rect2):
 		label.add_theme_font_size_override("font_size", 22)
 		label.add_theme_constant_override("outline_size", 4)
 		circle.add_child(label)
+
 	if card.get("shield", 0) > 0 or card.get("ward", 0) > 0:
 		var protection = Label.new()
+
 		protection.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		protection.text = (
 			("◇%d" % card.shield if card.get("shield", 0) > 0 else "")
@@ -863,24 +977,26 @@ func _stat_badge(card: Dictionary, rect: Rect2):
 		protection.add_theme_color_override("font_color", Color("c5efff"))
 		protection.add_theme_constant_override("outline_size", 5)
 		row.add_child(protection)
+
 	row.set_meta("offset", Vector2(-rect.size.x / 2, rect.size.y / 2 - 26))
 	stat_badges[card.uid] = row
-
 
 func _pile_rect(side: int, zone: String) -> Rect2:
 	var height = clampf(size.y * 0.20, 110, 170)
 	var width = height * 2.0 / 3.0
 	var x = size.x - 16 - width * 2 - 14 + (width + 14 if zone == "discard" else 0)
-	return Rect2(Vector2(x, size.y * (0.14 if side == 1 else 0.66)), Vector2(width, height))
 
+	return Rect2(Vector2(x, size.y * (0.14 if side == 1 else 0.66)), Vector2(width, height))
 
 func _pile_control(side: int, zone: String, player: Dictionary):
 	var rect = _pile_rect(side, zone)
 	var pile = Button.new()
+
 	pile.position = rect.position
 	pile.size = rect.size
 	pile.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 	var style = StyleBoxFlat.new()
+
 	style.bg_color = Color("aaa28e")
 	style.border_color = Color("d3d1b7")
 	style.set_border_width_all(2)
@@ -895,6 +1011,7 @@ func _pile_control(side: int, zone: String, player: Dictionary):
 	piles_layer.add_child(pile)
 	pile_controls["%d-%s" % [side, zone]] = pile
 	var image = TextureRect.new()
+
 	image.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	image.offset_left = 2
 	image.offset_top = 2
@@ -908,10 +1025,13 @@ func _pile_control(side: int, zone: String, player: Dictionary):
 		if zone == "discard" and not player.discard.is_empty()
 		else stage.back_texture
 	)
+
 	if zone == "discard" and player.discard.is_empty():
 		image.modulate = Color(0.5, 0.6, 0.6, 0.65)
+
 	pile.add_child(image)
 	var count = Label.new()
+
 	count.text = str(int(player.deckCount if zone == "deck" else player.discard.size()))
 	count.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
 	count.offset_top = -34
@@ -922,10 +1042,11 @@ func _pile_control(side: int, zone: String, player: Dictionary):
 	count.add_theme_constant_override("outline_size", 8)
 	pile.add_child(count)
 	pile.pressed.connect(func(): _pile(side, zone))
+
 	if zone == "discard" and not player.discard.is_empty():
 		pile.mouse_entered.connect(func(): _inspect(player.discard.back()))
-	pile.mouse_exited.connect(func(): inspection.visible = false)
 
+	pile.mouse_exited.connect(func(): inspection.visible = false)
 
 func _utility_action(id: int):
 	match id:
@@ -942,20 +1063,21 @@ func _utility_action(id: int):
 		5:
 			return_requested.emit()
 
-
 func _process(_delta: float):
 	if paused or not is_instance_valid(stage):
 		return
+
 	for uid in stat_badges:
 		var piece = stage.find_piece(uid)
 		var badge = stat_badges[uid]
+
 		if is_instance_valid(piece) and is_instance_valid(badge):
 			badge.position = stage.project(stage.piece_position(uid)) + badge.get_meta("offset")
-
 
 func _hint(message: String):
 	if hint_tween != null:
 		hint_tween.kill()
+
 	notice.text = message
 	notice.visible = true
 	notice.modulate.a = 1
@@ -964,14 +1086,11 @@ func _hint(message: String):
 	hint_tween.tween_property(notice, "modulate:a", 0, 0.3)
 	hint_tween.tween_callback(notice.hide)
 
-
 func _announce(message: String, persistent := false) -> void:
 	visual_effects.announce(message, persistent)
 
-
 func _effects(events: Array, rects: Dictionary) -> void:
 	visual_effects.play(events, rects)
-
 
 func _damage_number(uid: String, amount, positive: bool):
 	visual_effects.damage_number(uid, amount, positive)

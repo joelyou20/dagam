@@ -1,6 +1,5 @@
 extends Node
 
-
 func save_game_to_file(path: String = "user://savegame.dat"):
 	var player_node = PlayerManager.get_player_node()
 	var data := {
@@ -22,10 +21,10 @@ func save_game_to_file(path: String = "user://savegame.dat"):
 		"player_position": player_node.global_transform.origin  # Use .global_position for 2D
 	}
 	var file := FileAccess.open(path, FileAccess.WRITE)
+
 	file.store_var(data)
 	print("Game saved to " + path)
 	file.close()
-
 
 func load_game_from_file(path: String = "user://savegame.dat"):
 	HexManager.close_battle(true)
@@ -36,6 +35,7 @@ func load_game_from_file(path: String = "user://savegame.dat"):
 
 	var file := FileAccess.open(path, FileAccess.READ)
 	var data: Variant = file.get_var()
+
 	file.close()
 
 	# Recruitments must be restored before NPC ready callbacks in the destination scene.
@@ -52,12 +52,14 @@ func load_game_from_file(path: String = "user://savegame.dat"):
 		await get_tree().create_timer(0.1).timeout
 
 		var player_node = PlayerManager.get_player_node()
+
 		if player_node:
 			player_node.global_transform.origin = player_position  # Use .global_position for 2D
 
 		SceneManager.fade_layer.fade_in()
 
 	# Load systems
+
 	DialogManager.load_dialogs(data.get("dialogs", {}))
 	FlagManager.load_flags(data.get("flags", {}))
 	QuestManager.load_quests(data.get("quests", {}))

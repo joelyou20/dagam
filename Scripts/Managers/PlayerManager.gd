@@ -4,32 +4,33 @@ extends Node
 
 var player: PlayerResource
 
-
 func _ready():
 	# Load default player template on startup
 	player = load(player_resource_path) as PlayerResource
+
 	if player == null:
 		push_error("Failed to load player resource at: " + player_resource_path)
+
 		return
 
 	# If new game, reset HP etc.
-	_reset_runtime_stats()
 
+	_reset_runtime_stats()
 
 func _reset_runtime_stats():
 	player.current_hp = player.max_hp
 	# Reset other runtime values if needed
 
-
 func get_player_node() -> Node:
 	return $"/root/World/Player"
-
 
 func add_xp(amount: int) -> void:
 	if amount <= 0:
 		return
+
 	player.experience += amount
 	player.xp_to_next_level = maxi(1, player.xp_to_next_level)
+
 	while player.experience >= player.xp_to_next_level:
 		player.experience -= player.xp_to_next_level
 		player.level += 1
@@ -38,21 +39,19 @@ func add_xp(amount: int) -> void:
 		)
 	# Duelist level is progression only; card stats come exclusively from their rules.
 
-
 func set_hp(amount: int):
 	player.current_hp = clamp(amount, 0, player.max_hp)
+
 	if player.current_hp == player.max_hp:
 		print("Player health at max: " + str(player.current_hp))
 	else:
 		print("HP: ", player.current_hp)
-
 
 func add_hp(amount: int):
 	set_hp(player.current_hp + amount)
 
 
 # --- SAVE / LOAD ---
-
 
 func save_player() -> Dictionary:
 	return {
@@ -85,10 +84,10 @@ func save_player() -> Dictionary:
 		ResUtil.resource_to_path_or_empty(player.offhand_weapon_equipment),
 	}
 
-
 func load_player(data: Dictionary):
 	if not player:
 		push_error("Player resource not loaded before load_player_data()")
+
 		return
 
 	player.id = data.get("id", player.id)
