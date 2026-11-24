@@ -1,0 +1,74 @@
+name: Hex standalone
+on:
+  push:
+    paths: ['Hex/**', '.github/workflows/hex.yml']
+  pull_request:
+    paths: ['Hex/**', '.github/workflows/hex.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  native:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-22.04, windows-latest, macos-15]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: msys2/setup-msys2@v2
+        if: runner.os == 'Windows'
+        with:
+          msystem: MINGW64
+          update: true
+          install: mingw-w64-x86_64-gcc make
+      - name: Compile native runtime (Linux/macOS)
+        if: runner.os != 'Windows'
+        run: bash Hex/native/build.sh
+      - name: Compile native runtime (Windows)
+        if: runner.os == 'Windows'
+        shell: msys2 {0}
+        run: HEX_PLATFORM=Windows CC=gcc bash Hex/native/build.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Hex-project-${{ runner.os }}
+          path: |
+            Hex/
+            !Hex/.godot/**
+          include-hidden-files: true
+          retention-days: 14
+  test:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - run: bash Hex/native/build.sh
+      - name: Get Godot 4.3
+        run: |
+          curl -L --fail https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_linux.x86_64.zip -o /tmp/godot.zip
+          unzip -q /tmp/godot.zip -d /tmp/godot
+          chmod +x /tmp/godot/Godot_v4.3-stable_linux.x86_64
+          echo /tmp/godot >> "$GITHUB_PATH"
+      - name: Validate bundle and import
+        run: |
+          python3 Hex/tools/build_engine.py
+          git diff --exit-code Hex/engine/battle.js
+          Godot_v4.3-stable_linux.x86_64 --headless --path Hex --editor --import
+      - name: Native runtime, full match, card coverage and UI
+        run: |
+          set -o pipefail
+          for test in runtime_smoke native_match rules_test ui_smoke ui_match; do
+            Godot_v4.3-stable_linux.x86_64 --headless --path Hex --script "res://tests/$test.gd" 2>&1 | tee "/tmp/$test.log"
+            if grep -E 'SCRIPT ERROR|Hex runtime:|ERROR:' "/tmp/$test.log"; then exit 1; fi
+          done
+      - name: Render the battle UI
+        run: xvfb-run -a Godot_v4.3-stable_linux.x86_64 --path Hex --audio-driver Dummy --rendering-driver opengl3 --script res://tests/ui_smoke.gd
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Hex-test-evidence
+          path: |
+            /tmp/hex-godot-screen.png
+            /tmp/*_smoke.log
+            /home/runner/.local/share/godot/app_userdata/Hex/native-test-results.json
