@@ -182,6 +182,7 @@ func _refresh() -> void:
 	for side in [0,1]:
 		for c in display.players[side].board+display.players[side].artifacts:
 			if c!=null: c["display_name"]=_def(c.id).get("name",c.id)
+	if display.field!=null: display.field["display_name"]=_def(display.field.id).get("name",display.field.id)
 	stage.sync(display)
 	for side in [1,0]:
 		var p: Dictionary=g.players[side]
@@ -492,7 +493,7 @@ func _effects(events: Array,rects: Dictionary) -> void:
 			tween.tween_callback(ghost.queue_free)
 func _flash(uid: String,color: Color) -> void:
 	var target=positions.get(uid)
-	if not is_instance_valid(target) or target.destination.get("zone")=="board": return
+	if not is_instance_valid(target) or target.destination.get("zone") in ["board","artifact"]: return
 	target.modulate=color
 	create_tween().tween_property(target,"modulate",Color.WHITE,0.5)
 func _paired_effect(event: Dictionary) -> void:

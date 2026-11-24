@@ -189,7 +189,7 @@ func _update_piece(key: String, c, side: int, slot: int, zone: String, state: Di
 		fade.parallel().tween_property(old,"scale",Vector3(0.85,0.85,0.85),0.3)
 		fade.tween_callback(old.queue_free)
 	var node=Node3D.new();world.add_child(node);node.position=location(side,slot,zone)
-	node.set_meta("uid",id);node.set_meta("home",node.position);node.set_meta("side",side)
+	node.set_meta("uid",id);node.set_meta("home",node.position);node.set_meta("side",side);node.set_meta("zone",zone)
 	pieces[key]=node
 	var dims=Vector3(2.04,0.06,1.72) if zone=="board" else Vector3(1.15,0.06,1.6)
 	var rim=box(Vector3.ZERO,dims,Color("77b9bd") if side==0 else Color("c59082"),node)
@@ -215,7 +215,7 @@ func _update_labels(node: Node3D,c,state: Dictionary):
 	if c==null: return
 	var title=node.get_node_or_null("Title");var stats=node.get_node_or_null("Stats")
 	if title: title.text=c.get("display_name",c.id)
-	if stats: stats.text=("%d  /  %d"%[c.get("attack",0),c.hp])+ ("   ◇%d"%c.get("shield",0) if c.get("shield",0)>0 else "") if c.has("hp") else "ARTIFACT"
+	if stats: stats.text=("%d  /  %d"%[c.get("attack",0),c.hp])+ ("   ◇%d"%c.get("shield",0) if c.get("shield",0)>0 else "") if c.has("hp") else str(node.get_meta("zone")).to_upper()
 	node.set_meta("ready",c.get("ready",false) and c.get("owner",1)==0 and state.active==0 and state.phase=="combat")
 func find_piece(uid: String):
 	for node in pieces.values():
