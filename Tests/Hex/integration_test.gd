@@ -62,9 +62,9 @@ func _run():
 	hotkey.pressed=true
 	world._unhandled_input(hotkey)
 	await frames()
-	if not check(hex.visible,"H did not open Hex through WorldController"): return
+	if not check(not hex.visible and MenuManager.menu_ui.content_uis.Hex.visible,"H must open the deck builder, not battle"): return
 	world._unhandled_input(hotkey)
-	if not check(not hex.visible and not InteractionHandler.is_blocked(),"H did not return control to world"): return
+	if not check(not MenuManager.menu_ui.visible and not InteractionHandler.is_blocked(),"H did not close deck builder and restore world control"): return
 	print("Root-project Hex integration checks passed: ",checks)
 	if DisplayServer.get_name()!="headless":
 		HexManager.open_battle()

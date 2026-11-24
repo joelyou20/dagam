@@ -1,12 +1,12 @@
 # Hex in DaGam
 
-Open the root `project.godot`, run the existing `Scenes/Root.tscn`, and press **H** for a practice battle or touch a world enemy for an encounter. There is one project: no nested project or hidden Hex directory.
+Open the root `project.godot`, run the existing `Scenes/Root.tscn`, and press **H** for the Hex deck builder or touch a world enemy for an encounter. There is one project: no nested project or hidden Hex directory.
 
 ## Existing architecture
 
 - `Scripts/Managers/HexManager.gd` owns the match as an autoload, alongside the other managers. The session initializes only when Hex is opened.
 - `Scenes/Hex/HexBattleUI.tscn` and `Scripts/Hex/HexBattleUI.gd` extend `UIBase` as a dedicated full-window root layer owned by `HexManager`. They use the existing `UIManager` and `InteractionHandler`, without instantiating the RPG menu.
-- `WorldController` routes H directly to `HexManager`; encounters open the same dedicated battle screen. Escape dismisses a battle dialog first, then closes practice or confirms leaving an encounter. Other menu hotkeys cannot cover an active battle.
+- `WorldController` routes H to the Hex deck-builder tab in the existing menu; world encounters open the dedicated battle screen directly. Escape dismisses a battle dialog first, then closes practice or confirms leaving an encounter. Other menu hotkeys cannot cover an active battle.
 - `GameStateManager` includes Hex in normal RPG saves/loads. Older saves without Hex remain valid. The current match also autosaves to checksum-protected `user://dagam-hex-match-v1.json`, keeping a backup of the previous file.
 - Hiding the screen stops AI activity and music and saves the match. Reopening resumes it. The existing world, RPG managers and root scene remain in place.
 
@@ -18,7 +18,7 @@ Touching an active enemy now starts a Standard Hex match using the starter deck 
 
 ## Scope and controls
 
-The player has the 20-card First Light starter deck and draws five cards. All 28 preconstructed opponents use the stronger tactical AI. There are no points, purchases, collection progression, Blitz, drafts, tournaments or Legends.
+The player starts with the 20-card First Light starter deck and draws five cards. All 160 cards are available for custom Standard deck building. All 28 preconstructed opponents use the stronger tactical AI. There are no points, purchases, collection progression, Blitz, drafts, tournaments or Legends.
 
 Click a hand card to choose legal placements/targets, or drag it onto a slot/creature. Ready attackers pulse white. Board abilities, friendly/enemy target labels and reaction dialogs are supported. Your deck is shown alphabetically; the opponent's hand/deck remain hidden. Rules include counted creature defeats, empty-field defeat, Summon removal, original ownership, and the 60-full-round draw.
 
@@ -54,3 +54,11 @@ The battlefield fills the window behind the overlapping hand, without menu offse
 Closing the battle restores the RPG's rendering/scaling settings. While battle is open, only its own 3D viewport renders, avoiding a second render of the hidden overworld.
 
 [Full-window battlefield](hex-fullscreen/battle.jpg) · [Card-only hover](hex-fullscreen/hover.jpg)
+
+## Hex deck builder
+
+The **Hex** menu tab (or **H**) opens `HexDeckBuilderUI`, following the existing `MenuUI` / `UIBase` architecture. Opening it initializes only the catalogue and saved decks; it does not create or replace a match. All cards are available. Search includes names, rules, creature types and keyword abilities; filters cover sets, card categories, separate creature types and rarity. The deck list sits above the collection with copy controls, composition counts and average creature stats. Hover shows full-resolution cards.
+
+Create, duplicate, rename, save and delete named decks. Card edits autosave as drafts; **Use for battles** requires exactly 20 cards, no more than two of a unique card, and each card's explicit limit (for example Loriadre's single-copy limit). There is no minimum creature requirement. The native engine validates these restrictions. The starter remains selected until a valid custom deck is explicitly chosen.
+
+Selected deck snapshots are used for new practice games and world encounters. Existing matches and restored practice snapshots retain their original deck, including the battle-deck viewer. Decks and selection persist in `user://dagam-hex-decks-v1.json` and shared RPG saves under `hex_decks`; older saves still load. `Tests/Hex/DeckBuilder.tscn` covers menu routing, catalogue access, copy limits, all-spell decks, saved drafts, selection, persistence and match isolation.

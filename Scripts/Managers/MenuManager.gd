@@ -14,10 +14,6 @@ func set_current_party_member_menu_index(index: int):
 	current_party_member_menu_index = index
 
 func set_menu(state: bool, tab: MenuTabs.Tab = MenuTabs.Tab.UNSET):
-	if tab == MenuTabs.Tab.HEX:
-		if state: HexManager.open_battle()
-		else: HexManager.close_battle()
-		return
 	if HexManager.is_battle_open(): return
 	if tab == MenuTabs.Tab.UNSET:
 		if menu_ui == null:
