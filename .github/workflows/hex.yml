@@ -68,6 +68,11 @@ jobs:
           set -o pipefail
           Godot_v4.6.3-stable_linux.x86_64 --headless --path . res://Tests/Hex/Integration.tscn 2>&1 | tee /tmp/integration.log
           if grep -E 'SCRIPT ERROR|Hex runtime:|ERROR:' /tmp/integration.log; then exit 1; fi
+      - name: World encounters and native-resolution rendering
+        run: |
+          set -o pipefail
+          Godot_v4.6.3-stable_linux.x86_64 --headless --path . res://Tests/Hex/Encounter.tscn 2>&1 | tee /tmp/encounter.log
+          if grep -E 'SCRIPT ERROR|Hex runtime:|ERROR:' /tmp/encounter.log; then exit 1; fi
       - name: Render the battle UI
         run: xvfb-run -a Godot_v4.6.3-stable_linux.x86_64 --path . --audio-driver Dummy --rendering-method gl_compatibility --rendering-driver opengl3 res://Tests/Hex/Integration.tscn
       - uses: actions/upload-artifact@v4

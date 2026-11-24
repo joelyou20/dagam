@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Import the pure battle engine/catalogue and compact card assets from LifestyleTracker.
-Usage: python Hex/tools/import_hex.py /path/to/lifestyleTracker-repo
+"""Import the pure battle engine/catalogue and full-resolution card assets from LifestyleTracker.
+Usage: python tools/hex/import_hex.py /path/to/lifestyleTracker-repo
 No economy, lifestyle data, progression or other game modes are imported.
 """
 import hashlib,json,re,shutil,subprocess,sys
@@ -24,20 +24,10 @@ for name in files:
 # Only Elderberry deck definitions/power values; no Legend or rewards code.
 s=(S/'js/core/hex-elderberry-world.js').read_text().split('const HEX_ELDER_REGIONS=')[0]
 (D/'Resources/Hex/Engine/hex-enemy-decks.js').write_text(s)
-# Import all finishes at the existing portable resolution, with stable card IDs.
-for c in cards:
- id=c['id'];num=str(c['number']).zfill(3)
- for finish in ['regular','full-art']:
-  suffix='' if finish=='regular' else '-FA'
-  if c['set']=='first-light':p=S/f'css/hex/offline/{"cards" if finish=="regular" else "full-art"}/{num if finish=="regular" else id}.webp'
-  else:p=S/f'css/hex/{c["set"]}/offline/{finish}/{id}.webp'
-  target=D/f'Assets/Hex/cards/{id}{suffix}.hextex';shutil.copy(p,target);manifest['assets'][target.name]=hashlib.sha256(p.read_bytes()).hexdigest()
- for_ir=S/f'css/hex/illustration-rare/offline/{id}.webp'
- if id in ir:
-  if not for_ir.exists():for_ir=S/f'css/hex/illustration-rare/{id}.webp'
-  if not for_ir.exists():for_ir=S/f'css/hex/illustration-rare/{id}-IR.webp'
-  if not for_ir.exists():raise RuntimeError('Missing Illustration Rare '+id)
-  shutil.copy(for_ir,D/f'Assets/Hex/cards/{id}-IR.hextex');manifest['assets'][id+'-IR.hextex']=hashlib.sha256(for_ir.read_bytes()).hexdigest()
+# Rebuild authored prints rather than importing the compact browser thumbnails.
+subprocess.run([sys.executable,str(D/'tools/hex/import_hd_art.py'),str(S)],check=True)
+for asset in (D/'Assets/Hex/cards').glob('*.hextex'):
+ manifest['assets'][asset.name]=hashlib.sha256(asset.read_bytes()).hexdigest()
 shutil.copy(S/'css/hex/back.webp',D/'Assets/Hex/back.hextex')
 # Existing battle audio only (no shop/pack assets).
 for key in ['battle','victory','defeat']:shutil.copy(S/f'assets/audio/hex-{key}.mp3',D/f'Assets/Hex/{key}.mp3')

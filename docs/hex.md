@@ -10,7 +10,11 @@ Open the root `project.godot`, run the existing `Scenes/Root.tscn`, and press **
 - `GameStateManager` includes Hex in normal RPG saves/loads. Older saves without Hex remain valid. The current match also autosaves to checksum-protected `user://dagam-hex-match-v1.json`, keeping a backup of the previous file.
 - Hiding the screen stops AI activity and music and saves the match. Reopening resumes it. The existing world, RPG managers and root scene remain in place.
 
-Code follows the host layout: `Scripts/Hex`, `Scenes/Hex`, `Resources/Hex`, `Assets/Hex`, `Tests/Hex`, and `addons/hex_runtime`. A scaled SubViewport keeps the board readable within the existing menu without changing the RPG's window settings.
+Code follows the host layout: `Scripts/Hex`, `Scenes/Hex`, `Resources/Hex`, `Assets/Hex`, `Tests/Hex`, and `addons/hex_runtime`. Hex draws directly in the main viewport with linear mipmapped artwork. While open, canvas-item scaling preserves native window resolution; closing restores the RPG window scale mode.
+
+## World encounters
+
+Touching an active enemy now starts a Standard Hex match using the starter deck and tactical AI, within the current world. `EncounterData.hex_deck_id` selects an opponent (default `thornbound`); existing enemy resources still supply XP. Victory grants party XP once and removes the enemy. Defeat, draw or fleeing grants no XP and retains the enemy with its reactivation cooldown. Escape prompts before conceding. Other tabs and new-game controls cannot bypass an encounter. The previous practice match is restored afterward. Shared saves/autosaves retain the encounter, its original world enemy and the practice snapshot.
 
 ## Scope and controls
 
@@ -18,7 +22,7 @@ The player has the 20-card First Light starter deck and draws five cards. All 28
 
 Click a hand card to choose legal placements/targets, or drag it onto a slot/creature. Ready attackers pulse white. Board abilities, friendly/enemy target labels and reaction dialogs are supported. Your deck is shown alphabetically; the opponent's hand/deck remain hidden. Rules include counted creature defeats, empty-field defeat, Summon removal, original ownership, and the 60-full-round draw.
 
-The rules run in-process through a small C GDExtension embedding QuickJS, not through Node, a browser or a server. All 160 base cards and 345 game images retain stable IDs. Cosmetic variants share gameplay data. `.hextex` assets are compact WebP images loaded directly; root export presets include them and the JS/JSON data. Source hashes are in `Resources/Hex/Data/source-manifest.json`. High-resolution originals/templates remain in LifestyleTracker.
+The rules run in-process through a small C GDExtension embedding QuickJS, not through Node, a browser or a server. All 160 base cards and 345 game images retain stable IDs. Cosmetic variants share gameplay data. `.hextex` assets are 1024×1536 WebP images loaded directly with a bounded texture cache; root export presets include them and the JS/JSON data. Source hashes are in `Resources/Hex/Data/source-manifest.json`. Original artwork/templates remain in LifestyleTracker; `tools/hex/import_hd_art.py` reproducibly rebuilds the full-size prints and writes `hd-art-manifest.json`. Pillow is required for artwork imports.
 
 Refresh data with `python tools/hex/import_hex.py /path/to/lifestyleTracker-repo`, then `python tools/hex/build_engine.py`. Linux and Windows x86-64 runtimes are included. Build native support with `bash addons/hex_runtime/build.sh`; Windows uses MSYS2 MINGW64 with `HEX_PLATFORM=Windows CC=gcc`, and macOS uses Xcode Command Line Tools. CI builds the complete integrated project for Linux, Windows and macOS. QuickJS and the Godot C header retain their upstream license notices.
 
@@ -28,6 +32,7 @@ Refresh data with `python tools/hex/import_hex.py /path/to/lifestyleTracker-repo
 python tools/hex/build_engine.py
 godot --headless --path . --editor --import
 godot --headless --path . res://Tests/Hex/Integration.tscn
+godot --headless --path . res://Tests/Hex/Encounter.tscn
 godot --headless --path . --script res://Tests/Hex/native_match.gd
 godot --headless --path . --script res://Tests/Hex/rules_test.gd
 godot --headless --path . --script res://Tests/Hex/ui_smoke.gd

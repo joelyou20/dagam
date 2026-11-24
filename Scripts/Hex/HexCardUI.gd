@@ -8,15 +8,23 @@ var draggable:=false
 var is_attacker:=false
 var texture: Texture2D
 static var textures: Dictionary={}
+const TEXTURE_CACHE_LIMIT := 32
 static func art(id: String) -> Texture2D:
-	if textures.has(id): return textures[id]
+	if textures.has(id):
+		var cached: Texture2D = textures[id]
+		textures.erase(id)
+		textures[id] = cached
+		return cached
 	var path: String="res://Assets/Hex/cards/"+id+".hextex"
 	if not FileAccess.file_exists(path): return null
 	var image:=Image.new()
 	if image.load_webp_from_buffer(FileAccess.get_file_as_bytes(path))!=OK: return null
+	image.generate_mipmaps()
+	if textures.size() >= TEXTURE_CACHE_LIMIT: textures.erase(textures.keys()[0])
 	textures[id]=ImageTexture.create_from_image(image)
 	return textures[id]
 func configure(value: Dictionary,dest: Dictionary,size:=Vector2(112,148),glow:=false) -> void:
+	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	card=value
 	destination=dest
 	custom_minimum_size=size
@@ -43,11 +51,28 @@ func configure(value: Dictionary,dest: Dictionary,size:=Vector2(112,148),glow:=f
 		texture=art(value.id)
 		var image:=TextureRect.new()
 		image.texture=texture
+		var compact: bool = dest.get("zone", "") == "board"
+		if compact and texture != null:
+			var crop := AtlasTexture.new()
+			crop.atlas = texture
+			crop.region = Rect2(texture.get_width()*0.07,texture.get_height()*0.15,texture.get_width()*0.86,texture.get_height()*0.45)
+			image.texture = crop
 		image.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
-		image.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		image.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_COVERED if compact else TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		image.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 		image.mouse_filter=Control.MOUSE_FILTER_IGNORE
 		add_child(image)
+		if compact:
+			var name_label := Label.new()
+			name_label.text = value.get("display_name", value.id)
+			name_label.clip_text = true
+			name_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+			name_label.add_theme_font_size_override("font_size",14)
+			name_label.add_theme_color_override("font_shadow_color",Color.BLACK)
+			name_label.add_theme_constant_override("shadow_outline_size",6)
+			name_label.set_anchors_and_offsets_preset(Control.PRESET_TOP_WIDE)
+			name_label.mouse_filter=Control.MOUSE_FILTER_IGNORE
+			add_child(name_label)
 		if value.has("hp"):
 			var stats:=Label.new()
 			stats.text="%d ATK · %d HP"%[value.get("attack",0),value.hp]
@@ -55,7 +80,7 @@ func configure(value: Dictionary,dest: Dictionary,size:=Vector2(112,148),glow:=f
 			if value.get("ward",0)>0: stats.text+=" W%d"%value.ward
 			stats.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 			stats.clip_text=true
-			stats.add_theme_font_size_override("font_size",11)
+			stats.add_theme_font_size_override("font_size",13)
 			stats.add_theme_color_override("font_shadow_color",Color.BLACK)
 			stats.add_theme_constant_override("shadow_outline_size",6)
 			stats.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)

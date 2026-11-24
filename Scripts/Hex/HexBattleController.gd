@@ -22,12 +22,19 @@ var announcement: Label
 var announce_tween: Tween
 var effect_sound: AudioStreamPlayer
 var music: AudioStreamPlayer
+var board_card_size := Vector2(140, 110)
+var hand_card_size := Vector2(110, 160)
+var hand_scroller: ScrollContainer
+var new_game_button: Button
 
 func _ready() -> void:
+	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	engine=HexManager.session
 	paused=true
 	_layout()
 	engine.fault.connect(_error)
+	resized.connect(_resize_battle)
+	_resize_battle.call_deferred()
 func set_battle_active(active: bool) -> void:
 	if not active:
 		paused=true
@@ -41,7 +48,7 @@ func set_battle_active(active: bool) -> void:
 		return
 	paused=false
 	for c in engine.catalog.cards: definitions[c.id]=c
-	notice.text="20 cards · Draw 5 · Six creature defeats to win"
+	notice.text=("Encounter · " + str(HexManager.encounter_metadata().get("name", "Enemy"))) if HexManager.is_encounter() else "20 cards · Draw 5 · Six creature defeats to win"
 	_refresh()
 	_schedule_ai()
 	if engine.state.get("winner")==null and music.stream!=null: music.play()
@@ -89,7 +96,7 @@ func _layout() -> void:
 	header.add_child(subtitle)
 	_button(header,"Starter deck",_starter)
 	_button(header,"Log",_log)
-	_button(header,"New game",_new_game)
+	new_game_button = _button(header,"New game",_new_game)
 	_button(header,"Back to game",func(): return_requested.emit())
 	_button(header,"Sound",func(): AudioServer.set_bus_mute(0,not AudioServer.is_bus_mute(0)))
 	notice=_text(layout,"20 cards · Draw 5 · Three lanes · Six creature defeats to win")
@@ -111,7 +118,7 @@ func _layout() -> void:
 	controls=VBoxContainer.new()
 	sidebar.add_child(controls)
 	preview=TextureRect.new()
-	preview.custom_minimum_size=Vector2(260,280)
+	preview.custom_minimum_size=Vector2(260,96)
 	preview.size_flags_vertical=Control.SIZE_EXPAND_FILL
 	preview.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
 	preview.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
@@ -121,6 +128,7 @@ func _layout() -> void:
 	description.bbcode_enabled=true
 	sidebar.add_child(description)
 	var hand_scroll:=ScrollContainer.new()
+	hand_scroller=hand_scroll
 	hand_scroll.custom_minimum_size.y=182
 	hand_scroll.vertical_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
 	layout.add_child(hand_scroll)
@@ -156,10 +164,12 @@ func _inspect(c: Dictionary) -> void:
 		for entry in engine.catalog.keywords:
 			if entry.id==k.id: tags.append(entry.name.replace(" X"," "+str(k.get("value",""))))
 	description.text="[b]%s[/b]\n%s · %s\n[color=#e8d099]%s[/color]\n%s"%[d.get("name",c.id),d.get("card_type",""),d.get("subtype","")," · ".join(tags),d.get("rules","")]
-func _card(parent: Node,c,dest: Dictionary,size:=Vector2(112,148),glow:=false):
+func _card(parent: Node,c,dest: Dictionary,size:=board_card_size,glow:=false):
 	var button=Card.new()
 	parent.add_child(button)
-	button.configure(c if c!=null else {},dest,size,glow)
+	var display: Dictionary = c.duplicate() if c!=null else {}
+	if c!=null: display["display_name"] = _def(c.id).get("name", c.id)
+	button.configure(display,dest,size,glow)
 	button.inspect.connect(_inspect)
 	button.picked.connect(func(value): _clicked(value,dest))
 	button.dropped.connect(_drop)
@@ -172,6 +182,7 @@ func _card(parent: Node,c,dest: Dictionary,size:=Vector2(112,148),glow:=false):
 func _refresh() -> void:
 	var g: Dictionary=engine.state
 	if g.is_empty(): return
+	new_game_button.disabled = HexManager.is_encounter()
 	_clear(board);_clear(hand);_clear(controls)
 	positions={}
 	subtitle.text="  Turn %d · %s · %s"%[g.turn,"You" if g.active==0 else "Opponent",str(g.phase).capitalize()]
@@ -185,7 +196,7 @@ func _refresh() -> void:
 		var artifacts:=HBoxContainer.new()
 		artifacts.size_flags_vertical=Control.SIZE_SHRINK_CENTER
 		region.add_child(artifacts)
-		for slot in range(2): _card(artifacts,p.artifacts[slot],{"zone":"artifact","side":side,"slot":slot,"label":"Artifact %s"%(slot+1),"accept":side==0},Vector2(80,116))
+		for slot in range(2): _card(artifacts,p.artifacts[slot],{"zone":"artifact","side":side,"slot":slot,"label":"Artifact %s"%(slot+1),"accept":side==0},Vector2(74, minf(100, board_card_size.y * 1.35)))
 		var lanes:=VBoxContainer.new()
 		lanes.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 		region.add_child(lanes)
@@ -198,7 +209,7 @@ func _refresh() -> void:
 				var slot: int=rank*3+col
 				var c=p.board[slot]
 				var glow: bool=side==0 and c!=null and c.ready and g.active==0 and g.phase=="combat"
-				_card(row,c,{"zone":"board","side":side,"slot":slot,"label":"%s %s"%["Front" if rank==0 else "Back",col+1],"accept":true},Vector2(112,148),glow)
+				_card(row,c,{"zone":"board","side":side,"slot":slot,"label":"%s %s"%["Front" if rank==0 else "Back",col+1],"accept":true},board_card_size,glow)
 		var piles:=VBoxContainer.new()
 		piles.size_flags_vertical=Control.SIZE_SHRINK_CENTER
 		region.add_child(piles)
@@ -209,7 +220,7 @@ func _refresh() -> void:
 			var field=g.field
 			_button(board,"Battlefield · "+(_def(field.id).get("name","") if field!=null else "Empty"),func():
 				if field!=null: _inspect(field))
-	for c in g.players[0].hand: _card(hand,c,{"zone":"hand"},Vector2(122,176))
+	for c in g.players[0].hand: _card(hand,c,{"zone":"hand"},hand_card_size)
 	if g.players[0].hand.is_empty(): _text(hand,"Your hand is empty")
 	_actions(g)
 	var key:="%s-%s-%s"%[g.tick,g.phase,g.winner]
@@ -227,9 +238,10 @@ func _actions(g: Dictionary) -> void:
 	if paused: _button(controls,"Resume",func(): paused=false;notice.text="Game resumed.";_refresh();_schedule_ai());return
 	if g.winner!=null:
 		_text(controls,"Victory" if g.winner==0 else "Defeat" if g.winner==1 else "Draw")
-		if g.reason=="emptyField": _text(controls,"You ended a turn with no creatures while the opponent had creatures.")
+		if g.reason=="emptyField": _text(controls,"A turn ended with no creatures while the opponent still had creatures.")
 		if g.reason=="roundLimit": _text(controls,"60 complete rounds reached.")
-		_button(controls,"Play again",_new_game)
+		if HexManager.is_encounter(): _button(controls,"Return to world",func(): return_requested.emit())
+		else: _button(controls,"Play again",_new_game)
 	elif g.phase=="coin":
 		_text(controls,"Call the coin")
 		for call in ["heads","tails"]: _button(controls,call.capitalize(),func(): _command({"op":"coin","call":call}))
@@ -413,6 +425,7 @@ func _log() -> void:
 	box.add_child(log)
 	_button(box,"Close",_close)
 func _new_game() -> void:
+	if HexManager.is_encounter(): return
 	var box:=_window("New Standard battle",Vector2i(640,380))
 	_text(box,"Your starter deck is ready. Select an opponent. Starting replaces the current saved match.")
 	var select:=OptionButton.new()
@@ -524,3 +537,22 @@ func _exit_tree() -> void:
 	paused=true
 	if is_instance_valid(music): music.stop();music.stream=null
 	if is_instance_valid(effect_sound): effect_sound.stop();effect_sound.stream=null
+
+func _resize_battle() -> void:
+	if not is_instance_valid(hand_scroller): return
+	var h := clampf(size.y * 0.18, 108, 188)
+	hand_scroller.custom_minimum_size.y = h
+	hand_card_size = Vector2(h * 0.68, h - 6)
+	var body_height := size.y - h - 134
+	board_card_size = Vector2(clampf((size.x - 752) / 3.0, 96, 190), clampf((body_height - 106) / 4.0, 58, 162))
+	description.custom_minimum_size.y = clampf(size.y * 0.13, 70, 145)
+	if engine != null and not engine.state.is_empty(): _refresh()
+
+func confirm_leave_encounter() -> void:
+	var box := _window("Leave this encounter?",Vector2i(520,320))
+	_text(box,"Leaving counts as a defeat. The enemy stays in the world and no victory XP is awarded.")
+	_button(box,"Concede and return",func():
+		_close()
+		_command({"op":"concede"})
+		return_requested.emit())
+	_button(box,"Keep playing",_close)

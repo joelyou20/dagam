@@ -6,13 +6,17 @@ var menu_ui: MenuUI = null
 var current_tab: MenuTabs.Tab = MenuTabs.Tab.UNSET
 var current_party_member_menu_index: int = 0
 
-func hide_menu():
-	set_menu(false)
+func hide_menu(force: bool = false):
+	if HexManager.is_encounter() and not force: return
+	if menu_ui != null: menu_ui.close_menu()
 	
 func set_current_party_member_menu_index(index: int):
 	current_party_member_menu_index = index
 
 func set_menu(state: bool, tab: MenuTabs.Tab = MenuTabs.Tab.UNSET):
+	if HexManager.is_encounter():
+		if not state or tab != MenuTabs.Tab.HEX: return
+		if menu_ui != null and menu_ui.visible and current_tab == tab: return
 	if tab == MenuTabs.Tab.UNSET:
 		if menu_ui == null:
 			current_tab = MenuTabs.Tab.UNSET
