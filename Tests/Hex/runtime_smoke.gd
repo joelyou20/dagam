@@ -1,8 +1,8 @@
 extends SceneTree
 
-
 func _initialize():
 	var runtime = ClassDB.instantiate("HexRuntime")
+
 	assert(runtime != null)
 	assert(
 		(

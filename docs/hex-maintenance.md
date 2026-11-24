@@ -47,7 +47,11 @@ python tools/hex/build_engine.py
 
 Edit individual JavaScript modules in Resources/Hex/Engine, not generated
 battle.js. Rebuild that bundle after edits. The formatter excludes vendored
-QuickJS sources and legacy assets. GDScript lint uses the default gdtoolkit rules.
+QuickJS sources and legacy assets. GDScript uses gdtoolkit lint plus the AST-aware spacing pass in tools/gd_spacing.py.
+Use one blank line between functions. Inside functions, separate declaration groups,
+control-flow blocks and final returns with a blank line. Short single-step functions
+remain compact. The physical file limit is 1,200 lines to accommodate readable
+whitespace; all other gdtoolkit defaults remain enabled.
 HexBattleEffects owns visual effect choreography; HexBattleController owns input
 and battle presentation. Board shaders live in Resources/Hex/Shaders.
 

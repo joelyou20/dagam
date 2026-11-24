@@ -1,9 +1,9 @@
 name: Hex project integration
 on:
   push:
-    paths: ['Scripts/**', 'Scenes/**', 'Resources/**', 'Assets/Hex/**', 'addons/hex_runtime/**', 'Tests/**', 'tools/**', 'package*.json', 'requirements-dev.txt', '.editorconfig', '.clang-format', '.prettier*', 'eslint.config.cjs', 'project.godot', '.github/workflows/hex.yml']
+    paths: ['Scripts/**', 'Scenes/**', 'Resources/**', 'Assets/Hex/**', 'addons/hex_runtime/**', 'Tests/**', 'tools/**', 'package*.json', 'requirements-dev.txt', '.editorconfig', '.clang-format', 'gdlintrc', '.prettier*', 'eslint.config.cjs', 'project.godot', '.github/workflows/hex.yml']
   pull_request:
-    paths: ['Scripts/**', 'Scenes/**', 'Resources/**', 'Assets/Hex/**', 'addons/hex_runtime/**', 'Tests/**', 'tools/**', 'package*.json', 'requirements-dev.txt', '.editorconfig', '.clang-format', '.prettier*', 'eslint.config.cjs', 'project.godot', '.github/workflows/hex.yml']
+    paths: ['Scripts/**', 'Scenes/**', 'Resources/**', 'Assets/Hex/**', 'addons/hex_runtime/**', 'Tests/**', 'tools/**', 'package*.json', 'requirements-dev.txt', '.editorconfig', '.clang-format', 'gdlintrc', '.prettier*', 'eslint.config.cjs', 'project.godot', '.github/workflows/hex.yml']
   workflow_dispatch:
 permissions:
   contents: read

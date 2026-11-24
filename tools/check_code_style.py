@@ -5,6 +5,8 @@ from pathlib import Path
 import subprocess
 import sys
 
+from gd_spacing import format_readable
+
 ROOT = Path(__file__).resolve().parents[1]
 GDSCRIPT = [
     "Scripts/Hex",
@@ -42,9 +44,30 @@ def main():
     parser.add_argument("--fix", action="store_true")
     arguments = parser.parse_args()
     check = [] if arguments.fix else ["--check"]
-    run("-m", "gdtoolkit.formatter", *check, *GDSCRIPT, "Tests/Hex")
+    files = set()
+    for entry in [*GDSCRIPT, "Tests/Hex"]:
+        path = ROOT / entry
+        files.update(path.rglob("*.gd") if path.is_dir() else [path])
+    failures = []
+    for path in sorted(files):
+        source = path.read_text()
+        formatted = format_readable(source)
+        if formatted != source:
+            if arguments.fix:
+                path.write_text(formatted)
+            else:
+                failures.append(str(path.relative_to(ROOT)))
+    if failures:
+        parser.exit(1, "Spacing/formatting required:\n" + "\n".join(failures) + "\n")
     run("-m", "gdtoolkit.linter", *GDSCRIPT)
-    run("-m", "black", *check, "tools/hex", "tools/check_code_style.py")
+    run(
+        "-m",
+        "black",
+        *check,
+        "tools/hex",
+        "tools/check_code_style.py",
+        "tools/gd_spacing.py",
+    )
     native_options = ["-i"] if arguments.fix else ["--dry-run", "--Werror"]
     run(
         "-c",
