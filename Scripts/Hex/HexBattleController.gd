@@ -106,19 +106,19 @@ func _layout() -> void:
 	board.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	stage.add_child(board)
 	stage.impact.connect(_damage_number)
-	var menu_button=MenuButton.new();menu_button.text="☰";menu_button.position=Vector2(16,16);menu_button.size=Vector2(42,38);add_child(menu_button)
+	var menu_button=MenuButton.new();menu_button.text="☰";menu_button.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_RIGHT);menu_button.position=Vector2(-60,-55);menu_button.size=Vector2(42,38);add_child(menu_button)
 	menu_button.tooltip_text="Battle options"
 	utility_menu=menu_button.get_popup()
 	for label in ["Starter deck","Battle log","New battle","Concede","Sound","Leave battle"]: utility_menu.add_item(label)
 	utility_menu.id_pressed.connect(_utility_action)
-	subtitle=Label.new();subtitle.position=Vector2(74,24);subtitle.mouse_filter=Control.MOUSE_FILTER_IGNORE;add_child(subtitle)
+	subtitle=Label.new();subtitle.set_anchors_and_offsets_preset(Control.PRESET_CENTER_TOP);subtitle.position=Vector2(-35,18);subtitle.mouse_filter=Control.MOUSE_FILTER_IGNORE;add_child(subtitle)
 	# Retained as an internal capability flag; new battles live in the compact menu.
 	new_game_button=Button.new();new_game_button.visible=false;add_child(new_game_button)
 	enemy_summary=Label.new();enemy_summary.position=Vector2(74,52);add_child(enemy_summary)
 	player_summary=Label.new();player_summary.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_LEFT);player_summary.position=Vector2(20,-40);add_child(player_summary)
 	var turn_panel=PanelContainer.new()
 	turn_panel.set_anchors_and_offsets_preset(Control.PRESET_CENTER_RIGHT)
-	turn_panel.position=Vector2(-202,-70);turn_panel.size=Vector2(184,170)
+	turn_panel.position=Vector2(-202,-45);turn_panel.size=Vector2(184,90);turn_panel.add_theme_stylebox_override("panel",StyleBoxEmpty.new())
 	add_child(turn_panel)
 	controls=VBoxContainer.new();controls.add_theme_constant_override("separation",8);turn_panel.add_child(controls)
 	var hand_scroll=ScrollContainer.new();hand_scroller=hand_scroll

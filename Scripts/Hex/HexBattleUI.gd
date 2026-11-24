@@ -2,6 +2,7 @@ extends UIBase
 class_name HexBattleUI
 @onready var battle: Control = $Panel/Battle
 var _previous_scale_mode: int = -1
+var _previous_disable_3d := false
 func _ready() -> void:
 	super._ready()
 	battle.return_requested.connect(on_cancel)
@@ -10,6 +11,8 @@ func _ready() -> void:
 func show_ui() -> void:
 	if _previous_scale_mode < 0:
 		_previous_scale_mode = get_window().content_scale_mode
+		_previous_disable_3d = get_window().disable_3d
+		get_window().disable_3d = true
 		get_window().content_scale_mode = Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
 	super.show_ui()
 	_activate_after_layout.call_deferred()
@@ -38,6 +41,7 @@ func hide_ui() -> void:
 func _restore_resolution() -> void:
 	if _previous_scale_mode >= 0:
 		get_window().content_scale_mode = _previous_scale_mode
+		get_window().disable_3d = _previous_disable_3d
 		_previous_scale_mode = -1
 func _exit_tree() -> void:
 	_restore_resolution()

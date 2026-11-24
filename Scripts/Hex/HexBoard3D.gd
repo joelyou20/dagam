@@ -198,7 +198,7 @@ func _update_piece(key: String, c, side: int, slot: int, zone: String, state: Di
 	var plane=PlaneMesh.new();plane.size=Vector2(dims.x-0.08,dims.z-0.08)
 	var surface=MeshInstance3D.new();surface.mesh=plane;surface.position.y=0.05;surface.name="Art";node.add_child(surface)
 	var m=ShaderMaterial.new();var shader=Shader.new()
-	shader.code="shader_type spatial; render_mode unshaded; uniform sampler2D card_art:filter_linear_mipmap_anisotropic; void fragment(){vec2 uv=UV; uv.y=0.16+uv.y*0.49; ALBEDO=texture(card_art,uv).rgb;}"
+	shader.code="shader_type spatial; render_mode unshaded; uniform sampler2D card_art:filter_linear_mipmap_anisotropic; void fragment(){vec2 uv=UV; uv.y=0.17+uv.y*0.38; ALBEDO=texture(card_art,uv).rgb;}"
 	m.shader=shader;m.set_shader_parameter("card_art",Card.art(c.id));surface.material_override=m
 	_update_labels(node,c,state)
 	# Cards rise above the arena and settle with a small overshoot.

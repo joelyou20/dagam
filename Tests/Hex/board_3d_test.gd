@@ -62,6 +62,16 @@ func run():
 	await create_timer(0.9).timeout
 	if not check(game.overlay.get_children().filter(func(n):return n.has_meta("damage_number")).is_empty(),"Floating damage labels leaked"): return
 	if not check(game.engine.state.players[0].board.filter(func(c):return c!=null).size()==serial,"Presentation changed authoritative game state"): return
+	var old_size=root.size
+	for dimensions in [Vector2i(1920,1080),Vector2i(1280,720)]:
+		root.size=dimensions
+		await frames()
+		if not check(game.stage.size==game.size,"Resizing introduced a reserved battlefield gap"): return
+		if not check(game.stage.viewport.size.x>=game.stage.size.x*1.49,"Resizing reduced render quality"): return
+		game._inspect(played)
+		if not check(Rect2(Vector2.ZERO,game.size).encloses(game.inspection.get_rect()),"Hover card leaves resized window"): return
+	root.size=old_size
+	await frames()
 	game.set_battle_active(false)
 	if not check(game.stage.viewport.render_target_update_mode==SubViewport.UPDATE_DISABLED,"Hidden arena must stop rendering"): return
 	print("3D board, draw, placement, targeting and effect checks passed: ",checks)

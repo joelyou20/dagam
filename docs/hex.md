@@ -50,3 +50,7 @@ Both sides' art faces the player. Projected controls preserve click/drag targeti
 Run `godot --headless --path . --script res://Tests/Hex/board_3d_test.gd` for framing, draw/placement animation cleanup, drag targeting, simultaneous feedback, state isolation and hidden-viewport checks. Running the same test with a display saves `user://hex-3d-board.png`.
 
 The battlefield fills the window behind the overlapping hand, without menu offsets or a reserved bottom panel. Card names and empty-slot labels are omitted from the field. Attack/HP and protection counts use sharp screen-space UI that follows card movement; damage numbers use the same native-resolution approach. Hover shows the 1024×1536 card alone, with no description panel. A compact battle-options button holds secondary actions.
+
+Closing the battle restores the RPG's rendering/scaling settings. While battle is open, only its own 3D viewport renders, avoiding a second render of the hidden overworld.
+
+[Full-window battlefield](hex-fullscreen/battle.jpg) · [Card-only hover](hex-fullscreen/hover.jpg)

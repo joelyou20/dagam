@@ -29,7 +29,9 @@ func _run():
 	var original: Dictionary = HexManager.save_hex()
 	if not check(MenuManager.menu_ui==null,"Opening battle instantiated the RPG menu"): return
 	if not check(hex.battle.size==get_viewport().get_visible_rect().size,"Battle does not fill the window"): return
+	if not check(get_window().disable_3d and not hex.battle.stage.viewport.disable_3d,"Battle must render only its own 3D world"): return
 	HexManager.close_battle(true)
+	if not check(not get_window().disable_3d,"Closing battle must restore world rendering"): return
 	MenuManager.set_menu(true, MenuTabs.Tab.OPTIONS)
 	await frames()
 	if not check(hex.battle.paused and hex.battle.ai_timer.is_stopped(),"Hidden Hex kept AI running"): return
