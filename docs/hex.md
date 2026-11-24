@@ -41,6 +41,16 @@ godot --headless --path . --script res://Tests/Hex/ui_match.gd
 
 The integration test runs the real root scene, menu and managers, including shared save/load, inventory/scene preservation, tab switching, Escape, H, UI-stack/input blocking and pause/resume. Native tests cover every opponent and all 160 cards. Existing GUT tests are preserved; the legacy `Tests/test_uibase.gd` references a missing `UIBase.ensure_ui()` method and cannot compile independently of these changes.
 
+## Hex deck builder
+
+The **Hex** menu tab (or **H**) opens `HexDeckBuilderUI`, following the existing `MenuUI` / `UIBase` architecture. Opening it initializes only the catalogue and saved decks; it does not create or replace a match. All cards are available. Search includes names, rules, creature types and keyword abilities; filters cover sets, card categories, separate creature types and rarity. The deck list sits above the collection with copy controls, composition counts and average creature stats. Hover shows full-resolution cards.
+
+Create, duplicate, rename, save and delete named decks. Card edits autosave as drafts; **Use for battles** requires exactly 20 cards, no more than two of a unique card, and each card's explicit limit (for example Loriadre's single-copy limit). There is no minimum creature requirement. The native engine validates these restrictions. The starter remains selected until a valid custom deck is explicitly chosen.
+
+Selected deck snapshots are used for new practice games and world encounters. Existing matches and restored practice snapshots retain their original deck, including the battle-deck viewer. Decks and selection persist in `user://dagam-hex-decks-v1.json` and shared RPG saves under `hex_decks`; older saves still load. `Tests/Hex/DeckBuilder.tscn` covers menu routing, catalogue access, copy limits, all-spell decks, saved drafts, selection, persistence and match isolation.
+
+[Deck-builder screenshot](hex-deck-builder/deck-builder.jpg)
+
 ## Scenic 3D battlefield
 
 `Scripts/Hex/HexBoard3D.gd` presents the battle in an isolated 3D world inside the dedicated full-window battle layer: angled camera, mossy stone arena, woodland scenery, lanterns, physical card piles and a concealed opponent hand. It reuses the RPG's dirt and mossy-cliff textures. The 3D render target supersamples its displayed size at 1.5× with anisotropic card filtering and stops when hidden; the HUD, hand, dialogs and card inspector remain native-resolution UI.
@@ -54,11 +64,3 @@ The battlefield fills the window behind the overlapping hand, without menu offse
 Closing the battle restores the RPG's rendering/scaling settings. While battle is open, only its own 3D viewport renders, avoiding a second render of the hidden overworld.
 
 [Full-window battlefield](hex-fullscreen/battle.jpg) · [Card-only hover](hex-fullscreen/hover.jpg)
-
-## Hex deck builder
-
-The **Hex** menu tab (or **H**) opens `HexDeckBuilderUI`, following the existing `MenuUI` / `UIBase` architecture. Opening it initializes only the catalogue and saved decks; it does not create or replace a match. All cards are available. Search includes names, rules, creature types and keyword abilities; filters cover sets, card categories, separate creature types and rarity. The deck list sits above the collection with copy controls, composition counts and average creature stats. Hover shows full-resolution cards.
-
-Create, duplicate, rename, save and delete named decks. Card edits autosave as drafts; **Use for battles** requires exactly 20 cards, no more than two of a unique card, and each card's explicit limit (for example Loriadre's single-copy limit). There is no minimum creature requirement. The native engine validates these restrictions. The starter remains selected until a valid custom deck is explicitly chosen.
-
-Selected deck snapshots are used for new practice games and world encounters. Existing matches and restored practice snapshots retain their original deck, including the battle-deck viewer. Decks and selection persist in `user://dagam-hex-decks-v1.json` and shared RPG saves under `hex_decks`; older saves still load. `Tests/Hex/DeckBuilder.tscn` covers menu routing, catalogue access, copy limits, all-spell decks, saved drafts, selection, persistence and match isolation.

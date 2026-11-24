@@ -10,7 +10,9 @@ func frames():
 func run():
 	var world=load("res://Scenes/Root.tscn").instantiate();get_tree().root.add_child(world);get_tree().current_scene=world
 	for i in range(12):await get_tree().process_frame
-	MenuManager.set_menu(true,MenuTabs.Tab.HEX);await frames()
+	MenuManager.set_menu(true,MenuTabs.Tab.OPTIONS)
+	MenuManager.menu_ui.get_node("VBoxContainer/MenuTopNav/HBoxContainer/HexButton").pressed.emit()
+	await frames()
 	var builder=MenuManager.menu_ui.content_uis.Hex
 	var original_profile=HexManager.save_decks()
 	if not check(builder.visible and not HexManager.is_battle_open(),"Hex menu opened a battle instead of the editor"):return
@@ -69,7 +71,9 @@ func run():
 	if DisplayServer.get_name()!="headless":
 		builder._select(0);await frames();await get_tree().create_timer(0.7).timeout
 		get_tree().root.get_texture().get_image().save_png("user://hex-deck-builder.png")
-	MenuManager.hide_menu(true)
+	var hotkey=InputEventAction.new();hotkey.action="toggle_hex_menu";hotkey.pressed=true
+	world._unhandled_input(hotkey)
+	if not check(not MenuManager.menu_ui.visible,"H did not close the Hex page opened from the menu button"):return
 	if not check(not InteractionHandler.is_blocked(),"Deck editor did not release world input"):return
 	print("Deck builder and selected battle deck checks passed: ",checks)
 	MenuManager.menu_ui.queue_free();world.queue_free();await get_tree().create_timer(0.4).timeout;get_tree().quit()

@@ -53,6 +53,7 @@ func open_root(tab: MenuTabs.Tab):
 	_menu_stack.clear()
 	_show_tab(tab, true)
 	show_ui()
+	MenuManager.current_tab=tab
 	
 # Public: push a nested menu (e.g., Party -> PartyMember)
 func show_menu(tab: MenuTabs.Tab):
