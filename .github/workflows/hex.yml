@@ -78,7 +78,7 @@ jobs:
       - name: Native runtime, full match, card coverage and UI
         run: |
           set -o pipefail
-          for test in runtime_smoke planes_test plane_ui_test native_match rules_test ui_smoke ui_match board_3d_test status_test; do
+          for test in runtime_smoke planes_test exposure_test exposure_ui_test plane_ui_test native_match rules_test ui_smoke ui_match board_3d_test status_test; do
             Godot_v4.6.3-stable_linux.x86_64 --headless --path . --script "res://Tests/Hex/$test.gd" 2>&1 | tee "/tmp/$test.log"
             if grep -E 'SCRIPT ERROR|Hex runtime:|ERROR:' "/tmp/$test.log"; then exit 1; fi
           done
@@ -136,6 +136,8 @@ jobs:
         run: xvfb-run -a Godot_v4.6.3-stable_linux.x86_64 --path . --audio-driver Dummy --rendering-method gl_compatibility --rendering-driver opengl3 res://Tests/Hex/Integration.tscn
       - name: Render Plane placement, Power and cost badges
         run: xvfb-run -a Godot_v4.6.3-stable_linux.x86_64 --path . --audio-driver Dummy --rendering-method gl_compatibility --rendering-driver opengl3 --script res://Tests/Hex/plane_ui_test.gd
+      - name: Render Exposure markers and warning
+        run: xvfb-run -a Godot_v4.6.3-stable_linux.x86_64 --path . --audio-driver Dummy --rendering-method gl_compatibility --rendering-driver opengl3 --script res://Tests/Hex/exposure_ui_test.gd
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -144,5 +146,6 @@ jobs:
             /home/runner/.local/share/godot/app_userdata/DaGam/hex-integrated-screen.png
             /home/runner/.local/share/godot/app_userdata/DaGam/hex-hover-screen.png
             /tmp/*_smoke.log
+            /home/runner/.local/share/godot/app_userdata/DaGam/exposure-warning.png
             /home/runner/.local/share/godot/app_userdata/DaGam/plane-battle-screen.png
             /home/runner/.local/share/godot/app_userdata/DaGam/native-test-results.json

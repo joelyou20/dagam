@@ -58,8 +58,9 @@ terrain types. Costs primarily follow attack/HP, entry effects, repeatable value
 removal efficiency and major board swings. Ordinary creatures and small tactical spells generally cost 1; stronger midgame
 cards and engines cost 2; major swings cost 3. Existing
 printed stats and effects are retained. This is an initial cost curve requiring
-playtesting, not a claim of final balance. The empty-field defeat rule is unchanged:
-a resource-starved opening can still lose when the opponent establishes a board.
+playtesting, not a claim of final balance. An empty field now gains Exposure at its owner’s turn end when the opponent has
+a creature. Three Exposure loses; ending with a creature resets it. See
+[Exposure rules](hex-exposure.md).
 
 The starter is an Earth/Light build. All 28 enemies have explicit 30-card two-colour
 lists with ten Planes in `power-enemy-decks.json`. Tactical AI uses the same legal

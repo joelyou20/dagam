@@ -137,6 +137,7 @@ globalThis.Hex = (() => {
         power: p.power,
         planePlayed: p.planePlayed,
         losses: p.losses,
+        exposure: p.exposure || 0,
         mulligan: p.mulligan,
       })),
       field: enrich(g.field),
@@ -203,6 +204,10 @@ globalThis.Hex = (() => {
     )
       throw Error("Unsupported match save");
     for (const p of g.players) {
+      // Saves from before Exposure start safely at zero; never infer past turns.
+      if (p.exposure == null) p.exposure = 0;
+      if (!Number.isInteger(p.exposure) || p.exposure < 0 || p.exposure > 3)
+        throw Error("Invalid Exposure count");
       if (
         !Array.isArray(p.power) ||
         p.planes?.length !== 6 ||

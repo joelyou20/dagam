@@ -13033,6 +13033,7 @@ function hexNewGame(playerDeck, botDeck, seed = Date.now(), options = {}) {
       artifacts: Array(hexRules(g).artifactSlots).fill(null),
       discard: [],
       losses: 0,
+      exposure: 0,
       mulligan: false,
       turns: 0,
       power: [],
@@ -15299,15 +15300,33 @@ function hexExecuteTask(g, j) {
       for (const c of g.players[g.active].board.filter(Boolean))
         if (hexKeyword(c, "regeneration") || hexDailyHas(g, "renewal"))
           hexHeal(g, c, hexKeyword(c, "regeneration") + (hexDailyHas(g, "renewal") ? 1 : 0));
-      if (!g.players[g.active].board.some(Boolean) && g.players[1 - g.active].board.some(Boolean)) {
-        g.winner = 1 - g.active;
-        g.lossReason = "emptyField";
-        g.phase = "over";
-        g.tasks = [];
-        g.stack = [];
-        g.choice = null;
-        hexLog(g, hexOwnerLabel(g.active) + " ended the turn with no active creatures.");
-        break;
+      // Resolve queued death/expiry triggers before checking the final field.
+      g.tasks.push({ kind: "finishTurn", owner: g.active });
+      break;
+    case "finishTurn":
+      {
+        const player = g.players[g.active];
+        if (player.board.some(Boolean)) {
+          if (player.exposure) hexLog(g, hexOwnerLabel(g.active) + " recovered · Exposure reset.");
+          player.exposure = 0;
+        } else if (g.players[1 - g.active].board.some(Boolean)) {
+          player.exposure = (player.exposure || 0) + 1;
+          hexLog(g, hexOwnerLabel(g.active) + " ended empty · Exposure " + player.exposure + "/3.");
+          hexVisualEvent(g, "announcement", {
+            text: hexOwnerLabel(g.active) + " · Exposure " + player.exposure + "/3",
+            tone: "phase",
+          });
+          if (player.exposure >= 3) {
+            g.winner = 1 - g.active;
+            g.lossReason = "exposure";
+            g.phase = "over";
+            g.tasks = [];
+            g.stack = [];
+            g.choice = null;
+            hexLog(g, hexOwnerLabel(g.active) + " lost after three exposed turns.");
+            break;
+          }
+        }
       }
       g.active = 1 - g.active;
       hexBeginTurn(g);
@@ -17598,6 +17617,7 @@ function hexBotPlayKey(g, side, uid, index) {
     enemyHand: enemy.hand.length,
     enemyDeck: enemy.deck.length,
     losses: [pl.losses, enemy.losses],
+    exposure: [pl.exposure || 0, enemy.exposure || 0],
     field: g.field,
   });
 }
@@ -17648,7 +17668,8 @@ function hexAscendedValue(g, side) {
     const pl = g.players[p];
     let v =
       pl.planes.reduce((sum, h) => sum + h.level * 3, 0) -
-      pl.losses * 24 +
+      pl.losses * 24 -
+      (pl.exposure || 0) * 14 +
       pl.hand.length * 1.6 +
       Math.min(pl.deck.length, 5) * 0.15;
     for (const c of pl.board.filter(Boolean)) {
@@ -19716,6 +19737,7 @@ globalThis.Hex = (() => {
         power: p.power,
         planePlayed: p.planePlayed,
         losses: p.losses,
+        exposure: p.exposure || 0,
         mulligan: p.mulligan,
       })),
       field: enrich(g.field),
@@ -19782,6 +19804,10 @@ globalThis.Hex = (() => {
     )
       throw Error("Unsupported match save");
     for (const p of g.players) {
+      // Saves from before Exposure start safely at zero; never infer past turns.
+      if (p.exposure == null) p.exposure = 0;
+      if (!Number.isInteger(p.exposure) || p.exposure < 0 || p.exposure > 3)
+        throw Error("Invalid Exposure count");
       if (
         !Array.isArray(p.power) ||
         p.planes?.length !== 6 ||

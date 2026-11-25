@@ -166,7 +166,10 @@ globalThis.HexTests = (() => {
       h.phase = "post";
       unit(h, "WE-008", 1);
       hexNext(h, 0);
-      assert(h.winner === 1 && h.lossReason === "emptyField", "one empty loses");
+      assert(
+        h.winner === null && h.players[0].exposure === 1,
+        "first empty turn gains Exposure instead of losing",
+      );
     });
     test("post-combat play", () => {
       const g = fresh();
