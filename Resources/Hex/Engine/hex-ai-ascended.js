@@ -27,6 +27,7 @@ function hexBotPlayKey(g, side, uid, index) {
     enemyHand: enemy.hand.length,
     enemyDeck: enemy.deck.length,
     losses: [pl.losses, enemy.losses],
+    exposure: [pl.exposure || 0, enemy.exposure || 0],
     field: g.field,
   });
 }
@@ -77,7 +78,8 @@ function hexAscendedValue(g, side) {
     const pl = g.players[p];
     let v =
       pl.planes.reduce((sum, h) => sum + h.level * 3, 0) -
-      pl.losses * 24 +
+      pl.losses * 24 -
+      (pl.exposure || 0) * 14 +
       pl.hand.length * 1.6 +
       Math.min(pl.deck.length, 5) * 0.15;
     for (const c of pl.board.filter(Boolean)) {

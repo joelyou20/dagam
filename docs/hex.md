@@ -20,7 +20,7 @@ Touching an active enemy now starts a Standard Hex match using the starter deck 
 
 The player starts with the 30-card Earth/Light starter deck and draws five cards. All 185 deckable cards are available for custom Standard deck building; Volcanic Vent is displayed in the catalog but created only by Erupt. All 28 preconstructed opponents use the stronger tactical AI. There are no points, purchases, collection progression, Blitz, drafts, tournaments or Legends.
 
-Click a hand card to choose legal placements/targets, or drag it onto a slot/creature. Ready attackers pulse white. Board abilities, friendly/enemy target labels and reaction dialogs are supported. Your deck is shown alphabetically; the opponent's hand/deck remain hidden. Rules include counted creature defeats, empty-field defeat, Summon removal, original ownership, and the 60-full-round draw.
+Click a hand card to choose legal placements/targets, or drag it onto a slot/creature. Ready attackers pulse white. Board abilities, friendly/enemy target labels and reaction dialogs are supported. Your deck is shown alphabetically; the opponent's hand/deck remain hidden. Rules include counted creature defeats, three-turn Exposure defeat, Summon removal, original ownership, and the 60-full-round draw.
 
 The rules run in-process through a small C GDExtension embedding QuickJS, not through Node, a browser or a server. All 186 base cards and their game images retain stable IDs. Cosmetic variants share gameplay data. `.hextex` assets are 1024×1536 WebP images loaded directly with a bounded texture cache; root export presets include them and the JS/JSON data. Source hashes are in `Resources/Hex/Data/source-manifest.json`. Original artwork/templates remain in LifestyleTracker; `tools/hex/import_hd_art.py` reproducibly rebuilds the full-size prints and writes `hd-art-manifest.json`. Pillow is required for artwork imports.
 
@@ -80,3 +80,5 @@ Keeping the original hand still starts the selected first player. Mulliganing re
 [Opening coin screenshot](hex-opening/opening-coin.jpg)
 
 Plane resource rules and initial cost balancing are documented in [Plane and Power rules](hex-planes.md).
+
+Exposure is separate from creature deaths: [Exposure timing and recovery](hex-exposure.md).

@@ -79,6 +79,7 @@ function hexNewGame(playerDeck, botDeck, seed = Date.now(), options = {}) {
       artifacts: Array(hexRules(g).artifactSlots).fill(null),
       discard: [],
       losses: 0,
+      exposure: 0,
       mulligan: false,
       turns: 0,
       power: [],

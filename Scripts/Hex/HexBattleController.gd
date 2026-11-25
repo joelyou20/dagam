@@ -15,6 +15,7 @@ var stage: Control
 var inspection: TextureRect
 var enemy_summary: Label
 var player_summary: Label
+var exposure_ui: Control
 var hand_snapshot: Dictionary = {}
 var hand: HBoxContainer
 var controls: VBoxContainer
@@ -209,8 +210,12 @@ func _layout() -> void:
 	add_child(enemy_summary)
 	player_summary = Label.new()
 	player_summary.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_LEFT)
-	player_summary.position = Vector2(20, -40)
+	player_summary.position = Vector2(20, -66)
 	add_child(player_summary)
+
+	exposure_ui = preload("res://Scripts/Hex/HexExposureUI.gd").new()
+	add_child(exposure_ui)
+
 	var turn_panel = PanelContainer.new()
 
 	turn_panel.set_anchors_and_offsets_preset(Control.PRESET_CENTER_RIGHT)
@@ -380,7 +385,7 @@ func _refresh() -> void:
 		var p: Dictionary = g.players[side]
 		var summary = enemy_summary if side == 1 else player_summary
 
-		summary.text = ("OPPONENT" if side == 1 else "YOU") + "   %d / 6" % p.losses
+		summary.text = ("OPPONENT" if side == 1 else "YOU") + "   %d / 6 defeats" % p.losses
 
 		for zone in ["board", "artifact"]:
 			var cards = p.board if zone == "board" else p.artifacts
@@ -455,6 +460,8 @@ func _refresh() -> void:
 			("Your" if side == 0 else "Enemy") + " Power · " + str(g.players[side].power.size())
 		)
 
+	exposure_ui.configure(g)
+
 	_animate_hand.call_deferred()
 	opening.sync(g if not paused else {})
 	_actions(g)
@@ -520,6 +527,9 @@ func _actions(g: Dictionary) -> void:
 
 	if g.winner != null:
 		_text(controls, "Victory" if g.winner == 0 else "Defeat" if g.winner == 1 else "Draw")
+
+		if g.reason == "exposure":
+			_text(controls, "Three turns ended empty while the opponent had creatures.")
 
 		if g.reason == "emptyField":
 			_text(
