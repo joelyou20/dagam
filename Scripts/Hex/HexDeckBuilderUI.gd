@@ -6,6 +6,7 @@ var deck_id := "starter"
 var draft: Array = []
 var definitions: Dictionary = {}
 var selector: OptionButton
+var archetype_selector: OptionButton
 var title: LineEdit
 var search: LineEdit
 var set_filter: OptionButton
@@ -34,6 +35,12 @@ func show_ui():
 	if previous_scale < 0:
 		previous_scale = get_window().content_scale_mode
 		get_window().content_scale_mode = Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
+
+	archetype_selector.clear()
+
+	for archetype in HexManager.session.catalog.get("archetypes", []):
+		archetype_selector.add_item(archetype.name + " · " + "/".join(archetype.colours))
+		archetype_selector.set_item_metadata(archetype_selector.item_count - 1, archetype)
 
 	definitions.clear()
 
@@ -127,6 +134,14 @@ func _build():
 	_button(header, "New deck", _new)
 	_button(header, "Duplicate", _duplicate)
 	_button(header, "Delete", _delete)
+	var archetype_row := HBoxContainer.new()
+
+	layout.add_child(archetype_row)
+	archetype_selector = OptionButton.new()
+	archetype_selector.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	archetype_row.add_child(archetype_selector)
+	_button(archetype_row, "Start from template", _from_archetype)
+
 	var deck_section = HBoxContainer.new()
 
 	deck_section.custom_minimum_size.y = 120
@@ -296,6 +311,18 @@ func _new():
 	status.text = ""
 	_refresh()
 
+func _from_archetype() -> void:
+	if archetype_selector.item_count == 0:
+		return
+
+	var archetype: Dictionary = archetype_selector.get_selected_metadata()
+
+	deck_id = ""
+	draft = archetype.cards.duplicate()
+	title.text = archetype.name
+	status.text = archetype.description + " Grey costs accept any colour."
+	_refresh()
+
 func _duplicate():
 	deck_id = ""
 	title.text = title.text.left(40) + " copy"
@@ -442,6 +469,27 @@ func _refresh():
 			float(hp) / maxi(1, creatures)
 		]
 	)
+	var sources := {}
+	var required := {}
+
+	for id in draft:
+		var definition: Dictionary = definitions[id]
+
+		if definition.card_type == "Plane":
+			for colour in definition.get("terrain_types", []):
+				sources[colour] = true
+		else:
+			for colour in definition.get("cost", {}):
+				if colour != "Any":
+					required[colour] = true
+
+	var missing := required.keys().filter(func(colour): return not sources.has(colour))
+
+	metrics.text += "\nGrey costs: any colour"
+
+	if not missing.is_empty():
+		metrics.text += "\nMissing Power: " + ", ".join(missing)
+
 	active_label.text = "Battle deck: " + HexManager.active_deck_name
 	use_button.disabled = not HexManager.deck_errors(draft).is_empty()
 	_collection()

@@ -460,7 +460,7 @@ function hexExecuteTask(g, j) {
       if (target && target.silkTurn !== g.turn) {
         const other =
           target.slot < hexColumns(g) ? target.slot + hexColumns(g) : target.slot - hexColumns(g);
-        if (hexSwap(g, p, target.slot, other)) {
+        if (hexSwap(g, p, target.slot, other) && hexFind(g, target.uid) === target) {
           target.silkTurn = g.turn;
           hexBuff(g, target, 1);
         }

@@ -15,7 +15,8 @@ func configure(value: Array, title: String) -> void:
 	spheres = value
 	caption = title
 	tooltip_text = (
-		"Power lasts until your next Power phase. " + "Each split sphere pays either colour once."
+		"Power lasts until your next Power phase. "
+		+ "Each split sphere pays either colour once. Grey card costs accept any colour."
 	)
 	queue_redraw()
 

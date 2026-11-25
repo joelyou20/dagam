@@ -1,0 +1,707 @@
+[
+  {
+    "id": "LT-002",
+    "name": "Amberstinger",
+    "previous": {
+      "Earth": 2
+    },
+    "cost": {
+      "Earth": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "LT-003",
+    "name": "Abysscoil",
+    "previous": {
+      "Dark": 2
+    },
+    "cost": {
+      "Dark": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "LT-006",
+    "name": "Gym Mouse",
+    "previous": {
+      "Earth": 2
+    },
+    "cost": {
+      "Earth": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "LT-007",
+    "name": "Ashwing",
+    "previous": {
+      "Fire": 2
+    },
+    "cost": {
+      "Fire": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "LT-008",
+    "name": "Amethyst Colossus",
+    "previous": {
+      "Dark": 2
+    },
+    "cost": {
+      "Dark": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "LT-012",
+    "name": "Aurora Stag",
+    "previous": {
+      "Light": 2
+    },
+    "cost": {
+      "Light": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "LT-015",
+    "name": "Cloud Sovereign",
+    "previous": {
+      "Sky": 2
+    },
+    "cost": {
+      "Sky": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "LT-016",
+    "name": "Cindermaw",
+    "previous": {
+      "Fire": 2
+    },
+    "cost": {
+      "Fire": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "LT-020",
+    "name": "Crystal Gale",
+    "previous": {
+      "Sky": 2
+    },
+    "cost": {
+      "Sky": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "LT-024",
+    "name": "Coralcrusher",
+    "previous": {
+      "Water": 2
+    },
+    "cost": {
+      "Water": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "LT-026",
+    "name": "Glacier Cube",
+    "previous": {
+      "Water": 2
+    },
+    "cost": {
+      "Water": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "LT-030",
+    "name": "Crownless Lich",
+    "previous": {
+      "Dark": 3
+    },
+    "cost": {
+      "Dark": 2,
+      "Any": 1
+    }
+  },
+  {
+    "id": "LT-042",
+    "name": "Sunken Compass",
+    "previous": {
+      "Water": 1
+    },
+    "cost": {
+      "Any": 1
+    }
+  },
+  {
+    "id": "LT-051",
+    "name": "Lantern Tortoise",
+    "previous": {
+      "Light": 2
+    },
+    "cost": {
+      "Earth": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "LT-055",
+    "name": "Wayfarer Satchel",
+    "previous": {
+      "Earth": 1
+    },
+    "cost": {
+      "Any": 1
+    }
+  },
+  {
+    "id": "LT-060",
+    "name": "Cloud Kingdom",
+    "previous": {
+      "Sky": 2
+    },
+    "cost": {
+      "Sky": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "SA-002",
+    "name": "Zap",
+    "previous": {
+      "Fire": 1
+    },
+    "cost": {
+      "Sky": 1
+    }
+  },
+  {
+    "id": "SA-008",
+    "name": "Mind Control",
+    "previous": {
+      "Dark": 3
+    },
+    "cost": {
+      "Water": 1,
+      "Any": 2
+    }
+  },
+  {
+    "id": "SA-010",
+    "name": "Duplicate",
+    "previous": {
+      "Sky": 2
+    },
+    "cost": {
+      "Sky": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "SA-015",
+    "name": "Suffer the Dead",
+    "previous": {
+      "Dark": 2
+    },
+    "cost": {
+      "Dark": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "SA-018",
+    "name": "Spring to Life",
+    "previous": {
+      "Light": 2
+    },
+    "cost": {
+      "Light": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "SA-020",
+    "name": "Set the Trap",
+    "previous": {
+      "Earth": 2
+    },
+    "cost": {
+      "Earth": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "SA-021",
+    "name": "Fade to Nothing",
+    "previous": {
+      "Dark": 2
+    },
+    "cost": {
+      "Dark": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "SA-023",
+    "name": "Disruption Pact",
+    "previous": {
+      "Dark": 2
+    },
+    "cost": {
+      "Dark": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "SA-024",
+    "name": "Vanguard",
+    "previous": {
+      "Light": 2
+    },
+    "cost": {
+      "Light": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "SA-025",
+    "name": "Control the Future",
+    "previous": {
+      "Water": 2
+    },
+    "cost": {
+      "Water": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "SA-026",
+    "name": "In Fate's Hands",
+    "previous": {
+      "Dark": 2
+    },
+    "cost": {
+      "Dark": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "SA-027",
+    "name": "Begin Anew",
+    "previous": {
+      "Sky": 2
+    },
+    "cost": {
+      "Sky": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "SA-028",
+    "name": "Search the Archives",
+    "previous": {
+      "Sky": 2
+    },
+    "cost": {
+      "Sky": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "SA-029",
+    "name": "Decimate",
+    "previous": {
+      "Dark": 3
+    },
+    "cost": {
+      "Dark": 2,
+      "Any": 1
+    }
+  },
+  {
+    "id": "SA-030",
+    "name": "Spellproof Cowl",
+    "previous": {
+      "Light": 1
+    },
+    "cost": {
+      "Sky": 1
+    }
+  },
+  {
+    "id": "SA-031",
+    "name": "Mirror Plate",
+    "previous": {
+      "Sky": 2
+    },
+    "cost": {
+      "Sky": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "SA-033",
+    "name": "Arcane Amplifier",
+    "previous": {
+      "Fire": 2
+    },
+    "cost": {
+      "Sky": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "SA-036",
+    "name": "Realmskipper",
+    "previous": {
+      "Sky": 1
+    },
+    "cost": {
+      "Any": 1
+    }
+  },
+  {
+    "id": "SA-037",
+    "name": "Mystical Woolie",
+    "previous": {
+      "Light": 1
+    },
+    "cost": {
+      "Water": 1
+    }
+  },
+  {
+    "id": "SA-039",
+    "name": "Animated Tome",
+    "previous": {
+      "Dark": 1
+    },
+    "cost": {
+      "Any": 1
+    }
+  },
+  {
+    "id": "SA-040",
+    "name": "Feverish Academic",
+    "previous": {
+      "Fire": 1
+    },
+    "cost": {
+      "Sky": 1
+    }
+  },
+  {
+    "id": "SA-043",
+    "name": "Seer of the Realms",
+    "previous": {
+      "Sky": 2
+    },
+    "cost": {
+      "Sky": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "SA-044",
+    "name": "Professor Riddledum",
+    "previous": {
+      "Light": 2
+    },
+    "cost": {
+      "Water": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "SA-045",
+    "name": "Soultorn Recluse",
+    "previous": {
+      "Dark": 2
+    },
+    "cost": {
+      "Water": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "SA-046",
+    "name": "Rhodovan",
+    "previous": {
+      "Earth": 2
+    },
+    "cost": {
+      "Earth": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "SA-047",
+    "name": "The Orator of the Void",
+    "previous": {
+      "Dark": 3
+    },
+    "cost": {
+      "Sky": 1,
+      "Any": 2
+    }
+  },
+  {
+    "id": "WE-011",
+    "name": "Burrowborn Magikitten",
+    "previous": {
+      "Dark": 2
+    },
+    "cost": {
+      "Earth": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "WE-014",
+    "name": "Makeshift Battering Ram",
+    "previous": {
+      "Earth": 2
+    },
+    "cost": {
+      "Earth": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "WE-015",
+    "name": "Gobskin Sympathizer",
+    "previous": {
+      "Fire": 2
+    },
+    "cost": {
+      "Earth": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "WE-018",
+    "name": "The Bullseye Brothers",
+    "previous": {
+      "Earth": 3
+    },
+    "cost": {
+      "Earth": 2,
+      "Any": 1
+    }
+  },
+  {
+    "id": "WE-020",
+    "name": "Edelberry Burrow",
+    "previous": {
+      "Earth": 2
+    },
+    "cost": {
+      "Earth": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "WE-021",
+    "name": "The Vicious Maw",
+    "previous": {
+      "Fire": 2
+    },
+    "cost": {
+      "Fire": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "WE-022",
+    "name": "Goblin Totem",
+    "previous": {
+      "Dark": 2
+    },
+    "cost": {
+      "Fire": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "WE-024",
+    "name": "Urkjaw Bloodfist",
+    "previous": {
+      "Fire": 2
+    },
+    "cost": {
+      "Fire": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "WE-025",
+    "name": "Royal Knight Eklo",
+    "previous": {
+      "Light": 2
+    },
+    "cost": {
+      "Light": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "WE-026",
+    "name": "Fireback Rider",
+    "previous": {
+      "Fire": 3
+    },
+    "cost": {
+      "Fire": 1,
+      "Any": 2
+    }
+  },
+  {
+    "id": "WE-027",
+    "name": "Cloudcarriage Captain",
+    "previous": {
+      "Sky": 3
+    },
+    "cost": {
+      "Light": 1,
+      "Any": 2
+    }
+  },
+  {
+    "id": "WE-028",
+    "name": "Obelisk of Fis'Duum",
+    "previous": {
+      "Dark": 3
+    },
+    "cost": {
+      "Dark": 2,
+      "Any": 1
+    }
+  },
+  {
+    "id": "WE-029",
+    "name": "Shackles of Nim",
+    "previous": {
+      "Dark": 1
+    },
+    "cost": {
+      "Any": 1
+    }
+  },
+  {
+    "id": "WE-030",
+    "name": "Champion's Tunic",
+    "previous": {
+      "Light": 2
+    },
+    "cost": {
+      "Light": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "WE-032",
+    "name": "Torn Banner",
+    "previous": {
+      "Earth": 2
+    },
+    "cost": {
+      "Earth": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "WE-033",
+    "name": "Ring of Disassociation",
+    "previous": {
+      "Sky": 1
+    },
+    "cost": {
+      "Any": 1
+    }
+  },
+  {
+    "id": "WE-040",
+    "name": "Back in Action",
+    "previous": {
+      "Light": 2
+    },
+    "cost": {
+      "Light": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "WE-043",
+    "name": "Level the Field",
+    "previous": {
+      "Dark": 2
+    },
+    "cost": {
+      "Dark": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "WE-044",
+    "name": "Raise the Dead",
+    "previous": {
+      "Light": 3
+    },
+    "cost": {
+      "Dark": 1,
+      "Any": 2
+    }
+  },
+  {
+    "id": "WE-045",
+    "name": "Loriadre, Angel of War",
+    "previous": {
+      "Light": 3
+    },
+    "cost": {
+      "Light": 2,
+      "Any": 1
+    }
+  },
+  {
+    "id": "WE-046",
+    "name": "Enrapture",
+    "previous": {
+      "Light": 2
+    },
+    "cost": {
+      "Light": 1,
+      "Any": 1
+    }
+  },
+  {
+    "id": "WE-047",
+    "name": "Seraphim Scepter",
+    "previous": {
+      "Dark": 3
+    },
+    "cost": {
+      "Dark": 2,
+      "Any": 1
+    }
+  },
+  {
+    "id": "WE-049",
+    "name": "Momentary Allegiance",
+    "previous": {
+      "Dark": 3
+    },
+    "cost": {
+      "Dark": 1,
+      "Any": 2
+    }
+  }
+]

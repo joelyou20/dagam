@@ -157,7 +157,7 @@ globalThis.Hex = (() => {
         g.players[0].hand.map((c) => [
           c.uid,
           hexPowerPayment(g, 0, c) === null
-            ? "Not enough matching Power."
+            ? "Not enough Power to pay this cost."
             : hexType(c, "Plane") && g.players[0].planePlayed
               ? "You have already played a Plane this turn."
               : hexType(c, "Creature") &&
@@ -303,6 +303,7 @@ globalThis.Hex = (() => {
         return {
           cards: HEX_CARDS,
           keywords: HEX_KEYWORDS,
+          archetypes: HEX_ARCHETYPES,
           starter,
           enemies: Object.keys(HEX_BOT_DECKS).map((id) => ({
             id,

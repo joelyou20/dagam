@@ -23,7 +23,9 @@ is added immediately; upgrades do not regenerate the entire hex. Existing Power
 is retained even when a hex changes, through the opponent's turn, until the owner's
 next Power phase. This allows Reactions and Ambush to spend saved Power.
 
-Dual terrain spheres are split in the UI and pay either colour once. Payment
+Dual terrain spheres are split in the UI and pay either colour once. Grey cost
+circles are generic payments: any generated Power can pay them, after matching
+colour requirements. They are not a seventh generated Power type. Payment
 finds a valid assignment, preferring single-colour spheres where possible; it never
 spends the same sphere twice. An illegal or unaffordable action spends nothing.
 Cards placed by effects bypass casting costs, but obey creature compatibility.
@@ -83,3 +85,6 @@ to isolate their effects; full-match simulations use real shuffled decks and cos
 
 The applied lower prices and representative Mage checks are recorded in
 [the complete repricing audit](card-costs/repricing.md).
+
+Coherent colour pairs and ready-to-edit templates are documented in the
+[archetype guide](archetype-costs/guide.md).
