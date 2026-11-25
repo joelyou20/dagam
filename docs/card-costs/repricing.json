@@ -1,0 +1,1282 @@
+[
+  {
+    "id": "LT-001",
+    "name": "Loyal Pup",
+    "type": "Creature",
+    "colour": "Light",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "LT-002",
+    "name": "Amberstinger",
+    "type": "Creature",
+    "colour": "Earth",
+    "old": 3,
+    "new": 2
+  },
+  {
+    "id": "LT-003",
+    "name": "Abysscoil",
+    "type": "Creature",
+    "colour": "Dark",
+    "old": 3,
+    "new": 2
+  },
+  {
+    "id": "LT-004",
+    "name": "Moonface Owl",
+    "type": "Creature",
+    "colour": "Sky",
+    "old": 1,
+    "new": 1
+  },
+  {
+    "id": "LT-005",
+    "name": "Hatchling of the Hoard",
+    "type": "Creature",
+    "colour": "Fire",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "LT-006",
+    "name": "Gym Mouse",
+    "type": "Creature",
+    "colour": "Earth",
+    "old": 2,
+    "new": 2
+  },
+  {
+    "id": "LT-007",
+    "name": "Ashwing",
+    "type": "Creature",
+    "colour": "Fire",
+    "old": 4,
+    "new": 2
+  },
+  {
+    "id": "LT-008",
+    "name": "Amethyst Colossus",
+    "type": "Creature",
+    "colour": "Dark",
+    "old": 5,
+    "new": 2
+  },
+  {
+    "id": "LT-009",
+    "name": "Bonecaller",
+    "type": "Creature",
+    "colour": "Dark",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "LT-010",
+    "name": "Bloomstone",
+    "type": "Creature",
+    "colour": "Earth",
+    "old": 3,
+    "new": 1
+  },
+  {
+    "id": "LT-011",
+    "name": "Azure Myconid",
+    "type": "Creature",
+    "colour": "Water",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "LT-012",
+    "name": "Aurora Stag",
+    "type": "Creature",
+    "colour": "Light",
+    "old": 4,
+    "new": 2
+  },
+  {
+    "id": "LT-013",
+    "name": "Cinder Jelly",
+    "type": "Creature",
+    "colour": "Fire",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "LT-014",
+    "name": "Bramble Shiv",
+    "type": "Creature",
+    "colour": "Earth",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "LT-015",
+    "name": "Cloud Sovereign",
+    "type": "Creature",
+    "colour": "Sky",
+    "old": 4,
+    "new": 2
+  },
+  {
+    "id": "LT-016",
+    "name": "Cindermaw",
+    "type": "Creature",
+    "colour": "Fire",
+    "old": 5,
+    "new": 2
+  },
+  {
+    "id": "LT-017",
+    "name": "Dewdrop Ooze",
+    "type": "Creature",
+    "colour": "Water",
+    "old": 1,
+    "new": 1
+  },
+  {
+    "id": "LT-018",
+    "name": "Crimson Fletcher",
+    "type": "Creature",
+    "colour": "Fire",
+    "old": 3,
+    "new": 1
+  },
+  {
+    "id": "LT-019",
+    "name": "Dustdancer",
+    "type": "Creature",
+    "colour": "Earth",
+    "old": 3,
+    "new": 1
+  },
+  {
+    "id": "LT-020",
+    "name": "Crystal Gale",
+    "type": "Creature",
+    "colour": "Sky",
+    "old": 4,
+    "new": 2
+  },
+  {
+    "id": "LT-021",
+    "name": "Dustbound",
+    "type": "Creature",
+    "colour": "Earth",
+    "old": 3,
+    "new": 1
+  },
+  {
+    "id": "LT-022",
+    "name": "Velvet Bat",
+    "type": "Creature",
+    "colour": "Dark",
+    "old": 1,
+    "new": 1
+  },
+  {
+    "id": "LT-023",
+    "name": "Moonweave Cloak",
+    "type": "Item",
+    "colour": "Dark",
+    "old": 1,
+    "new": 1
+  },
+  {
+    "id": "LT-024",
+    "name": "Coralcrusher",
+    "type": "Creature",
+    "colour": "Water",
+    "old": 3,
+    "new": 2
+  },
+  {
+    "id": "LT-025",
+    "name": "Hoardkeeper Coin",
+    "type": "Item",
+    "colour": "Earth",
+    "old": 1,
+    "new": 1
+  },
+  {
+    "id": "LT-026",
+    "name": "Glacier Cube",
+    "type": "Creature",
+    "colour": "Water",
+    "old": 3,
+    "new": 2
+  },
+  {
+    "id": "LT-027",
+    "name": "Dawnwing",
+    "type": "Creature",
+    "colour": "Light",
+    "old": 1,
+    "new": 1
+  },
+  {
+    "id": "LT-028",
+    "name": "Hourglass of Embers",
+    "type": "Item",
+    "colour": "Fire",
+    "old": 3,
+    "new": 1
+  },
+  {
+    "id": "LT-029",
+    "name": "Mossgrub",
+    "type": "Creature",
+    "colour": "Earth",
+    "old": 1,
+    "new": 1
+  },
+  {
+    "id": "LT-030",
+    "name": "Crownless Lich",
+    "type": "Creature",
+    "colour": "Dark",
+    "old": 5,
+    "new": 3
+  },
+  {
+    "id": "LT-031",
+    "name": "Heart of the Grove",
+    "type": "Item",
+    "colour": "Earth",
+    "old": 3,
+    "new": 1
+  },
+  {
+    "id": "LT-032",
+    "name": "Fizzlewick",
+    "type": "Creature",
+    "colour": "Fire",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "LT-033",
+    "name": "Prism of Echoes",
+    "type": "Spell",
+    "colour": "Sky",
+    "old": 1,
+    "new": 1
+  },
+  {
+    "id": "LT-034",
+    "name": "Sunforged Blade",
+    "type": "Item",
+    "colour": "Light",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "LT-035",
+    "name": "Moonstone Bell",
+    "type": "Item",
+    "colour": "Light",
+    "old": 1,
+    "new": 1
+  },
+  {
+    "id": "LT-036",
+    "name": "Thunderhead",
+    "type": "Creature",
+    "colour": "Sky",
+    "old": 3,
+    "new": 1
+  },
+  {
+    "id": "LT-037",
+    "name": "Rootbound Idol",
+    "type": "Item",
+    "colour": "Earth",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "LT-038",
+    "name": "Frostwalker Boots",
+    "type": "Item",
+    "colour": "Water",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "LT-039",
+    "name": "Phoenix Feather",
+    "type": "Spell",
+    "colour": "Fire",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "LT-040",
+    "name": "Tideglass Bow",
+    "type": "Item",
+    "colour": "Water",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "LT-041",
+    "name": "Snowswirl",
+    "type": "Creature",
+    "colour": "Sky",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "LT-042",
+    "name": "Sunken Compass",
+    "type": "Item",
+    "colour": "Water",
+    "old": 1,
+    "new": 1
+  },
+  {
+    "id": "LT-043",
+    "name": "Starlight Locket",
+    "type": "Item",
+    "colour": "Light",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "LT-044",
+    "name": "Rainbow Vale",
+    "type": "Battlefield",
+    "colour": "Light",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "LT-045",
+    "name": "Stormcaller Hammer",
+    "type": "Item",
+    "colour": "Sky",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "LT-046",
+    "name": "Obsidian Mirror",
+    "type": "Spell",
+    "colour": "Dark",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "LT-047",
+    "name": "Brambleguard Shield",
+    "type": "Item",
+    "colour": "Earth",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "LT-048",
+    "name": "Dragonwatch Crags",
+    "type": "Battlefield",
+    "colour": "Earth",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "LT-049",
+    "name": "Dragonbone Spear",
+    "type": "Item",
+    "colour": "Fire",
+    "old": 3,
+    "new": 1
+  },
+  {
+    "id": "LT-050",
+    "name": "Astral Lens",
+    "type": "Item",
+    "colour": "Sky",
+    "old": 1,
+    "new": 1
+  },
+  {
+    "id": "LT-051",
+    "name": "Lantern Tortoise",
+    "type": "Creature",
+    "colour": "Light",
+    "old": 3,
+    "new": 2
+  },
+  {
+    "id": "LT-052",
+    "name": "Starlit Expanse",
+    "type": "Battlefield",
+    "colour": "Sky",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "LT-053",
+    "name": "Emberheart Armor",
+    "type": "Item",
+    "colour": "Fire",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "LT-054",
+    "name": "Silkstep Sandals",
+    "type": "Item",
+    "colour": "Sky",
+    "old": 1,
+    "new": 1
+  },
+  {
+    "id": "LT-055",
+    "name": "Wayfarer Satchel",
+    "type": "Item",
+    "colour": "Earth",
+    "old": 1,
+    "new": 1
+  },
+  {
+    "id": "LT-056",
+    "name": "Runesmith Gauntlets",
+    "type": "Item",
+    "colour": "Earth",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "LT-057",
+    "name": "Hearthkeeper Apron",
+    "type": "Item",
+    "colour": "Light",
+    "old": 1,
+    "new": 1
+  },
+  {
+    "id": "LT-058",
+    "name": "Garden of Stars",
+    "type": "Item",
+    "colour": "Light",
+    "old": 3,
+    "new": 1
+  },
+  {
+    "id": "LT-059",
+    "name": "Wildflower Crown",
+    "type": "Item",
+    "colour": "Earth",
+    "old": 1,
+    "new": 1
+  },
+  {
+    "id": "LT-060",
+    "name": "Cloud Kingdom",
+    "type": "Battlefield",
+    "colour": "Sky",
+    "old": 3,
+    "new": 2
+  },
+  {
+    "id": "LT-061",
+    "name": "Ocean Pearl Ring",
+    "type": "Item",
+    "colour": "Water",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "LT-062",
+    "name": "Amber Memory",
+    "type": "Spell",
+    "colour": "Earth",
+    "old": 1,
+    "new": 1
+  },
+  {
+    "id": "LT-063",
+    "name": "Thunderseed",
+    "type": "Item",
+    "colour": "Sky",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "LT-064",
+    "name": "Hollow Crown",
+    "type": "Spell",
+    "colour": "Dark",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "SA-001",
+    "name": "Transposition",
+    "type": "Spell",
+    "colour": "Sky",
+    "old": 1,
+    "new": 1
+  },
+  {
+    "id": "SA-002",
+    "name": "Zap",
+    "type": "Spell",
+    "colour": "Fire",
+    "old": 1,
+    "new": 1
+  },
+  {
+    "id": "SA-003",
+    "name": "Bounce Back",
+    "type": "Spell",
+    "colour": "Water",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "SA-004",
+    "name": "Unbury",
+    "type": "Spell",
+    "colour": "Dark",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "SA-005",
+    "name": "Quicken",
+    "type": "Spell",
+    "colour": "Fire",
+    "old": 1,
+    "new": 1
+  },
+  {
+    "id": "SA-006",
+    "name": "Foresight",
+    "type": "Spell",
+    "colour": "Sky",
+    "old": 1,
+    "new": 1
+  },
+  {
+    "id": "SA-007",
+    "name": "Sooth Wounds",
+    "type": "Spell",
+    "colour": "Light",
+    "old": 1,
+    "new": 1
+  },
+  {
+    "id": "SA-008",
+    "name": "Mind Control",
+    "type": "Spell",
+    "colour": "Dark",
+    "old": 6,
+    "new": 3
+  },
+  {
+    "id": "SA-009",
+    "name": "Willful Protection",
+    "type": "Spell",
+    "colour": "Light",
+    "old": 1,
+    "new": 1
+  },
+  {
+    "id": "SA-010",
+    "name": "Duplicate",
+    "type": "Spell",
+    "colour": "Sky",
+    "old": 4,
+    "new": 2
+  },
+  {
+    "id": "SA-011",
+    "name": "Delve",
+    "type": "Spell",
+    "colour": "Water",
+    "old": 3,
+    "new": 1
+  },
+  {
+    "id": "SA-012",
+    "name": "Esoteric Implosion",
+    "type": "Spell",
+    "colour": "Earth",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "SA-013",
+    "name": "Dismay",
+    "type": "Spell",
+    "colour": "Dark",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "SA-014",
+    "name": "Pierce the Veil",
+    "type": "Spell",
+    "colour": "Sky",
+    "old": 1,
+    "new": 1
+  },
+  {
+    "id": "SA-015",
+    "name": "Suffer the Dead",
+    "type": "Spell",
+    "colour": "Dark",
+    "old": 3,
+    "new": 2
+  },
+  {
+    "id": "SA-016",
+    "name": "Directed Ire",
+    "type": "Spell",
+    "colour": "Light",
+    "old": 1,
+    "new": 1
+  },
+  {
+    "id": "SA-017",
+    "name": "Bring it On!",
+    "type": "Spell",
+    "colour": "Fire",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "SA-018",
+    "name": "Spring to Life",
+    "type": "Spell",
+    "colour": "Light",
+    "old": 3,
+    "new": 2
+  },
+  {
+    "id": "SA-019",
+    "name": "Choices, Choices",
+    "type": "Spell",
+    "colour": "Water",
+    "old": 1,
+    "new": 1
+  },
+  {
+    "id": "SA-020",
+    "name": "Set the Trap",
+    "type": "Spell",
+    "colour": "Earth",
+    "old": 3,
+    "new": 2
+  },
+  {
+    "id": "SA-021",
+    "name": "Fade to Nothing",
+    "type": "Spell",
+    "colour": "Dark",
+    "old": 5,
+    "new": 2
+  },
+  {
+    "id": "SA-022",
+    "name": "Benevolent Infection",
+    "type": "Spell",
+    "colour": "Dark",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "SA-023",
+    "name": "Disruption Pact",
+    "type": "Spell",
+    "colour": "Dark",
+    "old": 3,
+    "new": 2
+  },
+  {
+    "id": "SA-024",
+    "name": "Vanguard",
+    "type": "Spell",
+    "colour": "Light",
+    "old": 3,
+    "new": 2
+  },
+  {
+    "id": "SA-025",
+    "name": "Control the Future",
+    "type": "Spell",
+    "colour": "Water",
+    "old": 3,
+    "new": 2
+  },
+  {
+    "id": "SA-026",
+    "name": "In Fate's Hands",
+    "type": "Spell",
+    "colour": "Dark",
+    "old": 4,
+    "new": 2
+  },
+  {
+    "id": "SA-027",
+    "name": "Begin Anew",
+    "type": "Spell",
+    "colour": "Sky",
+    "old": 4,
+    "new": 2
+  },
+  {
+    "id": "SA-028",
+    "name": "Search the Archives",
+    "type": "Spell",
+    "colour": "Sky",
+    "old": 3,
+    "new": 2
+  },
+  {
+    "id": "SA-029",
+    "name": "Decimate",
+    "type": "Spell",
+    "colour": "Dark",
+    "old": 7,
+    "new": 3
+  },
+  {
+    "id": "SA-030",
+    "name": "Spellproof Cowl",
+    "type": "Item",
+    "colour": "Light",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "SA-031",
+    "name": "Mirror Plate",
+    "type": "Item",
+    "colour": "Sky",
+    "old": 4,
+    "new": 2
+  },
+  {
+    "id": "SA-032",
+    "name": "Liquid Magic",
+    "type": "Item",
+    "colour": "Water",
+    "old": 3,
+    "new": 1
+  },
+  {
+    "id": "SA-033",
+    "name": "Arcane Amplifier",
+    "type": "Item",
+    "colour": "Fire",
+    "old": 3,
+    "new": 2
+  },
+  {
+    "id": "SA-034",
+    "name": "Portal to the Shattered Realms",
+    "type": "Item",
+    "colour": "Sky",
+    "old": 3,
+    "new": 1
+  },
+  {
+    "id": "SA-035",
+    "name": "Countermagic",
+    "type": "Spell",
+    "colour": "Sky",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "SA-036",
+    "name": "Realmskipper",
+    "type": "Creature",
+    "colour": "Sky",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "SA-037",
+    "name": "Mystical Woolie",
+    "type": "Creature",
+    "colour": "Light",
+    "old": 3,
+    "new": 1
+  },
+  {
+    "id": "SA-038",
+    "name": "Cerulean Sprite",
+    "type": "Creature",
+    "colour": "Water",
+    "old": 3,
+    "new": 1
+  },
+  {
+    "id": "SA-039",
+    "name": "Animated Tome",
+    "type": "Creature",
+    "colour": "Dark",
+    "old": 3,
+    "new": 1
+  },
+  {
+    "id": "SA-040",
+    "name": "Feverish Academic",
+    "type": "Creature",
+    "colour": "Fire",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "SA-041",
+    "name": "Dirge Scuttler",
+    "type": "Creature",
+    "colour": "Dark",
+    "old": 3,
+    "new": 1
+  },
+  {
+    "id": "SA-042",
+    "name": "Gifted Aspirant",
+    "type": "Creature",
+    "colour": "Water",
+    "old": 3,
+    "new": 1
+  },
+  {
+    "id": "SA-043",
+    "name": "Seer of the Realms",
+    "type": "Creature",
+    "colour": "Sky",
+    "old": 4,
+    "new": 2
+  },
+  {
+    "id": "SA-044",
+    "name": "Professor Riddledum",
+    "type": "Creature",
+    "colour": "Light",
+    "old": 4,
+    "new": 2
+  },
+  {
+    "id": "SA-045",
+    "name": "Soultorn Recluse",
+    "type": "Creature",
+    "colour": "Dark",
+    "old": 3,
+    "new": 2
+  },
+  {
+    "id": "SA-046",
+    "name": "Rhodovan",
+    "type": "Creature",
+    "colour": "Earth",
+    "old": 4,
+    "new": 2
+  },
+  {
+    "id": "SA-047",
+    "name": "The Orator of the Void",
+    "type": "Creature",
+    "colour": "Dark",
+    "old": 6,
+    "new": 3
+  },
+  {
+    "id": "WE-001",
+    "name": "Pebble Slinger",
+    "type": "Creature",
+    "colour": "Earth",
+    "old": 1,
+    "new": 1
+  },
+  {
+    "id": "WE-002",
+    "name": "Fireback Basilisk",
+    "type": "Creature",
+    "colour": "Fire",
+    "old": 3,
+    "new": 1
+  },
+  {
+    "id": "WE-003",
+    "name": "Flamebrew Witch",
+    "type": "Creature",
+    "colour": "Fire",
+    "old": 1,
+    "new": 1
+  },
+  {
+    "id": "WE-004",
+    "name": "Goblin Punk",
+    "type": "Creature",
+    "colour": "Fire",
+    "old": 1,
+    "new": 1
+  },
+  {
+    "id": "WE-005",
+    "name": "Warg Runt",
+    "type": "Creature",
+    "colour": "Earth",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "WE-006",
+    "name": "Flamespark Elemental",
+    "type": "Creature",
+    "colour": "Fire",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "WE-007",
+    "name": "Riggel, Gold Glutton",
+    "type": "Creature",
+    "colour": "Fire",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "WE-008",
+    "name": "Soldier of Edelberry",
+    "type": "Creature",
+    "colour": "Earth",
+    "old": 3,
+    "new": 1
+  },
+  {
+    "id": "WE-009",
+    "name": "Rebel Rouser",
+    "type": "Creature",
+    "colour": "Earth",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "WE-010",
+    "name": "Greyfur Physician",
+    "type": "Creature",
+    "colour": "Light",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "WE-011",
+    "name": "Burrowborn Magikitten",
+    "type": "Creature",
+    "colour": "Dark",
+    "old": 3,
+    "new": 2
+  },
+  {
+    "id": "WE-012",
+    "name": "Wiskin Bannerling",
+    "type": "Creature",
+    "colour": "Light",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "WE-013",
+    "name": "Prodfoot Steer",
+    "type": "Creature",
+    "colour": "Earth",
+    "old": 3,
+    "new": 1
+  },
+  {
+    "id": "WE-014",
+    "name": "Makeshift Battering Ram",
+    "type": "Creature",
+    "colour": "Earth",
+    "old": 4,
+    "new": 2
+  },
+  {
+    "id": "WE-015",
+    "name": "Gobskin Sympathizer",
+    "type": "Creature",
+    "colour": "Fire",
+    "old": 3,
+    "new": 2
+  },
+  {
+    "id": "WE-016",
+    "name": "Solblade Cutthroat",
+    "type": "Creature",
+    "colour": "Dark",
+    "old": 3,
+    "new": 1
+  },
+  {
+    "id": "WE-017",
+    "name": "Messenger Hawk",
+    "type": "Creature",
+    "colour": "Sky",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "WE-018",
+    "name": "The Bullseye Brothers",
+    "type": "Creature",
+    "colour": "Earth",
+    "old": 5,
+    "new": 3
+  },
+  {
+    "id": "WE-019",
+    "name": "Goblin Channeler",
+    "type": "Creature",
+    "colour": "Fire",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "WE-020",
+    "name": "Edelberry Burrow",
+    "type": "Battlefield",
+    "colour": "Earth",
+    "old": 3,
+    "new": 2
+  },
+  {
+    "id": "WE-021",
+    "name": "The Vicious Maw",
+    "type": "Battlefield",
+    "colour": "Fire",
+    "old": 4,
+    "new": 2
+  },
+  {
+    "id": "WE-022",
+    "name": "Goblin Totem",
+    "type": "Item",
+    "colour": "Dark",
+    "old": 3,
+    "new": 2
+  },
+  {
+    "id": "WE-023",
+    "name": "Wiskin Cutlass",
+    "type": "Item",
+    "colour": "Earth",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "WE-024",
+    "name": "Urkjaw Bloodfist",
+    "type": "Creature",
+    "colour": "Fire",
+    "old": 4,
+    "new": 2
+  },
+  {
+    "id": "WE-025",
+    "name": "Royal Knight Eklo",
+    "type": "Creature",
+    "colour": "Light",
+    "old": 4,
+    "new": 2
+  },
+  {
+    "id": "WE-026",
+    "name": "Fireback Rider",
+    "type": "Creature",
+    "colour": "Fire",
+    "old": 5,
+    "new": 3
+  },
+  {
+    "id": "WE-027",
+    "name": "Cloudcarriage Captain",
+    "type": "Creature",
+    "colour": "Sky",
+    "old": 6,
+    "new": 3
+  },
+  {
+    "id": "WE-028",
+    "name": "Obelisk of Fis'Duum",
+    "type": "Item",
+    "colour": "Dark",
+    "old": 6,
+    "new": 3
+  },
+  {
+    "id": "WE-029",
+    "name": "Shackles of Nim",
+    "type": "Item",
+    "colour": "Dark",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "WE-030",
+    "name": "Champion's Tunic",
+    "type": "Item",
+    "colour": "Light",
+    "old": 3,
+    "new": 2
+  },
+  {
+    "id": "WE-031",
+    "name": "Brooch of the Ancients",
+    "type": "Item",
+    "colour": "Earth",
+    "old": 3,
+    "new": 1
+  },
+  {
+    "id": "WE-032",
+    "name": "Torn Banner",
+    "type": "Item",
+    "colour": "Earth",
+    "old": 3,
+    "new": 2
+  },
+  {
+    "id": "WE-033",
+    "name": "Ring of Disassociation",
+    "type": "Item",
+    "colour": "Sky",
+    "old": 1,
+    "new": 1
+  },
+  {
+    "id": "WE-034",
+    "name": "Dissect",
+    "type": "Spell",
+    "colour": "Dark",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "WE-035",
+    "name": "Share the Pain",
+    "type": "Spell",
+    "colour": "Fire",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "WE-036",
+    "name": "Blood for Blood",
+    "type": "Spell",
+    "colour": "Dark",
+    "old": 3,
+    "new": 1
+  },
+  {
+    "id": "WE-037",
+    "name": "Cure All",
+    "type": "Spell",
+    "colour": "Light",
+    "old": 1,
+    "new": 1
+  },
+  {
+    "id": "WE-038",
+    "name": "Unearth Antiquities",
+    "type": "Spell",
+    "colour": "Earth",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "WE-039",
+    "name": "Invisibility",
+    "type": "Spell",
+    "colour": "Dark",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "WE-040",
+    "name": "Back in Action",
+    "type": "Spell",
+    "colour": "Light",
+    "old": 3,
+    "new": 2
+  },
+  {
+    "id": "WE-041",
+    "name": "Unsummon",
+    "type": "Spell",
+    "colour": "Sky",
+    "old": 1,
+    "new": 1
+  },
+  {
+    "id": "WE-042",
+    "name": "Demotivate",
+    "type": "Spell",
+    "colour": "Dark",
+    "old": 2,
+    "new": 1
+  },
+  {
+    "id": "WE-043",
+    "name": "Level the Field",
+    "type": "Spell",
+    "colour": "Dark",
+    "old": 4,
+    "new": 2
+  },
+  {
+    "id": "WE-044",
+    "name": "Raise the Dead",
+    "type": "Spell",
+    "colour": "Light",
+    "old": 6,
+    "new": 3
+  },
+  {
+    "id": "WE-045",
+    "name": "Loriadre, Angel of War",
+    "type": "Creature",
+    "colour": "Light",
+    "old": 6,
+    "new": 3
+  },
+  {
+    "id": "WE-046",
+    "name": "Enrapture",
+    "type": "Spell",
+    "colour": "Light",
+    "old": 4,
+    "new": 2
+  },
+  {
+    "id": "WE-047",
+    "name": "Seraphim Scepter",
+    "type": "Item",
+    "colour": "Dark",
+    "old": 7,
+    "new": 3
+  },
+  {
+    "id": "WE-048",
+    "name": "Spelltwine Altar",
+    "type": "Item",
+    "colour": "Water",
+    "old": 4,
+    "new": 1
+  },
+  {
+    "id": "WE-049",
+    "name": "Momentary Allegiance",
+    "type": "Spell",
+    "colour": "Dark",
+    "old": 5,
+    "new": 3
+  }
+]

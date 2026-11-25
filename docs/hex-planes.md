@@ -55,8 +55,8 @@ immediate Power. Subsequent generation belongs to that hex's controller.
 
 All 160 existing cards have explicit initial costs, and every creature has allowed
 terrain types. Costs primarily follow attack/HP, entry effects, repeatable value,
-removal efficiency and major board swings. Small tactical spells cost 1–2;
-each colour has a one-Power creature option; midrange creatures and engines generally cost 3–4; large swings cost 5–7. Existing
+removal efficiency and major board swings. Ordinary creatures and small tactical spells generally cost 1; stronger midgame
+cards and engines cost 2; major swings cost 3. Existing
 printed stats and effects are retained. This is an initial cost curve requiring
 playtesting, not a claim of final balance. The empty-field defeat rule is unchanged:
 a resource-starved opening can still lose when the opponent establishes a board.
@@ -79,3 +79,6 @@ Run `python tools/hex/build_engine.py` after rules/data changes. Native QuickJS 
 in `planes_test.js` cover actual payment, generation, special Planes, compatibility,
 save migration and deck rules. Existing ability fixtures provide explicit resources
 to isolate their effects; full-match simulations use real shuffled decks and costs.
+
+The applied lower prices and representative Mage checks are recorded in
+[the complete repricing audit](card-costs/repricing.md).

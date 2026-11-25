@@ -22,7 +22,7 @@ const HEX_CARDS = [
       }
     ],
     "cost": {
-      "Light": 2
+      "Light": 1
     },
     "terrain_types": [
       "Light",
@@ -50,7 +50,7 @@ const HEX_CARDS = [
       }
     ],
     "cost": {
-      "Earth": 3
+      "Earth": 2
     },
     "terrain_types": [
       "Earth",
@@ -74,7 +74,7 @@ const HEX_CARDS = [
     ],
     "keywords": [],
     "cost": {
-      "Dark": 3
+      "Dark": 2
     },
     "terrain_types": [
       "Dark",
@@ -121,7 +121,7 @@ const HEX_CARDS = [
     ],
     "keywords": [],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     },
     "terrain_types": [
       "Fire",
@@ -169,7 +169,7 @@ const HEX_CARDS = [
     ],
     "keywords": [],
     "cost": {
-      "Fire": 4
+      "Fire": 2
     },
     "terrain_types": [
       "Fire",
@@ -193,7 +193,7 @@ const HEX_CARDS = [
     ],
     "keywords": [],
     "cost": {
-      "Dark": 5
+      "Dark": 2
     },
     "terrain_types": [
       "Dark",
@@ -217,7 +217,7 @@ const HEX_CARDS = [
     ],
     "keywords": [],
     "cost": {
-      "Dark": 2
+      "Dark": 1
     },
     "terrain_types": [
       "Dark",
@@ -241,7 +241,7 @@ const HEX_CARDS = [
     ],
     "keywords": [],
     "cost": {
-      "Earth": 3
+      "Earth": 1
     },
     "terrain_types": [
       "Earth",
@@ -264,7 +264,7 @@ const HEX_CARDS = [
     ],
     "keywords": [],
     "cost": {
-      "Water": 2
+      "Water": 1
     },
     "terrain_types": [
       "Water",
@@ -288,7 +288,7 @@ const HEX_CARDS = [
     ],
     "keywords": [],
     "cost": {
-      "Light": 4
+      "Light": 2
     },
     "terrain_types": [
       "Light",
@@ -320,7 +320,7 @@ const HEX_CARDS = [
       }
     ],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     },
     "terrain_types": [
       "Fire",
@@ -348,7 +348,7 @@ const HEX_CARDS = [
       }
     ],
     "cost": {
-      "Earth": 2
+      "Earth": 1
     },
     "terrain_types": [
       "Earth",
@@ -372,7 +372,7 @@ const HEX_CARDS = [
     ],
     "keywords": [],
     "cost": {
-      "Sky": 4
+      "Sky": 2
     },
     "terrain_types": [
       "Sky",
@@ -396,7 +396,7 @@ const HEX_CARDS = [
     ],
     "keywords": [],
     "cost": {
-      "Fire": 5
+      "Fire": 2
     },
     "terrain_types": [
       "Fire",
@@ -443,7 +443,7 @@ const HEX_CARDS = [
     ],
     "keywords": [],
     "cost": {
-      "Fire": 3
+      "Fire": 1
     },
     "terrain_types": [
       "Fire",
@@ -467,7 +467,7 @@ const HEX_CARDS = [
     ],
     "keywords": [],
     "cost": {
-      "Earth": 3
+      "Earth": 1
     },
     "terrain_types": [
       "Earth",
@@ -491,7 +491,7 @@ const HEX_CARDS = [
     ],
     "keywords": [],
     "cost": {
-      "Sky": 4
+      "Sky": 2
     },
     "terrain_types": [
       "Sky",
@@ -515,7 +515,7 @@ const HEX_CARDS = [
     ],
     "keywords": [],
     "cost": {
-      "Earth": 3
+      "Earth": 1
     },
     "terrain_types": [
       "Earth",
@@ -583,7 +583,7 @@ const HEX_CARDS = [
     ],
     "keywords": [],
     "cost": {
-      "Water": 3
+      "Water": 2
     },
     "terrain_types": [
       "Water",
@@ -627,7 +627,7 @@ const HEX_CARDS = [
       }
     ],
     "cost": {
-      "Water": 3
+      "Water": 2
     },
     "terrain_types": [
       "Water",
@@ -671,7 +671,7 @@ const HEX_CARDS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Fire": 3
+      "Fire": 1
     }
   },
   {
@@ -723,7 +723,7 @@ const HEX_CARDS = [
       }
     ],
     "cost": {
-      "Dark": 5
+      "Dark": 3
     },
     "terrain_types": [
       "Dark",
@@ -743,7 +743,7 @@ const HEX_CARDS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Earth": 3
+      "Earth": 1
     }
   },
   {
@@ -763,7 +763,7 @@ const HEX_CARDS = [
     ],
     "keywords": [],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     },
     "terrain_types": [
       "Fire",
@@ -799,7 +799,7 @@ const HEX_CARDS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Light": 2
+      "Light": 1
     }
   },
   {
@@ -835,7 +835,7 @@ const HEX_CARDS = [
     ],
     "keywords": [],
     "cost": {
-      "Sky": 3
+      "Sky": 1
     },
     "terrain_types": [
       "Sky",
@@ -855,7 +855,7 @@ const HEX_CARDS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Earth": 2
+      "Earth": 1
     }
   },
   {
@@ -871,7 +871,7 @@ const HEX_CARDS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Water": 2
+      "Water": 1
     }
   },
   {
@@ -887,7 +887,7 @@ const HEX_CARDS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     }
   },
   {
@@ -903,7 +903,7 @@ const HEX_CARDS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Water": 2
+      "Water": 1
     }
   },
   {
@@ -923,7 +923,7 @@ const HEX_CARDS = [
     ],
     "keywords": [],
     "cost": {
-      "Sky": 2
+      "Sky": 1
     },
     "terrain_types": [
       "Sky",
@@ -959,7 +959,7 @@ const HEX_CARDS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Light": 2
+      "Light": 1
     }
   },
   {
@@ -975,7 +975,7 @@ const HEX_CARDS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Light": 2
+      "Light": 1
     }
   },
   {
@@ -991,7 +991,7 @@ const HEX_CARDS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Sky": 2
+      "Sky": 1
     }
   },
   {
@@ -1007,7 +1007,7 @@ const HEX_CARDS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Dark": 2
+      "Dark": 1
     }
   },
   {
@@ -1023,7 +1023,7 @@ const HEX_CARDS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Earth": 2
+      "Earth": 1
     }
   },
   {
@@ -1039,7 +1039,7 @@ const HEX_CARDS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Earth": 2
+      "Earth": 1
     }
   },
   {
@@ -1055,7 +1055,7 @@ const HEX_CARDS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Fire": 3
+      "Fire": 1
     }
   },
   {
@@ -1091,7 +1091,7 @@ const HEX_CARDS = [
     ],
     "keywords": [],
     "cost": {
-      "Light": 3
+      "Light": 2
     },
     "terrain_types": [
       "Light",
@@ -1111,7 +1111,7 @@ const HEX_CARDS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Sky": 2
+      "Sky": 1
     }
   },
   {
@@ -1127,7 +1127,7 @@ const HEX_CARDS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     }
   },
   {
@@ -1175,7 +1175,7 @@ const HEX_CARDS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Earth": 2
+      "Earth": 1
     }
   },
   {
@@ -1207,7 +1207,7 @@ const HEX_CARDS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Light": 3
+      "Light": 1
     }
   },
   {
@@ -1239,7 +1239,7 @@ const HEX_CARDS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Sky": 3
+      "Sky": 2
     }
   },
   {
@@ -1255,7 +1255,7 @@ const HEX_CARDS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Water": 2
+      "Water": 1
     }
   },
   {
@@ -1287,7 +1287,7 @@ const HEX_CARDS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Sky": 2
+      "Sky": 1
     }
   },
   {
@@ -1303,7 +1303,7 @@ const HEX_CARDS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Dark": 2
+      "Dark": 1
     }
   },
   {
@@ -1348,7 +1348,7 @@ const HEX_CARDS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Water": 2
+      "Water": 1
     }
   },
   {
@@ -1363,7 +1363,7 @@ const HEX_CARDS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Dark": 2
+      "Dark": 1
     }
   },
   {
@@ -1423,7 +1423,7 @@ const HEX_CARDS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Dark": 6
+      "Dark": 3
     }
   },
   {
@@ -1453,7 +1453,7 @@ const HEX_CARDS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Sky": 4
+      "Sky": 2
     }
   },
   {
@@ -1468,7 +1468,7 @@ const HEX_CARDS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Water": 3
+      "Water": 1
     }
   },
   {
@@ -1483,7 +1483,7 @@ const HEX_CARDS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Earth": 2
+      "Earth": 1
     }
   },
   {
@@ -1498,7 +1498,7 @@ const HEX_CARDS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Dark": 2
+      "Dark": 1
     }
   },
   {
@@ -1528,7 +1528,7 @@ const HEX_CARDS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Dark": 3
+      "Dark": 2
     }
   },
   {
@@ -1558,7 +1558,7 @@ const HEX_CARDS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Fire": 2
+      "Fire": 1
     }
   },
   {
@@ -1573,7 +1573,7 @@ const HEX_CARDS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Light": 3
+      "Light": 2
     }
   },
   {
@@ -1603,7 +1603,7 @@ const HEX_CARDS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Earth": 3
+      "Earth": 2
     }
   },
   {
@@ -1618,7 +1618,7 @@ const HEX_CARDS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Dark": 5
+      "Dark": 2
     }
   },
   {
@@ -1633,7 +1633,7 @@ const HEX_CARDS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Dark": 2
+      "Dark": 1
     }
   },
   {
@@ -1648,7 +1648,7 @@ const HEX_CARDS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Dark": 3
+      "Dark": 2
     }
   },
   {
@@ -1663,7 +1663,7 @@ const HEX_CARDS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Light": 3
+      "Light": 2
     }
   },
   {
@@ -1678,7 +1678,7 @@ const HEX_CARDS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Water": 3
+      "Water": 2
     }
   },
   {
@@ -1693,7 +1693,7 @@ const HEX_CARDS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Dark": 4
+      "Dark": 2
     }
   },
   {
@@ -1708,7 +1708,7 @@ const HEX_CARDS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Sky": 4
+      "Sky": 2
     }
   },
   {
@@ -1723,7 +1723,7 @@ const HEX_CARDS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Sky": 3
+      "Sky": 2
     }
   },
   {
@@ -1738,7 +1738,7 @@ const HEX_CARDS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Dark": 7
+      "Dark": 3
     }
   },
   {
@@ -1753,7 +1753,7 @@ const HEX_CARDS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Light": 2
+      "Light": 1
     }
   },
   {
@@ -1768,7 +1768,7 @@ const HEX_CARDS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Sky": 4
+      "Sky": 2
     }
   },
   {
@@ -1783,7 +1783,7 @@ const HEX_CARDS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Water": 3
+      "Water": 1
     }
   },
   {
@@ -1798,7 +1798,7 @@ const HEX_CARDS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Fire": 3
+      "Fire": 2
     }
   },
   {
@@ -1813,7 +1813,7 @@ const HEX_CARDS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Sky": 3
+      "Sky": 1
     }
   },
   {
@@ -1828,7 +1828,7 @@ const HEX_CARDS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Sky": 2
+      "Sky": 1
     }
   },
   {
@@ -1847,7 +1847,7 @@ const HEX_CARDS = [
       "Mage"
     ],
     "cost": {
-      "Sky": 2
+      "Sky": 1
     },
     "terrain_types": [
       "Sky",
@@ -1880,7 +1880,7 @@ const HEX_CARDS = [
       }
     ],
     "cost": {
-      "Light": 3
+      "Light": 1
     },
     "terrain_types": [
       "Light",
@@ -1902,7 +1902,7 @@ const HEX_CARDS = [
       "Fairie"
     ],
     "cost": {
-      "Water": 3
+      "Water": 1
     },
     "terrain_types": [
       "Water",
@@ -1925,7 +1925,7 @@ const HEX_CARDS = [
       "Mage"
     ],
     "cost": {
-      "Dark": 3
+      "Dark": 1
     },
     "terrain_types": [
       "Dark",
@@ -1953,7 +1953,7 @@ const HEX_CARDS = [
       }
     ],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     },
     "terrain_types": [
       "Fire",
@@ -1976,7 +1976,7 @@ const HEX_CARDS = [
       "Beetle"
     ],
     "cost": {
-      "Dark": 3
+      "Dark": 1
     },
     "terrain_types": [
       "Dark",
@@ -1999,7 +1999,7 @@ const HEX_CARDS = [
       "Mage"
     ],
     "cost": {
-      "Water": 3
+      "Water": 1
     },
     "terrain_types": [
       "Water",
@@ -2022,7 +2022,7 @@ const HEX_CARDS = [
       "Mage"
     ],
     "cost": {
-      "Sky": 4
+      "Sky": 2
     },
     "terrain_types": [
       "Sky",
@@ -2045,7 +2045,7 @@ const HEX_CARDS = [
       "Mage"
     ],
     "cost": {
-      "Light": 4
+      "Light": 2
     },
     "terrain_types": [
       "Light",
@@ -2068,7 +2068,7 @@ const HEX_CARDS = [
       "Mage"
     ],
     "cost": {
-      "Dark": 3
+      "Dark": 2
     },
     "terrain_types": [
       "Dark",
@@ -2091,7 +2091,7 @@ const HEX_CARDS = [
       "Soldier"
     ],
     "cost": {
-      "Earth": 4
+      "Earth": 2
     },
     "terrain_types": [
       "Earth",
@@ -2114,7 +2114,7 @@ const HEX_CARDS = [
       "Mage"
     ],
     "cost": {
-      "Dark": 6
+      "Dark": 3
     },
     "terrain_types": [
       "Dark",
@@ -2160,7 +2160,7 @@ const HEX_CARDS = [
       "Dragon"
     ],
     "cost": {
-      "Fire": 3
+      "Fire": 1
     },
     "terrain_types": [
       "Fire",
@@ -2231,7 +2231,7 @@ const HEX_CARDS = [
       "Warg"
     ],
     "cost": {
-      "Earth": 2
+      "Earth": 1
     },
     "terrain_types": [
       "Earth",
@@ -2258,7 +2258,7 @@ const HEX_CARDS = [
       "Elemental"
     ],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     },
     "terrain_types": [
       "Fire",
@@ -2281,7 +2281,7 @@ const HEX_CARDS = [
       "Goblin"
     ],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     },
     "terrain_types": [
       "Fire",
@@ -2310,7 +2310,7 @@ const HEX_CARDS = [
       "Soldier"
     ],
     "cost": {
-      "Earth": 3
+      "Earth": 1
     },
     "terrain_types": [
       "Earth",
@@ -2333,7 +2333,7 @@ const HEX_CARDS = [
       "Wiskin"
     ],
     "cost": {
-      "Earth": 2
+      "Earth": 1
     },
     "terrain_types": [
       "Earth",
@@ -2357,7 +2357,7 @@ const HEX_CARDS = [
       "Cleric"
     ],
     "cost": {
-      "Light": 2
+      "Light": 1
     },
     "terrain_types": [
       "Light",
@@ -2381,7 +2381,7 @@ const HEX_CARDS = [
       "Cat"
     ],
     "cost": {
-      "Dark": 3
+      "Dark": 2
     },
     "terrain_types": [
       "Dark",
@@ -2405,7 +2405,7 @@ const HEX_CARDS = [
       "Soldier"
     ],
     "cost": {
-      "Light": 2
+      "Light": 1
     },
     "terrain_types": [
       "Light",
@@ -2428,7 +2428,7 @@ const HEX_CARDS = [
       "Beast"
     ],
     "cost": {
-      "Earth": 3
+      "Earth": 1
     },
     "terrain_types": [
       "Earth",
@@ -2451,7 +2451,7 @@ const HEX_CARDS = [
       "Construct"
     ],
     "cost": {
-      "Earth": 4
+      "Earth": 2
     },
     "terrain_types": [
       "Earth",
@@ -2475,7 +2475,7 @@ const HEX_CARDS = [
       "Goblin"
     ],
     "cost": {
-      "Fire": 3
+      "Fire": 2
     },
     "terrain_types": [
       "Fire",
@@ -2502,7 +2502,7 @@ const HEX_CARDS = [
       "Assassin"
     ],
     "cost": {
-      "Dark": 3
+      "Dark": 1
     },
     "terrain_types": [
       "Dark",
@@ -2525,7 +2525,7 @@ const HEX_CARDS = [
       "Bird"
     ],
     "cost": {
-      "Sky": 2
+      "Sky": 1
     },
     "terrain_types": [
       "Sky",
@@ -2555,7 +2555,7 @@ const HEX_CARDS = [
       "Wiskin"
     ],
     "cost": {
-      "Earth": 5
+      "Earth": 3
     },
     "terrain_types": [
       "Earth",
@@ -2579,7 +2579,7 @@ const HEX_CARDS = [
       "Mage"
     ],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     },
     "terrain_types": [
       "Fire",
@@ -2597,7 +2597,7 @@ const HEX_CARDS = [
     "rules": "Wiskin gain Restore 1",
     "keywords": [],
     "cost": {
-      "Earth": 3
+      "Earth": 2
     }
   },
   {
@@ -2611,7 +2611,7 @@ const HEX_CARDS = [
     "rules": "Goblins gain Sprint",
     "keywords": [],
     "cost": {
-      "Fire": 4
+      "Fire": 2
     }
   },
   {
@@ -2625,7 +2625,7 @@ const HEX_CARDS = [
     "rules": "Whenever a Goblin dies, draw a card",
     "keywords": [],
     "cost": {
-      "Dark": 3
+      "Dark": 2
     }
   },
   {
@@ -2639,7 +2639,7 @@ const HEX_CARDS = [
     "rules": "+1 Attack. Also, if this is equipped to a Wiskin, whenever the equipped creature defeats an enemy draw 1 card",
     "keywords": [],
     "cost": {
-      "Earth": 2
+      "Earth": 1
     }
   },
   {
@@ -2659,7 +2659,7 @@ const HEX_CARDS = [
       "Chieftain"
     ],
     "cost": {
-      "Fire": 4
+      "Fire": 2
     },
     "terrain_types": [
       "Fire",
@@ -2688,7 +2688,7 @@ const HEX_CARDS = [
       "Knight"
     ],
     "cost": {
-      "Light": 4
+      "Light": 2
     },
     "terrain_types": [
       "Light",
@@ -2716,7 +2716,7 @@ const HEX_CARDS = [
       "Knight"
     ],
     "cost": {
-      "Fire": 5
+      "Fire": 3
     },
     "terrain_types": [
       "Fire",
@@ -2740,7 +2740,7 @@ const HEX_CARDS = [
       "Captain"
     ],
     "cost": {
-      "Sky": 6
+      "Sky": 3
     },
     "terrain_types": [
       "Sky",
@@ -2758,7 +2758,7 @@ const HEX_CARDS = [
     "rules": "Creatures the enemy plays enter stunned",
     "keywords": [],
     "cost": {
-      "Dark": 6
+      "Dark": 3
     }
   },
   {
@@ -2772,7 +2772,7 @@ const HEX_CARDS = [
     "rules": "Equipped creature splits damage between itself and any other friendly creature equipped with Shackles of Nim. For odd numbered damage, the targetted friendly creature will take the higher of the two split values.",
     "keywords": [],
     "cost": {
-      "Dark": 2
+      "Dark": 1
     }
   },
   {
@@ -2786,7 +2786,7 @@ const HEX_CARDS = [
     "rules": "Equipped creature gains Resilient and +1 Attack",
     "keywords": [],
     "cost": {
-      "Light": 3
+      "Light": 2
     }
   },
   {
@@ -2800,7 +2800,7 @@ const HEX_CARDS = [
     "rules": "Equipped creature's Attack is equal to the highest attack among other active friendly creatures",
     "keywords": [],
     "cost": {
-      "Earth": 3
+      "Earth": 1
     }
   },
   {
@@ -2814,7 +2814,7 @@ const HEX_CARDS = [
     "rules": "Equipped creature gains Stalwart 2. If the Equipped creature dies, Torn Banner becomes an Artifact and you must choose one of your artifact slots to assign it. It's effect becomes \"Friendly creatures gain Stalwart 2\"",
     "keywords": [],
     "cost": {
-      "Earth": 3
+      "Earth": 2
     }
   },
   {
@@ -2842,7 +2842,7 @@ const HEX_CARDS = [
     "rules": "Remove all Ward and Shield from a creature",
     "keywords": [],
     "cost": {
-      "Dark": 2
+      "Dark": 1
     }
   },
   {
@@ -2856,7 +2856,7 @@ const HEX_CARDS = [
     "rules": "Deal 1 damage to a friendly creature and 1 damage to each of the enemy creatures in the same lane opposite to the targetted friendly creature",
     "keywords": [],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     }
   },
   {
@@ -2870,7 +2870,7 @@ const HEX_CARDS = [
     "rules": "Deal 2 damage to target friendly creature, Draw 3 cards",
     "keywords": [],
     "cost": {
-      "Dark": 3
+      "Dark": 1
     }
   },
   {
@@ -2898,7 +2898,7 @@ const HEX_CARDS = [
     "rules": "Put one Artifact card from either discard pile into your hand. That card cannot be played until the next turn",
     "keywords": [],
     "cost": {
-      "Earth": 2
+      "Earth": 1
     }
   },
   {
@@ -2912,7 +2912,7 @@ const HEX_CARDS = [
     "rules": "Grant 1 creature \"Invisible\" until next turn",
     "keywords": [],
     "cost": {
-      "Dark": 2
+      "Dark": 1
     }
   },
   {
@@ -2926,7 +2926,7 @@ const HEX_CARDS = [
     "rules": "Draw 1 card, if that card is a creature card, play it immediately and it gains Sprint until end of turn",
     "keywords": [],
     "cost": {
-      "Light": 3
+      "Light": 2
     }
   },
   {
@@ -2954,7 +2954,7 @@ const HEX_CARDS = [
     "rules": "Target creature's attack becomes 0 until end of turn",
     "keywords": [],
     "cost": {
-      "Dark": 2
+      "Dark": 1
     }
   },
   {
@@ -2968,7 +2968,7 @@ const HEX_CARDS = [
     "rules": "The player with the most amount of active creatures sacrifices creatures until they have the same number of active creatures as the player with the least amount of active creatures",
     "keywords": [],
     "cost": {
-      "Dark": 4
+      "Dark": 2
     }
   },
   {
@@ -2982,7 +2982,7 @@ const HEX_CARDS = [
     "rules": "Return all friendly creatures that were put into the discard pile this turn back onto the battlefield. You may choose new placements for these creatures.",
     "keywords": [],
     "cost": {
-      "Light": 6
+      "Light": 3
     }
   },
   {
@@ -3002,7 +3002,7 @@ const HEX_CARDS = [
     ],
     "deckLimit": 1,
     "cost": {
-      "Light": 6
+      "Light": 3
     },
     "terrain_types": [
       "Light",
@@ -3020,7 +3020,7 @@ const HEX_CARDS = [
     "rules": "All allied creatures gain +2 Attack and Shield 2 until end of turn. Apply Stun to all affected creatures at the start of your next turn.",
     "keywords": [],
     "cost": {
-      "Light": 4
+      "Light": 2
     }
   },
   {
@@ -3034,7 +3034,7 @@ const HEX_CARDS = [
     "rules": "When equipped creature attacks return a creature from your discard pile and put it into play in an empty slot, if there is one. That creature gains Sprint and is sacrificed at the end of the turn. Mythic: Removed from the game instead of entering a discard pile.",
     "keywords": [],
     "cost": {
-      "Dark": 7
+      "Dark": 3
     }
   },
   {
@@ -3048,7 +3048,7 @@ const HEX_CARDS = [
     "rules": "Whenever the enemy draws their second card of the turn, you draw a card as well.",
     "keywords": [],
     "cost": {
-      "Water": 4
+      "Water": 1
     }
   },
   {
@@ -3062,7 +3062,7 @@ const HEX_CARDS = [
     "rules": "If the enemy puts a creature into play, you may play this card and gain control of the creature until the end of your next turn. That creature gains Sprint.",
     "keywords": [],
     "cost": {
-      "Dark": 5
+      "Dark": 3
     }
   },
   {
@@ -3629,7 +3629,7 @@ const HEX_PRINTS = [
       }
     ],
     "cost": {
-      "Light": 2
+      "Light": 1
     },
     "terrain_types": [
       "Light",
@@ -3657,7 +3657,7 @@ const HEX_PRINTS = [
       }
     ],
     "cost": {
-      "Earth": 3
+      "Earth": 2
     },
     "terrain_types": [
       "Earth",
@@ -3681,7 +3681,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Dark": 3
+      "Dark": 2
     },
     "terrain_types": [
       "Dark",
@@ -3728,7 +3728,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     },
     "terrain_types": [
       "Fire",
@@ -3776,7 +3776,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Fire": 4
+      "Fire": 2
     },
     "terrain_types": [
       "Fire",
@@ -3800,7 +3800,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Dark": 5
+      "Dark": 2
     },
     "terrain_types": [
       "Dark",
@@ -3824,7 +3824,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Dark": 2
+      "Dark": 1
     },
     "terrain_types": [
       "Dark",
@@ -3848,7 +3848,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Earth": 3
+      "Earth": 1
     },
     "terrain_types": [
       "Earth",
@@ -3871,7 +3871,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Water": 2
+      "Water": 1
     },
     "terrain_types": [
       "Water",
@@ -3895,7 +3895,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Light": 4
+      "Light": 2
     },
     "terrain_types": [
       "Light",
@@ -3927,7 +3927,7 @@ const HEX_PRINTS = [
       }
     ],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     },
     "terrain_types": [
       "Fire",
@@ -3955,7 +3955,7 @@ const HEX_PRINTS = [
       }
     ],
     "cost": {
-      "Earth": 2
+      "Earth": 1
     },
     "terrain_types": [
       "Earth",
@@ -3979,7 +3979,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Sky": 4
+      "Sky": 2
     },
     "terrain_types": [
       "Sky",
@@ -4003,7 +4003,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Fire": 5
+      "Fire": 2
     },
     "terrain_types": [
       "Fire",
@@ -4050,7 +4050,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Fire": 3
+      "Fire": 1
     },
     "terrain_types": [
       "Fire",
@@ -4074,7 +4074,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Earth": 3
+      "Earth": 1
     },
     "terrain_types": [
       "Earth",
@@ -4098,7 +4098,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Sky": 4
+      "Sky": 2
     },
     "terrain_types": [
       "Sky",
@@ -4122,7 +4122,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Earth": 3
+      "Earth": 1
     },
     "terrain_types": [
       "Earth",
@@ -4190,7 +4190,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Water": 3
+      "Water": 2
     },
     "terrain_types": [
       "Water",
@@ -4234,7 +4234,7 @@ const HEX_PRINTS = [
       }
     ],
     "cost": {
-      "Water": 3
+      "Water": 2
     },
     "terrain_types": [
       "Water",
@@ -4278,7 +4278,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Fire": 3
+      "Fire": 1
     }
   },
   {
@@ -4330,7 +4330,7 @@ const HEX_PRINTS = [
       }
     ],
     "cost": {
-      "Dark": 5
+      "Dark": 3
     },
     "terrain_types": [
       "Dark",
@@ -4350,7 +4350,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Earth": 3
+      "Earth": 1
     }
   },
   {
@@ -4370,7 +4370,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     },
     "terrain_types": [
       "Fire",
@@ -4406,7 +4406,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Light": 2
+      "Light": 1
     }
   },
   {
@@ -4442,7 +4442,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Sky": 3
+      "Sky": 1
     },
     "terrain_types": [
       "Sky",
@@ -4462,7 +4462,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Earth": 2
+      "Earth": 1
     }
   },
   {
@@ -4478,7 +4478,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Water": 2
+      "Water": 1
     }
   },
   {
@@ -4494,7 +4494,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     }
   },
   {
@@ -4510,7 +4510,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Water": 2
+      "Water": 1
     }
   },
   {
@@ -4530,7 +4530,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Sky": 2
+      "Sky": 1
     },
     "terrain_types": [
       "Sky",
@@ -4566,7 +4566,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Light": 2
+      "Light": 1
     }
   },
   {
@@ -4582,7 +4582,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Light": 2
+      "Light": 1
     }
   },
   {
@@ -4598,7 +4598,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Sky": 2
+      "Sky": 1
     }
   },
   {
@@ -4614,7 +4614,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Dark": 2
+      "Dark": 1
     }
   },
   {
@@ -4630,7 +4630,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Earth": 2
+      "Earth": 1
     }
   },
   {
@@ -4646,7 +4646,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Earth": 2
+      "Earth": 1
     }
   },
   {
@@ -4662,7 +4662,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Fire": 3
+      "Fire": 1
     }
   },
   {
@@ -4698,7 +4698,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Light": 3
+      "Light": 2
     },
     "terrain_types": [
       "Light",
@@ -4718,7 +4718,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Sky": 2
+      "Sky": 1
     }
   },
   {
@@ -4734,7 +4734,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     }
   },
   {
@@ -4782,7 +4782,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Earth": 2
+      "Earth": 1
     }
   },
   {
@@ -4814,7 +4814,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Light": 3
+      "Light": 1
     }
   },
   {
@@ -4846,7 +4846,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Sky": 3
+      "Sky": 2
     }
   },
   {
@@ -4862,7 +4862,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Water": 2
+      "Water": 1
     }
   },
   {
@@ -4894,7 +4894,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Sky": 2
+      "Sky": 1
     }
   },
   {
@@ -4910,7 +4910,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Dark": 2
+      "Dark": 1
     }
   },
   {
@@ -4955,7 +4955,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Water": 2
+      "Water": 1
     }
   },
   {
@@ -4970,7 +4970,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Dark": 2
+      "Dark": 1
     }
   },
   {
@@ -5030,7 +5030,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Dark": 6
+      "Dark": 3
     }
   },
   {
@@ -5060,7 +5060,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Sky": 4
+      "Sky": 2
     }
   },
   {
@@ -5075,7 +5075,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Water": 3
+      "Water": 1
     }
   },
   {
@@ -5090,7 +5090,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Earth": 2
+      "Earth": 1
     }
   },
   {
@@ -5105,7 +5105,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Dark": 2
+      "Dark": 1
     }
   },
   {
@@ -5135,7 +5135,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Dark": 3
+      "Dark": 2
     }
   },
   {
@@ -5165,7 +5165,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Fire": 2
+      "Fire": 1
     }
   },
   {
@@ -5180,7 +5180,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Light": 3
+      "Light": 2
     }
   },
   {
@@ -5210,7 +5210,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Earth": 3
+      "Earth": 2
     }
   },
   {
@@ -5225,7 +5225,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Dark": 5
+      "Dark": 2
     }
   },
   {
@@ -5240,7 +5240,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Dark": 2
+      "Dark": 1
     }
   },
   {
@@ -5255,7 +5255,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Dark": 3
+      "Dark": 2
     }
   },
   {
@@ -5270,7 +5270,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Light": 3
+      "Light": 2
     }
   },
   {
@@ -5285,7 +5285,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Water": 3
+      "Water": 2
     }
   },
   {
@@ -5300,7 +5300,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Dark": 4
+      "Dark": 2
     }
   },
   {
@@ -5315,7 +5315,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Sky": 4
+      "Sky": 2
     }
   },
   {
@@ -5330,7 +5330,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Sky": 3
+      "Sky": 2
     }
   },
   {
@@ -5345,7 +5345,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Dark": 7
+      "Dark": 3
     }
   },
   {
@@ -5360,7 +5360,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Light": 2
+      "Light": 1
     }
   },
   {
@@ -5375,7 +5375,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Sky": 4
+      "Sky": 2
     }
   },
   {
@@ -5390,7 +5390,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Water": 3
+      "Water": 1
     }
   },
   {
@@ -5405,7 +5405,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Fire": 3
+      "Fire": 2
     }
   },
   {
@@ -5420,7 +5420,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Sky": 3
+      "Sky": 1
     }
   },
   {
@@ -5435,7 +5435,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Sky": 2
+      "Sky": 1
     }
   },
   {
@@ -5454,7 +5454,7 @@ const HEX_PRINTS = [
       "Mage"
     ],
     "cost": {
-      "Sky": 2
+      "Sky": 1
     },
     "terrain_types": [
       "Sky",
@@ -5487,7 +5487,7 @@ const HEX_PRINTS = [
       }
     ],
     "cost": {
-      "Light": 3
+      "Light": 1
     },
     "terrain_types": [
       "Light",
@@ -5509,7 +5509,7 @@ const HEX_PRINTS = [
       "Fairie"
     ],
     "cost": {
-      "Water": 3
+      "Water": 1
     },
     "terrain_types": [
       "Water",
@@ -5532,7 +5532,7 @@ const HEX_PRINTS = [
       "Mage"
     ],
     "cost": {
-      "Dark": 3
+      "Dark": 1
     },
     "terrain_types": [
       "Dark",
@@ -5560,7 +5560,7 @@ const HEX_PRINTS = [
       }
     ],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     },
     "terrain_types": [
       "Fire",
@@ -5583,7 +5583,7 @@ const HEX_PRINTS = [
       "Beetle"
     ],
     "cost": {
-      "Dark": 3
+      "Dark": 1
     },
     "terrain_types": [
       "Dark",
@@ -5606,7 +5606,7 @@ const HEX_PRINTS = [
       "Mage"
     ],
     "cost": {
-      "Water": 3
+      "Water": 1
     },
     "terrain_types": [
       "Water",
@@ -5629,7 +5629,7 @@ const HEX_PRINTS = [
       "Mage"
     ],
     "cost": {
-      "Sky": 4
+      "Sky": 2
     },
     "terrain_types": [
       "Sky",
@@ -5652,7 +5652,7 @@ const HEX_PRINTS = [
       "Mage"
     ],
     "cost": {
-      "Light": 4
+      "Light": 2
     },
     "terrain_types": [
       "Light",
@@ -5675,7 +5675,7 @@ const HEX_PRINTS = [
       "Mage"
     ],
     "cost": {
-      "Dark": 3
+      "Dark": 2
     },
     "terrain_types": [
       "Dark",
@@ -5698,7 +5698,7 @@ const HEX_PRINTS = [
       "Soldier"
     ],
     "cost": {
-      "Earth": 4
+      "Earth": 2
     },
     "terrain_types": [
       "Earth",
@@ -5721,7 +5721,7 @@ const HEX_PRINTS = [
       "Mage"
     ],
     "cost": {
-      "Dark": 6
+      "Dark": 3
     },
     "terrain_types": [
       "Dark",
@@ -5767,7 +5767,7 @@ const HEX_PRINTS = [
       "Dragon"
     ],
     "cost": {
-      "Fire": 3
+      "Fire": 1
     },
     "terrain_types": [
       "Fire",
@@ -5838,7 +5838,7 @@ const HEX_PRINTS = [
       "Warg"
     ],
     "cost": {
-      "Earth": 2
+      "Earth": 1
     },
     "terrain_types": [
       "Earth",
@@ -5865,7 +5865,7 @@ const HEX_PRINTS = [
       "Elemental"
     ],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     },
     "terrain_types": [
       "Fire",
@@ -5888,7 +5888,7 @@ const HEX_PRINTS = [
       "Goblin"
     ],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     },
     "terrain_types": [
       "Fire",
@@ -5917,7 +5917,7 @@ const HEX_PRINTS = [
       "Soldier"
     ],
     "cost": {
-      "Earth": 3
+      "Earth": 1
     },
     "terrain_types": [
       "Earth",
@@ -5940,7 +5940,7 @@ const HEX_PRINTS = [
       "Wiskin"
     ],
     "cost": {
-      "Earth": 2
+      "Earth": 1
     },
     "terrain_types": [
       "Earth",
@@ -5964,7 +5964,7 @@ const HEX_PRINTS = [
       "Cleric"
     ],
     "cost": {
-      "Light": 2
+      "Light": 1
     },
     "terrain_types": [
       "Light",
@@ -5988,7 +5988,7 @@ const HEX_PRINTS = [
       "Cat"
     ],
     "cost": {
-      "Dark": 3
+      "Dark": 2
     },
     "terrain_types": [
       "Dark",
@@ -6012,7 +6012,7 @@ const HEX_PRINTS = [
       "Soldier"
     ],
     "cost": {
-      "Light": 2
+      "Light": 1
     },
     "terrain_types": [
       "Light",
@@ -6035,7 +6035,7 @@ const HEX_PRINTS = [
       "Beast"
     ],
     "cost": {
-      "Earth": 3
+      "Earth": 1
     },
     "terrain_types": [
       "Earth",
@@ -6058,7 +6058,7 @@ const HEX_PRINTS = [
       "Construct"
     ],
     "cost": {
-      "Earth": 4
+      "Earth": 2
     },
     "terrain_types": [
       "Earth",
@@ -6082,7 +6082,7 @@ const HEX_PRINTS = [
       "Goblin"
     ],
     "cost": {
-      "Fire": 3
+      "Fire": 2
     },
     "terrain_types": [
       "Fire",
@@ -6109,7 +6109,7 @@ const HEX_PRINTS = [
       "Assassin"
     ],
     "cost": {
-      "Dark": 3
+      "Dark": 1
     },
     "terrain_types": [
       "Dark",
@@ -6132,7 +6132,7 @@ const HEX_PRINTS = [
       "Bird"
     ],
     "cost": {
-      "Sky": 2
+      "Sky": 1
     },
     "terrain_types": [
       "Sky",
@@ -6162,7 +6162,7 @@ const HEX_PRINTS = [
       "Wiskin"
     ],
     "cost": {
-      "Earth": 5
+      "Earth": 3
     },
     "terrain_types": [
       "Earth",
@@ -6186,7 +6186,7 @@ const HEX_PRINTS = [
       "Mage"
     ],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     },
     "terrain_types": [
       "Fire",
@@ -6204,7 +6204,7 @@ const HEX_PRINTS = [
     "rules": "Wiskin gain Restore 1",
     "keywords": [],
     "cost": {
-      "Earth": 3
+      "Earth": 2
     }
   },
   {
@@ -6218,7 +6218,7 @@ const HEX_PRINTS = [
     "rules": "Goblins gain Sprint",
     "keywords": [],
     "cost": {
-      "Fire": 4
+      "Fire": 2
     }
   },
   {
@@ -6232,7 +6232,7 @@ const HEX_PRINTS = [
     "rules": "Whenever a Goblin dies, draw a card",
     "keywords": [],
     "cost": {
-      "Dark": 3
+      "Dark": 2
     }
   },
   {
@@ -6246,7 +6246,7 @@ const HEX_PRINTS = [
     "rules": "+1 Attack. Also, if this is equipped to a Wiskin, whenever the equipped creature defeats an enemy draw 1 card",
     "keywords": [],
     "cost": {
-      "Earth": 2
+      "Earth": 1
     }
   },
   {
@@ -6266,7 +6266,7 @@ const HEX_PRINTS = [
       "Chieftain"
     ],
     "cost": {
-      "Fire": 4
+      "Fire": 2
     },
     "terrain_types": [
       "Fire",
@@ -6295,7 +6295,7 @@ const HEX_PRINTS = [
       "Knight"
     ],
     "cost": {
-      "Light": 4
+      "Light": 2
     },
     "terrain_types": [
       "Light",
@@ -6323,7 +6323,7 @@ const HEX_PRINTS = [
       "Knight"
     ],
     "cost": {
-      "Fire": 5
+      "Fire": 3
     },
     "terrain_types": [
       "Fire",
@@ -6347,7 +6347,7 @@ const HEX_PRINTS = [
       "Captain"
     ],
     "cost": {
-      "Sky": 6
+      "Sky": 3
     },
     "terrain_types": [
       "Sky",
@@ -6365,7 +6365,7 @@ const HEX_PRINTS = [
     "rules": "Creatures the enemy plays enter stunned",
     "keywords": [],
     "cost": {
-      "Dark": 6
+      "Dark": 3
     }
   },
   {
@@ -6379,7 +6379,7 @@ const HEX_PRINTS = [
     "rules": "Equipped creature splits damage between itself and any other friendly creature equipped with Shackles of Nim. For odd numbered damage, the targetted friendly creature will take the higher of the two split values.",
     "keywords": [],
     "cost": {
-      "Dark": 2
+      "Dark": 1
     }
   },
   {
@@ -6393,7 +6393,7 @@ const HEX_PRINTS = [
     "rules": "Equipped creature gains Resilient and +1 Attack",
     "keywords": [],
     "cost": {
-      "Light": 3
+      "Light": 2
     }
   },
   {
@@ -6407,7 +6407,7 @@ const HEX_PRINTS = [
     "rules": "Equipped creature's Attack is equal to the highest attack among other active friendly creatures",
     "keywords": [],
     "cost": {
-      "Earth": 3
+      "Earth": 1
     }
   },
   {
@@ -6421,7 +6421,7 @@ const HEX_PRINTS = [
     "rules": "Equipped creature gains Stalwart 2. If the Equipped creature dies, Torn Banner becomes an Artifact and you must choose one of your artifact slots to assign it. It's effect becomes \"Friendly creatures gain Stalwart 2\"",
     "keywords": [],
     "cost": {
-      "Earth": 3
+      "Earth": 2
     }
   },
   {
@@ -6449,7 +6449,7 @@ const HEX_PRINTS = [
     "rules": "Remove all Ward and Shield from a creature",
     "keywords": [],
     "cost": {
-      "Dark": 2
+      "Dark": 1
     }
   },
   {
@@ -6463,7 +6463,7 @@ const HEX_PRINTS = [
     "rules": "Deal 1 damage to a friendly creature and 1 damage to each of the enemy creatures in the same lane opposite to the targetted friendly creature",
     "keywords": [],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     }
   },
   {
@@ -6477,7 +6477,7 @@ const HEX_PRINTS = [
     "rules": "Deal 2 damage to target friendly creature, Draw 3 cards",
     "keywords": [],
     "cost": {
-      "Dark": 3
+      "Dark": 1
     }
   },
   {
@@ -6505,7 +6505,7 @@ const HEX_PRINTS = [
     "rules": "Put one Artifact card from either discard pile into your hand. That card cannot be played until the next turn",
     "keywords": [],
     "cost": {
-      "Earth": 2
+      "Earth": 1
     }
   },
   {
@@ -6519,7 +6519,7 @@ const HEX_PRINTS = [
     "rules": "Grant 1 creature \"Invisible\" until next turn",
     "keywords": [],
     "cost": {
-      "Dark": 2
+      "Dark": 1
     }
   },
   {
@@ -6533,7 +6533,7 @@ const HEX_PRINTS = [
     "rules": "Draw 1 card, if that card is a creature card, play it immediately and it gains Sprint until end of turn",
     "keywords": [],
     "cost": {
-      "Light": 3
+      "Light": 2
     }
   },
   {
@@ -6561,7 +6561,7 @@ const HEX_PRINTS = [
     "rules": "Target creature's attack becomes 0 until end of turn",
     "keywords": [],
     "cost": {
-      "Dark": 2
+      "Dark": 1
     }
   },
   {
@@ -6575,7 +6575,7 @@ const HEX_PRINTS = [
     "rules": "The player with the most amount of active creatures sacrifices creatures until they have the same number of active creatures as the player with the least amount of active creatures",
     "keywords": [],
     "cost": {
-      "Dark": 4
+      "Dark": 2
     }
   },
   {
@@ -6589,7 +6589,7 @@ const HEX_PRINTS = [
     "rules": "Return all friendly creatures that were put into the discard pile this turn back onto the battlefield. You may choose new placements for these creatures.",
     "keywords": [],
     "cost": {
-      "Light": 6
+      "Light": 3
     }
   },
   {
@@ -6609,7 +6609,7 @@ const HEX_PRINTS = [
     ],
     "deckLimit": 1,
     "cost": {
-      "Light": 6
+      "Light": 3
     },
     "terrain_types": [
       "Light",
@@ -6627,7 +6627,7 @@ const HEX_PRINTS = [
     "rules": "All allied creatures gain +2 Attack and Shield 2 until end of turn. Apply Stun to all affected creatures at the start of your next turn.",
     "keywords": [],
     "cost": {
-      "Light": 4
+      "Light": 2
     }
   },
   {
@@ -6641,7 +6641,7 @@ const HEX_PRINTS = [
     "rules": "When equipped creature attacks return a creature from your discard pile and put it into play in an empty slot, if there is one. That creature gains Sprint and is sacrificed at the end of the turn. Mythic: Removed from the game instead of entering a discard pile.",
     "keywords": [],
     "cost": {
-      "Dark": 7
+      "Dark": 3
     }
   },
   {
@@ -6655,7 +6655,7 @@ const HEX_PRINTS = [
     "rules": "Whenever the enemy draws their second card of the turn, you draw a card as well.",
     "keywords": [],
     "cost": {
-      "Water": 4
+      "Water": 1
     }
   },
   {
@@ -6669,7 +6669,7 @@ const HEX_PRINTS = [
     "rules": "If the enemy puts a creature into play, you may play this card and gain control of the creature until the end of your next turn. That creature gains Sprint.",
     "keywords": [],
     "cost": {
-      "Dark": 5
+      "Dark": 3
     }
   },
   {
@@ -7234,7 +7234,7 @@ const HEX_PRINTS = [
       }
     ],
     "cost": {
-      "Light": 2
+      "Light": 1
     },
     "terrain_types": [
       "Light",
@@ -7264,7 +7264,7 @@ const HEX_PRINTS = [
       }
     ],
     "cost": {
-      "Earth": 3
+      "Earth": 2
     },
     "terrain_types": [
       "Earth",
@@ -7290,7 +7290,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Dark": 3
+      "Dark": 2
     },
     "terrain_types": [
       "Dark",
@@ -7341,7 +7341,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     },
     "terrain_types": [
       "Fire",
@@ -7393,7 +7393,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Fire": 4
+      "Fire": 2
     },
     "terrain_types": [
       "Fire",
@@ -7419,7 +7419,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Dark": 5
+      "Dark": 2
     },
     "terrain_types": [
       "Dark",
@@ -7445,7 +7445,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Dark": 2
+      "Dark": 1
     },
     "terrain_types": [
       "Dark",
@@ -7471,7 +7471,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Earth": 3
+      "Earth": 1
     },
     "terrain_types": [
       "Earth",
@@ -7496,7 +7496,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Water": 2
+      "Water": 1
     },
     "terrain_types": [
       "Water",
@@ -7522,7 +7522,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Light": 4
+      "Light": 2
     },
     "terrain_types": [
       "Light",
@@ -7556,7 +7556,7 @@ const HEX_PRINTS = [
       }
     ],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     },
     "terrain_types": [
       "Fire",
@@ -7586,7 +7586,7 @@ const HEX_PRINTS = [
       }
     ],
     "cost": {
-      "Earth": 2
+      "Earth": 1
     },
     "terrain_types": [
       "Earth",
@@ -7612,7 +7612,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Sky": 4
+      "Sky": 2
     },
     "terrain_types": [
       "Sky",
@@ -7638,7 +7638,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Fire": 5
+      "Fire": 2
     },
     "terrain_types": [
       "Fire",
@@ -7689,7 +7689,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Fire": 3
+      "Fire": 1
     },
     "terrain_types": [
       "Fire",
@@ -7715,7 +7715,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Earth": 3
+      "Earth": 1
     },
     "terrain_types": [
       "Earth",
@@ -7741,7 +7741,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Sky": 4
+      "Sky": 2
     },
     "terrain_types": [
       "Sky",
@@ -7767,7 +7767,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Earth": 3
+      "Earth": 1
     },
     "terrain_types": [
       "Earth",
@@ -7841,7 +7841,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Water": 3
+      "Water": 2
     },
     "terrain_types": [
       "Water",
@@ -7889,7 +7889,7 @@ const HEX_PRINTS = [
       }
     ],
     "cost": {
-      "Water": 3
+      "Water": 2
     },
     "terrain_types": [
       "Water",
@@ -7937,7 +7937,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Fire": 3
+      "Fire": 1
     },
     "baseId": "LT-028",
     "finish": "full-art"
@@ -7993,7 +7993,7 @@ const HEX_PRINTS = [
       }
     ],
     "cost": {
-      "Dark": 5
+      "Dark": 3
     },
     "terrain_types": [
       "Dark",
@@ -8015,7 +8015,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Earth": 3
+      "Earth": 1
     },
     "baseId": "LT-031",
     "finish": "full-art"
@@ -8037,7 +8037,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     },
     "terrain_types": [
       "Fire",
@@ -8077,7 +8077,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Light": 2
+      "Light": 1
     },
     "baseId": "LT-034",
     "finish": "full-art"
@@ -8117,7 +8117,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Sky": 3
+      "Sky": 1
     },
     "terrain_types": [
       "Sky",
@@ -8139,7 +8139,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Earth": 2
+      "Earth": 1
     },
     "baseId": "LT-037",
     "finish": "full-art"
@@ -8157,7 +8157,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Water": 2
+      "Water": 1
     },
     "baseId": "LT-038",
     "finish": "full-art"
@@ -8175,7 +8175,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     },
     "baseId": "LT-039",
     "finish": "full-art"
@@ -8193,7 +8193,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Water": 2
+      "Water": 1
     },
     "baseId": "LT-040",
     "finish": "full-art"
@@ -8215,7 +8215,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Sky": 2
+      "Sky": 1
     },
     "terrain_types": [
       "Sky",
@@ -8255,7 +8255,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Light": 2
+      "Light": 1
     },
     "baseId": "LT-043",
     "finish": "full-art"
@@ -8273,7 +8273,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Light": 2
+      "Light": 1
     },
     "baseId": "LT-044",
     "finish": "full-art"
@@ -8291,7 +8291,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Sky": 2
+      "Sky": 1
     },
     "baseId": "LT-045",
     "finish": "full-art"
@@ -8309,7 +8309,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Dark": 2
+      "Dark": 1
     },
     "baseId": "LT-046",
     "finish": "full-art"
@@ -8327,7 +8327,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Earth": 2
+      "Earth": 1
     },
     "baseId": "LT-047",
     "finish": "full-art"
@@ -8345,7 +8345,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Earth": 2
+      "Earth": 1
     },
     "baseId": "LT-048",
     "finish": "full-art"
@@ -8363,7 +8363,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Fire": 3
+      "Fire": 1
     },
     "baseId": "LT-049",
     "finish": "full-art"
@@ -8403,7 +8403,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Light": 3
+      "Light": 2
     },
     "terrain_types": [
       "Light",
@@ -8425,7 +8425,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Sky": 2
+      "Sky": 1
     },
     "baseId": "LT-052",
     "finish": "full-art"
@@ -8443,7 +8443,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     },
     "baseId": "LT-053",
     "finish": "full-art"
@@ -8497,7 +8497,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Earth": 2
+      "Earth": 1
     },
     "baseId": "LT-056",
     "finish": "full-art"
@@ -8533,7 +8533,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Light": 3
+      "Light": 1
     },
     "baseId": "LT-058",
     "finish": "full-art"
@@ -8569,7 +8569,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Sky": 3
+      "Sky": 2
     },
     "baseId": "LT-060",
     "finish": "full-art"
@@ -8587,7 +8587,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Water": 2
+      "Water": 1
     },
     "baseId": "LT-061",
     "finish": "full-art"
@@ -8623,7 +8623,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Sky": 2
+      "Sky": 1
     },
     "baseId": "LT-063",
     "finish": "full-art"
@@ -8641,7 +8641,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Dark": 2
+      "Dark": 1
     },
     "baseId": "LT-064",
     "finish": "full-art"
@@ -8692,7 +8692,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Water": 2
+      "Water": 1
     },
     "baseId": "SA-003",
     "finish": "full-art"
@@ -8709,7 +8709,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Dark": 2
+      "Dark": 1
     },
     "baseId": "SA-004",
     "finish": "full-art"
@@ -8777,7 +8777,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Dark": 6
+      "Dark": 3
     },
     "baseId": "SA-008",
     "finish": "full-art"
@@ -8811,7 +8811,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Sky": 4
+      "Sky": 2
     },
     "baseId": "SA-010",
     "finish": "full-art"
@@ -8828,7 +8828,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Water": 3
+      "Water": 1
     },
     "baseId": "SA-011",
     "finish": "full-art"
@@ -8845,7 +8845,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Earth": 2
+      "Earth": 1
     },
     "baseId": "SA-012",
     "finish": "full-art"
@@ -8862,7 +8862,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Dark": 2
+      "Dark": 1
     },
     "baseId": "SA-013",
     "finish": "full-art"
@@ -8896,7 +8896,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Dark": 3
+      "Dark": 2
     },
     "baseId": "SA-015",
     "finish": "full-art"
@@ -8930,7 +8930,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Fire": 2
+      "Fire": 1
     },
     "baseId": "SA-017",
     "finish": "full-art"
@@ -8947,7 +8947,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Light": 3
+      "Light": 2
     },
     "baseId": "SA-018",
     "finish": "full-art"
@@ -8981,7 +8981,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Earth": 3
+      "Earth": 2
     },
     "baseId": "SA-020",
     "finish": "full-art"
@@ -8998,7 +8998,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Dark": 5
+      "Dark": 2
     },
     "baseId": "SA-021",
     "finish": "full-art"
@@ -9015,7 +9015,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Dark": 2
+      "Dark": 1
     },
     "baseId": "SA-022",
     "finish": "full-art"
@@ -9032,7 +9032,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Dark": 3
+      "Dark": 2
     },
     "baseId": "SA-023",
     "finish": "full-art"
@@ -9049,7 +9049,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Light": 3
+      "Light": 2
     },
     "baseId": "SA-024",
     "finish": "full-art"
@@ -9066,7 +9066,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Water": 3
+      "Water": 2
     },
     "baseId": "SA-025",
     "finish": "full-art"
@@ -9083,7 +9083,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Dark": 4
+      "Dark": 2
     },
     "baseId": "SA-026",
     "finish": "full-art"
@@ -9100,7 +9100,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Sky": 4
+      "Sky": 2
     },
     "baseId": "SA-027",
     "finish": "full-art"
@@ -9117,7 +9117,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Sky": 3
+      "Sky": 2
     },
     "baseId": "SA-028",
     "finish": "full-art"
@@ -9134,7 +9134,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Dark": 7
+      "Dark": 3
     },
     "baseId": "SA-029",
     "finish": "full-art"
@@ -9151,7 +9151,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Light": 2
+      "Light": 1
     },
     "baseId": "SA-030",
     "finish": "full-art"
@@ -9168,7 +9168,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Sky": 4
+      "Sky": 2
     },
     "baseId": "SA-031",
     "finish": "full-art"
@@ -9185,7 +9185,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Water": 3
+      "Water": 1
     },
     "baseId": "SA-032",
     "finish": "full-art"
@@ -9202,7 +9202,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Fire": 3
+      "Fire": 2
     },
     "baseId": "SA-033",
     "finish": "full-art"
@@ -9219,7 +9219,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Sky": 3
+      "Sky": 1
     },
     "baseId": "SA-034",
     "finish": "full-art"
@@ -9236,7 +9236,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Sky": 2
+      "Sky": 1
     },
     "baseId": "SA-035",
     "finish": "full-art"
@@ -9257,7 +9257,7 @@ const HEX_PRINTS = [
       "Mage"
     ],
     "cost": {
-      "Sky": 2
+      "Sky": 1
     },
     "terrain_types": [
       "Sky",
@@ -9292,7 +9292,7 @@ const HEX_PRINTS = [
       }
     ],
     "cost": {
-      "Light": 3
+      "Light": 1
     },
     "terrain_types": [
       "Light",
@@ -9316,7 +9316,7 @@ const HEX_PRINTS = [
       "Fairie"
     ],
     "cost": {
-      "Water": 3
+      "Water": 1
     },
     "terrain_types": [
       "Water",
@@ -9341,7 +9341,7 @@ const HEX_PRINTS = [
       "Mage"
     ],
     "cost": {
-      "Dark": 3
+      "Dark": 1
     },
     "terrain_types": [
       "Dark",
@@ -9371,7 +9371,7 @@ const HEX_PRINTS = [
       }
     ],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     },
     "terrain_types": [
       "Fire",
@@ -9396,7 +9396,7 @@ const HEX_PRINTS = [
       "Beetle"
     ],
     "cost": {
-      "Dark": 3
+      "Dark": 1
     },
     "terrain_types": [
       "Dark",
@@ -9421,7 +9421,7 @@ const HEX_PRINTS = [
       "Mage"
     ],
     "cost": {
-      "Water": 3
+      "Water": 1
     },
     "terrain_types": [
       "Water",
@@ -9446,7 +9446,7 @@ const HEX_PRINTS = [
       "Mage"
     ],
     "cost": {
-      "Sky": 4
+      "Sky": 2
     },
     "terrain_types": [
       "Sky",
@@ -9471,7 +9471,7 @@ const HEX_PRINTS = [
       "Mage"
     ],
     "cost": {
-      "Light": 4
+      "Light": 2
     },
     "terrain_types": [
       "Light",
@@ -9496,7 +9496,7 @@ const HEX_PRINTS = [
       "Mage"
     ],
     "cost": {
-      "Dark": 3
+      "Dark": 2
     },
     "terrain_types": [
       "Dark",
@@ -9521,7 +9521,7 @@ const HEX_PRINTS = [
       "Soldier"
     ],
     "cost": {
-      "Earth": 4
+      "Earth": 2
     },
     "terrain_types": [
       "Earth",
@@ -9546,7 +9546,7 @@ const HEX_PRINTS = [
       "Mage"
     ],
     "cost": {
-      "Dark": 6
+      "Dark": 3
     },
     "terrain_types": [
       "Dark",
@@ -9596,7 +9596,7 @@ const HEX_PRINTS = [
       "Dragon"
     ],
     "cost": {
-      "Fire": 3
+      "Fire": 1
     },
     "terrain_types": [
       "Fire",
@@ -9673,7 +9673,7 @@ const HEX_PRINTS = [
       "Warg"
     ],
     "cost": {
-      "Earth": 2
+      "Earth": 1
     },
     "terrain_types": [
       "Earth",
@@ -9702,7 +9702,7 @@ const HEX_PRINTS = [
       "Elemental"
     ],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     },
     "terrain_types": [
       "Fire",
@@ -9727,7 +9727,7 @@ const HEX_PRINTS = [
       "Goblin"
     ],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     },
     "terrain_types": [
       "Fire",
@@ -9758,7 +9758,7 @@ const HEX_PRINTS = [
       "Soldier"
     ],
     "cost": {
-      "Earth": 3
+      "Earth": 1
     },
     "terrain_types": [
       "Earth",
@@ -9783,7 +9783,7 @@ const HEX_PRINTS = [
       "Wiskin"
     ],
     "cost": {
-      "Earth": 2
+      "Earth": 1
     },
     "terrain_types": [
       "Earth",
@@ -9809,7 +9809,7 @@ const HEX_PRINTS = [
       "Cleric"
     ],
     "cost": {
-      "Light": 2
+      "Light": 1
     },
     "terrain_types": [
       "Light",
@@ -9835,7 +9835,7 @@ const HEX_PRINTS = [
       "Cat"
     ],
     "cost": {
-      "Dark": 3
+      "Dark": 2
     },
     "terrain_types": [
       "Dark",
@@ -9861,7 +9861,7 @@ const HEX_PRINTS = [
       "Soldier"
     ],
     "cost": {
-      "Light": 2
+      "Light": 1
     },
     "terrain_types": [
       "Light",
@@ -9886,7 +9886,7 @@ const HEX_PRINTS = [
       "Beast"
     ],
     "cost": {
-      "Earth": 3
+      "Earth": 1
     },
     "terrain_types": [
       "Earth",
@@ -9911,7 +9911,7 @@ const HEX_PRINTS = [
       "Construct"
     ],
     "cost": {
-      "Earth": 4
+      "Earth": 2
     },
     "terrain_types": [
       "Earth",
@@ -9937,7 +9937,7 @@ const HEX_PRINTS = [
       "Goblin"
     ],
     "cost": {
-      "Fire": 3
+      "Fire": 2
     },
     "terrain_types": [
       "Fire",
@@ -9966,7 +9966,7 @@ const HEX_PRINTS = [
       "Assassin"
     ],
     "cost": {
-      "Dark": 3
+      "Dark": 1
     },
     "terrain_types": [
       "Dark",
@@ -9991,7 +9991,7 @@ const HEX_PRINTS = [
       "Bird"
     ],
     "cost": {
-      "Sky": 2
+      "Sky": 1
     },
     "terrain_types": [
       "Sky",
@@ -10023,7 +10023,7 @@ const HEX_PRINTS = [
       "Wiskin"
     ],
     "cost": {
-      "Earth": 5
+      "Earth": 3
     },
     "terrain_types": [
       "Earth",
@@ -10049,7 +10049,7 @@ const HEX_PRINTS = [
       "Mage"
     ],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     },
     "terrain_types": [
       "Fire",
@@ -10069,7 +10069,7 @@ const HEX_PRINTS = [
     "rules": "Wiskin gain Restore 1",
     "keywords": [],
     "cost": {
-      "Earth": 3
+      "Earth": 2
     },
     "baseId": "WE-020",
     "finish": "full-art"
@@ -10085,7 +10085,7 @@ const HEX_PRINTS = [
     "rules": "Goblins gain Sprint",
     "keywords": [],
     "cost": {
-      "Fire": 4
+      "Fire": 2
     },
     "baseId": "WE-021",
     "finish": "full-art"
@@ -10101,7 +10101,7 @@ const HEX_PRINTS = [
     "rules": "Whenever a Goblin dies, draw a card",
     "keywords": [],
     "cost": {
-      "Dark": 3
+      "Dark": 2
     },
     "baseId": "WE-022",
     "finish": "full-art"
@@ -10117,7 +10117,7 @@ const HEX_PRINTS = [
     "rules": "+1 Attack. Also, if this is equipped to a Wiskin, whenever the equipped creature defeats an enemy draw 1 card",
     "keywords": [],
     "cost": {
-      "Earth": 2
+      "Earth": 1
     },
     "baseId": "WE-023",
     "finish": "full-art"
@@ -10139,7 +10139,7 @@ const HEX_PRINTS = [
       "Chieftain"
     ],
     "cost": {
-      "Fire": 4
+      "Fire": 2
     },
     "terrain_types": [
       "Fire",
@@ -10170,7 +10170,7 @@ const HEX_PRINTS = [
       "Knight"
     ],
     "cost": {
-      "Light": 4
+      "Light": 2
     },
     "terrain_types": [
       "Light",
@@ -10200,7 +10200,7 @@ const HEX_PRINTS = [
       "Knight"
     ],
     "cost": {
-      "Fire": 5
+      "Fire": 3
     },
     "terrain_types": [
       "Fire",
@@ -10226,7 +10226,7 @@ const HEX_PRINTS = [
       "Captain"
     ],
     "cost": {
-      "Sky": 6
+      "Sky": 3
     },
     "terrain_types": [
       "Sky",
@@ -10246,7 +10246,7 @@ const HEX_PRINTS = [
     "rules": "Creatures the enemy plays enter stunned",
     "keywords": [],
     "cost": {
-      "Dark": 6
+      "Dark": 3
     },
     "baseId": "WE-028",
     "finish": "full-art"
@@ -10262,7 +10262,7 @@ const HEX_PRINTS = [
     "rules": "Equipped creature splits damage between itself and any other friendly creature equipped with Shackles of Nim. For odd numbered damage, the targetted friendly creature will take the higher of the two split values.",
     "keywords": [],
     "cost": {
-      "Dark": 2
+      "Dark": 1
     },
     "baseId": "WE-029",
     "finish": "full-art"
@@ -10278,7 +10278,7 @@ const HEX_PRINTS = [
     "rules": "Equipped creature gains Resilient and +1 Attack",
     "keywords": [],
     "cost": {
-      "Light": 3
+      "Light": 2
     },
     "baseId": "WE-030",
     "finish": "full-art"
@@ -10294,7 +10294,7 @@ const HEX_PRINTS = [
     "rules": "Equipped creature's Attack is equal to the highest attack among other active friendly creatures",
     "keywords": [],
     "cost": {
-      "Earth": 3
+      "Earth": 1
     },
     "baseId": "WE-031",
     "finish": "full-art"
@@ -10310,7 +10310,7 @@ const HEX_PRINTS = [
     "rules": "Equipped creature gains Stalwart 2. If the Equipped creature dies, Torn Banner becomes an Artifact and you must choose one of your artifact slots to assign it. It's effect becomes \"Friendly creatures gain Stalwart 2\"",
     "keywords": [],
     "cost": {
-      "Earth": 3
+      "Earth": 2
     },
     "baseId": "WE-032",
     "finish": "full-art"
@@ -10342,7 +10342,7 @@ const HEX_PRINTS = [
     "rules": "Remove all Ward and Shield from a creature",
     "keywords": [],
     "cost": {
-      "Dark": 2
+      "Dark": 1
     },
     "baseId": "WE-034",
     "finish": "full-art"
@@ -10358,7 +10358,7 @@ const HEX_PRINTS = [
     "rules": "Deal 1 damage to a friendly creature and 1 damage to each of the enemy creatures in the same lane opposite to the targetted friendly creature",
     "keywords": [],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     },
     "baseId": "WE-035",
     "finish": "full-art"
@@ -10374,7 +10374,7 @@ const HEX_PRINTS = [
     "rules": "Deal 2 damage to target friendly creature, Draw 3 cards",
     "keywords": [],
     "cost": {
-      "Dark": 3
+      "Dark": 1
     },
     "baseId": "WE-036",
     "finish": "full-art"
@@ -10406,7 +10406,7 @@ const HEX_PRINTS = [
     "rules": "Put one Artifact card from either discard pile into your hand. That card cannot be played until the next turn",
     "keywords": [],
     "cost": {
-      "Earth": 2
+      "Earth": 1
     },
     "baseId": "WE-038",
     "finish": "full-art"
@@ -10422,7 +10422,7 @@ const HEX_PRINTS = [
     "rules": "Grant 1 creature \"Invisible\" until next turn",
     "keywords": [],
     "cost": {
-      "Dark": 2
+      "Dark": 1
     },
     "baseId": "WE-039",
     "finish": "full-art"
@@ -10438,7 +10438,7 @@ const HEX_PRINTS = [
     "rules": "Draw 1 card, if that card is a creature card, play it immediately and it gains Sprint until end of turn",
     "keywords": [],
     "cost": {
-      "Light": 3
+      "Light": 2
     },
     "baseId": "WE-040",
     "finish": "full-art"
@@ -10470,7 +10470,7 @@ const HEX_PRINTS = [
     "rules": "Target creature's attack becomes 0 until end of turn",
     "keywords": [],
     "cost": {
-      "Dark": 2
+      "Dark": 1
     },
     "baseId": "WE-042",
     "finish": "full-art"
@@ -10486,7 +10486,7 @@ const HEX_PRINTS = [
     "rules": "The player with the most amount of active creatures sacrifices creatures until they have the same number of active creatures as the player with the least amount of active creatures",
     "keywords": [],
     "cost": {
-      "Dark": 4
+      "Dark": 2
     },
     "baseId": "WE-043",
     "finish": "full-art"
@@ -10502,7 +10502,7 @@ const HEX_PRINTS = [
     "rules": "Return all friendly creatures that were put into the discard pile this turn back onto the battlefield. You may choose new placements for these creatures.",
     "keywords": [],
     "cost": {
-      "Light": 6
+      "Light": 3
     },
     "baseId": "WE-044",
     "finish": "full-art"
@@ -10524,7 +10524,7 @@ const HEX_PRINTS = [
     ],
     "deckLimit": 1,
     "cost": {
-      "Light": 6
+      "Light": 3
     },
     "terrain_types": [
       "Light",
@@ -10544,7 +10544,7 @@ const HEX_PRINTS = [
     "rules": "All allied creatures gain +2 Attack and Shield 2 until end of turn. Apply Stun to all affected creatures at the start of your next turn.",
     "keywords": [],
     "cost": {
-      "Light": 4
+      "Light": 2
     },
     "baseId": "WE-046",
     "finish": "full-art"
@@ -10560,7 +10560,7 @@ const HEX_PRINTS = [
     "rules": "When equipped creature attacks return a creature from your discard pile and put it into play in an empty slot, if there is one. That creature gains Sprint and is sacrificed at the end of the turn. Mythic: Removed from the game instead of entering a discard pile.",
     "keywords": [],
     "cost": {
-      "Dark": 7
+      "Dark": 3
     },
     "baseId": "WE-047",
     "finish": "full-art"
@@ -10576,7 +10576,7 @@ const HEX_PRINTS = [
     "rules": "Whenever the enemy draws their second card of the turn, you draw a card as well.",
     "keywords": [],
     "cost": {
-      "Water": 4
+      "Water": 1
     },
     "baseId": "WE-048",
     "finish": "full-art"
@@ -10592,7 +10592,7 @@ const HEX_PRINTS = [
     "rules": "If the enemy puts a creature into play, you may play this card and gain control of the creature until the end of your next turn. That creature gains Sprint.",
     "keywords": [],
     "cost": {
-      "Dark": 5
+      "Dark": 3
     },
     "baseId": "WE-049",
     "finish": "full-art"
@@ -11211,7 +11211,7 @@ const HEX_PRINTS = [
       }
     ],
     "cost": {
-      "Light": 2
+      "Light": 1
     },
     "terrain_types": [
       "Light",
@@ -11262,7 +11262,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     },
     "terrain_types": [
       "Fire",
@@ -11314,7 +11314,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Fire": 4
+      "Fire": 2
     },
     "terrain_types": [
       "Fire",
@@ -11340,7 +11340,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Light": 4
+      "Light": 2
     },
     "terrain_types": [
       "Light",
@@ -11374,7 +11374,7 @@ const HEX_PRINTS = [
       }
     ],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     },
     "terrain_types": [
       "Fire",
@@ -11400,7 +11400,7 @@ const HEX_PRINTS = [
     ],
     "keywords": [],
     "cost": {
-      "Sky": 4
+      "Sky": 2
     },
     "terrain_types": [
       "Sky",
@@ -11460,7 +11460,7 @@ const HEX_PRINTS = [
       }
     ],
     "cost": {
-      "Dark": 5
+      "Dark": 3
     },
     "terrain_types": [
       "Dark",
@@ -11482,7 +11482,7 @@ const HEX_PRINTS = [
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     },
     "baseId": "LT-039",
     "finish": "illustration-rare"
@@ -11516,7 +11516,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Sky": 4
+      "Sky": 2
     },
     "baseId": "SA-010",
     "finish": "illustration-rare"
@@ -11533,7 +11533,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Water": 3
+      "Water": 1
     },
     "baseId": "SA-011",
     "finish": "illustration-rare"
@@ -11550,7 +11550,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Sky": 4
+      "Sky": 2
     },
     "baseId": "SA-027",
     "finish": "illustration-rare"
@@ -11567,7 +11567,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Sky": 3
+      "Sky": 2
     },
     "baseId": "SA-028",
     "finish": "illustration-rare"
@@ -11584,7 +11584,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Dark": 7
+      "Dark": 3
     },
     "baseId": "SA-029",
     "finish": "illustration-rare"
@@ -11601,7 +11601,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Fire": 3
+      "Fire": 2
     },
     "baseId": "SA-033",
     "finish": "illustration-rare"
@@ -11618,7 +11618,7 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Sky": 2
+      "Sky": 1
     },
     "baseId": "SA-035",
     "finish": "illustration-rare"
@@ -11649,7 +11649,7 @@ const HEX_PRINTS = [
       }
     ],
     "cost": {
-      "Light": 3
+      "Light": 1
     },
     "terrain_types": [
       "Light",
@@ -11673,7 +11673,7 @@ const HEX_PRINTS = [
       "Fairie"
     ],
     "cost": {
-      "Water": 3
+      "Water": 1
     },
     "terrain_types": [
       "Water",
@@ -11698,7 +11698,7 @@ const HEX_PRINTS = [
       "Beetle"
     ],
     "cost": {
-      "Dark": 3
+      "Dark": 1
     },
     "terrain_types": [
       "Dark",
@@ -11723,7 +11723,7 @@ const HEX_PRINTS = [
       "Mage"
     ],
     "cost": {
-      "Dark": 3
+      "Dark": 2
     },
     "terrain_types": [
       "Dark",
@@ -11748,7 +11748,7 @@ const HEX_PRINTS = [
       "Soldier"
     ],
     "cost": {
-      "Earth": 4
+      "Earth": 2
     },
     "terrain_types": [
       "Earth",
@@ -11773,7 +11773,7 @@ const HEX_PRINTS = [
       "Mage"
     ],
     "cost": {
-      "Dark": 6
+      "Dark": 3
     },
     "terrain_types": [
       "Dark",
@@ -17499,6 +17499,8 @@ function hexClassicBotStep(g, side = 1) {
     const actions = [];
     for (const c of view.hand) {
       if (hexIsReaction(c)) continue;
+      // With no companion, Hawk can only return itself and waste its casting Power.
+      if (hexElderNum(c) === 17 && !g.players[side].board.some(Boolean)) continue;
       const options = hexPlayOptions(g, side, c);
       for (const [i, o] of options.entries()) {
         if (hexBotPlayRepeated(g, side, c.uid, i)) continue;
@@ -17714,6 +17716,8 @@ function hexAscendedActions(g, side) {
   if (["power", "pre", "post"].includes(g.phase)) {
     for (const c of g.players[side].hand) {
       if (hexIsReaction(c)) continue;
+      // With no companion, Hawk can only return itself and waste its casting Power.
+      if (hexElderNum(c) === 17 && !g.players[side].board.some(Boolean)) continue;
       for (const [index, o] of hexPlayOptions(g, side, c).entries())
         if (
           !hexBotPlayRepeated(g, side, c.uid, index) &&

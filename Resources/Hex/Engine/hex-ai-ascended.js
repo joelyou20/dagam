@@ -145,6 +145,8 @@ function hexAscendedActions(g, side) {
   if (["power", "pre", "post"].includes(g.phase)) {
     for (const c of g.players[side].hand) {
       if (hexIsReaction(c)) continue;
+      // With no companion, Hawk can only return itself and waste its casting Power.
+      if (hexElderNum(c) === 17 && !g.players[side].board.some(Boolean)) continue;
       for (const [index, o] of hexPlayOptions(g, side, c).entries())
         if (
           !hexBotPlayRepeated(g, side, c.uid, index) &&
