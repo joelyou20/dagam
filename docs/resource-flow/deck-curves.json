@@ -1,0 +1,205 @@
+{
+  "starter": {
+    "planes": 10,
+    "low": 18,
+    "mid": 2,
+    "high": 0,
+    "cheap_creatures": 12
+  },
+  "thornbound": {
+    "planes": 10,
+    "low": 11,
+    "mid": 9,
+    "high": 0,
+    "cheap_creatures": 8
+  },
+  "stormcourt": {
+    "planes": 10,
+    "low": 8,
+    "mid": 12,
+    "high": 0,
+    "cheap_creatures": 3
+  },
+  "gravekeepers": {
+    "planes": 10,
+    "low": 8,
+    "mid": 8,
+    "high": 4,
+    "cheap_creatures": 4
+  },
+  "dawnchorus": {
+    "planes": 10,
+    "low": 12,
+    "mid": 8,
+    "high": 0,
+    "cheap_creatures": 7
+  },
+  "cinderforge": {
+    "planes": 10,
+    "low": 9,
+    "mid": 9,
+    "high": 2,
+    "cheap_creatures": 7
+  },
+  "tidecallers": {
+    "planes": 10,
+    "low": 12,
+    "mid": 8,
+    "high": 0,
+    "cheap_creatures": 5
+  },
+  "skyward": {
+    "planes": 10,
+    "low": 12,
+    "mid": 8,
+    "high": 0,
+    "cheap_creatures": 6
+  },
+  "ironclad": {
+    "planes": 10,
+    "low": 13,
+    "mid": 7,
+    "high": 0,
+    "cheap_creatures": 6
+  },
+  "hoardkeepers": {
+    "planes": 10,
+    "low": 13,
+    "mid": 6,
+    "high": 1,
+    "cheap_creatures": 9
+  },
+  "wildhunt": {
+    "planes": 10,
+    "low": 14,
+    "mid": 4,
+    "high": 2,
+    "cheap_creatures": 10
+  },
+  "meadowfolk": {
+    "planes": 10,
+    "low": 14,
+    "mid": 6,
+    "high": 0,
+    "cheap_creatures": 8
+  },
+  "reedwatch": {
+    "planes": 10,
+    "low": 14,
+    "mid": 6,
+    "high": 0,
+    "cheap_creatures": 8
+  },
+  "moonkeepers": {
+    "planes": 10,
+    "low": 11,
+    "mid": 9,
+    "high": 0,
+    "cheap_creatures": 8
+  },
+  "amberguard": {
+    "planes": 10,
+    "low": 13,
+    "mid": 7,
+    "high": 0,
+    "cheap_creatures": 5
+  },
+  "fuseworks": {
+    "planes": 10,
+    "low": 15,
+    "mid": 5,
+    "high": 0,
+    "cheap_creatures": 10
+  },
+  "mosskin": {
+    "planes": 10,
+    "low": 13,
+    "mid": 7,
+    "high": 0,
+    "cheap_creatures": 9
+  },
+  "auroracourt": {
+    "planes": 10,
+    "low": 12,
+    "mid": 8,
+    "high": 0,
+    "cheap_creatures": 6
+  },
+  "eternalcourt": {
+    "planes": 10,
+    "low": 10,
+    "mid": 4,
+    "high": 6,
+    "cheap_creatures": 3
+  },
+  "skytyrants": {
+    "planes": 10,
+    "low": 8,
+    "mid": 7,
+    "high": 5,
+    "cheap_creatures": 2
+  },
+  "crownimperium": {
+    "planes": 10,
+    "low": 6,
+    "mid": 7,
+    "high": 7,
+    "cheap_creatures": 3
+  },
+  "pebble-patrol": {
+    "planes": 10,
+    "low": 18,
+    "mid": 2,
+    "high": 0,
+    "cheap_creatures": 12
+  },
+  "burrow-watch": {
+    "planes": 10,
+    "low": 16,
+    "mid": 4,
+    "high": 0,
+    "cheap_creatures": 10
+  },
+  "ram-raiders": {
+    "planes": 10,
+    "low": 10,
+    "mid": 10,
+    "high": 0,
+    "cheap_creatures": 4
+  },
+  "bloodfist-horde": {
+    "planes": 10,
+    "low": 9,
+    "mid": 9,
+    "high": 2,
+    "cheap_creatures": 6
+  },
+  "cloudcarriage-guard": {
+    "planes": 10,
+    "low": 10,
+    "mid": 6,
+    "high": 4,
+    "cheap_creatures": 6
+  },
+  "rootbound-alliance": {
+    "planes": 10,
+    "low": 8,
+    "mid": 8,
+    "high": 4,
+    "cheap_creatures": 2
+  },
+  "fisduum-coven": {
+    "planes": 10,
+    "low": 6,
+    "mid": 10,
+    "high": 4,
+    "cheap_creatures": 6
+  },
+  "seraphic-warhost": {
+    "planes": 10,
+    "low": 5,
+    "mid": 10,
+    "high": 5,
+    "cheap_creatures": 5
+  }
+}
