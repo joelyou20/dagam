@@ -313,6 +313,10 @@ function hexArcanaEnd(g) {
   g.traps = (g.traps || []).filter((t) => t.until > g.turn);
 }
 function hexArcanaSpell(g, p, card, o) {
+  if (hexFoundation(card) === 24) {
+    if (!g.players[o.side].planes[o.slot].locked) hexSetPlane(g, o.side, o.slot, { id: "FD-025" });
+    return;
+  }
   if (hexElderNum(card)) return hexElderSpell(g, p, card, o);
   const n = hexArcanaNum(card),
     pl = g.players[p],

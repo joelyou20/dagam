@@ -264,6 +264,7 @@ function hexSwap(g, p, a, b) {
   [pl.board[a], pl.board[b]] = [y, x];
   x.slot = b;
   y.slot = a;
+  hexCheckTerrain(g);
   return true;
 }
 function hexRemoveFromGame(g, c) {
@@ -284,7 +285,9 @@ function hexReturn(g, c) {
     hexLog(g, hexName(c) + " left the battlefield · Summon removed from the game.");
   } else {
     hexResetInstance(c);
-    p.hand.push(c);
+    const owner = hexOriginalOwner(c);
+    c.owner = owner;
+    g.players[owner].hand.push(c);
     hexLog(g, hexName(c) + " returned to hand.");
   }
   hexElderExile(g);

@@ -18,11 +18,11 @@ Touching an active enemy now starts a Standard Hex match using the starter deck 
 
 ## Scope and controls
 
-The player starts with the 20-card First Light starter deck and draws five cards. All 160 cards are available for custom Standard deck building. All 28 preconstructed opponents use the stronger tactical AI. There are no points, purchases, collection progression, Blitz, drafts, tournaments or Legends.
+The player starts with the 30-card Earth/Light starter deck and draws five cards. All 185 deckable cards are available for custom Standard deck building; Volcanic Vent is displayed in the catalog but created only by Erupt. All 28 preconstructed opponents use the stronger tactical AI. There are no points, purchases, collection progression, Blitz, drafts, tournaments or Legends.
 
 Click a hand card to choose legal placements/targets, or drag it onto a slot/creature. Ready attackers pulse white. Board abilities, friendly/enemy target labels and reaction dialogs are supported. Your deck is shown alphabetically; the opponent's hand/deck remain hidden. Rules include counted creature defeats, empty-field defeat, Summon removal, original ownership, and the 60-full-round draw.
 
-The rules run in-process through a small C GDExtension embedding QuickJS, not through Node, a browser or a server. All 160 base cards and 345 game images retain stable IDs. Cosmetic variants share gameplay data. `.hextex` assets are 1024×1536 WebP images loaded directly with a bounded texture cache; root export presets include them and the JS/JSON data. Source hashes are in `Resources/Hex/Data/source-manifest.json`. Original artwork/templates remain in LifestyleTracker; `tools/hex/import_hd_art.py` reproducibly rebuilds the full-size prints and writes `hd-art-manifest.json`. Pillow is required for artwork imports.
+The rules run in-process through a small C GDExtension embedding QuickJS, not through Node, a browser or a server. All 186 base cards and their game images retain stable IDs. Cosmetic variants share gameplay data. `.hextex` assets are 1024×1536 WebP images loaded directly with a bounded texture cache; root export presets include them and the JS/JSON data. Source hashes are in `Resources/Hex/Data/source-manifest.json`. Original artwork/templates remain in LifestyleTracker; `tools/hex/import_hd_art.py` reproducibly rebuilds the full-size prints and writes `hd-art-manifest.json`. Pillow is required for artwork imports.
 
 Refresh data with `python tools/hex/import_hex.py /path/to/lifestyleTracker-repo`, then `python tools/hex/build_engine.py`. Linux and Windows x86-64 runtimes are included. Build native support with `bash addons/hex_runtime/build.sh`; Windows uses MSYS2 MINGW64 with `HEX_PLATFORM=Windows CC=gcc`, and macOS uses Xcode Command Line Tools. CI builds the complete integrated project for Linux, Windows and macOS. QuickJS and the Godot C header retain their upstream license notices.
 
@@ -39,13 +39,13 @@ godot --headless --path . --script res://Tests/Hex/ui_smoke.gd
 godot --headless --path . --script res://Tests/Hex/ui_match.gd
 ```
 
-The integration test runs the real root scene, menu and managers, including shared save/load, inventory/scene preservation, tab switching, Escape, H, UI-stack/input blocking and pause/resume. Native tests cover every opponent and all 160 cards. Existing GUT tests are preserved; the legacy `Tests/test_uibase.gd` references a missing `UIBase.ensure_ui()` method and cannot compile independently of these changes.
+The integration test runs the real root scene, menu and managers, including shared save/load, inventory/scene preservation, tab switching, Escape, H, UI-stack/input blocking and pause/resume. Native tests cover every opponent and all 186 cards. Existing GUT tests are preserved; the legacy `Tests/test_uibase.gd` references a missing `UIBase.ensure_ui()` method and cannot compile independently of these changes.
 
 ## Hex deck builder
 
 The **Hex** menu tab (or **H**) opens `HexDeckBuilderUI`, following the existing `MenuUI` / `UIBase` architecture. Opening it initializes only the catalogue and saved decks; it does not create or replace a match. All cards are available. Search includes names, rules, creature types and keyword abilities; filters cover sets, card categories, separate creature types and rarity. The deck list sits above the collection with copy controls, composition counts and average creature stats. Hover shows full-resolution cards.
 
-Create, duplicate, rename, save and delete named decks. Card edits autosave as drafts; **Use for battles** requires exactly 20 cards, no more than two of a unique card, and each card's explicit limit (for example Loriadre's single-copy limit). There is no minimum creature requirement. The native engine validates these restrictions. The starter remains selected until a valid custom deck is explicitly chosen.
+Create, duplicate, rename, save and delete named decks. Card edits autosave as drafts; **Use for battles** requires exactly 30 cards, unlimited basic single-terrain Planes, no more than two of other unique cards, and each card's explicit limit (for example Loriadre's single-copy limit). There is no minimum creature requirement. The native engine validates these restrictions. The starter remains selected until a valid custom deck is explicitly chosen.
 
 Selected deck snapshots are used for new practice games and world encounters. Existing matches and restored practice snapshots retain their original deck, including the battle-deck viewer. Decks and selection persist in `user://dagam-hex-decks-v1.json` and shared RPG saves under `hex_decks`; older saves still load. `Tests/Hex/DeckBuilder.tscn` covers menu routing, catalogue access, copy limits, all-spell decks, saved drafts, selection, persistence and match isolation.
 
@@ -78,3 +78,5 @@ Battles begin with a centered, softly fading coin overlay. Heads and Tails trigg
 Keeping the original hand still starts the selected first player. Mulliganing replaces the hand with five cards and immediately starts turn one, with no second Keep prompt. Legacy opening saves whose player already mulliganed are advanced once on load. `Tests/Hex/Opening.tscn` covers the overlay, animation/result agreement, both winners, first/second choices, save resume, interrupted animations and mulligan/Keep transitions.
 
 [Opening coin screenshot](hex-opening/opening-coin.jpg)
+
+Plane resource rules and initial cost balancing are documented in [Plane and Power rules](hex-planes.md).

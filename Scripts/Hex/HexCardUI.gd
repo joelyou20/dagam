@@ -29,6 +29,18 @@ static func art(id: String) -> Texture2D:
 	if image.load_webp_from_buffer(FileAccess.get_file_as_bytes(path)) != OK:
 		return null
 
+	var overlay_path := (
+		"res://Assets/Hex/costs/" + id.trim_suffix("-FA").trim_suffix("-IR") + ".hextex"
+	)
+
+	if FileAccess.file_exists(overlay_path):
+		var overlay := Image.new()
+
+		if overlay.load_webp_from_buffer(FileAccess.get_file_as_bytes(overlay_path)) == OK:
+			overlay.resize(image.get_width(), image.get_height(), Image.INTERPOLATE_LANCZOS)
+			image.convert(Image.FORMAT_RGBA8)
+			image.blend_rect(overlay, Rect2i(Vector2i.ZERO, overlay.get_size()), Vector2i.ZERO)
+
 	image.generate_mipmaps()
 
 	if textures.size() >= TEXTURE_CACHE_LIMIT:

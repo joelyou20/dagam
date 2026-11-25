@@ -10,6 +10,7 @@ MODULES = (
     "platform",
     "hex-formats",
     "hex-engine",
+    "hex-planes",
     "hex-effects",
     "hex-resolve",
     "hex-arcana",
@@ -53,6 +54,7 @@ def build():
         constant("HEX_PRINTS", cards + full_art + rare_prints),
         "const HEX_CARD = Object.fromEntries(HEX_PRINTS.map(card => [card.id, card]));\n",
         constant("HEX_KEYWORDS", load_json("keywords.json")),
+        constant("HEX_RESOURCE_DECKS", load_json("power-enemy-decks.json")),
     ]
     for module in MODULES:
         sections.append(f"\n// {module}\n{(ENGINE / (module + '.js')).read_text()}\n")

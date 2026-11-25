@@ -16,6 +16,7 @@ var selected_uid := ""
 var legal_targets: Array = []
 var time := 0.0
 var active := false
+var terrain_tiles: Dictionary = {}
 
 func _ready():
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -269,6 +270,43 @@ func slot_rect(side: int, slot: int, zone := "board") -> Rect2:
 	return r
 
 func sync(state: Dictionary):
+	for side in [0, 1]:
+		for slot in range(6):
+			var key := key_for(side, slot)
+
+			if not terrain_tiles.has(key):
+				var tile := MeshInstance3D.new()
+
+				tile.mesh = hex_mesh(2.85, 2.5, 0.05)
+				tile.position = location(side, slot)
+				tile.position.y = 0.34
+				world.add_child(tile)
+				var level := Label3D.new()
+
+				level.position = Vector3(0, 0.1, 1.42)
+				level.rotation_degrees.x = -65
+				level.font_size = 40
+				level.pixel_size = 0.012
+				tile.add_child(level)
+				terrain_tiles[key] = tile
+
+			var terrain: Dictionary = state.players[side].planes[slot]
+			var tint := Color.BLACK
+
+			for type in terrain.types:
+				tint += (
+					preload("res://Scripts/Hex/HexPowerDisplay.gd").COLORS.get(type, Color.GRAY)
+					/ terrain.types.size()
+				)
+
+			tint.a = 1.0
+			var tile: MeshInstance3D = terrain_tiles[key]
+
+			tile.material_override = material(tint.darkened(0.48 if terrain.level == 0 else 0.18))
+			tile.get_child(0).text = (
+				("◆ " if terrain.get("locked", false) else "") + str(int(terrain.level))
+			)
+
 	for side in [1, 0]:
 		for zone in ["board", "artifact"]:
 			var cards = (
@@ -366,6 +404,7 @@ func _update_piece(key: String, c, side: int, slot: int, zone: String, state: Di
 	rim.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON
 
 	if c == null:
+		rim.visible = zone != "board"
 		rim.material_override = material(Color("344b50") if side == 0 else Color("4e494c"))
 
 		return

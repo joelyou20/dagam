@@ -20,6 +20,13 @@ const HEX_CARDS = [
         "id": "ward",
         "value": 1
       }
+    ],
+    "cost": {
+      "Light": 2
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
     ]
   },
   {
@@ -41,6 +48,13 @@ const HEX_CARDS = [
       {
         "id": "stunning"
       }
+    ],
+    "cost": {
+      "Earth": 3
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
     ]
   },
   {
@@ -58,7 +72,14 @@ const HEX_CARDS = [
       "Beast",
       "Eel"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 3
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
+    ]
   },
   {
     "number": 4,
@@ -75,7 +96,14 @@ const HEX_CARDS = [
       "Bird",
       "Owl"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 1
+    },
+    "terrain_types": [
+      "Sky",
+      "Water"
+    ]
   },
   {
     "number": 5,
@@ -91,7 +119,14 @@ const HEX_CARDS = [
     "types": [
       "Dragon"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Fire": 2
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
+    ]
   },
   {
     "number": 6,
@@ -108,7 +143,14 @@ const HEX_CARDS = [
       "Beast",
       "Mouse"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 2
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
+    ]
   },
   {
     "number": 7,
@@ -125,7 +167,14 @@ const HEX_CARDS = [
       "Elemental",
       "Phoenix"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Fire": 4
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
+    ]
   },
   {
     "number": 8,
@@ -142,7 +191,14 @@ const HEX_CARDS = [
       "Construct",
       "Golem"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 5
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
+    ]
   },
   {
     "number": 9,
@@ -159,7 +215,14 @@ const HEX_CARDS = [
       "Undead",
       "Mage"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 2
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
+    ]
   },
   {
     "number": 10,
@@ -176,7 +239,14 @@ const HEX_CARDS = [
       "Construct",
       "Guardian"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 3
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
+    ]
   },
   {
     "number": 11,
@@ -192,7 +262,14 @@ const HEX_CARDS = [
     "types": [
       "Fungus"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Water": 2
+    },
+    "terrain_types": [
+      "Water",
+      "Sky"
+    ]
   },
   {
     "number": 12,
@@ -209,7 +286,14 @@ const HEX_CARDS = [
       "Beast",
       "Stag"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 4
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
+    ]
   },
   {
     "number": 13,
@@ -234,6 +318,13 @@ const HEX_CARDS = [
         "id": "deathburst",
         "value": 1
       }
+    ],
+    "cost": {
+      "Fire": 2
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
     ]
   },
   {
@@ -255,6 +346,13 @@ const HEX_CARDS = [
       {
         "id": "sprint"
       }
+    ],
+    "cost": {
+      "Earth": 2
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
     ]
   },
   {
@@ -272,7 +370,14 @@ const HEX_CARDS = [
       "Elemental",
       "Sovereign"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 4
+    },
+    "terrain_types": [
+      "Sky",
+      "Water"
+    ]
   },
   {
     "number": 16,
@@ -289,7 +394,14 @@ const HEX_CARDS = [
       "Dragon",
       "Salamander"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Fire": 5
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
+    ]
   },
   {
     "number": 17,
@@ -305,7 +417,14 @@ const HEX_CARDS = [
     "types": [
       "Slime"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Water": 1
+    },
+    "terrain_types": [
+      "Water",
+      "Sky"
+    ]
   },
   {
     "number": 18,
@@ -322,7 +441,14 @@ const HEX_CARDS = [
       "Bird",
       "Archer"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Fire": 3
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
+    ]
   },
   {
     "number": 19,
@@ -339,7 +465,14 @@ const HEX_CARDS = [
       "Elemental",
       "Wind"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 3
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
+    ]
   },
   {
     "number": 20,
@@ -356,7 +489,14 @@ const HEX_CARDS = [
       "Elemental",
       "Serpent"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 4
+    },
+    "terrain_types": [
+      "Sky",
+      "Water"
+    ]
   },
   {
     "number": 21,
@@ -373,7 +513,14 @@ const HEX_CARDS = [
       "Construct",
       "Sentinel"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 3
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
+    ]
   },
   {
     "number": 22,
@@ -394,6 +541,13 @@ const HEX_CARDS = [
       {
         "id": "ranged"
       }
+    ],
+    "cost": {
+      "Dark": 1
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
     ]
   },
   {
@@ -407,7 +561,10 @@ const HEX_CARDS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 1
+    }
   },
   {
     "number": 24,
@@ -424,7 +581,14 @@ const HEX_CARDS = [
       "Beast",
       "Crab"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Water": 3
+    },
+    "terrain_types": [
+      "Water",
+      "Sky"
+    ]
   },
   {
     "number": 25,
@@ -437,7 +601,10 @@ const HEX_CARDS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 1
+    }
   },
   {
     "number": 26,
@@ -458,6 +625,13 @@ const HEX_CARDS = [
       {
         "id": "stunning"
       }
+    ],
+    "cost": {
+      "Water": 3
+    },
+    "terrain_types": [
+      "Water",
+      "Sky"
     ]
   },
   {
@@ -475,7 +649,14 @@ const HEX_CARDS = [
       "Insect",
       "Moth"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 1
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
+    ]
   },
   {
     "number": 28,
@@ -488,7 +669,10 @@ const HEX_CARDS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Fire": 3
+    }
   },
   {
     "number": 29,
@@ -509,6 +693,13 @@ const HEX_CARDS = [
       {
         "id": "packbond"
       }
+    ],
+    "cost": {
+      "Earth": 1
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
     ]
   },
   {
@@ -530,6 +721,13 @@ const HEX_CARDS = [
       {
         "id": "resilient"
       }
+    ],
+    "cost": {
+      "Dark": 5
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
     ]
   },
   {
@@ -543,7 +741,10 @@ const HEX_CARDS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 3
+    }
   },
   {
     "number": 32,
@@ -560,7 +761,14 @@ const HEX_CARDS = [
       "Goblin",
       "Alchemist"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Fire": 2
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
+    ]
   },
   {
     "number": 33,
@@ -573,7 +781,10 @@ const HEX_CARDS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 1
+    }
   },
   {
     "number": 34,
@@ -586,7 +797,10 @@ const HEX_CARDS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 2
+    }
   },
   {
     "number": 35,
@@ -599,7 +813,10 @@ const HEX_CARDS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 1
+    }
   },
   {
     "number": 36,
@@ -616,7 +833,14 @@ const HEX_CARDS = [
       "Elemental",
       "Storm"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 3
+    },
+    "terrain_types": [
+      "Sky",
+      "Water"
+    ]
   },
   {
     "number": 37,
@@ -629,7 +853,10 @@ const HEX_CARDS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 2
+    }
   },
   {
     "number": 38,
@@ -642,7 +869,10 @@ const HEX_CARDS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Water": 2
+    }
   },
   {
     "number": 39,
@@ -655,7 +885,10 @@ const HEX_CARDS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Fire": 2
+    }
   },
   {
     "number": 40,
@@ -668,7 +901,10 @@ const HEX_CARDS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Water": 2
+    }
   },
   {
     "number": 41,
@@ -685,7 +921,14 @@ const HEX_CARDS = [
       "Elemental",
       "Fox"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 2
+    },
+    "terrain_types": [
+      "Sky",
+      "Water"
+    ]
   },
   {
     "number": 42,
@@ -698,7 +941,10 @@ const HEX_CARDS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Water": 1
+    }
   },
   {
     "number": 43,
@@ -711,7 +957,10 @@ const HEX_CARDS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 2
+    }
   },
   {
     "number": 44,
@@ -724,7 +973,10 @@ const HEX_CARDS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 2
+    }
   },
   {
     "number": 45,
@@ -737,7 +989,10 @@ const HEX_CARDS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 2
+    }
   },
   {
     "number": 46,
@@ -750,7 +1005,10 @@ const HEX_CARDS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 2
+    }
   },
   {
     "number": 47,
@@ -763,7 +1021,10 @@ const HEX_CARDS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 2
+    }
   },
   {
     "number": 48,
@@ -776,7 +1037,10 @@ const HEX_CARDS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 2
+    }
   },
   {
     "number": 49,
@@ -789,7 +1053,10 @@ const HEX_CARDS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Fire": 3
+    }
   },
   {
     "number": 50,
@@ -802,7 +1069,10 @@ const HEX_CARDS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 1
+    }
   },
   {
     "number": 51,
@@ -819,7 +1089,14 @@ const HEX_CARDS = [
       "Beast",
       "Tortoise"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 3
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
+    ]
   },
   {
     "number": 52,
@@ -832,7 +1109,10 @@ const HEX_CARDS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 2
+    }
   },
   {
     "number": 53,
@@ -845,7 +1125,10 @@ const HEX_CARDS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Fire": 2
+    }
   },
   {
     "number": 54,
@@ -858,7 +1141,10 @@ const HEX_CARDS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 1
+    }
   },
   {
     "number": 55,
@@ -871,7 +1157,10 @@ const HEX_CARDS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 1
+    }
   },
   {
     "number": 56,
@@ -884,7 +1173,10 @@ const HEX_CARDS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 2
+    }
   },
   {
     "number": 57,
@@ -897,7 +1189,10 @@ const HEX_CARDS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 1
+    }
   },
   {
     "number": 58,
@@ -910,7 +1205,10 @@ const HEX_CARDS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 3
+    }
   },
   {
     "number": 59,
@@ -923,7 +1221,10 @@ const HEX_CARDS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 1
+    }
   },
   {
     "number": 60,
@@ -936,7 +1237,10 @@ const HEX_CARDS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 3
+    }
   },
   {
     "number": 61,
@@ -949,7 +1253,10 @@ const HEX_CARDS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Water": 2
+    }
   },
   {
     "number": 62,
@@ -962,7 +1269,10 @@ const HEX_CARDS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 1
+    }
   },
   {
     "number": 63,
@@ -975,7 +1285,10 @@ const HEX_CARDS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 2
+    }
   },
   {
     "number": 64,
@@ -988,7 +1301,10 @@ const HEX_CARDS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 2
+    }
   },
   {
     "id": "SA-001",
@@ -1000,7 +1316,10 @@ const HEX_CARDS = [
     "rules": "Swap the positions of two of any of your active creatures",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Sky": 1
+    }
   },
   {
     "id": "SA-002",
@@ -1012,7 +1331,10 @@ const HEX_CARDS = [
     "rules": "Deal 2 damage to an enemy creature",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Fire": 1
+    }
   },
   {
     "id": "SA-003",
@@ -1024,7 +1346,10 @@ const HEX_CARDS = [
     "rules": "Return one creature back to the enemy's hand",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Water": 2
+    }
   },
   {
     "id": "SA-004",
@@ -1036,7 +1361,10 @@ const HEX_CARDS = [
     "rules": "Return one creature from your discard pile to your hand",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Dark": 2
+    }
   },
   {
     "id": "SA-005",
@@ -1048,7 +1376,10 @@ const HEX_CARDS = [
     "rules": "Grant one creature Sprint until the end of your turn",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Fire": 1
+    }
   },
   {
     "id": "SA-006",
@@ -1060,7 +1391,10 @@ const HEX_CARDS = [
     "rules": "Look at the top 3 cards of your draw pile and place them back in any order",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Sky": 1
+    }
   },
   {
     "id": "SA-007",
@@ -1072,7 +1406,10 @@ const HEX_CARDS = [
     "rules": "Heal 2 HP from one of your creatures",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Light": 1
+    }
   },
   {
     "id": "SA-008",
@@ -1084,7 +1421,10 @@ const HEX_CARDS = [
     "rules": "Take Control of one of the other player's creatures and give it Sprint. Place it anywhere on your side of the battle map. This card will Fail if you have no empty spaces available. At the end of your turn, return it to it's original space. If that is not possible, discard it to the owner's discard pile.",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Dark": 6
+    }
   },
   {
     "id": "SA-009",
@@ -1096,7 +1436,10 @@ const HEX_CARDS = [
     "rules": "Grant one of your creatures 3 shield",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Light": 1
+    }
   },
   {
     "id": "SA-010",
@@ -1108,7 +1451,10 @@ const HEX_CARDS = [
     "rules": "Create a copy of a creature on the board in an empty slot on your side. The copy gains the Summon type and Sprint. Sacrifice it at the end of the turn.",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Sky": 4
+    }
   },
   {
     "id": "SA-011",
@@ -1120,7 +1466,10 @@ const HEX_CARDS = [
     "rules": "Draw two cards",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Water": 3
+    }
   },
   {
     "id": "SA-012",
@@ -1132,7 +1481,10 @@ const HEX_CARDS = [
     "rules": "Destroy one Artifact or Equipment",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Earth": 2
+    }
   },
   {
     "id": "SA-013",
@@ -1144,7 +1496,10 @@ const HEX_CARDS = [
     "rules": "Force target player to discard 1 card of their choice from their hand.",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Dark": 2
+    }
   },
   {
     "id": "SA-014",
@@ -1156,7 +1511,10 @@ const HEX_CARDS = [
     "rules": "Target creature may ignore front line protectors and attack backline creatures until end of turn",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Sky": 1
+    }
   },
   {
     "id": "SA-015",
@@ -1168,7 +1526,10 @@ const HEX_CARDS = [
     "rules": "Sacrifice one active creature and return 2 cards from your discard pile to your hand",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Dark": 3
+    }
   },
   {
     "id": "SA-016",
@@ -1180,7 +1541,10 @@ const HEX_CARDS = [
     "rules": "Until end of your next turn, the target friendly creature must be defeated before any other of your creatures can be attacked",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Light": 1
+    }
   },
   {
     "id": "SA-017",
@@ -1192,7 +1556,10 @@ const HEX_CARDS = [
     "rules": "Target creature gains +3 Attack until end of turn",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Fire": 2
+    }
   },
   {
     "id": "SA-018",
@@ -1204,7 +1571,10 @@ const HEX_CARDS = [
     "rules": "Heal all your creatures 1 HP and grant them 1 Shield",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Light": 3
+    }
   },
   {
     "id": "SA-019",
@@ -1216,7 +1586,10 @@ const HEX_CARDS = [
     "rules": "Pick one: Deal 1 damage to creature, Heal 1 HP from creature, or draw 1 card",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Water": 1
+    }
   },
   {
     "id": "SA-020",
@@ -1228,7 +1601,10 @@ const HEX_CARDS = [
     "rules": "Mark one empty enemy creature slot. If a creature is placed on that slot, deal 10 damage to that creature. This effect lasts for 3 turns.",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Earth": 3
+    }
   },
   {
     "id": "SA-021",
@@ -1240,7 +1616,10 @@ const HEX_CARDS = [
     "rules": "Destroy target creature",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Dark": 5
+    }
   },
   {
     "id": "SA-022",
@@ -1252,7 +1631,10 @@ const HEX_CARDS = [
     "rules": "All creatures gain -1 HP until end of turn",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Dark": 2
+    }
   },
   {
     "id": "SA-023",
@@ -1264,7 +1646,10 @@ const HEX_CARDS = [
     "rules": "Look at the enemy players hand and select a card. The selected card is discarded.",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Dark": 3
+    }
   },
   {
     "id": "SA-024",
@@ -1276,7 +1661,10 @@ const HEX_CARDS = [
     "rules": "Give all your creatures 1 Shield and Reflect while they are shielded until the end of the next turn.",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Light": 3
+    }
   },
   {
     "id": "SA-025",
@@ -1288,7 +1676,10 @@ const HEX_CARDS = [
     "rules": "Draw 3 cards and then discard 1 card from your hand.",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Water": 3
+    }
   },
   {
     "id": "SA-026",
@@ -1300,7 +1691,10 @@ const HEX_CARDS = [
     "rules": "Flip a coin, if Heads, Destroy two target creatures, if Tails, sacrifice a creature",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Dark": 4
+    }
   },
   {
     "id": "SA-027",
@@ -1312,7 +1706,10 @@ const HEX_CARDS = [
     "rules": "Both players discard their hands and draw 5 cards",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Sky": 4
+    }
   },
   {
     "id": "SA-028",
@@ -1324,7 +1721,10 @@ const HEX_CARDS = [
     "rules": "Select one card from your deck and place it into your hand. Shuffle your deck.",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Sky": 3
+    }
   },
   {
     "id": "SA-029",
@@ -1336,7 +1736,10 @@ const HEX_CARDS = [
     "rules": "Destroy all creatures on the board. Can only be played from turn 3 onward",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Dark": 7
+    }
   },
   {
     "id": "SA-030",
@@ -1348,7 +1751,10 @@ const HEX_CARDS = [
     "rules": "Cannot be targetted by any spells",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Light": 2
+    }
   },
   {
     "id": "SA-031",
@@ -1360,7 +1766,10 @@ const HEX_CARDS = [
     "rules": "When the equipped creature is targetted by a spell, copy the spell and choose a new target",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Sky": 4
+    }
   },
   {
     "id": "SA-032",
@@ -1372,7 +1781,10 @@ const HEX_CARDS = [
     "rules": "Whenever you play a Spell card, choose a creature, that creature gains +1 Attack this turn",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Water": 3
+    }
   },
   {
     "id": "SA-033",
@@ -1384,7 +1796,10 @@ const HEX_CARDS = [
     "rules": "Spells you cast that deal damage will deal +1 extra damage",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Fire": 3
+    }
   },
   {
     "id": "SA-034",
@@ -1396,7 +1811,10 @@ const HEX_CARDS = [
     "rules": "Whenever any player draws a card, gain one stack of Displacement. At 5 stacks you must move one creature to another free slot on the board. The chosen slot must be on the same side of the board that the creature originated from. If no slots are available, nothing happens. All stacks are expended regardless of if the movement was successful or not.",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Sky": 3
+    }
   },
   {
     "id": "SA-035",
@@ -1408,7 +1826,10 @@ const HEX_CARDS = [
     "rules": "When an enemy spell is played, cancel the effect of the Spell card and discard it.",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Sky": 2
+    }
   },
   {
     "id": "SA-036",
@@ -1424,6 +1845,13 @@ const HEX_CARDS = [
     "types": [
       "Goblin",
       "Mage"
+    ],
+    "cost": {
+      "Sky": 2
+    },
+    "terrain_types": [
+      "Sky",
+      "Water"
     ]
   },
   {
@@ -1450,6 +1878,13 @@ const HEX_CARDS = [
         "id": "shield",
         "value": 1
       }
+    ],
+    "cost": {
+      "Light": 3
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
     ]
   },
   {
@@ -1465,6 +1900,13 @@ const HEX_CARDS = [
     "set": "shattered-arcana",
     "types": [
       "Fairie"
+    ],
+    "cost": {
+      "Water": 3
+    },
+    "terrain_types": [
+      "Water",
+      "Sky"
     ]
   },
   {
@@ -1481,6 +1923,13 @@ const HEX_CARDS = [
     "types": [
       "Goblin",
       "Mage"
+    ],
+    "cost": {
+      "Dark": 3
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
     ]
   },
   {
@@ -1502,6 +1951,13 @@ const HEX_CARDS = [
       {
         "id": "sprint"
       }
+    ],
+    "cost": {
+      "Fire": 2
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
     ]
   },
   {
@@ -1518,6 +1974,13 @@ const HEX_CARDS = [
     "types": [
       "Insect",
       "Beetle"
+    ],
+    "cost": {
+      "Dark": 3
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
     ]
   },
   {
@@ -1534,6 +1997,13 @@ const HEX_CARDS = [
     "types": [
       "Undead",
       "Mage"
+    ],
+    "cost": {
+      "Water": 3
+    },
+    "terrain_types": [
+      "Water",
+      "Sky"
     ]
   },
   {
@@ -1550,6 +2020,13 @@ const HEX_CARDS = [
     "types": [
       "Elemental",
       "Mage"
+    ],
+    "cost": {
+      "Sky": 4
+    },
+    "terrain_types": [
+      "Sky",
+      "Water"
     ]
   },
   {
@@ -1566,6 +2043,13 @@ const HEX_CARDS = [
     "types": [
       "Dragon",
       "Mage"
+    ],
+    "cost": {
+      "Light": 4
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
     ]
   },
   {
@@ -1582,6 +2066,13 @@ const HEX_CARDS = [
     "types": [
       "Construct",
       "Mage"
+    ],
+    "cost": {
+      "Dark": 3
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
     ]
   },
   {
@@ -1598,6 +2089,13 @@ const HEX_CARDS = [
     "types": [
       "Wiskin",
       "Soldier"
+    ],
+    "cost": {
+      "Earth": 4
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
     ]
   },
   {
@@ -1614,6 +2112,13 @@ const HEX_CARDS = [
     "types": [
       "Voidling",
       "Mage"
+    ],
+    "cost": {
+      "Dark": 6
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
     ]
   },
   {
@@ -1630,6 +2135,13 @@ const HEX_CARDS = [
     "hp": 2,
     "types": [
       "Goblin"
+    ],
+    "cost": {
+      "Earth": 1
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
     ]
   },
   {
@@ -1646,6 +2158,13 @@ const HEX_CARDS = [
     "hp": 4,
     "types": [
       "Dragon"
+    ],
+    "cost": {
+      "Fire": 3
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
     ]
   },
   {
@@ -1663,6 +2182,13 @@ const HEX_CARDS = [
     "types": [
       "Goblin",
       "Mage"
+    ],
+    "cost": {
+      "Fire": 1
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
     ]
   },
   {
@@ -1679,6 +2205,13 @@ const HEX_CARDS = [
     "hp": 2,
     "types": [
       "Goblin"
+    ],
+    "cost": {
+      "Fire": 1
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
     ]
   },
   {
@@ -1696,6 +2229,13 @@ const HEX_CARDS = [
     "types": [
       "Beast",
       "Warg"
+    ],
+    "cost": {
+      "Earth": 2
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
     ]
   },
   {
@@ -1716,6 +2256,13 @@ const HEX_CARDS = [
     "hp": 1,
     "types": [
       "Elemental"
+    ],
+    "cost": {
+      "Fire": 2
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
     ]
   },
   {
@@ -1732,6 +2279,13 @@ const HEX_CARDS = [
     "hp": 4,
     "types": [
       "Goblin"
+    ],
+    "cost": {
+      "Fire": 2
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
     ]
   },
   {
@@ -1754,6 +2308,13 @@ const HEX_CARDS = [
     "types": [
       "Wiskin",
       "Soldier"
+    ],
+    "cost": {
+      "Earth": 3
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
     ]
   },
   {
@@ -1770,6 +2331,13 @@ const HEX_CARDS = [
     "hp": 1,
     "types": [
       "Wiskin"
+    ],
+    "cost": {
+      "Earth": 2
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
     ]
   },
   {
@@ -1787,6 +2355,13 @@ const HEX_CARDS = [
     "types": [
       "Wiskin",
       "Cleric"
+    ],
+    "cost": {
+      "Light": 2
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
     ]
   },
   {
@@ -1804,6 +2379,13 @@ const HEX_CARDS = [
     "types": [
       "Beast",
       "Cat"
+    ],
+    "cost": {
+      "Dark": 3
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
     ]
   },
   {
@@ -1821,6 +2403,13 @@ const HEX_CARDS = [
     "types": [
       "Wiskin",
       "Soldier"
+    ],
+    "cost": {
+      "Light": 2
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
     ]
   },
   {
@@ -1837,6 +2426,13 @@ const HEX_CARDS = [
     "hp": 3,
     "types": [
       "Beast"
+    ],
+    "cost": {
+      "Earth": 3
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
     ]
   },
   {
@@ -1853,6 +2449,13 @@ const HEX_CARDS = [
     "hp": 4,
     "types": [
       "Construct"
+    ],
+    "cost": {
+      "Earth": 4
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
     ]
   },
   {
@@ -1870,6 +2473,13 @@ const HEX_CARDS = [
     "types": [
       "Wiskin",
       "Goblin"
+    ],
+    "cost": {
+      "Fire": 3
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
     ]
   },
   {
@@ -1890,6 +2500,13 @@ const HEX_CARDS = [
     "hp": 1,
     "types": [
       "Assassin"
+    ],
+    "cost": {
+      "Dark": 3
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
     ]
   },
   {
@@ -1906,6 +2523,13 @@ const HEX_CARDS = [
     "hp": 2,
     "types": [
       "Bird"
+    ],
+    "cost": {
+      "Sky": 2
+    },
+    "terrain_types": [
+      "Sky",
+      "Water"
     ]
   },
   {
@@ -1929,6 +2553,13 @@ const HEX_CARDS = [
     "hp": 3,
     "types": [
       "Wiskin"
+    ],
+    "cost": {
+      "Earth": 5
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
     ]
   },
   {
@@ -1946,6 +2577,13 @@ const HEX_CARDS = [
     "types": [
       "Goblin",
       "Mage"
+    ],
+    "cost": {
+      "Fire": 2
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
     ]
   },
   {
@@ -1957,7 +2595,10 @@ const HEX_CARDS = [
     "subtype": "Battlefield",
     "rarity": "Uncommon",
     "rules": "Wiskin gain Restore 1",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 3
+    }
   },
   {
     "id": "WE-021",
@@ -1968,7 +2609,10 @@ const HEX_CARDS = [
     "subtype": "Battlefield",
     "rarity": "Uncommon",
     "rules": "Goblins gain Sprint",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Fire": 4
+    }
   },
   {
     "id": "WE-022",
@@ -1979,7 +2623,10 @@ const HEX_CARDS = [
     "subtype": "Artifact",
     "rarity": "Uncommon",
     "rules": "Whenever a Goblin dies, draw a card",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 3
+    }
   },
   {
     "id": "WE-023",
@@ -1990,7 +2637,10 @@ const HEX_CARDS = [
     "subtype": "Equipment",
     "rarity": "Uncommon",
     "rules": "+1 Attack. Also, if this is equipped to a Wiskin, whenever the equipped creature defeats an enemy draw 1 card",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 2
+    }
   },
   {
     "id": "WE-024",
@@ -2007,6 +2657,13 @@ const HEX_CARDS = [
     "types": [
       "Goblin",
       "Chieftain"
+    ],
+    "cost": {
+      "Fire": 4
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
     ]
   },
   {
@@ -2029,6 +2686,13 @@ const HEX_CARDS = [
     "types": [
       "Wiskin",
       "Knight"
+    ],
+    "cost": {
+      "Light": 4
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
     ]
   },
   {
@@ -2050,6 +2714,13 @@ const HEX_CARDS = [
     "types": [
       "Goblin",
       "Knight"
+    ],
+    "cost": {
+      "Fire": 5
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
     ]
   },
   {
@@ -2067,6 +2738,13 @@ const HEX_CARDS = [
     "types": [
       "Wiskin",
       "Captain"
+    ],
+    "cost": {
+      "Sky": 6
+    },
+    "terrain_types": [
+      "Sky",
+      "Water"
     ]
   },
   {
@@ -2078,7 +2756,10 @@ const HEX_CARDS = [
     "subtype": "Artifact",
     "rarity": "Legendary",
     "rules": "Creatures the enemy plays enter stunned",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 6
+    }
   },
   {
     "id": "WE-029",
@@ -2089,7 +2770,10 @@ const HEX_CARDS = [
     "subtype": "Equipment",
     "rarity": "Uncommon",
     "rules": "Equipped creature splits damage between itself and any other friendly creature equipped with Shackles of Nim. For odd numbered damage, the targetted friendly creature will take the higher of the two split values.",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 2
+    }
   },
   {
     "id": "WE-030",
@@ -2100,7 +2784,10 @@ const HEX_CARDS = [
     "subtype": "Equipment",
     "rarity": "Rare",
     "rules": "Equipped creature gains Resilient and +1 Attack",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 3
+    }
   },
   {
     "id": "WE-031",
@@ -2111,7 +2798,10 @@ const HEX_CARDS = [
     "subtype": "Equipment",
     "rarity": "Epic",
     "rules": "Equipped creature's Attack is equal to the highest attack among other active friendly creatures",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 3
+    }
   },
   {
     "id": "WE-032",
@@ -2122,7 +2812,10 @@ const HEX_CARDS = [
     "subtype": "Equipment",
     "rarity": "Rare",
     "rules": "Equipped creature gains Stalwart 2. If the Equipped creature dies, Torn Banner becomes an Artifact and you must choose one of your artifact slots to assign it. It's effect becomes \"Friendly creatures gain Stalwart 2\"",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 3
+    }
   },
   {
     "id": "WE-033",
@@ -2133,7 +2826,10 @@ const HEX_CARDS = [
     "subtype": "Equipment",
     "rarity": "Uncommon",
     "rules": "Equipped creature ignores the effect of the active Battlefield card.",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 1
+    }
   },
   {
     "id": "WE-034",
@@ -2144,7 +2840,10 @@ const HEX_CARDS = [
     "subtype": "Spell",
     "rarity": "Common",
     "rules": "Remove all Ward and Shield from a creature",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 2
+    }
   },
   {
     "id": "WE-035",
@@ -2155,7 +2854,10 @@ const HEX_CARDS = [
     "subtype": "Spell",
     "rarity": "Common",
     "rules": "Deal 1 damage to a friendly creature and 1 damage to each of the enemy creatures in the same lane opposite to the targetted friendly creature",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Fire": 2
+    }
   },
   {
     "id": "WE-036",
@@ -2166,7 +2868,10 @@ const HEX_CARDS = [
     "subtype": "Spell",
     "rarity": "Common",
     "rules": "Deal 2 damage to target friendly creature, Draw 3 cards",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 3
+    }
   },
   {
     "id": "WE-037",
@@ -2177,7 +2882,10 @@ const HEX_CARDS = [
     "subtype": "Spell",
     "rarity": "Uncommon",
     "rules": "Remove all negative statuses from a target friendly creature",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 1
+    }
   },
   {
     "id": "WE-038",
@@ -2188,7 +2896,10 @@ const HEX_CARDS = [
     "subtype": "Spell",
     "rarity": "Uncommon",
     "rules": "Put one Artifact card from either discard pile into your hand. That card cannot be played until the next turn",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 2
+    }
   },
   {
     "id": "WE-039",
@@ -2199,7 +2910,10 @@ const HEX_CARDS = [
     "subtype": "Spell",
     "rarity": "Rare",
     "rules": "Grant 1 creature \"Invisible\" until next turn",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 2
+    }
   },
   {
     "id": "WE-040",
@@ -2210,7 +2924,10 @@ const HEX_CARDS = [
     "subtype": "Spell",
     "rarity": "Uncommon",
     "rules": "Draw 1 card, if that card is a creature card, play it immediately and it gains Sprint until end of turn",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 3
+    }
   },
   {
     "id": "WE-041",
@@ -2221,7 +2938,10 @@ const HEX_CARDS = [
     "subtype": "Reaction",
     "rarity": "Uncommon",
     "rules": "If the enemy player plays a creature of type \"Summon\", destroy that creature",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 1
+    }
   },
   {
     "id": "WE-042",
@@ -2232,7 +2952,10 @@ const HEX_CARDS = [
     "subtype": "Spell",
     "rarity": "Common",
     "rules": "Target creature's attack becomes 0 until end of turn",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 2
+    }
   },
   {
     "id": "WE-043",
@@ -2243,7 +2966,10 @@ const HEX_CARDS = [
     "subtype": "Spell",
     "rarity": "Epic",
     "rules": "The player with the most amount of active creatures sacrifices creatures until they have the same number of active creatures as the player with the least amount of active creatures",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 4
+    }
   },
   {
     "id": "WE-044",
@@ -2254,7 +2980,10 @@ const HEX_CARDS = [
     "subtype": "Spell",
     "rarity": "Legendary",
     "rules": "Return all friendly creatures that were put into the discard pile this turn back onto the battlefield. You may choose new placements for these creatures.",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 6
+    }
   },
   {
     "id": "WE-045",
@@ -2271,7 +3000,14 @@ const HEX_CARDS = [
     "types": [
       "Angel"
     ],
-    "deckLimit": 1
+    "deckLimit": 1,
+    "cost": {
+      "Light": 6
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
+    ]
   },
   {
     "id": "WE-046",
@@ -2282,7 +3018,10 @@ const HEX_CARDS = [
     "subtype": "Spell",
     "rarity": "Epic",
     "rules": "All allied creatures gain +2 Attack and Shield 2 until end of turn. Apply Stun to all affected creatures at the start of your next turn.",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 4
+    }
   },
   {
     "id": "WE-047",
@@ -2293,7 +3032,10 @@ const HEX_CARDS = [
     "subtype": "Equipment",
     "rarity": "Mythic",
     "rules": "When equipped creature attacks return a creature from your discard pile and put it into play in an empty slot, if there is one. That creature gains Sprint and is sacrificed at the end of the turn. Mythic: Removed from the game instead of entering a discard pile.",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 7
+    }
   },
   {
     "id": "WE-048",
@@ -2304,7 +3046,10 @@ const HEX_CARDS = [
     "subtype": "Artifact",
     "rarity": "Rare",
     "rules": "Whenever the enemy draws their second card of the turn, you draw a card as well.",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Water": 4
+    }
   },
   {
     "id": "WE-049",
@@ -2315,7 +3060,550 @@ const HEX_CARDS = [
     "subtype": "Reaction",
     "rarity": "Epic",
     "rules": "If the enemy puts a creature into play, you may play this card and gain control of the creature until the end of your next turn. That creature gains Sprint.",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 5
+    }
+  },
+  {
+    "id": "FD-001",
+    "number": 1,
+    "name": "Earth",
+    "rarity": "Common",
+    "card_type": "Plane",
+    "subtype": "Earth",
+    "types": [
+      "Earth"
+    ],
+    "terrain_types": [
+      "Earth"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Sunlit ochre canyon with towering striated sandstone pillars, jade river ribbon far below, tiny distant caravan for scale. Sweeping low viewpoint, burnt sienna, cobalt and golden noon.",
+    "basic_plane": true,
+    "deckLimit": 30
+  },
+  {
+    "id": "FD-002",
+    "number": 2,
+    "name": "Sky",
+    "rarity": "Common",
+    "card_type": "Plane",
+    "subtype": "Sky",
+    "types": [
+      "Sky"
+    ],
+    "terrain_types": [
+      "Sky"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Immense open pale-blue sky above a thin sea of white clouds, towering sculptural cumulus lit pink from sunrise, lone tiny floating feather close foreground. Minimal expansive composition, airy cyan, pearl and rose.",
+    "basic_plane": true,
+    "deckLimit": 30
+  },
+  {
+    "id": "FD-003",
+    "number": 3,
+    "name": "Fire",
+    "rarity": "Common",
+    "card_type": "Plane",
+    "subtype": "Fire",
+    "types": [
+      "Fire"
+    ],
+    "terrain_types": [
+      "Fire"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Intimate ground-level view inside a volcanic lava cavern, molten orange river flowing around obsidian spires, black ceiling, smoke and flying sparks. Bold near-black versus white-hot orange, no green or purple.",
+    "basic_plane": true,
+    "deckLimit": 30
+  },
+  {
+    "id": "FD-004",
+    "number": 4,
+    "name": "Water",
+    "rarity": "Common",
+    "card_type": "Plane",
+    "subtype": "Water",
+    "types": [
+      "Water"
+    ],
+    "terrain_types": [
+      "Water"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Crystal-clear turquoise tropical lagoon seen half underwater: sun shafts, colourful coral foreground and distant limestone sea arches above waterline. Luminous aqua, coral red and deep marine blue.",
+    "basic_plane": true,
+    "deckLimit": 30
+  },
+  {
+    "id": "FD-005",
+    "number": 5,
+    "name": "Dark",
+    "rarity": "Common",
+    "card_type": "Plane",
+    "subtype": "Dark",
+    "types": [
+      "Dark"
+    ],
+    "terrain_types": [
+      "Dark"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Enormous abandoned gothic castle silhouetted on a jagged ridge beneath a starless eclipse, winding pale fog swallowing foreground. Extremely restrained charcoal, indigo and bone-white, dramatic negative space, no glowing purple crystals.",
+    "basic_plane": true,
+    "deckLimit": 30
+  },
+  {
+    "id": "FD-006",
+    "number": 6,
+    "name": "Light",
+    "rarity": "Common",
+    "card_type": "Plane",
+    "subtype": "Light",
+    "types": [
+      "Light"
+    ],
+    "terrain_types": [
+      "Light"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Radiant white-gold sun breaking over rolling fields of ivory flowers, prismatic motes and soft golden trees, close dewy petals foreground, horizon flooded with warm light. Cream, amber and pale mint, joyful exposure.",
+    "basic_plane": true,
+    "deckLimit": 30
+  },
+  {
+    "id": "FD-007",
+    "number": 7,
+    "name": "Floating Ruins",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Earth — Sky",
+    "types": [
+      "Earth",
+      "Sky"
+    ],
+    "terrain_types": [
+      "Earth",
+      "Sky"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Aerial oblique view of broken ancient stone temples on floating moss-covered islands above a vast cloud abyss, cascading waterfalls vanish below, small hanging bridges. Weathered stone, emerald and azure, dizzying vertical scale."
+  },
+  {
+    "id": "FD-008",
+    "number": 8,
+    "name": "Ashlands",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Earth — Fire",
+    "types": [
+      "Earth",
+      "Fire"
+    ],
+    "terrain_types": [
+      "Earth",
+      "Fire"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Wide desolate black ash dunes crossing a red mesa desert, smoking fissures in foreground, a ruined watchtower nearly buried in ash, wind whips cinders under a copper storm sky. Rust, black and muted bronze, harsh diagonal composition."
+  },
+  {
+    "id": "FD-009",
+    "number": 9,
+    "name": "Sunken City",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Earth — Water",
+    "types": [
+      "Earth",
+      "Water"
+    ],
+    "terrain_types": [
+      "Earth",
+      "Water"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Deep underwater boulevard of a submerged marble city, sea grass grows over statues and algae-covered stairs, gigantic domes recede into teal gloom, schools of silver fish and a distant whale. Tranquil blue-green and limestone white, street-level perspective."
+  },
+  {
+    "id": "FD-010",
+    "number": 10,
+    "name": "Crypt of Vailyn",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Earth — Dark",
+    "types": [
+      "Earth",
+      "Dark"
+    ],
+    "terrain_types": [
+      "Earth",
+      "Dark"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Claustrophobic underground sepulchre of rough earth and roots, elaborately carved basalt sarcophagus at lower right, single cold green witch-flame illuminating engraved stone, bone dust in narrow light shaft. Moss-black and sickly pale green, close scale, no skull piles."
+  },
+  {
+    "id": "FD-011",
+    "number": 11,
+    "name": "Vibrant Meadow",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Earth — Light",
+    "types": [
+      "Earth",
+      "Light"
+    ],
+    "terrain_types": [
+      "Earth",
+      "Light"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Macro-low perspective through red poppies and yellow wildflowers toward a lush sweeping meadow, warm afternoon sun, a tiny rustic windmill on distant hill, bees and butterflies. Saturated scarlet, fresh lime, cornflower blue, exuberant natural abundance."
+  },
+  {
+    "id": "FD-012",
+    "number": 12,
+    "name": "Miredin's Pass",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Sky — Fire",
+    "types": [
+      "Sky",
+      "Fire"
+    ],
+    "terrain_types": [
+      "Sky",
+      "Fire"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Treacherous narrow mountain pass suspended between immense storm clouds, brilliant comet-like streams of fire crossing overhead, rope bridge curling around dark peaks, view from a precarious ledge. Steel blue storm versus blazing vermilion, fierce wind."
+  },
+  {
+    "id": "FD-013",
+    "number": 13,
+    "name": "Inverted Sea",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Sky — Water",
+    "types": [
+      "Sky",
+      "Water"
+    ],
+    "terrain_types": [
+      "Sky",
+      "Water"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Surreal ocean suspended upside-down overhead, enormous translucent waves and a whale hanging in the sky above a dry white salt plain, vertical rain ribbons connecting earth and ocean. Wide ground-level upward view, icy blue, silver and soft peach horizon."
+  },
+  {
+    "id": "FD-014",
+    "number": 14,
+    "name": "Twilight Strand",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Sky — Dark",
+    "types": [
+      "Sky",
+      "Dark"
+    ],
+    "terrain_types": [
+      "Sky",
+      "Dark"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Lonely black-sand shoreline seeming to float among twilight clouds, crescent moon, a skeletal driftwood arch and distant dark birds, reflected starlight on narrow tide pools. Quiet lavender-grey, midnight and a single crimson sunset band, sparse asymmetrical framing."
+  },
+  {
+    "id": "FD-015",
+    "number": 15,
+    "name": "Loriadre's Reliquary",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Sky — Light",
+    "types": [
+      "Sky",
+      "Light"
+    ],
+    "terrain_types": [
+      "Sky",
+      "Light"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Open-air celestial reliquary on a gleaming white stone platform above clouds, delicate golden architectural ribs surrounding one suspended luminous glass vessel, silk banners glowing in morning light. Close architectural study, alabaster, pale gold, gentle sky blue, no character portrait."
+  },
+  {
+    "id": "FD-016",
+    "number": 16,
+    "name": "Boiling Delta",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Fire — Water",
+    "types": [
+      "Fire",
+      "Water"
+    ],
+    "terrain_types": [
+      "Fire",
+      "Water"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "High overhead view of branching milky turquoise geothermal rivers meeting glowing volcanic channels, immense steam plumes and vivid orange mineral banks, intricate branching natural pattern. Turquoise, sulphur yellow and orange, cartographic scale without labels."
+  },
+  {
+    "id": "FD-017",
+    "number": 17,
+    "name": "Tezzakeen's Hall",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Fire — Dark",
+    "types": [
+      "Fire",
+      "Dark"
+    ],
+    "terrain_types": [
+      "Fire",
+      "Dark"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Cavernous demonic banquet hall carved from black volcanic glass, empty elongated table leads to a monumental furnace throne, embers drip like chandeliers, reflected red fire in polished floor. Symmetrical one-point perspective, deep burgundy, black and ember gold."
+  },
+  {
+    "id": "FD-018",
+    "number": 18,
+    "name": "Candlelight Sept",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Fire — Light",
+    "types": [
+      "Fire",
+      "Light"
+    ],
+    "terrain_types": [
+      "Fire",
+      "Light"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Humble intimate seven-sided stone chapel at night, hundreds of warm candles on stepped wooden ledges and a small stained-glass sun window, comforting amber light catching floating dust. Human-scale interior, honey gold, rich brown and subtle cobalt window accents."
+  },
+  {
+    "id": "FD-019",
+    "number": 19,
+    "name": "Abyssal Depths",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Water — Dark",
+    "types": [
+      "Water",
+      "Dark"
+    ],
+    "terrain_types": [
+      "Water",
+      "Dark"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Vertiginous descent into a pitch-black ocean trench, huge ancient stone face barely visible on canyon wall, sparse tiny blue bioluminescent creatures reveal unimaginable depth. Near-black and electric cyan, powerful negative space and atmospheric obscurity."
+  },
+  {
+    "id": "FD-020",
+    "number": 20,
+    "name": "Celestial Estuary",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Water — Light",
+    "types": [
+      "Water",
+      "Light"
+    ],
+    "terrain_types": [
+      "Water",
+      "Light"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Gently curving river estuary at dawn where luminous gold freshwater meets a pearlescent sea, white wading birds reflected in shallow pools, tiny star-like motes among reeds. Serene low panoramic view, champagne gold, blush pink and pale seafoam."
+  },
+  {
+    "id": "FD-021",
+    "number": 21,
+    "name": "Moonrend Delve",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Dark — Light",
+    "types": [
+      "Dark",
+      "Light"
+    ],
+    "terrain_types": [
+      "Dark",
+      "Light"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Subterranean crystal cleft split by a razor-thin shaft of brilliant moonlight, one side pure white sparkling mineral and the other dark untouched stone, still black reflecting pool. Severe black-white contrast with restrained cold silver, dramatic tilted upward viewpoint."
+  },
+  {
+    "id": "FD-022",
+    "number": 22,
+    "name": "Sacred Spring",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Water — Earth",
+    "types": [
+      "Water",
+      "Earth"
+    ],
+    "terrain_types": [
+      "Water",
+      "Earth"
+    ],
+    "rules": "Heal the creature occupying this hex by 1 HP at the start of its controller’s pre-combat phase.",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "A tiny sacred spring wells from between ancient tree roots into a round mossy stone basin, golden sunlight rests on the water, medicinal blue flowers and fresh fern fronds frame the intimate sanctuary. Warm olive, turquoise and soft gold, close low eye-level view."
+  },
+  {
+    "id": "FD-023",
+    "number": 23,
+    "name": "Wall of Light",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Light",
+    "types": [
+      "Light"
+    ],
+    "terrain_types": [
+      "Light"
+    ],
+    "rules": "At the beginning of your opponent’s combat phase, grant 1 Shield to the creature you control directly behind this hex.",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "An immense translucent golden wall shaped from interlocking luminous hexagons shields a quiet grassy courtyard from a distant storm of dark arrows, camera skims along its edge so protective depth is clear. Brilliant honey-white versus slate blue, sharp geometric shapes, no people prominent."
+  },
+  {
+    "id": "FD-024",
+    "number": 24,
+    "name": "Erupt",
+    "rarity": "Rare",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "types": [],
+    "terrain_types": [],
+    "rules": "Change one of the enemy’s hexes into a Volcanic Vent.",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {
+      "Earth": 1,
+      "Fire": 1
+    },
+    "art_direction": "Violent instant a peaceful grassy field ruptures upward in a cone of magma and shattered rock, roots and soil torn into the air, a tiny distant fleeing goblin establishes scale. Dynamic extreme low ground-level angle, fierce red-orange explosion against saturated cyan sky, kinetic magical spell scene."
+  },
+  {
+    "id": "FD-025",
+    "number": 25,
+    "name": "Volcanic Vent",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Fire — Earth",
+    "types": [
+      "Fire",
+      "Earth"
+    ],
+    "terrain_types": [
+      "Fire",
+      "Earth"
+    ],
+    "rules": "Deal 1 damage to the creature occupying this hex at the start of its controller’s pre-combat phase.",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Close downward view of a circular jagged volcanic vent embedded in cracked basalt, white-hot gas jets escape through a glowing central fissure, red mineral crust and scorched dry weeds. Intense white centre, dark umber and sulphur orange, contained hazardous place, not a volcano panorama.",
+    "generated_only": true
+  },
+  {
+    "id": "FD-026",
+    "number": 26,
+    "name": "Door to Ashgar",
+    "rarity": "Rare",
+    "card_type": "Plane",
+    "subtype": "Fire",
+    "types": [
+      "Fire"
+    ],
+    "terrain_types": [
+      "Fire"
+    ],
+    "rules": "At the beginning of each of your combat phases, if this hex is empty, summon one Goblin Punk. That creature gains Sprint and Doomed.",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Tall weather-beaten wooden door stands alone on a windswept grassy ridge, its open doorway reveals a blazing goblin war camp in another realm; one scrappy green goblin punk with red crest is stepping through, other small goblin silhouettes behind. Cool emerald dusk outside, orange fire within, strong doorway silhouette and magical threshold."
   }
 ];
 const HEX_PRINTS = [
@@ -2339,6 +3627,13 @@ const HEX_PRINTS = [
         "id": "ward",
         "value": 1
       }
+    ],
+    "cost": {
+      "Light": 2
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
     ]
   },
   {
@@ -2360,6 +3655,13 @@ const HEX_PRINTS = [
       {
         "id": "stunning"
       }
+    ],
+    "cost": {
+      "Earth": 3
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
     ]
   },
   {
@@ -2377,7 +3679,14 @@ const HEX_PRINTS = [
       "Beast",
       "Eel"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 3
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
+    ]
   },
   {
     "number": 4,
@@ -2394,7 +3703,14 @@ const HEX_PRINTS = [
       "Bird",
       "Owl"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 1
+    },
+    "terrain_types": [
+      "Sky",
+      "Water"
+    ]
   },
   {
     "number": 5,
@@ -2410,7 +3726,14 @@ const HEX_PRINTS = [
     "types": [
       "Dragon"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Fire": 2
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
+    ]
   },
   {
     "number": 6,
@@ -2427,7 +3750,14 @@ const HEX_PRINTS = [
       "Beast",
       "Mouse"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 2
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
+    ]
   },
   {
     "number": 7,
@@ -2444,7 +3774,14 @@ const HEX_PRINTS = [
       "Elemental",
       "Phoenix"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Fire": 4
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
+    ]
   },
   {
     "number": 8,
@@ -2461,7 +3798,14 @@ const HEX_PRINTS = [
       "Construct",
       "Golem"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 5
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
+    ]
   },
   {
     "number": 9,
@@ -2478,7 +3822,14 @@ const HEX_PRINTS = [
       "Undead",
       "Mage"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 2
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
+    ]
   },
   {
     "number": 10,
@@ -2495,7 +3846,14 @@ const HEX_PRINTS = [
       "Construct",
       "Guardian"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 3
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
+    ]
   },
   {
     "number": 11,
@@ -2511,7 +3869,14 @@ const HEX_PRINTS = [
     "types": [
       "Fungus"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Water": 2
+    },
+    "terrain_types": [
+      "Water",
+      "Sky"
+    ]
   },
   {
     "number": 12,
@@ -2528,7 +3893,14 @@ const HEX_PRINTS = [
       "Beast",
       "Stag"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 4
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
+    ]
   },
   {
     "number": 13,
@@ -2553,6 +3925,13 @@ const HEX_PRINTS = [
         "id": "deathburst",
         "value": 1
       }
+    ],
+    "cost": {
+      "Fire": 2
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
     ]
   },
   {
@@ -2574,6 +3953,13 @@ const HEX_PRINTS = [
       {
         "id": "sprint"
       }
+    ],
+    "cost": {
+      "Earth": 2
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
     ]
   },
   {
@@ -2591,7 +3977,14 @@ const HEX_PRINTS = [
       "Elemental",
       "Sovereign"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 4
+    },
+    "terrain_types": [
+      "Sky",
+      "Water"
+    ]
   },
   {
     "number": 16,
@@ -2608,7 +4001,14 @@ const HEX_PRINTS = [
       "Dragon",
       "Salamander"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Fire": 5
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
+    ]
   },
   {
     "number": 17,
@@ -2624,7 +4024,14 @@ const HEX_PRINTS = [
     "types": [
       "Slime"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Water": 1
+    },
+    "terrain_types": [
+      "Water",
+      "Sky"
+    ]
   },
   {
     "number": 18,
@@ -2641,7 +4048,14 @@ const HEX_PRINTS = [
       "Bird",
       "Archer"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Fire": 3
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
+    ]
   },
   {
     "number": 19,
@@ -2658,7 +4072,14 @@ const HEX_PRINTS = [
       "Elemental",
       "Wind"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 3
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
+    ]
   },
   {
     "number": 20,
@@ -2675,7 +4096,14 @@ const HEX_PRINTS = [
       "Elemental",
       "Serpent"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 4
+    },
+    "terrain_types": [
+      "Sky",
+      "Water"
+    ]
   },
   {
     "number": 21,
@@ -2692,7 +4120,14 @@ const HEX_PRINTS = [
       "Construct",
       "Sentinel"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 3
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
+    ]
   },
   {
     "number": 22,
@@ -2713,6 +4148,13 @@ const HEX_PRINTS = [
       {
         "id": "ranged"
       }
+    ],
+    "cost": {
+      "Dark": 1
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
     ]
   },
   {
@@ -2726,7 +4168,10 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 1
+    }
   },
   {
     "number": 24,
@@ -2743,7 +4188,14 @@ const HEX_PRINTS = [
       "Beast",
       "Crab"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Water": 3
+    },
+    "terrain_types": [
+      "Water",
+      "Sky"
+    ]
   },
   {
     "number": 25,
@@ -2756,7 +4208,10 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 1
+    }
   },
   {
     "number": 26,
@@ -2777,6 +4232,13 @@ const HEX_PRINTS = [
       {
         "id": "stunning"
       }
+    ],
+    "cost": {
+      "Water": 3
+    },
+    "terrain_types": [
+      "Water",
+      "Sky"
     ]
   },
   {
@@ -2794,7 +4256,14 @@ const HEX_PRINTS = [
       "Insect",
       "Moth"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 1
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
+    ]
   },
   {
     "number": 28,
@@ -2807,7 +4276,10 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Fire": 3
+    }
   },
   {
     "number": 29,
@@ -2828,6 +4300,13 @@ const HEX_PRINTS = [
       {
         "id": "packbond"
       }
+    ],
+    "cost": {
+      "Earth": 1
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
     ]
   },
   {
@@ -2849,6 +4328,13 @@ const HEX_PRINTS = [
       {
         "id": "resilient"
       }
+    ],
+    "cost": {
+      "Dark": 5
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
     ]
   },
   {
@@ -2862,7 +4348,10 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 3
+    }
   },
   {
     "number": 32,
@@ -2879,7 +4368,14 @@ const HEX_PRINTS = [
       "Goblin",
       "Alchemist"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Fire": 2
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
+    ]
   },
   {
     "number": 33,
@@ -2892,7 +4388,10 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 1
+    }
   },
   {
     "number": 34,
@@ -2905,7 +4404,10 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 2
+    }
   },
   {
     "number": 35,
@@ -2918,7 +4420,10 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 1
+    }
   },
   {
     "number": 36,
@@ -2935,7 +4440,14 @@ const HEX_PRINTS = [
       "Elemental",
       "Storm"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 3
+    },
+    "terrain_types": [
+      "Sky",
+      "Water"
+    ]
   },
   {
     "number": 37,
@@ -2948,7 +4460,10 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 2
+    }
   },
   {
     "number": 38,
@@ -2961,7 +4476,10 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Water": 2
+    }
   },
   {
     "number": 39,
@@ -2974,7 +4492,10 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Fire": 2
+    }
   },
   {
     "number": 40,
@@ -2987,7 +4508,10 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Water": 2
+    }
   },
   {
     "number": 41,
@@ -3004,7 +4528,14 @@ const HEX_PRINTS = [
       "Elemental",
       "Fox"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 2
+    },
+    "terrain_types": [
+      "Sky",
+      "Water"
+    ]
   },
   {
     "number": 42,
@@ -3017,7 +4548,10 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Water": 1
+    }
   },
   {
     "number": 43,
@@ -3030,7 +4564,10 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 2
+    }
   },
   {
     "number": 44,
@@ -3043,7 +4580,10 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 2
+    }
   },
   {
     "number": 45,
@@ -3056,7 +4596,10 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 2
+    }
   },
   {
     "number": 46,
@@ -3069,7 +4612,10 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 2
+    }
   },
   {
     "number": 47,
@@ -3082,7 +4628,10 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 2
+    }
   },
   {
     "number": 48,
@@ -3095,7 +4644,10 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 2
+    }
   },
   {
     "number": 49,
@@ -3108,7 +4660,10 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Fire": 3
+    }
   },
   {
     "number": 50,
@@ -3121,7 +4676,10 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 1
+    }
   },
   {
     "number": 51,
@@ -3138,7 +4696,14 @@ const HEX_PRINTS = [
       "Beast",
       "Tortoise"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 3
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
+    ]
   },
   {
     "number": 52,
@@ -3151,7 +4716,10 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 2
+    }
   },
   {
     "number": 53,
@@ -3164,7 +4732,10 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Fire": 2
+    }
   },
   {
     "number": 54,
@@ -3177,7 +4748,10 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 1
+    }
   },
   {
     "number": 55,
@@ -3190,7 +4764,10 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 1
+    }
   },
   {
     "number": 56,
@@ -3203,7 +4780,10 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 2
+    }
   },
   {
     "number": 57,
@@ -3216,7 +4796,10 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 1
+    }
   },
   {
     "number": 58,
@@ -3229,7 +4812,10 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 3
+    }
   },
   {
     "number": 59,
@@ -3242,7 +4828,10 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 1
+    }
   },
   {
     "number": 60,
@@ -3255,7 +4844,10 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 3
+    }
   },
   {
     "number": 61,
@@ -3268,7 +4860,10 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Water": 2
+    }
   },
   {
     "number": 62,
@@ -3281,7 +4876,10 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 1
+    }
   },
   {
     "number": 63,
@@ -3294,7 +4892,10 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 2
+    }
   },
   {
     "number": 64,
@@ -3307,7 +4908,10 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 2
+    }
   },
   {
     "id": "SA-001",
@@ -3319,7 +4923,10 @@ const HEX_PRINTS = [
     "rules": "Swap the positions of two of any of your active creatures",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Sky": 1
+    }
   },
   {
     "id": "SA-002",
@@ -3331,7 +4938,10 @@ const HEX_PRINTS = [
     "rules": "Deal 2 damage to an enemy creature",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Fire": 1
+    }
   },
   {
     "id": "SA-003",
@@ -3343,7 +4953,10 @@ const HEX_PRINTS = [
     "rules": "Return one creature back to the enemy's hand",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Water": 2
+    }
   },
   {
     "id": "SA-004",
@@ -3355,7 +4968,10 @@ const HEX_PRINTS = [
     "rules": "Return one creature from your discard pile to your hand",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Dark": 2
+    }
   },
   {
     "id": "SA-005",
@@ -3367,7 +4983,10 @@ const HEX_PRINTS = [
     "rules": "Grant one creature Sprint until the end of your turn",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Fire": 1
+    }
   },
   {
     "id": "SA-006",
@@ -3379,7 +4998,10 @@ const HEX_PRINTS = [
     "rules": "Look at the top 3 cards of your draw pile and place them back in any order",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Sky": 1
+    }
   },
   {
     "id": "SA-007",
@@ -3391,7 +5013,10 @@ const HEX_PRINTS = [
     "rules": "Heal 2 HP from one of your creatures",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Light": 1
+    }
   },
   {
     "id": "SA-008",
@@ -3403,7 +5028,10 @@ const HEX_PRINTS = [
     "rules": "Take Control of one of the other player's creatures and give it Sprint. Place it anywhere on your side of the battle map. This card will Fail if you have no empty spaces available. At the end of your turn, return it to it's original space. If that is not possible, discard it to the owner's discard pile.",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Dark": 6
+    }
   },
   {
     "id": "SA-009",
@@ -3415,7 +5043,10 @@ const HEX_PRINTS = [
     "rules": "Grant one of your creatures 3 shield",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Light": 1
+    }
   },
   {
     "id": "SA-010",
@@ -3427,7 +5058,10 @@ const HEX_PRINTS = [
     "rules": "Create a copy of a creature on the board in an empty slot on your side. The copy gains the Summon type and Sprint. Sacrifice it at the end of the turn.",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Sky": 4
+    }
   },
   {
     "id": "SA-011",
@@ -3439,7 +5073,10 @@ const HEX_PRINTS = [
     "rules": "Draw two cards",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Water": 3
+    }
   },
   {
     "id": "SA-012",
@@ -3451,7 +5088,10 @@ const HEX_PRINTS = [
     "rules": "Destroy one Artifact or Equipment",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Earth": 2
+    }
   },
   {
     "id": "SA-013",
@@ -3463,7 +5103,10 @@ const HEX_PRINTS = [
     "rules": "Force target player to discard 1 card of their choice from their hand.",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Dark": 2
+    }
   },
   {
     "id": "SA-014",
@@ -3475,7 +5118,10 @@ const HEX_PRINTS = [
     "rules": "Target creature may ignore front line protectors and attack backline creatures until end of turn",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Sky": 1
+    }
   },
   {
     "id": "SA-015",
@@ -3487,7 +5133,10 @@ const HEX_PRINTS = [
     "rules": "Sacrifice one active creature and return 2 cards from your discard pile to your hand",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Dark": 3
+    }
   },
   {
     "id": "SA-016",
@@ -3499,7 +5148,10 @@ const HEX_PRINTS = [
     "rules": "Until end of your next turn, the target friendly creature must be defeated before any other of your creatures can be attacked",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Light": 1
+    }
   },
   {
     "id": "SA-017",
@@ -3511,7 +5163,10 @@ const HEX_PRINTS = [
     "rules": "Target creature gains +3 Attack until end of turn",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Fire": 2
+    }
   },
   {
     "id": "SA-018",
@@ -3523,7 +5178,10 @@ const HEX_PRINTS = [
     "rules": "Heal all your creatures 1 HP and grant them 1 Shield",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Light": 3
+    }
   },
   {
     "id": "SA-019",
@@ -3535,7 +5193,10 @@ const HEX_PRINTS = [
     "rules": "Pick one: Deal 1 damage to creature, Heal 1 HP from creature, or draw 1 card",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Water": 1
+    }
   },
   {
     "id": "SA-020",
@@ -3547,7 +5208,10 @@ const HEX_PRINTS = [
     "rules": "Mark one empty enemy creature slot. If a creature is placed on that slot, deal 10 damage to that creature. This effect lasts for 3 turns.",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Earth": 3
+    }
   },
   {
     "id": "SA-021",
@@ -3559,7 +5223,10 @@ const HEX_PRINTS = [
     "rules": "Destroy target creature",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Dark": 5
+    }
   },
   {
     "id": "SA-022",
@@ -3571,7 +5238,10 @@ const HEX_PRINTS = [
     "rules": "All creatures gain -1 HP until end of turn",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Dark": 2
+    }
   },
   {
     "id": "SA-023",
@@ -3583,7 +5253,10 @@ const HEX_PRINTS = [
     "rules": "Look at the enemy players hand and select a card. The selected card is discarded.",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Dark": 3
+    }
   },
   {
     "id": "SA-024",
@@ -3595,7 +5268,10 @@ const HEX_PRINTS = [
     "rules": "Give all your creatures 1 Shield and Reflect while they are shielded until the end of the next turn.",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Light": 3
+    }
   },
   {
     "id": "SA-025",
@@ -3607,7 +5283,10 @@ const HEX_PRINTS = [
     "rules": "Draw 3 cards and then discard 1 card from your hand.",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Water": 3
+    }
   },
   {
     "id": "SA-026",
@@ -3619,7 +5298,10 @@ const HEX_PRINTS = [
     "rules": "Flip a coin, if Heads, Destroy two target creatures, if Tails, sacrifice a creature",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Dark": 4
+    }
   },
   {
     "id": "SA-027",
@@ -3631,7 +5313,10 @@ const HEX_PRINTS = [
     "rules": "Both players discard their hands and draw 5 cards",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Sky": 4
+    }
   },
   {
     "id": "SA-028",
@@ -3643,7 +5328,10 @@ const HEX_PRINTS = [
     "rules": "Select one card from your deck and place it into your hand. Shuffle your deck.",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Sky": 3
+    }
   },
   {
     "id": "SA-029",
@@ -3655,7 +5343,10 @@ const HEX_PRINTS = [
     "rules": "Destroy all creatures on the board. Can only be played from turn 3 onward",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Dark": 7
+    }
   },
   {
     "id": "SA-030",
@@ -3667,7 +5358,10 @@ const HEX_PRINTS = [
     "rules": "Cannot be targetted by any spells",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Light": 2
+    }
   },
   {
     "id": "SA-031",
@@ -3679,7 +5373,10 @@ const HEX_PRINTS = [
     "rules": "When the equipped creature is targetted by a spell, copy the spell and choose a new target",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Sky": 4
+    }
   },
   {
     "id": "SA-032",
@@ -3691,7 +5388,10 @@ const HEX_PRINTS = [
     "rules": "Whenever you play a Spell card, choose a creature, that creature gains +1 Attack this turn",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Water": 3
+    }
   },
   {
     "id": "SA-033",
@@ -3703,7 +5403,10 @@ const HEX_PRINTS = [
     "rules": "Spells you cast that deal damage will deal +1 extra damage",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Fire": 3
+    }
   },
   {
     "id": "SA-034",
@@ -3715,7 +5418,10 @@ const HEX_PRINTS = [
     "rules": "Whenever any player draws a card, gain one stack of Displacement. At 5 stacks you must move one creature to another free slot on the board. The chosen slot must be on the same side of the board that the creature originated from. If no slots are available, nothing happens. All stacks are expended regardless of if the movement was successful or not.",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Sky": 3
+    }
   },
   {
     "id": "SA-035",
@@ -3727,7 +5433,10 @@ const HEX_PRINTS = [
     "rules": "When an enemy spell is played, cancel the effect of the Spell card and discard it.",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Sky": 2
+    }
   },
   {
     "id": "SA-036",
@@ -3743,6 +5452,13 @@ const HEX_PRINTS = [
     "types": [
       "Goblin",
       "Mage"
+    ],
+    "cost": {
+      "Sky": 2
+    },
+    "terrain_types": [
+      "Sky",
+      "Water"
     ]
   },
   {
@@ -3769,6 +5485,13 @@ const HEX_PRINTS = [
         "id": "shield",
         "value": 1
       }
+    ],
+    "cost": {
+      "Light": 3
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
     ]
   },
   {
@@ -3784,6 +5507,13 @@ const HEX_PRINTS = [
     "set": "shattered-arcana",
     "types": [
       "Fairie"
+    ],
+    "cost": {
+      "Water": 3
+    },
+    "terrain_types": [
+      "Water",
+      "Sky"
     ]
   },
   {
@@ -3800,6 +5530,13 @@ const HEX_PRINTS = [
     "types": [
       "Goblin",
       "Mage"
+    ],
+    "cost": {
+      "Dark": 3
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
     ]
   },
   {
@@ -3821,6 +5558,13 @@ const HEX_PRINTS = [
       {
         "id": "sprint"
       }
+    ],
+    "cost": {
+      "Fire": 2
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
     ]
   },
   {
@@ -3837,6 +5581,13 @@ const HEX_PRINTS = [
     "types": [
       "Insect",
       "Beetle"
+    ],
+    "cost": {
+      "Dark": 3
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
     ]
   },
   {
@@ -3853,6 +5604,13 @@ const HEX_PRINTS = [
     "types": [
       "Undead",
       "Mage"
+    ],
+    "cost": {
+      "Water": 3
+    },
+    "terrain_types": [
+      "Water",
+      "Sky"
     ]
   },
   {
@@ -3869,6 +5627,13 @@ const HEX_PRINTS = [
     "types": [
       "Elemental",
       "Mage"
+    ],
+    "cost": {
+      "Sky": 4
+    },
+    "terrain_types": [
+      "Sky",
+      "Water"
     ]
   },
   {
@@ -3885,6 +5650,13 @@ const HEX_PRINTS = [
     "types": [
       "Dragon",
       "Mage"
+    ],
+    "cost": {
+      "Light": 4
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
     ]
   },
   {
@@ -3901,6 +5673,13 @@ const HEX_PRINTS = [
     "types": [
       "Construct",
       "Mage"
+    ],
+    "cost": {
+      "Dark": 3
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
     ]
   },
   {
@@ -3917,6 +5696,13 @@ const HEX_PRINTS = [
     "types": [
       "Wiskin",
       "Soldier"
+    ],
+    "cost": {
+      "Earth": 4
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
     ]
   },
   {
@@ -3933,6 +5719,13 @@ const HEX_PRINTS = [
     "types": [
       "Voidling",
       "Mage"
+    ],
+    "cost": {
+      "Dark": 6
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
     ]
   },
   {
@@ -3949,6 +5742,13 @@ const HEX_PRINTS = [
     "hp": 2,
     "types": [
       "Goblin"
+    ],
+    "cost": {
+      "Earth": 1
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
     ]
   },
   {
@@ -3965,6 +5765,13 @@ const HEX_PRINTS = [
     "hp": 4,
     "types": [
       "Dragon"
+    ],
+    "cost": {
+      "Fire": 3
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
     ]
   },
   {
@@ -3982,6 +5789,13 @@ const HEX_PRINTS = [
     "types": [
       "Goblin",
       "Mage"
+    ],
+    "cost": {
+      "Fire": 1
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
     ]
   },
   {
@@ -3998,6 +5812,13 @@ const HEX_PRINTS = [
     "hp": 2,
     "types": [
       "Goblin"
+    ],
+    "cost": {
+      "Fire": 1
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
     ]
   },
   {
@@ -4015,6 +5836,13 @@ const HEX_PRINTS = [
     "types": [
       "Beast",
       "Warg"
+    ],
+    "cost": {
+      "Earth": 2
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
     ]
   },
   {
@@ -4035,6 +5863,13 @@ const HEX_PRINTS = [
     "hp": 1,
     "types": [
       "Elemental"
+    ],
+    "cost": {
+      "Fire": 2
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
     ]
   },
   {
@@ -4051,6 +5886,13 @@ const HEX_PRINTS = [
     "hp": 4,
     "types": [
       "Goblin"
+    ],
+    "cost": {
+      "Fire": 2
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
     ]
   },
   {
@@ -4073,6 +5915,13 @@ const HEX_PRINTS = [
     "types": [
       "Wiskin",
       "Soldier"
+    ],
+    "cost": {
+      "Earth": 3
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
     ]
   },
   {
@@ -4089,6 +5938,13 @@ const HEX_PRINTS = [
     "hp": 1,
     "types": [
       "Wiskin"
+    ],
+    "cost": {
+      "Earth": 2
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
     ]
   },
   {
@@ -4106,6 +5962,13 @@ const HEX_PRINTS = [
     "types": [
       "Wiskin",
       "Cleric"
+    ],
+    "cost": {
+      "Light": 2
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
     ]
   },
   {
@@ -4123,6 +5986,13 @@ const HEX_PRINTS = [
     "types": [
       "Beast",
       "Cat"
+    ],
+    "cost": {
+      "Dark": 3
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
     ]
   },
   {
@@ -4140,6 +6010,13 @@ const HEX_PRINTS = [
     "types": [
       "Wiskin",
       "Soldier"
+    ],
+    "cost": {
+      "Light": 2
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
     ]
   },
   {
@@ -4156,6 +6033,13 @@ const HEX_PRINTS = [
     "hp": 3,
     "types": [
       "Beast"
+    ],
+    "cost": {
+      "Earth": 3
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
     ]
   },
   {
@@ -4172,6 +6056,13 @@ const HEX_PRINTS = [
     "hp": 4,
     "types": [
       "Construct"
+    ],
+    "cost": {
+      "Earth": 4
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
     ]
   },
   {
@@ -4189,6 +6080,13 @@ const HEX_PRINTS = [
     "types": [
       "Wiskin",
       "Goblin"
+    ],
+    "cost": {
+      "Fire": 3
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
     ]
   },
   {
@@ -4209,6 +6107,13 @@ const HEX_PRINTS = [
     "hp": 1,
     "types": [
       "Assassin"
+    ],
+    "cost": {
+      "Dark": 3
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
     ]
   },
   {
@@ -4225,6 +6130,13 @@ const HEX_PRINTS = [
     "hp": 2,
     "types": [
       "Bird"
+    ],
+    "cost": {
+      "Sky": 2
+    },
+    "terrain_types": [
+      "Sky",
+      "Water"
     ]
   },
   {
@@ -4248,6 +6160,13 @@ const HEX_PRINTS = [
     "hp": 3,
     "types": [
       "Wiskin"
+    ],
+    "cost": {
+      "Earth": 5
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
     ]
   },
   {
@@ -4265,6 +6184,13 @@ const HEX_PRINTS = [
     "types": [
       "Goblin",
       "Mage"
+    ],
+    "cost": {
+      "Fire": 2
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
     ]
   },
   {
@@ -4276,7 +6202,10 @@ const HEX_PRINTS = [
     "subtype": "Battlefield",
     "rarity": "Uncommon",
     "rules": "Wiskin gain Restore 1",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 3
+    }
   },
   {
     "id": "WE-021",
@@ -4287,7 +6216,10 @@ const HEX_PRINTS = [
     "subtype": "Battlefield",
     "rarity": "Uncommon",
     "rules": "Goblins gain Sprint",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Fire": 4
+    }
   },
   {
     "id": "WE-022",
@@ -4298,7 +6230,10 @@ const HEX_PRINTS = [
     "subtype": "Artifact",
     "rarity": "Uncommon",
     "rules": "Whenever a Goblin dies, draw a card",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 3
+    }
   },
   {
     "id": "WE-023",
@@ -4309,7 +6244,10 @@ const HEX_PRINTS = [
     "subtype": "Equipment",
     "rarity": "Uncommon",
     "rules": "+1 Attack. Also, if this is equipped to a Wiskin, whenever the equipped creature defeats an enemy draw 1 card",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 2
+    }
   },
   {
     "id": "WE-024",
@@ -4326,6 +6264,13 @@ const HEX_PRINTS = [
     "types": [
       "Goblin",
       "Chieftain"
+    ],
+    "cost": {
+      "Fire": 4
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
     ]
   },
   {
@@ -4348,6 +6293,13 @@ const HEX_PRINTS = [
     "types": [
       "Wiskin",
       "Knight"
+    ],
+    "cost": {
+      "Light": 4
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
     ]
   },
   {
@@ -4369,6 +6321,13 @@ const HEX_PRINTS = [
     "types": [
       "Goblin",
       "Knight"
+    ],
+    "cost": {
+      "Fire": 5
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
     ]
   },
   {
@@ -4386,6 +6345,13 @@ const HEX_PRINTS = [
     "types": [
       "Wiskin",
       "Captain"
+    ],
+    "cost": {
+      "Sky": 6
+    },
+    "terrain_types": [
+      "Sky",
+      "Water"
     ]
   },
   {
@@ -4397,7 +6363,10 @@ const HEX_PRINTS = [
     "subtype": "Artifact",
     "rarity": "Legendary",
     "rules": "Creatures the enemy plays enter stunned",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 6
+    }
   },
   {
     "id": "WE-029",
@@ -4408,7 +6377,10 @@ const HEX_PRINTS = [
     "subtype": "Equipment",
     "rarity": "Uncommon",
     "rules": "Equipped creature splits damage between itself and any other friendly creature equipped with Shackles of Nim. For odd numbered damage, the targetted friendly creature will take the higher of the two split values.",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 2
+    }
   },
   {
     "id": "WE-030",
@@ -4419,7 +6391,10 @@ const HEX_PRINTS = [
     "subtype": "Equipment",
     "rarity": "Rare",
     "rules": "Equipped creature gains Resilient and +1 Attack",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 3
+    }
   },
   {
     "id": "WE-031",
@@ -4430,7 +6405,10 @@ const HEX_PRINTS = [
     "subtype": "Equipment",
     "rarity": "Epic",
     "rules": "Equipped creature's Attack is equal to the highest attack among other active friendly creatures",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 3
+    }
   },
   {
     "id": "WE-032",
@@ -4441,7 +6419,10 @@ const HEX_PRINTS = [
     "subtype": "Equipment",
     "rarity": "Rare",
     "rules": "Equipped creature gains Stalwart 2. If the Equipped creature dies, Torn Banner becomes an Artifact and you must choose one of your artifact slots to assign it. It's effect becomes \"Friendly creatures gain Stalwart 2\"",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 3
+    }
   },
   {
     "id": "WE-033",
@@ -4452,7 +6433,10 @@ const HEX_PRINTS = [
     "subtype": "Equipment",
     "rarity": "Uncommon",
     "rules": "Equipped creature ignores the effect of the active Battlefield card.",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 1
+    }
   },
   {
     "id": "WE-034",
@@ -4463,7 +6447,10 @@ const HEX_PRINTS = [
     "subtype": "Spell",
     "rarity": "Common",
     "rules": "Remove all Ward and Shield from a creature",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 2
+    }
   },
   {
     "id": "WE-035",
@@ -4474,7 +6461,10 @@ const HEX_PRINTS = [
     "subtype": "Spell",
     "rarity": "Common",
     "rules": "Deal 1 damage to a friendly creature and 1 damage to each of the enemy creatures in the same lane opposite to the targetted friendly creature",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Fire": 2
+    }
   },
   {
     "id": "WE-036",
@@ -4485,7 +6475,10 @@ const HEX_PRINTS = [
     "subtype": "Spell",
     "rarity": "Common",
     "rules": "Deal 2 damage to target friendly creature, Draw 3 cards",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 3
+    }
   },
   {
     "id": "WE-037",
@@ -4496,7 +6489,10 @@ const HEX_PRINTS = [
     "subtype": "Spell",
     "rarity": "Uncommon",
     "rules": "Remove all negative statuses from a target friendly creature",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 1
+    }
   },
   {
     "id": "WE-038",
@@ -4507,7 +6503,10 @@ const HEX_PRINTS = [
     "subtype": "Spell",
     "rarity": "Uncommon",
     "rules": "Put one Artifact card from either discard pile into your hand. That card cannot be played until the next turn",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 2
+    }
   },
   {
     "id": "WE-039",
@@ -4518,7 +6517,10 @@ const HEX_PRINTS = [
     "subtype": "Spell",
     "rarity": "Rare",
     "rules": "Grant 1 creature \"Invisible\" until next turn",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 2
+    }
   },
   {
     "id": "WE-040",
@@ -4529,7 +6531,10 @@ const HEX_PRINTS = [
     "subtype": "Spell",
     "rarity": "Uncommon",
     "rules": "Draw 1 card, if that card is a creature card, play it immediately and it gains Sprint until end of turn",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 3
+    }
   },
   {
     "id": "WE-041",
@@ -4540,7 +6545,10 @@ const HEX_PRINTS = [
     "subtype": "Reaction",
     "rarity": "Uncommon",
     "rules": "If the enemy player plays a creature of type \"Summon\", destroy that creature",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 1
+    }
   },
   {
     "id": "WE-042",
@@ -4551,7 +6559,10 @@ const HEX_PRINTS = [
     "subtype": "Spell",
     "rarity": "Common",
     "rules": "Target creature's attack becomes 0 until end of turn",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 2
+    }
   },
   {
     "id": "WE-043",
@@ -4562,7 +6573,10 @@ const HEX_PRINTS = [
     "subtype": "Spell",
     "rarity": "Epic",
     "rules": "The player with the most amount of active creatures sacrifices creatures until they have the same number of active creatures as the player with the least amount of active creatures",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 4
+    }
   },
   {
     "id": "WE-044",
@@ -4573,7 +6587,10 @@ const HEX_PRINTS = [
     "subtype": "Spell",
     "rarity": "Legendary",
     "rules": "Return all friendly creatures that were put into the discard pile this turn back onto the battlefield. You may choose new placements for these creatures.",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 6
+    }
   },
   {
     "id": "WE-045",
@@ -4590,7 +6607,14 @@ const HEX_PRINTS = [
     "types": [
       "Angel"
     ],
-    "deckLimit": 1
+    "deckLimit": 1,
+    "cost": {
+      "Light": 6
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
+    ]
   },
   {
     "id": "WE-046",
@@ -4601,7 +6625,10 @@ const HEX_PRINTS = [
     "subtype": "Spell",
     "rarity": "Epic",
     "rules": "All allied creatures gain +2 Attack and Shield 2 until end of turn. Apply Stun to all affected creatures at the start of your next turn.",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 4
+    }
   },
   {
     "id": "WE-047",
@@ -4612,7 +6639,10 @@ const HEX_PRINTS = [
     "subtype": "Equipment",
     "rarity": "Mythic",
     "rules": "When equipped creature attacks return a creature from your discard pile and put it into play in an empty slot, if there is one. That creature gains Sprint and is sacrificed at the end of the turn. Mythic: Removed from the game instead of entering a discard pile.",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 7
+    }
   },
   {
     "id": "WE-048",
@@ -4623,7 +6653,10 @@ const HEX_PRINTS = [
     "subtype": "Artifact",
     "rarity": "Rare",
     "rules": "Whenever the enemy draws their second card of the turn, you draw a card as well.",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Water": 4
+    }
   },
   {
     "id": "WE-049",
@@ -4634,7 +6667,550 @@ const HEX_PRINTS = [
     "subtype": "Reaction",
     "rarity": "Epic",
     "rules": "If the enemy puts a creature into play, you may play this card and gain control of the creature until the end of your next turn. That creature gains Sprint.",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 5
+    }
+  },
+  {
+    "id": "FD-001",
+    "number": 1,
+    "name": "Earth",
+    "rarity": "Common",
+    "card_type": "Plane",
+    "subtype": "Earth",
+    "types": [
+      "Earth"
+    ],
+    "terrain_types": [
+      "Earth"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Sunlit ochre canyon with towering striated sandstone pillars, jade river ribbon far below, tiny distant caravan for scale. Sweeping low viewpoint, burnt sienna, cobalt and golden noon.",
+    "basic_plane": true,
+    "deckLimit": 30
+  },
+  {
+    "id": "FD-002",
+    "number": 2,
+    "name": "Sky",
+    "rarity": "Common",
+    "card_type": "Plane",
+    "subtype": "Sky",
+    "types": [
+      "Sky"
+    ],
+    "terrain_types": [
+      "Sky"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Immense open pale-blue sky above a thin sea of white clouds, towering sculptural cumulus lit pink from sunrise, lone tiny floating feather close foreground. Minimal expansive composition, airy cyan, pearl and rose.",
+    "basic_plane": true,
+    "deckLimit": 30
+  },
+  {
+    "id": "FD-003",
+    "number": 3,
+    "name": "Fire",
+    "rarity": "Common",
+    "card_type": "Plane",
+    "subtype": "Fire",
+    "types": [
+      "Fire"
+    ],
+    "terrain_types": [
+      "Fire"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Intimate ground-level view inside a volcanic lava cavern, molten orange river flowing around obsidian spires, black ceiling, smoke and flying sparks. Bold near-black versus white-hot orange, no green or purple.",
+    "basic_plane": true,
+    "deckLimit": 30
+  },
+  {
+    "id": "FD-004",
+    "number": 4,
+    "name": "Water",
+    "rarity": "Common",
+    "card_type": "Plane",
+    "subtype": "Water",
+    "types": [
+      "Water"
+    ],
+    "terrain_types": [
+      "Water"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Crystal-clear turquoise tropical lagoon seen half underwater: sun shafts, colourful coral foreground and distant limestone sea arches above waterline. Luminous aqua, coral red and deep marine blue.",
+    "basic_plane": true,
+    "deckLimit": 30
+  },
+  {
+    "id": "FD-005",
+    "number": 5,
+    "name": "Dark",
+    "rarity": "Common",
+    "card_type": "Plane",
+    "subtype": "Dark",
+    "types": [
+      "Dark"
+    ],
+    "terrain_types": [
+      "Dark"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Enormous abandoned gothic castle silhouetted on a jagged ridge beneath a starless eclipse, winding pale fog swallowing foreground. Extremely restrained charcoal, indigo and bone-white, dramatic negative space, no glowing purple crystals.",
+    "basic_plane": true,
+    "deckLimit": 30
+  },
+  {
+    "id": "FD-006",
+    "number": 6,
+    "name": "Light",
+    "rarity": "Common",
+    "card_type": "Plane",
+    "subtype": "Light",
+    "types": [
+      "Light"
+    ],
+    "terrain_types": [
+      "Light"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Radiant white-gold sun breaking over rolling fields of ivory flowers, prismatic motes and soft golden trees, close dewy petals foreground, horizon flooded with warm light. Cream, amber and pale mint, joyful exposure.",
+    "basic_plane": true,
+    "deckLimit": 30
+  },
+  {
+    "id": "FD-007",
+    "number": 7,
+    "name": "Floating Ruins",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Earth — Sky",
+    "types": [
+      "Earth",
+      "Sky"
+    ],
+    "terrain_types": [
+      "Earth",
+      "Sky"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Aerial oblique view of broken ancient stone temples on floating moss-covered islands above a vast cloud abyss, cascading waterfalls vanish below, small hanging bridges. Weathered stone, emerald and azure, dizzying vertical scale."
+  },
+  {
+    "id": "FD-008",
+    "number": 8,
+    "name": "Ashlands",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Earth — Fire",
+    "types": [
+      "Earth",
+      "Fire"
+    ],
+    "terrain_types": [
+      "Earth",
+      "Fire"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Wide desolate black ash dunes crossing a red mesa desert, smoking fissures in foreground, a ruined watchtower nearly buried in ash, wind whips cinders under a copper storm sky. Rust, black and muted bronze, harsh diagonal composition."
+  },
+  {
+    "id": "FD-009",
+    "number": 9,
+    "name": "Sunken City",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Earth — Water",
+    "types": [
+      "Earth",
+      "Water"
+    ],
+    "terrain_types": [
+      "Earth",
+      "Water"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Deep underwater boulevard of a submerged marble city, sea grass grows over statues and algae-covered stairs, gigantic domes recede into teal gloom, schools of silver fish and a distant whale. Tranquil blue-green and limestone white, street-level perspective."
+  },
+  {
+    "id": "FD-010",
+    "number": 10,
+    "name": "Crypt of Vailyn",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Earth — Dark",
+    "types": [
+      "Earth",
+      "Dark"
+    ],
+    "terrain_types": [
+      "Earth",
+      "Dark"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Claustrophobic underground sepulchre of rough earth and roots, elaborately carved basalt sarcophagus at lower right, single cold green witch-flame illuminating engraved stone, bone dust in narrow light shaft. Moss-black and sickly pale green, close scale, no skull piles."
+  },
+  {
+    "id": "FD-011",
+    "number": 11,
+    "name": "Vibrant Meadow",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Earth — Light",
+    "types": [
+      "Earth",
+      "Light"
+    ],
+    "terrain_types": [
+      "Earth",
+      "Light"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Macro-low perspective through red poppies and yellow wildflowers toward a lush sweeping meadow, warm afternoon sun, a tiny rustic windmill on distant hill, bees and butterflies. Saturated scarlet, fresh lime, cornflower blue, exuberant natural abundance."
+  },
+  {
+    "id": "FD-012",
+    "number": 12,
+    "name": "Miredin's Pass",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Sky — Fire",
+    "types": [
+      "Sky",
+      "Fire"
+    ],
+    "terrain_types": [
+      "Sky",
+      "Fire"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Treacherous narrow mountain pass suspended between immense storm clouds, brilliant comet-like streams of fire crossing overhead, rope bridge curling around dark peaks, view from a precarious ledge. Steel blue storm versus blazing vermilion, fierce wind."
+  },
+  {
+    "id": "FD-013",
+    "number": 13,
+    "name": "Inverted Sea",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Sky — Water",
+    "types": [
+      "Sky",
+      "Water"
+    ],
+    "terrain_types": [
+      "Sky",
+      "Water"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Surreal ocean suspended upside-down overhead, enormous translucent waves and a whale hanging in the sky above a dry white salt plain, vertical rain ribbons connecting earth and ocean. Wide ground-level upward view, icy blue, silver and soft peach horizon."
+  },
+  {
+    "id": "FD-014",
+    "number": 14,
+    "name": "Twilight Strand",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Sky — Dark",
+    "types": [
+      "Sky",
+      "Dark"
+    ],
+    "terrain_types": [
+      "Sky",
+      "Dark"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Lonely black-sand shoreline seeming to float among twilight clouds, crescent moon, a skeletal driftwood arch and distant dark birds, reflected starlight on narrow tide pools. Quiet lavender-grey, midnight and a single crimson sunset band, sparse asymmetrical framing."
+  },
+  {
+    "id": "FD-015",
+    "number": 15,
+    "name": "Loriadre's Reliquary",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Sky — Light",
+    "types": [
+      "Sky",
+      "Light"
+    ],
+    "terrain_types": [
+      "Sky",
+      "Light"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Open-air celestial reliquary on a gleaming white stone platform above clouds, delicate golden architectural ribs surrounding one suspended luminous glass vessel, silk banners glowing in morning light. Close architectural study, alabaster, pale gold, gentle sky blue, no character portrait."
+  },
+  {
+    "id": "FD-016",
+    "number": 16,
+    "name": "Boiling Delta",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Fire — Water",
+    "types": [
+      "Fire",
+      "Water"
+    ],
+    "terrain_types": [
+      "Fire",
+      "Water"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "High overhead view of branching milky turquoise geothermal rivers meeting glowing volcanic channels, immense steam plumes and vivid orange mineral banks, intricate branching natural pattern. Turquoise, sulphur yellow and orange, cartographic scale without labels."
+  },
+  {
+    "id": "FD-017",
+    "number": 17,
+    "name": "Tezzakeen's Hall",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Fire — Dark",
+    "types": [
+      "Fire",
+      "Dark"
+    ],
+    "terrain_types": [
+      "Fire",
+      "Dark"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Cavernous demonic banquet hall carved from black volcanic glass, empty elongated table leads to a monumental furnace throne, embers drip like chandeliers, reflected red fire in polished floor. Symmetrical one-point perspective, deep burgundy, black and ember gold."
+  },
+  {
+    "id": "FD-018",
+    "number": 18,
+    "name": "Candlelight Sept",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Fire — Light",
+    "types": [
+      "Fire",
+      "Light"
+    ],
+    "terrain_types": [
+      "Fire",
+      "Light"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Humble intimate seven-sided stone chapel at night, hundreds of warm candles on stepped wooden ledges and a small stained-glass sun window, comforting amber light catching floating dust. Human-scale interior, honey gold, rich brown and subtle cobalt window accents."
+  },
+  {
+    "id": "FD-019",
+    "number": 19,
+    "name": "Abyssal Depths",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Water — Dark",
+    "types": [
+      "Water",
+      "Dark"
+    ],
+    "terrain_types": [
+      "Water",
+      "Dark"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Vertiginous descent into a pitch-black ocean trench, huge ancient stone face barely visible on canyon wall, sparse tiny blue bioluminescent creatures reveal unimaginable depth. Near-black and electric cyan, powerful negative space and atmospheric obscurity."
+  },
+  {
+    "id": "FD-020",
+    "number": 20,
+    "name": "Celestial Estuary",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Water — Light",
+    "types": [
+      "Water",
+      "Light"
+    ],
+    "terrain_types": [
+      "Water",
+      "Light"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Gently curving river estuary at dawn where luminous gold freshwater meets a pearlescent sea, white wading birds reflected in shallow pools, tiny star-like motes among reeds. Serene low panoramic view, champagne gold, blush pink and pale seafoam."
+  },
+  {
+    "id": "FD-021",
+    "number": 21,
+    "name": "Moonrend Delve",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Dark — Light",
+    "types": [
+      "Dark",
+      "Light"
+    ],
+    "terrain_types": [
+      "Dark",
+      "Light"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Subterranean crystal cleft split by a razor-thin shaft of brilliant moonlight, one side pure white sparkling mineral and the other dark untouched stone, still black reflecting pool. Severe black-white contrast with restrained cold silver, dramatic tilted upward viewpoint."
+  },
+  {
+    "id": "FD-022",
+    "number": 22,
+    "name": "Sacred Spring",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Water — Earth",
+    "types": [
+      "Water",
+      "Earth"
+    ],
+    "terrain_types": [
+      "Water",
+      "Earth"
+    ],
+    "rules": "Heal the creature occupying this hex by 1 HP at the start of its controller’s pre-combat phase.",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "A tiny sacred spring wells from between ancient tree roots into a round mossy stone basin, golden sunlight rests on the water, medicinal blue flowers and fresh fern fronds frame the intimate sanctuary. Warm olive, turquoise and soft gold, close low eye-level view."
+  },
+  {
+    "id": "FD-023",
+    "number": 23,
+    "name": "Wall of Light",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Light",
+    "types": [
+      "Light"
+    ],
+    "terrain_types": [
+      "Light"
+    ],
+    "rules": "At the beginning of your opponent’s combat phase, grant 1 Shield to the creature you control directly behind this hex.",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "An immense translucent golden wall shaped from interlocking luminous hexagons shields a quiet grassy courtyard from a distant storm of dark arrows, camera skims along its edge so protective depth is clear. Brilliant honey-white versus slate blue, sharp geometric shapes, no people prominent."
+  },
+  {
+    "id": "FD-024",
+    "number": 24,
+    "name": "Erupt",
+    "rarity": "Rare",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "types": [],
+    "terrain_types": [],
+    "rules": "Change one of the enemy’s hexes into a Volcanic Vent.",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {
+      "Earth": 1,
+      "Fire": 1
+    },
+    "art_direction": "Violent instant a peaceful grassy field ruptures upward in a cone of magma and shattered rock, roots and soil torn into the air, a tiny distant fleeing goblin establishes scale. Dynamic extreme low ground-level angle, fierce red-orange explosion against saturated cyan sky, kinetic magical spell scene."
+  },
+  {
+    "id": "FD-025",
+    "number": 25,
+    "name": "Volcanic Vent",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Fire — Earth",
+    "types": [
+      "Fire",
+      "Earth"
+    ],
+    "terrain_types": [
+      "Fire",
+      "Earth"
+    ],
+    "rules": "Deal 1 damage to the creature occupying this hex at the start of its controller’s pre-combat phase.",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Close downward view of a circular jagged volcanic vent embedded in cracked basalt, white-hot gas jets escape through a glowing central fissure, red mineral crust and scorched dry weeds. Intense white centre, dark umber and sulphur orange, contained hazardous place, not a volcano panorama.",
+    "generated_only": true
+  },
+  {
+    "id": "FD-026",
+    "number": 26,
+    "name": "Door to Ashgar",
+    "rarity": "Rare",
+    "card_type": "Plane",
+    "subtype": "Fire",
+    "types": [
+      "Fire"
+    ],
+    "terrain_types": [
+      "Fire"
+    ],
+    "rules": "At the beginning of each of your combat phases, if this hex is empty, summon one Goblin Punk. That creature gains Sprint and Doomed.",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Tall weather-beaten wooden door stands alone on a windswept grassy ridge, its open doorway reveals a blazing goblin war camp in another realm; one scrappy green goblin punk with red crest is stepping through, other small goblin silhouettes behind. Cool emerald dusk outside, orange fire within, strong doorway silhouette and magical threshold."
   },
   {
     "number": 1,
@@ -4656,6 +7232,13 @@ const HEX_PRINTS = [
         "id": "ward",
         "value": 1
       }
+    ],
+    "cost": {
+      "Light": 2
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
     ],
     "baseId": "LT-001",
     "finish": "full-art"
@@ -4680,6 +7263,13 @@ const HEX_PRINTS = [
         "id": "stunning"
       }
     ],
+    "cost": {
+      "Earth": 3
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
+    ],
     "baseId": "LT-002",
     "finish": "full-art"
   },
@@ -4699,6 +7289,13 @@ const HEX_PRINTS = [
       "Eel"
     ],
     "keywords": [],
+    "cost": {
+      "Dark": 3
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
+    ],
     "baseId": "LT-003",
     "finish": "full-art"
   },
@@ -4718,6 +7315,13 @@ const HEX_PRINTS = [
       "Owl"
     ],
     "keywords": [],
+    "cost": {
+      "Sky": 1
+    },
+    "terrain_types": [
+      "Sky",
+      "Water"
+    ],
     "baseId": "LT-004",
     "finish": "full-art"
   },
@@ -4736,6 +7340,13 @@ const HEX_PRINTS = [
       "Dragon"
     ],
     "keywords": [],
+    "cost": {
+      "Fire": 2
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
+    ],
     "baseId": "LT-005",
     "finish": "full-art"
   },
@@ -4755,6 +7366,13 @@ const HEX_PRINTS = [
       "Mouse"
     ],
     "keywords": [],
+    "cost": {
+      "Earth": 2
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
+    ],
     "baseId": "LT-006",
     "finish": "full-art"
   },
@@ -4774,6 +7392,13 @@ const HEX_PRINTS = [
       "Phoenix"
     ],
     "keywords": [],
+    "cost": {
+      "Fire": 4
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
+    ],
     "baseId": "LT-007",
     "finish": "full-art"
   },
@@ -4793,6 +7418,13 @@ const HEX_PRINTS = [
       "Golem"
     ],
     "keywords": [],
+    "cost": {
+      "Dark": 5
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
+    ],
     "baseId": "LT-008",
     "finish": "full-art"
   },
@@ -4812,6 +7444,13 @@ const HEX_PRINTS = [
       "Mage"
     ],
     "keywords": [],
+    "cost": {
+      "Dark": 2
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
+    ],
     "baseId": "LT-009",
     "finish": "full-art"
   },
@@ -4831,6 +7470,13 @@ const HEX_PRINTS = [
       "Guardian"
     ],
     "keywords": [],
+    "cost": {
+      "Earth": 3
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
+    ],
     "baseId": "LT-010",
     "finish": "full-art"
   },
@@ -4849,6 +7495,13 @@ const HEX_PRINTS = [
       "Fungus"
     ],
     "keywords": [],
+    "cost": {
+      "Water": 2
+    },
+    "terrain_types": [
+      "Water",
+      "Sky"
+    ],
     "baseId": "LT-011",
     "finish": "full-art"
   },
@@ -4868,6 +7521,13 @@ const HEX_PRINTS = [
       "Stag"
     ],
     "keywords": [],
+    "cost": {
+      "Light": 4
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
+    ],
     "baseId": "LT-012",
     "finish": "full-art"
   },
@@ -4895,6 +7555,13 @@ const HEX_PRINTS = [
         "value": 1
       }
     ],
+    "cost": {
+      "Fire": 2
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
+    ],
     "baseId": "LT-013",
     "finish": "full-art"
   },
@@ -4918,6 +7585,13 @@ const HEX_PRINTS = [
         "id": "sprint"
       }
     ],
+    "cost": {
+      "Earth": 2
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
+    ],
     "baseId": "LT-014",
     "finish": "full-art"
   },
@@ -4937,6 +7611,13 @@ const HEX_PRINTS = [
       "Sovereign"
     ],
     "keywords": [],
+    "cost": {
+      "Sky": 4
+    },
+    "terrain_types": [
+      "Sky",
+      "Water"
+    ],
     "baseId": "LT-015",
     "finish": "full-art"
   },
@@ -4956,6 +7637,13 @@ const HEX_PRINTS = [
       "Salamander"
     ],
     "keywords": [],
+    "cost": {
+      "Fire": 5
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
+    ],
     "baseId": "LT-016",
     "finish": "full-art"
   },
@@ -4974,6 +7662,13 @@ const HEX_PRINTS = [
       "Slime"
     ],
     "keywords": [],
+    "cost": {
+      "Water": 1
+    },
+    "terrain_types": [
+      "Water",
+      "Sky"
+    ],
     "baseId": "LT-017",
     "finish": "full-art"
   },
@@ -4993,6 +7688,13 @@ const HEX_PRINTS = [
       "Archer"
     ],
     "keywords": [],
+    "cost": {
+      "Fire": 3
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
+    ],
     "baseId": "LT-018",
     "finish": "full-art"
   },
@@ -5012,6 +7714,13 @@ const HEX_PRINTS = [
       "Wind"
     ],
     "keywords": [],
+    "cost": {
+      "Earth": 3
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
+    ],
     "baseId": "LT-019",
     "finish": "full-art"
   },
@@ -5031,6 +7740,13 @@ const HEX_PRINTS = [
       "Serpent"
     ],
     "keywords": [],
+    "cost": {
+      "Sky": 4
+    },
+    "terrain_types": [
+      "Sky",
+      "Water"
+    ],
     "baseId": "LT-020",
     "finish": "full-art"
   },
@@ -5050,6 +7766,13 @@ const HEX_PRINTS = [
       "Sentinel"
     ],
     "keywords": [],
+    "cost": {
+      "Earth": 3
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
+    ],
     "baseId": "LT-021",
     "finish": "full-art"
   },
@@ -5073,6 +7796,13 @@ const HEX_PRINTS = [
         "id": "ranged"
       }
     ],
+    "cost": {
+      "Dark": 1
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
+    ],
     "baseId": "LT-022",
     "finish": "full-art"
   },
@@ -5088,6 +7818,9 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "first-light",
     "keywords": [],
+    "cost": {
+      "Dark": 1
+    },
     "baseId": "LT-023",
     "finish": "full-art"
   },
@@ -5107,6 +7840,13 @@ const HEX_PRINTS = [
       "Crab"
     ],
     "keywords": [],
+    "cost": {
+      "Water": 3
+    },
+    "terrain_types": [
+      "Water",
+      "Sky"
+    ],
     "baseId": "LT-024",
     "finish": "full-art"
   },
@@ -5122,6 +7862,9 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "first-light",
     "keywords": [],
+    "cost": {
+      "Earth": 1
+    },
     "baseId": "LT-025",
     "finish": "full-art"
   },
@@ -5145,6 +7888,13 @@ const HEX_PRINTS = [
         "id": "stunning"
       }
     ],
+    "cost": {
+      "Water": 3
+    },
+    "terrain_types": [
+      "Water",
+      "Sky"
+    ],
     "baseId": "LT-026",
     "finish": "full-art"
   },
@@ -5164,6 +7914,13 @@ const HEX_PRINTS = [
       "Moth"
     ],
     "keywords": [],
+    "cost": {
+      "Light": 1
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
+    ],
     "baseId": "LT-027",
     "finish": "full-art"
   },
@@ -5179,6 +7936,9 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "first-light",
     "keywords": [],
+    "cost": {
+      "Fire": 3
+    },
     "baseId": "LT-028",
     "finish": "full-art"
   },
@@ -5201,6 +7961,13 @@ const HEX_PRINTS = [
       {
         "id": "packbond"
       }
+    ],
+    "cost": {
+      "Earth": 1
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
     ],
     "baseId": "LT-029",
     "finish": "full-art"
@@ -5225,6 +7992,13 @@ const HEX_PRINTS = [
         "id": "resilient"
       }
     ],
+    "cost": {
+      "Dark": 5
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
+    ],
     "baseId": "LT-030",
     "finish": "full-art"
   },
@@ -5240,6 +8014,9 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "first-light",
     "keywords": [],
+    "cost": {
+      "Earth": 3
+    },
     "baseId": "LT-031",
     "finish": "full-art"
   },
@@ -5259,6 +8036,13 @@ const HEX_PRINTS = [
       "Alchemist"
     ],
     "keywords": [],
+    "cost": {
+      "Fire": 2
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
+    ],
     "baseId": "LT-032",
     "finish": "full-art"
   },
@@ -5274,6 +8058,9 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "first-light",
     "keywords": [],
+    "cost": {
+      "Sky": 1
+    },
     "baseId": "LT-033",
     "finish": "full-art"
   },
@@ -5289,6 +8076,9 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "first-light",
     "keywords": [],
+    "cost": {
+      "Light": 2
+    },
     "baseId": "LT-034",
     "finish": "full-art"
   },
@@ -5304,6 +8094,9 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "first-light",
     "keywords": [],
+    "cost": {
+      "Light": 1
+    },
     "baseId": "LT-035",
     "finish": "full-art"
   },
@@ -5323,6 +8116,13 @@ const HEX_PRINTS = [
       "Storm"
     ],
     "keywords": [],
+    "cost": {
+      "Sky": 3
+    },
+    "terrain_types": [
+      "Sky",
+      "Water"
+    ],
     "baseId": "LT-036",
     "finish": "full-art"
   },
@@ -5338,6 +8138,9 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "first-light",
     "keywords": [],
+    "cost": {
+      "Earth": 2
+    },
     "baseId": "LT-037",
     "finish": "full-art"
   },
@@ -5353,6 +8156,9 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "first-light",
     "keywords": [],
+    "cost": {
+      "Water": 2
+    },
     "baseId": "LT-038",
     "finish": "full-art"
   },
@@ -5368,6 +8174,9 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "first-light",
     "keywords": [],
+    "cost": {
+      "Fire": 2
+    },
     "baseId": "LT-039",
     "finish": "full-art"
   },
@@ -5383,6 +8192,9 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "first-light",
     "keywords": [],
+    "cost": {
+      "Water": 2
+    },
     "baseId": "LT-040",
     "finish": "full-art"
   },
@@ -5402,6 +8214,13 @@ const HEX_PRINTS = [
       "Fox"
     ],
     "keywords": [],
+    "cost": {
+      "Sky": 2
+    },
+    "terrain_types": [
+      "Sky",
+      "Water"
+    ],
     "baseId": "LT-041",
     "finish": "full-art"
   },
@@ -5417,6 +8236,9 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "first-light",
     "keywords": [],
+    "cost": {
+      "Water": 1
+    },
     "baseId": "LT-042",
     "finish": "full-art"
   },
@@ -5432,6 +8254,9 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "first-light",
     "keywords": [],
+    "cost": {
+      "Light": 2
+    },
     "baseId": "LT-043",
     "finish": "full-art"
   },
@@ -5447,6 +8272,9 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "first-light",
     "keywords": [],
+    "cost": {
+      "Light": 2
+    },
     "baseId": "LT-044",
     "finish": "full-art"
   },
@@ -5462,6 +8290,9 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "first-light",
     "keywords": [],
+    "cost": {
+      "Sky": 2
+    },
     "baseId": "LT-045",
     "finish": "full-art"
   },
@@ -5477,6 +8308,9 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "first-light",
     "keywords": [],
+    "cost": {
+      "Dark": 2
+    },
     "baseId": "LT-046",
     "finish": "full-art"
   },
@@ -5492,6 +8326,9 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "first-light",
     "keywords": [],
+    "cost": {
+      "Earth": 2
+    },
     "baseId": "LT-047",
     "finish": "full-art"
   },
@@ -5507,6 +8344,9 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "first-light",
     "keywords": [],
+    "cost": {
+      "Earth": 2
+    },
     "baseId": "LT-048",
     "finish": "full-art"
   },
@@ -5522,6 +8362,9 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "first-light",
     "keywords": [],
+    "cost": {
+      "Fire": 3
+    },
     "baseId": "LT-049",
     "finish": "full-art"
   },
@@ -5537,6 +8380,9 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "first-light",
     "keywords": [],
+    "cost": {
+      "Sky": 1
+    },
     "baseId": "LT-050",
     "finish": "full-art"
   },
@@ -5556,6 +8402,13 @@ const HEX_PRINTS = [
       "Tortoise"
     ],
     "keywords": [],
+    "cost": {
+      "Light": 3
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
+    ],
     "baseId": "LT-051",
     "finish": "full-art"
   },
@@ -5571,6 +8424,9 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "first-light",
     "keywords": [],
+    "cost": {
+      "Sky": 2
+    },
     "baseId": "LT-052",
     "finish": "full-art"
   },
@@ -5586,6 +8442,9 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "first-light",
     "keywords": [],
+    "cost": {
+      "Fire": 2
+    },
     "baseId": "LT-053",
     "finish": "full-art"
   },
@@ -5601,6 +8460,9 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "first-light",
     "keywords": [],
+    "cost": {
+      "Sky": 1
+    },
     "baseId": "LT-054",
     "finish": "full-art"
   },
@@ -5616,6 +8478,9 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "first-light",
     "keywords": [],
+    "cost": {
+      "Earth": 1
+    },
     "baseId": "LT-055",
     "finish": "full-art"
   },
@@ -5631,6 +8496,9 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "first-light",
     "keywords": [],
+    "cost": {
+      "Earth": 2
+    },
     "baseId": "LT-056",
     "finish": "full-art"
   },
@@ -5646,6 +8514,9 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "first-light",
     "keywords": [],
+    "cost": {
+      "Light": 1
+    },
     "baseId": "LT-057",
     "finish": "full-art"
   },
@@ -5661,6 +8532,9 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "first-light",
     "keywords": [],
+    "cost": {
+      "Light": 3
+    },
     "baseId": "LT-058",
     "finish": "full-art"
   },
@@ -5676,6 +8550,9 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "first-light",
     "keywords": [],
+    "cost": {
+      "Earth": 1
+    },
     "baseId": "LT-059",
     "finish": "full-art"
   },
@@ -5691,6 +8568,9 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "first-light",
     "keywords": [],
+    "cost": {
+      "Sky": 3
+    },
     "baseId": "LT-060",
     "finish": "full-art"
   },
@@ -5706,6 +8586,9 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "first-light",
     "keywords": [],
+    "cost": {
+      "Water": 2
+    },
     "baseId": "LT-061",
     "finish": "full-art"
   },
@@ -5721,6 +8604,9 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "first-light",
     "keywords": [],
+    "cost": {
+      "Earth": 1
+    },
     "baseId": "LT-062",
     "finish": "full-art"
   },
@@ -5736,6 +8622,9 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "first-light",
     "keywords": [],
+    "cost": {
+      "Sky": 2
+    },
     "baseId": "LT-063",
     "finish": "full-art"
   },
@@ -5751,6 +8640,9 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "first-light",
     "keywords": [],
+    "cost": {
+      "Dark": 2
+    },
     "baseId": "LT-064",
     "finish": "full-art"
   },
@@ -5765,6 +8657,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Sky": 1
+    },
     "baseId": "SA-001",
     "finish": "full-art"
   },
@@ -5779,6 +8674,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Fire": 1
+    },
     "baseId": "SA-002",
     "finish": "full-art"
   },
@@ -5793,6 +8691,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Water": 2
+    },
     "baseId": "SA-003",
     "finish": "full-art"
   },
@@ -5807,6 +8708,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Dark": 2
+    },
     "baseId": "SA-004",
     "finish": "full-art"
   },
@@ -5821,6 +8725,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Fire": 1
+    },
     "baseId": "SA-005",
     "finish": "full-art"
   },
@@ -5835,6 +8742,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Sky": 1
+    },
     "baseId": "SA-006",
     "finish": "full-art"
   },
@@ -5849,6 +8759,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Light": 1
+    },
     "baseId": "SA-007",
     "finish": "full-art"
   },
@@ -5863,6 +8776,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Dark": 6
+    },
     "baseId": "SA-008",
     "finish": "full-art"
   },
@@ -5877,6 +8793,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Light": 1
+    },
     "baseId": "SA-009",
     "finish": "full-art"
   },
@@ -5891,6 +8810,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Sky": 4
+    },
     "baseId": "SA-010",
     "finish": "full-art"
   },
@@ -5905,6 +8827,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Water": 3
+    },
     "baseId": "SA-011",
     "finish": "full-art"
   },
@@ -5919,6 +8844,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Earth": 2
+    },
     "baseId": "SA-012",
     "finish": "full-art"
   },
@@ -5933,6 +8861,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Dark": 2
+    },
     "baseId": "SA-013",
     "finish": "full-art"
   },
@@ -5947,6 +8878,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Sky": 1
+    },
     "baseId": "SA-014",
     "finish": "full-art"
   },
@@ -5961,6 +8895,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Dark": 3
+    },
     "baseId": "SA-015",
     "finish": "full-art"
   },
@@ -5975,6 +8912,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Light": 1
+    },
     "baseId": "SA-016",
     "finish": "full-art"
   },
@@ -5989,6 +8929,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Fire": 2
+    },
     "baseId": "SA-017",
     "finish": "full-art"
   },
@@ -6003,6 +8946,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Light": 3
+    },
     "baseId": "SA-018",
     "finish": "full-art"
   },
@@ -6017,6 +8963,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Water": 1
+    },
     "baseId": "SA-019",
     "finish": "full-art"
   },
@@ -6031,6 +8980,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Earth": 3
+    },
     "baseId": "SA-020",
     "finish": "full-art"
   },
@@ -6045,6 +8997,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Dark": 5
+    },
     "baseId": "SA-021",
     "finish": "full-art"
   },
@@ -6059,6 +9014,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Dark": 2
+    },
     "baseId": "SA-022",
     "finish": "full-art"
   },
@@ -6073,6 +9031,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Dark": 3
+    },
     "baseId": "SA-023",
     "finish": "full-art"
   },
@@ -6087,6 +9048,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Light": 3
+    },
     "baseId": "SA-024",
     "finish": "full-art"
   },
@@ -6101,6 +9065,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Water": 3
+    },
     "baseId": "SA-025",
     "finish": "full-art"
   },
@@ -6115,6 +9082,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Dark": 4
+    },
     "baseId": "SA-026",
     "finish": "full-art"
   },
@@ -6129,6 +9099,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Sky": 4
+    },
     "baseId": "SA-027",
     "finish": "full-art"
   },
@@ -6143,6 +9116,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Sky": 3
+    },
     "baseId": "SA-028",
     "finish": "full-art"
   },
@@ -6157,6 +9133,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Dark": 7
+    },
     "baseId": "SA-029",
     "finish": "full-art"
   },
@@ -6171,6 +9150,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Light": 2
+    },
     "baseId": "SA-030",
     "finish": "full-art"
   },
@@ -6185,6 +9167,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Sky": 4
+    },
     "baseId": "SA-031",
     "finish": "full-art"
   },
@@ -6199,6 +9184,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Water": 3
+    },
     "baseId": "SA-032",
     "finish": "full-art"
   },
@@ -6213,6 +9201,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Fire": 3
+    },
     "baseId": "SA-033",
     "finish": "full-art"
   },
@@ -6227,6 +9218,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Sky": 3
+    },
     "baseId": "SA-034",
     "finish": "full-art"
   },
@@ -6241,6 +9235,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Sky": 2
+    },
     "baseId": "SA-035",
     "finish": "full-art"
   },
@@ -6258,6 +9255,13 @@ const HEX_PRINTS = [
     "types": [
       "Goblin",
       "Mage"
+    ],
+    "cost": {
+      "Sky": 2
+    },
+    "terrain_types": [
+      "Sky",
+      "Water"
     ],
     "baseId": "SA-036",
     "finish": "full-art"
@@ -6287,6 +9291,13 @@ const HEX_PRINTS = [
         "value": 1
       }
     ],
+    "cost": {
+      "Light": 3
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
+    ],
     "baseId": "SA-037",
     "finish": "full-art"
   },
@@ -6303,6 +9314,13 @@ const HEX_PRINTS = [
     "set": "shattered-arcana",
     "types": [
       "Fairie"
+    ],
+    "cost": {
+      "Water": 3
+    },
+    "terrain_types": [
+      "Water",
+      "Sky"
     ],
     "baseId": "SA-038",
     "finish": "full-art"
@@ -6321,6 +9339,13 @@ const HEX_PRINTS = [
     "types": [
       "Goblin",
       "Mage"
+    ],
+    "cost": {
+      "Dark": 3
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
     ],
     "baseId": "SA-039",
     "finish": "full-art"
@@ -6345,6 +9370,13 @@ const HEX_PRINTS = [
         "id": "sprint"
       }
     ],
+    "cost": {
+      "Fire": 2
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
+    ],
     "baseId": "SA-040",
     "finish": "full-art"
   },
@@ -6362,6 +9394,13 @@ const HEX_PRINTS = [
     "types": [
       "Insect",
       "Beetle"
+    ],
+    "cost": {
+      "Dark": 3
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
     ],
     "baseId": "SA-041",
     "finish": "full-art"
@@ -6381,6 +9420,13 @@ const HEX_PRINTS = [
       "Undead",
       "Mage"
     ],
+    "cost": {
+      "Water": 3
+    },
+    "terrain_types": [
+      "Water",
+      "Sky"
+    ],
     "baseId": "SA-042",
     "finish": "full-art"
   },
@@ -6398,6 +9444,13 @@ const HEX_PRINTS = [
     "types": [
       "Elemental",
       "Mage"
+    ],
+    "cost": {
+      "Sky": 4
+    },
+    "terrain_types": [
+      "Sky",
+      "Water"
     ],
     "baseId": "SA-043",
     "finish": "full-art"
@@ -6417,6 +9470,13 @@ const HEX_PRINTS = [
       "Dragon",
       "Mage"
     ],
+    "cost": {
+      "Light": 4
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
+    ],
     "baseId": "SA-044",
     "finish": "full-art"
   },
@@ -6434,6 +9494,13 @@ const HEX_PRINTS = [
     "types": [
       "Construct",
       "Mage"
+    ],
+    "cost": {
+      "Dark": 3
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
     ],
     "baseId": "SA-045",
     "finish": "full-art"
@@ -6453,6 +9520,13 @@ const HEX_PRINTS = [
       "Wiskin",
       "Soldier"
     ],
+    "cost": {
+      "Earth": 4
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
+    ],
     "baseId": "SA-046",
     "finish": "full-art"
   },
@@ -6470,6 +9544,13 @@ const HEX_PRINTS = [
     "types": [
       "Voidling",
       "Mage"
+    ],
+    "cost": {
+      "Dark": 6
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
     ],
     "baseId": "SA-047",
     "finish": "full-art"
@@ -6489,6 +9570,13 @@ const HEX_PRINTS = [
     "types": [
       "Goblin"
     ],
+    "cost": {
+      "Earth": 1
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
+    ],
     "baseId": "WE-001",
     "finish": "full-art"
   },
@@ -6506,6 +9594,13 @@ const HEX_PRINTS = [
     "hp": 4,
     "types": [
       "Dragon"
+    ],
+    "cost": {
+      "Fire": 3
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
     ],
     "baseId": "WE-002",
     "finish": "full-art"
@@ -6526,6 +9621,13 @@ const HEX_PRINTS = [
       "Goblin",
       "Mage"
     ],
+    "cost": {
+      "Fire": 1
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
+    ],
     "baseId": "WE-003",
     "finish": "full-art"
   },
@@ -6543,6 +9645,13 @@ const HEX_PRINTS = [
     "hp": 2,
     "types": [
       "Goblin"
+    ],
+    "cost": {
+      "Fire": 1
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
     ],
     "baseId": "WE-004",
     "finish": "full-art"
@@ -6562,6 +9671,13 @@ const HEX_PRINTS = [
     "types": [
       "Beast",
       "Warg"
+    ],
+    "cost": {
+      "Earth": 2
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
     ],
     "baseId": "WE-005",
     "finish": "full-art"
@@ -6585,6 +9701,13 @@ const HEX_PRINTS = [
     "types": [
       "Elemental"
     ],
+    "cost": {
+      "Fire": 2
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
+    ],
     "baseId": "WE-006",
     "finish": "full-art"
   },
@@ -6602,6 +9725,13 @@ const HEX_PRINTS = [
     "hp": 4,
     "types": [
       "Goblin"
+    ],
+    "cost": {
+      "Fire": 2
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
     ],
     "baseId": "WE-007",
     "finish": "full-art"
@@ -6627,6 +9757,13 @@ const HEX_PRINTS = [
       "Wiskin",
       "Soldier"
     ],
+    "cost": {
+      "Earth": 3
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
+    ],
     "baseId": "WE-008",
     "finish": "full-art"
   },
@@ -6644,6 +9781,13 @@ const HEX_PRINTS = [
     "hp": 1,
     "types": [
       "Wiskin"
+    ],
+    "cost": {
+      "Earth": 2
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
     ],
     "baseId": "WE-009",
     "finish": "full-art"
@@ -6664,6 +9808,13 @@ const HEX_PRINTS = [
       "Wiskin",
       "Cleric"
     ],
+    "cost": {
+      "Light": 2
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
+    ],
     "baseId": "WE-010",
     "finish": "full-art"
   },
@@ -6682,6 +9833,13 @@ const HEX_PRINTS = [
     "types": [
       "Beast",
       "Cat"
+    ],
+    "cost": {
+      "Dark": 3
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
     ],
     "baseId": "WE-011",
     "finish": "full-art"
@@ -6702,6 +9860,13 @@ const HEX_PRINTS = [
       "Wiskin",
       "Soldier"
     ],
+    "cost": {
+      "Light": 2
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
+    ],
     "baseId": "WE-012",
     "finish": "full-art"
   },
@@ -6719,6 +9884,13 @@ const HEX_PRINTS = [
     "hp": 3,
     "types": [
       "Beast"
+    ],
+    "cost": {
+      "Earth": 3
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
     ],
     "baseId": "WE-013",
     "finish": "full-art"
@@ -6738,6 +9910,13 @@ const HEX_PRINTS = [
     "types": [
       "Construct"
     ],
+    "cost": {
+      "Earth": 4
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
+    ],
     "baseId": "WE-014",
     "finish": "full-art"
   },
@@ -6756,6 +9935,13 @@ const HEX_PRINTS = [
     "types": [
       "Wiskin",
       "Goblin"
+    ],
+    "cost": {
+      "Fire": 3
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
     ],
     "baseId": "WE-015",
     "finish": "full-art"
@@ -6779,6 +9965,13 @@ const HEX_PRINTS = [
     "types": [
       "Assassin"
     ],
+    "cost": {
+      "Dark": 3
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
+    ],
     "baseId": "WE-016",
     "finish": "full-art"
   },
@@ -6796,6 +9989,13 @@ const HEX_PRINTS = [
     "hp": 2,
     "types": [
       "Bird"
+    ],
+    "cost": {
+      "Sky": 2
+    },
+    "terrain_types": [
+      "Sky",
+      "Water"
     ],
     "baseId": "WE-017",
     "finish": "full-art"
@@ -6822,6 +10022,13 @@ const HEX_PRINTS = [
     "types": [
       "Wiskin"
     ],
+    "cost": {
+      "Earth": 5
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
+    ],
     "baseId": "WE-018",
     "finish": "full-art"
   },
@@ -6841,6 +10048,13 @@ const HEX_PRINTS = [
       "Goblin",
       "Mage"
     ],
+    "cost": {
+      "Fire": 2
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
+    ],
     "baseId": "WE-019",
     "finish": "full-art"
   },
@@ -6854,6 +10068,9 @@ const HEX_PRINTS = [
     "rarity": "Uncommon",
     "rules": "Wiskin gain Restore 1",
     "keywords": [],
+    "cost": {
+      "Earth": 3
+    },
     "baseId": "WE-020",
     "finish": "full-art"
   },
@@ -6867,6 +10084,9 @@ const HEX_PRINTS = [
     "rarity": "Uncommon",
     "rules": "Goblins gain Sprint",
     "keywords": [],
+    "cost": {
+      "Fire": 4
+    },
     "baseId": "WE-021",
     "finish": "full-art"
   },
@@ -6880,6 +10100,9 @@ const HEX_PRINTS = [
     "rarity": "Uncommon",
     "rules": "Whenever a Goblin dies, draw a card",
     "keywords": [],
+    "cost": {
+      "Dark": 3
+    },
     "baseId": "WE-022",
     "finish": "full-art"
   },
@@ -6893,6 +10116,9 @@ const HEX_PRINTS = [
     "rarity": "Uncommon",
     "rules": "+1 Attack. Also, if this is equipped to a Wiskin, whenever the equipped creature defeats an enemy draw 1 card",
     "keywords": [],
+    "cost": {
+      "Earth": 2
+    },
     "baseId": "WE-023",
     "finish": "full-art"
   },
@@ -6911,6 +10137,13 @@ const HEX_PRINTS = [
     "types": [
       "Goblin",
       "Chieftain"
+    ],
+    "cost": {
+      "Fire": 4
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
     ],
     "baseId": "WE-024",
     "finish": "full-art"
@@ -6936,6 +10169,13 @@ const HEX_PRINTS = [
       "Wiskin",
       "Knight"
     ],
+    "cost": {
+      "Light": 4
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
+    ],
     "baseId": "WE-025",
     "finish": "full-art"
   },
@@ -6959,6 +10199,13 @@ const HEX_PRINTS = [
       "Goblin",
       "Knight"
     ],
+    "cost": {
+      "Fire": 5
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
+    ],
     "baseId": "WE-026",
     "finish": "full-art"
   },
@@ -6978,6 +10225,13 @@ const HEX_PRINTS = [
       "Wiskin",
       "Captain"
     ],
+    "cost": {
+      "Sky": 6
+    },
+    "terrain_types": [
+      "Sky",
+      "Water"
+    ],
     "baseId": "WE-027",
     "finish": "full-art"
   },
@@ -6991,6 +10245,9 @@ const HEX_PRINTS = [
     "rarity": "Legendary",
     "rules": "Creatures the enemy plays enter stunned",
     "keywords": [],
+    "cost": {
+      "Dark": 6
+    },
     "baseId": "WE-028",
     "finish": "full-art"
   },
@@ -7004,6 +10261,9 @@ const HEX_PRINTS = [
     "rarity": "Uncommon",
     "rules": "Equipped creature splits damage between itself and any other friendly creature equipped with Shackles of Nim. For odd numbered damage, the targetted friendly creature will take the higher of the two split values.",
     "keywords": [],
+    "cost": {
+      "Dark": 2
+    },
     "baseId": "WE-029",
     "finish": "full-art"
   },
@@ -7017,6 +10277,9 @@ const HEX_PRINTS = [
     "rarity": "Rare",
     "rules": "Equipped creature gains Resilient and +1 Attack",
     "keywords": [],
+    "cost": {
+      "Light": 3
+    },
     "baseId": "WE-030",
     "finish": "full-art"
   },
@@ -7030,6 +10293,9 @@ const HEX_PRINTS = [
     "rarity": "Epic",
     "rules": "Equipped creature's Attack is equal to the highest attack among other active friendly creatures",
     "keywords": [],
+    "cost": {
+      "Earth": 3
+    },
     "baseId": "WE-031",
     "finish": "full-art"
   },
@@ -7043,6 +10309,9 @@ const HEX_PRINTS = [
     "rarity": "Rare",
     "rules": "Equipped creature gains Stalwart 2. If the Equipped creature dies, Torn Banner becomes an Artifact and you must choose one of your artifact slots to assign it. It's effect becomes \"Friendly creatures gain Stalwart 2\"",
     "keywords": [],
+    "cost": {
+      "Earth": 3
+    },
     "baseId": "WE-032",
     "finish": "full-art"
   },
@@ -7056,6 +10325,9 @@ const HEX_PRINTS = [
     "rarity": "Uncommon",
     "rules": "Equipped creature ignores the effect of the active Battlefield card.",
     "keywords": [],
+    "cost": {
+      "Sky": 1
+    },
     "baseId": "WE-033",
     "finish": "full-art"
   },
@@ -7069,6 +10341,9 @@ const HEX_PRINTS = [
     "rarity": "Common",
     "rules": "Remove all Ward and Shield from a creature",
     "keywords": [],
+    "cost": {
+      "Dark": 2
+    },
     "baseId": "WE-034",
     "finish": "full-art"
   },
@@ -7082,6 +10357,9 @@ const HEX_PRINTS = [
     "rarity": "Common",
     "rules": "Deal 1 damage to a friendly creature and 1 damage to each of the enemy creatures in the same lane opposite to the targetted friendly creature",
     "keywords": [],
+    "cost": {
+      "Fire": 2
+    },
     "baseId": "WE-035",
     "finish": "full-art"
   },
@@ -7095,6 +10373,9 @@ const HEX_PRINTS = [
     "rarity": "Common",
     "rules": "Deal 2 damage to target friendly creature, Draw 3 cards",
     "keywords": [],
+    "cost": {
+      "Dark": 3
+    },
     "baseId": "WE-036",
     "finish": "full-art"
   },
@@ -7108,6 +10389,9 @@ const HEX_PRINTS = [
     "rarity": "Uncommon",
     "rules": "Remove all negative statuses from a target friendly creature",
     "keywords": [],
+    "cost": {
+      "Light": 1
+    },
     "baseId": "WE-037",
     "finish": "full-art"
   },
@@ -7121,6 +10405,9 @@ const HEX_PRINTS = [
     "rarity": "Uncommon",
     "rules": "Put one Artifact card from either discard pile into your hand. That card cannot be played until the next turn",
     "keywords": [],
+    "cost": {
+      "Earth": 2
+    },
     "baseId": "WE-038",
     "finish": "full-art"
   },
@@ -7134,6 +10421,9 @@ const HEX_PRINTS = [
     "rarity": "Rare",
     "rules": "Grant 1 creature \"Invisible\" until next turn",
     "keywords": [],
+    "cost": {
+      "Dark": 2
+    },
     "baseId": "WE-039",
     "finish": "full-art"
   },
@@ -7147,6 +10437,9 @@ const HEX_PRINTS = [
     "rarity": "Uncommon",
     "rules": "Draw 1 card, if that card is a creature card, play it immediately and it gains Sprint until end of turn",
     "keywords": [],
+    "cost": {
+      "Light": 3
+    },
     "baseId": "WE-040",
     "finish": "full-art"
   },
@@ -7160,6 +10453,9 @@ const HEX_PRINTS = [
     "rarity": "Uncommon",
     "rules": "If the enemy player plays a creature of type \"Summon\", destroy that creature",
     "keywords": [],
+    "cost": {
+      "Sky": 1
+    },
     "baseId": "WE-041",
     "finish": "full-art"
   },
@@ -7173,6 +10469,9 @@ const HEX_PRINTS = [
     "rarity": "Common",
     "rules": "Target creature's attack becomes 0 until end of turn",
     "keywords": [],
+    "cost": {
+      "Dark": 2
+    },
     "baseId": "WE-042",
     "finish": "full-art"
   },
@@ -7186,6 +10485,9 @@ const HEX_PRINTS = [
     "rarity": "Epic",
     "rules": "The player with the most amount of active creatures sacrifices creatures until they have the same number of active creatures as the player with the least amount of active creatures",
     "keywords": [],
+    "cost": {
+      "Dark": 4
+    },
     "baseId": "WE-043",
     "finish": "full-art"
   },
@@ -7199,6 +10501,9 @@ const HEX_PRINTS = [
     "rarity": "Legendary",
     "rules": "Return all friendly creatures that were put into the discard pile this turn back onto the battlefield. You may choose new placements for these creatures.",
     "keywords": [],
+    "cost": {
+      "Light": 6
+    },
     "baseId": "WE-044",
     "finish": "full-art"
   },
@@ -7218,6 +10523,13 @@ const HEX_PRINTS = [
       "Angel"
     ],
     "deckLimit": 1,
+    "cost": {
+      "Light": 6
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
+    ],
     "baseId": "WE-045",
     "finish": "full-art"
   },
@@ -7231,6 +10543,9 @@ const HEX_PRINTS = [
     "rarity": "Epic",
     "rules": "All allied creatures gain +2 Attack and Shield 2 until end of turn. Apply Stun to all affected creatures at the start of your next turn.",
     "keywords": [],
+    "cost": {
+      "Light": 4
+    },
     "baseId": "WE-046",
     "finish": "full-art"
   },
@@ -7244,6 +10559,9 @@ const HEX_PRINTS = [
     "rarity": "Mythic",
     "rules": "When equipped creature attacks return a creature from your discard pile and put it into play in an empty slot, if there is one. That creature gains Sprint and is sacrificed at the end of the turn. Mythic: Removed from the game instead of entering a discard pile.",
     "keywords": [],
+    "cost": {
+      "Dark": 7
+    },
     "baseId": "WE-047",
     "finish": "full-art"
   },
@@ -7257,6 +10575,9 @@ const HEX_PRINTS = [
     "rarity": "Rare",
     "rules": "Whenever the enemy draws their second card of the turn, you draw a card as well.",
     "keywords": [],
+    "cost": {
+      "Water": 4
+    },
     "baseId": "WE-048",
     "finish": "full-art"
   },
@@ -7270,7 +10591,602 @@ const HEX_PRINTS = [
     "rarity": "Epic",
     "rules": "If the enemy puts a creature into play, you may play this card and gain control of the creature until the end of your next turn. That creature gains Sprint.",
     "keywords": [],
+    "cost": {
+      "Dark": 5
+    },
     "baseId": "WE-049",
+    "finish": "full-art"
+  },
+  {
+    "id": "FD-001-FA",
+    "number": 1,
+    "name": "Earth",
+    "rarity": "Common",
+    "card_type": "Plane",
+    "subtype": "Earth",
+    "types": [
+      "Earth"
+    ],
+    "terrain_types": [
+      "Earth"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Sunlit ochre canyon with towering striated sandstone pillars, jade river ribbon far below, tiny distant caravan for scale. Sweeping low viewpoint, burnt sienna, cobalt and golden noon.",
+    "basic_plane": true,
+    "deckLimit": 30,
+    "baseId": "FD-001",
+    "finish": "full-art"
+  },
+  {
+    "id": "FD-002-FA",
+    "number": 2,
+    "name": "Sky",
+    "rarity": "Common",
+    "card_type": "Plane",
+    "subtype": "Sky",
+    "types": [
+      "Sky"
+    ],
+    "terrain_types": [
+      "Sky"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Immense open pale-blue sky above a thin sea of white clouds, towering sculptural cumulus lit pink from sunrise, lone tiny floating feather close foreground. Minimal expansive composition, airy cyan, pearl and rose.",
+    "basic_plane": true,
+    "deckLimit": 30,
+    "baseId": "FD-002",
+    "finish": "full-art"
+  },
+  {
+    "id": "FD-003-FA",
+    "number": 3,
+    "name": "Fire",
+    "rarity": "Common",
+    "card_type": "Plane",
+    "subtype": "Fire",
+    "types": [
+      "Fire"
+    ],
+    "terrain_types": [
+      "Fire"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Intimate ground-level view inside a volcanic lava cavern, molten orange river flowing around obsidian spires, black ceiling, smoke and flying sparks. Bold near-black versus white-hot orange, no green or purple.",
+    "basic_plane": true,
+    "deckLimit": 30,
+    "baseId": "FD-003",
+    "finish": "full-art"
+  },
+  {
+    "id": "FD-004-FA",
+    "number": 4,
+    "name": "Water",
+    "rarity": "Common",
+    "card_type": "Plane",
+    "subtype": "Water",
+    "types": [
+      "Water"
+    ],
+    "terrain_types": [
+      "Water"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Crystal-clear turquoise tropical lagoon seen half underwater: sun shafts, colourful coral foreground and distant limestone sea arches above waterline. Luminous aqua, coral red and deep marine blue.",
+    "basic_plane": true,
+    "deckLimit": 30,
+    "baseId": "FD-004",
+    "finish": "full-art"
+  },
+  {
+    "id": "FD-005-FA",
+    "number": 5,
+    "name": "Dark",
+    "rarity": "Common",
+    "card_type": "Plane",
+    "subtype": "Dark",
+    "types": [
+      "Dark"
+    ],
+    "terrain_types": [
+      "Dark"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Enormous abandoned gothic castle silhouetted on a jagged ridge beneath a starless eclipse, winding pale fog swallowing foreground. Extremely restrained charcoal, indigo and bone-white, dramatic negative space, no glowing purple crystals.",
+    "basic_plane": true,
+    "deckLimit": 30,
+    "baseId": "FD-005",
+    "finish": "full-art"
+  },
+  {
+    "id": "FD-006-FA",
+    "number": 6,
+    "name": "Light",
+    "rarity": "Common",
+    "card_type": "Plane",
+    "subtype": "Light",
+    "types": [
+      "Light"
+    ],
+    "terrain_types": [
+      "Light"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Radiant white-gold sun breaking over rolling fields of ivory flowers, prismatic motes and soft golden trees, close dewy petals foreground, horizon flooded with warm light. Cream, amber and pale mint, joyful exposure.",
+    "basic_plane": true,
+    "deckLimit": 30,
+    "baseId": "FD-006",
+    "finish": "full-art"
+  },
+  {
+    "id": "FD-007-FA",
+    "number": 7,
+    "name": "Floating Ruins",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Earth — Sky",
+    "types": [
+      "Earth",
+      "Sky"
+    ],
+    "terrain_types": [
+      "Earth",
+      "Sky"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Aerial oblique view of broken ancient stone temples on floating moss-covered islands above a vast cloud abyss, cascading waterfalls vanish below, small hanging bridges. Weathered stone, emerald and azure, dizzying vertical scale.",
+    "baseId": "FD-007",
+    "finish": "full-art"
+  },
+  {
+    "id": "FD-008-FA",
+    "number": 8,
+    "name": "Ashlands",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Earth — Fire",
+    "types": [
+      "Earth",
+      "Fire"
+    ],
+    "terrain_types": [
+      "Earth",
+      "Fire"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Wide desolate black ash dunes crossing a red mesa desert, smoking fissures in foreground, a ruined watchtower nearly buried in ash, wind whips cinders under a copper storm sky. Rust, black and muted bronze, harsh diagonal composition.",
+    "baseId": "FD-008",
+    "finish": "full-art"
+  },
+  {
+    "id": "FD-009-FA",
+    "number": 9,
+    "name": "Sunken City",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Earth — Water",
+    "types": [
+      "Earth",
+      "Water"
+    ],
+    "terrain_types": [
+      "Earth",
+      "Water"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Deep underwater boulevard of a submerged marble city, sea grass grows over statues and algae-covered stairs, gigantic domes recede into teal gloom, schools of silver fish and a distant whale. Tranquil blue-green and limestone white, street-level perspective.",
+    "baseId": "FD-009",
+    "finish": "full-art"
+  },
+  {
+    "id": "FD-010-FA",
+    "number": 10,
+    "name": "Crypt of Vailyn",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Earth — Dark",
+    "types": [
+      "Earth",
+      "Dark"
+    ],
+    "terrain_types": [
+      "Earth",
+      "Dark"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Claustrophobic underground sepulchre of rough earth and roots, elaborately carved basalt sarcophagus at lower right, single cold green witch-flame illuminating engraved stone, bone dust in narrow light shaft. Moss-black and sickly pale green, close scale, no skull piles.",
+    "baseId": "FD-010",
+    "finish": "full-art"
+  },
+  {
+    "id": "FD-011-FA",
+    "number": 11,
+    "name": "Vibrant Meadow",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Earth — Light",
+    "types": [
+      "Earth",
+      "Light"
+    ],
+    "terrain_types": [
+      "Earth",
+      "Light"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Macro-low perspective through red poppies and yellow wildflowers toward a lush sweeping meadow, warm afternoon sun, a tiny rustic windmill on distant hill, bees and butterflies. Saturated scarlet, fresh lime, cornflower blue, exuberant natural abundance.",
+    "baseId": "FD-011",
+    "finish": "full-art"
+  },
+  {
+    "id": "FD-012-FA",
+    "number": 12,
+    "name": "Miredin's Pass",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Sky — Fire",
+    "types": [
+      "Sky",
+      "Fire"
+    ],
+    "terrain_types": [
+      "Sky",
+      "Fire"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Treacherous narrow mountain pass suspended between immense storm clouds, brilliant comet-like streams of fire crossing overhead, rope bridge curling around dark peaks, view from a precarious ledge. Steel blue storm versus blazing vermilion, fierce wind.",
+    "baseId": "FD-012",
+    "finish": "full-art"
+  },
+  {
+    "id": "FD-013-FA",
+    "number": 13,
+    "name": "Inverted Sea",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Sky — Water",
+    "types": [
+      "Sky",
+      "Water"
+    ],
+    "terrain_types": [
+      "Sky",
+      "Water"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Surreal ocean suspended upside-down overhead, enormous translucent waves and a whale hanging in the sky above a dry white salt plain, vertical rain ribbons connecting earth and ocean. Wide ground-level upward view, icy blue, silver and soft peach horizon.",
+    "baseId": "FD-013",
+    "finish": "full-art"
+  },
+  {
+    "id": "FD-014-FA",
+    "number": 14,
+    "name": "Twilight Strand",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Sky — Dark",
+    "types": [
+      "Sky",
+      "Dark"
+    ],
+    "terrain_types": [
+      "Sky",
+      "Dark"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Lonely black-sand shoreline seeming to float among twilight clouds, crescent moon, a skeletal driftwood arch and distant dark birds, reflected starlight on narrow tide pools. Quiet lavender-grey, midnight and a single crimson sunset band, sparse asymmetrical framing.",
+    "baseId": "FD-014",
+    "finish": "full-art"
+  },
+  {
+    "id": "FD-015-FA",
+    "number": 15,
+    "name": "Loriadre's Reliquary",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Sky — Light",
+    "types": [
+      "Sky",
+      "Light"
+    ],
+    "terrain_types": [
+      "Sky",
+      "Light"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Open-air celestial reliquary on a gleaming white stone platform above clouds, delicate golden architectural ribs surrounding one suspended luminous glass vessel, silk banners glowing in morning light. Close architectural study, alabaster, pale gold, gentle sky blue, no character portrait.",
+    "baseId": "FD-015",
+    "finish": "full-art"
+  },
+  {
+    "id": "FD-016-FA",
+    "number": 16,
+    "name": "Boiling Delta",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Fire — Water",
+    "types": [
+      "Fire",
+      "Water"
+    ],
+    "terrain_types": [
+      "Fire",
+      "Water"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "High overhead view of branching milky turquoise geothermal rivers meeting glowing volcanic channels, immense steam plumes and vivid orange mineral banks, intricate branching natural pattern. Turquoise, sulphur yellow and orange, cartographic scale without labels.",
+    "baseId": "FD-016",
+    "finish": "full-art"
+  },
+  {
+    "id": "FD-017-FA",
+    "number": 17,
+    "name": "Tezzakeen's Hall",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Fire — Dark",
+    "types": [
+      "Fire",
+      "Dark"
+    ],
+    "terrain_types": [
+      "Fire",
+      "Dark"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Cavernous demonic banquet hall carved from black volcanic glass, empty elongated table leads to a monumental furnace throne, embers drip like chandeliers, reflected red fire in polished floor. Symmetrical one-point perspective, deep burgundy, black and ember gold.",
+    "baseId": "FD-017",
+    "finish": "full-art"
+  },
+  {
+    "id": "FD-018-FA",
+    "number": 18,
+    "name": "Candlelight Sept",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Fire — Light",
+    "types": [
+      "Fire",
+      "Light"
+    ],
+    "terrain_types": [
+      "Fire",
+      "Light"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Humble intimate seven-sided stone chapel at night, hundreds of warm candles on stepped wooden ledges and a small stained-glass sun window, comforting amber light catching floating dust. Human-scale interior, honey gold, rich brown and subtle cobalt window accents.",
+    "baseId": "FD-018",
+    "finish": "full-art"
+  },
+  {
+    "id": "FD-019-FA",
+    "number": 19,
+    "name": "Abyssal Depths",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Water — Dark",
+    "types": [
+      "Water",
+      "Dark"
+    ],
+    "terrain_types": [
+      "Water",
+      "Dark"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Vertiginous descent into a pitch-black ocean trench, huge ancient stone face barely visible on canyon wall, sparse tiny blue bioluminescent creatures reveal unimaginable depth. Near-black and electric cyan, powerful negative space and atmospheric obscurity.",
+    "baseId": "FD-019",
+    "finish": "full-art"
+  },
+  {
+    "id": "FD-020-FA",
+    "number": 20,
+    "name": "Celestial Estuary",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Water — Light",
+    "types": [
+      "Water",
+      "Light"
+    ],
+    "terrain_types": [
+      "Water",
+      "Light"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Gently curving river estuary at dawn where luminous gold freshwater meets a pearlescent sea, white wading birds reflected in shallow pools, tiny star-like motes among reeds. Serene low panoramic view, champagne gold, blush pink and pale seafoam.",
+    "baseId": "FD-020",
+    "finish": "full-art"
+  },
+  {
+    "id": "FD-021-FA",
+    "number": 21,
+    "name": "Moonrend Delve",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Dark — Light",
+    "types": [
+      "Dark",
+      "Light"
+    ],
+    "terrain_types": [
+      "Dark",
+      "Light"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Subterranean crystal cleft split by a razor-thin shaft of brilliant moonlight, one side pure white sparkling mineral and the other dark untouched stone, still black reflecting pool. Severe black-white contrast with restrained cold silver, dramatic tilted upward viewpoint.",
+    "baseId": "FD-021",
+    "finish": "full-art"
+  },
+  {
+    "id": "FD-022-FA",
+    "number": 22,
+    "name": "Sacred Spring",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Water — Earth",
+    "types": [
+      "Water",
+      "Earth"
+    ],
+    "terrain_types": [
+      "Water",
+      "Earth"
+    ],
+    "rules": "Heal the creature occupying this hex by 1 HP at the start of its controller’s pre-combat phase.",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "A tiny sacred spring wells from between ancient tree roots into a round mossy stone basin, golden sunlight rests on the water, medicinal blue flowers and fresh fern fronds frame the intimate sanctuary. Warm olive, turquoise and soft gold, close low eye-level view.",
+    "baseId": "FD-022",
+    "finish": "full-art"
+  },
+  {
+    "id": "FD-023-FA",
+    "number": 23,
+    "name": "Wall of Light",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Light",
+    "types": [
+      "Light"
+    ],
+    "terrain_types": [
+      "Light"
+    ],
+    "rules": "At the beginning of your opponent’s combat phase, grant 1 Shield to the creature you control directly behind this hex.",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "An immense translucent golden wall shaped from interlocking luminous hexagons shields a quiet grassy courtyard from a distant storm of dark arrows, camera skims along its edge so protective depth is clear. Brilliant honey-white versus slate blue, sharp geometric shapes, no people prominent.",
+    "baseId": "FD-023",
+    "finish": "full-art"
+  },
+  {
+    "id": "FD-024-FA",
+    "number": 24,
+    "name": "Erupt",
+    "rarity": "Rare",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "types": [],
+    "terrain_types": [],
+    "rules": "Change one of the enemy’s hexes into a Volcanic Vent.",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {
+      "Earth": 1,
+      "Fire": 1
+    },
+    "art_direction": "Violent instant a peaceful grassy field ruptures upward in a cone of magma and shattered rock, roots and soil torn into the air, a tiny distant fleeing goblin establishes scale. Dynamic extreme low ground-level angle, fierce red-orange explosion against saturated cyan sky, kinetic magical spell scene.",
+    "baseId": "FD-024",
+    "finish": "full-art"
+  },
+  {
+    "id": "FD-025-FA",
+    "number": 25,
+    "name": "Volcanic Vent",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Fire — Earth",
+    "types": [
+      "Fire",
+      "Earth"
+    ],
+    "terrain_types": [
+      "Fire",
+      "Earth"
+    ],
+    "rules": "Deal 1 damage to the creature occupying this hex at the start of its controller’s pre-combat phase.",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Close downward view of a circular jagged volcanic vent embedded in cracked basalt, white-hot gas jets escape through a glowing central fissure, red mineral crust and scorched dry weeds. Intense white centre, dark umber and sulphur orange, contained hazardous place, not a volcano panorama.",
+    "generated_only": true,
+    "baseId": "FD-025",
+    "finish": "full-art"
+  },
+  {
+    "id": "FD-026-FA",
+    "number": 26,
+    "name": "Door to Ashgar",
+    "rarity": "Rare",
+    "card_type": "Plane",
+    "subtype": "Fire",
+    "types": [
+      "Fire"
+    ],
+    "terrain_types": [
+      "Fire"
+    ],
+    "rules": "At the beginning of each of your combat phases, if this hex is empty, summon one Goblin Punk. That creature gains Sprint and Doomed.",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Tall weather-beaten wooden door stands alone on a windswept grassy ridge, its open doorway reveals a blazing goblin war camp in another realm; one scrappy green goblin punk with red crest is stepping through, other small goblin silhouettes behind. Cool emerald dusk outside, orange fire within, strong doorway silhouette and magical threshold.",
+    "baseId": "FD-026",
     "finish": "full-art"
   },
   {
@@ -7294,6 +11210,13 @@ const HEX_PRINTS = [
         "value": 1
       }
     ],
+    "cost": {
+      "Light": 2
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
+    ],
     "baseId": "LT-001",
     "finish": "illustration-rare"
   },
@@ -7313,6 +11236,13 @@ const HEX_PRINTS = [
       "Owl"
     ],
     "keywords": [],
+    "cost": {
+      "Sky": 1
+    },
+    "terrain_types": [
+      "Sky",
+      "Water"
+    ],
     "baseId": "LT-004",
     "finish": "illustration-rare"
   },
@@ -7331,6 +11261,13 @@ const HEX_PRINTS = [
       "Dragon"
     ],
     "keywords": [],
+    "cost": {
+      "Fire": 2
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
+    ],
     "baseId": "LT-005",
     "finish": "illustration-rare"
   },
@@ -7350,6 +11287,13 @@ const HEX_PRINTS = [
       "Mouse"
     ],
     "keywords": [],
+    "cost": {
+      "Earth": 2
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
+    ],
     "baseId": "LT-006",
     "finish": "illustration-rare"
   },
@@ -7369,6 +11313,13 @@ const HEX_PRINTS = [
       "Phoenix"
     ],
     "keywords": [],
+    "cost": {
+      "Fire": 4
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
+    ],
     "baseId": "LT-007",
     "finish": "illustration-rare"
   },
@@ -7388,6 +11339,13 @@ const HEX_PRINTS = [
       "Stag"
     ],
     "keywords": [],
+    "cost": {
+      "Light": 4
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
+    ],
     "baseId": "LT-012",
     "finish": "illustration-rare"
   },
@@ -7415,6 +11373,13 @@ const HEX_PRINTS = [
         "value": 1
       }
     ],
+    "cost": {
+      "Fire": 2
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
+    ],
     "baseId": "LT-013",
     "finish": "illustration-rare"
   },
@@ -7434,6 +11399,13 @@ const HEX_PRINTS = [
       "Sovereign"
     ],
     "keywords": [],
+    "cost": {
+      "Sky": 4
+    },
+    "terrain_types": [
+      "Sky",
+      "Water"
+    ],
     "baseId": "LT-015",
     "finish": "illustration-rare"
   },
@@ -7456,6 +11428,13 @@ const HEX_PRINTS = [
       {
         "id": "packbond"
       }
+    ],
+    "cost": {
+      "Earth": 1
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
     ],
     "baseId": "LT-029",
     "finish": "illustration-rare"
@@ -7480,6 +11459,13 @@ const HEX_PRINTS = [
         "id": "resilient"
       }
     ],
+    "cost": {
+      "Dark": 5
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
+    ],
     "baseId": "LT-030",
     "finish": "illustration-rare"
   },
@@ -7495,6 +11481,9 @@ const HEX_PRINTS = [
     "hp": null,
     "set": "first-light",
     "keywords": [],
+    "cost": {
+      "Fire": 2
+    },
     "baseId": "LT-039",
     "finish": "illustration-rare"
   },
@@ -7509,6 +11498,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Fire": 1
+    },
     "baseId": "SA-002",
     "finish": "illustration-rare"
   },
@@ -7523,6 +11515,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Sky": 4
+    },
     "baseId": "SA-010",
     "finish": "illustration-rare"
   },
@@ -7537,6 +11532,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Water": 3
+    },
     "baseId": "SA-011",
     "finish": "illustration-rare"
   },
@@ -7551,6 +11549,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Sky": 4
+    },
     "baseId": "SA-027",
     "finish": "illustration-rare"
   },
@@ -7565,6 +11566,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Sky": 3
+    },
     "baseId": "SA-028",
     "finish": "illustration-rare"
   },
@@ -7579,6 +11583,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Dark": 7
+    },
     "baseId": "SA-029",
     "finish": "illustration-rare"
   },
@@ -7593,6 +11600,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Fire": 3
+    },
     "baseId": "SA-033",
     "finish": "illustration-rare"
   },
@@ -7607,6 +11617,9 @@ const HEX_PRINTS = [
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
+    "cost": {
+      "Sky": 2
+    },
     "baseId": "SA-035",
     "finish": "illustration-rare"
   },
@@ -7635,6 +11648,13 @@ const HEX_PRINTS = [
         "value": 1
       }
     ],
+    "cost": {
+      "Light": 3
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
+    ],
     "baseId": "SA-037",
     "finish": "illustration-rare"
   },
@@ -7651,6 +11671,13 @@ const HEX_PRINTS = [
     "set": "shattered-arcana",
     "types": [
       "Fairie"
+    ],
+    "cost": {
+      "Water": 3
+    },
+    "terrain_types": [
+      "Water",
+      "Sky"
     ],
     "baseId": "SA-038",
     "finish": "illustration-rare"
@@ -7670,6 +11697,13 @@ const HEX_PRINTS = [
       "Insect",
       "Beetle"
     ],
+    "cost": {
+      "Dark": 3
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
+    ],
     "baseId": "SA-041",
     "finish": "illustration-rare"
   },
@@ -7687,6 +11721,13 @@ const HEX_PRINTS = [
     "types": [
       "Construct",
       "Mage"
+    ],
+    "cost": {
+      "Dark": 3
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
     ],
     "baseId": "SA-045",
     "finish": "illustration-rare"
@@ -7706,6 +11747,13 @@ const HEX_PRINTS = [
       "Wiskin",
       "Soldier"
     ],
+    "cost": {
+      "Earth": 4
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
+    ],
     "baseId": "SA-046",
     "finish": "illustration-rare"
   },
@@ -7723,6 +11771,13 @@ const HEX_PRINTS = [
     "types": [
       "Voidling",
       "Mage"
+    ],
+    "cost": {
+      "Dark": 6
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
     ],
     "baseId": "SA-047",
     "finish": "illustration-rare"
@@ -7850,6 +11905,904 @@ const HEX_KEYWORDS = [
     "parameter": false
   }
 ];
+const HEX_RESOURCE_DECKS = {
+  "thornbound": [
+    "LT-006",
+    "LT-006",
+    "LT-010",
+    "LT-010",
+    "LT-011",
+    "LT-011",
+    "LT-017",
+    "LT-017",
+    "LT-024",
+    "LT-029",
+    "LT-029",
+    "LT-031",
+    "LT-047",
+    "LT-047",
+    "SA-019",
+    "LT-031",
+    "SA-032",
+    "SA-032",
+    "SA-011",
+    "LT-024",
+    "FD-009",
+    "FD-009",
+    "FD-001",
+    "FD-001",
+    "FD-001",
+    "FD-001",
+    "FD-004",
+    "FD-004",
+    "FD-004",
+    "FD-004"
+  ],
+  "stormcourt": [
+    "LT-026",
+    "LT-015",
+    "LT-015",
+    "LT-020",
+    "LT-026",
+    "LT-036",
+    "LT-020",
+    "LT-036",
+    "SA-043",
+    "LT-041",
+    "LT-041",
+    "SA-043",
+    "LT-004",
+    "SA-035",
+    "LT-040",
+    "SA-034",
+    "SA-003",
+    "SA-006",
+    "LT-060",
+    "SA-035",
+    "FD-013",
+    "FD-013",
+    "FD-002",
+    "FD-002",
+    "FD-002",
+    "FD-002",
+    "FD-004",
+    "FD-004",
+    "FD-004",
+    "FD-004"
+  ],
+  "gravekeepers": [
+    "LT-002",
+    "LT-002",
+    "LT-008",
+    "LT-009",
+    "LT-009",
+    "LT-029",
+    "LT-021",
+    "LT-021",
+    "LT-029",
+    "LT-008",
+    "LT-030",
+    "LT-030",
+    "LT-031",
+    "LT-025",
+    "SA-004",
+    "SA-015",
+    "LT-047",
+    "LT-047",
+    "SA-023",
+    "LT-031",
+    "FD-010",
+    "FD-010",
+    "FD-005",
+    "FD-005",
+    "FD-005",
+    "FD-005",
+    "FD-001",
+    "FD-001",
+    "FD-001",
+    "FD-001"
+  ],
+  "dawnchorus": [
+    "LT-001",
+    "LT-001",
+    "LT-004",
+    "LT-004",
+    "LT-051",
+    "LT-051",
+    "LT-015",
+    "LT-015",
+    "LT-027",
+    "LT-027",
+    "LT-036",
+    "SA-036",
+    "LT-058",
+    "LT-034",
+    "LT-044",
+    "LT-034",
+    "LT-036",
+    "SA-009",
+    "SA-018",
+    "SA-007",
+    "FD-015",
+    "FD-015",
+    "FD-006",
+    "FD-006",
+    "FD-006",
+    "FD-006",
+    "FD-002",
+    "FD-002",
+    "FD-002",
+    "FD-002"
+  ],
+  "cinderforge": [
+    "LT-002",
+    "LT-007",
+    "LT-007",
+    "LT-016",
+    "LT-013",
+    "LT-013",
+    "LT-014",
+    "LT-016",
+    "SA-040",
+    "LT-002",
+    "LT-014",
+    "LT-032",
+    "LT-032",
+    "LT-028",
+    "LT-049",
+    "LT-049",
+    "LT-028",
+    "SA-017",
+    "SA-033",
+    "SA-002",
+    "FD-008",
+    "FD-008",
+    "FD-003",
+    "FD-003",
+    "FD-003",
+    "FD-003",
+    "FD-001",
+    "FD-001",
+    "FD-001",
+    "FD-001"
+  ],
+  "tidecallers": [
+    "LT-017",
+    "LT-017",
+    "LT-015",
+    "LT-015",
+    "LT-024",
+    "LT-024",
+    "LT-020",
+    "LT-020",
+    "SA-043",
+    "SA-043",
+    "LT-004",
+    "LT-004",
+    "SA-003",
+    "SA-003",
+    "LT-040",
+    "LT-042",
+    "LT-052",
+    "SA-006",
+    "SA-035",
+    "SA-036",
+    "FD-013",
+    "FD-013",
+    "FD-004",
+    "FD-004",
+    "FD-004",
+    "FD-004",
+    "FD-002",
+    "FD-002",
+    "FD-002",
+    "FD-002"
+  ],
+  "skyward": [
+    "LT-004",
+    "LT-004",
+    "LT-011",
+    "LT-011",
+    "LT-015",
+    "LT-015",
+    "LT-026",
+    "LT-026",
+    "SA-038",
+    "LT-036",
+    "LT-036",
+    "LT-041",
+    "LT-041",
+    "LT-038",
+    "LT-038",
+    "LT-040",
+    "LT-040",
+    "SA-014",
+    "SA-028",
+    "SA-014",
+    "FD-013",
+    "FD-013",
+    "FD-002",
+    "FD-002",
+    "FD-002",
+    "FD-002",
+    "FD-004",
+    "FD-004",
+    "FD-004",
+    "FD-004"
+  ],
+  "ironclad": [
+    "LT-001",
+    "LT-002",
+    "SA-046",
+    "LT-006",
+    "LT-001",
+    "LT-002",
+    "LT-010",
+    "LT-006",
+    "LT-010",
+    "SA-046",
+    "LT-014",
+    "LT-014",
+    "LT-034",
+    "LT-034",
+    "LT-047",
+    "SA-024",
+    "LT-047",
+    "SA-030",
+    "SA-016",
+    "SA-030",
+    "FD-011",
+    "FD-011",
+    "FD-001",
+    "FD-001",
+    "FD-001",
+    "FD-001",
+    "FD-006",
+    "FD-006",
+    "FD-006",
+    "FD-006"
+  ],
+  "hoardkeepers": [
+    "LT-005",
+    "LT-005",
+    "LT-006",
+    "LT-006",
+    "LT-014",
+    "LT-010",
+    "LT-014",
+    "LT-029",
+    "LT-010",
+    "LT-029",
+    "LT-013",
+    "LT-016",
+    "LT-031",
+    "LT-031",
+    "LT-047",
+    "LT-047",
+    "LT-053",
+    "LT-053",
+    "SA-020",
+    "SA-020",
+    "FD-008",
+    "FD-008",
+    "FD-003",
+    "FD-003",
+    "FD-003",
+    "FD-003",
+    "FD-001",
+    "FD-001",
+    "FD-001",
+    "FD-001"
+  ],
+  "wildhunt": [
+    "LT-005",
+    "SA-040",
+    "LT-005",
+    "LT-006",
+    "LT-007",
+    "LT-006",
+    "LT-013",
+    "LT-013",
+    "LT-014",
+    "LT-014",
+    "LT-016",
+    "LT-007",
+    "SA-046",
+    "SA-040",
+    "LT-016",
+    "LT-047",
+    "SA-002",
+    "SA-002",
+    "SA-005",
+    "SA-046",
+    "FD-008",
+    "FD-008",
+    "FD-001",
+    "FD-001",
+    "FD-001",
+    "FD-001",
+    "FD-003",
+    "FD-003",
+    "FD-003",
+    "FD-003"
+  ],
+  "meadowfolk": [
+    "LT-027",
+    "LT-027",
+    "LT-029",
+    "LT-029",
+    "LT-010",
+    "LT-010",
+    "LT-051",
+    "LT-051",
+    "LT-001",
+    "LT-001",
+    "LT-006",
+    "LT-002",
+    "LT-002",
+    "LT-035",
+    "SA-007",
+    "LT-035",
+    "SA-009",
+    "LT-043",
+    "SA-007",
+    "LT-006",
+    "FD-011",
+    "FD-011",
+    "FD-001",
+    "FD-001",
+    "FD-001",
+    "FD-001",
+    "FD-006",
+    "FD-006",
+    "FD-006",
+    "FD-006"
+  ],
+  "reedwatch": [
+    "LT-017",
+    "LT-017",
+    "LT-029",
+    "LT-029",
+    "LT-010",
+    "LT-010",
+    "LT-019",
+    "LT-019",
+    "LT-002",
+    "LT-006",
+    "LT-006",
+    "LT-011",
+    "LT-011",
+    "LT-002",
+    "LT-055",
+    "SA-019",
+    "LT-038",
+    "SA-019",
+    "LT-055",
+    "SA-003",
+    "FD-009",
+    "FD-009",
+    "FD-004",
+    "FD-004",
+    "FD-004",
+    "FD-004",
+    "FD-001",
+    "FD-001",
+    "FD-001",
+    "FD-001"
+  ],
+  "moonkeepers": [
+    "LT-001",
+    "LT-004",
+    "LT-004",
+    "LT-001",
+    "LT-027",
+    "LT-027",
+    "LT-036",
+    "LT-036",
+    "SA-043",
+    "LT-041",
+    "LT-041",
+    "SA-043",
+    "SA-006",
+    "SA-034",
+    "SA-034",
+    "SA-028",
+    "LT-052",
+    "LT-050",
+    "SA-028",
+    "LT-051",
+    "FD-015",
+    "FD-015",
+    "FD-006",
+    "FD-006",
+    "FD-006",
+    "FD-006",
+    "FD-002",
+    "FD-002",
+    "FD-002",
+    "FD-002"
+  ],
+  "amberguard": [
+    "LT-001",
+    "LT-002",
+    "LT-002",
+    "LT-006",
+    "LT-001",
+    "LT-006",
+    "SA-037",
+    "LT-021",
+    "LT-021",
+    "SA-037",
+    "LT-010",
+    "LT-034",
+    "SA-016",
+    "LT-034",
+    "SA-030",
+    "LT-047",
+    "LT-047",
+    "SA-016",
+    "LT-062",
+    "LT-014",
+    "FD-011",
+    "FD-011",
+    "FD-001",
+    "FD-001",
+    "FD-001",
+    "FD-001",
+    "FD-006",
+    "FD-006",
+    "FD-006",
+    "FD-006"
+  ],
+  "fuseworks": [
+    "LT-013",
+    "SA-040",
+    "LT-007",
+    "LT-013",
+    "LT-032",
+    "LT-032",
+    "SA-040",
+    "LT-007",
+    "LT-004",
+    "LT-004",
+    "LT-005",
+    "LT-028",
+    "LT-045",
+    "SA-002",
+    "LT-045",
+    "SA-002",
+    "LT-053",
+    "SA-033",
+    "SA-028",
+    "LT-005",
+    "FD-012",
+    "FD-012",
+    "FD-003",
+    "FD-003",
+    "FD-003",
+    "FD-003",
+    "FD-002",
+    "FD-002",
+    "FD-002",
+    "FD-002"
+  ],
+  "mosskin": [
+    "LT-029",
+    "LT-029",
+    "LT-010",
+    "LT-010",
+    "LT-017",
+    "LT-017",
+    "LT-006",
+    "LT-006",
+    "LT-011",
+    "LT-011",
+    "SA-038",
+    "LT-014",
+    "LT-031",
+    "LT-031",
+    "LT-047",
+    "LT-047",
+    "SA-011",
+    "SA-011",
+    "LT-059",
+    "SA-019",
+    "FD-009",
+    "FD-009",
+    "FD-001",
+    "FD-001",
+    "FD-001",
+    "FD-001",
+    "FD-004",
+    "FD-004",
+    "FD-004",
+    "FD-004"
+  ],
+  "auroracourt": [
+    "LT-001",
+    "LT-001",
+    "LT-012",
+    "LT-012",
+    "LT-015",
+    "LT-015",
+    "SA-043",
+    "SA-043",
+    "LT-004",
+    "LT-004",
+    "LT-027",
+    "LT-034",
+    "SA-035",
+    "LT-034",
+    "SA-034",
+    "SA-035",
+    "SA-034",
+    "LT-033",
+    "SA-001",
+    "LT-027",
+    "FD-015",
+    "FD-015",
+    "FD-006",
+    "FD-006",
+    "FD-006",
+    "FD-006",
+    "FD-002",
+    "FD-002",
+    "FD-002",
+    "FD-002"
+  ],
+  "eternalcourt": [
+    "LT-001",
+    "LT-008",
+    "LT-001",
+    "LT-012",
+    "LT-012",
+    "LT-008",
+    "LT-030",
+    "LT-030",
+    "SA-047",
+    "SA-047",
+    "LT-058",
+    "SA-004",
+    "LT-034",
+    "LT-034",
+    "LT-023",
+    "SA-004",
+    "SA-030",
+    "LT-046",
+    "LT-009",
+    "LT-003",
+    "FD-021",
+    "FD-021",
+    "FD-005",
+    "FD-005",
+    "FD-005",
+    "FD-005",
+    "FD-006",
+    "FD-006",
+    "FD-006",
+    "FD-006"
+  ],
+  "skytyrants": [
+    "LT-008",
+    "LT-008",
+    "LT-015",
+    "LT-015",
+    "SA-047",
+    "SA-047",
+    "SA-043",
+    "LT-003",
+    "LT-003",
+    "SA-043",
+    "SA-034",
+    "LT-045",
+    "LT-045",
+    "LT-023",
+    "LT-023",
+    "SA-035",
+    "SA-029",
+    "LT-004",
+    "LT-004",
+    "LT-050",
+    "FD-014",
+    "FD-014",
+    "FD-002",
+    "FD-002",
+    "FD-002",
+    "FD-002",
+    "FD-005",
+    "FD-005",
+    "FD-005",
+    "FD-005"
+  ],
+  "crownimperium": [
+    "LT-030",
+    "LT-030",
+    "LT-012",
+    "LT-012",
+    "LT-008",
+    "LT-008",
+    "SA-044",
+    "SA-044",
+    "SA-047",
+    "SA-047",
+    "LT-001",
+    "LT-001",
+    "WE-045",
+    "LT-003",
+    "SA-037",
+    "LT-009",
+    "SA-015",
+    "LT-034",
+    "SA-030",
+    "LT-034",
+    "FD-021",
+    "FD-021",
+    "FD-005",
+    "FD-005",
+    "FD-005",
+    "FD-005",
+    "FD-006",
+    "FD-006",
+    "FD-006",
+    "FD-006"
+  ],
+  "pebble-patrol": [
+    "WE-001",
+    "WE-001",
+    "WE-003",
+    "WE-003",
+    "WE-004",
+    "WE-004",
+    "WE-005",
+    "WE-005",
+    "WE-007",
+    "WE-007",
+    "WE-019",
+    "WE-019",
+    "WE-035",
+    "WE-035",
+    "WE-038",
+    "WE-038",
+    "SA-020",
+    "SA-020",
+    "SA-012",
+    "SA-012",
+    "FD-008",
+    "FD-008",
+    "FD-001",
+    "FD-001",
+    "FD-001",
+    "FD-001",
+    "FD-003",
+    "FD-003",
+    "FD-003",
+    "FD-003"
+  ],
+  "burrow-watch": [
+    "WE-008",
+    "WE-008",
+    "WE-009",
+    "WE-009",
+    "WE-010",
+    "WE-010",
+    "WE-012",
+    "WE-012",
+    "WE-005",
+    "WE-005",
+    "WE-001",
+    "WE-001",
+    "WE-023",
+    "WE-023",
+    "WE-030",
+    "WE-030",
+    "LT-055",
+    "LT-055",
+    "WE-037",
+    "WE-037",
+    "FD-011",
+    "FD-011",
+    "FD-001",
+    "FD-001",
+    "FD-001",
+    "FD-001",
+    "FD-006",
+    "FD-006",
+    "FD-006",
+    "FD-006"
+  ],
+  "ram-raiders": [
+    "WE-002",
+    "WE-002",
+    "WE-005",
+    "WE-005",
+    "WE-013",
+    "WE-013",
+    "WE-014",
+    "WE-014",
+    "WE-006",
+    "WE-006",
+    "WE-035",
+    "WE-035",
+    "WE-038",
+    "WE-038",
+    "SA-012",
+    "SA-012",
+    "WE-031",
+    "WE-031",
+    "SA-020",
+    "SA-020",
+    "FD-008",
+    "FD-008",
+    "FD-001",
+    "FD-001",
+    "FD-001",
+    "FD-001",
+    "FD-003",
+    "FD-003",
+    "FD-003",
+    "FD-003"
+  ],
+  "bloodfist-horde": [
+    "WE-004",
+    "WE-004",
+    "WE-003",
+    "WE-003",
+    "WE-019",
+    "WE-019",
+    "WE-024",
+    "WE-024",
+    "WE-026",
+    "WE-026",
+    "WE-002",
+    "WE-002",
+    "WE-021",
+    "WE-022",
+    "WE-022",
+    "WE-029",
+    "WE-034",
+    "WE-034",
+    "WE-043",
+    "WE-043",
+    "FD-017",
+    "FD-017",
+    "FD-003",
+    "FD-003",
+    "FD-003",
+    "FD-003",
+    "FD-005",
+    "FD-005",
+    "FD-005",
+    "FD-005"
+  ],
+  "cloudcarriage-guard": [
+    "WE-012",
+    "WE-012",
+    "WE-010",
+    "WE-010",
+    "WE-025",
+    "WE-025",
+    "WE-027",
+    "WE-027",
+    "WE-045",
+    "WE-017",
+    "WE-017",
+    "LT-012",
+    "LT-060",
+    "WE-030",
+    "WE-030",
+    "WE-033",
+    "WE-033",
+    "WE-037",
+    "WE-037",
+    "WE-044",
+    "FD-015",
+    "FD-015",
+    "FD-002",
+    "FD-002",
+    "FD-002",
+    "FD-002",
+    "FD-006",
+    "FD-006",
+    "FD-006",
+    "FD-006"
+  ],
+  "rootbound-alliance": [
+    "WE-015",
+    "WE-015",
+    "WE-008",
+    "WE-008",
+    "WE-024",
+    "WE-024",
+    "WE-018",
+    "WE-018",
+    "WE-026",
+    "WE-026",
+    "WE-005",
+    "WE-005",
+    "WE-032",
+    "WE-032",
+    "WE-038",
+    "WE-038",
+    "WE-035",
+    "WE-035",
+    "LT-039",
+    "LT-039",
+    "FD-008",
+    "FD-008",
+    "FD-001",
+    "FD-001",
+    "FD-001",
+    "FD-001",
+    "FD-003",
+    "FD-003",
+    "FD-003",
+    "FD-003"
+  ],
+  "fisduum-coven": [
+    "WE-003",
+    "WE-003",
+    "WE-011",
+    "WE-011",
+    "WE-019",
+    "WE-019",
+    "WE-002",
+    "WE-002",
+    "WE-026",
+    "WE-026",
+    "WE-007",
+    "WE-007",
+    "WE-028",
+    "WE-028",
+    "WE-022",
+    "WE-022",
+    "WE-036",
+    "WE-036",
+    "WE-043",
+    "WE-043",
+    "FD-017",
+    "FD-017",
+    "FD-005",
+    "FD-005",
+    "FD-005",
+    "FD-005",
+    "FD-003",
+    "FD-003",
+    "FD-003",
+    "FD-003"
+  ],
+  "seraphic-warhost": [
+    "WE-045",
+    "WE-025",
+    "WE-025",
+    "WE-010",
+    "WE-010",
+    "WE-011",
+    "WE-011",
+    "WE-012",
+    "WE-012",
+    "WE-016",
+    "WE-016",
+    "LT-001",
+    "WE-046",
+    "WE-046",
+    "WE-022",
+    "WE-022",
+    "WE-028",
+    "WE-047",
+    "WE-049",
+    "WE-044",
+    "FD-021",
+    "FD-021",
+    "FD-006",
+    "FD-006",
+    "FD-006",
+    "FD-006",
+    "FD-005",
+    "FD-005",
+    "FD-005",
+    "FD-005"
+  ]
+};
 
 // platform
 "use strict";
@@ -7890,7 +12843,7 @@ const HEX_FORMATS = {
   standard: {
     id: "standard",
     name: "Standard",
-    deckSize: 20,
+    deckSize: 30,
     opening: 5,
     columns: 3,
     slots: 6,
@@ -8005,6 +12958,7 @@ const HEX_MATCH_ROUND_LIMIT = 60;
 const hexDef = (c) => HEX_CARD[typeof c === "string" ? c : c.id];
 const hexNum = (c) =>
   hexDef(c).number +
+  (hexDef(c).set === "foundations" ? 300 : 0) +
   (hexDef(c).set === "shattered-arcana" ? 100 : hexDef(c).set === "war-on-elderberry" ? 200 : 0);
 const hexType = (c, t) => hexDef(c).card_type === t;
 const hexRand = (g) => (g.seed = (Math.imul(g.seed, 1664525) + 1013904223) >>> 0) / 4294967296;
@@ -8041,7 +12995,7 @@ const hexOriginalOwner = (c, fallback = c.owner) =>
 const hexOwnerLabel = (p) => (p === 0 ? "You" : "The bot");
 function hexNewGame(playerDeck, botDeck, seed = Date.now(), options = {}) {
   const g = {
-    v: 1,
+    v: 2,
     rules: { ...hexFormat(options.format) },
     context: options.context || null,
     challengeStats: { plays: 0, nonCreature: 0, spellsByDay: {} },
@@ -8081,6 +13035,13 @@ function hexNewGame(playerDeck, botDeck, seed = Date.now(), options = {}) {
       losses: 0,
       mulligan: false,
       turns: 0,
+      power: [],
+      planePlayed: false,
+      planes: Array.from({ length: 6 }, (_, slot) => {
+        const layout = options.context?.encounter?.planes;
+        const h = layout?.[player]?.[slot];
+        return hexPlane(h?.types || [HEX_TERRAINS[slot]], 0, { locked: !!h?.locked });
+      }),
     });
     if (!options.interactiveCoin) hexDraw(g, player, hexRules(g).opening);
   }
@@ -8163,7 +13124,8 @@ function hexBeginTurn(g) {
   if (g.field) g.tasks.push({ kind: "fieldStart", owner: g.active });
   g.tasks.push(
     { kind: "draw", owner: g.active, skip: g.turn === 1 },
-    { kind: "phase", phase: "pre" },
+    { kind: "power", owner: g.active },
+    { kind: "phase", phase: "power" },
   );
   hexPump(g);
 }
@@ -8206,6 +13168,7 @@ function hexStats(g, c, skipBrooch = false) {
 }
 function hexRefresh(g) {
   hexElderExile(g);
+  hexCheckTerrain(g);
   for (const c of hexAll(g)) {
     const max = hexStats(g, c).maxHp,
       old = c.maxHp || max;
@@ -8309,7 +13272,11 @@ function hexReactionCards(g, p) {
   const top = g.stack.at(-1);
   if (!top) return [];
   return g.players[p].hand.filter(
-    (c) => (hexIsReaction(c) || hexKeyword(c, "ambush")) && hexSpecialOptions(g, p, c, top).length,
+    (c) =>
+      !(c.blockedUntil >= g.turn) &&
+      hexPowerPayment(g, p, c) !== null &&
+      (hexIsReaction(c) || hexKeyword(c, "ambush")) &&
+      hexSpecialOptions(g, p, c, top).length,
   );
 }
 function hexPump(g) {
@@ -8404,7 +13371,7 @@ function hexSpecialOptions(g, p, c, f = g.stack.at(-1)) {
     option = (label, extra = {}) => ({ label, ...extra });
   if (hexKeyword(c, "ambush") && e.kind === "combatStart" && e.actor !== p)
     return mine.board.flatMap((t, slot) =>
-      !t ? [option("Ambush · slot " + (slot + 1), { slot })] : [],
+      !t && hexCompatible(g, c, p, slot) ? [option("Ambush · slot " + (slot + 1), { slot })] : [],
     );
   if ([41, 49].includes(hexElderNum(c)) && e.kind === "creatureEntered" && e.actor !== p) {
     const t = hexFind(g, e.target);
@@ -8412,7 +13379,7 @@ function hexSpecialOptions(g, p, c, f = g.stack.at(-1)) {
       return hexElderNum(c) === 41
         ? [option("Unsummon " + hexName(t), { target: t.uid })]
         : mine.board.flatMap((a, slot) =>
-            !a
+            !a && hexCompatible(g, t, p, slot)
               ? [
                   option("Control " + hexName(t) + " · slot " + (slot + 1), {
                     target: t.uid,
@@ -8482,6 +13449,8 @@ function hexSpecialOptions(g, p, c, f = g.stack.at(-1)) {
   return [];
 }
 function hexPlayOptions(g, p, card) {
+  if (hexDef(card).generated_only) return [];
+  if (hexPowerPayment(g, p, card) === null) return [];
   if (card.blockedUntil >= g.turn) return [];
   if (
     hexKeyword(card, "ambush") &&
@@ -8491,14 +13460,24 @@ function hexPlayOptions(g, p, card) {
     return hexSpecialOptions(g, p, card);
   if (hexIsReaction(card))
     return g.stack.at(-1)?.priority === p ? hexSpecialOptions(g, p, card) : [];
-  if (p !== g.active || !["pre", "post"].includes(g.phase) || g.stack.length || g.choice) return [];
+  if (p !== g.active || !["power", "pre", "post"].includes(g.phase) || g.stack.length || g.choice)
+    return [];
+  if (hexType(card, "Plane")) return hexPlaneOptions(g, p, card);
+  if (g.phase === "power") return [];
+  if (hexFoundation(card) === 24)
+    return g.players[1 - p].planes.flatMap((h, slot) =>
+      h.locked ? [] : [{ side: 1 - p, slot, label: "Erupt · enemy hex " + (slot + 1) }],
+    );
   const pl = g.players[p],
     n = hexNum(card);
   if (card.blockedUntil >= g.turn) return [];
   if (hexType(card, "Spell")) return hexArcanaOptions(g, p, card);
   if (hexType(card, "Creature"))
     return pl.board.flatMap((c, slot) =>
-      !c && (n !== 8 || slot < hexColumns(g)) && (n !== 227 || slot >= hexColumns(g))
+      !c &&
+      hexCompatible(g, card, p, slot) &&
+      (n !== 8 || slot < hexColumns(g)) &&
+      (n !== 227 || slot >= hexColumns(g))
         ? [
             {
               label:
@@ -8533,6 +13512,15 @@ function hexPlay(g, p, uid, index = 0) {
   const options = hexPlayOptions(g, p, c),
     option = options[index];
   if (!option) return false;
+  const payment = hexPowerPayment(g, p, c);
+  if (payment === null) return false;
+  g.players[p].power = g.players[p].power.filter((_, i) => !payment.includes(i));
+  if (hexType(c, "Plane")) {
+    hexDiscardFromHand(g, p, uid);
+    hexSetPlane(g, p, option.slot, c, true);
+    hexPump(g);
+    return true;
+  }
   const ambush = hexKeyword(c, "ambush") && g.stack.at(-1)?.event.kind === "combatStart";
   if (ambush) {
     g.stack.at(-1).passes = 0;
@@ -8596,9 +13584,13 @@ function hexDeclare(g, p, attacker, target) {
 }
 function hexNext(g, p) {
   if (p !== g.active || g.winner !== null || g.stack.length || g.choice) return false;
-  if (g.phase === "pre") {
+  if (g.phase === "power") {
+    g.tasks.push({ kind: "phase", phase: "pre" });
+    hexPump(g);
+  } else if (g.phase === "pre") {
     g.phase = "combat";
     g.combatParticipants = [];
+    hexPlaneCombat(g, p);
     hexVisualEvent(g, "announcement", { text: "Combat Phase", tone: "phase" });
     hexLog(g, "Choose attacks.");
     hexQueueEvent(g, { kind: "combatStart", actor: p });
@@ -8708,6 +13700,209 @@ function hexCanSkipChoice(g, p) {
     !g.choice.required &&
     !g.choice.options.every((o) => o.task?.kind === "arcana" && o.task.op === "discard")
   );
+}
+
+
+// hex-planes
+"use strict";
+const HEX_TERRAINS = ["Earth", "Sky", "Fire", "Water", "Dark", "Light"];
+const hexFoundation = (c) => (hexDef(c)?.set === "foundations" ? hexDef(c).number : 0);
+const hexPlane = (types = ["Earth"], level = 0, extra = {}) => ({
+  types: [...types],
+  level,
+  ...extra,
+});
+const hexCompatible = (g, c, side, slot) => {
+  const needs = hexDef(c).terrain_types || HEX_TERRAINS;
+  return needs.some((t) => g.players[side].planes[slot].types.includes(t));
+};
+// Flexible spheres are individual resources. Backtracking avoids spending a dual
+// sphere when a single-colour sphere can pay the same part of the cost.
+function hexPowerPayment(g, side, card) {
+  const pool = g.players[side].power;
+  const needs = Object.entries(hexDef(card).cost || {}).flatMap(([type, count]) =>
+    Array(count).fill(type),
+  );
+  if (
+    pool.length < needs.length ||
+    needs.some(
+      (t) => pool.filter((s) => s.includes(t)).length < needs.filter((n) => n === t).length,
+    )
+  )
+    return null;
+  needs.sort(
+    (a, b) => pool.filter((s) => s.includes(a)).length - pool.filter((s) => s.includes(b)).length,
+  );
+  function pay(i, used) {
+    if (i === needs.length) return used;
+    const candidates = pool
+      .map((s, index) => ({ s, index }))
+      .filter(({ s, index }) => !used.includes(index) && s.includes(needs[i]))
+      .sort((a, b) => a.s.length - b.s.length);
+    for (const { index } of candidates) {
+      const result = pay(i + 1, [...used, index]);
+      if (result) return result;
+    }
+    return null;
+  }
+  return pay(0, []);
+}
+function hexGeneratePower(g, side) {
+  const pl = g.players[side];
+  pl.power = pl.planes.flatMap((h) => Array.from({ length: h.level }, () => [...h.types]));
+  pl.planePlayed = false;
+  hexLog(g, hexOwnerLabel(side) + " generated " + pl.power.length + " Power.");
+}
+function hexPlaneOptions(g, side, card) {
+  const pl = g.players[side];
+  if (pl.planePlayed) return [];
+  return pl.planes.flatMap((h, slot) =>
+    !h.locked || hexSameTerrain(h.types, hexDef(card).terrain_types)
+      ? [
+          {
+            slot,
+            label:
+              "Plane · " +
+              (slot < 3 ? "Front" : "Back") +
+              " " +
+              ((slot % 3) + 1) +
+              " · " +
+              h.types.join(" / ") +
+              " " +
+              h.level,
+          },
+        ]
+      : [],
+  );
+}
+const hexSameTerrain = (a, b) => a.length === b.length && a.every((t) => b.includes(t));
+function hexSetPlane(g, side, slot, card, played = false) {
+  const pl = g.players[side],
+    old = pl.planes[slot],
+    def = hexDef(card);
+  const same = hexSameTerrain(old.types, def.terrain_types);
+  // A hex has one current Plane ability, even when its matching level grows.
+  pl.planes[slot] = hexPlane(def.terrain_types, played && same ? old.level + 1 : 1, {
+    id: def.baseId || def.id,
+    locked: !!old.locked,
+  });
+  if (played) {
+    pl.planePlayed = true;
+    pl.power.push([...def.terrain_types]);
+  }
+  hexCheckTerrain(g);
+  hexLog(
+    g,
+    def.name +
+      " · " +
+      (slot < 3 ? "front" : "back") +
+      " " +
+      ((slot % 3) + 1) +
+      " · level " +
+      pl.planes[slot].level,
+  );
+}
+function hexCheckTerrain(g) {
+  for (let side = 0; side < 2; side++)
+    for (let slot = 0; slot < 6; slot++) {
+      const c = g.players[side].board[slot];
+      if (c && !hexCompatible(g, c, side, slot)) hexReturn(g, c);
+    }
+}
+function hexPlanePre(g, side) {
+  const jobs = g.players[side].planes.flatMap((h, slot) => {
+    const c = g.players[side].board[slot];
+    if (!c) return [];
+    if (h.id === "FD-022") return [{ kind: "planeHeal", owner: side, target: c.uid }];
+    if (h.id === "FD-025") return [{ kind: "planeDamage", owner: side, target: c.uid }];
+    return [];
+  });
+  g.tasks.unshift(...jobs);
+}
+function hexPlaneCombat(g, active) {
+  const defender = 1 - active;
+  for (let slot = 0; slot < 3; slot++) {
+    const p = g.players[defender];
+    if (p.planes[slot].id === "FD-023" && p.board[slot + 3]) hexShield(g, p.board[slot + 3], 1);
+  }
+  for (let slot = 0; slot < 6; slot++) {
+    const pl = g.players[active];
+    if (pl.planes[slot].id !== "FD-026" || pl.board[slot]) continue;
+    if (!hexCompatible(g, { id: "WE-004" }, active, slot)) continue;
+    const c = hexElderSummon(g, active, "WE-004", slot);
+    if (c) {
+      hexElderGrant(g, c, "sprint", 1, g.turn);
+      c.sacrificeAtEnd = g.turn;
+    }
+  }
+}
+// Preserve old 20-card builds by adding ten suitable Planes. Duals bridge
+// otherwise incompatible encounter decks without changing their existing cards.
+function hexDevelopDeck(cards) {
+  if (cards.length !== 20 || cards.some((id) => !HEX_CARD[id] || hexType(id, "Plane")))
+    return [...cards];
+  const demand = {};
+  for (const id of cards)
+    for (const [t, n] of Object.entries(hexDef(id).cost || {})) demand[t] = (demand[t] || 0) + n;
+  const remaining = { ...demand },
+    planes = [];
+  const choices = HEX_CARDS.filter((c) => c.card_type === "Plane" && c.number <= 21);
+  for (let i = 0; i < 10; i++) {
+    const scored = choices
+      .filter((c) => c.basic_plane || planes.filter((id) => id === c.id).length < 2)
+      .map((c) => ({ c, score: c.terrain_types.reduce((v, t) => v + (remaining[t] || 0), 0) }))
+      .sort((a, b) => b.score - a.score);
+    const best = scored[0].c;
+    planes.push(best.id);
+    for (const t of best.terrain_types)
+      remaining[t] = Math.max(0, (remaining[t] || 0) - (demand[t] || 0) / 4);
+  }
+  return [...cards, ...planes];
+}
+
+function hexMigratePowerSave(saved) {
+  const g = JSON.parse(JSON.stringify(saved));
+  if (g?.v !== 1) return g;
+  for (let side = 0; side < 2; side++) {
+    const pl = g.players?.[side];
+    if (!pl || !Array.isArray(pl.deck) || !Array.isArray(pl.hand))
+      throw Error("Invalid legacy match zones");
+    const originals = [
+      ...pl.deck,
+      ...pl.hand,
+      ...(pl.board || []),
+      ...(pl.artifacts || []),
+      ...(pl.discard || []),
+    ]
+      .filter(Boolean)
+      .map((c) => c.id)
+      .slice(0, 20);
+    const seedDeck =
+      originals.length === 20 ? originals : Hex.starter.filter((id) => !hexType(id, "Plane"));
+    const planes = hexDevelopDeck(seedDeck).slice(20);
+    pl.deck.push(
+      ...planes.map((id) => ({
+        id,
+        uid: "hc-" + ++g.serial,
+        owner: side,
+        originalOwner: side,
+        spent: {},
+      })),
+    );
+    pl.deck = hexShuffle(g, pl.deck);
+    pl.planes = Array.from({ length: 6 }, (_, slot) =>
+      hexPlane(
+        [pl.board?.[slot] ? hexDef(pl.board[slot]).terrain_types[0] : HEX_TERRAINS[slot]],
+        0,
+      ),
+    );
+    pl.power = [];
+    pl.planePlayed = false;
+  }
+  g.v = 2;
+  g.rules = { ...hexFormat("standard") };
+  if (g.context?.playerDeck) g.context.playerDeck = hexDevelopDeck(g.context.playerDeck);
+  return g;
 }
 
 
@@ -8978,6 +14173,7 @@ function hexSwap(g, p, a, b) {
   [pl.board[a], pl.board[b]] = [y, x];
   x.slot = b;
   y.slot = a;
+  hexCheckTerrain(g);
   return true;
 }
 function hexRemoveFromGame(g, c) {
@@ -8998,7 +14194,9 @@ function hexReturn(g, c) {
     hexLog(g, hexName(c) + " left the battlefield · Summon removed from the game.");
   } else {
     hexResetInstance(c);
-    p.hand.push(c);
+    const owner = hexOriginalOwner(c);
+    c.owner = owner;
+    g.players[owner].hand.push(c);
     hexLog(g, hexName(c) + " returned to hand.");
   }
   hexElderExile(g);
@@ -9552,6 +14750,15 @@ function hexExecuteTask(g, j) {
     pl = g.players[p],
     target = j.target ? hexFind(g, j.target) : null;
   switch (j.kind) {
+    case "power":
+      hexGeneratePower(g, p);
+      break;
+    case "planeHeal":
+      if (target) hexHeal(g, target, 1);
+      break;
+    case "planeDamage":
+      if (target) hexDamage(g, [{ target: target.uid, amount: 1 }]);
+      break;
     case "noop":
       break;
     case "dailyEcho":
@@ -9584,7 +14791,10 @@ function hexExecuteTask(g, j) {
           text: j.phase === "pre" ? "Pre-Combat Phase" : "Post-Combat Phase",
           tone: "phase",
         });
-      if (j.phase === "pre") hexElderPre(g, g.active);
+      if (j.phase === "pre") {
+        hexElderPre(g, g.active);
+        hexPlanePre(g, g.active);
+      }
       if (j.phase === "pre") hexLog(g, "Pre-combat · play cards.");
       if (j.phase === "post") hexLog(g, "Post-combat.");
       break;
@@ -9664,7 +14874,7 @@ function hexExecuteTask(g, j) {
         break;
       }
       if (hexType(c, "Creature")) {
-        if (pl.board[j.option.slot]) {
+        if (pl.board[j.option.slot] || !hexCompatible(g, c, p, j.option.slot)) {
           if (hexHasType(c, "Summon")) hexRemoveFromGame(g, c);
           else pl.hand.push(c);
           break;
@@ -10424,6 +15634,10 @@ function hexArcanaEnd(g) {
   g.traps = (g.traps || []).filter((t) => t.until > g.turn);
 }
 function hexArcanaSpell(g, p, card, o) {
+  if (hexFoundation(card) === 24) {
+    if (!g.players[o.side].planes[o.slot].locked) hexSetPlane(g, o.side, o.slot, { id: "FD-025" });
+    return;
+  }
   if (hexElderNum(card)) return hexElderSpell(g, p, card, o);
   const n = hexArcanaNum(card),
     pl = g.players[p],
@@ -12142,6 +17356,7 @@ const HEX_BOT_NAMES = {
   crownimperium: "Crown Imperium",
 };
 function hexBotDeck(name = "thornbound", format = "standard") {
+  if (HEX_RESOURCE_DECKS[name]) return [...HEX_RESOURCE_DECKS[name]];
   let cards = (HEX_BOT_DECKS[name] || HEX_BOT_DECKS.thornbound).map((n) =>
     typeof n === "number" ? hexId(n) : n,
   );
@@ -12154,7 +17369,7 @@ function hexBotDeck(name = "thornbound", format = "standard") {
       if (arcana[i]) cards.push(arcana[i]);
     }
   }
-  return hexTrimDeck(cards, format);
+  return hexDevelopDeck(hexTrimDeck(cards, format).slice(0, 20));
 }
 function hexBotView(g, side = 1) {
   const p = g.players[side],
@@ -12219,6 +17434,7 @@ function hexBotChoiceScore(g, option) {
 }
 function hexBotCardValue(g, c) {
   const def = hexDef(c);
+  if (def.card_type === "Plane") return 12;
   if (def.card_type === "Creature")
     return (
       hexDailyBase(g, c).attack * 1.5 +
@@ -12279,7 +17495,7 @@ function hexClassicBotStep(g, side = 1) {
   }
   const view = hexBotView(g, side),
     pl = g.players[side];
-  if (["pre", "post"].includes(g.phase)) {
+  if (["power", "pre", "post"].includes(g.phase)) {
     const actions = [];
     for (const c of view.hand) {
       if (hexIsReaction(c)) continue;
@@ -12367,6 +17583,8 @@ function hexBotPlayKey(g, side, uid, index) {
     uid,
     index,
     phase: g.phase,
+    planes: pl.planes,
+    power: pl.power,
     hand: pl.hand,
     board: pl.board,
     artifacts: pl.artifacts,
@@ -12426,7 +17644,11 @@ function hexAscendedValue(g, side) {
   if (g.winner !== null) return g.winner === -1 ? 0 : g.winner === side ? 100000 : -100000;
   const score = (p) => {
     const pl = g.players[p];
-    let v = -pl.losses * 24 + pl.hand.length * 1.6 + Math.min(pl.deck.length, 5) * 0.15;
+    let v =
+      pl.planes.reduce((sum, h) => sum + h.level * 3, 0) -
+      pl.losses * 24 +
+      pl.hand.length * 1.6 +
+      Math.min(pl.deck.length, 5) * 0.15;
     for (const c of pl.board.filter(Boolean)) {
       const stats = hexStats(g, c),
         power = HEX_CARD_ABILITY_POWER[hexNum(c)] || 0;
@@ -12489,7 +17711,7 @@ function hexAscendedActions(g, side) {
       (c) => c && hexElderNum(c) === 13 && hexReady(g, c) && hexLegalTargets(g, c).length,
     );
   const out = forced ? [] : [{ kind: "next", hint: -1 }];
-  if (["pre", "post"].includes(g.phase)) {
+  if (["power", "pre", "post"].includes(g.phase)) {
     for (const c of g.players[side].hand) {
       if (hexIsReaction(c)) continue;
       for (const [index, o] of hexPlayOptions(g, side, c).entries())
@@ -14355,9 +19577,28 @@ Object.assign(HEX_SUPPORT_POWER, {
 /* Godot command boundary: one mutation per command; UI never computes rules. */
 globalThis.Hex = (() => {
   let game = null;
-  const starter = [1, 2, 3, 4, 5, 6, 9, 10, 11, 13, 14, 17, 23, 25, 35, 37, 38, 40, 42, 47].map(
-    (n) => "LT-" + String(n).padStart(3, "0"),
-  );
+  const starter = hexDevelopDeck([
+    "WE-001",
+    "WE-001",
+    "LT-001",
+    "LT-001",
+    "LT-006",
+    "LT-006",
+    "LT-010",
+    "LT-010",
+    "LT-014",
+    "LT-014",
+    "LT-029",
+    "LT-029",
+    "LT-027",
+    "LT-027",
+    "LT-047",
+    "LT-047",
+    "LT-034",
+    "LT-034",
+    "LT-059",
+    "LT-059",
+  ]);
   // Presentation metadata only: read current rules state without mutating it.
   function statuses(c) {
     if (c.hp == null) return [];
@@ -14467,6 +19708,9 @@ globalThis.Hex = (() => {
         artifacts: p.artifacts.map(enrich),
         discard: p.discard.map(enrich),
         exile: (p.exile || []).map(enrich),
+        planes: p.planes,
+        power: p.power,
+        planePlayed: p.planePlayed,
         losses: p.losses,
         mulligan: p.mulligan,
       })),
@@ -14482,6 +19726,19 @@ globalThis.Hex = (() => {
         : null,
       handOptions: Object.fromEntries(
         g.players[0].hand.map((c) => [c.uid, hexPlayOptions(g, 0, c).map(option)]),
+      ),
+      handReasons: Object.fromEntries(
+        g.players[0].hand.map((c) => [
+          c.uid,
+          hexPowerPayment(g, 0, c) === null
+            ? "Not enough matching Power."
+            : hexType(c, "Plane") && g.players[0].planePlayed
+              ? "You have already played a Plane this turn."
+              : hexType(c, "Creature") &&
+                  !g.players[0].board.some((t, slot) => !t && hexCompatible(g, c, 0, slot))
+                ? "No empty compatible hex. Change a Plane or free a matching hex."
+                : "This card cannot be played in the current phase or response window.",
+        ]),
       ),
       activeOptions: hexActiveOptions(g, 0).map(option),
       targets: Object.fromEntries(
@@ -14502,6 +19759,7 @@ globalThis.Hex = (() => {
         "coinResult",
         "opening",
         "start",
+        "power",
         "pre",
         "combat",
         "resolve",
@@ -14509,7 +19767,7 @@ globalThis.Hex = (() => {
         "end",
         "over",
       ].includes(g.phase) ||
-      g.v !== 1 ||
+      g.v !== 2 ||
       g.rules?.id !== "standard" ||
       !Array.isArray(g.players) ||
       g.players.length !== 2 ||
@@ -14521,6 +19779,8 @@ globalThis.Hex = (() => {
       throw Error("Unsupported match save");
     for (const p of g.players) {
       if (
+        !Array.isArray(p.power) ||
+        p.planes?.length !== 6 ||
         p.board?.length !== 6 ||
         p.artifacts?.length !== 2 ||
         !Array.isArray(p.hand) ||
@@ -14528,6 +19788,21 @@ globalThis.Hex = (() => {
         !Array.isArray(p.discard)
       )
         throw Error("Invalid match zones");
+      if (
+        p.planes.some(
+          (h) =>
+            !h ||
+            !Array.isArray(h.types) ||
+            !h.types.length ||
+            h.types.some((t) => !HEX_TERRAINS.includes(t)) ||
+            !Number.isInteger(h.level) ||
+            h.level < 0,
+        ) ||
+        p.power.some(
+          (s) => !Array.isArray(s) || !s.length || s.some((t) => !HEX_TERRAINS.includes(t)),
+        )
+      )
+        throw Error("Invalid Plane or Power state");
       for (const c of [
         ...p.hand,
         ...p.deck,
@@ -14544,14 +19819,16 @@ globalThis.Hex = (() => {
     const errors = [],
       counts = {};
     if (!Array.isArray(cards)) return { valid: false, errors: ["Deck must be a list of cards."] };
-    if (draft ? cards.length > 20 : cards.length !== 20)
-      errors.push("A Standard deck requires exactly 20 cards.");
+    if (draft ? cards.length > 30 : cards.length !== 30)
+      errors.push("A Standard deck requires exactly 30 cards.");
     for (const id of cards) {
       const c = HEX_CARD[id];
       if (!c) {
         errors.push("Unknown card: " + id);
         continue;
       }
+      if (c.generated_only)
+        errors.push(c.name + " is created by an effect and cannot enter a deck.");
       const base = c.baseId || id;
       counts[base] = (counts[base] || 0) + 1;
       if (counts[base] > (c.deckLimit || 2))
@@ -14562,6 +19839,8 @@ globalThis.Hex = (() => {
   function dispatch(c) {
     let ok = true;
     switch (c.op) {
+      case "developdeck":
+        return { cards: hexDevelopDeck(c.cards) };
       case "deckcheck":
         return deckCheck(c.cards, !!c.draft);
       case "new":
@@ -14582,7 +19861,7 @@ globalThis.Hex = (() => {
         );
         break;
       case "load":
-        game = validate(c.game);
+        game = validate(hexMigratePowerSave(c.game));
         game.context = { ...(game.context || {}), opponentAI: "ascended" };
         game.fx = [];
         game.fxAck = game.fxSerial;

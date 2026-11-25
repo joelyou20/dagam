@@ -49,6 +49,16 @@ func build_battle_from_encounter(encounter: EncounterData, enemy_id: String = ""
 		"name":
 		", ".join(encounter.enemies.filter(func(e): return e != null).map(func(e): return e.name))
 	}
+	var natural: Array = []
+
+	for slot in range(6):
+		var terrain := (
+			encounter.hex_terrains[slot] if slot < encounter.hex_terrains.size() else "Earth"
+		)
+
+		natural.append({"types": [terrain], "locked": slot in encounter.locked_hexes})
+
+	metadata["planes"] = [natural.duplicate(true), natural.duplicate(true)]
 	var player = PlayerManager.get_player_node()
 
 	if is_instance_valid(player):

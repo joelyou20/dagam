@@ -45,6 +45,16 @@ func _run():
 
 	game._close()
 	game._command({"op": "keep"})
+	(
+		game
+		. engine
+		. runtime
+		. evaluate(
+			"(()=>{const g=Hex.dispatch({op:'save'}).game;for(const p of g.players){p.power=Array.from({length:30},()=>[...HEX_TERRAINS]);p.planes=Array.from({length:6},()=>hexPlane(HEX_TERRAINS,0));}if(g.active===0&&g.phase==='power')hexNext(g,0);})()"
+		)
+	)
+	game.engine.request({"op": "view"})
+	game._refresh()
 	# Drive the live UI until the player can place a creature.
 
 	for i in range(50):

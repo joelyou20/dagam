@@ -1,6 +1,6 @@
 {
   "name": "Foundations",
-  "preview_only": true,
+  "preview_only": false,
   "cards": [
     {
       "id": "FD-001",
@@ -18,9 +18,10 @@
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "preview_only": true,
       "cost": {},
-      "art_direction": "Sunlit ochre canyon with towering striated sandstone pillars, jade river ribbon far below, tiny distant caravan for scale. Sweeping low viewpoint, burnt sienna, cobalt and golden noon."
+      "art_direction": "Sunlit ochre canyon with towering striated sandstone pillars, jade river ribbon far below, tiny distant caravan for scale. Sweeping low viewpoint, burnt sienna, cobalt and golden noon.",
+      "basic_plane": true,
+      "deckLimit": 30
     },
     {
       "id": "FD-002",
@@ -38,9 +39,10 @@
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "preview_only": true,
       "cost": {},
-      "art_direction": "Immense open pale-blue sky above a thin sea of white clouds, towering sculptural cumulus lit pink from sunrise, lone tiny floating feather close foreground. Minimal expansive composition, airy cyan, pearl and rose."
+      "art_direction": "Immense open pale-blue sky above a thin sea of white clouds, towering sculptural cumulus lit pink from sunrise, lone tiny floating feather close foreground. Minimal expansive composition, airy cyan, pearl and rose.",
+      "basic_plane": true,
+      "deckLimit": 30
     },
     {
       "id": "FD-003",
@@ -58,9 +60,10 @@
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "preview_only": true,
       "cost": {},
-      "art_direction": "Intimate ground-level view inside a volcanic lava cavern, molten orange river flowing around obsidian spires, black ceiling, smoke and flying sparks. Bold near-black versus white-hot orange, no green or purple."
+      "art_direction": "Intimate ground-level view inside a volcanic lava cavern, molten orange river flowing around obsidian spires, black ceiling, smoke and flying sparks. Bold near-black versus white-hot orange, no green or purple.",
+      "basic_plane": true,
+      "deckLimit": 30
     },
     {
       "id": "FD-004",
@@ -78,9 +81,10 @@
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "preview_only": true,
       "cost": {},
-      "art_direction": "Crystal-clear turquoise tropical lagoon seen half underwater: sun shafts, colourful coral foreground and distant limestone sea arches above waterline. Luminous aqua, coral red and deep marine blue."
+      "art_direction": "Crystal-clear turquoise tropical lagoon seen half underwater: sun shafts, colourful coral foreground and distant limestone sea arches above waterline. Luminous aqua, coral red and deep marine blue.",
+      "basic_plane": true,
+      "deckLimit": 30
     },
     {
       "id": "FD-005",
@@ -98,9 +102,10 @@
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "preview_only": true,
       "cost": {},
-      "art_direction": "Enormous abandoned gothic castle silhouetted on a jagged ridge beneath a starless eclipse, winding pale fog swallowing foreground. Extremely restrained charcoal, indigo and bone-white, dramatic negative space, no glowing purple crystals."
+      "art_direction": "Enormous abandoned gothic castle silhouetted on a jagged ridge beneath a starless eclipse, winding pale fog swallowing foreground. Extremely restrained charcoal, indigo and bone-white, dramatic negative space, no glowing purple crystals.",
+      "basic_plane": true,
+      "deckLimit": 30
     },
     {
       "id": "FD-006",
@@ -118,9 +123,10 @@
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "preview_only": true,
       "cost": {},
-      "art_direction": "Radiant white-gold sun breaking over rolling fields of ivory flowers, prismatic motes and soft golden trees, close dewy petals foreground, horizon flooded with warm light. Cream, amber and pale mint, joyful exposure."
+      "art_direction": "Radiant white-gold sun breaking over rolling fields of ivory flowers, prismatic motes and soft golden trees, close dewy petals foreground, horizon flooded with warm light. Cream, amber and pale mint, joyful exposure.",
+      "basic_plane": true,
+      "deckLimit": 30
     },
     {
       "id": "FD-007",
@@ -140,7 +146,6 @@
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "preview_only": true,
       "cost": {},
       "art_direction": "Aerial oblique view of broken ancient stone temples on floating moss-covered islands above a vast cloud abyss, cascading waterfalls vanish below, small hanging bridges. Weathered stone, emerald and azure, dizzying vertical scale."
     },
@@ -162,7 +167,6 @@
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "preview_only": true,
       "cost": {},
       "art_direction": "Wide desolate black ash dunes crossing a red mesa desert, smoking fissures in foreground, a ruined watchtower nearly buried in ash, wind whips cinders under a copper storm sky. Rust, black and muted bronze, harsh diagonal composition."
     },
@@ -184,7 +188,6 @@
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "preview_only": true,
       "cost": {},
       "art_direction": "Deep underwater boulevard of a submerged marble city, sea grass grows over statues and algae-covered stairs, gigantic domes recede into teal gloom, schools of silver fish and a distant whale. Tranquil blue-green and limestone white, street-level perspective."
     },
@@ -206,7 +209,6 @@
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "preview_only": true,
       "cost": {},
       "art_direction": "Claustrophobic underground sepulchre of rough earth and roots, elaborately carved basalt sarcophagus at lower right, single cold green witch-flame illuminating engraved stone, bone dust in narrow light shaft. Moss-black and sickly pale green, close scale, no skull piles."
     },
@@ -228,7 +230,6 @@
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "preview_only": true,
       "cost": {},
       "art_direction": "Macro-low perspective through red poppies and yellow wildflowers toward a lush sweeping meadow, warm afternoon sun, a tiny rustic windmill on distant hill, bees and butterflies. Saturated scarlet, fresh lime, cornflower blue, exuberant natural abundance."
     },
@@ -250,7 +251,6 @@
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "preview_only": true,
       "cost": {},
       "art_direction": "Treacherous narrow mountain pass suspended between immense storm clouds, brilliant comet-like streams of fire crossing overhead, rope bridge curling around dark peaks, view from a precarious ledge. Steel blue storm versus blazing vermilion, fierce wind."
     },
@@ -272,7 +272,6 @@
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "preview_only": true,
       "cost": {},
       "art_direction": "Surreal ocean suspended upside-down overhead, enormous translucent waves and a whale hanging in the sky above a dry white salt plain, vertical rain ribbons connecting earth and ocean. Wide ground-level upward view, icy blue, silver and soft peach horizon."
     },
@@ -294,7 +293,6 @@
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "preview_only": true,
       "cost": {},
       "art_direction": "Lonely black-sand shoreline seeming to float among twilight clouds, crescent moon, a skeletal driftwood arch and distant dark birds, reflected starlight on narrow tide pools. Quiet lavender-grey, midnight and a single crimson sunset band, sparse asymmetrical framing."
     },
@@ -316,7 +314,6 @@
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "preview_only": true,
       "cost": {},
       "art_direction": "Open-air celestial reliquary on a gleaming white stone platform above clouds, delicate golden architectural ribs surrounding one suspended luminous glass vessel, silk banners glowing in morning light. Close architectural study, alabaster, pale gold, gentle sky blue, no character portrait."
     },
@@ -338,7 +335,6 @@
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "preview_only": true,
       "cost": {},
       "art_direction": "High overhead view of branching milky turquoise geothermal rivers meeting glowing volcanic channels, immense steam plumes and vivid orange mineral banks, intricate branching natural pattern. Turquoise, sulphur yellow and orange, cartographic scale without labels."
     },
@@ -360,7 +356,6 @@
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "preview_only": true,
       "cost": {},
       "art_direction": "Cavernous demonic banquet hall carved from black volcanic glass, empty elongated table leads to a monumental furnace throne, embers drip like chandeliers, reflected red fire in polished floor. Symmetrical one-point perspective, deep burgundy, black and ember gold."
     },
@@ -382,7 +377,6 @@
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "preview_only": true,
       "cost": {},
       "art_direction": "Humble intimate seven-sided stone chapel at night, hundreds of warm candles on stepped wooden ledges and a small stained-glass sun window, comforting amber light catching floating dust. Human-scale interior, honey gold, rich brown and subtle cobalt window accents."
     },
@@ -404,7 +398,6 @@
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "preview_only": true,
       "cost": {},
       "art_direction": "Vertiginous descent into a pitch-black ocean trench, huge ancient stone face barely visible on canyon wall, sparse tiny blue bioluminescent creatures reveal unimaginable depth. Near-black and electric cyan, powerful negative space and atmospheric obscurity."
     },
@@ -426,7 +419,6 @@
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "preview_only": true,
       "cost": {},
       "art_direction": "Gently curving river estuary at dawn where luminous gold freshwater meets a pearlescent sea, white wading birds reflected in shallow pools, tiny star-like motes among reeds. Serene low panoramic view, champagne gold, blush pink and pale seafoam."
     },
@@ -448,7 +440,6 @@
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "preview_only": true,
       "cost": {},
       "art_direction": "Subterranean crystal cleft split by a razor-thin shaft of brilliant moonlight, one side pure white sparkling mineral and the other dark untouched stone, still black reflecting pool. Severe black-white contrast with restrained cold silver, dramatic tilted upward viewpoint."
     },
@@ -470,11 +461,7 @@
       "rules": "Heal the creature occupying this hex by 1 HP at the start of its controller’s pre-combat phase.",
       "set": "foundations",
       "set_name": "Foundations",
-      "preview_only": true,
-      "cost": {
-        "Water": 1,
-        "Earth": 1
-      },
+      "cost": {},
       "art_direction": "A tiny sacred spring wells from between ancient tree roots into a round mossy stone basin, golden sunlight rests on the water, medicinal blue flowers and fresh fern fronds frame the intimate sanctuary. Warm olive, turquoise and soft gold, close low eye-level view."
     },
     {
@@ -493,7 +480,6 @@
       "rules": "At the beginning of your opponent’s combat phase, grant 1 Shield to the creature you control directly behind this hex.",
       "set": "foundations",
       "set_name": "Foundations",
-      "preview_only": true,
       "cost": {},
       "art_direction": "An immense translucent golden wall shaped from interlocking luminous hexagons shields a quiet grassy courtyard from a distant storm of dark arrows, camera skims along its edge so protective depth is clear. Brilliant honey-white versus slate blue, sharp geometric shapes, no people prominent."
     },
@@ -509,7 +495,6 @@
       "rules": "Change one of the enemy’s hexes into a Volcanic Vent.",
       "set": "foundations",
       "set_name": "Foundations",
-      "preview_only": true,
       "cost": {
         "Earth": 1,
         "Fire": 1
@@ -534,7 +519,6 @@
       "rules": "Deal 1 damage to the creature occupying this hex at the start of its controller’s pre-combat phase.",
       "set": "foundations",
       "set_name": "Foundations",
-      "preview_only": true,
       "cost": {},
       "art_direction": "Close downward view of a circular jagged volcanic vent embedded in cracked basalt, white-hot gas jets escape through a glowing central fissure, red mineral crust and scorched dry weeds. Intense white centre, dark umber and sulphur orange, contained hazardous place, not a volcano panorama.",
       "generated_only": true
@@ -555,10 +539,7 @@
       "rules": "At the beginning of each of your combat phases, if this hex is empty, summon one Goblin Punk. That creature gains Sprint and Doomed.",
       "set": "foundations",
       "set_name": "Foundations",
-      "preview_only": true,
-      "cost": {
-        "Fire": 2
-      },
+      "cost": {},
       "art_direction": "Tall weather-beaten wooden door stands alone on a windswept grassy ridge, its open doorway reveals a blazing goblin war camp in another realm; one scrappy green goblin punk with red crest is stepping through, other small goblin silhouettes behind. Cool emerald dusk outside, orange fire within, strong doorway silhouette and magical threshold."
     }
   ]

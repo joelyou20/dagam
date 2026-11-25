@@ -88,7 +88,7 @@ func _initialize():
 		if c.played and c.resolved:
 			covered[c.id] = true
 
-	if covered.size() != 160:
+	if covered.size() != bridge.catalog.cards.size():
 		push_error("Incomplete resolution coverage: " + str(covered.size()))
 		quit(1)
 

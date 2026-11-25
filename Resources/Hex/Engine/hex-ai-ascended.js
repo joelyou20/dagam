@@ -14,6 +14,8 @@ function hexBotPlayKey(g, side, uid, index) {
     uid,
     index,
     phase: g.phase,
+    planes: pl.planes,
+    power: pl.power,
     hand: pl.hand,
     board: pl.board,
     artifacts: pl.artifacts,
@@ -73,7 +75,11 @@ function hexAscendedValue(g, side) {
   if (g.winner !== null) return g.winner === -1 ? 0 : g.winner === side ? 100000 : -100000;
   const score = (p) => {
     const pl = g.players[p];
-    let v = -pl.losses * 24 + pl.hand.length * 1.6 + Math.min(pl.deck.length, 5) * 0.15;
+    let v =
+      pl.planes.reduce((sum, h) => sum + h.level * 3, 0) -
+      pl.losses * 24 +
+      pl.hand.length * 1.6 +
+      Math.min(pl.deck.length, 5) * 0.15;
     for (const c of pl.board.filter(Boolean)) {
       const stats = hexStats(g, c),
         power = HEX_CARD_ABILITY_POWER[hexNum(c)] || 0;
@@ -136,7 +142,7 @@ function hexAscendedActions(g, side) {
       (c) => c && hexElderNum(c) === 13 && hexReady(g, c) && hexLegalTargets(g, c).length,
     );
   const out = forced ? [] : [{ kind: "next", hint: -1 }];
-  if (["pre", "post"].includes(g.phase)) {
+  if (["power", "pre", "post"].includes(g.phase)) {
     for (const c of g.players[side].hand) {
       if (hexIsReaction(c)) continue;
       for (const [index, o] of hexPlayOptions(g, side, c).entries())

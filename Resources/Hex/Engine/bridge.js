@@ -2,9 +2,28 @@
 /* Godot command boundary: one mutation per command; UI never computes rules. */
 globalThis.Hex = (() => {
   let game = null;
-  const starter = [1, 2, 3, 4, 5, 6, 9, 10, 11, 13, 14, 17, 23, 25, 35, 37, 38, 40, 42, 47].map(
-    (n) => "LT-" + String(n).padStart(3, "0"),
-  );
+  const starter = hexDevelopDeck([
+    "WE-001",
+    "WE-001",
+    "LT-001",
+    "LT-001",
+    "LT-006",
+    "LT-006",
+    "LT-010",
+    "LT-010",
+    "LT-014",
+    "LT-014",
+    "LT-029",
+    "LT-029",
+    "LT-027",
+    "LT-027",
+    "LT-047",
+    "LT-047",
+    "LT-034",
+    "LT-034",
+    "LT-059",
+    "LT-059",
+  ]);
   // Presentation metadata only: read current rules state without mutating it.
   function statuses(c) {
     if (c.hp == null) return [];
@@ -114,6 +133,9 @@ globalThis.Hex = (() => {
         artifacts: p.artifacts.map(enrich),
         discard: p.discard.map(enrich),
         exile: (p.exile || []).map(enrich),
+        planes: p.planes,
+        power: p.power,
+        planePlayed: p.planePlayed,
         losses: p.losses,
         mulligan: p.mulligan,
       })),
@@ -129,6 +151,19 @@ globalThis.Hex = (() => {
         : null,
       handOptions: Object.fromEntries(
         g.players[0].hand.map((c) => [c.uid, hexPlayOptions(g, 0, c).map(option)]),
+      ),
+      handReasons: Object.fromEntries(
+        g.players[0].hand.map((c) => [
+          c.uid,
+          hexPowerPayment(g, 0, c) === null
+            ? "Not enough matching Power."
+            : hexType(c, "Plane") && g.players[0].planePlayed
+              ? "You have already played a Plane this turn."
+              : hexType(c, "Creature") &&
+                  !g.players[0].board.some((t, slot) => !t && hexCompatible(g, c, 0, slot))
+                ? "No empty compatible hex. Change a Plane or free a matching hex."
+                : "This card cannot be played in the current phase or response window.",
+        ]),
       ),
       activeOptions: hexActiveOptions(g, 0).map(option),
       targets: Object.fromEntries(
@@ -149,6 +184,7 @@ globalThis.Hex = (() => {
         "coinResult",
         "opening",
         "start",
+        "power",
         "pre",
         "combat",
         "resolve",
@@ -156,7 +192,7 @@ globalThis.Hex = (() => {
         "end",
         "over",
       ].includes(g.phase) ||
-      g.v !== 1 ||
+      g.v !== 2 ||
       g.rules?.id !== "standard" ||
       !Array.isArray(g.players) ||
       g.players.length !== 2 ||
@@ -168,6 +204,8 @@ globalThis.Hex = (() => {
       throw Error("Unsupported match save");
     for (const p of g.players) {
       if (
+        !Array.isArray(p.power) ||
+        p.planes?.length !== 6 ||
         p.board?.length !== 6 ||
         p.artifacts?.length !== 2 ||
         !Array.isArray(p.hand) ||
@@ -175,6 +213,21 @@ globalThis.Hex = (() => {
         !Array.isArray(p.discard)
       )
         throw Error("Invalid match zones");
+      if (
+        p.planes.some(
+          (h) =>
+            !h ||
+            !Array.isArray(h.types) ||
+            !h.types.length ||
+            h.types.some((t) => !HEX_TERRAINS.includes(t)) ||
+            !Number.isInteger(h.level) ||
+            h.level < 0,
+        ) ||
+        p.power.some(
+          (s) => !Array.isArray(s) || !s.length || s.some((t) => !HEX_TERRAINS.includes(t)),
+        )
+      )
+        throw Error("Invalid Plane or Power state");
       for (const c of [
         ...p.hand,
         ...p.deck,
@@ -191,14 +244,16 @@ globalThis.Hex = (() => {
     const errors = [],
       counts = {};
     if (!Array.isArray(cards)) return { valid: false, errors: ["Deck must be a list of cards."] };
-    if (draft ? cards.length > 20 : cards.length !== 20)
-      errors.push("A Standard deck requires exactly 20 cards.");
+    if (draft ? cards.length > 30 : cards.length !== 30)
+      errors.push("A Standard deck requires exactly 30 cards.");
     for (const id of cards) {
       const c = HEX_CARD[id];
       if (!c) {
         errors.push("Unknown card: " + id);
         continue;
       }
+      if (c.generated_only)
+        errors.push(c.name + " is created by an effect and cannot enter a deck.");
       const base = c.baseId || id;
       counts[base] = (counts[base] || 0) + 1;
       if (counts[base] > (c.deckLimit || 2))
@@ -209,6 +264,8 @@ globalThis.Hex = (() => {
   function dispatch(c) {
     let ok = true;
     switch (c.op) {
+      case "developdeck":
+        return { cards: hexDevelopDeck(c.cards) };
       case "deckcheck":
         return deckCheck(c.cards, !!c.draft);
       case "new":
@@ -229,7 +286,7 @@ globalThis.Hex = (() => {
         );
         break;
       case "load":
-        game = validate(c.game);
+        game = validate(hexMigratePowerSave(c.game));
         game.context = { ...(game.context || {}), opponentAI: "ascended" };
         game.fx = [];
         game.fxAck = game.fxSerial;

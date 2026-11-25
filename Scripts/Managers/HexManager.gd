@@ -281,6 +281,17 @@ func load_decks(data: Dictionary) -> bool:
 	):
 		return false
 
+	data = data.duplicate(true)
+	data.active = session.request({"op": "developdeck", "cards": data.active}).get(
+		"cards", data.active
+	)
+
+	for entry in data.decks:
+		if entry is Dictionary and entry.get("cards") is Array:
+			entry.cards = session.request({"op": "developdeck", "cards": entry.cards}).get(
+				"cards", entry.cards
+			)
+
 	if not deck_errors(data.active).is_empty():
 		return false
 

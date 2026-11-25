@@ -1,0 +1,7 @@
+{
+  "matches": 56,
+  "median_round": 3.0,
+  "ending_by_round_3": 38,
+  "longest_round": 10.0,
+  "note": "Small deterministic sample: two seeds per enemy. Existing empty-field defeat rule retained. These are functional simulations, not proof of final balance."
+}
