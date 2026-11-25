@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3]
+
+[ext_resource type="Shader" path="res://Resources/Terrain/test_area_ground.gdshader" id="1_shader"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Terrain/test_area_autotiles.png" id="2_tiles"]
+
+[resource]
+shader = ExtResource("1_shader")
+shader_parameter/terrain_tiles = ExtResource("2_tiles")
+shader_parameter/tile_count = Vector2(28, 4)

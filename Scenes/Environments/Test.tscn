@@ -1,6 +1,6 @@
-[gd_scene load_steps=41 format=3 uid="uid://d3m7gv82kgk8t"]
+[gd_scene load_steps=39 format=3 uid="uid://d3m7gv82kgk8t"]
 
-[ext_resource type="Texture2D" uid="uid://cex0yttn80owp" path="res://Assets/Textures/Sand/Sand_Albedo.tga" id="1_d6bna"]
+[ext_resource type="Material" path="res://Resources/Terrain/test_area_ground.tres" id="1_d6bna"]
 [ext_resource type="Script" path="res://Scripts/NPC.gd" id="2_dbkgc"]
 [ext_resource type="Texture2D" uid="uid://oma61eo6wvaj" path="res://Assets/Sprites/Player.png" id="3_3iyhn"]
 [ext_resource type="Texture2D" uid="uid://y0kswnh5xqr2" path="res://Assets/Sprites/Farmer.png" id="4_6gp10"]
@@ -25,14 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://cqit1lxcfkyq4" path="res://Scenes/Items/Axe.tscn" id="15_esb3w"]
 [ext_resource type="PackedScene" uid="uid://ovahmhp2sbp" path="res://Scenes/Items/WingBoots.tscn" id="16_3p3qq"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v818v"]
-albedo_texture = ExtResource("1_d6bna")
-
 [sub_resource type="PlaneMesh" id="PlaneMesh_w6cyq"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3p41y"]
-uv1_scale = Vector3(4, 4, 4)
-uv1_offset = Vector3(4, 0, 0)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iddmb"]
 size = Vector3(1.95093, 0.001, 1.90512)
@@ -80,9 +73,8 @@ battle_scene_path = "res://Scenes/BattleScenes/TestBattleScene.tscn"
 
 [node name="Ground" type="MeshInstance3D" parent="."]
 transform = Transform3D(6.94202, 0, 0, 0, 1.00259, 0, 0, 0, 1.00259, -0.0041182, 0, 0.00224924)
-material_override = SubResource("StandardMaterial3D_v818v")
+material_override = ExtResource("1_d6bna")
 mesh = SubResource("PlaneMesh_w6cyq")
-surface_material_override/0 = SubResource("StandardMaterial3D_3p41y")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
 

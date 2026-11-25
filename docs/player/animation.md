@@ -17,8 +17,10 @@ The atlas has eight columns and eight rows. Rows, from top to bottom:
 8. Walk up
 
 Each row loops through all eight columns. Idle runs at 5 FPS; walking runs at
-10 FPS, scaled to actual travel speed. Diagonal movement uses the dominant
-screen-space direction. Stopping retains the last facing. Walls and interaction
+10 FPS, scaled to actual travel speed. Movement is restricted to four cardinal directions. When two perpendicular keys
+are held, the newest key wins; releasing it resumes the remaining held direction.
+Simultaneous equal inputs keep the previous axis, and analogue input uses its
+stronger axis. Stopping retains the last facing. Walls and interaction
 blockers return the player to idle.
 
 `Scenes/Player.tscn` keeps the existing CharacterBody3D, collision, camera and
