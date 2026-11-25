@@ -5,7 +5,7 @@
     "rarity": "Common",
     "id": "LT-001",
     "card_type": "Creature",
-    "subtype": "Beast \u2014 Hound",
+    "subtype": "Beast — Hound",
     "rules": "",
     "attack": 2,
     "hp": 5,
@@ -19,6 +19,13 @@
         "id": "ward",
         "value": 1
       }
+    ],
+    "cost": {
+      "Light": 2
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
     ]
   },
   {
@@ -27,7 +34,7 @@
     "rarity": "Uncommon",
     "id": "LT-002",
     "card_type": "Creature",
-    "subtype": "Beast \u2014 Scorpion",
+    "subtype": "Beast — Scorpion",
     "rules": "Creatures stunned by this creature take 1 less damage from each source while that Stun lasts.",
     "attack": 2,
     "hp": 4,
@@ -40,6 +47,13 @@
       {
         "id": "stunning"
       }
+    ],
+    "cost": {
+      "Earth": 3
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
     ]
   },
   {
@@ -48,7 +62,7 @@
     "rarity": "Common",
     "id": "LT-003",
     "card_type": "Creature",
-    "subtype": "Beast \u2014 Eel",
+    "subtype": "Beast — Eel",
     "rules": "This creature cannot attack. At your turn start, deal 1 damage to an enemy front creature. If it was already damaged, stun it.",
     "attack": 0,
     "hp": 5,
@@ -57,7 +71,14 @@
       "Beast",
       "Eel"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 3
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
+    ]
   },
   {
     "number": 4,
@@ -65,7 +86,7 @@
     "rarity": "Uncommon",
     "id": "LT-004",
     "card_type": "Creature",
-    "subtype": "Bird \u2014 Owl",
+    "subtype": "Bird — Owl",
     "rules": "At your turn start, look at the top 2 cards of your deck. Put one on top and the other on the bottom.",
     "attack": 1,
     "hp": 4,
@@ -74,7 +95,14 @@
       "Bird",
       "Owl"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 1
+    },
+    "terrain_types": [
+      "Sky",
+      "Water"
+    ]
   },
   {
     "number": 5,
@@ -90,7 +118,14 @@
     "types": [
       "Dragon"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Fire": 2
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
+    ]
   },
   {
     "number": 6,
@@ -98,7 +133,7 @@
     "rarity": "Uncommon",
     "id": "LT-006",
     "card_type": "Creature",
-    "subtype": "Beast \u2014 Mouse",
+    "subtype": "Beast — Mouse",
     "rules": "After this creature survives combat damage, it gets +1 Attack for the rest of the game. This can trigger once each turn.",
     "attack": 2,
     "hp": 4,
@@ -107,7 +142,14 @@
       "Beast",
       "Mouse"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 2
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
+    ]
   },
   {
     "number": 7,
@@ -115,7 +157,7 @@
     "rarity": "Epic",
     "id": "LT-007",
     "card_type": "Creature",
-    "subtype": "Elemental \u2014 Phoenix",
+    "subtype": "Elemental — Phoenix",
     "rules": "The first time this creature dies, return it to your hand after combat. Its death still counts as a loss. When replayed, it enters with 3 HP instead of 5.",
     "attack": 3,
     "hp": 5,
@@ -124,7 +166,14 @@
       "Elemental",
       "Phoenix"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Fire": 4
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
+    ]
   },
   {
     "number": 8,
@@ -132,7 +181,7 @@
     "rarity": "Epic",
     "id": "LT-008",
     "card_type": "Creature",
-    "subtype": "Construct \u2014 Golem",
+    "subtype": "Construct — Golem",
     "rules": "This creature can only be played in a front slot. When it dies, deal 1 damage to each enemy creature. This creature cannot attack back-row creatures.",
     "attack": 3,
     "hp": 7,
@@ -141,7 +190,14 @@
       "Construct",
       "Golem"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 5
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
+    ]
   },
   {
     "number": 9,
@@ -149,7 +205,7 @@
     "rarity": "Common",
     "id": "LT-009",
     "card_type": "Creature",
-    "subtype": "Undead \u2014 Mage",
+    "subtype": "Undead — Mage",
     "rules": "Once during your pre-combat, combat, or post-combat phase, discard a card to return a Creature with printed Attack 1 or less from your discard pile to your hand.",
     "attack": 1,
     "hp": 4,
@@ -158,7 +214,14 @@
       "Undead",
       "Mage"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 2
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
+    ]
   },
   {
     "number": 10,
@@ -166,8 +229,8 @@
     "rarity": "Uncommon",
     "id": "LT-010",
     "card_type": "Creature",
-    "subtype": "Construct \u2014 Guardian",
-    "rules": "At your turn start, heal 1 HP on each other creature in this creature\u2019s column.",
+    "subtype": "Construct — Guardian",
+    "rules": "At your turn start, heal 1 HP on each other creature in this creature’s column.",
     "attack": 1,
     "hp": 6,
     "set": "first-light",
@@ -175,7 +238,14 @@
       "Construct",
       "Guardian"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 3
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
+    ]
   },
   {
     "number": 11,
@@ -184,14 +254,21 @@
     "id": "LT-011",
     "card_type": "Creature",
     "subtype": "Fungus",
-    "rules": "After this creature deals combat damage to a creature, that creature gets \u22121 Attack until the end of its controller\u2019s next turn.",
+    "rules": "After this creature deals combat damage to a creature, that creature gets −1 Attack until the end of its controller’s next turn.",
     "attack": 2,
     "hp": 4,
     "set": "first-light",
     "types": [
       "Fungus"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Water": 2
+    },
+    "terrain_types": [
+      "Water",
+      "Sky"
+    ]
   },
   {
     "number": 12,
@@ -199,8 +276,8 @@
     "rarity": "Epic",
     "id": "LT-012",
     "card_type": "Creature",
-    "subtype": "Beast \u2014 Stag",
-    "rules": "When you play this creature, choose an enemy creature. It gets \u22122 Attack until the end of its controller\u2019s next turn.",
+    "subtype": "Beast — Stag",
+    "rules": "When you play this creature, choose an enemy creature. It gets −2 Attack until the end of its controller’s next turn.",
     "attack": 3,
     "hp": 5,
     "set": "first-light",
@@ -208,7 +285,14 @@
       "Beast",
       "Stag"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 4
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
+    ]
   },
   {
     "number": 13,
@@ -216,7 +300,7 @@
     "rarity": "Common",
     "id": "LT-013",
     "card_type": "Creature",
-    "subtype": "Elemental \u2014 Slime",
+    "subtype": "Elemental — Slime",
     "rules": "",
     "attack": 2,
     "hp": 3,
@@ -233,6 +317,13 @@
         "id": "deathburst",
         "value": 1
       }
+    ],
+    "cost": {
+      "Fire": 2
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
     ]
   },
   {
@@ -241,7 +332,7 @@
     "rarity": "Uncommon",
     "id": "LT-014",
     "card_type": "Creature",
-    "subtype": "Goblin \u2014 Rogue",
+    "subtype": "Goblin — Rogue",
     "rules": "When this creature attacks a damaged creature, it gets +1 Attack for that combat.",
     "attack": 2,
     "hp": 3,
@@ -254,6 +345,13 @@
       {
         "id": "sprint"
       }
+    ],
+    "cost": {
+      "Earth": 2
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
     ]
   },
   {
@@ -262,7 +360,7 @@
     "rarity": "Legendary",
     "id": "LT-015",
     "card_type": "Creature",
-    "subtype": "Elemental \u2014 Sovereign",
+    "subtype": "Elemental — Sovereign",
     "rules": "While this creature is in a back slot, its front protector gets +2 maximum HP. When that protector dies, stun this creature.",
     "attack": 3,
     "hp": 5,
@@ -271,7 +369,14 @@
       "Elemental",
       "Sovereign"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 4
+    },
+    "terrain_types": [
+      "Sky",
+      "Water"
+    ]
   },
   {
     "number": 16,
@@ -279,7 +384,7 @@
     "rarity": "Epic",
     "id": "LT-016",
     "card_type": "Creature",
-    "subtype": "Dragon \u2014 Salamander",
+    "subtype": "Dragon — Salamander",
     "rules": "When this creature attacks, deal 1 damage to the creature directly behind its target, if any. This creature cannot attack until your second turn after it is played.",
     "attack": 4,
     "hp": 6,
@@ -288,7 +393,14 @@
       "Dragon",
       "Salamander"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Fire": 5
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
+    ]
   },
   {
     "number": 17,
@@ -304,7 +416,14 @@
     "types": [
       "Slime"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Water": 1
+    },
+    "terrain_types": [
+      "Water",
+      "Sky"
+    ]
   },
   {
     "number": 18,
@@ -312,8 +431,8 @@
     "rarity": "Uncommon",
     "id": "LT-018",
     "card_type": "Creature",
-    "subtype": "Bird \u2014 Archer",
-    "rules": "While this creature has a front protector, it gets +2 Attack. Otherwise it has \u22121 Attack.",
+    "subtype": "Bird — Archer",
+    "rules": "While this creature has a front protector, it gets +2 Attack. Otherwise it has −1 Attack.",
     "attack": 2,
     "hp": 4,
     "set": "first-light",
@@ -321,7 +440,14 @@
       "Bird",
       "Archer"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Fire": 3
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
+    ]
   },
   {
     "number": 19,
@@ -329,7 +455,7 @@
     "rarity": "Common",
     "id": "LT-019",
     "card_type": "Creature",
-    "subtype": "Elemental \u2014 Wind",
+    "subtype": "Elemental — Wind",
     "rules": "When you play this creature, you may swap an enemy front creature with the creature directly behind it. Both slots must be occupied.",
     "attack": 1,
     "hp": 4,
@@ -338,7 +464,14 @@
       "Elemental",
       "Wind"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 3
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
+    ]
   },
   {
     "number": 20,
@@ -346,8 +479,8 @@
     "rarity": "Uncommon",
     "id": "LT-020",
     "card_type": "Creature",
-    "subtype": "Elemental \u2014 Serpent",
-    "rules": "After this creature deals combat damage to a back-row creature, you may return that creature to its owner\u2019s hand. Returning it is not a death.",
+    "subtype": "Elemental — Serpent",
+    "rules": "After this creature deals combat damage to a back-row creature, you may return that creature to its owner’s hand. Returning it is not a death.",
     "attack": 2,
     "hp": 4,
     "set": "first-light",
@@ -355,7 +488,14 @@
       "Elemental",
       "Serpent"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 4
+    },
+    "terrain_types": [
+      "Sky",
+      "Water"
+    ]
   },
   {
     "number": 21,
@@ -363,7 +503,7 @@
     "rarity": "Common",
     "id": "LT-021",
     "card_type": "Creature",
-    "subtype": "Construct \u2014 Sentinel",
+    "subtype": "Construct — Sentinel",
     "rules": "When you play this creature, remove all shield from an enemy front creature. That creature cannot gain shield until the end of your next turn.",
     "attack": 2,
     "hp": 5,
@@ -372,7 +512,14 @@
       "Construct",
       "Sentinel"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 3
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
+    ]
   },
   {
     "number": 22,
@@ -380,7 +527,7 @@
     "rarity": "Uncommon",
     "id": "LT-022",
     "card_type": "Creature",
-    "subtype": "Beast \u2014 Bat",
+    "subtype": "Beast — Bat",
     "rules": "After this creature deals combat damage to a back-row creature, heal 1 HP on it.",
     "attack": 1,
     "hp": 3,
@@ -393,6 +540,13 @@
       {
         "id": "ranged"
       }
+    ],
+    "cost": {
+      "Dark": 1
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
     ]
   },
   {
@@ -406,7 +560,10 @@
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 1
+    }
   },
   {
     "number": 24,
@@ -414,7 +571,7 @@
     "rarity": "Uncommon",
     "id": "LT-024",
     "card_type": "Creature",
-    "subtype": "Beast \u2014 Crab",
+    "subtype": "Beast — Crab",
     "rules": "While this creature has half its maximum HP or less, rounded down, it takes 1 less damage from each source.",
     "attack": 2,
     "hp": 6,
@@ -423,7 +580,14 @@
       "Beast",
       "Crab"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Water": 3
+    },
+    "terrain_types": [
+      "Water",
+      "Sky"
+    ]
   },
   {
     "number": 25,
@@ -436,7 +600,10 @@
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 1
+    }
   },
   {
     "number": 26,
@@ -444,7 +611,7 @@
     "rarity": "Uncommon",
     "id": "LT-026",
     "card_type": "Creature",
-    "subtype": "Elemental \u2014 Slime",
+    "subtype": "Elemental — Slime",
     "rules": "When this creature attacks an already stunned creature, it gets +2 Attack for that combat.",
     "attack": 1,
     "hp": 5,
@@ -457,6 +624,13 @@
       {
         "id": "stunning"
       }
+    ],
+    "cost": {
+      "Water": 3
+    },
+    "terrain_types": [
+      "Water",
+      "Sky"
     ]
   },
   {
@@ -465,7 +639,7 @@
     "rarity": "Common",
     "id": "LT-027",
     "card_type": "Creature",
-    "subtype": "Insect \u2014 Moth",
+    "subtype": "Insect — Moth",
     "rules": "When you play this creature, remove Stun or Burn from a friendly creature. If you removed an effect, heal 1 HP on that creature.",
     "attack": 1,
     "hp": 4,
@@ -474,7 +648,14 @@
       "Insect",
       "Moth"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 1
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
+    ]
   },
   {
     "number": 28,
@@ -487,7 +668,10 @@
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Fire": 3
+    }
   },
   {
     "number": 29,
@@ -495,7 +679,7 @@
     "rarity": "Common",
     "id": "LT-029",
     "card_type": "Creature",
-    "subtype": "Insect \u2014 Grub",
+    "subtype": "Insect — Grub",
     "rules": "",
     "attack": 1,
     "hp": 4,
@@ -508,6 +692,13 @@
       {
         "id": "packbond"
       }
+    ],
+    "cost": {
+      "Earth": 1
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
     ]
   },
   {
@@ -516,8 +707,8 @@
     "rarity": "Legendary",
     "id": "LT-030",
     "card_type": "Creature",
-    "subtype": "Undead \u2014 Lich",
-    "rules": "After this creature deals combat damage, reduce the damaged creature\u2019s maximum HP by 1.",
+    "subtype": "Undead — Lich",
+    "rules": "After this creature deals combat damage, reduce the damaged creature’s maximum HP by 1.",
     "attack": 3,
     "hp": 6,
     "set": "first-light",
@@ -529,6 +720,13 @@
       {
         "id": "resilient"
       }
+    ],
+    "cost": {
+      "Dark": 5
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
     ]
   },
   {
@@ -542,7 +740,10 @@
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 3
+    }
   },
   {
     "number": 32,
@@ -550,7 +751,7 @@
     "rarity": "Uncommon",
     "id": "LT-032",
     "card_type": "Creature",
-    "subtype": "Goblin \u2014 Alchemist",
+    "subtype": "Goblin — Alchemist",
     "rules": "After this creature deals combat damage to a creature, put a fuse counter on it. At 2 fuse counters, remove those counters and deal 3 damage to that creature.",
     "attack": 1,
     "hp": 4,
@@ -559,7 +760,14 @@
       "Goblin",
       "Alchemist"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Fire": 2
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
+    ]
   },
   {
     "number": 33,
@@ -568,11 +776,14 @@
     "id": "LT-033",
     "card_type": "Spell",
     "subtype": "Reaction",
-    "rules": "Play only immediately after an enemy Artifact\u2019s turn-start ability heals a creature or deals damage. Choose one: heal 2 HP on a friendly creature; or deal 1 damage to an enemy front creature.",
+    "rules": "Play only immediately after an enemy Artifact’s turn-start ability heals a creature or deals damage. Choose one: heal 2 HP on a friendly creature; or deal 1 damage to an enemy front creature.",
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 1
+    }
   },
   {
     "number": 34,
@@ -585,7 +796,10 @@
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 2
+    }
   },
   {
     "number": 35,
@@ -598,7 +812,10 @@
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 1
+    }
   },
   {
     "number": 36,
@@ -606,7 +823,7 @@
     "rarity": "Uncommon",
     "id": "LT-036",
     "card_type": "Creature",
-    "subtype": "Elemental \u2014 Storm",
+    "subtype": "Elemental — Storm",
     "rules": "At your turn start, if this creature is in a back slot, give it a charge counter. When it attacks, you may remove a charge counter to gain +2 Attack for that combat.",
     "attack": 1,
     "hp": 4,
@@ -615,7 +832,14 @@
       "Elemental",
       "Storm"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 3
+    },
+    "terrain_types": [
+      "Sky",
+      "Water"
+    ]
   },
   {
     "number": 37,
@@ -624,11 +848,14 @@
     "id": "LT-037",
     "card_type": "Item",
     "subtype": "Artifact",
-    "rules": "The first time each turn an enemy creature is played in a back slot, give its front protector \u22121 Attack until the end of that turn.",
+    "rules": "The first time each turn an enemy creature is played in a back slot, give its front protector −1 Attack until the end of that turn.",
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 2
+    }
   },
   {
     "number": 38,
@@ -641,7 +868,10 @@
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Water": 2
+    }
   },
   {
     "number": 39,
@@ -654,7 +884,10 @@
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Fire": 2
+    }
   },
   {
     "number": 40,
@@ -663,11 +896,14 @@
     "id": "LT-040",
     "card_type": "Item",
     "subtype": "Equipment",
-    "rules": "Equipped creature may target protected back-row creatures. It gets \u22121 Attack when it attacks a back-row creature.",
+    "rules": "Equipped creature may target protected back-row creatures. It gets −1 Attack when it attacks a back-row creature.",
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Water": 2
+    }
   },
   {
     "number": 41,
@@ -675,7 +911,7 @@
     "rarity": "Common",
     "id": "LT-041",
     "card_type": "Creature",
-    "subtype": "Elemental \u2014 Fox",
+    "subtype": "Elemental — Fox",
     "rules": "When you play this creature in a back slot, give its front protector 2 shield. Shield from this ability does not stack with itself.",
     "attack": 1,
     "hp": 4,
@@ -684,7 +920,14 @@
       "Elemental",
       "Fox"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 2
+    },
+    "terrain_types": [
+      "Sky",
+      "Water"
+    ]
   },
   {
     "number": 42,
@@ -697,7 +940,10 @@
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Water": 1
+    }
   },
   {
     "number": 43,
@@ -710,7 +956,10 @@
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 2
+    }
   },
   {
     "number": 44,
@@ -719,11 +968,14 @@
     "id": "LT-044",
     "card_type": "Battlefield",
     "subtype": "Sanctuary",
-    "rules": "During each player\u2019s post-combat phase, that player may heal 1 HP on one of their creatures that did not attack this turn.",
+    "rules": "During each player’s post-combat phase, that player may heal 1 HP on one of their creatures that did not attack this turn.",
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 2
+    }
   },
   {
     "number": 45,
@@ -736,7 +988,10 @@
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 2
+    }
   },
   {
     "number": 46,
@@ -749,7 +1004,10 @@
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 2
+    }
   },
   {
     "number": 47,
@@ -762,7 +1020,10 @@
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 2
+    }
   },
   {
     "number": 48,
@@ -771,11 +1032,14 @@
     "id": "LT-048",
     "card_type": "Battlefield",
     "subtype": "Highlands",
-    "rules": "Creatures in front slots get +1 Attack when attacking Dragons. Both players\u2019 Dragons get +1 maximum HP.",
+    "rules": "Creatures in front slots get +1 Attack when attacking Dragons. Both players’ Dragons get +1 maximum HP.",
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 2
+    }
   },
   {
     "number": 49,
@@ -788,7 +1052,10 @@
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Fire": 3
+    }
   },
   {
     "number": 50,
@@ -801,7 +1068,10 @@
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 1
+    }
   },
   {
     "number": 51,
@@ -809,7 +1079,7 @@
     "rarity": "Common",
     "id": "LT-051",
     "card_type": "Creature",
-    "subtype": "Beast \u2014 Tortoise",
+    "subtype": "Beast — Tortoise",
     "rules": "While this creature is in a front slot, its back-row companion cannot be chosen by enemy Spell cards.",
     "attack": 1,
     "hp": 6,
@@ -818,7 +1088,14 @@
       "Beast",
       "Tortoise"
     ],
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 3
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
+    ]
   },
   {
     "number": 52,
@@ -827,11 +1104,14 @@
     "id": "LT-052",
     "card_type": "Battlefield",
     "subtype": "Night Sky",
-    "rules": "At each player\u2019s turn start, that player looks at the top card of their deck and may put it on the bottom before drawing.",
+    "rules": "At each player’s turn start, that player looks at the top card of their deck and may put it on the bottom before drawing.",
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 2
+    }
   },
   {
     "number": 53,
@@ -844,7 +1124,10 @@
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Fire": 2
+    }
   },
   {
     "number": 54,
@@ -857,7 +1140,10 @@
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 1
+    }
   },
   {
     "number": 55,
@@ -870,7 +1156,10 @@
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 1
+    }
   },
   {
     "number": 56,
@@ -883,7 +1172,10 @@
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 2
+    }
   },
   {
     "number": 57,
@@ -896,7 +1188,10 @@
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 1
+    }
   },
   {
     "number": 58,
@@ -909,7 +1204,10 @@
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 3
+    }
   },
   {
     "number": 59,
@@ -922,7 +1220,10 @@
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 1
+    }
   },
   {
     "number": 60,
@@ -935,7 +1236,10 @@
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 3
+    }
   },
   {
     "number": 61,
@@ -948,7 +1252,10 @@
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Water": 2
+    }
   },
   {
     "number": 62,
@@ -961,7 +1268,10 @@
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 1
+    }
   },
   {
     "number": 63,
@@ -974,7 +1284,10 @@
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 2
+    }
   },
   {
     "number": 64,
@@ -987,7 +1300,10 @@
     "attack": null,
     "hp": null,
     "set": "first-light",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 2
+    }
   },
   {
     "id": "SA-001",
@@ -999,7 +1315,10 @@
     "rules": "Swap the positions of two of any of your active creatures",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Sky": 1
+    }
   },
   {
     "id": "SA-002",
@@ -1011,7 +1330,10 @@
     "rules": "Deal 2 damage to an enemy creature",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Fire": 1
+    }
   },
   {
     "id": "SA-003",
@@ -1023,7 +1345,10 @@
     "rules": "Return one creature back to the enemy's hand",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Water": 2
+    }
   },
   {
     "id": "SA-004",
@@ -1035,7 +1360,10 @@
     "rules": "Return one creature from your discard pile to your hand",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Dark": 2
+    }
   },
   {
     "id": "SA-005",
@@ -1047,7 +1375,10 @@
     "rules": "Grant one creature Sprint until the end of your turn",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Fire": 1
+    }
   },
   {
     "id": "SA-006",
@@ -1059,7 +1390,10 @@
     "rules": "Look at the top 3 cards of your draw pile and place them back in any order",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Sky": 1
+    }
   },
   {
     "id": "SA-007",
@@ -1071,7 +1405,10 @@
     "rules": "Heal 2 HP from one of your creatures",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Light": 1
+    }
   },
   {
     "id": "SA-008",
@@ -1083,7 +1420,10 @@
     "rules": "Take Control of one of the other player's creatures and give it Sprint. Place it anywhere on your side of the battle map. This card will Fail if you have no empty spaces available. At the end of your turn, return it to it's original space. If that is not possible, discard it to the owner's discard pile.",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Dark": 6
+    }
   },
   {
     "id": "SA-009",
@@ -1095,7 +1435,10 @@
     "rules": "Grant one of your creatures 3 shield",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Light": 1
+    }
   },
   {
     "id": "SA-010",
@@ -1107,7 +1450,10 @@
     "rules": "Create a copy of a creature on the board in an empty slot on your side. The copy gains the Summon type and Sprint. Sacrifice it at the end of the turn.",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Sky": 4
+    }
   },
   {
     "id": "SA-011",
@@ -1119,7 +1465,10 @@
     "rules": "Draw two cards",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Water": 3
+    }
   },
   {
     "id": "SA-012",
@@ -1131,7 +1480,10 @@
     "rules": "Destroy one Artifact or Equipment",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Earth": 2
+    }
   },
   {
     "id": "SA-013",
@@ -1143,7 +1495,10 @@
     "rules": "Force target player to discard 1 card of their choice from their hand.",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Dark": 2
+    }
   },
   {
     "id": "SA-014",
@@ -1155,7 +1510,10 @@
     "rules": "Target creature may ignore front line protectors and attack backline creatures until end of turn",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Sky": 1
+    }
   },
   {
     "id": "SA-015",
@@ -1167,7 +1525,10 @@
     "rules": "Sacrifice one active creature and return 2 cards from your discard pile to your hand",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Dark": 3
+    }
   },
   {
     "id": "SA-016",
@@ -1179,7 +1540,10 @@
     "rules": "Until end of your next turn, the target friendly creature must be defeated before any other of your creatures can be attacked",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Light": 1
+    }
   },
   {
     "id": "SA-017",
@@ -1191,7 +1555,10 @@
     "rules": "Target creature gains +3 Attack until end of turn",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Fire": 2
+    }
   },
   {
     "id": "SA-018",
@@ -1203,7 +1570,10 @@
     "rules": "Heal all your creatures 1 HP and grant them 1 Shield",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Light": 3
+    }
   },
   {
     "id": "SA-019",
@@ -1215,7 +1585,10 @@
     "rules": "Pick one: Deal 1 damage to creature, Heal 1 HP from creature, or draw 1 card",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Water": 1
+    }
   },
   {
     "id": "SA-020",
@@ -1227,7 +1600,10 @@
     "rules": "Mark one empty enemy creature slot. If a creature is placed on that slot, deal 10 damage to that creature. This effect lasts for 3 turns.",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Earth": 3
+    }
   },
   {
     "id": "SA-021",
@@ -1239,7 +1615,10 @@
     "rules": "Destroy target creature",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Dark": 5
+    }
   },
   {
     "id": "SA-022",
@@ -1251,7 +1630,10 @@
     "rules": "All creatures gain -1 HP until end of turn",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Dark": 2
+    }
   },
   {
     "id": "SA-023",
@@ -1263,7 +1645,10 @@
     "rules": "Look at the enemy players hand and select a card. The selected card is discarded.",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Dark": 3
+    }
   },
   {
     "id": "SA-024",
@@ -1275,7 +1660,10 @@
     "rules": "Give all your creatures 1 Shield and Reflect while they are shielded until the end of the next turn.",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Light": 3
+    }
   },
   {
     "id": "SA-025",
@@ -1287,7 +1675,10 @@
     "rules": "Draw 3 cards and then discard 1 card from your hand.",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Water": 3
+    }
   },
   {
     "id": "SA-026",
@@ -1299,7 +1690,10 @@
     "rules": "Flip a coin, if Heads, Destroy two target creatures, if Tails, sacrifice a creature",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Dark": 4
+    }
   },
   {
     "id": "SA-027",
@@ -1311,7 +1705,10 @@
     "rules": "Both players discard their hands and draw 5 cards",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Sky": 4
+    }
   },
   {
     "id": "SA-028",
@@ -1323,7 +1720,10 @@
     "rules": "Select one card from your deck and place it into your hand. Shuffle your deck.",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Sky": 3
+    }
   },
   {
     "id": "SA-029",
@@ -1335,7 +1735,10 @@
     "rules": "Destroy all creatures on the board. Can only be played from turn 3 onward",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Dark": 7
+    }
   },
   {
     "id": "SA-030",
@@ -1347,7 +1750,10 @@
     "rules": "Cannot be targetted by any spells",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Light": 2
+    }
   },
   {
     "id": "SA-031",
@@ -1359,7 +1765,10 @@
     "rules": "When the equipped creature is targetted by a spell, copy the spell and choose a new target",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Sky": 4
+    }
   },
   {
     "id": "SA-032",
@@ -1371,7 +1780,10 @@
     "rules": "Whenever you play a Spell card, choose a creature, that creature gains +1 Attack this turn",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Water": 3
+    }
   },
   {
     "id": "SA-033",
@@ -1383,7 +1795,10 @@
     "rules": "Spells you cast that deal damage will deal +1 extra damage",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Fire": 3
+    }
   },
   {
     "id": "SA-034",
@@ -1395,7 +1810,10 @@
     "rules": "Whenever any player draws a card, gain one stack of Displacement. At 5 stacks you must move one creature to another free slot on the board. The chosen slot must be on the same side of the board that the creature originated from. If no slots are available, nothing happens. All stacks are expended regardless of if the movement was successful or not.",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Sky": 3
+    }
   },
   {
     "id": "SA-035",
@@ -1407,7 +1825,10 @@
     "rules": "When an enemy spell is played, cancel the effect of the Spell card and discard it.",
     "attack": null,
     "hp": null,
-    "set": "shattered-arcana"
+    "set": "shattered-arcana",
+    "cost": {
+      "Sky": 2
+    }
   },
   {
     "id": "SA-036",
@@ -1415,7 +1836,7 @@
     "name": "Realmskipper",
     "rarity": "Common",
     "card_type": "Creature",
-    "subtype": "Goblin \u00b7 Mage",
+    "subtype": "Goblin · Mage",
     "rules": "Whenever you play a spell, this creature gains +1 Attack until end of turn",
     "attack": 1,
     "hp": 3,
@@ -1423,6 +1844,13 @@
     "types": [
       "Goblin",
       "Mage"
+    ],
+    "cost": {
+      "Sky": 2
+    },
+    "terrain_types": [
+      "Sky",
+      "Water"
     ]
   },
   {
@@ -1431,7 +1859,7 @@
     "name": "Mystical Woolie",
     "rarity": "Common",
     "card_type": "Creature",
-    "subtype": "Beast \u00b7 Sheep",
+    "subtype": "Beast · Sheep",
     "rules": "",
     "attack": 2,
     "hp": 4,
@@ -1449,6 +1877,13 @@
         "id": "shield",
         "value": 1
       }
+    ],
+    "cost": {
+      "Light": 3
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
     ]
   },
   {
@@ -1464,6 +1899,13 @@
     "set": "shattered-arcana",
     "types": [
       "Fairie"
+    ],
+    "cost": {
+      "Water": 3
+    },
+    "terrain_types": [
+      "Water",
+      "Sky"
     ]
   },
   {
@@ -1472,7 +1914,7 @@
     "name": "Animated Tome",
     "rarity": "Common",
     "card_type": "Creature",
-    "subtype": "Goblin \u00b7 Mage",
+    "subtype": "Goblin · Mage",
     "rules": "When this card is played, return one Spell card from your discard pile to your hand",
     "attack": 1,
     "hp": 3,
@@ -1480,6 +1922,13 @@
     "types": [
       "Goblin",
       "Mage"
+    ],
+    "cost": {
+      "Dark": 3
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
     ]
   },
   {
@@ -1488,7 +1937,7 @@
     "name": "Feverish Academic",
     "rarity": "Common",
     "card_type": "Creature",
-    "subtype": "Bird \u00b7 Mage",
+    "subtype": "Bird · Mage",
     "rules": "When this creature attacks you may discard a spell card and Feverish Academic gains +2 Attack",
     "attack": 3,
     "hp": 1,
@@ -1501,6 +1950,13 @@
       {
         "id": "sprint"
       }
+    ],
+    "cost": {
+      "Fire": 2
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
     ]
   },
   {
@@ -1509,7 +1965,7 @@
     "name": "Dirge Scuttler",
     "rarity": "Uncommon",
     "card_type": "Creature",
-    "subtype": "Insect \u00b7 Beetle",
+    "subtype": "Insect · Beetle",
     "rules": "When this creature deals damage to a creature, destroy that creature",
     "attack": 1,
     "hp": 1,
@@ -1517,6 +1973,13 @@
     "types": [
       "Insect",
       "Beetle"
+    ],
+    "cost": {
+      "Dark": 3
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
     ]
   },
   {
@@ -1525,7 +1988,7 @@
     "name": "Gifted Aspirant",
     "rarity": "Uncommon",
     "card_type": "Creature",
-    "subtype": "Undead \u00b7 Mage",
+    "subtype": "Undead · Mage",
     "rules": "When this creature receives combat damage, draw 1 card",
     "attack": 1,
     "hp": 4,
@@ -1533,6 +1996,13 @@
     "types": [
       "Undead",
       "Mage"
+    ],
+    "cost": {
+      "Water": 3
+    },
+    "terrain_types": [
+      "Water",
+      "Sky"
     ]
   },
   {
@@ -1541,7 +2011,7 @@
     "name": "Seer of the Realms",
     "rarity": "Rare",
     "card_type": "Creature",
-    "subtype": "Elemental \u00b7 Mage",
+    "subtype": "Elemental · Mage",
     "rules": "Whenever you draw a card, deal 1 damage to a target creature",
     "attack": 1,
     "hp": 3,
@@ -1549,6 +2019,13 @@
     "types": [
       "Elemental",
       "Mage"
+    ],
+    "cost": {
+      "Sky": 4
+    },
+    "terrain_types": [
+      "Sky",
+      "Water"
     ]
   },
   {
@@ -1557,7 +2034,7 @@
     "name": "Professor Riddledum",
     "rarity": "Epic",
     "card_type": "Creature",
-    "subtype": "Dragon \u00b7 Mage",
+    "subtype": "Dragon · Mage",
     "rules": "Other Mages you control gain +1 Attack. Whenever a Mage you control dies, draw 1 card.",
     "attack": 3,
     "hp": 4,
@@ -1565,6 +2042,13 @@
     "types": [
       "Dragon",
       "Mage"
+    ],
+    "cost": {
+      "Light": 4
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
     ]
   },
   {
@@ -1573,7 +2057,7 @@
     "name": "Soultorn Recluse",
     "rarity": "Rare",
     "card_type": "Creature",
-    "subtype": "Construct \u00b7 Mage",
+    "subtype": "Construct · Mage",
     "rules": "Whenever another Mage is played, gain +1 Attack and +1 Shield",
     "attack": 3,
     "hp": 3,
@@ -1581,6 +2065,13 @@
     "types": [
       "Construct",
       "Mage"
+    ],
+    "cost": {
+      "Dark": 3
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
     ]
   },
   {
@@ -1589,7 +2080,7 @@
     "name": "Rhodovan",
     "rarity": "Epic",
     "card_type": "Creature",
-    "subtype": "Wiskin \u00b7 Soldier",
+    "subtype": "Wiskin · Soldier",
     "rules": "All enemy creatures in the lane opposite of Rhodovan deal -1 Attack damage. When Rhodovan is defeated return the card to your hand.",
     "attack": 5,
     "hp": 2,
@@ -1597,6 +2088,13 @@
     "types": [
       "Wiskin",
       "Soldier"
+    ],
+    "cost": {
+      "Earth": 4
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
     ]
   },
   {
@@ -1605,7 +2103,7 @@
     "name": "The Orator of the Void",
     "rarity": "Legendary",
     "card_type": "Creature",
-    "subtype": "Voidling \u00b7 Mage",
+    "subtype": "Voidling · Mage",
     "rules": "When played, search your library for a Spell card and put it into your hand. Whenever you play a spell card, you may heal all mages 1 HP.",
     "attack": 3,
     "hp": 6,
@@ -1613,6 +2111,13 @@
     "types": [
       "Voidling",
       "Mage"
+    ],
+    "cost": {
+      "Dark": 6
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
     ]
   },
   {
@@ -1629,6 +2134,13 @@
     "hp": 2,
     "types": [
       "Goblin"
+    ],
+    "cost": {
+      "Earth": 1
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
     ]
   },
   {
@@ -1645,6 +2157,13 @@
     "hp": 4,
     "types": [
       "Dragon"
+    ],
+    "cost": {
+      "Fire": 3
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
     ]
   },
   {
@@ -1653,7 +2172,7 @@
     "name": "Flamebrew Witch",
     "set": "war-on-elderberry",
     "card_type": "Creature",
-    "subtype": "Goblin \u2014 Mage",
+    "subtype": "Goblin — Mage",
     "rarity": "Common",
     "rules": "When played, grant one friendly creature Sprint and +1 Attack until end of turn.",
     "keywords": [],
@@ -1662,6 +2181,13 @@
     "types": [
       "Goblin",
       "Mage"
+    ],
+    "cost": {
+      "Fire": 1
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
     ]
   },
   {
@@ -1678,6 +2204,13 @@
     "hp": 2,
     "types": [
       "Goblin"
+    ],
+    "cost": {
+      "Fire": 1
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
     ]
   },
   {
@@ -1686,7 +2219,7 @@
     "name": "Warg Runt",
     "set": "war-on-elderberry",
     "card_type": "Creature",
-    "subtype": "Beast \u2014 Warg",
+    "subtype": "Beast — Warg",
     "rarity": "Common",
     "rules": "Gain +2 Attack when at full HP and -1 Attack when less than full HP.",
     "keywords": [],
@@ -1695,6 +2228,13 @@
     "types": [
       "Beast",
       "Warg"
+    ],
+    "cost": {
+      "Earth": 2
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
     ]
   },
   {
@@ -1715,6 +2255,13 @@
     "hp": 1,
     "types": [
       "Elemental"
+    ],
+    "cost": {
+      "Fire": 2
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
     ]
   },
   {
@@ -1731,6 +2278,13 @@
     "hp": 4,
     "types": [
       "Goblin"
+    ],
+    "cost": {
+      "Fire": 2
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
     ]
   },
   {
@@ -1739,7 +2293,7 @@
     "name": "Soldier of Edelberry",
     "set": "war-on-elderberry",
     "card_type": "Creature",
-    "subtype": "Wiskin \u2014 Soldier",
+    "subtype": "Wiskin — Soldier",
     "rarity": "Common",
     "rules": "",
     "keywords": [
@@ -1753,6 +2307,13 @@
     "types": [
       "Wiskin",
       "Soldier"
+    ],
+    "cost": {
+      "Earth": 3
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
     ]
   },
   {
@@ -1769,6 +2330,13 @@
     "hp": 1,
     "types": [
       "Wiskin"
+    ],
+    "cost": {
+      "Earth": 2
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
     ]
   },
   {
@@ -1777,7 +2345,7 @@
     "name": "Greyfur Physician",
     "set": "war-on-elderberry",
     "card_type": "Creature",
-    "subtype": "Wiskin \u2014 Cleric",
+    "subtype": "Wiskin — Cleric",
     "rarity": "Common",
     "rules": "At the end of your combat phase, heal 1 HP from one of your creatures",
     "keywords": [],
@@ -1786,6 +2354,13 @@
     "types": [
       "Wiskin",
       "Cleric"
+    ],
+    "cost": {
+      "Light": 2
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
     ]
   },
   {
@@ -1794,7 +2369,7 @@
     "name": "Burrowborn Magikitten",
     "set": "war-on-elderberry",
     "card_type": "Creature",
-    "subtype": "Beast \u2014 Cat",
+    "subtype": "Beast — Cat",
     "rarity": "Common",
     "rules": "After each of your Draw Phases, you may choose to discard as many cards as you wish. Deal X damage to target creature, where X is the number of cards discarded this way",
     "keywords": [],
@@ -1803,6 +2378,13 @@
     "types": [
       "Beast",
       "Cat"
+    ],
+    "cost": {
+      "Dark": 3
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
     ]
   },
   {
@@ -1811,7 +2393,7 @@
     "name": "Wiskin Bannerling",
     "set": "war-on-elderberry",
     "card_type": "Creature",
-    "subtype": "Wiskin \u2014 Soldier",
+    "subtype": "Wiskin — Soldier",
     "rarity": "Common",
     "rules": "When played, give all creatures in your front rank 1 Shield",
     "keywords": [],
@@ -1820,6 +2402,13 @@
     "types": [
       "Wiskin",
       "Soldier"
+    ],
+    "cost": {
+      "Light": 2
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
     ]
   },
   {
@@ -1836,6 +2425,13 @@
     "hp": 3,
     "types": [
       "Beast"
+    ],
+    "cost": {
+      "Earth": 3
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
     ]
   },
   {
@@ -1852,6 +2448,13 @@
     "hp": 4,
     "types": [
       "Construct"
+    ],
+    "cost": {
+      "Earth": 4
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
     ]
   },
   {
@@ -1860,7 +2463,7 @@
     "name": "Gobskin Sympathizer",
     "set": "war-on-elderberry",
     "card_type": "Creature",
-    "subtype": "Wiskin \u2014 Goblin",
+    "subtype": "Wiskin — Goblin",
     "rarity": "Common",
     "rules": "Gain +1 Attack if you control another Goblin. Gain +1 Shield if you control another Wiskin.",
     "keywords": [],
@@ -1869,6 +2472,13 @@
     "types": [
       "Wiskin",
       "Goblin"
+    ],
+    "cost": {
+      "Fire": 3
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
     ]
   },
   {
@@ -1889,6 +2499,13 @@
     "hp": 1,
     "types": [
       "Assassin"
+    ],
+    "cost": {
+      "Dark": 3
+    },
+    "terrain_types": [
+      "Dark",
+      "Earth"
     ]
   },
   {
@@ -1905,6 +2522,13 @@
     "hp": 2,
     "types": [
       "Bird"
+    ],
+    "cost": {
+      "Sky": 2
+    },
+    "terrain_types": [
+      "Sky",
+      "Water"
     ]
   },
   {
@@ -1928,6 +2552,13 @@
     "hp": 3,
     "types": [
       "Wiskin"
+    ],
+    "cost": {
+      "Earth": 5
+    },
+    "terrain_types": [
+      "Earth",
+      "Light"
     ]
   },
   {
@@ -1936,7 +2567,7 @@
     "name": "Goblin Channeler",
     "set": "war-on-elderberry",
     "card_type": "Creature",
-    "subtype": "Goblin \u2014 Mage",
+    "subtype": "Goblin — Mage",
     "rarity": "Uncommon",
     "rules": "At each of your pre-combat phases, grant Goblin Channeler one stack of \"Channel\". If there is a creature in front of Goblin Channeler, grant that creature +X Attack where X is the number of \"Channel\" stacks.",
     "keywords": [],
@@ -1945,6 +2576,13 @@
     "types": [
       "Goblin",
       "Mage"
+    ],
+    "cost": {
+      "Fire": 2
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
     ]
   },
   {
@@ -1956,7 +2594,10 @@
     "subtype": "Battlefield",
     "rarity": "Uncommon",
     "rules": "Wiskin gain Restore 1",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 3
+    }
   },
   {
     "id": "WE-021",
@@ -1967,7 +2608,10 @@
     "subtype": "Battlefield",
     "rarity": "Uncommon",
     "rules": "Goblins gain Sprint",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Fire": 4
+    }
   },
   {
     "id": "WE-022",
@@ -1978,7 +2622,10 @@
     "subtype": "Artifact",
     "rarity": "Uncommon",
     "rules": "Whenever a Goblin dies, draw a card",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 3
+    }
   },
   {
     "id": "WE-023",
@@ -1989,7 +2636,10 @@
     "subtype": "Equipment",
     "rarity": "Uncommon",
     "rules": "+1 Attack. Also, if this is equipped to a Wiskin, whenever the equipped creature defeats an enemy draw 1 card",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 2
+    }
   },
   {
     "id": "WE-024",
@@ -1997,7 +2647,7 @@
     "name": "Urkjaw Bloodfist",
     "set": "war-on-elderberry",
     "card_type": "Creature",
-    "subtype": "Goblin \u2014 Chieftain",
+    "subtype": "Goblin — Chieftain",
     "rarity": "Rare",
     "rules": "All Goblins gain +1 Attack",
     "keywords": [],
@@ -2006,6 +2656,13 @@
     "types": [
       "Goblin",
       "Chieftain"
+    ],
+    "cost": {
+      "Fire": 4
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
     ]
   },
   {
@@ -2014,7 +2671,7 @@
     "name": "Royal Knight Eklo",
     "set": "war-on-elderberry",
     "card_type": "Creature",
-    "subtype": "Wiskin \u2014 Knight",
+    "subtype": "Wiskin — Knight",
     "rarity": "Rare",
     "rules": "Whenever this creature attacks, all other Wiskin gain +1 Attack until end of turn",
     "keywords": [
@@ -2028,6 +2685,13 @@
     "types": [
       "Wiskin",
       "Knight"
+    ],
+    "cost": {
+      "Light": 4
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
     ]
   },
   {
@@ -2036,7 +2700,7 @@
     "name": "Fireback Rider",
     "set": "war-on-elderberry",
     "card_type": "Creature",
-    "subtype": "Goblin \u2014 Knight",
+    "subtype": "Goblin — Knight",
     "rarity": "Epic",
     "rules": "When Fireback Rider dies, summon a Fireback Basilisk in it's place.",
     "keywords": [
@@ -2049,6 +2713,13 @@
     "types": [
       "Goblin",
       "Knight"
+    ],
+    "cost": {
+      "Fire": 5
+    },
+    "terrain_types": [
+      "Fire",
+      "Earth"
     ]
   },
   {
@@ -2057,7 +2728,7 @@
     "name": "Cloudcarriage Captain",
     "set": "war-on-elderberry",
     "card_type": "Creature",
-    "subtype": "Wiskin \u2014 Captain",
+    "subtype": "Wiskin — Captain",
     "rarity": "Epic",
     "rules": "Cloudcarriage Captain may only be played in the back rank. When played, summon 1 Soldier of Edelberry to the space in front of it, if available, then grant the creature in front of it shield 3",
     "keywords": [],
@@ -2066,6 +2737,13 @@
     "types": [
       "Wiskin",
       "Captain"
+    ],
+    "cost": {
+      "Sky": 6
+    },
+    "terrain_types": [
+      "Sky",
+      "Water"
     ]
   },
   {
@@ -2077,7 +2755,10 @@
     "subtype": "Artifact",
     "rarity": "Legendary",
     "rules": "Creatures the enemy plays enter stunned",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 6
+    }
   },
   {
     "id": "WE-029",
@@ -2088,7 +2769,10 @@
     "subtype": "Equipment",
     "rarity": "Uncommon",
     "rules": "Equipped creature splits damage between itself and any other friendly creature equipped with Shackles of Nim. For odd numbered damage, the targetted friendly creature will take the higher of the two split values.",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 2
+    }
   },
   {
     "id": "WE-030",
@@ -2099,7 +2783,10 @@
     "subtype": "Equipment",
     "rarity": "Rare",
     "rules": "Equipped creature gains Resilient and +1 Attack",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 3
+    }
   },
   {
     "id": "WE-031",
@@ -2110,7 +2797,10 @@
     "subtype": "Equipment",
     "rarity": "Epic",
     "rules": "Equipped creature's Attack is equal to the highest attack among other active friendly creatures",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 3
+    }
   },
   {
     "id": "WE-032",
@@ -2121,7 +2811,10 @@
     "subtype": "Equipment",
     "rarity": "Rare",
     "rules": "Equipped creature gains Stalwart 2. If the Equipped creature dies, Torn Banner becomes an Artifact and you must choose one of your artifact slots to assign it. It's effect becomes \"Friendly creatures gain Stalwart 2\"",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 3
+    }
   },
   {
     "id": "WE-033",
@@ -2132,7 +2825,10 @@
     "subtype": "Equipment",
     "rarity": "Uncommon",
     "rules": "Equipped creature ignores the effect of the active Battlefield card.",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 1
+    }
   },
   {
     "id": "WE-034",
@@ -2143,7 +2839,10 @@
     "subtype": "Spell",
     "rarity": "Common",
     "rules": "Remove all Ward and Shield from a creature",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 2
+    }
   },
   {
     "id": "WE-035",
@@ -2154,7 +2853,10 @@
     "subtype": "Spell",
     "rarity": "Common",
     "rules": "Deal 1 damage to a friendly creature and 1 damage to each of the enemy creatures in the same lane opposite to the targetted friendly creature",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Fire": 2
+    }
   },
   {
     "id": "WE-036",
@@ -2165,7 +2867,10 @@
     "subtype": "Spell",
     "rarity": "Common",
     "rules": "Deal 2 damage to target friendly creature, Draw 3 cards",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 3
+    }
   },
   {
     "id": "WE-037",
@@ -2176,7 +2881,10 @@
     "subtype": "Spell",
     "rarity": "Uncommon",
     "rules": "Remove all negative statuses from a target friendly creature",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 1
+    }
   },
   {
     "id": "WE-038",
@@ -2187,7 +2895,10 @@
     "subtype": "Spell",
     "rarity": "Uncommon",
     "rules": "Put one Artifact card from either discard pile into your hand. That card cannot be played until the next turn",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Earth": 2
+    }
   },
   {
     "id": "WE-039",
@@ -2198,7 +2909,10 @@
     "subtype": "Spell",
     "rarity": "Rare",
     "rules": "Grant 1 creature \"Invisible\" until next turn",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 2
+    }
   },
   {
     "id": "WE-040",
@@ -2209,7 +2923,10 @@
     "subtype": "Spell",
     "rarity": "Uncommon",
     "rules": "Draw 1 card, if that card is a creature card, play it immediately and it gains Sprint until end of turn",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 3
+    }
   },
   {
     "id": "WE-041",
@@ -2220,7 +2937,10 @@
     "subtype": "Reaction",
     "rarity": "Uncommon",
     "rules": "If the enemy player plays a creature of type \"Summon\", destroy that creature",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Sky": 1
+    }
   },
   {
     "id": "WE-042",
@@ -2231,7 +2951,10 @@
     "subtype": "Spell",
     "rarity": "Common",
     "rules": "Target creature's attack becomes 0 until end of turn",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 2
+    }
   },
   {
     "id": "WE-043",
@@ -2242,7 +2965,10 @@
     "subtype": "Spell",
     "rarity": "Epic",
     "rules": "The player with the most amount of active creatures sacrifices creatures until they have the same number of active creatures as the player with the least amount of active creatures",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 4
+    }
   },
   {
     "id": "WE-044",
@@ -2253,7 +2979,10 @@
     "subtype": "Spell",
     "rarity": "Legendary",
     "rules": "Return all friendly creatures that were put into the discard pile this turn back onto the battlefield. You may choose new placements for these creatures.",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 6
+    }
   },
   {
     "id": "WE-045",
@@ -2270,7 +2999,14 @@
     "types": [
       "Angel"
     ],
-    "deckLimit": 1
+    "deckLimit": 1,
+    "cost": {
+      "Light": 6
+    },
+    "terrain_types": [
+      "Light",
+      "Sky"
+    ]
   },
   {
     "id": "WE-046",
@@ -2281,7 +3017,10 @@
     "subtype": "Spell",
     "rarity": "Epic",
     "rules": "All allied creatures gain +2 Attack and Shield 2 until end of turn. Apply Stun to all affected creatures at the start of your next turn.",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Light": 4
+    }
   },
   {
     "id": "WE-047",
@@ -2292,7 +3031,10 @@
     "subtype": "Equipment",
     "rarity": "Mythic",
     "rules": "When equipped creature attacks return a creature from your discard pile and put it into play in an empty slot, if there is one. That creature gains Sprint and is sacrificed at the end of the turn. Mythic: Removed from the game instead of entering a discard pile.",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 7
+    }
   },
   {
     "id": "WE-048",
@@ -2303,7 +3045,10 @@
     "subtype": "Artifact",
     "rarity": "Rare",
     "rules": "Whenever the enemy draws their second card of the turn, you draw a card as well.",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Water": 4
+    }
   },
   {
     "id": "WE-049",
@@ -2314,6 +3059,549 @@
     "subtype": "Reaction",
     "rarity": "Epic",
     "rules": "If the enemy puts a creature into play, you may play this card and gain control of the creature until the end of your next turn. That creature gains Sprint.",
-    "keywords": []
+    "keywords": [],
+    "cost": {
+      "Dark": 5
+    }
+  },
+  {
+    "id": "FD-001",
+    "number": 1,
+    "name": "Earth",
+    "rarity": "Common",
+    "card_type": "Plane",
+    "subtype": "Earth",
+    "types": [
+      "Earth"
+    ],
+    "terrain_types": [
+      "Earth"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Sunlit ochre canyon with towering striated sandstone pillars, jade river ribbon far below, tiny distant caravan for scale. Sweeping low viewpoint, burnt sienna, cobalt and golden noon.",
+    "basic_plane": true,
+    "deckLimit": 30
+  },
+  {
+    "id": "FD-002",
+    "number": 2,
+    "name": "Sky",
+    "rarity": "Common",
+    "card_type": "Plane",
+    "subtype": "Sky",
+    "types": [
+      "Sky"
+    ],
+    "terrain_types": [
+      "Sky"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Immense open pale-blue sky above a thin sea of white clouds, towering sculptural cumulus lit pink from sunrise, lone tiny floating feather close foreground. Minimal expansive composition, airy cyan, pearl and rose.",
+    "basic_plane": true,
+    "deckLimit": 30
+  },
+  {
+    "id": "FD-003",
+    "number": 3,
+    "name": "Fire",
+    "rarity": "Common",
+    "card_type": "Plane",
+    "subtype": "Fire",
+    "types": [
+      "Fire"
+    ],
+    "terrain_types": [
+      "Fire"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Intimate ground-level view inside a volcanic lava cavern, molten orange river flowing around obsidian spires, black ceiling, smoke and flying sparks. Bold near-black versus white-hot orange, no green or purple.",
+    "basic_plane": true,
+    "deckLimit": 30
+  },
+  {
+    "id": "FD-004",
+    "number": 4,
+    "name": "Water",
+    "rarity": "Common",
+    "card_type": "Plane",
+    "subtype": "Water",
+    "types": [
+      "Water"
+    ],
+    "terrain_types": [
+      "Water"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Crystal-clear turquoise tropical lagoon seen half underwater: sun shafts, colourful coral foreground and distant limestone sea arches above waterline. Luminous aqua, coral red and deep marine blue.",
+    "basic_plane": true,
+    "deckLimit": 30
+  },
+  {
+    "id": "FD-005",
+    "number": 5,
+    "name": "Dark",
+    "rarity": "Common",
+    "card_type": "Plane",
+    "subtype": "Dark",
+    "types": [
+      "Dark"
+    ],
+    "terrain_types": [
+      "Dark"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Enormous abandoned gothic castle silhouetted on a jagged ridge beneath a starless eclipse, winding pale fog swallowing foreground. Extremely restrained charcoal, indigo and bone-white, dramatic negative space, no glowing purple crystals.",
+    "basic_plane": true,
+    "deckLimit": 30
+  },
+  {
+    "id": "FD-006",
+    "number": 6,
+    "name": "Light",
+    "rarity": "Common",
+    "card_type": "Plane",
+    "subtype": "Light",
+    "types": [
+      "Light"
+    ],
+    "terrain_types": [
+      "Light"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Radiant white-gold sun breaking over rolling fields of ivory flowers, prismatic motes and soft golden trees, close dewy petals foreground, horizon flooded with warm light. Cream, amber and pale mint, joyful exposure.",
+    "basic_plane": true,
+    "deckLimit": 30
+  },
+  {
+    "id": "FD-007",
+    "number": 7,
+    "name": "Floating Ruins",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Earth — Sky",
+    "types": [
+      "Earth",
+      "Sky"
+    ],
+    "terrain_types": [
+      "Earth",
+      "Sky"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Aerial oblique view of broken ancient stone temples on floating moss-covered islands above a vast cloud abyss, cascading waterfalls vanish below, small hanging bridges. Weathered stone, emerald and azure, dizzying vertical scale."
+  },
+  {
+    "id": "FD-008",
+    "number": 8,
+    "name": "Ashlands",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Earth — Fire",
+    "types": [
+      "Earth",
+      "Fire"
+    ],
+    "terrain_types": [
+      "Earth",
+      "Fire"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Wide desolate black ash dunes crossing a red mesa desert, smoking fissures in foreground, a ruined watchtower nearly buried in ash, wind whips cinders under a copper storm sky. Rust, black and muted bronze, harsh diagonal composition."
+  },
+  {
+    "id": "FD-009",
+    "number": 9,
+    "name": "Sunken City",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Earth — Water",
+    "types": [
+      "Earth",
+      "Water"
+    ],
+    "terrain_types": [
+      "Earth",
+      "Water"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Deep underwater boulevard of a submerged marble city, sea grass grows over statues and algae-covered stairs, gigantic domes recede into teal gloom, schools of silver fish and a distant whale. Tranquil blue-green and limestone white, street-level perspective."
+  },
+  {
+    "id": "FD-010",
+    "number": 10,
+    "name": "Crypt of Vailyn",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Earth — Dark",
+    "types": [
+      "Earth",
+      "Dark"
+    ],
+    "terrain_types": [
+      "Earth",
+      "Dark"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Claustrophobic underground sepulchre of rough earth and roots, elaborately carved basalt sarcophagus at lower right, single cold green witch-flame illuminating engraved stone, bone dust in narrow light shaft. Moss-black and sickly pale green, close scale, no skull piles."
+  },
+  {
+    "id": "FD-011",
+    "number": 11,
+    "name": "Vibrant Meadow",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Earth — Light",
+    "types": [
+      "Earth",
+      "Light"
+    ],
+    "terrain_types": [
+      "Earth",
+      "Light"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Macro-low perspective through red poppies and yellow wildflowers toward a lush sweeping meadow, warm afternoon sun, a tiny rustic windmill on distant hill, bees and butterflies. Saturated scarlet, fresh lime, cornflower blue, exuberant natural abundance."
+  },
+  {
+    "id": "FD-012",
+    "number": 12,
+    "name": "Miredin's Pass",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Sky — Fire",
+    "types": [
+      "Sky",
+      "Fire"
+    ],
+    "terrain_types": [
+      "Sky",
+      "Fire"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Treacherous narrow mountain pass suspended between immense storm clouds, brilliant comet-like streams of fire crossing overhead, rope bridge curling around dark peaks, view from a precarious ledge. Steel blue storm versus blazing vermilion, fierce wind."
+  },
+  {
+    "id": "FD-013",
+    "number": 13,
+    "name": "Inverted Sea",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Sky — Water",
+    "types": [
+      "Sky",
+      "Water"
+    ],
+    "terrain_types": [
+      "Sky",
+      "Water"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Surreal ocean suspended upside-down overhead, enormous translucent waves and a whale hanging in the sky above a dry white salt plain, vertical rain ribbons connecting earth and ocean. Wide ground-level upward view, icy blue, silver and soft peach horizon."
+  },
+  {
+    "id": "FD-014",
+    "number": 14,
+    "name": "Twilight Strand",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Sky — Dark",
+    "types": [
+      "Sky",
+      "Dark"
+    ],
+    "terrain_types": [
+      "Sky",
+      "Dark"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Lonely black-sand shoreline seeming to float among twilight clouds, crescent moon, a skeletal driftwood arch and distant dark birds, reflected starlight on narrow tide pools. Quiet lavender-grey, midnight and a single crimson sunset band, sparse asymmetrical framing."
+  },
+  {
+    "id": "FD-015",
+    "number": 15,
+    "name": "Loriadre's Reliquary",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Sky — Light",
+    "types": [
+      "Sky",
+      "Light"
+    ],
+    "terrain_types": [
+      "Sky",
+      "Light"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Open-air celestial reliquary on a gleaming white stone platform above clouds, delicate golden architectural ribs surrounding one suspended luminous glass vessel, silk banners glowing in morning light. Close architectural study, alabaster, pale gold, gentle sky blue, no character portrait."
+  },
+  {
+    "id": "FD-016",
+    "number": 16,
+    "name": "Boiling Delta",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Fire — Water",
+    "types": [
+      "Fire",
+      "Water"
+    ],
+    "terrain_types": [
+      "Fire",
+      "Water"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "High overhead view of branching milky turquoise geothermal rivers meeting glowing volcanic channels, immense steam plumes and vivid orange mineral banks, intricate branching natural pattern. Turquoise, sulphur yellow and orange, cartographic scale without labels."
+  },
+  {
+    "id": "FD-017",
+    "number": 17,
+    "name": "Tezzakeen's Hall",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Fire — Dark",
+    "types": [
+      "Fire",
+      "Dark"
+    ],
+    "terrain_types": [
+      "Fire",
+      "Dark"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Cavernous demonic banquet hall carved from black volcanic glass, empty elongated table leads to a monumental furnace throne, embers drip like chandeliers, reflected red fire in polished floor. Symmetrical one-point perspective, deep burgundy, black and ember gold."
+  },
+  {
+    "id": "FD-018",
+    "number": 18,
+    "name": "Candlelight Sept",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Fire — Light",
+    "types": [
+      "Fire",
+      "Light"
+    ],
+    "terrain_types": [
+      "Fire",
+      "Light"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Humble intimate seven-sided stone chapel at night, hundreds of warm candles on stepped wooden ledges and a small stained-glass sun window, comforting amber light catching floating dust. Human-scale interior, honey gold, rich brown and subtle cobalt window accents."
+  },
+  {
+    "id": "FD-019",
+    "number": 19,
+    "name": "Abyssal Depths",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Water — Dark",
+    "types": [
+      "Water",
+      "Dark"
+    ],
+    "terrain_types": [
+      "Water",
+      "Dark"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Vertiginous descent into a pitch-black ocean trench, huge ancient stone face barely visible on canyon wall, sparse tiny blue bioluminescent creatures reveal unimaginable depth. Near-black and electric cyan, powerful negative space and atmospheric obscurity."
+  },
+  {
+    "id": "FD-020",
+    "number": 20,
+    "name": "Celestial Estuary",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Water — Light",
+    "types": [
+      "Water",
+      "Light"
+    ],
+    "terrain_types": [
+      "Water",
+      "Light"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Gently curving river estuary at dawn where luminous gold freshwater meets a pearlescent sea, white wading birds reflected in shallow pools, tiny star-like motes among reeds. Serene low panoramic view, champagne gold, blush pink and pale seafoam."
+  },
+  {
+    "id": "FD-021",
+    "number": 21,
+    "name": "Moonrend Delve",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Dark — Light",
+    "types": [
+      "Dark",
+      "Light"
+    ],
+    "terrain_types": [
+      "Dark",
+      "Light"
+    ],
+    "rules": "",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Subterranean crystal cleft split by a razor-thin shaft of brilliant moonlight, one side pure white sparkling mineral and the other dark untouched stone, still black reflecting pool. Severe black-white contrast with restrained cold silver, dramatic tilted upward viewpoint."
+  },
+  {
+    "id": "FD-022",
+    "number": 22,
+    "name": "Sacred Spring",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Water — Earth",
+    "types": [
+      "Water",
+      "Earth"
+    ],
+    "terrain_types": [
+      "Water",
+      "Earth"
+    ],
+    "rules": "Heal the creature occupying this hex by 1 HP at the start of its controller’s pre-combat phase.",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "A tiny sacred spring wells from between ancient tree roots into a round mossy stone basin, golden sunlight rests on the water, medicinal blue flowers and fresh fern fronds frame the intimate sanctuary. Warm olive, turquoise and soft gold, close low eye-level view."
+  },
+  {
+    "id": "FD-023",
+    "number": 23,
+    "name": "Wall of Light",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Light",
+    "types": [
+      "Light"
+    ],
+    "terrain_types": [
+      "Light"
+    ],
+    "rules": "At the beginning of your opponent’s combat phase, grant 1 Shield to the creature you control directly behind this hex.",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "An immense translucent golden wall shaped from interlocking luminous hexagons shields a quiet grassy courtyard from a distant storm of dark arrows, camera skims along its edge so protective depth is clear. Brilliant honey-white versus slate blue, sharp geometric shapes, no people prominent."
+  },
+  {
+    "id": "FD-024",
+    "number": 24,
+    "name": "Erupt",
+    "rarity": "Rare",
+    "card_type": "Spell",
+    "subtype": "Spell",
+    "types": [],
+    "terrain_types": [],
+    "rules": "Change one of the enemy’s hexes into a Volcanic Vent.",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {
+      "Earth": 1,
+      "Fire": 1
+    },
+    "art_direction": "Violent instant a peaceful grassy field ruptures upward in a cone of magma and shattered rock, roots and soil torn into the air, a tiny distant fleeing goblin establishes scale. Dynamic extreme low ground-level angle, fierce red-orange explosion against saturated cyan sky, kinetic magical spell scene."
+  },
+  {
+    "id": "FD-025",
+    "number": 25,
+    "name": "Volcanic Vent",
+    "rarity": "Uncommon",
+    "card_type": "Plane",
+    "subtype": "Fire — Earth",
+    "types": [
+      "Fire",
+      "Earth"
+    ],
+    "terrain_types": [
+      "Fire",
+      "Earth"
+    ],
+    "rules": "Deal 1 damage to the creature occupying this hex at the start of its controller’s pre-combat phase.",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Close downward view of a circular jagged volcanic vent embedded in cracked basalt, white-hot gas jets escape through a glowing central fissure, red mineral crust and scorched dry weeds. Intense white centre, dark umber and sulphur orange, contained hazardous place, not a volcano panorama.",
+    "generated_only": true
+  },
+  {
+    "id": "FD-026",
+    "number": 26,
+    "name": "Door to Ashgar",
+    "rarity": "Rare",
+    "card_type": "Plane",
+    "subtype": "Fire",
+    "types": [
+      "Fire"
+    ],
+    "terrain_types": [
+      "Fire"
+    ],
+    "rules": "At the beginning of each of your combat phases, if this hex is empty, summon one Goblin Punk. That creature gains Sprint and Doomed.",
+    "set": "foundations",
+    "set_name": "Foundations",
+    "cost": {},
+    "art_direction": "Tall weather-beaten wooden door stands alone on a windswept grassy ridge, its open doorway reveals a blazing goblin war camp in another realm; one scrappy green goblin punk with red crest is stepping through, other small goblin silhouettes behind. Cool emerald dusk outside, orange fire within, strong doorway silhouette and magical threshold."
   }
 ]

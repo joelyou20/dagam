@@ -340,8 +340,14 @@ func _use():
 		_refresh()
 
 func _change(id: String, amount: int):
-	if amount > 0 and definitions.get(id, {}).get("preview_only", false):
-		status.text = "Foundations is a preview set. These cards cannot be added to decks yet."
+	if (
+		amount > 0
+		and (
+			definitions.get(id, {}).get("preview_only", false)
+			or definitions.get(id, {}).get("generated_only", false)
+		)
+	):
+		status.text = "This card is created by an effect and cannot be added to decks."
 
 		return
 
@@ -350,7 +356,7 @@ func _change(id: String, amount: int):
 
 		if index >= 0:
 			draft.remove_at(index)
-	elif draft.size() < 20 and draft.count(id) < int(definitions[id].get("deckLimit", 2)):
+	elif draft.size() < 30 and draft.count(id) < int(definitions[id].get("deckLimit", 2)):
 		draft.append(id)
 
 	var saved_id = HexManager.save_deck(deck_id, title.text, draft)
@@ -416,14 +422,14 @@ func _refresh():
 		var plus = _button(row, "+", func(): _change(id, 1))
 
 		plus.disabled = (
-			draft.size() >= 20 or draft.count(id) >= int(definitions[id].get("deckLimit", 2))
+			draft.size() >= 30 or draft.count(id) >= int(definitions[id].get("deckLimit", 2))
 		)
 		_button(row, "−", func(): _change(id, -1))
 
 	metrics.text = (
 		(
-			"%d / 20 CARDS\n%d Creatures · %d Spells\n"
-			+ "%d Items · %d Battlefields\nCreature avg: %.1f ATK / %.1f HP"
+			"%d / 30 CARDS\n%d Creatures · %d Spells\n"
+			+ "%d Items · %d Battlefields · %d Planes\nCreature avg: %.1f ATK / %.1f HP"
 		)
 		% [
 			draft.size(),
@@ -431,6 +437,7 @@ func _refresh():
 			kinds.get("Spell", 0),
 			kinds.get("Item", 0),
 			kinds.get("Battlefield", 0),
+			kinds.get("Plane", 0),
 			float(attack) / maxi(1, creatures),
 			float(hp) / maxi(1, creatures)
 		]
@@ -492,16 +499,20 @@ func _collection():
 		var add = _button(
 			column,
 			(
-				"Preview · Not playable"
-				if c.get("preview_only", false)
-				else "Add · %d / %d" % [draft.count(c.id), int(c.get("deckLimit", 2))]
+				"Created by an effect"
+				if c.get("generated_only", false)
+				else (
+					"Preview · Not playable"
+					if c.get("preview_only", false)
+					else "Add · %d / %d" % [draft.count(c.id), int(c.get("deckLimit", 2))]
+				)
 			),
 			func(): _change(c.id, 1)
 		)
 
 		add.disabled = (
-			c.get("preview_only", false)
-			or draft.size() >= 20
+			(c.get("preview_only", false) or c.get("generated_only", false))
+			or draft.size() >= 30
 			or draft.count(c.id) >= int(c.get("deckLimit", 2))
 		)
 

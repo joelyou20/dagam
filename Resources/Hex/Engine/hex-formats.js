@@ -3,7 +3,7 @@ const HEX_FORMATS = {
   standard: {
     id: "standard",
     name: "Standard",
-    deckSize: 20,
+    deckSize: 30,
     opening: 5,
     columns: 3,
     slots: 6,

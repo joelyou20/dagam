@@ -60,7 +60,7 @@ and battle presentation. Board shaders live in Resources/Hex/Shaders.
 The Hex GitHub workflow runs formatting/lint, native builds and battle/world
 regressions. Tests/Hex/RpgTCG.tscn covers Farmer’s dialogue action, recruitment,
 old/new saves, earlier checkpoints, inventory, menu navigation and solo XP.
-Tests/Hex/rules_test.gd covers all 160 base cards and 56 simulated matches.
+Tests/Hex/rules_test.gd covers all 186 base cards and 56 simulated matches.
 
 ## Creature status presentation
 

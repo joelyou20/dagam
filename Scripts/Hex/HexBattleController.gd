@@ -36,6 +36,7 @@ var pile_controls: Dictionary = {}
 var piles_layer: Control
 var opening: Control
 var hint_tween: Tween
+var power_displays: Array = []
 
 func _ready() -> void:
 	visual_effects = preload("res://Scripts/Hex/HexBattleEffects.gd").new(self)
@@ -43,6 +44,16 @@ func _ready() -> void:
 	engine = HexManager.session
 	paused = true
 	_layout()
+
+	for side in [0, 1]:
+		var display := preload("res://Scripts/Hex/HexPowerDisplay.gd").new()
+
+		display.position = Vector2(14, 100 if side == 1 else size.y - 285)
+		display.size = Vector2(245, 110)
+		display.z_index = 5
+		add_child(display)
+		power_displays.append(display)
+
 	engine.fault.connect(_error)
 	resized.connect(_resize_battle)
 	_resize_battle.call_deferred()
@@ -73,7 +84,7 @@ func set_battle_active(active: bool) -> void:
 	notice.text = (
 		("Encounter · " + str(HexManager.encounter_metadata().get("name", "Enemy")))
 		if HexManager.is_encounter()
-		else "20 cards · Draw 5 · Six creature defeats to win"
+		else "30 cards · Draw 5 · Six creature defeats to win"
 	)
 	_refresh()
 	_schedule_ai()
@@ -387,6 +398,26 @@ func _refresh() -> void:
 				button.size = rect.size
 				button.modulate.a = 0
 
+				if zone == "board":
+					var terrain: Dictionary = p.planes[slot]
+
+					button.tooltip_text = (
+						"%s · Level %d%s"
+						% [
+							" / ".join(terrain.types),
+							terrain.level,
+							" · Locked" if terrain.get("locked", false) else ""
+						]
+					)
+
+					if terrain.has("id"):
+						button.tooltip_text += (
+							"\n"
+							+ _def(terrain.id).get("name", "")
+							+ "\n"
+							+ _def(terrain.id).get("rules", "")
+						)
+
 				if cards[slot] != null and cards[slot].has("hp"):
 					_stat_badge(cards[slot], rect)
 
@@ -417,6 +448,13 @@ func _refresh() -> void:
 	for c in g.players[0].hand:
 		_card(hand, c, {"zone": "hand"}, hand_card_size)
 
+	for side in [0, 1]:
+		power_displays[side].position.y = 100 if side == 1 else size.y - 285
+		power_displays[side].configure(
+			g.players[side].power,
+			("Your" if side == 0 else "Enemy") + " Power · " + str(g.players[side].power.size())
+		)
+
 	_animate_hand.call_deferred()
 	opening.sync(g if not paused else {})
 	_actions(g)
@@ -436,7 +474,7 @@ func _refresh() -> void:
 				effect_sound.play()
 
 			_announce("Victory" if g.winner == 0 else "Defeat" if g.winner == 1 else "Draw", true)
-		elif g.phase in ["pre", "combat", "post"]:
+		elif g.phase in ["power", "pre", "combat", "post"]:
 			_announce(
 				(
 					(
@@ -444,11 +482,14 @@ func _refresh() -> void:
 						if g.phase == "pre"
 						else ""
 					)
-					+ {
-						"pre": "Pre-Combat Phase",
-						"combat": "Combat Phase",
-						"post": "Post-Combat Phase"
-					}[g.phase]
+					+ (
+						{
+							"pre": "Pre-Combat Phase",
+							"combat": "Combat Phase",
+							"post": "Post-Combat Phase"
+						}
+						. get(g.phase, "Power phase · Play a Plane or continue")
+					)
 				)
 			)
 
@@ -502,8 +543,14 @@ func _actions(g: Dictionary) -> void:
 	elif g.active == 0 and g.choice == null and g.response == null:
 		_button(
 			controls,
-			{"pre": "Begin combat", "combat": "Finish combat", "post": "End turn"}.get(
-				g.phase, "Continue"
+			(
+				{
+					"power": "Main phase",
+					"pre": "Begin combat",
+					"combat": "Finish combat",
+					"post": "End turn"
+				}
+				. get(g.phase, "Continue")
 			),
 			func(): _command({"op": "next"})
 		)
@@ -616,7 +663,11 @@ func _clicked(c: Dictionary, dest: Dictionary) -> void:
 		var options: Array = engine.state.handOptions.get(c.uid, [])
 
 		if options.is_empty():
-			_hint("This card cannot be played right now.")
+			_hint(
+				engine.state.get("handReasons", {}).get(
+					c.uid, "This card cannot be played right now."
+				)
+			)
 
 			return
 
@@ -646,7 +697,22 @@ func _drop(data: Dictionary, dest: Dictionary) -> void:
 			target = engine.state.players[dest.side].board[dest.slot].uid
 
 		for o in engine.state.handOptions.get(data.uid, []):
-			if not target.is_empty() and o.get("target", "") == target:
+			var played_card: Dictionary = {}
+
+			for candidate in engine.state.players[0].hand:
+				if candidate.uid == data.uid:
+					played_card = _def(candidate.id)
+
+			if (
+				dest.zone == "board"
+				and o.get("slot", -1) == dest.get("slot", -2)
+				and (
+					(played_card.get("card_type") == "Plane" and dest.side == 0)
+					or (played_card.get("id") == "FD-024" and dest.side == 1)
+				)
+			):
+				options.append(o)
+			elif not target.is_empty() and o.get("target", "") == target:
 				options.append(o)
 			elif (
 				target.is_empty()
@@ -829,7 +895,7 @@ func _pile(side: int, zone: String) -> void:
 func _starter() -> void:
 	if not engine.catalog.is_empty():
 		_gallery(
-			"Your battle deck · 20 cards",
+			"Your battle deck · 30 cards",
 			engine.state.get("playerDeck", engine.catalog.starter).map(
 				func(id): return {"id": id, "owner": 0, "uid": id}
 			)

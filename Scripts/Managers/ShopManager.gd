@@ -56,6 +56,7 @@ func card_data(id: String) -> Dictionary:
 func valid_print(id: String) -> bool:
 	return (
 		definitions.has(base_id(id))
+		and not definitions[base_id(id)].get("generated_only", false)
 		and FileAccess.file_exists("res://Assets/Hex/cards/" + id + ".hextex")
 	)
 

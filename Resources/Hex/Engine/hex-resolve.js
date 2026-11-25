@@ -24,6 +24,15 @@ function hexExecuteTask(g, j) {
     pl = g.players[p],
     target = j.target ? hexFind(g, j.target) : null;
   switch (j.kind) {
+    case "power":
+      hexGeneratePower(g, p);
+      break;
+    case "planeHeal":
+      if (target) hexHeal(g, target, 1);
+      break;
+    case "planeDamage":
+      if (target) hexDamage(g, [{ target: target.uid, amount: 1 }]);
+      break;
     case "noop":
       break;
     case "dailyEcho":
@@ -56,7 +65,10 @@ function hexExecuteTask(g, j) {
           text: j.phase === "pre" ? "Pre-Combat Phase" : "Post-Combat Phase",
           tone: "phase",
         });
-      if (j.phase === "pre") hexElderPre(g, g.active);
+      if (j.phase === "pre") {
+        hexElderPre(g, g.active);
+        hexPlanePre(g, g.active);
+      }
       if (j.phase === "pre") hexLog(g, "Pre-combat · play cards.");
       if (j.phase === "post") hexLog(g, "Post-combat.");
       break;
@@ -136,7 +148,7 @@ function hexExecuteTask(g, j) {
         break;
       }
       if (hexType(c, "Creature")) {
-        if (pl.board[j.option.slot]) {
+        if (pl.board[j.option.slot] || !hexCompatible(g, c, p, j.option.slot)) {
           if (hexHasType(c, "Summon")) hexRemoveFromGame(g, c);
           else pl.hand.push(c);
           break;

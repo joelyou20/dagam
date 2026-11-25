@@ -83,12 +83,8 @@ def card_type(card):
 
 
 def cost_text(card):
-    return (
-        "Cost: "
-        + " · ".join(f"{amount} {element}" for element, amount in card["cost"].items())
-        if card["cost"]
-        else ""
-    )
+    # Costs are drawn once by the shared in-game right-edge badge overlay.
+    return ""
 
 
 def body(draw, card, box, centered_text=False):

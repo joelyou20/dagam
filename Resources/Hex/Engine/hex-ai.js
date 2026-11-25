@@ -465,6 +465,7 @@ const HEX_BOT_NAMES = {
   crownimperium: "Crown Imperium",
 };
 function hexBotDeck(name = "thornbound", format = "standard") {
+  if (HEX_RESOURCE_DECKS[name]) return [...HEX_RESOURCE_DECKS[name]];
   let cards = (HEX_BOT_DECKS[name] || HEX_BOT_DECKS.thornbound).map((n) =>
     typeof n === "number" ? hexId(n) : n,
   );
@@ -477,7 +478,7 @@ function hexBotDeck(name = "thornbound", format = "standard") {
       if (arcana[i]) cards.push(arcana[i]);
     }
   }
-  return hexTrimDeck(cards, format);
+  return hexDevelopDeck(hexTrimDeck(cards, format).slice(0, 20));
 }
 function hexBotView(g, side = 1) {
   const p = g.players[side],
@@ -542,6 +543,7 @@ function hexBotChoiceScore(g, option) {
 }
 function hexBotCardValue(g, c) {
   const def = hexDef(c);
+  if (def.card_type === "Plane") return 12;
   if (def.card_type === "Creature")
     return (
       hexDailyBase(g, c).attack * 1.5 +
@@ -602,7 +604,7 @@ function hexClassicBotStep(g, side = 1) {
   }
   const view = hexBotView(g, side),
     pl = g.players[side];
-  if (["pre", "post"].includes(g.phase)) {
+  if (["power", "pre", "post"].includes(g.phase)) {
     const actions = [];
     for (const c of view.hand) {
       if (hexIsReaction(c)) continue;

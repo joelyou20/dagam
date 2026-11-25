@@ -102,7 +102,7 @@ func run():
 	var cards = []
 
 	for card in HexManager.session.catalog.cards:
-		if card.card_type == "Spell" and cards.size() < 20:
+		if card.card_type == "Spell" and cards.size() < 30:
 			cards.append(card.id)
 			cards.append(card.id)
 
@@ -119,7 +119,7 @@ func run():
 	builder.draft = cards.duplicate()
 	builder._change("LT-001", 1)
 
-	if not check(builder.draft.size() == 20, "UI exceeded 20-card deck size"):
+	if not check(builder.draft.size() == 30, "UI exceeded 30-card deck size"):
 		return
 
 	builder._duplicate()

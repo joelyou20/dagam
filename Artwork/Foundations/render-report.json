@@ -508,7 +508,7 @@
     "name": "Sacred Spring",
     "rarity": "Uncommon",
     "art_sha256": "d07c8d08af367867b9232353d1545c171eed21251fbc73b137a09e97850ecac9",
-    "sha256": "8052f85252e5778a0637b0c88821e2812b25a44efe6042ddb0ea897f02d554a3",
+    "sha256": "256ba6732b9a20a0507037a208414f5fa6a759196cbe050ccb4dc79e6f509973",
     "font_size": 34,
     "size": [
       1024,
@@ -520,7 +520,7 @@
     "name": "Sacred Spring",
     "rarity": "Uncommon",
     "art_sha256": "d07c8d08af367867b9232353d1545c171eed21251fbc73b137a09e97850ecac9",
-    "sha256": "a01f09e877f8633fe153efdf416e87c4d8fc017b0798b65317959f90af35a0c7",
+    "sha256": "ce2b1edbb14863d826e3bdb3f9178b08779ec56f76dc1ac89570934123c059da",
     "font_size": 31,
     "size": [
       1024,
@@ -556,7 +556,7 @@
     "name": "Erupt",
     "rarity": "Rare",
     "art_sha256": "ada3cc79705e30e12be1116affc3a2e939f35ae8a4339be263bf30ce29fb8886",
-    "sha256": "9e8a8913ff357d2ddfbf1232abeb0b74ea51c15a3ba493a11b01984ece49727f",
+    "sha256": "09b49009e756b3d8bca380702c7e3780b2d3b04e2b87215e9b58dade85344143",
     "font_size": 34,
     "size": [
       1024,
@@ -568,7 +568,7 @@
     "name": "Erupt",
     "rarity": "Rare",
     "art_sha256": "ada3cc79705e30e12be1116affc3a2e939f35ae8a4339be263bf30ce29fb8886",
-    "sha256": "521925b580b5656c85cd0c148029a6fc114c6a28e1d46ce7807bd49809ce392c",
+    "sha256": "a315375c6c39e8596b1878b88dd6046aebe071b712682bdc83688545870f6d84",
     "font_size": 31,
     "size": [
       1024,
@@ -604,7 +604,7 @@
     "name": "Door to Ashgar",
     "rarity": "Rare",
     "art_sha256": "f8252067ef91cbbf0a5a92f90282e5b147ec5f69334abae5e31c420cef87b75a",
-    "sha256": "bec2c9e9d19bbe796ebd31c7faae3f3c0a14076b8b20d11a162311c6923eba51",
+    "sha256": "33fc8caa0d520dcb3357806227ce922ba41696874e923c7ddbc0e0c55480ff52",
     "font_size": 34,
     "size": [
       1024,
@@ -616,7 +616,7 @@
     "name": "Door to Ashgar",
     "rarity": "Rare",
     "art_sha256": "f8252067ef91cbbf0a5a92f90282e5b147ec5f69334abae5e31c420cef87b75a",
-    "sha256": "1da3bc8396f2f27a23cf8c2d77ecf96bb408e93a1a5babece5f87e19f5aa99dd",
+    "sha256": "486a95dd2cf95e9b16c626b309be920f5b6aea301f67633ef4a5e654d28044ad",
     "font_size": 31,
     "size": [
       1024,

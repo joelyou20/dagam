@@ -125,7 +125,7 @@ func _build() -> void:
 	summary = _label(layout, "")
 	tabs = TabBar.new()
 
-	for title_text in ["Boosters", "Singles", "Collection", "Foundations preview"]:
+	for title_text in ["Boosters", "Singles", "Collection", "Foundations"]:
 		tabs.add_tab(title_text)
 
 	layout.add_child(tabs)
@@ -273,7 +273,7 @@ func _refresh() -> void:
 		print_filter.select(0)
 
 	if tabs.current_tab == 3:
-		summary.text = "Foundations · %d preview cards" % ShopManager.preview_definitions.size()
+		summary.text = "Foundations · Planes and Spells"
 
 	if tabs.current_tab == 0:
 		for set_id in ShopManager.SETS:
@@ -305,7 +305,10 @@ func _entries() -> Array:
 	if tabs.current_tab == 3:
 		var suffix: String = ["", "-FA"][mini(print_filter.selected, 1)]
 
-		for id in ShopManager.preview_definitions:
+		for id in ShopManager.definitions:
+			if ShopManager.definitions[id].get("set") != "foundations":
+				continue
+
 			if FileAccess.file_exists("res://Assets/Hex/cards/" + id + suffix + ".hextex"):
 				candidates.append(id + suffix)
 	elif tabs.current_tab == 2:
@@ -368,7 +371,7 @@ func _card(id: String, owned: bool) -> void:
 	_image(column, id, Vector2(130, 195))
 	_label(column, data.name)
 
-	if data.get("preview_only", false):
+	if data.get("preview_only", false) or data.get("generated_only", false):
 		_label(column, data.rarity + " · Preview only", 14)
 
 		if data.get("generated_only", false):

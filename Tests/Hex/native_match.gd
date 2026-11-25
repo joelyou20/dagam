@@ -5,8 +5,8 @@ func _initialize():
 	var bridge = Bridge.new()
 
 	assert(bridge.initialize(), bridge.last_error)
-	assert(bridge.catalog.cards.size() == 160)
-	assert(bridge.catalog.starter.size() == 20)
+	assert(bridge.catalog.cards.size() == 186)
+	assert(bridge.catalog.starter.size() == 30)
 	assert(bridge.request({"op": "new", "seed": 42}).state.phase == "coin")
 	bridge.request({"op": "coin", "call": "heads"})
 	var side: int = 0 if bridge.state.coin.winner == 0 else 1
