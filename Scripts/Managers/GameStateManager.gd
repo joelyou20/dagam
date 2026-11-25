@@ -4,6 +4,7 @@ func save_game_to_file(path: String = "user://savegame.dat"):
 	var player_node = PlayerManager.get_player_node()
 	var data := {
 		"hex": HexManager.save_hex(),
+		"shop": ShopManager.save_shop(),
 		"hex_decks": HexManager.save_decks(),
 		"dialogs": DialogManager.save_dialogs(),
 		"flags": FlagManager.save_flags(),
@@ -27,6 +28,7 @@ func save_game_to_file(path: String = "user://savegame.dat"):
 	file.close()
 
 func load_game_from_file(path: String = "user://savegame.dat"):
+	ShopManager.close_shop()
 	HexManager.close_battle(true)
 	MenuManager.hide_menu(true)
 
@@ -65,6 +67,9 @@ func load_game_from_file(path: String = "user://savegame.dat"):
 	QuestManager.load_quests(data.get("quests", {}))
 	PlayerManager.load_player(data.get("player", {}))
 	InventoryManager.load_inventory(data.get("inventory", {}))
+
+	if data.has("shop"):
+		ShopManager.load_shop(data.shop)
 
 	HexManager.load_decks(data.get("hex_decks", {}))
 	HexManager.load_hex(data.get("hex", {}))

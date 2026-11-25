@@ -189,7 +189,7 @@ def build():
         "[gd_scene format=3]",
         "",
         '[ext_resource type="Material" path="res://Resources/Terrain/meadow_ground.tres" id="1_ground"]',
-        '[ext_resource type="PackedScene" path="res://Scenes/Characters/ShopkeeperVisual.tscn" id="2_shopkeeper"]',
+        '[ext_resource type="PackedScene" path="res://Scenes/Shopkeeper.tscn" id="2_shopkeeper"]',
         '[ext_resource type="PackedScene" path="res://Scenes/Enemies/Rival.tscn" id="3_rival"]',
         "",
     ]

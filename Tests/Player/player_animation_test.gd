@@ -88,6 +88,7 @@ func run() -> void:
 	check(sprite.animation == "idle_right", "Interaction blockers must stop walking animation")
 	root.get_node("InteractionHandler").unblock("animation-test")
 	player.set_physics_process(true)
+	await create_timer(0.15).timeout
 	Input.action_press("ui_left")
 	await physics_frame
 	await physics_frame

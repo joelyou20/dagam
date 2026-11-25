@@ -47,6 +47,9 @@ func run() -> void:
 	if not await check_ramp(player):
 		return
 
+	if not await check_fall(player):
+		return
+
 	if not await check_encounter(area, player, rival):
 		return
 
@@ -69,7 +72,8 @@ func check_setup(area, player, rival) -> bool:
 		return false
 
 	if not check(
-		not area.get_node("Market/Shopkeeper") is NPC, "Shopkeeper must remain a visual placeholder"
+		area.get_node("Market/Shopkeeper") is Shopkeeper,
+		"Shopkeeper must expose the shop interaction"
 	):
 		return false
 
@@ -113,6 +117,70 @@ func check_ramp(player) -> bool:
 		return false
 
 	return true
+
+func check_fall(player) -> bool:
+	player.global_position = Vector3(-2, 0.75, -2.4)
+	player.velocity = Vector3.ZERO
+	await get_tree().create_timer(0.15).timeout
+	Input.action_press("ui_left")
+
+	for frame in range(60):
+		await get_tree().physics_frame
+
+		if not player.is_on_floor():
+			break
+
+	var origin: Vector3 = player.global_position
+
+	if not check(
+		(
+			not player.is_on_floor()
+			and is_zero_approx(player.velocity.x)
+			and is_zero_approx(player.velocity.z)
+		),
+		"Stepping off a ledge must immediately clear horizontal velocity"
+	):
+		return false
+
+	Input.action_press("ui_up")
+	await frames()
+
+	if not check(
+		(
+			is_equal_approx(player.global_position.x, origin.x)
+			and is_equal_approx(player.global_position.z, origin.z)
+		),
+		"Held input and air steering must not move a falling player sideways"
+	):
+		return false
+
+	Input.action_release("ui_left")
+	Input.action_release("ui_up")
+
+	for frame in range(90):
+		await get_tree().physics_frame
+
+		if player.is_on_floor():
+			break
+
+	if not check(
+		(
+			player.is_on_floor()
+			and player.global_position.y < 0.2
+			and is_equal_approx(player.global_position.x, origin.x)
+			and is_equal_approx(player.global_position.z, origin.z)
+		),
+		"Ledge fall must land straight below the departure point"
+	):
+		return false
+
+	Input.action_press("ui_down")
+	await frames()
+	Input.action_release("ui_down")
+
+	return check(
+		player.global_position.z > origin.z + 0.02, "Horizontal control must resume after landing"
+	)
 
 func check_encounter(area, player, rival) -> bool:
 	player.global_position = rival.global_position + Vector3(0, 0, 0.8)
