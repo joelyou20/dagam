@@ -21,7 +21,7 @@ func frames():
 	await get_tree().process_frame
 
 func _run():
-	world = load("res://Scenes/Root.tscn").instantiate()
+	world = load(ProjectSettings.get_setting("application/run/main_scene")).instantiate()
 	get_tree().root.add_child(world)
 	get_tree().current_scene = world
 
@@ -145,8 +145,16 @@ func _run():
 		return
 
 	if not check(
-		ProjectSettings.get_setting("application/run/main_scene") == "res://Scenes/Root.tscn",
-		"Original entry scene changed"
+		(
+			world.scene_file_path == "res://Scenes/TerrainTest.tscn"
+			and world.has_node("Player")
+			and world.has_node("SceneRoot")
+			and (
+				SceneManager.current_scene.scene_file_path
+				== "res://Scenes/Environments/MeadowTest.tscn"
+			)
+		),
+		"Configured entry must load the meadow within the shared World/Player/SceneRoot architecture"
 	):
 		return
 
