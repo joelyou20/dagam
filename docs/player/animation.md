@@ -47,3 +47,22 @@ godot --headless --path . --script res://Tests/Player/player_animation_test.gd
 
 The test checks animation loops and atlas bounds, all cardinal facings, idle
 retention, playback, interaction blockers, actual player input and a physical wall.
+
+## Shopkeeper and rival
+
+Two matching character sheets live in `Assets/Sprites/Characters`:
+
+- **Shopkeeper:** warm rust/cream clothing, an apron, spectacles and a coin purse.
+- **Rival adventurer:** silver hair, a violet traveling coat and a crimson scarf.
+
+Both use the same 64-frame, eight-row layout as the player. Their SpriteFrames
+resources live in `Resources/Characters`. Ready-to-instance AnimatedSprite3D visual
+scenes live in `Scenes/Characters`, with billboard rendering and nearest filtering.
+Select animations such as `idle_down`, `walk_left` or `walk_up` on the sprite.
+
+Rebuild their frame resources with the shared builder:
+
+```sh
+python tools/player/build_player_frames.py --atlas Assets/Sprites/Characters/shopkeeper.png --output Resources/Characters/shopkeeper_frames.tres
+python tools/player/build_player_frames.py --atlas Assets/Sprites/Characters/rival.png --output Resources/Characters/rival_frames.tres
+```
