@@ -7,6 +7,7 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont, ImageOps
 from frame_composer import artwork_mask, compose
+from card_opacity import opaque_interior
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE = ROOT / "Artwork/Foundations"
@@ -209,6 +210,7 @@ def build(partial=False):
             image, font_size = render()
             assert image.size == (1024, 1536)
             output = OUTPUT / (card["id"] + suffix + ".hextex")
+            image = opaque_interior(image)
             image.save(output, format="WEBP", quality=94, method=4)
             thumb = ImageOps.contain(image, (240, 360))
             thumb.save(previews / (card["id"] + suffix + ".webp"), quality=90)

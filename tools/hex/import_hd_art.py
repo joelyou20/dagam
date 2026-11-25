@@ -11,12 +11,17 @@ S = Path(sys.argv[1]).resolve()
 R = Path(__file__).resolve().parents[2]
 OUT = R / "Assets/Hex/cards"
 D = R / "Resources/Hex/Data"
+sys.path.insert(0, str(R / "tools/cards"))
+from card_opacity import opaque_interior
+
 source = {
     c["id"]: c
     for name in ["first-light", "shattered-arcana", "war-on-elderberry"]
     for c in json.loads((S / f"catalog/hex/{name}.json").read_text())["cards"]
 }
-current = json.loads((D / "cards.json").read_text())
+current = [
+    c for c in json.loads((D / "cards.json").read_text()) if c["set"] != "foundations"
+]
 for c in current:
     for key in ["rules", "attack", "hp", "keywords", "rarity"]:
         assert c.get(key) == source[c["id"]].get(key), (
@@ -48,13 +53,13 @@ def install(id, path):
     image = Image.open(path)
     assert image.size == (1024, 1536), (id, image.size)
     target = OUT / (id + ".hextex")
-    shutil.copy(path, target)
+    opaque_interior(image).save(target, format="WEBP", lossless=True, method=4)
     records.append(
         {
             "id": id,
             "width": image.width,
             "height": image.height,
-            "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+            "sha256": hashlib.sha256(target.read_bytes()).hexdigest(),
         }
     )
 

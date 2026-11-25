@@ -30,3 +30,9 @@ overlays in Assets/Hex/costs. Rebuild them with:
     python tools/cards/render_cost_badges.py
 
 See docs/hex-planes.md for implemented timing, terrain compatibility and deck rules.
+
+Final composites normalize interior alpha without changing RGB, preserving outer
+corner transparency. Audit all exported cards with
+`python tools/cards/repair_card_opacity.py --check`; repair legacy exports by
+running the same script without `--check`. Cost overlays intentionally remain
+transparent and are excluded from this audit.
