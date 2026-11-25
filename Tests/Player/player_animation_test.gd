@@ -18,6 +18,15 @@ func run() -> void:
 	var world = Node3D.new()
 
 	root.add_child(world)
+	var floor_body = StaticBody3D.new()
+	var floor_shape = CollisionShape3D.new()
+	var floor_box = BoxShape3D.new()
+
+	floor_box.size = Vector3(30, 0.2, 30)
+	floor_shape.shape = floor_box
+	floor_body.position.y = -0.1
+	floor_body.add_child(floor_shape)
+	world.add_child(floor_body)
 	player = load("res://Scenes/Player.tscn").instantiate()
 	world.add_child(player)
 	player.set_physics_process(false)

@@ -1,0 +1,22 @@
+[gd_scene load_steps=8 format=3]
+[ext_resource type="Script" path="res://Scripts/Enemy/Enemy.gd" id="1_enemy"]
+[ext_resource type="PackedScene" path="res://Scenes/Characters/RivalAdventurerVisual.tscn" id="2_visual"]
+[ext_resource type="Script" path="res://Scripts/Battle/EncounterData.gd" id="3_encounter"]
+[ext_resource type="Resource" path="res://Resources/Enemies/rival.tres" id="4_profile"]
+[ext_resource type="Script" path="res://Scripts/Enemy/EnemyResource.gd" id="5_type"]
+[sub_resource type="Resource" id="Encounter"]
+script = ExtResource("3_encounter")
+enemies = Array[ExtResource("5_type")]([ExtResource("4_profile")])
+hex_deck_id = "thornbound"
+[sub_resource type="SphereShape3D" id="Trigger"]
+radius = 0.28
+[node name="Rival" type="Area3D"]
+collision_layer = 0
+collision_mask = 1
+script = ExtResource("1_enemy")
+encounter = SubResource("Encounter")
+id = "meadow-rival"
+fled_reactivate_cooldown = 15.0
+[node name="Visual" parent="." instance=ExtResource("2_visual")]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("Trigger")

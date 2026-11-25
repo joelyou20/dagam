@@ -1,11 +1,14 @@
 extends Node
 
+@export_file("*.tscn") var starting_scene_path := "res://Scenes/Environments/Test.tscn"
+@export var spawn_point_name := ""
+
 var scene_manager := SceneManager
 var menu_manager := MenuManager
 
 func _ready():
 	scene_manager.set_black_screen()
-	scene_manager.load_scene("res://Scenes/Environments/Test.tscn", false, true)
+	scene_manager.load_scene(starting_scene_path, false, true, spawn_point_name)
 
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_cancel"):

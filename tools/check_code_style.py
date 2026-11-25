@@ -16,6 +16,7 @@ GDSCRIPT = [
     "Scripts/Player/PlayerCamera.gd",
     "Tests/Player/player_animation_test.gd",
     "Tests/Player/terrain_tiles_test.gd",
+    "Tests/Player/meadow_scene_test.gd",
     "Scripts/Controllers/PlayerController.gd",
     "Scripts/Compatibility",
     *[
@@ -73,6 +74,7 @@ def main():
         *check,
         "tools/hex",
         "tools/player",
+        "tools/terrain",
         "tools/check_code_style.py",
         "tools/gd_spacing.py",
     )

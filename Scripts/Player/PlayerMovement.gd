@@ -1,12 +1,13 @@
 class_name PlayerMovement
 extends Node
 @export var speed = 5.0
+@export var gravity := 9.8
 var input_direction := Vector2.ZERO
 var interaction_handler := InteractionHandler
 var _preferred_axis := 0
 @onready var player = get_parent()
 
-func move(_delta):
+func move(delta):
 	if interaction_handler.is_blocked():
 		input_direction = Vector2.ZERO
 
@@ -30,6 +31,11 @@ func move(_delta):
 	else:
 		player.velocity.x = move_toward(player.velocity.x, 0, speed)
 		player.velocity.z = move_toward(player.velocity.z, 0, speed)
+
+	if player.is_on_floor():
+		player.velocity.y = 0
+	else:
+		player.velocity.y -= gravity * delta
 
 	player.move_and_slide()
 
