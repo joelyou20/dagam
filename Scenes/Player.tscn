@@ -7,12 +7,15 @@
 [ext_resource type="Script" path="res://Scripts/Player/PlayerMovement.gd" id="4_etmuc"]
 [ext_resource type="Script" path="res://Scripts/Player/PlayerInteract.gd" id="5_c7lcn"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_sassp"]
-size = Vector3(0.280029, 0.278374, 0.268194)
+[sub_resource type="CapsuleShape3D" id="BoxShape3D_sassp"]
+radius = 0.12
+height = 0.278374
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.639471, 0.157096, 0.0645545)
 script = ExtResource("1_vbw1c")
+floor_snap_length = 0.25
+floor_constant_speed = true
 
 [node name="Sprite" type="AnimatedSprite3D" parent="."]
 position = Vector3(0, 0.02, 0)
