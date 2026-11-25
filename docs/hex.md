@@ -82,3 +82,6 @@ Keeping the original hand still starts the selected first player. Mulliganing re
 Plane resource rules and initial cost balancing are documented in [Plane and Power rules](hex-planes.md).
 
 Exposure is separate from creature deaths: [Exposure timing and recovery](hex-exposure.md).
+
+The deck builder offers sixteen archetype templates, covering every colour pair
+and mono-Water Mages. [Colour identities and generic costs](archetype-costs/guide.md).

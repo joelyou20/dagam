@@ -10,6 +10,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parents[2]
 COLORS = {
+    "Any": "#787d88",
     "Earth": "#338943",
     "Fire": "#d33a35",
     "Water": "#237bc1",

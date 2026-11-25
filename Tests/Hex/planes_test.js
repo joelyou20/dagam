@@ -93,11 +93,10 @@ globalThis.runPlaneTests = () => {
       JSON.stringify(g.players[0].power) === '[["Fire"],["Water"]]',
       "Fire plus Water as requested",
     );
-    const zap = card(g, "SA-002");
-    g.players[0].hand.push(zap);
-    g.players[1].planes[0] = hexPlane(["Fire"], 0);
-    put(g, "WE-004", 1);
-    check(hexPlay(g, 0, zap.uid, 0), "spend Fire on Zap");
+    const armour = card(g, "LT-053");
+    g.players[0].hand.push(armour);
+    put(g, "LT-006", 0, 2);
+    check(hexPlay(g, 0, armour.uid, 0), "spend Fire on Emberheart Armor");
     check(JSON.stringify(g.players[0].power) === '[["Water"]]', "only matching sphere spent");
   }
   {
@@ -243,7 +242,7 @@ globalThis.runPlaneTests = () => {
       zap = card(g, "SA-002");
     g.players[1].planes[0] = hexPlane(["Earth"], 0);
     put(g, "LT-006", 1);
-    g.players[0].power = [["Fire"]];
+    g.players[0].power = [["Sky"]];
     g.players[0].hand = [zap];
     g.players[1].hand = [reaction];
     g.players[1].power = [];
@@ -300,7 +299,8 @@ globalThis.runPlaneTests = () => {
       const deck = hexBotDeck(name);
       check(deck.filter((id) => hexType(id, "Plane")).length === 10, name + " has ten Planes");
       check(
-        new Set(deck.flatMap((id) => Object.keys(hexDef(id).cost))).size <= 2,
+        new Set(deck.flatMap((id) => Object.keys(hexDef(id).cost).filter((t) => t !== "Any")))
+          .size <= 2,
         name + " has coherent two-colour costs",
       );
     }
@@ -313,7 +313,7 @@ globalThis.runPlaneTests = () => {
     const zap = card(g, "SA-002"),
       counter = card(g, "SA-035", 1);
     g.players[0].hand = [zap];
-    g.players[0].power = [["Fire"]];
+    g.players[0].power = [["Sky"]];
     g.players[1].hand = [counter];
     g.players[1].power = [["Sky"]];
     check(hexPlay(g, 0, zap.uid, 0), "paid spell opens affordable reaction window");

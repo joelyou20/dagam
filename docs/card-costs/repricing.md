@@ -1,5 +1,8 @@
 # Applied card repricing
 
+This records the previous price reduction. For current colour identities and
+mixed costs, see [the archetype guide](../archetype-costs/guide.md).
+
 These are live catalog prices, not a hypothetical simulation. All 160 existing cards were reviewed; 128 prices changed. Planes remain free, Erupt retains its Earth/Fire cost, and the existing colours, stats, abilities, terrain compatibility, deck sizes, Plane counts, random draws and defeat rules remain unchanged.
 
 The new distribution is 105 cards at 1 Power, 43 at 2, and 12 at 3. Ordinary creatures and small spells are affordable early; scaling engines, powerful disruption and repeatable value generally cost 2; major board swings and substantial engines cost 3.

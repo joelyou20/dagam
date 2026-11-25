@@ -55,6 +55,7 @@ def build():
         "const HEX_CARD = Object.fromEntries(HEX_PRINTS.map(card => [card.id, card]));\n",
         constant("HEX_KEYWORDS", load_json("keywords.json")),
         constant("HEX_RESOURCE_DECKS", load_json("power-enemy-decks.json")),
+        constant("HEX_ARCHETYPES", load_json("archetypes.json")),
     ]
     for module in MODULES:
         sections.append(f"\n// {module}\n{(ENGINE / (module + '.js')).read_text()}\n")

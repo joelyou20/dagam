@@ -12,6 +12,7 @@ const hexCompatible = (g, c, side, slot) => {
 };
 // Flexible spheres are individual resources. Backtracking avoids spending a dual
 // sphere when a single-colour sphere can pay the same part of the cost.
+const hexCostAccepts = (sphere, type) => type === "Any" || sphere.includes(type);
 function hexPowerPayment(g, side, card) {
   const pool = g.players[side].power;
   const needs = Object.entries(hexDef(card).cost || {}).flatMap(([type, count]) =>
@@ -20,19 +21,35 @@ function hexPowerPayment(g, side, card) {
   if (
     pool.length < needs.length ||
     needs.some(
-      (t) => pool.filter((s) => s.includes(t)).length < needs.filter((n) => n === t).length,
+      (t) => pool.filter((s) => hexCostAccepts(s, t)).length < needs.filter((n) => n === t).length,
     )
   )
     return null;
   needs.sort(
-    (a, b) => pool.filter((s) => s.includes(a)).length - pool.filter((s) => s.includes(b)).length,
+    (a, b) =>
+      (a === "Any") - (b === "Any") ||
+      pool.filter((s) => hexCostAccepts(s, a)).length -
+        pool.filter((s) => hexCostAccepts(s, b)).length,
   );
+  // For generic payments, conserve colours needed by other cards in this hand.
+  const futureNeed = {};
+  for (const held of g.players[side].hand || []) {
+    if (card.uid && held.uid === card.uid) continue;
+    const costs = hexDef(held).cost || {};
+    const total = Object.values(costs).reduce((sum, n) => sum + n, 0);
+    for (const [type, amount] of Object.entries(costs))
+      if (type !== "Any") futureNeed[type] = (futureNeed[type] || 0) + amount / (total + 1);
+  }
+  const futureValue = (sphere) => sphere.reduce((sum, type) => sum + (futureNeed[type] || 0), 0);
   function pay(i, used) {
     if (i === needs.length) return used;
     const candidates = pool
       .map((s, index) => ({ s, index }))
-      .filter(({ s, index }) => !used.includes(index) && s.includes(needs[i]))
-      .sort((a, b) => a.s.length - b.s.length);
+      .filter(({ s, index }) => !used.includes(index) && hexCostAccepts(s, needs[i]))
+      .sort(
+        (a, b) =>
+          a.s.length - b.s.length || (needs[i] === "Any" ? futureValue(a.s) - futureValue(b.s) : 0),
+      );
     for (const { index } of candidates) {
       const result = pay(i + 1, [...used, index]);
       if (result) return result;
@@ -137,7 +154,8 @@ function hexDevelopDeck(cards) {
     return [...cards];
   const demand = {};
   for (const id of cards)
-    for (const [t, n] of Object.entries(hexDef(id).cost || {})) demand[t] = (demand[t] || 0) + n;
+    for (const [t, n] of Object.entries(hexDef(id).cost || {}))
+      if (t !== "Any") demand[t] = (demand[t] || 0) + n;
   const remaining = { ...demand },
     planes = [];
   const choices = HEX_CARDS.filter((c) => c.card_type === "Plane" && c.number <= 21);
