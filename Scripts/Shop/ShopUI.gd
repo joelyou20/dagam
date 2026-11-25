@@ -125,7 +125,7 @@ func _build() -> void:
 	summary = _label(layout, "")
 	tabs = TabBar.new()
 
-	for title_text in ["Boosters", "Singles", "Collection"]:
+	for title_text in ["Boosters", "Singles", "Collection", "Foundations preview"]:
 		tabs.add_tab(title_text)
 
 	layout.add_child(tabs)
@@ -265,7 +265,15 @@ func _refresh() -> void:
 		"%d cards collected · %d different prints" % [total, ShopManager.collection.size()]
 	)
 	filters.visible = tabs.current_tab != 0
-	print_filter.visible = tabs.current_tab == 1
+	print_filter.visible = tabs.current_tab in [1, 3]
+	set_filter.visible = tabs.current_tab != 3
+	print_filter.set_item_disabled(2, tabs.current_tab == 3)
+
+	if tabs.current_tab == 3 and print_filter.selected == 2:
+		print_filter.select(0)
+
+	if tabs.current_tab == 3:
+		summary.text = "Foundations · %d preview cards" % ShopManager.preview_definitions.size()
 
 	if tabs.current_tab == 0:
 		for set_id in ShopManager.SETS:
@@ -294,7 +302,13 @@ func _refresh() -> void:
 func _entries() -> Array:
 	var candidates: Array = []
 
-	if tabs.current_tab == 2:
+	if tabs.current_tab == 3:
+		var suffix: String = ["", "-FA"][mini(print_filter.selected, 1)]
+
+		for id in ShopManager.preview_definitions:
+			if FileAccess.file_exists("res://Assets/Hex/cards/" + id + suffix + ".hextex"):
+				candidates.append(id + suffix)
+	elif tabs.current_tab == 2:
 		candidates = ShopManager.collection.keys()
 	else:
 		var suffix: String = ["", "-FA", "-IR"][print_filter.selected]
@@ -310,7 +324,7 @@ func _entries() -> Array:
 			var data = ShopManager.card_data(id)
 
 			return (
-				(selected_set.is_empty() or data.set == selected_set)
+				(tabs.current_tab == 3 or selected_set.is_empty() or data.set == selected_set)
 				and (search.text.is_empty() or search.text.to_lower() in data.name.to_lower())
 			)
 	)
@@ -353,6 +367,15 @@ func _card(id: String, owned: bool) -> void:
 
 	_image(column, id, Vector2(130, 195))
 	_label(column, data.name)
+
+	if data.get("preview_only", false):
+		_label(column, data.rarity + " · Preview only", 14)
+
+		if data.get("generated_only", false):
+			_label(column, "Created by Erupt", 14)
+
+		return
+
 	_label(column, "%s · Collected %d" % [data.rarity, ShopManager.quantity(id)], 14)
 	_button(column, "Take free card", func(): _take(id))
 
