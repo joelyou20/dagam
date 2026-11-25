@@ -100,6 +100,14 @@ func run() -> void:
 	if not check(cost_colour.g > cost_colour.r, "Earth cost badge must be green on the right edge"):
 		return
 
+	var vanguard := preload("res://Scripts/Hex/HexCardUI.gd").art("SA-024").get_image()
+
+	if not check(
+		vanguard.get_pixel(vanguard.get_width() / 2, int(vanguard.get_height() * 0.77)).a == 1.0,
+		"Vanguard ability panel must stay opaque after cost compositing"
+	):
+		return
+
 	if DisplayServer.get_name() != "headless":
 		await process_frame
 		await RenderingServer.frame_post_draw
