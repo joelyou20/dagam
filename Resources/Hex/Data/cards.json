@@ -21,7 +21,7 @@
       }
     ],
     "cost": {
-      "Light": 2
+      "Light": 1
     },
     "terrain_types": [
       "Light",
@@ -49,7 +49,7 @@
       }
     ],
     "cost": {
-      "Earth": 3
+      "Earth": 2
     },
     "terrain_types": [
       "Earth",
@@ -73,7 +73,7 @@
     ],
     "keywords": [],
     "cost": {
-      "Dark": 3
+      "Dark": 2
     },
     "terrain_types": [
       "Dark",
@@ -120,7 +120,7 @@
     ],
     "keywords": [],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     },
     "terrain_types": [
       "Fire",
@@ -168,7 +168,7 @@
     ],
     "keywords": [],
     "cost": {
-      "Fire": 4
+      "Fire": 2
     },
     "terrain_types": [
       "Fire",
@@ -192,7 +192,7 @@
     ],
     "keywords": [],
     "cost": {
-      "Dark": 5
+      "Dark": 2
     },
     "terrain_types": [
       "Dark",
@@ -216,7 +216,7 @@
     ],
     "keywords": [],
     "cost": {
-      "Dark": 2
+      "Dark": 1
     },
     "terrain_types": [
       "Dark",
@@ -240,7 +240,7 @@
     ],
     "keywords": [],
     "cost": {
-      "Earth": 3
+      "Earth": 1
     },
     "terrain_types": [
       "Earth",
@@ -263,7 +263,7 @@
     ],
     "keywords": [],
     "cost": {
-      "Water": 2
+      "Water": 1
     },
     "terrain_types": [
       "Water",
@@ -287,7 +287,7 @@
     ],
     "keywords": [],
     "cost": {
-      "Light": 4
+      "Light": 2
     },
     "terrain_types": [
       "Light",
@@ -319,7 +319,7 @@
       }
     ],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     },
     "terrain_types": [
       "Fire",
@@ -347,7 +347,7 @@
       }
     ],
     "cost": {
-      "Earth": 2
+      "Earth": 1
     },
     "terrain_types": [
       "Earth",
@@ -371,7 +371,7 @@
     ],
     "keywords": [],
     "cost": {
-      "Sky": 4
+      "Sky": 2
     },
     "terrain_types": [
       "Sky",
@@ -395,7 +395,7 @@
     ],
     "keywords": [],
     "cost": {
-      "Fire": 5
+      "Fire": 2
     },
     "terrain_types": [
       "Fire",
@@ -442,7 +442,7 @@
     ],
     "keywords": [],
     "cost": {
-      "Fire": 3
+      "Fire": 1
     },
     "terrain_types": [
       "Fire",
@@ -466,7 +466,7 @@
     ],
     "keywords": [],
     "cost": {
-      "Earth": 3
+      "Earth": 1
     },
     "terrain_types": [
       "Earth",
@@ -490,7 +490,7 @@
     ],
     "keywords": [],
     "cost": {
-      "Sky": 4
+      "Sky": 2
     },
     "terrain_types": [
       "Sky",
@@ -514,7 +514,7 @@
     ],
     "keywords": [],
     "cost": {
-      "Earth": 3
+      "Earth": 1
     },
     "terrain_types": [
       "Earth",
@@ -582,7 +582,7 @@
     ],
     "keywords": [],
     "cost": {
-      "Water": 3
+      "Water": 2
     },
     "terrain_types": [
       "Water",
@@ -626,7 +626,7 @@
       }
     ],
     "cost": {
-      "Water": 3
+      "Water": 2
     },
     "terrain_types": [
       "Water",
@@ -670,7 +670,7 @@
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Fire": 3
+      "Fire": 1
     }
   },
   {
@@ -722,7 +722,7 @@
       }
     ],
     "cost": {
-      "Dark": 5
+      "Dark": 3
     },
     "terrain_types": [
       "Dark",
@@ -742,7 +742,7 @@
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Earth": 3
+      "Earth": 1
     }
   },
   {
@@ -762,7 +762,7 @@
     ],
     "keywords": [],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     },
     "terrain_types": [
       "Fire",
@@ -798,7 +798,7 @@
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Light": 2
+      "Light": 1
     }
   },
   {
@@ -834,7 +834,7 @@
     ],
     "keywords": [],
     "cost": {
-      "Sky": 3
+      "Sky": 1
     },
     "terrain_types": [
       "Sky",
@@ -854,7 +854,7 @@
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Earth": 2
+      "Earth": 1
     }
   },
   {
@@ -870,7 +870,7 @@
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Water": 2
+      "Water": 1
     }
   },
   {
@@ -886,7 +886,7 @@
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     }
   },
   {
@@ -902,7 +902,7 @@
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Water": 2
+      "Water": 1
     }
   },
   {
@@ -922,7 +922,7 @@
     ],
     "keywords": [],
     "cost": {
-      "Sky": 2
+      "Sky": 1
     },
     "terrain_types": [
       "Sky",
@@ -958,7 +958,7 @@
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Light": 2
+      "Light": 1
     }
   },
   {
@@ -974,7 +974,7 @@
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Light": 2
+      "Light": 1
     }
   },
   {
@@ -990,7 +990,7 @@
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Sky": 2
+      "Sky": 1
     }
   },
   {
@@ -1006,7 +1006,7 @@
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Dark": 2
+      "Dark": 1
     }
   },
   {
@@ -1022,7 +1022,7 @@
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Earth": 2
+      "Earth": 1
     }
   },
   {
@@ -1038,7 +1038,7 @@
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Earth": 2
+      "Earth": 1
     }
   },
   {
@@ -1054,7 +1054,7 @@
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Fire": 3
+      "Fire": 1
     }
   },
   {
@@ -1090,7 +1090,7 @@
     ],
     "keywords": [],
     "cost": {
-      "Light": 3
+      "Light": 2
     },
     "terrain_types": [
       "Light",
@@ -1110,7 +1110,7 @@
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Sky": 2
+      "Sky": 1
     }
   },
   {
@@ -1126,7 +1126,7 @@
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     }
   },
   {
@@ -1174,7 +1174,7 @@
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Earth": 2
+      "Earth": 1
     }
   },
   {
@@ -1206,7 +1206,7 @@
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Light": 3
+      "Light": 1
     }
   },
   {
@@ -1238,7 +1238,7 @@
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Sky": 3
+      "Sky": 2
     }
   },
   {
@@ -1254,7 +1254,7 @@
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Water": 2
+      "Water": 1
     }
   },
   {
@@ -1286,7 +1286,7 @@
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Sky": 2
+      "Sky": 1
     }
   },
   {
@@ -1302,7 +1302,7 @@
     "set": "first-light",
     "keywords": [],
     "cost": {
-      "Dark": 2
+      "Dark": 1
     }
   },
   {
@@ -1347,7 +1347,7 @@
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Water": 2
+      "Water": 1
     }
   },
   {
@@ -1362,7 +1362,7 @@
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Dark": 2
+      "Dark": 1
     }
   },
   {
@@ -1422,7 +1422,7 @@
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Dark": 6
+      "Dark": 3
     }
   },
   {
@@ -1452,7 +1452,7 @@
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Sky": 4
+      "Sky": 2
     }
   },
   {
@@ -1467,7 +1467,7 @@
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Water": 3
+      "Water": 1
     }
   },
   {
@@ -1482,7 +1482,7 @@
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Earth": 2
+      "Earth": 1
     }
   },
   {
@@ -1497,7 +1497,7 @@
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Dark": 2
+      "Dark": 1
     }
   },
   {
@@ -1527,7 +1527,7 @@
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Dark": 3
+      "Dark": 2
     }
   },
   {
@@ -1557,7 +1557,7 @@
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Fire": 2
+      "Fire": 1
     }
   },
   {
@@ -1572,7 +1572,7 @@
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Light": 3
+      "Light": 2
     }
   },
   {
@@ -1602,7 +1602,7 @@
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Earth": 3
+      "Earth": 2
     }
   },
   {
@@ -1617,7 +1617,7 @@
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Dark": 5
+      "Dark": 2
     }
   },
   {
@@ -1632,7 +1632,7 @@
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Dark": 2
+      "Dark": 1
     }
   },
   {
@@ -1647,7 +1647,7 @@
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Dark": 3
+      "Dark": 2
     }
   },
   {
@@ -1662,7 +1662,7 @@
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Light": 3
+      "Light": 2
     }
   },
   {
@@ -1677,7 +1677,7 @@
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Water": 3
+      "Water": 2
     }
   },
   {
@@ -1692,7 +1692,7 @@
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Dark": 4
+      "Dark": 2
     }
   },
   {
@@ -1707,7 +1707,7 @@
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Sky": 4
+      "Sky": 2
     }
   },
   {
@@ -1722,7 +1722,7 @@
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Sky": 3
+      "Sky": 2
     }
   },
   {
@@ -1737,7 +1737,7 @@
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Dark": 7
+      "Dark": 3
     }
   },
   {
@@ -1752,7 +1752,7 @@
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Light": 2
+      "Light": 1
     }
   },
   {
@@ -1767,7 +1767,7 @@
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Sky": 4
+      "Sky": 2
     }
   },
   {
@@ -1782,7 +1782,7 @@
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Water": 3
+      "Water": 1
     }
   },
   {
@@ -1797,7 +1797,7 @@
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Fire": 3
+      "Fire": 2
     }
   },
   {
@@ -1812,7 +1812,7 @@
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Sky": 3
+      "Sky": 1
     }
   },
   {
@@ -1827,7 +1827,7 @@
     "hp": null,
     "set": "shattered-arcana",
     "cost": {
-      "Sky": 2
+      "Sky": 1
     }
   },
   {
@@ -1846,7 +1846,7 @@
       "Mage"
     ],
     "cost": {
-      "Sky": 2
+      "Sky": 1
     },
     "terrain_types": [
       "Sky",
@@ -1879,7 +1879,7 @@
       }
     ],
     "cost": {
-      "Light": 3
+      "Light": 1
     },
     "terrain_types": [
       "Light",
@@ -1901,7 +1901,7 @@
       "Fairie"
     ],
     "cost": {
-      "Water": 3
+      "Water": 1
     },
     "terrain_types": [
       "Water",
@@ -1924,7 +1924,7 @@
       "Mage"
     ],
     "cost": {
-      "Dark": 3
+      "Dark": 1
     },
     "terrain_types": [
       "Dark",
@@ -1952,7 +1952,7 @@
       }
     ],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     },
     "terrain_types": [
       "Fire",
@@ -1975,7 +1975,7 @@
       "Beetle"
     ],
     "cost": {
-      "Dark": 3
+      "Dark": 1
     },
     "terrain_types": [
       "Dark",
@@ -1998,7 +1998,7 @@
       "Mage"
     ],
     "cost": {
-      "Water": 3
+      "Water": 1
     },
     "terrain_types": [
       "Water",
@@ -2021,7 +2021,7 @@
       "Mage"
     ],
     "cost": {
-      "Sky": 4
+      "Sky": 2
     },
     "terrain_types": [
       "Sky",
@@ -2044,7 +2044,7 @@
       "Mage"
     ],
     "cost": {
-      "Light": 4
+      "Light": 2
     },
     "terrain_types": [
       "Light",
@@ -2067,7 +2067,7 @@
       "Mage"
     ],
     "cost": {
-      "Dark": 3
+      "Dark": 2
     },
     "terrain_types": [
       "Dark",
@@ -2090,7 +2090,7 @@
       "Soldier"
     ],
     "cost": {
-      "Earth": 4
+      "Earth": 2
     },
     "terrain_types": [
       "Earth",
@@ -2113,7 +2113,7 @@
       "Mage"
     ],
     "cost": {
-      "Dark": 6
+      "Dark": 3
     },
     "terrain_types": [
       "Dark",
@@ -2159,7 +2159,7 @@
       "Dragon"
     ],
     "cost": {
-      "Fire": 3
+      "Fire": 1
     },
     "terrain_types": [
       "Fire",
@@ -2230,7 +2230,7 @@
       "Warg"
     ],
     "cost": {
-      "Earth": 2
+      "Earth": 1
     },
     "terrain_types": [
       "Earth",
@@ -2257,7 +2257,7 @@
       "Elemental"
     ],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     },
     "terrain_types": [
       "Fire",
@@ -2280,7 +2280,7 @@
       "Goblin"
     ],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     },
     "terrain_types": [
       "Fire",
@@ -2309,7 +2309,7 @@
       "Soldier"
     ],
     "cost": {
-      "Earth": 3
+      "Earth": 1
     },
     "terrain_types": [
       "Earth",
@@ -2332,7 +2332,7 @@
       "Wiskin"
     ],
     "cost": {
-      "Earth": 2
+      "Earth": 1
     },
     "terrain_types": [
       "Earth",
@@ -2356,7 +2356,7 @@
       "Cleric"
     ],
     "cost": {
-      "Light": 2
+      "Light": 1
     },
     "terrain_types": [
       "Light",
@@ -2380,7 +2380,7 @@
       "Cat"
     ],
     "cost": {
-      "Dark": 3
+      "Dark": 2
     },
     "terrain_types": [
       "Dark",
@@ -2404,7 +2404,7 @@
       "Soldier"
     ],
     "cost": {
-      "Light": 2
+      "Light": 1
     },
     "terrain_types": [
       "Light",
@@ -2427,7 +2427,7 @@
       "Beast"
     ],
     "cost": {
-      "Earth": 3
+      "Earth": 1
     },
     "terrain_types": [
       "Earth",
@@ -2450,7 +2450,7 @@
       "Construct"
     ],
     "cost": {
-      "Earth": 4
+      "Earth": 2
     },
     "terrain_types": [
       "Earth",
@@ -2474,7 +2474,7 @@
       "Goblin"
     ],
     "cost": {
-      "Fire": 3
+      "Fire": 2
     },
     "terrain_types": [
       "Fire",
@@ -2501,7 +2501,7 @@
       "Assassin"
     ],
     "cost": {
-      "Dark": 3
+      "Dark": 1
     },
     "terrain_types": [
       "Dark",
@@ -2524,7 +2524,7 @@
       "Bird"
     ],
     "cost": {
-      "Sky": 2
+      "Sky": 1
     },
     "terrain_types": [
       "Sky",
@@ -2554,7 +2554,7 @@
       "Wiskin"
     ],
     "cost": {
-      "Earth": 5
+      "Earth": 3
     },
     "terrain_types": [
       "Earth",
@@ -2578,7 +2578,7 @@
       "Mage"
     ],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     },
     "terrain_types": [
       "Fire",
@@ -2596,7 +2596,7 @@
     "rules": "Wiskin gain Restore 1",
     "keywords": [],
     "cost": {
-      "Earth": 3
+      "Earth": 2
     }
   },
   {
@@ -2610,7 +2610,7 @@
     "rules": "Goblins gain Sprint",
     "keywords": [],
     "cost": {
-      "Fire": 4
+      "Fire": 2
     }
   },
   {
@@ -2624,7 +2624,7 @@
     "rules": "Whenever a Goblin dies, draw a card",
     "keywords": [],
     "cost": {
-      "Dark": 3
+      "Dark": 2
     }
   },
   {
@@ -2638,7 +2638,7 @@
     "rules": "+1 Attack. Also, if this is equipped to a Wiskin, whenever the equipped creature defeats an enemy draw 1 card",
     "keywords": [],
     "cost": {
-      "Earth": 2
+      "Earth": 1
     }
   },
   {
@@ -2658,7 +2658,7 @@
       "Chieftain"
     ],
     "cost": {
-      "Fire": 4
+      "Fire": 2
     },
     "terrain_types": [
       "Fire",
@@ -2687,7 +2687,7 @@
       "Knight"
     ],
     "cost": {
-      "Light": 4
+      "Light": 2
     },
     "terrain_types": [
       "Light",
@@ -2715,7 +2715,7 @@
       "Knight"
     ],
     "cost": {
-      "Fire": 5
+      "Fire": 3
     },
     "terrain_types": [
       "Fire",
@@ -2739,7 +2739,7 @@
       "Captain"
     ],
     "cost": {
-      "Sky": 6
+      "Sky": 3
     },
     "terrain_types": [
       "Sky",
@@ -2757,7 +2757,7 @@
     "rules": "Creatures the enemy plays enter stunned",
     "keywords": [],
     "cost": {
-      "Dark": 6
+      "Dark": 3
     }
   },
   {
@@ -2771,7 +2771,7 @@
     "rules": "Equipped creature splits damage between itself and any other friendly creature equipped with Shackles of Nim. For odd numbered damage, the targetted friendly creature will take the higher of the two split values.",
     "keywords": [],
     "cost": {
-      "Dark": 2
+      "Dark": 1
     }
   },
   {
@@ -2785,7 +2785,7 @@
     "rules": "Equipped creature gains Resilient and +1 Attack",
     "keywords": [],
     "cost": {
-      "Light": 3
+      "Light": 2
     }
   },
   {
@@ -2799,7 +2799,7 @@
     "rules": "Equipped creature's Attack is equal to the highest attack among other active friendly creatures",
     "keywords": [],
     "cost": {
-      "Earth": 3
+      "Earth": 1
     }
   },
   {
@@ -2813,7 +2813,7 @@
     "rules": "Equipped creature gains Stalwart 2. If the Equipped creature dies, Torn Banner becomes an Artifact and you must choose one of your artifact slots to assign it. It's effect becomes \"Friendly creatures gain Stalwart 2\"",
     "keywords": [],
     "cost": {
-      "Earth": 3
+      "Earth": 2
     }
   },
   {
@@ -2841,7 +2841,7 @@
     "rules": "Remove all Ward and Shield from a creature",
     "keywords": [],
     "cost": {
-      "Dark": 2
+      "Dark": 1
     }
   },
   {
@@ -2855,7 +2855,7 @@
     "rules": "Deal 1 damage to a friendly creature and 1 damage to each of the enemy creatures in the same lane opposite to the targetted friendly creature",
     "keywords": [],
     "cost": {
-      "Fire": 2
+      "Fire": 1
     }
   },
   {
@@ -2869,7 +2869,7 @@
     "rules": "Deal 2 damage to target friendly creature, Draw 3 cards",
     "keywords": [],
     "cost": {
-      "Dark": 3
+      "Dark": 1
     }
   },
   {
@@ -2897,7 +2897,7 @@
     "rules": "Put one Artifact card from either discard pile into your hand. That card cannot be played until the next turn",
     "keywords": [],
     "cost": {
-      "Earth": 2
+      "Earth": 1
     }
   },
   {
@@ -2911,7 +2911,7 @@
     "rules": "Grant 1 creature \"Invisible\" until next turn",
     "keywords": [],
     "cost": {
-      "Dark": 2
+      "Dark": 1
     }
   },
   {
@@ -2925,7 +2925,7 @@
     "rules": "Draw 1 card, if that card is a creature card, play it immediately and it gains Sprint until end of turn",
     "keywords": [],
     "cost": {
-      "Light": 3
+      "Light": 2
     }
   },
   {
@@ -2953,7 +2953,7 @@
     "rules": "Target creature's attack becomes 0 until end of turn",
     "keywords": [],
     "cost": {
-      "Dark": 2
+      "Dark": 1
     }
   },
   {
@@ -2967,7 +2967,7 @@
     "rules": "The player with the most amount of active creatures sacrifices creatures until they have the same number of active creatures as the player with the least amount of active creatures",
     "keywords": [],
     "cost": {
-      "Dark": 4
+      "Dark": 2
     }
   },
   {
@@ -2981,7 +2981,7 @@
     "rules": "Return all friendly creatures that were put into the discard pile this turn back onto the battlefield. You may choose new placements for these creatures.",
     "keywords": [],
     "cost": {
-      "Light": 6
+      "Light": 3
     }
   },
   {
@@ -3001,7 +3001,7 @@
     ],
     "deckLimit": 1,
     "cost": {
-      "Light": 6
+      "Light": 3
     },
     "terrain_types": [
       "Light",
@@ -3019,7 +3019,7 @@
     "rules": "All allied creatures gain +2 Attack and Shield 2 until end of turn. Apply Stun to all affected creatures at the start of your next turn.",
     "keywords": [],
     "cost": {
-      "Light": 4
+      "Light": 2
     }
   },
   {
@@ -3033,7 +3033,7 @@
     "rules": "When equipped creature attacks return a creature from your discard pile and put it into play in an empty slot, if there is one. That creature gains Sprint and is sacrificed at the end of the turn. Mythic: Removed from the game instead of entering a discard pile.",
     "keywords": [],
     "cost": {
-      "Dark": 7
+      "Dark": 3
     }
   },
   {
@@ -3047,7 +3047,7 @@
     "rules": "Whenever the enemy draws their second card of the turn, you draw a card as well.",
     "keywords": [],
     "cost": {
-      "Water": 4
+      "Water": 1
     }
   },
   {
@@ -3061,7 +3061,7 @@
     "rules": "If the enemy puts a creature into play, you may play this card and gain control of the creature until the end of your next turn. That creature gains Sprint.",
     "keywords": [],
     "cost": {
-      "Dark": 5
+      "Dark": 3
     }
   },
   {

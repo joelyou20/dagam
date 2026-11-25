@@ -608,6 +608,8 @@ function hexClassicBotStep(g, side = 1) {
     const actions = [];
     for (const c of view.hand) {
       if (hexIsReaction(c)) continue;
+      // With no companion, Hawk can only return itself and waste its casting Power.
+      if (hexElderNum(c) === 17 && !g.players[side].board.some(Boolean)) continue;
       const options = hexPlayOptions(g, side, c);
       for (const [i, o] of options.entries()) {
         if (hexBotPlayRepeated(g, side, c.uid, i)) continue;

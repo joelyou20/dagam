@@ -42,12 +42,37 @@ globalThis.runPlaneTests = () => {
         : Object.values(def.cost).reduce((a, b) => a + b, 0) > 0,
       def.id + " has correct cost policy",
     );
+    if (HEX_CARD[def.id + "-IR"])
+      check(
+        JSON.stringify(HEX_CARD[def.id + "-IR"].cost) === JSON.stringify(def.cost),
+        "Illustration Rare price equality",
+      );
     if (def.card_type === "Creature")
       check(def.terrain_types?.length > 0, def.id + " has compatibility");
     check(
       JSON.stringify(HEX_CARD[def.id + "-FA"].cost) === JSON.stringify(def.cost),
       "finish cost equality",
     );
+  }
+  {
+    const g = fresh();
+    g.players[0].planes[0] = hexPlane(["Water"], 0);
+    const sprite = card(g, "SA-038");
+    g.players[0].hand = [sprite];
+    g.players[0].power = [["Water"]];
+    const options = hexPlayOptions(g, 0, sprite);
+    check(hexDef(sprite).cost.Water === 1, "Cerulean Sprite is actually priced at one Water");
+    check(
+      hexPlay(
+        g,
+        0,
+        sprite.uid,
+        options.findIndex((o) => o.slot === 0),
+      ),
+      "Sprite can be played with one Water",
+    );
+    check(g.players[0].power.length === 0, "Sprite spends exactly one Power");
+    check(g.players[0].hand.length === 1, "one-Power Sprite still draws a card");
   }
   {
     const g = fresh();
@@ -221,7 +246,7 @@ globalThis.runPlaneTests = () => {
     g.players[0].power = [["Fire"]];
     g.players[0].hand = [zap];
     g.players[1].hand = [reaction];
-    g.players[1].power = [["Sky"]];
+    g.players[1].power = [];
     check(hexPlay(g, 0, zap.uid, 0), "cast spell into response window");
     check(hexReactionCards(g, 1).length === 0, "unaffordable Reaction is unavailable");
     const h = fresh(),
@@ -290,12 +315,31 @@ globalThis.runPlaneTests = () => {
     g.players[0].hand = [zap];
     g.players[0].power = [["Fire"]];
     g.players[1].hand = [counter];
-    g.players[1].power = [["Sky"], ["Sky"]];
+    g.players[1].power = [["Sky"]];
     check(hexPlay(g, 0, zap.uid, 0), "paid spell opens affordable reaction window");
     check(hexReactionCards(g, 1).length === 1, "affordable Reaction offered");
     check(hexPlay(g, 1, counter.uid, 0), "Reaction can spend Power during enemy turn");
     check(g.players[1].power.length === 0, "Reaction spends its printed cost");
     check(g.players[1].board[0].hp === 4, "countered spell has no damage effect");
+  }
+  {
+    const g = fresh();
+    g.players[0].planes[0] = hexPlane(["Sky"], 1);
+    g.players[0].planes[1] = hexPlane(["Water"], 1);
+    hexGeneratePower(g, 0);
+    const mage = card(g, "SA-036"),
+      delve = card(g, "SA-011");
+    g.players[0].hand = [mage, delve];
+    check(hexPlay(g, 0, mage.uid, 0), "one-Power Mage can enter on matching terrain");
+    check(
+      hexPlay(g, 0, delve.uid, 0),
+      "Mage and draw spell can be played together with two generated Power",
+    );
+    check(
+      g.players[0].power.length === 0 && g.players[0].hand.length === 2,
+      "two-Power sequence pays actual costs and draws two",
+    );
+    check(hexStats(g, mage).attack === 2, "cheap spell still triggers Mage synergy");
   }
   return { checks };
 };
