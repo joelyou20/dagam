@@ -39,6 +39,7 @@ UIManager="*res://Scripts/Managers/UIManager.gd"
 TurnOrderManager="*res://Scripts/Compatibility/TurnOrderManager.gd"
 UnitManager="*res://Scripts/Compatibility/UnitManager.gd"
 HexManager="*res://Scripts/Managers/HexManager.gd"
+ShopManager="*res://Scripts/Managers/ShopManager.gd"
 
 [display]
 

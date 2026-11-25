@@ -20,8 +20,7 @@ Each row loops through all eight columns. Idle runs at 5 FPS; walking runs at
 10 FPS, scaled to actual travel speed. Movement is restricted to four cardinal directions. When two perpendicular keys
 are held, the newest key wins; releasing it resumes the remaining held direction.
 Simultaneous equal inputs keep the previous axis, and analogue input uses its
-stronger axis. Stopping retains the last facing. Walls and interaction
-blockers return the player to idle.
+stronger axis. Stopping retains the last facing. Walls, vertical falls and interaction blockers return the player to idle.
 
 `Scenes/Player.tscn` keeps the existing CharacterBody3D, collision, camera and
 movement/interaction nodes. Its Sprite child is now an AnimatedSprite3D using
@@ -68,3 +67,7 @@ Rebuild their frame resources with the shared builder:
 python tools/player/build_player_frames.py --atlas Assets/Sprites/Characters/shopkeeper.png --output Resources/Characters/shopkeeper_frames.tres
 python tools/player/build_player_frames.py --atlas Assets/Sprites/Characters/rival.png --output Resources/Characters/rival_frames.tres
 ```
+
+Ledge falls stop horizontal velocity immediately and ignore directional movement
+until landing. Camera lead uses the resolved movement input; walking resumes on
+the ground. Floor snapping retains continuous movement on ramps.

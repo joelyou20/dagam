@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/Player/PlayerMovement.gd" id="4_etmuc"]
 [ext_resource type="Script" path="res://Scripts/Player/PlayerInteract.gd" id="5_c7lcn"]
 
-[sub_resource type="CapsuleShape3D" id="BoxShape3D_sassp"]
+[sub_resource type="CylinderShape3D" id="BoxShape3D_sassp"]
 radius = 0.12
 height = 0.278374
 

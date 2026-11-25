@@ -153,6 +153,8 @@ func is_battle_open() -> bool:
 	return is_instance_valid(battle_ui) and battle_ui.visible
 
 func open_battle() -> void:
+	ShopManager.close_shop()
+
 	if not ensure_match():
 		return
 

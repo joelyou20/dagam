@@ -17,7 +17,7 @@ func set_current_party_member_menu_index(index: int):
 	current_party_member_menu_index = index
 
 func set_menu(state: bool, tab: MenuTabs.Tab = MenuTabs.Tab.UNSET):
-	if HexManager.is_battle_open():
+	if HexManager.is_battle_open() or ShopManager.is_open():
 		return
 
 	if tab == MenuTabs.Tab.UNSET:

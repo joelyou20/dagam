@@ -10,6 +10,7 @@ from gd_spacing import format_readable
 ROOT = Path(__file__).resolve().parents[1]
 GDSCRIPT = [
     "Scripts/Hex",
+    "Scripts/Shop",
     "tools/terrain/build_terrain_tiles.gd",
     "Scripts/Player/PlayerAnimation.gd",
     "Scripts/Player/PlayerMovement.gd",
@@ -17,12 +18,14 @@ GDSCRIPT = [
     "Tests/Player/player_animation_test.gd",
     "Tests/Player/terrain_tiles_test.gd",
     "Tests/Player/meadow_scene_test.gd",
+    "Tests/Player/shop_test.gd",
     "Scripts/Controllers/PlayerController.gd",
     "Scripts/Compatibility",
     *[
         f"Scripts/Managers/{name}Manager.gd"
         for name in (
             "Hex",
+            "Shop",
             "Battle",
             "Enemy",
             "Menu",

@@ -12,9 +12,12 @@ The meadow contains seamless grass/path terrain, a pond, trees, rocks, a striped
 market stall and a raised training clearing. A wooden ramp connects the lower
 meadow to the clearing. Gravity, a rounded player collider and floor snapping keep
 the character grounded while ascending and descending; movement remains cardinal.
+Stepping off a ledge clears horizontal velocity and disables air steering until
+landing. A flat-bottomed round collider prevents sideways edge-recovery drift.
 
-The shopkeeper is an animated visual placeholder in front of the stall. The rival
-is an Enemy Area3D using the existing battle/return logic. Touching the rival starts
+Interact with the shopkeeper in front of the stall to open the [free testing
+card shop](../shop/shopkeeper.md). The rival is an Enemy Area3D using the existing
+battle/return logic. Touching the rival starts
 a Standard Hex encounter with the Thornbound deck and the selected player deck.
 Victory awards 20 XP and removes the rival from the current scene. Defeat or flee
 restores exploration and leaves the rival available after its 15-second cooldown.

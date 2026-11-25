@@ -22,22 +22,25 @@ func move(delta):
 	)
 	var cardinal = _cardinal_input(input, horizontal_pressed, vertical_pressed)
 
-	input_direction = cardinal
-	var direction = Vector3(cardinal.x, 0, cardinal.y)
+	var grounded = player.is_on_floor()
 
-	if direction:
-		player.velocity.x = direction.x * speed
-		player.velocity.z = direction.z * speed
-	else:
-		player.velocity.x = move_toward(player.velocity.x, 0, speed)
-		player.velocity.z = move_toward(player.velocity.z, 0, speed)
+	# Ledge falls have no horizontal momentum or air steering.
 
-	if player.is_on_floor():
+	input_direction = cardinal if grounded else Vector2.ZERO
+	player.velocity.x = input_direction.x * speed
+	player.velocity.z = input_direction.y * speed
+
+	if grounded:
 		player.velocity.y = 0
 	else:
 		player.velocity.y -= gravity * delta
 
 	player.move_and_slide()
+
+	if not player.is_on_floor():
+		player.velocity.x = 0
+		player.velocity.z = 0
+		input_direction = Vector2.ZERO
 
 func _cardinal_input(
 	input: Vector2, horizontal_pressed := false, vertical_pressed := false
