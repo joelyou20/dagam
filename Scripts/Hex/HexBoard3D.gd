@@ -13,6 +13,8 @@ var enemy_hand: Node3D
 var back_texture: Texture2D
 var retired: Dictionary = {}
 var selected_uid := ""
+var target_keys: Array = []
+var resolving_uid := ""
 var legal_targets: Array = []
 var time := 0.0
 var active := false
@@ -382,6 +384,7 @@ func _update_piece(key: String, c, side: int, slot: int, zone: String, state: Di
 	node.set_meta("uid", id)
 	node.set_meta("home", node.position)
 	node.set_meta("side", side)
+	node.set_meta("slot", slot)
 	node.set_meta("zone", zone)
 	pieces[key] = node
 	var visual = Node3D.new()
@@ -550,8 +553,17 @@ func _process(delta):
 		var visual = node.get_node("Visual")
 		var rim = visual.get_node("Rim")
 		var color = Color("77b9bd") if node.get_meta("side") == 0 else Color("c59082")
+		var focused = (
+			node == find_piece(resolving_uid)
+			or target_keys.has(
+				key_for(node.get_meta("side"), node.get_meta("slot"), node.get_meta("zone"))
+			)
+		)
+
+		visual.scale = Vector3.ONE * (1.09 + sin(time * 5.5) * 0.012 if focused else 1.0)
 		var glow = (
-			node.get_meta("ready", false)
+			focused
+			or node.get_meta("ready", false)
 			or node.get_meta("uid") == selected_uid
 			or node.get_meta("uid") in legal_targets
 		)
@@ -572,8 +584,8 @@ func _process(delta):
 			rim.material_override.emission = color * 0.5
 
 		var desired = (
-			0.07 + sin(time * 2.0 + float(node.get_meta("home").x)) * 0.035
-			if node.get_meta("ready", false)
+			0.10 + sin(time * (5.5 if focused else 2.0) + float(node.get_meta("home").x)) * 0.035
+			if focused or node.get_meta("ready", false)
 			else 0.0
 		)
 

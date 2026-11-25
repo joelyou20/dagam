@@ -10,8 +10,8 @@ share costs, compatibility and limits. Volcanic Vent is generated, not deckable.
 The turn sequence is Draw → Power → Pre-combat → Combat → Post-combat → End.
 The first player still skips their first draw. Power generation automatically
 clears only the active player's old pool and produces one sphere per Plane level.
-The Power phase pauses for an optional Plane placement; Continue enters the main
-phase. A Plane may also be played in either main phase, sharing the same allowance
+The Power phase settles generation automatically and enters pre-combat.
+Planes may be played in either main phase, sharing the same allowance
 of one Plane card per owner turn. Planes cannot normally be played during combat
 or the opponent's turn. Cards placed by explicit effects do not consume this
 hand-play allowance or grant on-play Power unless the effect says so.

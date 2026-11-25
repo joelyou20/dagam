@@ -113,6 +113,8 @@ globalThis.Hex = (() => {
   function view() {
     if (!game) return null;
     const g = game;
+    const choiceSource =
+      g.choice?.source || g.choice?.options.find((o) => o.task?.visualSource)?.task.visualSource;
     return {
       playerDeck: g.context?.playerDeck || starter,
       encounter: g.context?.encounter || null,
@@ -141,7 +143,13 @@ globalThis.Hex = (() => {
         mulligan: p.mulligan,
       })),
       field: enrich(g.field),
-      choice: g.choice ? { ...g.choice, options: g.choice.options.map(option) } : null,
+      choice: g.choice
+        ? {
+            ...g.choice,
+            source: choiceSource ? enrich(hexCardUid(g, choiceSource.uid)) || choiceSource : null,
+            options: g.choice.options.map(option),
+          }
+        : null,
       response: g.stack.length
         ? {
             priority: g.stack.at(-1).priority,
@@ -296,6 +304,9 @@ globalThis.Hex = (() => {
         game.fx = [];
         game.fxAck = game.fxSerial;
         if (game.phase === "opening" && game.players[0].mulligan) hexKeep(game);
+        // Older saves can be waiting at the former manual Power checkpoint.
+        if (game.phase === "power" && !game.choice && !game.stack.length)
+          hexNext(game, game.active);
         break;
       case "save":
         return { version: 1, game };

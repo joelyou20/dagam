@@ -124,7 +124,7 @@ func run():
 	game.ai_timer.stop()
 
 	if not check(
-		game.engine.state.phase == "power" and game.engine.state.turn == 1,
+		game.engine.state.phase == "pre" and game.engine.state.turn == 1,
 		"Mulligan did not immediately start turn one"
 	):
 		return
@@ -153,7 +153,7 @@ func run():
 	game.engine.request({"op": "load", "game": legacy.game})
 
 	if not check(
-		game.engine.state.phase == "power" and game.engine.state.turn == 1,
+		game.engine.state.phase == "pre" and game.engine.state.turn == 1,
 		"Legacy redraw save still requires Keep"
 	):
 		return
@@ -203,7 +203,7 @@ func run():
 
 	if not check(
 		(
-			game.engine.state.phase == "power"
+			game.engine.state.phase == "pre"
 			and game.engine.state.turn == 1
 			and game.engine.state.active == 1
 		),

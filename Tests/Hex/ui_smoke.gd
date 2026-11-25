@@ -45,56 +45,101 @@ func _run():
 
 	game._close()
 	game._command({"op": "keep"})
-	(
+	# Complete the opponent's opening turn before setting up the placement check.
+
+	for i in range(50):
+		game.ai_timer.stop()
+
+		if game._ai_can_act():
+			game._ai_tick()
+		elif game.engine.state.response != null and game.engine.state.response.priority == 0:
+			game._close()
+			game._command({"op": "pass"})
+		elif game.engine.state.choice != null and game.engine.state.choice.player == 0:
+			game._close()
+			game._command({"op": "choice", "index": 0})
+		else:
+			break
+
+	game.ai_timer.stop()
+	game._close()
+
+	if not _check(
+		game.engine.state.active == 0 and game.engine.state.phase == "pre",
+		"Placement check must reach the player's pre-combat phase"
+	):
+		return
+
+	# This UI fixture tests placement, not random opening-hand resource availability.
+
+	var setup: String = (
 		game
 		. engine
 		. runtime
 		. evaluate(
-			"(()=>{const g=Hex.dispatch({op:'save'}).game;for(const p of g.players){p.power=Array.from({length:30},()=>[...HEX_TERRAINS]);p.planes=Array.from({length:6},()=>hexPlane(HEX_TERRAINS,0));}if(g.active===0&&g.phase==='power')hexNext(g,0);})()"
+			"""
+		(() => {
+		 const g = Hex.dispatch({op:'save'}).game, player = g.players[0];
+		 player.power = Array.from({length:30}, () => [...HEX_TERRAINS]);
+		 player.planes = Array.from({length:6}, () => hexPlane(HEX_TERRAINS, 0));
+		 if (!player.hand.some(c => hexType(c, 'Creature'))) {
+		   const index = player.deck.findIndex(c => hexType(c, 'Creature'));
+		   if (index < 0) return 'No creature available in fixture deck';
+		   player.hand.push(player.deck.splice(index, 1)[0]);
+		 }
+		 return 'ready';
+		})()
+		"""
 		)
 	)
+
+	if not _check(setup == "ready", "Placement fixture failed: " + setup):
+		return
+
 	game.engine.request({"op": "view"})
 	game._refresh()
-	# Drive the live UI until the player can place a creature.
-
-	for i in range(50):
-		if not game._ai_can_act():
-			break
-
-		game.ai_timer.stop()
-		game._ai_tick()
-
 	var g: Dictionary = game.engine.state
+	var played := false
 
-	if g.active == 0 and g.phase == "pre":
-		var played := false
+	for c in g.players[0].hand:
+		var options: Array = g.handOptions.get(c.uid, [])
 
-		for c in g.players[0].hand:
-			var options: Array = g.handOptions.get(c.uid, [])
+		if game._def(c.id).card_type != "Creature" or options.is_empty():
+			continue
 
-			if game._def(c.id).card_type == "Creature" and not options.is_empty():
-				game._clicked(c, {"zone": "hand"})
-				await process_frame
-
-				if not _check(game.modal != null, "Card selection window missing"):
-					return
-
-				var action = _find_button(game.modal, options[0].label)
-
-				if not _check(action != null, "Legal placement button missing"):
-					return
-
-				action.pressed.emit()
-				played = true
-				break
-
-		if not _check(played, "No playable opening creature"):
-			return
+		game._clicked(c, {"zone": "hand"})
+		await process_frame
 
 		if not _check(
-			game.engine.state.players[0].board.any(func(c): return c != null), "Placement failed"
+			game.modal == null and not game.targeting.is_empty(),
+			"Creature placement must highlight the board without a popup"
 		):
 			return
+
+		var slot: int = options[0].slot
+
+		if not _check(
+			game.stage.target_keys.has(game.stage.key_for(0, slot)),
+			"Legal placement hex must be highlighted"
+		):
+			return
+
+		game._clicked({}, {"zone": "board", "side": 0, "slot": slot})
+
+		if not _check(
+			(
+				game.engine.state.players[0].board[slot] != null
+				and game.engine.state.players[0].board[slot].uid == c.uid
+			),
+			"Selected creature was not placed on the clicked hex"
+		):
+			return
+
+		played = true
+		break
+
+	if not _check(played, "Placement fixture must provide a playable creature"):
+		return
 
 	game._close()
 	game._pause()
@@ -121,15 +166,3 @@ func _run():
 	game.queue_free()
 	await create_timer(0.4).timeout
 	quit()
-
-func _find_button(node: Node, text: String):
-	if node is Button and node.text == text:
-		return node
-
-	for child in node.get_children():
-		var found = _find_button(child, text)
-
-		if found != null:
-			return found
-
-	return null

@@ -13961,7 +13961,7 @@ function hexBeginTurn(g) {
   g.tasks.push(
     { kind: "draw", owner: g.active, skip: g.turn === 1 },
     { kind: "power", owner: g.active },
-    { kind: "phase", phase: "power" },
+    { kind: "phase", phase: "pre" },
   );
   hexPump(g);
 }
@@ -14182,7 +14182,7 @@ function hexAsk(g, p, label, options, optional = false, required = false) {
     return;
   }
   if (optional) options.push({ label: "Skip", task: { kind: "noop" } });
-  g.choice = { player: p, label, options, required };
+  g.choice = { player: p, label, options, required, source: hexVisualCard(g.effectSource) };
 }
 function hexChoose(g, p, index) {
   if (g.choice?.player !== p || !Number.isInteger(index) || !g.choice.options[index]) return false;
@@ -14296,10 +14296,8 @@ function hexPlayOptions(g, p, card) {
     return hexSpecialOptions(g, p, card);
   if (hexIsReaction(card))
     return g.stack.at(-1)?.priority === p ? hexSpecialOptions(g, p, card) : [];
-  if (p !== g.active || !["power", "pre", "post"].includes(g.phase) || g.stack.length || g.choice)
-    return [];
+  if (p !== g.active || !["pre", "post"].includes(g.phase) || g.stack.length || g.choice) return [];
   if (hexType(card, "Plane")) return hexPlaneOptions(g, p, card);
-  if (g.phase === "power") return [];
   if (hexFoundation(card) === 24)
     return g.players[1 - p].planes.flatMap((h, slot) =>
       h.locked ? [] : [{ side: 1 - p, slot, label: "Erupt · enemy hex " + (slot + 1) }],
@@ -16800,19 +16798,9 @@ function hexArcanaExecute(g, j) {
       if (c) hexAffect(g, p, c, () => hexBuff(g, c, 1));
       break;
     case "orator":
+      // There is no target or payment decision; settle the triggered heal immediately.
       if (hexFind(g, j.source))
-        hexAsk(
-          g,
-          p,
-          "Orator · heal all Mages?",
-          [
-            {
-              label: "Heal all Mages 1 HP",
-              task: hexArcanaTask(p, "healMages"),
-            },
-          ],
-          true,
-        );
+        for (const mage of hexAll(g).filter((c) => hexHasType(c, "Mage"))) hexHeal(g, mage, 1);
       break;
     case "healMages":
       for (const c of hexAll(g).filter((c) => hexHasType(c, "Mage"))) hexHeal(g, c, 1);
@@ -20566,6 +20554,8 @@ globalThis.Hex = (() => {
   function view() {
     if (!game) return null;
     const g = game;
+    const choiceSource =
+      g.choice?.source || g.choice?.options.find((o) => o.task?.visualSource)?.task.visualSource;
     return {
       playerDeck: g.context?.playerDeck || starter,
       encounter: g.context?.encounter || null,
@@ -20594,7 +20584,13 @@ globalThis.Hex = (() => {
         mulligan: p.mulligan,
       })),
       field: enrich(g.field),
-      choice: g.choice ? { ...g.choice, options: g.choice.options.map(option) } : null,
+      choice: g.choice
+        ? {
+            ...g.choice,
+            source: choiceSource ? enrich(hexCardUid(g, choiceSource.uid)) || choiceSource : null,
+            options: g.choice.options.map(option),
+          }
+        : null,
       response: g.stack.length
         ? {
             priority: g.stack.at(-1).priority,
@@ -20749,6 +20745,9 @@ globalThis.Hex = (() => {
         game.fx = [];
         game.fxAck = game.fxSerial;
         if (game.phase === "opening" && game.players[0].mulligan) hexKeep(game);
+        // Older saves can be waiting at the former manual Power checkpoint.
+        if (game.phase === "power" && !game.choice && !game.stack.length)
+          hexNext(game, game.active);
         break;
       case "save":
         return { version: 1, game };
