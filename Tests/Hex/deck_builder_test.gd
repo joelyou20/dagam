@@ -43,7 +43,13 @@ func run():
 	if not check(HexManager.session.state.is_empty(), "Deck editor created a match"):
 		return
 
-	if not check(builder.definitions.size() == 160, "All cards must be available"):
+	if not check(
+		(
+			builder.definitions.size()
+			== HexManager.session.catalog.cards.size() + HexPreviewCatalog.cards().size()
+		),
+		"All playable cards and Foundations previews must be visible"
+	):
 		return
 
 	if not check(

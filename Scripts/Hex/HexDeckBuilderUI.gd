@@ -37,7 +37,7 @@ func show_ui():
 
 	definitions.clear()
 
-	for card in HexManager.session.catalog.cards:
+	for card in HexManager.session.catalog.cards + HexPreviewCatalog.cards():
 		definitions[card.id] = card
 
 	var index = HexManager.decks.find_custom(func(d): return d.id == deck_id)
@@ -340,6 +340,11 @@ func _use():
 		_refresh()
 
 func _change(id: String, amount: int):
+	if amount > 0 and definitions.get(id, {}).get("preview_only", false):
+		status.text = "Foundations is a preview set. These cards cannot be added to decks yet."
+
+		return
+
 	if amount < 0:
 		var index = draft.find(id)
 
@@ -465,7 +470,7 @@ func _collection():
 	result.sort_custom(func(a, b): return a.name < b.name)
 	page = clampi(page, 0, maxi(0, ceili(float(result.size()) / PAGE_SIZE) - 1))
 	page_label.text = (
-		"%d cards available  ·  Page %d / %d"
+		"%d cards · Page %d / %d"
 		% [result.size(), page + 1, maxi(1, ceili(float(result.size()) / PAGE_SIZE))]
 	)
 
@@ -486,11 +491,19 @@ func _collection():
 		card.mouse_exited.connect(preview.hide)
 		var add = _button(
 			column,
-			"Add  ·  %d / %d" % [draft.count(c.id), int(c.get("deckLimit", 2))],
+			(
+				"Preview · Not playable"
+				if c.get("preview_only", false)
+				else "Add · %d / %d" % [draft.count(c.id), int(c.get("deckLimit", 2))]
+			),
 			func(): _change(c.id, 1)
 		)
 
-		add.disabled = draft.size() >= 20 or draft.count(c.id) >= int(c.get("deckLimit", 2))
+		add.disabled = (
+			c.get("preview_only", false)
+			or draft.size() >= 20
+			or draft.count(c.id) >= int(c.get("deckLimit", 2))
+		)
 
 func _matches(filter: OptionButton, value: String) -> bool:
 	return str(filter.get_selected_metadata()).is_empty() or filter.get_selected_metadata() == value

@@ -9,6 +9,7 @@ const SETS := {
 }
 var collection: Dictionary = {}
 var definitions: Dictionary = {}
+var preview_definitions: Dictionary = {}
 var shop_ui: UIBase
 var save_path := SAVE
 var _random := RandomNumberGenerator.new()
@@ -21,6 +22,9 @@ func _ready() -> void:
 		FileAccess.get_file_as_string("res://Resources/Hex/Data/cards.json")
 	):
 		definitions[card.id] = card
+
+	for card in HexPreviewCatalog.cards():
+		preview_definitions[card.id] = card
 
 	_illustrations = JSON.parse_string(
 		FileAccess.get_file_as_string("res://Resources/Hex/Data/illustration-rares.json")
@@ -38,10 +42,12 @@ func base_id(id: String) -> String:
 	return id.trim_suffix("-FA").trim_suffix("-IR")
 
 func card_data(id: String) -> Dictionary:
-	if not definitions.has(base_id(id)):
+	var source: Dictionary = definitions.get(base_id(id), preview_definitions.get(base_id(id), {}))
+
+	if source.is_empty():
 		return {}
 
-	var card: Dictionary = definitions[base_id(id)].duplicate()
+	var card: Dictionary = source.duplicate(true)
 
 	card.id = id
 

@@ -78,6 +78,7 @@ def main():
         "tools/hex",
         "tools/player",
         "tools/terrain",
+        "tools/cards",
         "tools/check_code_style.py",
         "tools/gd_spacing.py",
     )

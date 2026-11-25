@@ -1,0 +1,626 @@
+[
+  {
+    "id": "FD-001",
+    "name": "Earth",
+    "rarity": "Common",
+    "art_sha256": "23c09d0d231ba6e7c56932a8b72eca8792c616f7aed526b893c6eda36834ee5e",
+    "sha256": "a19f37d67f241ca0493f51610dec4885db79b92efebf714e01185bdf63190454",
+    "font_size": 34,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-001-FA",
+    "name": "Earth",
+    "rarity": "Common",
+    "art_sha256": "23c09d0d231ba6e7c56932a8b72eca8792c616f7aed526b893c6eda36834ee5e",
+    "sha256": "b90554f4a71285062999da476387c33213d156741763fa7622878d4daf3bb526",
+    "font_size": 31,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-002",
+    "name": "Sky",
+    "rarity": "Common",
+    "art_sha256": "91b886d9e7c8fcae6355ed743f13af57bba1e9d77eeaaf508b11ccf3fa085314",
+    "sha256": "79e81b05c70fc5b4974e97f19594db7ddea75455c3a9aa66661f5b66cd09b2d0",
+    "font_size": 34,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-002-FA",
+    "name": "Sky",
+    "rarity": "Common",
+    "art_sha256": "91b886d9e7c8fcae6355ed743f13af57bba1e9d77eeaaf508b11ccf3fa085314",
+    "sha256": "63460a197ed4de122586076847b0115bbdb4c72e09328aa58ce8bb9bc852a554",
+    "font_size": 31,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-003",
+    "name": "Fire",
+    "rarity": "Common",
+    "art_sha256": "442d4e75a31c98b4ac501994e8699dd005c7b1d95263bb2d90a91b071a4f5764",
+    "sha256": "3a737386f6e8670b57d6da52b69424c80b373b74eb9d72adac767c8c63229384",
+    "font_size": 34,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-003-FA",
+    "name": "Fire",
+    "rarity": "Common",
+    "art_sha256": "442d4e75a31c98b4ac501994e8699dd005c7b1d95263bb2d90a91b071a4f5764",
+    "sha256": "ca38f93b62d28bbb6bd8c505f273c82c3c56721c3ab5b32f37cef7069cd50f21",
+    "font_size": 31,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-004",
+    "name": "Water",
+    "rarity": "Common",
+    "art_sha256": "bd69b8c68af3dc43b291a4660fb5e4fbe23ed046b6c251b9e1e590502d93ef1b",
+    "sha256": "5c21b2671972a2933ea300b8ce4d41aa88a42c1c9d1b721545f61064f5fe38d8",
+    "font_size": 34,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-004-FA",
+    "name": "Water",
+    "rarity": "Common",
+    "art_sha256": "bd69b8c68af3dc43b291a4660fb5e4fbe23ed046b6c251b9e1e590502d93ef1b",
+    "sha256": "e7be6d97c73706574b40022dd92ebf26b18349c829e695f1a2917666359d33eb",
+    "font_size": 31,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-005",
+    "name": "Dark",
+    "rarity": "Common",
+    "art_sha256": "6337cca1334907d58cb08d08da0ddca6047ef9aaec578d084de16d61348425f2",
+    "sha256": "3046d5881def91ea254c65b2d0101ec19fd31240268408510d7cbd58afccb5c6",
+    "font_size": 34,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-005-FA",
+    "name": "Dark",
+    "rarity": "Common",
+    "art_sha256": "6337cca1334907d58cb08d08da0ddca6047ef9aaec578d084de16d61348425f2",
+    "sha256": "8a6f5782b1ed5ad21d706af142eae2cf9db4f38b48f37bccbdd4f65380c77386",
+    "font_size": 31,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-006",
+    "name": "Light",
+    "rarity": "Common",
+    "art_sha256": "3c6b4292cedba956ad8c3fec32552e7808935a197ed323f431aef12b043cda0e",
+    "sha256": "b9079e01593d8bded33ee7e1386c4ab5b7b84f32ef22fd5bce0fe6edc7e1b57e",
+    "font_size": 34,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-006-FA",
+    "name": "Light",
+    "rarity": "Common",
+    "art_sha256": "3c6b4292cedba956ad8c3fec32552e7808935a197ed323f431aef12b043cda0e",
+    "sha256": "73ad19f9ceec51f3f662238ac45b72a6488c7804d77f19d6e64d1789e0b9739a",
+    "font_size": 31,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-007",
+    "name": "Floating Ruins",
+    "rarity": "Uncommon",
+    "art_sha256": "b3f04e2b69c7ce2a040bd541396d89a7b7c58207213ea3ffe72d1ebf33f84b86",
+    "sha256": "bed4a17e1c68cc0d550384dca39ac008c853b68ea6eb288be5cbf31ba716689a",
+    "font_size": 34,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-007-FA",
+    "name": "Floating Ruins",
+    "rarity": "Uncommon",
+    "art_sha256": "b3f04e2b69c7ce2a040bd541396d89a7b7c58207213ea3ffe72d1ebf33f84b86",
+    "sha256": "a195c0c2f3a24a83aa27ecac28a963cbcb5765cb179c686521764005f8e2a2f2",
+    "font_size": 31,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-008",
+    "name": "Ashlands",
+    "rarity": "Uncommon",
+    "art_sha256": "7cc3030768d47cc397819e04dcfd009e3ac4ac5ece0da2d8eb5f90fa03b16a64",
+    "sha256": "7a5d8aa7a21ae13122ae22075f3e1974bc873641a7e70d011bb7fb7f37c0b98f",
+    "font_size": 34,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-008-FA",
+    "name": "Ashlands",
+    "rarity": "Uncommon",
+    "art_sha256": "7cc3030768d47cc397819e04dcfd009e3ac4ac5ece0da2d8eb5f90fa03b16a64",
+    "sha256": "2072eec98994940be58e536f60d8d8b4c6a8d1586eff4d4b0d718200453acaec",
+    "font_size": 31,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-009",
+    "name": "Sunken City",
+    "rarity": "Uncommon",
+    "art_sha256": "1705a46f54d31494c736847e81933efe4129913de5a151c0cb7593a7a8bceb8d",
+    "sha256": "35279f059f907aa1e7b31de28901c935c12ce7a7a9877164210ac896fbaef4bd",
+    "font_size": 34,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-009-FA",
+    "name": "Sunken City",
+    "rarity": "Uncommon",
+    "art_sha256": "1705a46f54d31494c736847e81933efe4129913de5a151c0cb7593a7a8bceb8d",
+    "sha256": "8f3ae7eae2e38a278b89c1172aa7859ccbaa3650553b909e3bc2507d576f7a0f",
+    "font_size": 31,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-010",
+    "name": "Crypt of Vailyn",
+    "rarity": "Uncommon",
+    "art_sha256": "3cb9e635c0dc947540ac28829b98e03709be1b5a1563cdc6308b5d5faa26bbc8",
+    "sha256": "f3f85a6b9e3fcc5e60af2cc5bfc645f15f67273a499e1b329ba250e29dfb56e5",
+    "font_size": 34,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-010-FA",
+    "name": "Crypt of Vailyn",
+    "rarity": "Uncommon",
+    "art_sha256": "3cb9e635c0dc947540ac28829b98e03709be1b5a1563cdc6308b5d5faa26bbc8",
+    "sha256": "cd285ca9eb717dad2401f53a4975795a21eb909fb7b6cc8a7d08550faf58000c",
+    "font_size": 31,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-011",
+    "name": "Vibrant Meadow",
+    "rarity": "Uncommon",
+    "art_sha256": "762a17d5cf83f4311848036e112b68332cdf30a08051a25dc4798ac57712249e",
+    "sha256": "9c8e12a9f6cc312a96d5fa3e9057dbe9dcd563df79012fc79b856eebe1280d22",
+    "font_size": 34,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-011-FA",
+    "name": "Vibrant Meadow",
+    "rarity": "Uncommon",
+    "art_sha256": "762a17d5cf83f4311848036e112b68332cdf30a08051a25dc4798ac57712249e",
+    "sha256": "f41c242690901adfb5c6461fc9149f4af339e9a9ad434e78ed0950325e160d90",
+    "font_size": 31,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-012",
+    "name": "Miredin's Pass",
+    "rarity": "Uncommon",
+    "art_sha256": "593661b12d877c0222feb823fba65246e164ac3236356a61126fe442c59fca9c",
+    "sha256": "6e3021c339b09d222f59a61b06ca5b14177a0507caa6c4e29fe6142f78ef1c7b",
+    "font_size": 34,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-012-FA",
+    "name": "Miredin's Pass",
+    "rarity": "Uncommon",
+    "art_sha256": "593661b12d877c0222feb823fba65246e164ac3236356a61126fe442c59fca9c",
+    "sha256": "52fe87baa388439438702bcfc77a61c8fd9e4766abe1073b419952124d73cb33",
+    "font_size": 31,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-013",
+    "name": "Inverted Sea",
+    "rarity": "Uncommon",
+    "art_sha256": "a5d35a24a393f461c18a07764fc8029646800738fc3ebf6c0948ca94611aa11e",
+    "sha256": "141ffcdabcfab3081171759e685ef737be2205e71c5434680546b49521950a33",
+    "font_size": 34,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-013-FA",
+    "name": "Inverted Sea",
+    "rarity": "Uncommon",
+    "art_sha256": "a5d35a24a393f461c18a07764fc8029646800738fc3ebf6c0948ca94611aa11e",
+    "sha256": "4198d77b2625d3e012f059c3f6a698109bd8efb7aefabd937087488d2590181e",
+    "font_size": 31,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-014",
+    "name": "Twilight Strand",
+    "rarity": "Uncommon",
+    "art_sha256": "89bd8777914a88fdcb7880fa9104cb0605f96a0e0b07355bd8744d221175d6f6",
+    "sha256": "efa2fb27eb919fb67b0e07bc78e0e38a760d1446ed9e9ef94d7564859f9fcc62",
+    "font_size": 34,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-014-FA",
+    "name": "Twilight Strand",
+    "rarity": "Uncommon",
+    "art_sha256": "89bd8777914a88fdcb7880fa9104cb0605f96a0e0b07355bd8744d221175d6f6",
+    "sha256": "e8f0f57ba0f205556d914af23d6280392d7fbe2038830b9695db09dc7ff0498b",
+    "font_size": 31,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-015",
+    "name": "Loriadre's Reliquary",
+    "rarity": "Uncommon",
+    "art_sha256": "72c688e6fa671f13ccce8c3665254d64f341e67a5cb8e61531c6cf3cfbe2b797",
+    "sha256": "78f1adbbebd9f7442899ad579549ddcd7f0024c44f19b95ad3d525205f15c148",
+    "font_size": 34,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-015-FA",
+    "name": "Loriadre's Reliquary",
+    "rarity": "Uncommon",
+    "art_sha256": "72c688e6fa671f13ccce8c3665254d64f341e67a5cb8e61531c6cf3cfbe2b797",
+    "sha256": "46a34e747e697511c9f5ab311a11d8245614606961219baa04b94af15b5cfbfa",
+    "font_size": 31,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-016",
+    "name": "Boiling Delta",
+    "rarity": "Uncommon",
+    "art_sha256": "fecd51d1206ab0421367168edc9ea3feabc146ef4ef6bf91b634c9bf152c2bbe",
+    "sha256": "5c052b94fa90d79cf26b7cf7aaf802d2711d0e86fa67fc0577de37f3d0e2ba8c",
+    "font_size": 34,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-016-FA",
+    "name": "Boiling Delta",
+    "rarity": "Uncommon",
+    "art_sha256": "fecd51d1206ab0421367168edc9ea3feabc146ef4ef6bf91b634c9bf152c2bbe",
+    "sha256": "519d85da2f6d80754bab42f3f022aa025821e583471dc7aa5040e88ad9eaa0f8",
+    "font_size": 31,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-017",
+    "name": "Tezzakeen's Hall",
+    "rarity": "Uncommon",
+    "art_sha256": "8a9897cafdf7630302bcfa3540601eae9b4ea4e096136adcc6ccaa3668f94b9b",
+    "sha256": "152f256f2b5ad44b4f749ed38353040f3697c4c4cb9c88956f8b02013bf111cf",
+    "font_size": 34,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-017-FA",
+    "name": "Tezzakeen's Hall",
+    "rarity": "Uncommon",
+    "art_sha256": "8a9897cafdf7630302bcfa3540601eae9b4ea4e096136adcc6ccaa3668f94b9b",
+    "sha256": "c7640714fb49bc11e4955b388af36229b96fb399e6da5a541e061aa9a069302e",
+    "font_size": 31,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-018",
+    "name": "Candlelight Sept",
+    "rarity": "Uncommon",
+    "art_sha256": "b9b8b0d3ef6b41d22a735b90de5027dc6d817341ddb9e86a691769a0a73237e3",
+    "sha256": "89e99dd6d2a238c45d9587bf64734f88d56d66ac22d7de38a502d2e5de036fb3",
+    "font_size": 34,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-018-FA",
+    "name": "Candlelight Sept",
+    "rarity": "Uncommon",
+    "art_sha256": "b9b8b0d3ef6b41d22a735b90de5027dc6d817341ddb9e86a691769a0a73237e3",
+    "sha256": "e1753e1f8851165afc1881884656688d5d6da1d810af7b38129f210be45ad623",
+    "font_size": 31,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-019",
+    "name": "Abyssal Depths",
+    "rarity": "Uncommon",
+    "art_sha256": "ba392b1ce461c995e88242b369a7f8cc61773bdd89be5bbb48add7dd53b02b3d",
+    "sha256": "233e6463862be42ea1e87a33e7e8a3d01e6b985ed8645b9086c20ab533618b7e",
+    "font_size": 34,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-019-FA",
+    "name": "Abyssal Depths",
+    "rarity": "Uncommon",
+    "art_sha256": "ba392b1ce461c995e88242b369a7f8cc61773bdd89be5bbb48add7dd53b02b3d",
+    "sha256": "7149ee673cf71edce9253680e6d0a9ba4f718485c11ba05859e2dd502451fe75",
+    "font_size": 31,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-020",
+    "name": "Celestial Estuary",
+    "rarity": "Uncommon",
+    "art_sha256": "46446660c471764a21c8a170cb76025387533d22e086c91cf8f3a0058dfb9752",
+    "sha256": "2c370596b4d72ebd8d817b20ce9c03204a17e12444158dfd525f7751a611bcbb",
+    "font_size": 34,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-020-FA",
+    "name": "Celestial Estuary",
+    "rarity": "Uncommon",
+    "art_sha256": "46446660c471764a21c8a170cb76025387533d22e086c91cf8f3a0058dfb9752",
+    "sha256": "8fecd9912c5139b8c3712ab7bd52dbca47d0dd314c969cadff0c88d8b901f902",
+    "font_size": 31,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-021",
+    "name": "Moonrend Delve",
+    "rarity": "Uncommon",
+    "art_sha256": "843c8908a802ce7b5b45c5622f537bdaa3ed378c391d4ac16c0e57ef72d3c5e0",
+    "sha256": "d7286b2b11e5d3e7ee2c6e87d15a642d271621e5180208debedeff0a6d56e987",
+    "font_size": 34,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-021-FA",
+    "name": "Moonrend Delve",
+    "rarity": "Uncommon",
+    "art_sha256": "843c8908a802ce7b5b45c5622f537bdaa3ed378c391d4ac16c0e57ef72d3c5e0",
+    "sha256": "734b68ee063f3dd2e024fedb5f7b42adaf583d8221d0e23edd756e6c2c590b5e",
+    "font_size": 31,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-022",
+    "name": "Sacred Spring",
+    "rarity": "Uncommon",
+    "art_sha256": "d07c8d08af367867b9232353d1545c171eed21251fbc73b137a09e97850ecac9",
+    "sha256": "8052f85252e5778a0637b0c88821e2812b25a44efe6042ddb0ea897f02d554a3",
+    "font_size": 34,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-022-FA",
+    "name": "Sacred Spring",
+    "rarity": "Uncommon",
+    "art_sha256": "d07c8d08af367867b9232353d1545c171eed21251fbc73b137a09e97850ecac9",
+    "sha256": "a01f09e877f8633fe153efdf416e87c4d8fc017b0798b65317959f90af35a0c7",
+    "font_size": 31,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-023",
+    "name": "Wall of Light",
+    "rarity": "Uncommon",
+    "art_sha256": "9f80411f71732ce27b56cfc524e38a78029f11f342baa945e0cbaece86f59885",
+    "sha256": "84b4eacd0243a1fbf8e343f482ce18923b4cfc54f08b66a4cd1963a9d04d72d0",
+    "font_size": 34,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-023-FA",
+    "name": "Wall of Light",
+    "rarity": "Uncommon",
+    "art_sha256": "9f80411f71732ce27b56cfc524e38a78029f11f342baa945e0cbaece86f59885",
+    "sha256": "68bd865e3bbcb329943f216521cd3fd1060c963bd7bee728280cc8092e075926",
+    "font_size": 31,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-024",
+    "name": "Erupt",
+    "rarity": "Rare",
+    "art_sha256": "ada3cc79705e30e12be1116affc3a2e939f35ae8a4339be263bf30ce29fb8886",
+    "sha256": "9e8a8913ff357d2ddfbf1232abeb0b74ea51c15a3ba493a11b01984ece49727f",
+    "font_size": 34,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-024-FA",
+    "name": "Erupt",
+    "rarity": "Rare",
+    "art_sha256": "ada3cc79705e30e12be1116affc3a2e939f35ae8a4339be263bf30ce29fb8886",
+    "sha256": "521925b580b5656c85cd0c148029a6fc114c6a28e1d46ce7807bd49809ce392c",
+    "font_size": 31,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-025",
+    "name": "Volcanic Vent",
+    "rarity": "Uncommon",
+    "art_sha256": "21f53cb82038839839d8361794fb2cb276680578098391f19fe9e5780a8f4201",
+    "sha256": "c5d09ccd1212a4517e1dcf303cc9e75318ee190d64859e06b267f64da1435c3c",
+    "font_size": 34,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-025-FA",
+    "name": "Volcanic Vent",
+    "rarity": "Uncommon",
+    "art_sha256": "21f53cb82038839839d8361794fb2cb276680578098391f19fe9e5780a8f4201",
+    "sha256": "b44cfb8559dc1ec1a953353d878307a2b429dfc705dfb4ec718ab6d3888d7d85",
+    "font_size": 31,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-026",
+    "name": "Door to Ashgar",
+    "rarity": "Rare",
+    "art_sha256": "f8252067ef91cbbf0a5a92f90282e5b147ec5f69334abae5e31c420cef87b75a",
+    "sha256": "bec2c9e9d19bbe796ebd31c7faae3f3c0a14076b8b20d11a162311c6923eba51",
+    "font_size": 34,
+    "size": [
+      1024,
+      1536
+    ]
+  },
+  {
+    "id": "FD-026-FA",
+    "name": "Door to Ashgar",
+    "rarity": "Rare",
+    "art_sha256": "f8252067ef91cbbf0a5a92f90282e5b147ec5f69334abae5e31c420cef87b75a",
+    "sha256": "1da3bc8396f2f27a23cf8c2d77ecf96bb408e93a1a5babece5f87e19f5aa99dd",
+    "font_size": 31,
+    "size": [
+      1024,
+      1536
+    ]
+  }
+]
