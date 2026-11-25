@@ -109,6 +109,11 @@ jobs:
           set -o pipefail
           Godot_v4.6.3-stable_linux.x86_64 --headless --path . --script res://Tests/Player/player_animation_test.gd 2>&1 | tee /tmp/player-animation.log
           if grep -E 'SCRIPT ERROR|ERROR:' /tmp/player-animation.log; then exit 1; fi
+      - name: Terrain autotile edges and editor painting
+        run: |
+          set -o pipefail
+          Godot_v4.6.3-stable_linux.x86_64 --headless --path . --script res://Tests/Player/terrain_tiles_test.gd 2>&1 | tee /tmp/terrain-tiles.log
+          if grep -E 'SCRIPT ERROR|ERROR:' /tmp/terrain-tiles.log; then exit 1; fi
       - name: Render the battle UI
         run: xvfb-run -a Godot_v4.6.3-stable_linux.x86_64 --path . --audio-driver Dummy --rendering-method gl_compatibility --rendering-driver opengl3 res://Tests/Hex/Integration.tscn
       - uses: actions/upload-artifact@v4

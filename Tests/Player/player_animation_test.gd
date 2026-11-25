@@ -91,6 +91,65 @@ func run() -> void:
 	await physics_frame
 	check(sprite.animation == "idle_left", "Releasing movement must immediately idle")
 
+	var movement = player.get_node("Movement")
+
+	for diagonal in [Vector2(1, 1), Vector2(1, -1), Vector2(-1, 1), Vector2(-1, -1)]:
+		var cardinal: Vector2 = movement._cardinal_input(diagonal)
+
+		check(
+			is_zero_approx(cardinal.x) != is_zero_approx(cardinal.y),
+			"Diagonal input must resolve to exactly one axis"
+		)
+		check(is_equal_approx(cardinal.length(), 1), "Cardinal movement must preserve normal speed")
+
+	check(
+		movement._cardinal_input(Vector2(1, -1), false, true) == Vector2.UP,
+		"New vertical key must take priority"
+	)
+	check(
+		movement._cardinal_input(Vector2(1, -1)) == Vector2.UP,
+		"Held diagonal must retain its chosen axis"
+	)
+	check(
+		movement._cardinal_input(Vector2.RIGHT) == Vector2.RIGHT,
+		"Releasing priority key must resume the held direction"
+	)
+	check(
+		movement._cardinal_input(Vector2(1, -1), true, false) == Vector2.RIGHT,
+		"New horizontal key must take priority"
+	)
+	check(movement._cardinal_input(Vector2.ZERO) == Vector2.ZERO, "Opposite keys must cancel")
+	check(
+		movement._cardinal_input(Vector2(0.2, -0.8)) == Vector2.UP,
+		"Analogue movement must use the dominant axis"
+	)
+
+	Input.action_press("ui_right")
+	await physics_frame
+	await physics_frame
+	Input.action_press("ui_up")
+	await physics_frame
+	await physics_frame
+	await physics_frame
+	check(
+		is_zero_approx(player.velocity.x) and player.velocity.z < 0,
+		"Two real held keys must not move diagonally"
+	)
+	check(sprite.animation == "walk_up", "Animation must follow the chosen cardinal direction")
+	check(
+		movement.input_direction == Vector2.UP, "Camera lead must receive the chosen cardinal input"
+	)
+	Input.action_release("ui_up")
+	await physics_frame
+	await physics_frame
+	check(
+		player.velocity.x > 0 and is_zero_approx(player.velocity.z),
+		"Releasing newest key must resume the older held key"
+	)
+	Input.action_release("ui_right")
+	await physics_frame
+	await physics_frame
+
 	# A physical wall must stop animation even while movement input is held.
 	var wall = StaticBody3D.new()
 	var collider = CollisionShape3D.new()
