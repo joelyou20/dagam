@@ -83,6 +83,19 @@ func show_effects(effects: Array, card_rect: Rect2, screen: Vector2) -> void:
 		label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		label.add_theme_font_size_override("font_size", 14)
+
+		if effect.id == "resolving":
+			label.add_theme_color_override("font_color", Color("b5eaff"))
+			label.add_theme_color_override("font_shadow_color", Color(0.3, 0.75, 1.0, 0.55))
+			label.add_theme_constant_override("shadow_outline_size", 4)
+			label.pivot_offset = label.get_minimum_size() * 0.5
+			var pulse := label.create_tween().set_loops()
+
+			pulse.tween_property(label, "modulate:a", 0.72, 0.65)
+			pulse.parallel().tween_property(label, "scale", Vector2(1.012, 1.012), 0.65)
+			pulse.tween_property(label, "modulate:a", 1.0, 0.65)
+			pulse.parallel().tween_property(label, "scale", Vector2.ONE, 0.65)
+
 		row.add_child(icon)
 		row.add_child(label)
 		list.add_child(row)

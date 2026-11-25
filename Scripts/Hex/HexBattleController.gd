@@ -38,6 +38,10 @@ var piles_layer: Control
 var opening: Control
 var hint_tween: Tween
 var power_displays: Array = []
+var targeting: Dictionary = {}
+var targeting_ui: RefCounted
+var target_overlay: Control
+var resolving_card: TextureRect
 
 func _ready() -> void:
 	visual_effects = preload("res://Scripts/Hex/HexBattleEffects.gd").new(self)
@@ -262,6 +266,12 @@ func _layout() -> void:
 	inspection.visible = false
 	inspection.z_index = 50
 	overlay.add_child(inspection)
+	target_overlay = preload("res://Scripts/Hex/HexTargetOverlay.gd").new()
+	target_overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	target_overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	target_overlay.z_index = 40
+	overlay.add_child(target_overlay)
+	targeting_ui = preload("res://Scripts/Hex/HexBattleTargeting.gd").new(self)
 	status_display = preload("res://Scripts/Hex/HexStatusDisplay.gd").new(overlay)
 	inspection.visibility_changed.connect(
 		func():
@@ -297,7 +307,18 @@ func _inspect(c: Dictionary) -> void:
 		return
 
 	inspection.texture = Card.art(c.id)
-	var effects: Array = c.get("statuses", [])
+	var effects: Array = c.get("statuses", []).duplicate()
+
+	if not targeting.is_empty() and c.get("uid", "") == targeting.source.get("uid", ""):
+		effects.append(
+			{
+				"id": "resolving",
+				"name": "Resolving ability",
+				"amount": 0,
+				"description": targeting.label
+			}
+		)
+
 	var height = clampf(size.y * 0.76, 300, 760)
 
 	if not effects.is_empty():
@@ -353,6 +374,7 @@ func _card(parent: Node, c, dest: Dictionary, size := board_card_size, glow := f
 	return button
 
 func _refresh() -> void:
+	targeting_ui._clear_targeting()
 	var g: Dictionary = engine.state
 
 	if g.is_empty():
@@ -495,7 +517,7 @@ func _refresh() -> void:
 							"combat": "Combat Phase",
 							"post": "Post-Combat Phase"
 						}
-						. get(g.phase, "Power phase · Play a Plane or continue")
+						. get(g.phase, "Generating Power")
 					)
 				)
 			)
@@ -509,7 +531,7 @@ func _refresh() -> void:
 		and not g.response.reactions.is_empty()
 		and modal == null
 	):
-		_reaction(g.response)
+		targeting_ui._reaction(g.response)
 
 func _actions(g: Dictionary) -> void:
 	if paused:
@@ -588,9 +610,11 @@ func _actions(g: Dictionary) -> void:
 				func(): _options(g.choice.label, g.choice.options, "choice")
 			)
 		elif g.response != null and g.response.priority == 0:
-			_button(controls, "Respond", func(): _reaction(g.response))
+			_button(controls, "Respond", func(): targeting_ui._reaction(g.response))
 
 func _command(command: Dictionary) -> void:
+	targeting_ui._clear_targeting()
+
 	if paused:
 		return
 
@@ -663,6 +687,14 @@ func _ai_tick() -> void:
 	_schedule_ai()
 
 func _clicked(c: Dictionary, dest: Dictionary) -> void:
+	if not targeting.is_empty():
+		if not c.is_empty():
+			_inspect(c)
+
+		targeting_ui._pick_target(c, dest)
+
+		return
+
 	if not c.is_empty():
 		_inspect(c)
 
@@ -681,8 +713,29 @@ func _clicked(c: Dictionary, dest: Dictionary) -> void:
 
 			return
 
-		_options("Play " + _def(c.id).get("name", c.id), options, "play", c.uid)
-	elif dest.zone == "board":
+		if (
+			options.size() == 1
+			and targeting_ui._target_destination(options[0], "play", c.uid).is_empty()
+		):
+			_command({"op": "play", "uid": c.uid, "index": options[0].index})
+		else:
+			_options("Play " + _def(c.id).get("name", c.id), options, "play", c.uid)
+	elif dest.zone in ["board", "artifact"]:
+		if c.is_empty():
+			return
+
+		var abilities: Array = engine.state.activeOptions.filter(
+			func(o): return o.get("task", {}).get("source", "") == c.get("uid", "")
+		)
+
+		if dest.side == 0 and not abilities.is_empty() and not c.get("ready", false):
+			_options("Choose ability", abilities, "active", c.uid)
+
+			return
+
+		if dest.zone != "board":
+			return
+
 		if dest.side == 0 and c.get("ready", false):
 			selected = c.uid
 			stage.select_attacker(selected, engine.state.targets.get(selected, []))
@@ -691,6 +744,14 @@ func _clicked(c: Dictionary, dest: Dictionary) -> void:
 			_command({"op": "attack", "attacker": selected, "target": c.get("uid", "")})
 
 func _drop(data: Dictionary, dest: Dictionary) -> void:
+	if not targeting.is_empty():
+		var cards: Array = engine.state.players[dest.get("side", 0)].board
+		var card = cards[dest.slot] if dest.zone == "board" else null
+
+		targeting_ui._pick_target(card if card != null else {}, dest)
+
+		return
+
 	if paused:
 		return
 
@@ -783,86 +844,8 @@ func _close() -> void:
 		modal.queue_free()
 		modal = null
 
-func _options(title_text: String, options: Array, op: String, uid := "") -> void:
-	var box := _window(title_text)
-	var scroll := ScrollContainer.new()
-
-	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	box.add_child(scroll)
-	var grid := GridContainer.new()
-
-	grid.columns = 3
-	grid.add_theme_constant_override("h_separation", 12)
-	grid.add_theme_constant_override("v_separation", 12)
-	scroll.add_child(grid)
-
-	for o in options:
-		var column := VBoxContainer.new()
-
-		column.custom_minimum_size.x = 225
-		grid.add_child(column)
-
-		if o.get("card") != null:
-			var c: Dictionary = o.card
-			var owner := _text(column, "YOUR CARD" if c.owner == 0 else "ENEMY'S CARD")
-
-			owner.add_theme_color_override(
-				"font_color", Color("9ac8ff") if c.owner == 0 else Color("f1a0ac")
-			)
-			var image = Card.new()
-
-			column.add_child(image)
-			image.configure(c, {}, Vector2(150, 205))
-			image.inspect.connect(_inspect)
-
-		var b := _button(
-			column,
-			o.label,
-			func():
-				var command := {"op": op, "index": o.index}
-
-				if not uid.is_empty():
-					command.uid = uid
-
-				_close()
-				_command(command)
-		)
-
-		b.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		b.custom_minimum_size.y = 54
-
-	_button(box, "Close" if op != "choice" else "Return to board", _close)
-
-func _reaction(response: Dictionary) -> void:
-	var box := _window("Respond to opponent's card", Vector2i(760, 550))
-	var row := HBoxContainer.new()
-
-	row.alignment = BoxContainer.ALIGNMENT_CENTER
-	box.add_child(row)
-
-	if response.trigger != null:
-		_card(row, response.trigger, {"zone": "inspect"}, Vector2(190, 270))
-
-	for c in response.reactions:
-		var column := VBoxContainer.new()
-
-		row.add_child(column)
-		_card(column, c, {"zone": "inspect"}, Vector2(180, 260))
-		_button(
-			column,
-			"Use " + _def(c.id).get("name", c.id),
-			func():
-				_close()
-				_options("Choose response", engine.state.handOptions.get(c.uid, []), "play", c.uid)
-		)
-
-	_button(
-		box,
-		"Skip response",
-		func():
-			_close()
-			_command({"op": "pass"})
-	)
+func _options(title_text: String, options: Array, op: String, uid := "", direct := true) -> void:
+	targeting_ui._options(title_text, options, op, uid, direct)
 
 func _gallery(title_text: String, cards: Array) -> void:
 	var box := _window(title_text, Vector2i(900, 700))
@@ -1150,6 +1133,8 @@ func _utility_action(id: int):
 			return_requested.emit()
 
 func _process(_delta: float):
+	targeting_ui._update_target_overlay()
+
 	if paused or not is_instance_valid(stage):
 		return
 

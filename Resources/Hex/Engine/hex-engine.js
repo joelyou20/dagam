@@ -172,7 +172,7 @@ function hexBeginTurn(g) {
   g.tasks.push(
     { kind: "draw", owner: g.active, skip: g.turn === 1 },
     { kind: "power", owner: g.active },
-    { kind: "phase", phase: "power" },
+    { kind: "phase", phase: "pre" },
   );
   hexPump(g);
 }
@@ -393,7 +393,7 @@ function hexAsk(g, p, label, options, optional = false, required = false) {
     return;
   }
   if (optional) options.push({ label: "Skip", task: { kind: "noop" } });
-  g.choice = { player: p, label, options, required };
+  g.choice = { player: p, label, options, required, source: hexVisualCard(g.effectSource) };
 }
 function hexChoose(g, p, index) {
   if (g.choice?.player !== p || !Number.isInteger(index) || !g.choice.options[index]) return false;
@@ -507,10 +507,8 @@ function hexPlayOptions(g, p, card) {
     return hexSpecialOptions(g, p, card);
   if (hexIsReaction(card))
     return g.stack.at(-1)?.priority === p ? hexSpecialOptions(g, p, card) : [];
-  if (p !== g.active || !["power", "pre", "post"].includes(g.phase) || g.stack.length || g.choice)
-    return [];
+  if (p !== g.active || !["pre", "post"].includes(g.phase) || g.stack.length || g.choice) return [];
   if (hexType(card, "Plane")) return hexPlaneOptions(g, p, card);
-  if (g.phase === "power") return [];
   if (hexFoundation(card) === 24)
     return g.players[1 - p].planes.flatMap((h, slot) =>
       h.locked ? [] : [{ side: 1 - p, slot, label: "Erupt · enemy hex " + (slot + 1) }],

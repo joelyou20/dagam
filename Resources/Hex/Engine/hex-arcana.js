@@ -607,19 +607,9 @@ function hexArcanaExecute(g, j) {
       if (c) hexAffect(g, p, c, () => hexBuff(g, c, 1));
       break;
     case "orator":
+      // There is no target or payment decision; settle the triggered heal immediately.
       if (hexFind(g, j.source))
-        hexAsk(
-          g,
-          p,
-          "Orator · heal all Mages?",
-          [
-            {
-              label: "Heal all Mages 1 HP",
-              task: hexArcanaTask(p, "healMages"),
-            },
-          ],
-          true,
-        );
+        for (const mage of hexAll(g).filter((c) => hexHasType(c, "Mage"))) hexHeal(g, mage, 1);
       break;
     case "healMages":
       for (const c of hexAll(g).filter((c) => hexHasType(c, "Mage"))) hexHeal(g, c, 1);
