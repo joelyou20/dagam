@@ -39,7 +39,7 @@ func show_ui():
 	archetype_selector.clear()
 
 	for archetype in HexManager.session.catalog.get("archetypes", []):
-		archetype_selector.add_item(archetype.name + " · " + "/".join(archetype.colours))
+		archetype_selector.add_item(archetype.name)
 		archetype_selector.set_item_metadata(archetype_selector.item_count - 1, archetype)
 
 	definitions.clear()
@@ -259,6 +259,9 @@ func _populate_filters():
 	split.compile("\\s+[—–-]\\s+")
 
 	for c in definitions.values():
+		if c.get("retired", false):
+			continue
+
 		if not c.set in sets:
 			sets.append(c.set)
 
@@ -320,7 +323,7 @@ func _from_archetype() -> void:
 	deck_id = ""
 	draft = archetype.cards.duplicate()
 	title.text = archetype.name
-	status.text = archetype.description + " Grey costs accept any colour."
+	status.text = archetype.description
 	_refresh()
 
 func _duplicate():
@@ -372,6 +375,7 @@ func _change(id: String, amount: int):
 		and (
 			definitions.get(id, {}).get("preview_only", false)
 			or definitions.get(id, {}).get("generated_only", false)
+			or definitions.get(id, {}).get("retired", false)
 		)
 	):
 		status.text = "This card is created by an effect and cannot be added to decks."
@@ -383,7 +387,7 @@ func _change(id: String, amount: int):
 
 		if index >= 0:
 			draft.remove_at(index)
-	elif draft.size() < 30 and draft.count(id) < int(definitions[id].get("deckLimit", 2)):
+	elif draft.size() < 20 and draft.count(id) < int(definitions[id].get("deckLimit", 2)):
 		draft.append(id)
 
 	var saved_id = HexManager.save_deck(deck_id, title.text, draft)
@@ -449,13 +453,13 @@ func _refresh():
 		var plus = _button(row, "+", func(): _change(id, 1))
 
 		plus.disabled = (
-			draft.size() >= 30 or draft.count(id) >= int(definitions[id].get("deckLimit", 2))
+			draft.size() >= 20 or draft.count(id) >= int(definitions[id].get("deckLimit", 2))
 		)
 		_button(row, "−", func(): _change(id, -1))
 
 	metrics.text = (
 		(
-			"%d / 30 CARDS\n%d Creatures · %d Spells\n"
+			"%d / 20 CARDS\n%d Creatures · %d Spells\n"
 			+ "%d Items · %d Battlefields · %d Planes\nCreature avg: %.1f ATK / %.1f HP"
 		)
 		% [
@@ -469,27 +473,6 @@ func _refresh():
 			float(hp) / maxi(1, creatures)
 		]
 	)
-	var sources := {}
-	var required := {}
-
-	for id in draft:
-		var definition: Dictionary = definitions[id]
-
-		if definition.card_type == "Plane":
-			for colour in definition.get("terrain_types", []):
-				sources[colour] = true
-		else:
-			for colour in definition.get("cost", {}):
-				if colour != "Any":
-					required[colour] = true
-
-	var missing := required.keys().filter(func(colour): return not sources.has(colour))
-
-	metrics.text += "\nGrey costs: any colour"
-
-	if not missing.is_empty():
-		metrics.text += "\nMissing Power: " + ", ".join(missing)
-
 	active_label.text = "Battle deck: " + HexManager.active_deck_name
 	use_button.disabled = not HexManager.deck_errors(draft).is_empty()
 	_collection()
@@ -504,6 +487,9 @@ func _collection():
 	var query = search.text.strip_edges().to_lower()
 
 	for c in definitions.values():
+		if c.get("retired", false):
+			continue
+
 		if not query.is_empty() and not _search_text(c).contains(query):
 			continue
 
@@ -559,8 +545,12 @@ func _collection():
 		)
 
 		add.disabled = (
-			(c.get("preview_only", false) or c.get("generated_only", false))
-			or draft.size() >= 30
+			(
+				c.get("preview_only", false)
+				or c.get("generated_only", false)
+				or c.get("retired", false)
+			)
+			or draft.size() >= 20
 			or draft.count(c.id) >= int(c.get("deckLimit", 2))
 		)
 

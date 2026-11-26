@@ -37,7 +37,6 @@ var pile_controls: Dictionary = {}
 var piles_layer: Control
 var opening: Control
 var hint_tween: Tween
-var power_displays: Array = []
 var targeting: Dictionary = {}
 var targeting_ui: RefCounted
 var target_overlay: Control
@@ -49,15 +48,6 @@ func _ready() -> void:
 	engine = HexManager.session
 	paused = true
 	_layout()
-
-	for side in [0, 1]:
-		var display := preload("res://Scripts/Hex/HexPowerDisplay.gd").new()
-
-		display.position = Vector2(14, 100 if side == 1 else size.y - 285)
-		display.size = Vector2(245, 110)
-		display.z_index = 5
-		add_child(display)
-		power_displays.append(display)
 
 	engine.fault.connect(_error)
 	resized.connect(_resize_battle)
@@ -89,7 +79,7 @@ func set_battle_active(active: bool) -> void:
 	notice.text = (
 		("Encounter · " + str(HexManager.encounter_metadata().get("name", "Enemy")))
 		if HexManager.is_encounter()
-		else "30 cards · Draw 5 · Six creature defeats to win"
+		else "20 cards · Draw 5 · Six creature defeats to win"
 	)
 	_refresh()
 	_schedule_ai()
@@ -428,14 +418,7 @@ func _refresh() -> void:
 				if zone == "board":
 					var terrain: Dictionary = p.planes[slot]
 
-					button.tooltip_text = (
-						"%s · Level %d%s"
-						% [
-							" / ".join(terrain.types),
-							terrain.level,
-							" · Locked" if terrain.get("locked", false) else ""
-						]
-					)
+					button.tooltip_text = "Locked hex" if terrain.get("locked", false) else ""
 
 					if terrain.has("id"):
 						button.tooltip_text += (
@@ -475,13 +458,6 @@ func _refresh() -> void:
 	for c in g.players[0].hand:
 		_card(hand, c, {"zone": "hand"}, hand_card_size)
 
-	for side in [0, 1]:
-		power_displays[side].position.y = 100 if side == 1 else size.y - 285
-		power_displays[side].configure(
-			g.players[side].power,
-			("Your" if side == 0 else "Enemy") + " Power · " + str(g.players[side].power.size())
-		)
-
 	exposure_ui.configure(g)
 
 	_animate_hand.call_deferred()
@@ -503,7 +479,7 @@ func _refresh() -> void:
 				effect_sound.play()
 
 			_announce("Victory" if g.winner == 0 else "Defeat" if g.winner == 1 else "Draw", true)
-		elif g.phase in ["power", "pre", "combat", "post"]:
+		elif g.phase in ["pre", "combat", "post"]:
 			_announce(
 				(
 					(
@@ -517,7 +493,7 @@ func _refresh() -> void:
 							"combat": "Combat Phase",
 							"post": "Post-Combat Phase"
 						}
-						. get(g.phase, "Generating Power")
+						. get(g.phase, "Pre-Combat Phase")
 					)
 				)
 			)
@@ -575,14 +551,8 @@ func _actions(g: Dictionary) -> void:
 	elif g.active == 0 and g.choice == null and g.response == null:
 		_button(
 			controls,
-			(
-				{
-					"power": "Main phase",
-					"pre": "Begin combat",
-					"combat": "Finish combat",
-					"post": "End turn"
-				}
-				. get(g.phase, "Continue")
+			{"pre": "Begin combat", "combat": "Finish combat", "post": "End turn"}.get(
+				g.phase, "Continue"
 			),
 			func(): _command({"op": "next"})
 		)
@@ -888,7 +858,7 @@ func _pile(side: int, zone: String) -> void:
 func _starter() -> void:
 	if not engine.catalog.is_empty():
 		_gallery(
-			"Your battle deck · 30 cards",
+			"Your battle deck · 20 cards",
 			engine.state.get("playerDeck", engine.catalog.starter).map(
 				func(id): return {"id": id, "owner": 0, "uid": id}
 			)

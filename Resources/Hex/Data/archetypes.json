@@ -2,10 +2,6 @@
   {
     "id": "goblin_horde",
     "name": "Goblin Horde",
-    "colours": [
-      "Fire",
-      "Earth"
-    ],
     "description": "Build a board quickly, then rally Goblins and convert deaths into cards.",
     "cards": [
       "WE-001",
@@ -27,26 +23,12 @@
       "WE-035",
       "WE-035",
       "LT-053",
-      "LT-053",
-      "FD-008",
-      "FD-008",
-      "FD-003",
-      "FD-003",
-      "FD-003",
-      "FD-003",
-      "FD-001",
-      "FD-001",
-      "FD-001",
-      "FD-001"
+      "LT-053"
     ]
   },
   {
     "id": "wiskin_guard",
     "name": "Wiskin Guard",
-    "colours": [
-      "Earth",
-      "Light"
-    ],
     "description": "Protect lanes, share formation bonuses and recover after combat.",
     "cards": [
       "WE-008",
@@ -68,26 +50,12 @@
       "WE-027",
       "WE-027",
       "SA-024",
-      "SA-024",
-      "FD-011",
-      "FD-011",
-      "FD-001",
-      "FD-001",
-      "FD-001",
-      "FD-001",
-      "FD-006",
-      "FD-006",
-      "FD-006",
-      "FD-006"
+      "SA-024"
     ]
   },
   {
     "id": "mage_conclave",
     "name": "Mage Conclave",
-    "colours": [
-      "Water",
-      "Sky"
-    ],
     "description": "Chain inexpensive spells, draw cards and grow your Mage engines.",
     "cards": [
       "SA-036",
@@ -109,26 +77,12 @@
       "SA-011",
       "SA-011",
       "SA-035",
-      "SA-035",
-      "FD-013",
-      "FD-013",
-      "FD-004",
-      "FD-004",
-      "FD-004",
-      "FD-004",
-      "FD-002",
-      "FD-002",
-      "FD-002",
-      "FD-002"
+      "SA-035"
     ]
   },
   {
     "id": "grave_circle",
     "name": "Grave Circle",
-    "colours": [
-      "Dark",
-      "Water"
-    ],
     "description": "Recycle creatures and spells while wearing down the enemy.",
     "cards": [
       "LT-009",
@@ -150,26 +104,12 @@
       "SA-039",
       "SA-039",
       "WE-044",
-      "WE-044",
-      "FD-019",
-      "FD-019",
-      "FD-005",
-      "FD-005",
-      "FD-005",
-      "FD-005",
-      "FD-004",
-      "FD-004",
-      "FD-004",
-      "FD-004"
+      "WE-044"
     ]
   },
   {
     "id": "storm_wings",
     "name": "Storm Wings",
-    "colours": [
-      "Sky",
-      "Fire"
-    ],
     "description": "Use fast threats, protected back-rank pressure and amplified spell damage.",
     "cards": [
       "LT-007",
@@ -191,26 +131,12 @@
       "SA-014",
       "SA-014",
       "SA-035",
-      "SA-035",
-      "FD-012",
-      "FD-012",
-      "FD-002",
-      "FD-002",
-      "FD-002",
-      "FD-002",
-      "FD-003",
-      "FD-003",
-      "FD-003",
-      "FD-003"
+      "SA-035"
     ]
   },
   {
     "id": "grove_kin",
     "name": "Grove Kin",
-    "colours": [
-      "Earth",
-      "Water"
-    ],
     "description": "Survive combat, heal your board and grow through repeated exchanges.",
     "cards": [
       "LT-006",
@@ -232,26 +158,12 @@
       "SA-019",
       "SA-019",
       "SA-011",
-      "SA-011",
-      "FD-009",
-      "FD-009",
-      "FD-001",
-      "FD-001",
-      "FD-001",
-      "FD-001",
-      "FD-004",
-      "FD-004",
-      "FD-004",
-      "FD-004"
+      "SA-011"
     ]
   },
   {
     "id": "shadow_veil",
     "name": "Shadow Veil",
-    "colours": [
-      "Dark",
-      "Sky"
-    ],
     "description": "Disrupt targets and hands, then exploit exposed lanes.",
     "cards": [
       "LT-022",
@@ -273,26 +185,12 @@
       "WE-039",
       "WE-039",
       "SA-035",
-      "SA-035",
-      "FD-014",
-      "FD-014",
-      "FD-005",
-      "FD-005",
-      "FD-005",
-      "FD-005",
-      "FD-002",
-      "FD-002",
-      "FD-002",
-      "FD-002"
+      "SA-035"
     ]
   },
   {
     "id": "dawn_court",
     "name": "Dawn Court",
-    "colours": [
-      "Light",
-      "Sky"
-    ],
     "description": "Shield allies and support an aerial formation.",
     "cards": [
       "LT-001",
@@ -314,26 +212,12 @@
       "SA-031",
       "SA-031",
       "SA-035",
-      "SA-035",
-      "FD-015",
-      "FD-015",
-      "FD-006",
-      "FD-006",
-      "FD-006",
-      "FD-006",
-      "FD-002",
-      "FD-002",
-      "FD-002",
-      "FD-002"
+      "SA-035"
     ]
   },
   {
     "id": "blood_coven",
     "name": "Blood Coven",
-    "colours": [
-      "Fire",
-      "Dark"
-    ],
     "description": "Turn sacrifice, death triggers and Goblin attacks into pressure.",
     "cards": [
       "WE-003",
@@ -355,26 +239,12 @@
       "WE-036",
       "WE-036",
       "SA-021",
-      "SA-021",
-      "FD-017",
-      "FD-017",
-      "FD-003",
-      "FD-003",
-      "FD-003",
-      "FD-003",
-      "FD-005",
-      "FD-005",
-      "FD-005",
-      "FD-005"
+      "SA-021"
     ]
   },
   {
     "id": "sacred_tide",
     "name": "Sacred Tide",
-    "colours": [
-      "Water",
-      "Light"
-    ],
     "description": "Sustain a defensive board while drawing into stronger answers.",
     "cards": [
       "LT-001",
@@ -396,26 +266,12 @@
       "SA-025",
       "SA-025",
       "LT-061",
-      "LT-061",
-      "FD-020",
-      "FD-020",
-      "FD-004",
-      "FD-004",
-      "FD-004",
-      "FD-004",
-      "FD-006",
-      "FD-006",
-      "FD-006",
-      "FD-006"
+      "LT-061"
     ]
   },
   {
     "id": "pathfinders",
     "name": "Pathfinders",
-    "colours": [
-      "Earth",
-      "Sky"
-    ],
     "description": "Use equipment, swaps and backline access to control positioning.",
     "cards": [
       "LT-006",
@@ -437,26 +293,12 @@
       "LT-055",
       "LT-055",
       "SA-014",
-      "SA-014",
-      "FD-007",
-      "FD-007",
-      "FD-001",
-      "FD-001",
-      "FD-001",
-      "FD-001",
-      "FD-002",
-      "FD-002",
-      "FD-002",
-      "FD-002"
+      "SA-014"
     ]
   },
   {
     "id": "grave_roots",
     "name": "Grave Roots",
-    "colours": [
-      "Earth",
-      "Dark"
-    ],
     "description": "Combine durable growth with sacrifice and creature recovery.",
     "cards": [
       "LT-009",
@@ -478,26 +320,12 @@
       "SA-021",
       "SA-021",
       "WE-044",
-      "WE-044",
-      "FD-010",
-      "FD-010",
-      "FD-001",
-      "FD-001",
-      "FD-001",
-      "FD-001",
-      "FD-005",
-      "FD-005",
-      "FD-005",
-      "FD-005"
+      "WE-044"
     ]
   },
   {
     "id": "twilight_host",
     "name": "Twilight Host",
-    "colours": [
-      "Dark",
-      "Light"
-    ],
     "description": "Trade creatures, recover fallen allies and protect your finishers.",
     "cards": [
       "LT-001",
@@ -519,26 +347,12 @@
       "WE-047",
       "WE-047",
       "WE-045",
-      "WE-046",
-      "FD-021",
-      "FD-021",
-      "FD-005",
-      "FD-005",
-      "FD-005",
-      "FD-005",
-      "FD-006",
-      "FD-006",
-      "FD-006",
-      "FD-006"
+      "WE-046"
     ]
   },
   {
     "id": "ash_current",
     "name": "Ash Current",
-    "colours": [
-      "Fire",
-      "Water"
-    ],
     "description": "Mix burst damage and healing with tempo and card flow.",
     "cards": [
       "LT-005",
@@ -560,26 +374,12 @@
       "SA-011",
       "SA-011",
       "SA-025",
-      "SA-025",
-      "FD-016",
-      "FD-016",
-      "FD-003",
-      "FD-003",
-      "FD-003",
-      "FD-003",
-      "FD-004",
-      "FD-004",
-      "FD-004",
-      "FD-004"
+      "SA-025"
     ]
   },
   {
     "id": "sunforge",
     "name": "Sunforge",
-    "colours": [
-      "Fire",
-      "Light"
-    ],
     "description": "Equip aggressive bodies, then protect them through decisive attacks.",
     "cards": [
       "LT-001",
@@ -601,25 +401,12 @@
       "SA-009",
       "SA-009",
       "SA-024",
-      "SA-024",
-      "FD-018",
-      "FD-018",
-      "FD-003",
-      "FD-003",
-      "FD-003",
-      "FD-003",
-      "FD-006",
-      "FD-006",
-      "FD-006",
-      "FD-006"
+      "SA-024"
     ]
   },
   {
     "id": "water_mages",
     "name": "Water Mages",
-    "colours": [
-      "Water"
-    ],
     "description": "A single-colour spellcraft core with generic costs and neutral Mage bridges.",
     "cards": [
       "SA-037",
@@ -641,17 +428,7 @@
       "SA-019",
       "SA-019",
       "SA-025",
-      "SA-025",
-      "FD-004",
-      "FD-004",
-      "FD-004",
-      "FD-004",
-      "FD-004",
-      "FD-004",
-      "FD-004",
-      "FD-004",
-      "FD-004",
-      "FD-004"
+      "SA-025"
     ]
   }
 ]

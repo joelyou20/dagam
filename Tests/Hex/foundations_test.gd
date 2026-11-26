@@ -56,51 +56,27 @@ func check_metadata() -> bool:
 	):
 		return false
 
-	var ids = {}
-	var pairs = {}
+	var retired := 0
 
 	for card in cards:
-		ids[card.id] = true
-
 		if not check(
-			not card.get("preview_only", false) and card.set == "foundations",
-			"Foundations cards must now be playable"
+			not card.has("cost") and not card.has("terrain_types"),
+			"Foundations must have no costs or terrain requirements"
 		):
 			return false
 
-		if int(card.number) <= 21:
-			if not check(
-				card.rules.is_empty() and card.cost.is_empty(),
-				"Basic and basic dual Planes must have no rules or invented costs"
-			):
+		if card.get("retired", false):
+			retired += 1
+
+			if not check(card.rules.is_empty(), "Only inert Planes are retired"):
 				return false
 
-		if int(card.number) in range(7, 22):
-			var terrain: Array = card.terrain_types.duplicate()
-
-			terrain.sort()
-			pairs["/".join(terrain)] = true
-
-	if not check(
-		ids.size() == 26 and pairs.size() == 15,
-		"All cards and all fifteen dual-terrain pairings must be distinct"
-	):
-		return false
-
-	if not check(
-		(
-			cards[21].cost.is_empty()
-			and cards[22].terrain_types == ["Light"]
-			and cards[23].cost == {"Earth": 1.0, "Fire": 1.0}
-			and cards[25].cost.is_empty()
-		),
-		"Specified costs and Wall of Light terrain must be preserved"
-	):
+	if not check(retired == 21, "Retire the six basic and fifteen dual Planes"):
 		return false
 
 	return check(
 		cards[24].generated_only and cards[23].card_type == "Spell",
-		"Volcanic Vent must be identified as generated and Erupt as a Spell"
+		"Vent remains generated and Erupt remains a Spell"
 	)
 
 func check_artwork() -> bool:
@@ -145,9 +121,7 @@ func check_decks() -> bool:
 	for i in range(3):
 		builder._change("FD-001", 1)
 
-	if not check(
-		builder.draft.count("FD-001") == 3, "Basic Planes must allow more than two copies"
-	):
+	if not check(builder.draft.count("FD-001") == 0, "Inert Planes must not enter decks"):
 		return false
 
 	var before = builder.draft.duplicate()
@@ -170,8 +144,12 @@ func check_decks() -> bool:
 
 func check_shop() -> bool:
 	if not check(
-		ShopManager.buy_single("FD-001").ok and not ShopManager.buy_single("FD-025").ok,
-		"Shop must offer Planes but exclude generated Vent"
+		(
+			ShopManager.buy_single("FD-022").ok
+			and not ShopManager.buy_single("FD-001").ok
+			and not ShopManager.buy_single("FD-025").ok
+		),
+		"Shop must offer effect Planes and exclude inert Planes and generated Vent"
 	):
 		return false
 

@@ -136,7 +136,6 @@ globalThis.Hex = (() => {
         discard: p.discard.map(enrich),
         exile: (p.exile || []).map(enrich),
         planes: p.planes,
-        power: p.power,
         planePlayed: p.planePlayed,
         losses: p.losses,
         exposure: p.exposure || 0,
@@ -164,14 +163,11 @@ globalThis.Hex = (() => {
       handReasons: Object.fromEntries(
         g.players[0].hand.map((c) => [
           c.uid,
-          hexPowerPayment(g, 0, c) === null
-            ? "Not enough Power to pay this cost."
-            : hexType(c, "Plane") && g.players[0].planePlayed
-              ? "You have already played a Plane this turn."
-              : hexType(c, "Creature") &&
-                  !g.players[0].board.some((t, slot) => !t && hexCompatible(g, c, 0, slot))
-                ? "No empty compatible hex. Change a Plane or free a matching hex."
-                : "This card cannot be played in the current phase or response window.",
+          hexType(c, "Plane") && g.players[0].planePlayed
+            ? "You have already played a Plane this turn."
+            : hexType(c, "Creature") && !g.players[0].board.some((t) => !t)
+              ? "No empty hex. Free a slot to play this creature."
+              : "This card cannot be played in the current phase or response window.",
         ]),
       ),
       activeOptions: hexActiveOptions(g, 0).map(option),
@@ -193,7 +189,6 @@ globalThis.Hex = (() => {
         "coinResult",
         "opening",
         "start",
-        "power",
         "pre",
         "combat",
         "resolve",
@@ -201,7 +196,7 @@ globalThis.Hex = (() => {
         "end",
         "over",
       ].includes(g.phase) ||
-      g.v !== 2 ||
+      g.v !== 3 ||
       g.rules?.id !== "standard" ||
       !Array.isArray(g.players) ||
       g.players.length !== 2 ||
@@ -217,7 +212,6 @@ globalThis.Hex = (() => {
       if (!Number.isInteger(p.exposure) || p.exposure < 0 || p.exposure > 3)
         throw Error("Invalid Exposure count");
       if (
-        !Array.isArray(p.power) ||
         p.planes?.length !== 6 ||
         p.board?.length !== 6 ||
         p.artifacts?.length !== 2 ||
@@ -231,16 +225,12 @@ globalThis.Hex = (() => {
           (h) =>
             !h ||
             !Array.isArray(h.types) ||
-            !h.types.length ||
             h.types.some((t) => !HEX_TERRAINS.includes(t)) ||
             !Number.isInteger(h.level) ||
             h.level < 0,
-        ) ||
-        p.power.some(
-          (s) => !Array.isArray(s) || !s.length || s.some((t) => !HEX_TERRAINS.includes(t)),
         )
       )
-        throw Error("Invalid Plane or Power state");
+        throw Error("Invalid Plane state");
       for (const c of [
         ...p.hand,
         ...p.deck,
@@ -257,14 +247,15 @@ globalThis.Hex = (() => {
     const errors = [],
       counts = {};
     if (!Array.isArray(cards)) return { valid: false, errors: ["Deck must be a list of cards."] };
-    if (draft ? cards.length > 30 : cards.length !== 30)
-      errors.push("A Standard deck requires exactly 30 cards.");
+    if (draft ? cards.length > 20 : cards.length !== 20)
+      errors.push("A Standard deck requires exactly 20 cards.");
     for (const id of cards) {
       const c = HEX_CARD[id];
       if (!c) {
         errors.push("Unknown card: " + id);
         continue;
       }
+      if (c.retired) errors.push(c.name + " is an inactive Plane and cannot enter a deck.");
       if (c.generated_only)
         errors.push(c.name + " is created by an effect and cannot enter a deck.");
       const base = c.baseId || id;
@@ -299,14 +290,11 @@ globalThis.Hex = (() => {
         );
         break;
       case "load":
-        game = validate(hexMigratePowerSave(c.game));
+        game = validate(hexMigrateMatch(c.game));
         game.context = { ...(game.context || {}), opponentAI: "ascended" };
         game.fx = [];
         game.fxAck = game.fxSerial;
         if (game.phase === "opening" && game.players[0].mulligan) hexKeep(game);
-        // Older saves can be waiting at the former manual Power checkpoint.
-        if (game.phase === "power" && !game.choice && !game.stack.length)
-          hexNext(game, game.active);
         break;
       case "save":
         return { version: 1, game };

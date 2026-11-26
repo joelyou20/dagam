@@ -604,11 +604,11 @@ function hexClassicBotStep(g, side = 1) {
   }
   const view = hexBotView(g, side),
     pl = g.players[side];
-  if (["power", "pre", "post"].includes(g.phase)) {
+  if (["pre", "post"].includes(g.phase)) {
     const actions = [];
     for (const c of view.hand) {
       if (hexIsReaction(c)) continue;
-      // With no companion, Hawk can only return itself and waste its casting Power.
+      // With no companion, Hawk can only return itself and lose its tempo.
       if (hexElderNum(c) === 17 && !g.players[side].board.some(Boolean)) continue;
       const options = hexPlayOptions(g, side, c);
       for (const [i, o] of options.entries()) {

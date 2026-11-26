@@ -49,8 +49,10 @@ func _initialize():
 
 	var coverage: Array = []
 
-	for i in range(bridge.catalog.cards.size()):
-		var id: String = bridge.catalog.cards[i].id
+	var playable: Array = bridge.catalog.cards.filter(func(c): return not c.get("retired", false))
+
+	for i in range(playable.size()):
+		var id: String = playable[i].id
 		var result = JSON.parse_string(
 			bridge.runtime.evaluate(
 				"JSON.stringify(HexTests.coverage(" + JSON.stringify(id) + "," + str(i) + "))"
@@ -88,7 +90,7 @@ func _initialize():
 		if c.played and c.resolved:
 			covered[c.id] = true
 
-	if covered.size() != bridge.catalog.cards.size():
+	if covered.size() != playable.size():
 		push_error("Incomplete resolution coverage: " + str(covered.size()))
 		quit(1)
 

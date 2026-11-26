@@ -50,7 +50,7 @@ func _run():
 	):
 		return
 
-	if not check(HexManager.session.catalog.starter.size() == 30, "Starter must contain 30 cards"):
+	if not check(HexManager.session.catalog.starter.size() == 20, "Starter must contain 20 cards"):
 		return
 
 	hex.battle._command({"op": "new", "seed": 42})

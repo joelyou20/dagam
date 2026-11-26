@@ -4,7 +4,7 @@
     "name": "Earth",
     "rarity": "Common",
     "art_sha256": "23c09d0d231ba6e7c56932a8b72eca8792c616f7aed526b893c6eda36834ee5e",
-    "sha256": "ed0492a1862818c4d0222d4029effb27a7f504f31ba26ce8e4d5b1255fdf3c82",
+    "sha256": "468263d7ea450f07cc5ce350adbfce6dee18bc293fbfa311607f1cd07aecc064",
     "font_size": 34,
     "size": [
       1024,
@@ -16,7 +16,7 @@
     "name": "Earth",
     "rarity": "Common",
     "art_sha256": "23c09d0d231ba6e7c56932a8b72eca8792c616f7aed526b893c6eda36834ee5e",
-    "sha256": "b90554f4a71285062999da476387c33213d156741763fa7622878d4daf3bb526",
+    "sha256": "d5c75fc98abd1b9831c0d8bdc08bc224b7d5ca7a73b18e5857f744a83a63bb1d",
     "font_size": 31,
     "size": [
       1024,
@@ -28,7 +28,7 @@
     "name": "Sky",
     "rarity": "Common",
     "art_sha256": "91b886d9e7c8fcae6355ed743f13af57bba1e9d77eeaaf508b11ccf3fa085314",
-    "sha256": "0b9c7833b6d78c2cdb3f67b39b3e7e0754cfdc69f0881748705bd3e606c1aa55",
+    "sha256": "59f0bb623a5317e0358a625d4680c6efc390ebf8e2e2ccb47d28c6b4baf28332",
     "font_size": 34,
     "size": [
       1024,
@@ -40,7 +40,7 @@
     "name": "Sky",
     "rarity": "Common",
     "art_sha256": "91b886d9e7c8fcae6355ed743f13af57bba1e9d77eeaaf508b11ccf3fa085314",
-    "sha256": "63460a197ed4de122586076847b0115bbdb4c72e09328aa58ce8bb9bc852a554",
+    "sha256": "9830afce3a6ef594a52ad5abf6a39e455fc2ba06db3103ff4b37b348c05482eb",
     "font_size": 31,
     "size": [
       1024,
@@ -52,7 +52,7 @@
     "name": "Fire",
     "rarity": "Common",
     "art_sha256": "442d4e75a31c98b4ac501994e8699dd005c7b1d95263bb2d90a91b071a4f5764",
-    "sha256": "c7c66fff262f4f425e66631151aee0bca36c83bc41d05016585319ee59ef156f",
+    "sha256": "87d04800ff78fe88bf01d70b7a0189fa7eae571faac0abadd27ba47b6a8715e0",
     "font_size": 34,
     "size": [
       1024,
@@ -64,7 +64,7 @@
     "name": "Fire",
     "rarity": "Common",
     "art_sha256": "442d4e75a31c98b4ac501994e8699dd005c7b1d95263bb2d90a91b071a4f5764",
-    "sha256": "ca38f93b62d28bbb6bd8c505f273c82c3c56721c3ab5b32f37cef7069cd50f21",
+    "sha256": "7ca3616264a38bfdf23e821eb293c577e6673f98aad0f558e47f38297b2f18b2",
     "font_size": 31,
     "size": [
       1024,
@@ -76,7 +76,7 @@
     "name": "Water",
     "rarity": "Common",
     "art_sha256": "bd69b8c68af3dc43b291a4660fb5e4fbe23ed046b6c251b9e1e590502d93ef1b",
-    "sha256": "af8fce17d7fc7395ba24a509373d4a4cd29bfa61b707e2bd0164f22afd5af9e4",
+    "sha256": "0b2213e538629cf8bd5f51c453b002009c6ffc42b06cb8ebdd2e222e25c20a04",
     "font_size": 34,
     "size": [
       1024,
@@ -88,7 +88,7 @@
     "name": "Water",
     "rarity": "Common",
     "art_sha256": "bd69b8c68af3dc43b291a4660fb5e4fbe23ed046b6c251b9e1e590502d93ef1b",
-    "sha256": "e7be6d97c73706574b40022dd92ebf26b18349c829e695f1a2917666359d33eb",
+    "sha256": "0389d8a9d13dfd097c07ede287b0cf1923c3c3a327182e5949cde62830050f11",
     "font_size": 31,
     "size": [
       1024,
@@ -100,7 +100,7 @@
     "name": "Dark",
     "rarity": "Common",
     "art_sha256": "6337cca1334907d58cb08d08da0ddca6047ef9aaec578d084de16d61348425f2",
-    "sha256": "425d0da70c91ebb413bb1040145b3c20a23662e6d28220ee9f81852514072de8",
+    "sha256": "1234d29453d00362f151cea46c1816d2b1c064f874be18ca574e54001b097cc8",
     "font_size": 34,
     "size": [
       1024,
@@ -112,7 +112,7 @@
     "name": "Dark",
     "rarity": "Common",
     "art_sha256": "6337cca1334907d58cb08d08da0ddca6047ef9aaec578d084de16d61348425f2",
-    "sha256": "8a6f5782b1ed5ad21d706af142eae2cf9db4f38b48f37bccbdd4f65380c77386",
+    "sha256": "dcb9866f2f052706d39c890552f7e3b81eb2ba15a586ae498cda49a28ff565a0",
     "font_size": 31,
     "size": [
       1024,
@@ -124,7 +124,7 @@
     "name": "Light",
     "rarity": "Common",
     "art_sha256": "3c6b4292cedba956ad8c3fec32552e7808935a197ed323f431aef12b043cda0e",
-    "sha256": "83f975a8e0664d53b52d2ff9578372a417db2151b2e5c404b31f6df3b8c13f53",
+    "sha256": "a62ec303cfd9f4ce156bc35dac539d47e912087639dab7f8d1611c7a9e4dc691",
     "font_size": 34,
     "size": [
       1024,
@@ -136,7 +136,7 @@
     "name": "Light",
     "rarity": "Common",
     "art_sha256": "3c6b4292cedba956ad8c3fec32552e7808935a197ed323f431aef12b043cda0e",
-    "sha256": "73ad19f9ceec51f3f662238ac45b72a6488c7804d77f19d6e64d1789e0b9739a",
+    "sha256": "34857a2e7738ebcd9b7afdee1de8217e823399d93e7b6c51acffd10f63955d0a",
     "font_size": 31,
     "size": [
       1024,
@@ -148,7 +148,7 @@
     "name": "Floating Ruins",
     "rarity": "Uncommon",
     "art_sha256": "b3f04e2b69c7ce2a040bd541396d89a7b7c58207213ea3ffe72d1ebf33f84b86",
-    "sha256": "309e992076a549aff43f53ef098628556430ca4c7e2cea3f822c4b599a164412",
+    "sha256": "0305fdbcb80872445deff3d7ea70efdf24e418be4a7f7950a416f0c6ad7536cb",
     "font_size": 34,
     "size": [
       1024,
@@ -160,7 +160,7 @@
     "name": "Floating Ruins",
     "rarity": "Uncommon",
     "art_sha256": "b3f04e2b69c7ce2a040bd541396d89a7b7c58207213ea3ffe72d1ebf33f84b86",
-    "sha256": "a195c0c2f3a24a83aa27ecac28a963cbcb5765cb179c686521764005f8e2a2f2",
+    "sha256": "e5dabb9a4b37707a8b5f3467f8bec96904138923f4e7c45db5dc3c9de5adc98d",
     "font_size": 31,
     "size": [
       1024,
@@ -172,7 +172,7 @@
     "name": "Ashlands",
     "rarity": "Uncommon",
     "art_sha256": "7cc3030768d47cc397819e04dcfd009e3ac4ac5ece0da2d8eb5f90fa03b16a64",
-    "sha256": "4f987b39a5813cffaafbfbc62fbb2c6e2bde8713531e85d87f55e3e78969213e",
+    "sha256": "c5a833211a52fd90404e3099e24eae4075200a8d63c1f1a26557a9048543326d",
     "font_size": 34,
     "size": [
       1024,
@@ -184,7 +184,7 @@
     "name": "Ashlands",
     "rarity": "Uncommon",
     "art_sha256": "7cc3030768d47cc397819e04dcfd009e3ac4ac5ece0da2d8eb5f90fa03b16a64",
-    "sha256": "2072eec98994940be58e536f60d8d8b4c6a8d1586eff4d4b0d718200453acaec",
+    "sha256": "23c4aa63d88ce8f4bc77aee4506b3d633358ca7008227907884a74526885f39e",
     "font_size": 31,
     "size": [
       1024,
@@ -196,7 +196,7 @@
     "name": "Sunken City",
     "rarity": "Uncommon",
     "art_sha256": "1705a46f54d31494c736847e81933efe4129913de5a151c0cb7593a7a8bceb8d",
-    "sha256": "970a573f1f35c667365f585e4fd5cab6dfd0744ef46377f7d1cd891984d4ffb5",
+    "sha256": "22f6c5c9e9709aa7fc72a20a8b8734473456e629a0c7e40d235b07d5f6da39e0",
     "font_size": 34,
     "size": [
       1024,
@@ -208,7 +208,7 @@
     "name": "Sunken City",
     "rarity": "Uncommon",
     "art_sha256": "1705a46f54d31494c736847e81933efe4129913de5a151c0cb7593a7a8bceb8d",
-    "sha256": "8f3ae7eae2e38a278b89c1172aa7859ccbaa3650553b909e3bc2507d576f7a0f",
+    "sha256": "4d11c5109b3be8a699e8ac11b1bc03ace2ca57389977e8a93213bb2f75f3de16",
     "font_size": 31,
     "size": [
       1024,
@@ -220,7 +220,7 @@
     "name": "Crypt of Vailyn",
     "rarity": "Uncommon",
     "art_sha256": "3cb9e635c0dc947540ac28829b98e03709be1b5a1563cdc6308b5d5faa26bbc8",
-    "sha256": "5e4cb23872f2a7ee44ef4ee385c40a6ef32409f88e077a80a67d8db55fa6030d",
+    "sha256": "4e5fea65ace7267b1f9907d4285a878cbbd8aca501dca4f7d6632e0c4d265daf",
     "font_size": 34,
     "size": [
       1024,
@@ -232,7 +232,7 @@
     "name": "Crypt of Vailyn",
     "rarity": "Uncommon",
     "art_sha256": "3cb9e635c0dc947540ac28829b98e03709be1b5a1563cdc6308b5d5faa26bbc8",
-    "sha256": "cd285ca9eb717dad2401f53a4975795a21eb909fb7b6cc8a7d08550faf58000c",
+    "sha256": "652606d918d1d808083da144f51de0944ca5eda78ba9084201b59f00a6cecb85",
     "font_size": 31,
     "size": [
       1024,
@@ -244,7 +244,7 @@
     "name": "Vibrant Meadow",
     "rarity": "Uncommon",
     "art_sha256": "762a17d5cf83f4311848036e112b68332cdf30a08051a25dc4798ac57712249e",
-    "sha256": "401539e890eb78c2d54d0099aadc55ba0dd3f015cec06255521678faf72fec3f",
+    "sha256": "737f50faae3f2027b42407478bf941af3aa4c36636ab5b934c05128b7e8651e3",
     "font_size": 34,
     "size": [
       1024,
@@ -256,7 +256,7 @@
     "name": "Vibrant Meadow",
     "rarity": "Uncommon",
     "art_sha256": "762a17d5cf83f4311848036e112b68332cdf30a08051a25dc4798ac57712249e",
-    "sha256": "f41c242690901adfb5c6461fc9149f4af339e9a9ad434e78ed0950325e160d90",
+    "sha256": "be4df13d279b477320876797e3b2abf44acd28cd302d616c17ed4bc42387acc0",
     "font_size": 31,
     "size": [
       1024,
@@ -268,7 +268,7 @@
     "name": "Miredin's Pass",
     "rarity": "Uncommon",
     "art_sha256": "593661b12d877c0222feb823fba65246e164ac3236356a61126fe442c59fca9c",
-    "sha256": "34cec9a70612ba33d237a11121b6d091e85c782fba2b10d9150747cf0c61ad2f",
+    "sha256": "73664a0edb1e79d74de7c1bd03845e73a985ebdac8dd848beae27fb65f5c1bdd",
     "font_size": 34,
     "size": [
       1024,
@@ -280,7 +280,7 @@
     "name": "Miredin's Pass",
     "rarity": "Uncommon",
     "art_sha256": "593661b12d877c0222feb823fba65246e164ac3236356a61126fe442c59fca9c",
-    "sha256": "52fe87baa388439438702bcfc77a61c8fd9e4766abe1073b419952124d73cb33",
+    "sha256": "46f49d1db9301540299d24efd193fa6e2c03f0d15a892ab096d6043ff0382981",
     "font_size": 31,
     "size": [
       1024,
@@ -292,7 +292,7 @@
     "name": "Inverted Sea",
     "rarity": "Uncommon",
     "art_sha256": "a5d35a24a393f461c18a07764fc8029646800738fc3ebf6c0948ca94611aa11e",
-    "sha256": "42e07d2cd94eef093a5c299669a9a2053fdb3ae3ddded951c4877fd9f0019aa2",
+    "sha256": "a5a4b4355aab7a5751705030edda5fc89238ada532f74a9156aee6c58d7059fa",
     "font_size": 34,
     "size": [
       1024,
@@ -304,7 +304,7 @@
     "name": "Inverted Sea",
     "rarity": "Uncommon",
     "art_sha256": "a5d35a24a393f461c18a07764fc8029646800738fc3ebf6c0948ca94611aa11e",
-    "sha256": "4198d77b2625d3e012f059c3f6a698109bd8efb7aefabd937087488d2590181e",
+    "sha256": "35ec654cf5c8f4df9fccdec446da7b1005e840e684dae4ae6d01c0d6e255b9a9",
     "font_size": 31,
     "size": [
       1024,
@@ -316,7 +316,7 @@
     "name": "Twilight Strand",
     "rarity": "Uncommon",
     "art_sha256": "89bd8777914a88fdcb7880fa9104cb0605f96a0e0b07355bd8744d221175d6f6",
-    "sha256": "5ab92b94d5dfd5ff8ec10ba1490b284db2535ea1c555c996ac9d7c0f514b81fc",
+    "sha256": "5c47076bcb8f313b92248a040181c32d39b873aaf00ed1063961945418740229",
     "font_size": 34,
     "size": [
       1024,
@@ -328,7 +328,7 @@
     "name": "Twilight Strand",
     "rarity": "Uncommon",
     "art_sha256": "89bd8777914a88fdcb7880fa9104cb0605f96a0e0b07355bd8744d221175d6f6",
-    "sha256": "e8f0f57ba0f205556d914af23d6280392d7fbe2038830b9695db09dc7ff0498b",
+    "sha256": "86e55d0d5b78ebd6581cf438b902c81c179d2cbe79afdd0e1383b7129861bd1e",
     "font_size": 31,
     "size": [
       1024,
@@ -340,7 +340,7 @@
     "name": "Loriadre's Reliquary",
     "rarity": "Uncommon",
     "art_sha256": "72c688e6fa671f13ccce8c3665254d64f341e67a5cb8e61531c6cf3cfbe2b797",
-    "sha256": "bb65b697961abb54ef96e44d6814c828c485c4ff68515f051a67647775d15729",
+    "sha256": "8797e589eb50ff51c36935856f40873672ecb6068ca2a67f69c88c655a43a248",
     "font_size": 34,
     "size": [
       1024,
@@ -352,7 +352,7 @@
     "name": "Loriadre's Reliquary",
     "rarity": "Uncommon",
     "art_sha256": "72c688e6fa671f13ccce8c3665254d64f341e67a5cb8e61531c6cf3cfbe2b797",
-    "sha256": "46a34e747e697511c9f5ab311a11d8245614606961219baa04b94af15b5cfbfa",
+    "sha256": "b3ff7459a57a6429087790ff05033e2b35cd350af766f7aeb476e018cc052f79",
     "font_size": 31,
     "size": [
       1024,
@@ -364,7 +364,7 @@
     "name": "Boiling Delta",
     "rarity": "Uncommon",
     "art_sha256": "fecd51d1206ab0421367168edc9ea3feabc146ef4ef6bf91b634c9bf152c2bbe",
-    "sha256": "ceae68a80761b54e9e77f9d859cba3d43638c8ce1cfd72a6f1f4c34c934d68d4",
+    "sha256": "a0bc4d3561c34dc60613e91a0decc4e5a3444968959d180390aada8ee90fd979",
     "font_size": 34,
     "size": [
       1024,
@@ -376,7 +376,7 @@
     "name": "Boiling Delta",
     "rarity": "Uncommon",
     "art_sha256": "fecd51d1206ab0421367168edc9ea3feabc146ef4ef6bf91b634c9bf152c2bbe",
-    "sha256": "519d85da2f6d80754bab42f3f022aa025821e583471dc7aa5040e88ad9eaa0f8",
+    "sha256": "025aa94dacab5f961d604f147cad5b770faf6edd6928600158fcd0d02461a930",
     "font_size": 31,
     "size": [
       1024,
@@ -388,7 +388,7 @@
     "name": "Tezzakeen's Hall",
     "rarity": "Uncommon",
     "art_sha256": "8a9897cafdf7630302bcfa3540601eae9b4ea4e096136adcc6ccaa3668f94b9b",
-    "sha256": "c4fdfff5de67c0fa508fe1c337c8b5f6cd3a8dae68168588436b9151b6ca1037",
+    "sha256": "5d49766a5d8d66ffc1d97e9db7c83bcddaeeb1f00af2be0047297a770e2c7b5b",
     "font_size": 34,
     "size": [
       1024,
@@ -400,7 +400,7 @@
     "name": "Tezzakeen's Hall",
     "rarity": "Uncommon",
     "art_sha256": "8a9897cafdf7630302bcfa3540601eae9b4ea4e096136adcc6ccaa3668f94b9b",
-    "sha256": "c7640714fb49bc11e4955b388af36229b96fb399e6da5a541e061aa9a069302e",
+    "sha256": "8835c12493489c51d9a174db6f48c079141a7196bb3605033cbad86959fcb85f",
     "font_size": 31,
     "size": [
       1024,
@@ -412,7 +412,7 @@
     "name": "Candlelight Sept",
     "rarity": "Uncommon",
     "art_sha256": "b9b8b0d3ef6b41d22a735b90de5027dc6d817341ddb9e86a691769a0a73237e3",
-    "sha256": "7b21b1ffca03f47a1f98b9d985595e1bb0039dfc320900f2eb4447294f15a589",
+    "sha256": "696c15fbd7ff3334a6f89f487d57b6ea1a6bfff58737b0296b623acf9f2344b9",
     "font_size": 34,
     "size": [
       1024,
@@ -424,7 +424,7 @@
     "name": "Candlelight Sept",
     "rarity": "Uncommon",
     "art_sha256": "b9b8b0d3ef6b41d22a735b90de5027dc6d817341ddb9e86a691769a0a73237e3",
-    "sha256": "e1753e1f8851165afc1881884656688d5d6da1d810af7b38129f210be45ad623",
+    "sha256": "816809a7a5887c34324837b007e4f9e4fe5baecccad5f780ee929110d6526849",
     "font_size": 31,
     "size": [
       1024,
@@ -436,7 +436,7 @@
     "name": "Abyssal Depths",
     "rarity": "Uncommon",
     "art_sha256": "ba392b1ce461c995e88242b369a7f8cc61773bdd89be5bbb48add7dd53b02b3d",
-    "sha256": "2f18a5c353125616913c387f630be9d63b1fea8915f0597499980b7f3b4bf453",
+    "sha256": "5c167a8183db5d1a5833f01342130671d22b8564be7ccee199a007a70b0c5876",
     "font_size": 34,
     "size": [
       1024,
@@ -448,7 +448,7 @@
     "name": "Abyssal Depths",
     "rarity": "Uncommon",
     "art_sha256": "ba392b1ce461c995e88242b369a7f8cc61773bdd89be5bbb48add7dd53b02b3d",
-    "sha256": "7149ee673cf71edce9253680e6d0a9ba4f718485c11ba05859e2dd502451fe75",
+    "sha256": "409552234464e091d00d54d83e47eaf7989eff4aa8eb3307a8580e03842423fe",
     "font_size": 31,
     "size": [
       1024,
@@ -460,7 +460,7 @@
     "name": "Celestial Estuary",
     "rarity": "Uncommon",
     "art_sha256": "46446660c471764a21c8a170cb76025387533d22e086c91cf8f3a0058dfb9752",
-    "sha256": "cb97376b828fb3b89d89d6d59e5266bac12d64fb5599e593e86e07a495230748",
+    "sha256": "a985bf0851b1f73b4b8bc05099f1336c15a09d4225912f036b56ca1dd7366e37",
     "font_size": 34,
     "size": [
       1024,
@@ -472,7 +472,7 @@
     "name": "Celestial Estuary",
     "rarity": "Uncommon",
     "art_sha256": "46446660c471764a21c8a170cb76025387533d22e086c91cf8f3a0058dfb9752",
-    "sha256": "8fecd9912c5139b8c3712ab7bd52dbca47d0dd314c969cadff0c88d8b901f902",
+    "sha256": "b630d41878b00ae6ed2d8ea9885a3c993172c892ceb8922242fce0a0a22d1b89",
     "font_size": 31,
     "size": [
       1024,
@@ -484,7 +484,7 @@
     "name": "Moonrend Delve",
     "rarity": "Uncommon",
     "art_sha256": "843c8908a802ce7b5b45c5622f537bdaa3ed378c391d4ac16c0e57ef72d3c5e0",
-    "sha256": "d86356cceb66edf22ec804f6aea31abbb8ab6a210648138edd462ff76191fd77",
+    "sha256": "7a320fcf27675dbc108cedbaff4308848c3b629b660a87772dd1bdb2e7b89fbc",
     "font_size": 34,
     "size": [
       1024,
@@ -496,7 +496,7 @@
     "name": "Moonrend Delve",
     "rarity": "Uncommon",
     "art_sha256": "843c8908a802ce7b5b45c5622f537bdaa3ed378c391d4ac16c0e57ef72d3c5e0",
-    "sha256": "734b68ee063f3dd2e024fedb5f7b42adaf583d8221d0e23edd756e6c2c590b5e",
+    "sha256": "1a3fa10dbfd8750398cb634ae2fb1581e6b8254a92a6212f16d71b133baedf77",
     "font_size": 31,
     "size": [
       1024,
@@ -508,7 +508,7 @@
     "name": "Sacred Spring",
     "rarity": "Uncommon",
     "art_sha256": "d07c8d08af367867b9232353d1545c171eed21251fbc73b137a09e97850ecac9",
-    "sha256": "6b23bbbd66ae682e18b2cc813f4ba7f11c2602c3c8533777c8629b619163ff3d",
+    "sha256": "7e11ebd56a42d40212e9b22964a1495f6a9cfe53cf0494ad715ee3fd580df214",
     "font_size": 34,
     "size": [
       1024,
@@ -520,7 +520,7 @@
     "name": "Sacred Spring",
     "rarity": "Uncommon",
     "art_sha256": "d07c8d08af367867b9232353d1545c171eed21251fbc73b137a09e97850ecac9",
-    "sha256": "ce2b1edbb14863d826e3bdb3f9178b08779ec56f76dc1ac89570934123c059da",
+    "sha256": "3e2a9663395d300c3a86a684ea01b3cf5092fcb68a0e995c4f17527ec7db1399",
     "font_size": 31,
     "size": [
       1024,
@@ -532,7 +532,7 @@
     "name": "Wall of Light",
     "rarity": "Uncommon",
     "art_sha256": "9f80411f71732ce27b56cfc524e38a78029f11f342baa945e0cbaece86f59885",
-    "sha256": "13fbe024bd25e658d8c6cf266d652881dc3a93d0ead2ba97e4edeb9aacd85aa3",
+    "sha256": "680da5e0b0e311f6a28a63683a9bcf75cafadc58cf5d9de27c8f3ff08d1a8826",
     "font_size": 34,
     "size": [
       1024,
@@ -544,7 +544,7 @@
     "name": "Wall of Light",
     "rarity": "Uncommon",
     "art_sha256": "9f80411f71732ce27b56cfc524e38a78029f11f342baa945e0cbaece86f59885",
-    "sha256": "68bd865e3bbcb329943f216521cd3fd1060c963bd7bee728280cc8092e075926",
+    "sha256": "4942a406a879f670b7593cc4b074c554a93044590838fbd3ec862bfc9d6fc87d",
     "font_size": 31,
     "size": [
       1024,
@@ -580,7 +580,7 @@
     "name": "Volcanic Vent",
     "rarity": "Uncommon",
     "art_sha256": "21f53cb82038839839d8361794fb2cb276680578098391f19fe9e5780a8f4201",
-    "sha256": "0ecee38d457cff747736e3041b2facd8a70b460c59b9b1086cabda363d383a86",
+    "sha256": "e3de368fc1a4884c5e9f1a1c353c4cf6da105925cfe8ac3a96c75cd2ff2e13e0",
     "font_size": 34,
     "size": [
       1024,
@@ -592,7 +592,7 @@
     "name": "Volcanic Vent",
     "rarity": "Uncommon",
     "art_sha256": "21f53cb82038839839d8361794fb2cb276680578098391f19fe9e5780a8f4201",
-    "sha256": "b44cfb8559dc1ec1a953353d878307a2b429dfc705dfb4ec718ab6d3888d7d85",
+    "sha256": "b89dd47f57c1ac9ad84e3ccb36aacfcef52bcd305eae7cc3b23853a10dbd1372",
     "font_size": 31,
     "size": [
       1024,
@@ -604,7 +604,7 @@
     "name": "Door to Ashgar",
     "rarity": "Rare",
     "art_sha256": "f8252067ef91cbbf0a5a92f90282e5b147ec5f69334abae5e31c420cef87b75a",
-    "sha256": "143fa977bdec10d2e0720febde1dad74a8cbea6351c10841b90badce67bfcc90",
+    "sha256": "3e148fb0a84402e340023b6e172b1bb46175f59f478afc6fe55be4b02f7eeb68",
     "font_size": 34,
     "size": [
       1024,
@@ -616,7 +616,7 @@
     "name": "Door to Ashgar",
     "rarity": "Rare",
     "art_sha256": "f8252067ef91cbbf0a5a92f90282e5b147ec5f69334abae5e31c420cef87b75a",
-    "sha256": "486a95dd2cf95e9b16c626b309be920f5b6aea301f67633ef4a5e654d28044ad",
+    "sha256": "f5d57e4a62105d448e172cd57baa66747b92e087cd1db678d63e11823de922a1",
     "font_size": 31,
     "size": [
       1024,

@@ -1,3 +1,5 @@
+> Historical resource-system analysis. Current rules use free plays and 20-card decks; see [current rules](../hex-planes.md).
+
 # Archetype identities and flexible costs
 
 This change implements coherent casting identities across the whole card pool. Total casting prices, stats, rules, terrain compatibility, random draws, deck sizes, Plane generation and Exposure are unchanged. 65 cards change their colour requirements or split an existing price into matching and generic Power.

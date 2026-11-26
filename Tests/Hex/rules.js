@@ -72,7 +72,7 @@ globalThis.HexTests = (() => {
         assert(HEX_CARD[c.id + "-FA"].rules === c.rules, "finish rules");
         assert(HEX_CARD[c.id + "-FA"].attack === c.attack, "finish stats");
       }
-      assert(Hex.starter.length === 30, "starter");
+      assert(Hex.starter.length === 20, "starter");
       assert(!HEX_FORMATS.blitz, "standard only");
     });
     test("Loriadre", () => {

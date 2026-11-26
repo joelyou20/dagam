@@ -1,3 +1,5 @@
+> Historical resource-system analysis. Current rules use free plays and 20-card decks; see [current rules](../hex-planes.md).
+
 # Applied card repricing
 
 This records the previous price reduction. For current colour identities and

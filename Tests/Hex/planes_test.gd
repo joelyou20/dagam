@@ -14,5 +14,5 @@ func _initialize() -> void:
 
 		return
 
-	print("Plane and Power rules passed: ", result.checks)
+	print("Free-play and effect Plane rules passed: ", result.checks)
 	quit()
