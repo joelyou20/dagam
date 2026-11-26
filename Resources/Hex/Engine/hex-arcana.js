@@ -163,11 +163,12 @@ function hexArcanaTarget(
   const c = hexFind(g, uid);
   return c && hexSpellTargetable(c) && hexAffect(g, p, c, () => fn(c), true, source, harmful);
 }
-function hexArcanaKill(g, c) {
+function hexArcanaKill(g, c, countsLoss = true) {
   if (!c) return;
   c.lastCombat = false;
   c.hp = 0;
-  for (const d of hexDeaths(g)) if (g.winner === null) hexDeathTriggers(g, d);
+  for (const d of hexDeaths(g, countsLoss ? [] : [c.uid]))
+    if (g.winner === null) hexDeathTriggers(g, d);
 }
 function hexArcanaDamage(g, p, uid, amount, source, spell = false) {
   if (spell) amount += g.players[p].artifacts.filter((a) => a && hexArcanaNum(a) === 33).length;
@@ -253,7 +254,9 @@ function hexArcanaEntry(g, c) {
   if (n === 39) hexArcanaRecover(g, p, 1, true);
   if (n === 47) hexArcanaSearch(g, p, true);
   if (hexHasType(c, "Mage"))
-    for (const a of hexAll(g).filter((a) => a.uid !== c.uid && hexArcanaNum(a) === 45)) {
+    for (const a of hexAll(g).filter(
+      (a) => a.uid !== c.uid && a.owner === p && hexArcanaNum(a) === 45,
+    )) {
       a.attackBonus = (a.attackBonus || 0) + 1;
       hexShield(g, a, 1);
     }
@@ -464,7 +467,7 @@ function hexArcanaSpell(g, p, card, o) {
       });
       break;
     case 21:
-      target((c) => hexArcanaKill(g, c));
+      target((c) => hexArcanaKill(g, c, false));
       break;
     case 22:
       g.untargeted = true;
@@ -535,12 +538,26 @@ function hexArcanaSpell(g, p, card, o) {
     case 28:
       hexArcanaExecute(g, hexArcanaTask(p, "search", { uid: o.take }));
       break;
-    case 29:
+    case 29: {
+      const destroyed = [];
       g.untargeted = true;
-      for (const c of hexAll(g)) hexAffect(g, p, c, () => (c.hp = 0), false, card, true);
-      for (const c of hexDeaths(g)) if (g.winner === null) hexDeathTriggers(g, c);
+      for (const c of hexAll(g))
+        hexAffect(
+          g,
+          p,
+          c,
+          () => {
+            c.hp = 0;
+            destroyed.push(c.uid);
+          },
+          false,
+          card,
+          true,
+        );
+      for (const c of hexDeaths(g, destroyed)) if (g.winner === null) hexDeathTriggers(g, c);
       delete g.untargeted;
       break;
+    }
   }
 }
 function hexArcanaExecute(g, j) {

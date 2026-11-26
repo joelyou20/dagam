@@ -151,7 +151,7 @@ function hexDamageBatch(g, hits) {
   if (reflections.length && g.winner === null) hexDamage(g, reflections);
   return events;
 }
-function hexDeaths(g) {
+function hexDeaths(g, noLoss = []) {
   // Board positions are authoritative: older saved instances can have stale slot metadata.
   g.elderDeathObservers = hexAll(g)
     .filter((c) => hexElderNum(c) === 45)
@@ -169,12 +169,13 @@ function hexDeaths(g) {
     c.slot = slot;
     hexVisualEvent(g, "destroy", hexVisualCard(c));
     p.board[slot] = null;
-    const counts = !hexHasType(c, "Summon");
+    const summon = hexHasType(c, "Summon"),
+      counts = !summon && !noLoss.includes(c.uid);
     if (counts) p.losses++;
     c.elderFallenEquipment = c.eq;
     if (c.eq) p.discard.push(c.eq);
     c.eq = null;
-    if (counts) g.players[hexOriginalOwner(c, owner)].discard.push(c);
+    if (!summon) g.players[hexOriginalOwner(c, owner)].discard.push(c);
     else hexRemoveFromGame(g, c);
     hexLog(
       g,
@@ -182,7 +183,12 @@ function hexDeaths(g) {
         " fell · " +
         (counts
           ? hexOwnerLabel(c.owner) + " lost " + p.losses + "/" + hexRules(g).losses
-          : "Summon · defeat count unchanged (" + p.losses + "/" + hexRules(g).losses + ")") +
+          : (summon ? "Summon" : "Effect") +
+            " · defeat count unchanged (" +
+            p.losses +
+            "/" +
+            hexRules(g).losses +
+            ")") +
         ".",
     );
   }

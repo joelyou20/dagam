@@ -78,7 +78,7 @@ jobs:
       - name: Native runtime, full match, card coverage and UI
         run: |
           set -o pipefail
-          for test in runtime_smoke interaction_test archetype_test planes_test exposure_test exposure_ui_test plane_ui_test native_match rules_test ui_smoke ui_match board_3d_test targeting_ui_test status_test; do
+          for test in runtime_smoke card_updates_test interaction_test archetype_test planes_test exposure_test exposure_ui_test plane_ui_test native_match rules_test ui_smoke ui_match board_3d_test picker_ui_test targeting_ui_test status_test; do
             Godot_v4.6.3-stable_linux.x86_64 --headless --path . --script "res://Tests/Hex/$test.gd" 2>&1 | tee "/tmp/$test.log"
             if grep -E 'SCRIPT ERROR|Hex runtime:|ERROR:' "/tmp/$test.log"; then exit 1; fi
           done

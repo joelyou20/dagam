@@ -33,14 +33,14 @@ func _run():
 	game._starter()
 	await process_frame
 
-	if not _check(game.modal != null, "Starter viewer missing"):
+	if not _check(is_instance_valid(game.card_picker), "Starter viewer missing"):
 		return
 
 	game._close()
 	game._pile(0, "deck")
 	await process_frame
 
-	if not _check(game.modal != null, "Deck viewer missing"):
+	if not _check(is_instance_valid(game.card_picker), "Deck viewer missing"):
 		return
 
 	game._close()

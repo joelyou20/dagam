@@ -81,7 +81,7 @@ func run():
 
 	game.pile_controls["0-deck"].pressed.emit()
 
-	if not check(game.modal != null, "Relocated deck does not open its viewer"):
+	if not check(is_instance_valid(game.card_picker), "Relocated deck does not open its viewer"):
 		return
 
 	game._close()

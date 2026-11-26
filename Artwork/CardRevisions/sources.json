@@ -1,0 +1,30 @@
+{
+  "repository": "joelyou20/lifestyleTracker",
+  "commit": "7261ab0062bc0b8622470b1017cd5f9556cfc7b3",
+  "framing": {
+    "SA-021": {
+      "position": [
+        0.5,
+        0.44
+      ]
+    },
+    "SA-029": {
+      "position": [
+        0.5,
+        0.44
+      ]
+    },
+    "SA-045": {
+      "position": [
+        0.5,
+        0.44
+      ]
+    },
+    "WE-044": {
+      "position": [
+        0.5,
+        0.44
+      ]
+    }
+  }
+}
