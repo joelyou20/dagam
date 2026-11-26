@@ -130,7 +130,12 @@ func _run():
 	hex.battle._starter()
 
 	if not check(
-		UIManager.handle_cancel() and hex.battle.modal == null and hex.visible,
+		(
+			UIManager.handle_cancel()
+			and hex.battle.modal == null
+			and hex.battle.card_picker == null
+			and hex.visible
+		),
 		"Escape must dismiss the dialog first"
 	):
 		return

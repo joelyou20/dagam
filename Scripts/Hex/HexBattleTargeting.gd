@@ -329,51 +329,46 @@ func _options(title_text: String, options: Array, op: String, uid := "", direct 
 	if direct and _begin_targeting(title_text, options, op, uid):
 		return
 
-	var box = host._window(title_text)
-	var scroll = ScrollContainer.new()
+	var displayed: Array = []
+	var grouped := {}
 
-	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	box.add_child(scroll)
-	var grid = GridContainer.new()
+	for option in options:
+		if option.get("card") != null and option.get("task", option).has("slot"):
+			if grouped.has(option.card.uid):
+				continue
 
-	grid.columns = 3
-	grid.add_theme_constant_override("h_separation", 12)
-	grid.add_theme_constant_override("v_separation", 12)
-	scroll.add_child(grid)
+			grouped[option.card.uid] = true
 
-	for o in options:
-		var column = VBoxContainer.new()
+		displayed.append(option)
 
-		column.custom_minimum_size.x = 225
-		grid.add_child(column)
+	var picker = host._open_card_picker(title_text, displayed)
 
-		if o.get("card") != null:
-			var c: Dictionary = o.card
-			var owner = host._text(column, "YOUR CARD" if c.owner == 0 else "ENEMY'S CARD")
+	picker.selected.connect(
+		func(index):
+			var chosen: Dictionary = options.filter(func(o): return o.index == index)[0]
 
-			owner.add_theme_color_override(
-				"font_color", Color("9ac8ff") if c.owner == 0 else Color("f1a0ac")
-			)
-			var image = host.Card.new()
+			if chosen.get("card") != null and chosen.get("task", chosen).has("slot"):
+				var placements: Array = (
+					options
+					. filter(
+						func(o): return o.get("card") != null and o.card.uid == chosen.card.uid
+					)
+					. duplicate(true)
+				)
 
-			column.add_child(image)
-			image.configure(c, {}, Vector2(150, 205))
-			image.inspect.connect(host._inspect)
-
-		var b = host._button(
-			column,
-			o.label,
-			func():
-				var command = {"op": op, "index": o.index}
-
-				if not uid.is_empty():
-					command.uid = uid
+				for placement in placements:
+					placement["_select_slot"] = true
 
 				host._close()
-				host._command(command)
-		)
+				host._options("Choose destination", placements, op, uid)
 
-		b.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		b.custom_minimum_size.y = 54
+				return
 
-	host._button(box, "Close" if op != "choice" else "Return to board", host._close)
+			var command := {"op": op, "index": index}
+
+			if not uid.is_empty():
+				command.uid = uid
+
+			host._close()
+			host._command(command)
+	)

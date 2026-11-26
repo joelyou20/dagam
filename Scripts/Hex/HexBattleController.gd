@@ -10,6 +10,7 @@ var selected := ""
 var paused := false
 var ai_timer: Timer
 var modal: Window
+var card_picker: Control
 var board: Control
 var stage: Control
 var inspection: TextureRect
@@ -316,9 +317,9 @@ func _inspect(c: Dictionary) -> void:
 
 	inspection.size = Vector2(height * 2.0 / 3.0, height)
 	var source = positions.get(c.get("uid", ""))
-	var point = get_local_mouse_position()
+	var point = c.get("picker_point", get_local_mouse_position())
 
-	if is_instance_valid(source):
+	if is_instance_valid(source) and not c.has("picker_point"):
 		point = source.get_global_rect().get_center() - global_position
 
 	var x = point.x + 65 if point.x < size.x * 0.58 else point.x - inspection.size.x - 65
@@ -807,6 +808,11 @@ func _window(title_text: String, size := Vector2i(780, 620)) -> VBoxContainer:
 	return box
 
 func _close() -> void:
+	if is_instance_valid(card_picker):
+		card_picker.hide()
+		card_picker.queue_free()
+		card_picker = null
+
 	if inspection != null:
 		inspection.visible = false
 
@@ -818,25 +824,19 @@ func _options(title_text: String, options: Array, op: String, uid := "", direct 
 	targeting_ui._options(title_text, options, op, uid, direct)
 
 func _gallery(title_text: String, cards: Array) -> void:
-	var box := _window(title_text, Vector2i(900, 700))
-	var scroll := ScrollContainer.new()
+	_open_card_picker(
+		title_text,
+		cards.map(func(c): return {"card": c, "label": _def(c.id).get("name", c.id), "index": 0})
+	)
 
-	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	box.add_child(scroll)
-	var grid := GridContainer.new()
+func _open_card_picker(title_text: String, options: Array) -> Control:
+	_close()
+	card_picker = preload("res://Scripts/Hex/HexCardPicker.gd").new()
+	overlay.add_child(card_picker)
+	card_picker.configure(self, title_text, options)
+	card_picker.dismissed.connect(_close)
 
-	grid.columns = 4
-	grid.add_theme_constant_override("h_separation", 12)
-	grid.add_theme_constant_override("v_separation", 12)
-	scroll.add_child(grid)
-
-	for c in cards:
-		_card(grid, c, {"zone": "inspect"}, Vector2(190, 270))
-
-	if cards.is_empty():
-		_text(grid, "No cards here.")
-
-	_button(box, "Close", _close)
+	return card_picker
 
 func _pile(side: int, zone: String) -> void:
 	if zone == "deck":

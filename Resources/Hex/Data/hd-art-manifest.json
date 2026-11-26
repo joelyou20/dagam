@@ -629,13 +629,13 @@
       "id": "SA-021",
       "width": 1024,
       "height": 1536,
-      "sha256": "65142245de0d0e789896be4d7fafbe1d1a621ff59960a85dc158e7fc8233e2ec"
+      "sha256": "4d595c6ebf01148ac49fb66cf66a304ee61a81e990a8723178efc4dc1ab7e61d"
     },
     {
       "id": "SA-021-FA",
       "width": 1024,
       "height": 1536,
-      "sha256": "a0ff5329677ac8509ecca6434da76a5bd85a4edb1ca9c400ce1675423612279a"
+      "sha256": "5e98ec14b3f8a2b3a0ce125df21c2601af809bef6901b89324a3f3afc410b025"
     },
     {
       "id": "SA-022",
@@ -725,13 +725,13 @@
       "id": "SA-029",
       "width": 1024,
       "height": 1536,
-      "sha256": "3ae472297b63605b78ddcf99f030ed4988e0e37d426881d074cdfc02f2736edb"
+      "sha256": "50d06103844e9e79317350d8efbe692582692c773056bbde3d7b9bd5162387f1"
     },
     {
       "id": "SA-029-FA",
       "width": 1024,
       "height": 1536,
-      "sha256": "7feeecdaa9f6b5819e9986b71e4fb577444cda30e37ca9f60ae0483a16f6d170"
+      "sha256": "b3dba738e563460f2b7fa484bd21e191140261341b7ceefa16486c77625cf470"
     },
     {
       "id": "SA-030",
@@ -917,13 +917,13 @@
       "id": "SA-045",
       "width": 1024,
       "height": 1536,
-      "sha256": "af1ac8431ce0c2cc96edd4c87bfdc241763fe2c6c750f6de6d7a0a14806c6aa5"
+      "sha256": "42ec34e33ab36f11959473b3a7c00e84b2173e49641a07e823e3b210ce716899"
     },
     {
       "id": "SA-045-FA",
       "width": 1024,
       "height": 1536,
-      "sha256": "d6dec4589ec52b0e28af3ee4e21f9d33c691c9de2f13325ce0d0bf1401431c17"
+      "sha256": "cfbd43067ae09bd9cdd21bc85e6dbb1e2d825d304d517cddadb4df265a191c91"
     },
     {
       "id": "SA-046",
@@ -1469,13 +1469,13 @@
       "id": "WE-044",
       "width": 1024,
       "height": 1536,
-      "sha256": "245f0f833c3cdbe2cdddc35f45987a945420651e7ec4bb30c6273a6cd883e2d5"
+      "sha256": "651ff869380fe8b46cadcb418f00389f205cea5c5b55dc23d68598231fbd5421"
     },
     {
       "id": "WE-044-FA",
       "width": 1024,
       "height": 1536,
-      "sha256": "d6951b563ae6066042b329563687c4d9674b4a42f3331e2ec3b4b9320cc0bad8"
+      "sha256": "5b75cb3cb3ed65a761c9fd32cea22c91162e49ca379e5d1abc4091596b1163ef"
     },
     {
       "id": "WE-045",
@@ -2021,7 +2021,7 @@
       "id": "SA-029-IR",
       "width": 1024,
       "height": 1536,
-      "sha256": "4f8718383982e008aaa71d6d0966a6aa69254cec4c7d24a598fc22c9e73f960d"
+      "sha256": "376198f00872832c10ba9e507a7a64b930c1952e47c45121b50cd8e31b2a94ed"
     },
     {
       "id": "SA-033-IR",
@@ -2057,7 +2057,7 @@
       "id": "SA-045-IR",
       "width": 1024,
       "height": 1536,
-      "sha256": "a70b76e46dd979c221866e9a1150a396f8a99ee09277f7c035da40a41c1577ae"
+      "sha256": "31c56bc1ab9d761f6e940dc88c52cc2dfb3087f0b07874182b8902d734846c7a"
     },
     {
       "id": "SA-046-IR",

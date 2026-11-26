@@ -1,0 +1,116 @@
+[
+  {
+    "id": "SA-021",
+    "rules": "Destroy target creature. It does not count toward the creature-defeat goal.",
+    "sha256": "4d595c6ebf01148ac49fb66cf66a304ee61a81e990a8723178efc4dc1ab7e61d",
+    "font_size": 35,
+    "artwork_bounds": [
+      72,
+      197,
+      952,
+      890
+    ],
+    "crop": {
+      "position": [
+        0.5,
+        0.44
+      ]
+    }
+  },
+  {
+    "id": "SA-021-FA",
+    "rules": "Destroy target creature. It does not count toward the creature-defeat goal.",
+    "sha256": "5e98ec14b3f8a2b3a0ce125df21c2601af809bef6901b89324a3f3afc410b025",
+    "font_size": 30,
+    "text_end": 1224
+  },
+  {
+    "id": "SA-029",
+    "rules": "Destroy all creatures on the board. Creatures destroyed this way do not count toward the creature-defeat goal. Can only be played from turn 3 onward.",
+    "sha256": "50d06103844e9e79317350d8efbe692582692c773056bbde3d7b9bd5162387f1",
+    "font_size": 35,
+    "artwork_bounds": [
+      79,
+      216,
+      944,
+      889
+    ],
+    "crop": {
+      "position": [
+        0.5,
+        0.44
+      ]
+    }
+  },
+  {
+    "id": "SA-029-FA",
+    "rules": "Destroy all creatures on the board. Creatures destroyed this way do not count toward the creature-defeat goal. Can only be played from turn 3 onward.",
+    "sha256": "b3dba738e563460f2b7fa484bd21e191140261341b7ceefa16486c77625cf470",
+    "font_size": 30,
+    "text_end": 1298
+  },
+  {
+    "id": "SA-029-IR",
+    "rules": "Destroy all creatures on the board. Creatures destroyed this way do not count toward the creature-defeat goal. Can only be played from turn 3 onward.",
+    "sha256": "376198f00872832c10ba9e507a7a64b930c1952e47c45121b50cd8e31b2a94ed",
+    "font_size": 26,
+    "text_end": 1366
+  },
+  {
+    "id": "SA-045",
+    "rules": "Whenever another friendly Mage is played, gain +1 Attack and +1 Shield.",
+    "sha256": "42ec34e33ab36f11959473b3a7c00e84b2173e49641a07e823e3b210ce716899",
+    "font_size": 35,
+    "artwork_bounds": [
+      72,
+      197,
+      952,
+      890
+    ],
+    "crop": {
+      "position": [
+        0.5,
+        0.44
+      ]
+    }
+  },
+  {
+    "id": "SA-045-FA",
+    "rules": "Whenever another friendly Mage is played, gain +1 Attack and +1 Shield.",
+    "sha256": "cfbd43067ae09bd9cdd21bc85e6dbb1e2d825d304d517cddadb4df265a191c91",
+    "font_size": 30,
+    "text_end": 1224
+  },
+  {
+    "id": "SA-045-IR",
+    "rules": "Whenever another friendly Mage is played, gain +1 Attack and +1 Shield.",
+    "sha256": "31c56bc1ab9d761f6e940dc88c52cc2dfb3087f0b07874182b8902d734846c7a",
+    "font_size": 26,
+    "text_end": 1334
+  },
+  {
+    "id": "WE-044",
+    "rules": "Return all friendly creatures that were put into the discard pile this turn back onto the battlefield. You may choose new placements for these creatures. These creatures are not Summons.",
+    "sha256": "651ff869380fe8b46cadcb418f00389f205cea5c5b55dc23d68598231fbd5421",
+    "font_size": 35,
+    "artwork_bounds": [
+      79,
+      216,
+      944,
+      889
+    ],
+    "crop": {
+      "position": [
+        0.5,
+        0.44
+      ]
+    }
+  },
+  {
+    "id": "WE-044-FA",
+    "rules": "Return all friendly creatures that were put into the discard pile this turn back onto the battlefield. You may choose new placements for these creatures. These creatures are not Summons.",
+    "sha256": "5b75cb3cb3ed65a761c9fd32cea22c91162e49ca379e5d1abc4091596b1163ef",
+    "font_size": 30,
+    "text_end": 1335
+  }
+]

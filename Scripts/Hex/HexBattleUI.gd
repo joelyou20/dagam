@@ -27,7 +27,7 @@ func _activate_after_layout() -> void:
 		battle.set_battle_active(true)
 
 func consume_cancel() -> bool:
-	if battle.modal != null:
+	if battle.modal != null or is_instance_valid(battle.card_picker):
 		battle._close()
 
 		return true

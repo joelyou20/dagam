@@ -1321,7 +1321,7 @@ const HEX_CARDS = [
     "rarity": "Rare",
     "card_type": "Spell",
     "subtype": "Spell",
-    "rules": "Destroy target creature",
+    "rules": "Destroy target creature. It does not count toward the creature-defeat goal.",
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
@@ -1425,7 +1425,7 @@ const HEX_CARDS = [
     "rarity": "Legendary",
     "card_type": "Spell",
     "subtype": "Spell",
-    "rules": "Destroy all creatures on the board. Can only be played from turn 3 onward",
+    "rules": "Destroy all creatures on the board. Creatures destroyed this way do not count toward the creature-defeat goal. Can only be played from turn 3 onward.",
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
@@ -1683,7 +1683,7 @@ const HEX_CARDS = [
     "rarity": "Rare",
     "card_type": "Creature",
     "subtype": "Construct · Mage",
-    "rules": "Whenever another Mage is played, gain +1 Attack and +1 Shield",
+    "rules": "Whenever another friendly Mage is played, gain +1 Attack and +1 Shield.",
     "attack": 3,
     "hp": 3,
     "set": "shattered-arcana",
@@ -2407,7 +2407,7 @@ const HEX_CARDS = [
     "card_type": "Spell",
     "subtype": "Spell",
     "rarity": "Legendary",
-    "rules": "Return all friendly creatures that were put into the discard pile this turn back onto the battlefield. You may choose new placements for these creatures.",
+    "rules": "Return all friendly creatures that were put into the discard pile this turn back onto the battlefield. You may choose new placements for these creatures. These creatures are not Summons.",
     "keywords": [],
     "deckLimit": 2
   },
@@ -4185,7 +4185,7 @@ const HEX_PRINTS = [
     "rarity": "Rare",
     "card_type": "Spell",
     "subtype": "Spell",
-    "rules": "Destroy target creature",
+    "rules": "Destroy target creature. It does not count toward the creature-defeat goal.",
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
@@ -4289,7 +4289,7 @@ const HEX_PRINTS = [
     "rarity": "Legendary",
     "card_type": "Spell",
     "subtype": "Spell",
-    "rules": "Destroy all creatures on the board. Can only be played from turn 3 onward",
+    "rules": "Destroy all creatures on the board. Creatures destroyed this way do not count toward the creature-defeat goal. Can only be played from turn 3 onward.",
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
@@ -4547,7 +4547,7 @@ const HEX_PRINTS = [
     "rarity": "Rare",
     "card_type": "Creature",
     "subtype": "Construct · Mage",
-    "rules": "Whenever another Mage is played, gain +1 Attack and +1 Shield",
+    "rules": "Whenever another friendly Mage is played, gain +1 Attack and +1 Shield.",
     "attack": 3,
     "hp": 3,
     "set": "shattered-arcana",
@@ -5271,7 +5271,7 @@ const HEX_PRINTS = [
     "card_type": "Spell",
     "subtype": "Spell",
     "rarity": "Legendary",
-    "rules": "Return all friendly creatures that were put into the discard pile this turn back onto the battlefield. You may choose new placements for these creatures.",
+    "rules": "Return all friendly creatures that were put into the discard pile this turn back onto the battlefield. You may choose new placements for these creatures. These creatures are not Summons.",
     "keywords": [],
     "deckLimit": 2
   },
@@ -7215,7 +7215,7 @@ const HEX_PRINTS = [
     "rarity": "Rare",
     "card_type": "Spell",
     "subtype": "Spell",
-    "rules": "Destroy target creature",
+    "rules": "Destroy target creature. It does not count toward the creature-defeat goal.",
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
@@ -7335,7 +7335,7 @@ const HEX_PRINTS = [
     "rarity": "Legendary",
     "card_type": "Spell",
     "subtype": "Spell",
-    "rules": "Destroy all creatures on the board. Can only be played from turn 3 onward",
+    "rules": "Destroy all creatures on the board. Creatures destroyed this way do not count toward the creature-defeat goal. Can only be played from turn 3 onward.",
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
@@ -7625,7 +7625,7 @@ const HEX_PRINTS = [
     "rarity": "Rare",
     "card_type": "Creature",
     "subtype": "Construct · Mage",
-    "rules": "Whenever another Mage is played, gain +1 Attack and +1 Shield",
+    "rules": "Whenever another friendly Mage is played, gain +1 Attack and +1 Shield.",
     "attack": 3,
     "hp": 3,
     "set": "shattered-arcana",
@@ -8441,7 +8441,7 @@ const HEX_PRINTS = [
     "card_type": "Spell",
     "subtype": "Spell",
     "rarity": "Legendary",
-    "rules": "Return all friendly creatures that were put into the discard pile this turn back onto the battlefield. You may choose new placements for these creatures.",
+    "rules": "Return all friendly creatures that were put into the discard pile this turn back onto the battlefield. You may choose new placements for these creatures. These creatures are not Summons.",
     "keywords": [],
     "deckLimit": 2,
     "baseId": "WE-044",
@@ -9278,7 +9278,7 @@ const HEX_PRINTS = [
     "rarity": "Legendary",
     "card_type": "Spell",
     "subtype": "Spell",
-    "rules": "Destroy all creatures on the board. Can only be played from turn 3 onward",
+    "rules": "Destroy all creatures on the board. Creatures destroyed this way do not count toward the creature-defeat goal. Can only be played from turn 3 onward.",
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
@@ -9389,7 +9389,7 @@ const HEX_PRINTS = [
     "rarity": "Rare",
     "card_type": "Creature",
     "subtype": "Construct · Mage",
-    "rules": "Whenever another Mage is played, gain +1 Attack and +1 Shield",
+    "rules": "Whenever another friendly Mage is played, gain +1 Attack and +1 Shield.",
     "attack": 3,
     "hp": 3,
     "set": "shattered-arcana",
@@ -11772,7 +11772,7 @@ function hexDamageBatch(g, hits) {
   if (reflections.length && g.winner === null) hexDamage(g, reflections);
   return events;
 }
-function hexDeaths(g) {
+function hexDeaths(g, noLoss = []) {
   // Board positions are authoritative: older saved instances can have stale slot metadata.
   g.elderDeathObservers = hexAll(g)
     .filter((c) => hexElderNum(c) === 45)
@@ -11790,12 +11790,13 @@ function hexDeaths(g) {
     c.slot = slot;
     hexVisualEvent(g, "destroy", hexVisualCard(c));
     p.board[slot] = null;
-    const counts = !hexHasType(c, "Summon");
+    const summon = hexHasType(c, "Summon"),
+      counts = !summon && !noLoss.includes(c.uid);
     if (counts) p.losses++;
     c.elderFallenEquipment = c.eq;
     if (c.eq) p.discard.push(c.eq);
     c.eq = null;
-    if (counts) g.players[hexOriginalOwner(c, owner)].discard.push(c);
+    if (!summon) g.players[hexOriginalOwner(c, owner)].discard.push(c);
     else hexRemoveFromGame(g, c);
     hexLog(
       g,
@@ -11803,7 +11804,12 @@ function hexDeaths(g) {
         " fell · " +
         (counts
           ? hexOwnerLabel(c.owner) + " lost " + p.losses + "/" + hexRules(g).losses
-          : "Summon · defeat count unchanged (" + p.losses + "/" + hexRules(g).losses + ")") +
+          : (summon ? "Summon" : "Effect") +
+            " · defeat count unchanged (" +
+            p.losses +
+            "/" +
+            hexRules(g).losses +
+            ")") +
         ".",
     );
   }
@@ -13214,11 +13220,12 @@ function hexArcanaTarget(
   const c = hexFind(g, uid);
   return c && hexSpellTargetable(c) && hexAffect(g, p, c, () => fn(c), true, source, harmful);
 }
-function hexArcanaKill(g, c) {
+function hexArcanaKill(g, c, countsLoss = true) {
   if (!c) return;
   c.lastCombat = false;
   c.hp = 0;
-  for (const d of hexDeaths(g)) if (g.winner === null) hexDeathTriggers(g, d);
+  for (const d of hexDeaths(g, countsLoss ? [] : [c.uid]))
+    if (g.winner === null) hexDeathTriggers(g, d);
 }
 function hexArcanaDamage(g, p, uid, amount, source, spell = false) {
   if (spell) amount += g.players[p].artifacts.filter((a) => a && hexArcanaNum(a) === 33).length;
@@ -13304,7 +13311,9 @@ function hexArcanaEntry(g, c) {
   if (n === 39) hexArcanaRecover(g, p, 1, true);
   if (n === 47) hexArcanaSearch(g, p, true);
   if (hexHasType(c, "Mage"))
-    for (const a of hexAll(g).filter((a) => a.uid !== c.uid && hexArcanaNum(a) === 45)) {
+    for (const a of hexAll(g).filter(
+      (a) => a.uid !== c.uid && a.owner === p && hexArcanaNum(a) === 45,
+    )) {
       a.attackBonus = (a.attackBonus || 0) + 1;
       hexShield(g, a, 1);
     }
@@ -13515,7 +13524,7 @@ function hexArcanaSpell(g, p, card, o) {
       });
       break;
     case 21:
-      target((c) => hexArcanaKill(g, c));
+      target((c) => hexArcanaKill(g, c, false));
       break;
     case 22:
       g.untargeted = true;
@@ -13586,12 +13595,26 @@ function hexArcanaSpell(g, p, card, o) {
     case 28:
       hexArcanaExecute(g, hexArcanaTask(p, "search", { uid: o.take }));
       break;
-    case 29:
+    case 29: {
+      const destroyed = [];
       g.untargeted = true;
-      for (const c of hexAll(g)) hexAffect(g, p, c, () => (c.hp = 0), false, card, true);
-      for (const c of hexDeaths(g)) if (g.winner === null) hexDeathTriggers(g, c);
+      for (const c of hexAll(g))
+        hexAffect(
+          g,
+          p,
+          c,
+          () => {
+            c.hp = 0;
+            destroyed.push(c.uid);
+          },
+          false,
+          card,
+          true,
+        );
+      for (const c of hexDeaths(g, destroyed)) if (g.winner === null) hexDeathTriggers(g, c);
       delete g.untargeted;
       break;
+    }
   }
 }
 function hexArcanaExecute(g, j) {
@@ -14461,7 +14484,8 @@ function hexElderExecute(g, j) {
       if (i < 0 || pl.board[j.slot]) break;
       const c = pl.discard.splice(i, 1)[0];
       hexResetInstance(c);
-      c.summoned = true;
+      if (j.mode === "raise") delete c.summoned;
+      else c.summoned = true;
       hexExecute(g, {
         kind: "play",
         owner: p,

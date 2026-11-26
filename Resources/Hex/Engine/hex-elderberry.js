@@ -594,7 +594,8 @@ function hexElderExecute(g, j) {
       if (i < 0 || pl.board[j.slot]) break;
       const c = pl.discard.splice(i, 1)[0];
       hexResetInstance(c);
-      c.summoned = true;
+      if (j.mode === "raise") delete c.summoned;
+      else c.summoned = true;
       hexExecute(g, {
         kind: "play",
         owner: p,
