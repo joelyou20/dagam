@@ -145,6 +145,10 @@ func _journal() -> void:
 
 		_heading(quest.title, 18)
 		_text(quest.description)
+
+		for objective in quest.objectives:
+			_text(("✓ " if objective.is_complete() else "○ ") + objective.description)
+
 		active_count += 1
 
 	if active_count == 0:
@@ -153,7 +157,10 @@ func _journal() -> void:
 	_heading("Completed quests")
 
 	for id in QuestManager.completed_quests:
-		_text(str(id).replace("_", " ").capitalize())
+		var index = QuestData.QuestName.get(id)
+		var quest: QuestResource = QuestManager.get_quest(index) if index != null else null
+
+		_text(quest.title if quest != null else str(id).replace("_", " ").capitalize())
 
 	if QuestManager.completed_quests.is_empty():
 		_text("Your completed quests will appear here.")

@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3]
+[ext_resource type="Script" path="res://Scripts/NPC.gd" id="1_npc"]
+[ext_resource type="SpriteFrames" path="res://Resources/Characters/dancer_frames.tres" id="2_frames"]
+[sub_resource type="SphereShape3D" id="Range"]
+radius = 0.55
+[sub_resource type="CapsuleShape3D" id="Body"]
+radius = 0.10
+height = 0.27
+[node name="Liora" type="Node3D" groups=["Interactable"]]
+script = ExtResource("1_npc")
+id = "liora"
+display_name = "Liora"
+[node name="Visual" type="AnimatedSprite3D" parent="."]
+position = Vector3(0, 0.02, 0)
+pixel_size = 0.00204
+billboard = 1
+texture_filter = 0
+alpha_cut = 1
+alpha_scissor_threshold = 0.05
+sprite_frames = ExtResource("2_frames")
+animation = &"idle_down"
+autoplay = "idle_down"
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 1
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("Range")
+[node name="Body" type="StaticBody3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Body"]
+position = Vector3(0, 0.018, 0)
+shape = SubResource("Body")

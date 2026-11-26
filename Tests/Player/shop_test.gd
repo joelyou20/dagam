@@ -153,18 +153,31 @@ func check_boosters() -> bool:
 	return true
 
 func check_prints(deck: Array) -> bool:
+	var regular_count := ShopManager.quantity("LT-001")
+
 	for id in ["LT-001-FA", "LT-001-IR"]:
-		if not check(
-			ShopManager.buy_single(id).ok and ShopManager.quantity(id) == 1,
-			"Cosmetic print must be available as free stock"
-		):
-			return false
+		# Earlier random boosters may already have awarded this cosmetic print.
+		for purchase in range(2):
+			var owned := ShopManager.quantity(id)
+			var result := ShopManager.buy_single(id)
+
+			if not check(
+				result.ok and ShopManager.quantity(id) == owned + 1,
+				"Cosmetic purchase must add one copy: %s (owned %d)" % [id, owned]
+			):
+				return false
 
 		if not check(
 			ShopManager.card_data(id).rules == ShopManager.card_data("LT-001").rules,
 			"Cosmetic prints must retain identical card rules"
 		):
 			return false
+
+	if not check(
+		ShopManager.quantity("LT-001") == regular_count,
+		"Cosmetic purchases must keep regular-print quantities separate"
+	):
+		return false
 
 	var before = ShopManager.save_shop()
 

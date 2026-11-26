@@ -11,6 +11,9 @@ ROOT = Path(__file__).resolve().parents[1]
 GDSCRIPT = [
     "Scripts/Hex",
     "Scripts/Shop",
+    "Scripts/Quests/QuestData.gd",
+    "Scripts/Quests/QuestObjective.gd",
+    "Scripts/Flags/FlagData.gd",
     "tools/terrain/build_terrain_tiles.gd",
     "Scripts/Player/PlayerAnimation.gd",
     "Scripts/Player/PlayerMovement.gd",
@@ -19,12 +22,16 @@ GDSCRIPT = [
     "Tests/Player/terrain_tiles_test.gd",
     "Tests/Player/meadow_scene_test.gd",
     "Tests/Player/shop_test.gd",
+    "Tests/Quests/meadow_quest_test.gd",
     "Scripts/Controllers/PlayerController.gd",
     "Scripts/Compatibility",
     *[
         f"Scripts/Managers/{name}Manager.gd"
         for name in (
             "Hex",
+            "Quest",
+            "Dialog",
+            "Flag",
             "Shop",
             "Battle",
             "Enemy",
@@ -78,6 +85,7 @@ def main():
         "tools/hex",
         "tools/player",
         "tools/terrain",
+        "tools/quests",
         "tools/cards",
         "tools/check_code_style.py",
         "tools/gd_spacing.py",
