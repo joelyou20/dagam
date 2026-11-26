@@ -7,17 +7,17 @@ globalThis.runInteractionTests = () => {
   };
   const g = hexNewGame(Hex.starter, Hex.starter, 42);
   hexKeep(g);
-  check(g.phase === "pre", "Opening proceeds through Power to pre-combat");
+  check(g.phase === "pre", "Opening proceeds directly to pre-combat");
   const p = g.players[g.active];
-  p.hand = [{ id: "FD-001", uid: "plane", owner: g.active }];
+  p.hand = [{ id: "FD-022", uid: "plane", owner: g.active }];
   p.planePlayed = false;
   g.tasks = [];
   g.stack = [];
   g.choice = null;
   g.phase = "power";
   check(hexPlayOptions(g, g.active, p.hand[0]).length === 0, "No Plane plays during Power");
-  hexNext(g, g.active);
-  check(g.phase === "pre", "Legacy Power checkpoint resumes into pre-combat");
+  check(hexMigrateMatch(g).phase === "pre", "Legacy Power checkpoint resumes into pre-combat");
+  g.phase = "pre";
   check(hexPlayOptions(g, g.active, p.hand[0]).length > 0, "Plane can be played pre-combat");
   g.phase = "post";
   check(hexPlayOptions(g, g.active, p.hand[0]).length > 0, "Plane can be played post-combat");
@@ -25,10 +25,10 @@ globalThis.runInteractionTests = () => {
   check(hexPlayOptions(g, g.active, p.hand[0]).length === 0, "No Plane plays during combat");
   g.phase = "pre";
   p.planes[0] = hexPlane(["Water"], 2);
-  p.power = [["Fire"]];
+
   hexBeginTurn(g);
   check(g.phase === "pre", "Subsequent turn also enters pre-combat automatically");
-  check(JSON.stringify(p.power) === '[["Water"],["Water"]]', "Generation settles exactly once");
+  check(!("power" in p), "Turns do not generate or retain Power");
   const card = (id, uid, slot) => ({
     id,
     uid,

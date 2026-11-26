@@ -18,9 +18,9 @@ Touching an active enemy now starts a Standard Hex match using the starter deck 
 
 ## Scope and controls
 
-The player starts with the 30-card Earth/Light starter deck and draws five cards. All 185 deckable cards are available for custom Standard deck building; Volcanic Vent is displayed in the catalog but created only by Erupt. All 28 preconstructed opponents use the stronger tactical AI. There are no points, purchases, collection progression, Blitz, drafts, tournaments or Legends.
+The player starts with the 20-card starter deck and draws five cards. All 164 deckable cards are available for custom Standard deck building; Volcanic Vent is displayed in the catalog but created only by Erupt. All 28 preconstructed opponents use the stronger tactical AI. There are no points, purchases, collection progression, Blitz, drafts, tournaments or Legends.
 
-Click a hand card and select its highlighted hex or creature directly, or drag it onto the board. Resolving sources and legal targets grow and hover faster, with an aiming arrow. Effects such as Mind Control choose a creature and then a destination on the board. Hovering the source shows its resolving ability below active statuses on a translucent background. Hidden-card searches and distinct effect choices retain card pickers; reaction dialogs remain available. Free untargeted Orator healing resolves automatically. Power generation advances directly to pre-combat; Planes can be played only in pre- or post-combat, once per turn. Ready attackers pulse white. Your deck is shown alphabetically; the opponent's hand/deck remain hidden. Rules include counted creature defeats, three-turn Exposure defeat, Summon removal, original ownership, and the 60-full-round draw.
+Click a hand card and select its highlighted hex or creature directly, or drag it onto the board. Resolving sources and legal targets grow and hover faster, with an aiming arrow. Effects such as Mind Control choose a creature and then a destination on the board. Hovering the source shows its resolving ability below active statuses on a translucent background. Hidden-card searches and distinct effect choices retain card pickers; reaction dialogs remain available. Free untargeted Orator healing resolves automatically. Cards play for free without terrain requirements. Planes with effects can be played in pre- or post-combat, once per turn; inert basic and dual Planes are excluded from decks. Ready attackers pulse white. Your deck is shown alphabetically; the opponent's hand/deck remain hidden. Rules include counted creature defeats, three-turn Exposure defeat, Summon removal, original ownership, and the 60-full-round draw.
 
 The rules run in-process through a small C GDExtension embedding QuickJS, not through Node, a browser or a server. All 186 base cards and their game images retain stable IDs. Cosmetic variants share gameplay data. `.hextex` assets are 1024×1536 WebP images loaded directly with a bounded texture cache; root export presets include them and the JS/JSON data. Source hashes are in `Resources/Hex/Data/source-manifest.json`. Original artwork/templates remain in LifestyleTracker; `tools/hex/import_hd_art.py` reproducibly rebuilds the full-size prints and writes `hd-art-manifest.json`. Pillow is required for artwork imports.
 
@@ -45,7 +45,7 @@ The integration test runs the real root scene, menu and managers, including shar
 
 The **Hex** menu tab (or **H**) opens `HexDeckBuilderUI`, following the existing `MenuUI` / `UIBase` architecture. Opening it initializes only the catalogue and saved decks; it does not create or replace a match. All cards are available. Search includes names, rules, creature types and keyword abilities; filters cover sets, card categories, separate creature types and rarity. The deck list sits above the collection with copy controls, composition counts and average creature stats. Hover shows full-resolution cards.
 
-Create, duplicate, rename, save and delete named decks. Card edits autosave as drafts; **Use for battles** requires exactly 30 cards, unlimited basic single-terrain Planes, no more than two of other unique cards, and each card's explicit limit (for example Loriadre's single-copy limit). There is no minimum creature requirement. The native engine validates these restrictions. The starter remains selected until a valid custom deck is explicitly chosen.
+Create, duplicate, rename, save and delete named decks. Card edits autosave as drafts; **Use for battles** requires exactly 20 cards, no inert Planes, no more than two of each unique card, and each card's explicit limit (for example Loriadre's single-copy limit). There is no minimum creature requirement. The native engine validates these restrictions. The starter remains selected until a valid custom deck is explicitly chosen.
 
 Selected deck snapshots are used for new practice games and world encounters. Existing matches and restored practice snapshots retain their original deck, including the battle-deck viewer. Decks and selection persist in `user://dagam-hex-decks-v1.json` and shared RPG saves under `hex_decks`; older saves still load. `Tests/Hex/DeckBuilder.tscn` covers menu routing, catalogue access, copy limits, all-spell decks, saved drafts, selection, persistence and match isolation.
 
@@ -79,9 +79,8 @@ Keeping the original hand still starts the selected first player. Mulliganing re
 
 [Opening coin screenshot](hex-opening/opening-coin.jpg)
 
-Plane resource rules and initial cost balancing are documented in [Plane and Power rules](hex-planes.md).
+Current free-play rules and retained Plane effects are documented in [Free play and effect Planes](hex-planes.md).
 
 Exposure is separate from creature deaths: [Exposure timing and recovery](hex-exposure.md).
 
-The deck builder offers sixteen archetype templates, covering every colour pair
-and mono-Water Mages. [Colour identities and generic costs](archetype-costs/guide.md).
+The deck builder offers sixteen archetype templates for Goblins, Wiskins, Mages and other themes. All templates contain 20 cards with no costs or terrain requirements.

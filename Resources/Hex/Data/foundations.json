@@ -8,20 +8,14 @@
       "name": "Earth",
       "rarity": "Common",
       "card_type": "Plane",
-      "subtype": "Earth",
-      "types": [
-        "Earth"
-      ],
-      "terrain_types": [
-        "Earth"
-      ],
+      "subtype": "Plane",
+      "types": [],
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "cost": {},
       "art_direction": "Sunlit ochre canyon with towering striated sandstone pillars, jade river ribbon far below, tiny distant caravan for scale. Sweeping low viewpoint, burnt sienna, cobalt and golden noon.",
-      "basic_plane": true,
-      "deckLimit": 30
+      "deckLimit": 2,
+      "retired": true
     },
     {
       "id": "FD-002",
@@ -29,20 +23,14 @@
       "name": "Sky",
       "rarity": "Common",
       "card_type": "Plane",
-      "subtype": "Sky",
-      "types": [
-        "Sky"
-      ],
-      "terrain_types": [
-        "Sky"
-      ],
+      "subtype": "Plane",
+      "types": [],
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "cost": {},
       "art_direction": "Immense open pale-blue sky above a thin sea of white clouds, towering sculptural cumulus lit pink from sunrise, lone tiny floating feather close foreground. Minimal expansive composition, airy cyan, pearl and rose.",
-      "basic_plane": true,
-      "deckLimit": 30
+      "deckLimit": 2,
+      "retired": true
     },
     {
       "id": "FD-003",
@@ -50,20 +38,14 @@
       "name": "Fire",
       "rarity": "Common",
       "card_type": "Plane",
-      "subtype": "Fire",
-      "types": [
-        "Fire"
-      ],
-      "terrain_types": [
-        "Fire"
-      ],
+      "subtype": "Plane",
+      "types": [],
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "cost": {},
       "art_direction": "Intimate ground-level view inside a volcanic lava cavern, molten orange river flowing around obsidian spires, black ceiling, smoke and flying sparks. Bold near-black versus white-hot orange, no green or purple.",
-      "basic_plane": true,
-      "deckLimit": 30
+      "deckLimit": 2,
+      "retired": true
     },
     {
       "id": "FD-004",
@@ -71,20 +53,14 @@
       "name": "Water",
       "rarity": "Common",
       "card_type": "Plane",
-      "subtype": "Water",
-      "types": [
-        "Water"
-      ],
-      "terrain_types": [
-        "Water"
-      ],
+      "subtype": "Plane",
+      "types": [],
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "cost": {},
       "art_direction": "Crystal-clear turquoise tropical lagoon seen half underwater: sun shafts, colourful coral foreground and distant limestone sea arches above waterline. Luminous aqua, coral red and deep marine blue.",
-      "basic_plane": true,
-      "deckLimit": 30
+      "deckLimit": 2,
+      "retired": true
     },
     {
       "id": "FD-005",
@@ -92,20 +68,14 @@
       "name": "Dark",
       "rarity": "Common",
       "card_type": "Plane",
-      "subtype": "Dark",
-      "types": [
-        "Dark"
-      ],
-      "terrain_types": [
-        "Dark"
-      ],
+      "subtype": "Plane",
+      "types": [],
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "cost": {},
       "art_direction": "Enormous abandoned gothic castle silhouetted on a jagged ridge beneath a starless eclipse, winding pale fog swallowing foreground. Extremely restrained charcoal, indigo and bone-white, dramatic negative space, no glowing purple crystals.",
-      "basic_plane": true,
-      "deckLimit": 30
+      "deckLimit": 2,
+      "retired": true
     },
     {
       "id": "FD-006",
@@ -113,20 +83,14 @@
       "name": "Light",
       "rarity": "Common",
       "card_type": "Plane",
-      "subtype": "Light",
-      "types": [
-        "Light"
-      ],
-      "terrain_types": [
-        "Light"
-      ],
+      "subtype": "Plane",
+      "types": [],
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "cost": {},
       "art_direction": "Radiant white-gold sun breaking over rolling fields of ivory flowers, prismatic motes and soft golden trees, close dewy petals foreground, horizon flooded with warm light. Cream, amber and pale mint, joyful exposure.",
-      "basic_plane": true,
-      "deckLimit": 30
+      "deckLimit": 2,
+      "retired": true
     },
     {
       "id": "FD-007",
@@ -134,20 +98,14 @@
       "name": "Floating Ruins",
       "rarity": "Uncommon",
       "card_type": "Plane",
-      "subtype": "Earth — Sky",
-      "types": [
-        "Earth",
-        "Sky"
-      ],
-      "terrain_types": [
-        "Earth",
-        "Sky"
-      ],
+      "subtype": "Plane",
+      "types": [],
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "cost": {},
-      "art_direction": "Aerial oblique view of broken ancient stone temples on floating moss-covered islands above a vast cloud abyss, cascading waterfalls vanish below, small hanging bridges. Weathered stone, emerald and azure, dizzying vertical scale."
+      "art_direction": "Aerial oblique view of broken ancient stone temples on floating moss-covered islands above a vast cloud abyss, cascading waterfalls vanish below, small hanging bridges. Weathered stone, emerald and azure, dizzying vertical scale.",
+      "retired": true,
+      "deckLimit": 2
     },
     {
       "id": "FD-008",
@@ -155,20 +113,14 @@
       "name": "Ashlands",
       "rarity": "Uncommon",
       "card_type": "Plane",
-      "subtype": "Earth — Fire",
-      "types": [
-        "Earth",
-        "Fire"
-      ],
-      "terrain_types": [
-        "Earth",
-        "Fire"
-      ],
+      "subtype": "Plane",
+      "types": [],
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "cost": {},
-      "art_direction": "Wide desolate black ash dunes crossing a red mesa desert, smoking fissures in foreground, a ruined watchtower nearly buried in ash, wind whips cinders under a copper storm sky. Rust, black and muted bronze, harsh diagonal composition."
+      "art_direction": "Wide desolate black ash dunes crossing a red mesa desert, smoking fissures in foreground, a ruined watchtower nearly buried in ash, wind whips cinders under a copper storm sky. Rust, black and muted bronze, harsh diagonal composition.",
+      "retired": true,
+      "deckLimit": 2
     },
     {
       "id": "FD-009",
@@ -176,20 +128,14 @@
       "name": "Sunken City",
       "rarity": "Uncommon",
       "card_type": "Plane",
-      "subtype": "Earth — Water",
-      "types": [
-        "Earth",
-        "Water"
-      ],
-      "terrain_types": [
-        "Earth",
-        "Water"
-      ],
+      "subtype": "Plane",
+      "types": [],
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "cost": {},
-      "art_direction": "Deep underwater boulevard of a submerged marble city, sea grass grows over statues and algae-covered stairs, gigantic domes recede into teal gloom, schools of silver fish and a distant whale. Tranquil blue-green and limestone white, street-level perspective."
+      "art_direction": "Deep underwater boulevard of a submerged marble city, sea grass grows over statues and algae-covered stairs, gigantic domes recede into teal gloom, schools of silver fish and a distant whale. Tranquil blue-green and limestone white, street-level perspective.",
+      "retired": true,
+      "deckLimit": 2
     },
     {
       "id": "FD-010",
@@ -197,20 +143,14 @@
       "name": "Crypt of Vailyn",
       "rarity": "Uncommon",
       "card_type": "Plane",
-      "subtype": "Earth — Dark",
-      "types": [
-        "Earth",
-        "Dark"
-      ],
-      "terrain_types": [
-        "Earth",
-        "Dark"
-      ],
+      "subtype": "Plane",
+      "types": [],
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "cost": {},
-      "art_direction": "Claustrophobic underground sepulchre of rough earth and roots, elaborately carved basalt sarcophagus at lower right, single cold green witch-flame illuminating engraved stone, bone dust in narrow light shaft. Moss-black and sickly pale green, close scale, no skull piles."
+      "art_direction": "Claustrophobic underground sepulchre of rough earth and roots, elaborately carved basalt sarcophagus at lower right, single cold green witch-flame illuminating engraved stone, bone dust in narrow light shaft. Moss-black and sickly pale green, close scale, no skull piles.",
+      "retired": true,
+      "deckLimit": 2
     },
     {
       "id": "FD-011",
@@ -218,20 +158,14 @@
       "name": "Vibrant Meadow",
       "rarity": "Uncommon",
       "card_type": "Plane",
-      "subtype": "Earth — Light",
-      "types": [
-        "Earth",
-        "Light"
-      ],
-      "terrain_types": [
-        "Earth",
-        "Light"
-      ],
+      "subtype": "Plane",
+      "types": [],
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "cost": {},
-      "art_direction": "Macro-low perspective through red poppies and yellow wildflowers toward a lush sweeping meadow, warm afternoon sun, a tiny rustic windmill on distant hill, bees and butterflies. Saturated scarlet, fresh lime, cornflower blue, exuberant natural abundance."
+      "art_direction": "Macro-low perspective through red poppies and yellow wildflowers toward a lush sweeping meadow, warm afternoon sun, a tiny rustic windmill on distant hill, bees and butterflies. Saturated scarlet, fresh lime, cornflower blue, exuberant natural abundance.",
+      "retired": true,
+      "deckLimit": 2
     },
     {
       "id": "FD-012",
@@ -239,20 +173,14 @@
       "name": "Miredin's Pass",
       "rarity": "Uncommon",
       "card_type": "Plane",
-      "subtype": "Sky — Fire",
-      "types": [
-        "Sky",
-        "Fire"
-      ],
-      "terrain_types": [
-        "Sky",
-        "Fire"
-      ],
+      "subtype": "Plane",
+      "types": [],
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "cost": {},
-      "art_direction": "Treacherous narrow mountain pass suspended between immense storm clouds, brilliant comet-like streams of fire crossing overhead, rope bridge curling around dark peaks, view from a precarious ledge. Steel blue storm versus blazing vermilion, fierce wind."
+      "art_direction": "Treacherous narrow mountain pass suspended between immense storm clouds, brilliant comet-like streams of fire crossing overhead, rope bridge curling around dark peaks, view from a precarious ledge. Steel blue storm versus blazing vermilion, fierce wind.",
+      "retired": true,
+      "deckLimit": 2
     },
     {
       "id": "FD-013",
@@ -260,20 +188,14 @@
       "name": "Inverted Sea",
       "rarity": "Uncommon",
       "card_type": "Plane",
-      "subtype": "Sky — Water",
-      "types": [
-        "Sky",
-        "Water"
-      ],
-      "terrain_types": [
-        "Sky",
-        "Water"
-      ],
+      "subtype": "Plane",
+      "types": [],
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "cost": {},
-      "art_direction": "Surreal ocean suspended upside-down overhead, enormous translucent waves and a whale hanging in the sky above a dry white salt plain, vertical rain ribbons connecting earth and ocean. Wide ground-level upward view, icy blue, silver and soft peach horizon."
+      "art_direction": "Surreal ocean suspended upside-down overhead, enormous translucent waves and a whale hanging in the sky above a dry white salt plain, vertical rain ribbons connecting earth and ocean. Wide ground-level upward view, icy blue, silver and soft peach horizon.",
+      "retired": true,
+      "deckLimit": 2
     },
     {
       "id": "FD-014",
@@ -281,20 +203,14 @@
       "name": "Twilight Strand",
       "rarity": "Uncommon",
       "card_type": "Plane",
-      "subtype": "Sky — Dark",
-      "types": [
-        "Sky",
-        "Dark"
-      ],
-      "terrain_types": [
-        "Sky",
-        "Dark"
-      ],
+      "subtype": "Plane",
+      "types": [],
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "cost": {},
-      "art_direction": "Lonely black-sand shoreline seeming to float among twilight clouds, crescent moon, a skeletal driftwood arch and distant dark birds, reflected starlight on narrow tide pools. Quiet lavender-grey, midnight and a single crimson sunset band, sparse asymmetrical framing."
+      "art_direction": "Lonely black-sand shoreline seeming to float among twilight clouds, crescent moon, a skeletal driftwood arch and distant dark birds, reflected starlight on narrow tide pools. Quiet lavender-grey, midnight and a single crimson sunset band, sparse asymmetrical framing.",
+      "retired": true,
+      "deckLimit": 2
     },
     {
       "id": "FD-015",
@@ -302,20 +218,14 @@
       "name": "Loriadre's Reliquary",
       "rarity": "Uncommon",
       "card_type": "Plane",
-      "subtype": "Sky — Light",
-      "types": [
-        "Sky",
-        "Light"
-      ],
-      "terrain_types": [
-        "Sky",
-        "Light"
-      ],
+      "subtype": "Plane",
+      "types": [],
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "cost": {},
-      "art_direction": "Open-air celestial reliquary on a gleaming white stone platform above clouds, delicate golden architectural ribs surrounding one suspended luminous glass vessel, silk banners glowing in morning light. Close architectural study, alabaster, pale gold, gentle sky blue, no character portrait."
+      "art_direction": "Open-air celestial reliquary on a gleaming white stone platform above clouds, delicate golden architectural ribs surrounding one suspended luminous glass vessel, silk banners glowing in morning light. Close architectural study, alabaster, pale gold, gentle sky blue, no character portrait.",
+      "retired": true,
+      "deckLimit": 2
     },
     {
       "id": "FD-016",
@@ -323,20 +233,14 @@
       "name": "Boiling Delta",
       "rarity": "Uncommon",
       "card_type": "Plane",
-      "subtype": "Fire — Water",
-      "types": [
-        "Fire",
-        "Water"
-      ],
-      "terrain_types": [
-        "Fire",
-        "Water"
-      ],
+      "subtype": "Plane",
+      "types": [],
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "cost": {},
-      "art_direction": "High overhead view of branching milky turquoise geothermal rivers meeting glowing volcanic channels, immense steam plumes and vivid orange mineral banks, intricate branching natural pattern. Turquoise, sulphur yellow and orange, cartographic scale without labels."
+      "art_direction": "High overhead view of branching milky turquoise geothermal rivers meeting glowing volcanic channels, immense steam plumes and vivid orange mineral banks, intricate branching natural pattern. Turquoise, sulphur yellow and orange, cartographic scale without labels.",
+      "retired": true,
+      "deckLimit": 2
     },
     {
       "id": "FD-017",
@@ -344,20 +248,14 @@
       "name": "Tezzakeen's Hall",
       "rarity": "Uncommon",
       "card_type": "Plane",
-      "subtype": "Fire — Dark",
-      "types": [
-        "Fire",
-        "Dark"
-      ],
-      "terrain_types": [
-        "Fire",
-        "Dark"
-      ],
+      "subtype": "Plane",
+      "types": [],
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "cost": {},
-      "art_direction": "Cavernous demonic banquet hall carved from black volcanic glass, empty elongated table leads to a monumental furnace throne, embers drip like chandeliers, reflected red fire in polished floor. Symmetrical one-point perspective, deep burgundy, black and ember gold."
+      "art_direction": "Cavernous demonic banquet hall carved from black volcanic glass, empty elongated table leads to a monumental furnace throne, embers drip like chandeliers, reflected red fire in polished floor. Symmetrical one-point perspective, deep burgundy, black and ember gold.",
+      "retired": true,
+      "deckLimit": 2
     },
     {
       "id": "FD-018",
@@ -365,20 +263,14 @@
       "name": "Candlelight Sept",
       "rarity": "Uncommon",
       "card_type": "Plane",
-      "subtype": "Fire — Light",
-      "types": [
-        "Fire",
-        "Light"
-      ],
-      "terrain_types": [
-        "Fire",
-        "Light"
-      ],
+      "subtype": "Plane",
+      "types": [],
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "cost": {},
-      "art_direction": "Humble intimate seven-sided stone chapel at night, hundreds of warm candles on stepped wooden ledges and a small stained-glass sun window, comforting amber light catching floating dust. Human-scale interior, honey gold, rich brown and subtle cobalt window accents."
+      "art_direction": "Humble intimate seven-sided stone chapel at night, hundreds of warm candles on stepped wooden ledges and a small stained-glass sun window, comforting amber light catching floating dust. Human-scale interior, honey gold, rich brown and subtle cobalt window accents.",
+      "retired": true,
+      "deckLimit": 2
     },
     {
       "id": "FD-019",
@@ -386,20 +278,14 @@
       "name": "Abyssal Depths",
       "rarity": "Uncommon",
       "card_type": "Plane",
-      "subtype": "Water — Dark",
-      "types": [
-        "Water",
-        "Dark"
-      ],
-      "terrain_types": [
-        "Water",
-        "Dark"
-      ],
+      "subtype": "Plane",
+      "types": [],
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "cost": {},
-      "art_direction": "Vertiginous descent into a pitch-black ocean trench, huge ancient stone face barely visible on canyon wall, sparse tiny blue bioluminescent creatures reveal unimaginable depth. Near-black and electric cyan, powerful negative space and atmospheric obscurity."
+      "art_direction": "Vertiginous descent into a pitch-black ocean trench, huge ancient stone face barely visible on canyon wall, sparse tiny blue bioluminescent creatures reveal unimaginable depth. Near-black and electric cyan, powerful negative space and atmospheric obscurity.",
+      "retired": true,
+      "deckLimit": 2
     },
     {
       "id": "FD-020",
@@ -407,20 +293,14 @@
       "name": "Celestial Estuary",
       "rarity": "Uncommon",
       "card_type": "Plane",
-      "subtype": "Water — Light",
-      "types": [
-        "Water",
-        "Light"
-      ],
-      "terrain_types": [
-        "Water",
-        "Light"
-      ],
+      "subtype": "Plane",
+      "types": [],
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "cost": {},
-      "art_direction": "Gently curving river estuary at dawn where luminous gold freshwater meets a pearlescent sea, white wading birds reflected in shallow pools, tiny star-like motes among reeds. Serene low panoramic view, champagne gold, blush pink and pale seafoam."
+      "art_direction": "Gently curving river estuary at dawn where luminous gold freshwater meets a pearlescent sea, white wading birds reflected in shallow pools, tiny star-like motes among reeds. Serene low panoramic view, champagne gold, blush pink and pale seafoam.",
+      "retired": true,
+      "deckLimit": 2
     },
     {
       "id": "FD-021",
@@ -428,20 +308,14 @@
       "name": "Moonrend Delve",
       "rarity": "Uncommon",
       "card_type": "Plane",
-      "subtype": "Dark — Light",
-      "types": [
-        "Dark",
-        "Light"
-      ],
-      "terrain_types": [
-        "Dark",
-        "Light"
-      ],
+      "subtype": "Plane",
+      "types": [],
       "rules": "",
       "set": "foundations",
       "set_name": "Foundations",
-      "cost": {},
-      "art_direction": "Subterranean crystal cleft split by a razor-thin shaft of brilliant moonlight, one side pure white sparkling mineral and the other dark untouched stone, still black reflecting pool. Severe black-white contrast with restrained cold silver, dramatic tilted upward viewpoint."
+      "art_direction": "Subterranean crystal cleft split by a razor-thin shaft of brilliant moonlight, one side pure white sparkling mineral and the other dark untouched stone, still black reflecting pool. Severe black-white contrast with restrained cold silver, dramatic tilted upward viewpoint.",
+      "retired": true,
+      "deckLimit": 2
     },
     {
       "id": "FD-022",
@@ -449,20 +323,13 @@
       "name": "Sacred Spring",
       "rarity": "Uncommon",
       "card_type": "Plane",
-      "subtype": "Water — Earth",
-      "types": [
-        "Water",
-        "Earth"
-      ],
-      "terrain_types": [
-        "Water",
-        "Earth"
-      ],
+      "subtype": "Plane",
+      "types": [],
       "rules": "Heal the creature occupying this hex by 1 HP at the start of its controller’s pre-combat phase.",
       "set": "foundations",
       "set_name": "Foundations",
-      "cost": {},
-      "art_direction": "A tiny sacred spring wells from between ancient tree roots into a round mossy stone basin, golden sunlight rests on the water, medicinal blue flowers and fresh fern fronds frame the intimate sanctuary. Warm olive, turquoise and soft gold, close low eye-level view."
+      "art_direction": "A tiny sacred spring wells from between ancient tree roots into a round mossy stone basin, golden sunlight rests on the water, medicinal blue flowers and fresh fern fronds frame the intimate sanctuary. Warm olive, turquoise and soft gold, close low eye-level view.",
+      "deckLimit": 2
     },
     {
       "id": "FD-023",
@@ -470,18 +337,13 @@
       "name": "Wall of Light",
       "rarity": "Uncommon",
       "card_type": "Plane",
-      "subtype": "Light",
-      "types": [
-        "Light"
-      ],
-      "terrain_types": [
-        "Light"
-      ],
+      "subtype": "Plane",
+      "types": [],
       "rules": "At the beginning of your opponent’s combat phase, grant 1 Shield to the creature you control directly behind this hex.",
       "set": "foundations",
       "set_name": "Foundations",
-      "cost": {},
-      "art_direction": "An immense translucent golden wall shaped from interlocking luminous hexagons shields a quiet grassy courtyard from a distant storm of dark arrows, camera skims along its edge so protective depth is clear. Brilliant honey-white versus slate blue, sharp geometric shapes, no people prominent."
+      "art_direction": "An immense translucent golden wall shaped from interlocking luminous hexagons shields a quiet grassy courtyard from a distant storm of dark arrows, camera skims along its edge so protective depth is clear. Brilliant honey-white versus slate blue, sharp geometric shapes, no people prominent.",
+      "deckLimit": 2
     },
     {
       "id": "FD-024",
@@ -491,15 +353,11 @@
       "card_type": "Spell",
       "subtype": "Spell",
       "types": [],
-      "terrain_types": [],
       "rules": "Change one of the enemy’s hexes into a Volcanic Vent.",
       "set": "foundations",
       "set_name": "Foundations",
-      "cost": {
-        "Earth": 1,
-        "Fire": 1
-      },
-      "art_direction": "Violent instant a peaceful grassy field ruptures upward in a cone of magma and shattered rock, roots and soil torn into the air, a tiny distant fleeing goblin establishes scale. Dynamic extreme low ground-level angle, fierce red-orange explosion against saturated cyan sky, kinetic magical spell scene."
+      "art_direction": "Violent instant a peaceful grassy field ruptures upward in a cone of magma and shattered rock, roots and soil torn into the air, a tiny distant fleeing goblin establishes scale. Dynamic extreme low ground-level angle, fierce red-orange explosion against saturated cyan sky, kinetic magical spell scene.",
+      "deckLimit": 2
     },
     {
       "id": "FD-025",
@@ -507,21 +365,14 @@
       "name": "Volcanic Vent",
       "rarity": "Uncommon",
       "card_type": "Plane",
-      "subtype": "Fire — Earth",
-      "types": [
-        "Fire",
-        "Earth"
-      ],
-      "terrain_types": [
-        "Fire",
-        "Earth"
-      ],
+      "subtype": "Plane",
+      "types": [],
       "rules": "Deal 1 damage to the creature occupying this hex at the start of its controller’s pre-combat phase.",
       "set": "foundations",
       "set_name": "Foundations",
-      "cost": {},
       "art_direction": "Close downward view of a circular jagged volcanic vent embedded in cracked basalt, white-hot gas jets escape through a glowing central fissure, red mineral crust and scorched dry weeds. Intense white centre, dark umber and sulphur orange, contained hazardous place, not a volcano panorama.",
-      "generated_only": true
+      "generated_only": true,
+      "deckLimit": 2
     },
     {
       "id": "FD-026",
@@ -529,18 +380,13 @@
       "name": "Door to Ashgar",
       "rarity": "Rare",
       "card_type": "Plane",
-      "subtype": "Fire",
-      "types": [
-        "Fire"
-      ],
-      "terrain_types": [
-        "Fire"
-      ],
+      "subtype": "Plane",
+      "types": [],
       "rules": "At the beginning of each of your combat phases, if this hex is empty, summon one Goblin Punk. That creature gains Sprint and Doomed.",
       "set": "foundations",
       "set_name": "Foundations",
-      "cost": {},
-      "art_direction": "Tall weather-beaten wooden door stands alone on a windswept grassy ridge, its open doorway reveals a blazing goblin war camp in another realm; one scrappy green goblin punk with red crest is stepping through, other small goblin silhouettes behind. Cool emerald dusk outside, orange fire within, strong doorway silhouette and magical threshold."
+      "art_direction": "Tall weather-beaten wooden door stands alone on a windswept grassy ridge, its open doorway reveals a blazing goblin war camp in another realm; one scrappy green goblin punk with red crest is stepping through, other small goblin silhouettes behind. Cool emerald dusk outside, orange fire within, strong doorway silhouette and magical threshold.",
+      "deckLimit": 2
     }
   ]
 }

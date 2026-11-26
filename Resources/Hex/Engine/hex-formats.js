@@ -3,7 +3,7 @@ const HEX_FORMATS = {
   standard: {
     id: "standard",
     name: "Standard",
-    deckSize: 30,
+    deckSize: 20,
     opening: 5,
     columns: 3,
     slots: 6,
@@ -75,10 +75,12 @@ const hexTypeOptions = () =>
   [...new Set(HEX_CARDS.flatMap(hexTypes))].sort((a, b) => a.localeCompare(b));
 function hexTypeLabel(card) {
   const c = typeof card === "string" ? HEX_CARD[card] : card?.card_type ? card : HEX_CARD[card?.id];
-  return c
-    ? c.card_type +
+  return c?.card_type === "Plane"
+    ? "Plane"
+    : c
+      ? c.card_type +
         (c.card_type === "Spell" && c.subtype === "Spell" ? "" : " · " + hexTypes(card).join(" · "))
-    : "";
+      : "";
 }
 
 const hexKeywordList = (card) =>
@@ -99,7 +101,7 @@ function hexCapDeck(cards) {
   const counts = {};
   return cards.filter((id) => {
     const c = HEX_CARD[id];
-    if (!c) return false;
+    if (!c || c.retired || c.generated_only) return false;
     const base = c.baseId || id;
     if ((counts[base] || 0) >= (c.deckLimit || 2)) return false;
     counts[base] = (counts[base] || 0) + 1;

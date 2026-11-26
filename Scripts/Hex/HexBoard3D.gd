@@ -293,21 +293,11 @@ func sync(state: Dictionary):
 				terrain_tiles[key] = tile
 
 			var terrain: Dictionary = state.players[side].planes[slot]
-			var tint := Color.BLACK
-
-			for type in terrain.types:
-				tint += (
-					preload("res://Scripts/Hex/HexPowerDisplay.gd").COLORS.get(type, Color.GRAY)
-					/ terrain.types.size()
-				)
-
-			tint.a = 1.0
+			var tint := Color("63856d") if terrain.has("id") else Color("4d625d")
 			var tile: MeshInstance3D = terrain_tiles[key]
 
-			tile.material_override = material(tint.darkened(0.48 if terrain.level == 0 else 0.18))
-			tile.get_child(0).text = (
-				("◆ " if terrain.get("locked", false) else "") + str(int(terrain.level))
-			)
+			tile.material_override = material(tint)
+			tile.get_child(0).text = "◆" if terrain.get("locked", false) else ""
 
 	for side in [1, 0]:
 		for zone in ["board", "artifact"]:

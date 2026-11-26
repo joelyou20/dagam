@@ -32,11 +32,11 @@ func run() -> void:
 	(() => {
 	 const g=Hex.dispatch({op:'save'}).game;
 	 Object.assign(g,{phase:'pre',turn:1,active:0,coin:null,tasks:[],stack:[],choice:null});
-	 for(const p of g.players) Object.assign(p,{hand:[],power:[],planePlayed:false,board:Array(6).fill(null),planes:Array.from({length:6},()=>hexPlane(['Earth'],0))});
+	 for(const p of g.players) Object.assign(p,{hand:[],planePlayed:false,board:Array(6).fill(null),planes:Array.from({length:6},()=>hexPlane(['Earth'],0))});
 	 function card(id,owner=0){return {id,owner,originalOwner:owner,uid:'hc-'+(++g.serial),spent:{}};}
 	 for(const side of [0,1]) {hexExecute(g,{kind:'play',owner:side,card:card('LT-006',side),option:{slot:0}});hexPump(g);}
-	 g.players[0].hand=['FD-003','FD-004','FD-024','SA-002'].map(id=>card(id));
-	 g.players[0].power=[['Fire','Earth'],['Earth'],['Water']];
+	 g.players[0].hand=['FD-022','FD-023','FD-024','SA-002'].map(id=>card(id));
+
 	})()
 	"""
 		)
@@ -48,7 +48,7 @@ func run() -> void:
 	await process_frame
 
 	if not check(
-		game.power_displays[0].spheres.size() == 3, "Power display must reflect native spheres"
+		not game.engine.state.players[0].has("power"), "Battle state must have no Power pool"
 	):
 		return
 
@@ -62,22 +62,17 @@ func run() -> void:
 	game._drop({"kind": "hand", "uid": fire.uid}, {"zone": "board", "side": 0, "slot": 0})
 
 	if not check(
-		game.engine.state.players[0].planes[0].types == ["Fire"],
+		game.engine.state.players[0].planes[0].get("id") == "FD-022",
 		"Plane drag must work on occupied hexes"
 	):
 		return
 
 	if not check(
-		game.engine.state.players[0].board[0] == null, "Incompatible occupant must bounce"
+		game.engine.state.players[0].board[0] != null, "Changing a Plane must retain its occupant"
 	):
 		return
 
-	if not check(
-		game.engine.state.players[0].power.size() == 4, "Plane must add one immediate sphere"
-	):
-		return
-
-	var water: Dictionary = game.engine.state.players[0].hand.filter(func(c): return c.id == "FD-004")[0]
+	var water: Dictionary = game.engine.state.players[0].hand.filter(func(c): return c.id == "FD-023")[0]
 
 	if not check(
 		game.engine.state.handOptions[water.uid].is_empty(), "Second Plane must be unavailable"
@@ -89,22 +84,14 @@ func run() -> void:
 	await create_timer(1.5).timeout
 	game._inspect(erupt)
 
-	if not check(game.inspection.texture != null, "Costed card hover must show art"):
-		return
-
-	var image: Image = game.inspection.texture.get_image()
-	var cost_colour := image.get_pixel(
-		int(image.get_width() * 968 / 1024.0), int(image.get_height() * 290 / 1536.0)
-	)
-
-	if not check(cost_colour.g > cost_colour.r, "Earth cost badge must be green on the right edge"):
+	if not check(game.inspection.texture != null, "Card hover must show art"):
 		return
 
 	var vanguard := preload("res://Scripts/Hex/HexCardUI.gd").art("SA-024").get_image()
 
 	if not check(
 		vanguard.get_pixel(vanguard.get_width() / 2, int(vanguard.get_height() * 0.77)).a == 1.0,
-		"Vanguard ability panel must stay opaque after cost compositing"
+		"Vanguard ability panel must stay opaque without resource overlays"
 	):
 		return
 
@@ -121,7 +108,9 @@ func run() -> void:
 	):
 		return
 
-	if not check(game.engine.state.players[0].power.size() == 2, "Erupt must spend two Power"):
+	if not check(
+		game.engine.state.players[1].board[0] != null, "Erupt must not bounce the enemy occupant"
+	):
 		return
 
 	game.paused = true

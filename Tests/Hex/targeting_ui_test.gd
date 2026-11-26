@@ -32,10 +32,10 @@ func run() -> void:
 	(() => {
 	const g=Hex.dispatch({op:'save'}).game;
 	Object.assign(g,{phase:'pre',turn:1,active:0,coin:null,tasks:[],stack:[],choice:null});
-	for(const p of g.players) Object.assign(p,{hand:[],power:[],planePlayed:false,board:Array(6).fill(null),planes:Array.from({length:6},()=>hexPlane(HEX_TERRAINS,0))});
+	for(const p of g.players) Object.assign(p,{hand:[],planePlayed:false,board:Array(6).fill(null),planes:Array.from({length:6},()=>hexPlane(HEX_TERRAINS,0))});
 	function card(id,owner=0){return {id,owner,originalOwner:owner,uid:'ui-'+(++g.serial),spent:{}};}
 	for(const side of [0,1]) {hexExecute(g,{kind:'play',owner:side,card:card('LT-006',side),option:{slot:0}});hexPump(g);}
-	g.players[0].hand=[card('FD-003')];
+	g.players[0].hand=[card('FD-022')];
 	g.players[0].board[0].hp-=1;
 	g.effectSource=g.players[1].board[0];
 	hexAsk(g,0,'Choose a creature to heal',[{label:'Heal creature',task:{kind:'planeHeal',owner:0,target:g.players[0].board[0].uid}}],true);
@@ -117,7 +117,7 @@ func run() -> void:
 	game._clicked({}, {"zone": "board", "side": 0, "slot": 4})
 
 	if not check(
-		game.engine.state.players[0].planes[4].types == ["Fire"],
+		game.engine.state.players[0].planes[4].types == [],
 		"Clicking an empty hex must play the Plane there"
 	):
 		return
@@ -131,7 +131,7 @@ func run() -> void:
 	(() => {
 	const g=Hex.dispatch({op:'save'}).game;
 	g.players[0].planes=Array.from({length:6},()=>hexPlane(HEX_TERRAINS,0));
-	g.players[0].power=Array.from({length:4},()=>['Water']);
+
 	g.players[0].hand=[{id:'SA-008',owner:0,originalOwner:0,uid:'mind-control',spent:{}}];
 	})()
 	"""

@@ -16,5 +16,5 @@ func _initialize() -> void:
 
 		return
 
-	print("Power timing and automatic trigger checks passed: ", result.checks)
+	print("Free-play timing and automatic trigger checks passed: ", result.checks)
 	quit()

@@ -24,8 +24,8 @@ function hexExecuteTask(g, j) {
     pl = g.players[p],
     target = j.target ? hexFind(g, j.target) : null;
   switch (j.kind) {
-    case "power":
-      hexGeneratePower(g, p);
+    case "planeReset":
+      pl.planePlayed = false;
       break;
     case "planeHeal":
       if (target) hexHeal(g, target, 1);

@@ -78,30 +78,20 @@ def wrap(text, face, width):
 
 
 def card_type(card):
-    return card["card_type"] + (
-        " · " + " · ".join(card["terrain_types"]) if card["terrain_types"] else ""
-    )
-
-
-def cost_text(card):
-    # Costs are drawn once by the shared in-game right-edge badge overlay.
-    return ""
+    return card["card_type"]
 
 
 def body(draw, card, box, centered_text=False):
     x1, y1, x2, y2 = box
-    cost = cost_text(card)
     for size in range(34 if not centered_text else 31, 21, -1):
         lines = wrap(card["rules"], font(size), x2 - x1)
-        height = len(lines) * (size + 8) + (46 if cost else 0)
+        height = len(lines) * (size + 8)
         if height <= y2 - y1:
             break
     else:
         raise ValueError("Rules overflow: " + card["id"])
     y = y1
-    if cost:
-        centered(draw, cost, (x1, y, x2, y + 34), 26, fill="#e5ca8d")
-        y += 46
+
     for line in lines:
         if centered_text:
             draw.text(
@@ -152,11 +142,7 @@ def full_art(card, art, frame):
     draw = ImageDraw.Draw(scrim)
     for y in range(frame.height):
         top = max(0, 1 - abs(y - 150) / 220) * 150
-        bottom = (
-            max(0, min(1, (y - 1000) / 180)) * 205
-            if card["rules"] or card["cost"]
-            else 0
-        )
+        bottom = max(0, min(1, (y - 1000) / 180)) * 205 if card["rules"] else 0
         draw.line((0, y, frame.width, y), fill=(7, 10, 17, round(max(top, bottom))))
     image = Image.alpha_composite(Image.alpha_composite(image, scrim), frame)
     draw = ImageDraw.Draw(image)

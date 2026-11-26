@@ -1,0 +1,850 @@
+[
+  {
+    "id": "goblin_horde",
+    "games": [
+      {
+        "enemy": "thornbound",
+        "seed": 42,
+        "winner": 1,
+        "round": 5,
+        "steps": 58,
+        "plays": 9
+      },
+      {
+        "enemy": "thornbound",
+        "seed": 1337,
+        "winner": 0,
+        "round": 6,
+        "steps": 74,
+        "plays": 12
+      },
+      {
+        "enemy": "thornbound",
+        "seed": 8100,
+        "winner": 1,
+        "round": 5,
+        "steps": 60,
+        "plays": 9
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 42,
+        "winner": 0,
+        "round": 6,
+        "steps": 64,
+        "plays": 10
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 1337,
+        "winner": 0,
+        "round": 7,
+        "steps": 77,
+        "plays": 10
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 8100,
+        "winner": 1,
+        "round": 5,
+        "steps": 55,
+        "plays": 9
+      }
+    ]
+  },
+  {
+    "id": "wiskin_guard",
+    "games": [
+      {
+        "enemy": "thornbound",
+        "seed": 42,
+        "winner": 0,
+        "round": 4,
+        "steps": 60,
+        "plays": 10
+      },
+      {
+        "enemy": "thornbound",
+        "seed": 1337,
+        "winner": 0,
+        "round": 6,
+        "steps": 74,
+        "plays": 11
+      },
+      {
+        "enemy": "thornbound",
+        "seed": 8100,
+        "winner": 0,
+        "round": 6,
+        "steps": 72,
+        "plays": 10
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 42,
+        "winner": 0,
+        "round": 5,
+        "steps": 62,
+        "plays": 10
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 1337,
+        "winner": 0,
+        "round": 7,
+        "steps": 80,
+        "plays": 13
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 8100,
+        "winner": 0,
+        "round": 5,
+        "steps": 65,
+        "plays": 9
+      }
+    ]
+  },
+  {
+    "id": "mage_conclave",
+    "games": [
+      {
+        "enemy": "thornbound",
+        "seed": 42,
+        "winner": 0,
+        "round": 6,
+        "steps": 80,
+        "plays": 18
+      },
+      {
+        "enemy": "thornbound",
+        "seed": 1337,
+        "winner": 0,
+        "round": 6,
+        "steps": 68,
+        "plays": 12
+      },
+      {
+        "enemy": "thornbound",
+        "seed": 8100,
+        "winner": 0,
+        "round": 6,
+        "steps": 82,
+        "plays": 14
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 42,
+        "winner": 0,
+        "round": 6,
+        "steps": 78,
+        "plays": 13
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 1337,
+        "winner": 0,
+        "round": 7,
+        "steps": 74,
+        "plays": 11
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 8100,
+        "winner": 0,
+        "round": 4,
+        "steps": 62,
+        "plays": 13
+      }
+    ]
+  },
+  {
+    "id": "grave_circle",
+    "games": [
+      {
+        "enemy": "thornbound",
+        "seed": 42,
+        "winner": 0,
+        "round": 4,
+        "steps": 53,
+        "plays": 12
+      },
+      {
+        "enemy": "thornbound",
+        "seed": 1337,
+        "winner": 0,
+        "round": 6,
+        "steps": 70,
+        "plays": 13
+      },
+      {
+        "enemy": "thornbound",
+        "seed": 8100,
+        "winner": 0,
+        "round": 6,
+        "steps": 69,
+        "plays": 11
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 42,
+        "winner": 0,
+        "round": 4,
+        "steps": 58,
+        "plays": 14
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 1337,
+        "winner": 0,
+        "round": 7,
+        "steps": 80,
+        "plays": 16
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 8100,
+        "winner": 1,
+        "round": 5,
+        "steps": 62,
+        "plays": 8
+      }
+    ]
+  },
+  {
+    "id": "storm_wings",
+    "games": [
+      {
+        "enemy": "thornbound",
+        "seed": 42,
+        "winner": 1,
+        "round": 7,
+        "steps": 72,
+        "plays": 10
+      },
+      {
+        "enemy": "thornbound",
+        "seed": 1337,
+        "winner": 0,
+        "round": 7,
+        "steps": 83,
+        "plays": 9
+      },
+      {
+        "enemy": "thornbound",
+        "seed": 8100,
+        "winner": 0,
+        "round": 6,
+        "steps": 63,
+        "plays": 9
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 42,
+        "winner": 1,
+        "round": 7,
+        "steps": 73,
+        "plays": 11
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 1337,
+        "winner": 0,
+        "round": 7,
+        "steps": 75,
+        "plays": 11
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 8100,
+        "winner": 0,
+        "round": 5,
+        "steps": 57,
+        "plays": 8
+      }
+    ]
+  },
+  {
+    "id": "grove_kin",
+    "games": [
+      {
+        "enemy": "thornbound",
+        "seed": 42,
+        "winner": 1,
+        "round": 7,
+        "steps": 116,
+        "plays": 16
+      },
+      {
+        "enemy": "thornbound",
+        "seed": 1337,
+        "winner": 1,
+        "round": 9,
+        "steps": 161,
+        "plays": 17
+      },
+      {
+        "enemy": "thornbound",
+        "seed": 8100,
+        "winner": 0,
+        "round": 6,
+        "steps": 70,
+        "plays": 11
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 42,
+        "winner": 0,
+        "round": 5,
+        "steps": 84,
+        "plays": 12
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 1337,
+        "winner": 0,
+        "round": 7,
+        "steps": 90,
+        "plays": 14
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 8100,
+        "winner": 0,
+        "round": 5,
+        "steps": 67,
+        "plays": 11
+      }
+    ]
+  },
+  {
+    "id": "shadow_veil",
+    "games": [
+      {
+        "enemy": "thornbound",
+        "seed": 42,
+        "winner": 1,
+        "round": 6,
+        "steps": 69,
+        "plays": 10
+      },
+      {
+        "enemy": "thornbound",
+        "seed": 1337,
+        "winner": 1,
+        "round": 7,
+        "steps": 75,
+        "plays": 8
+      },
+      {
+        "enemy": "thornbound",
+        "seed": 8100,
+        "winner": 1,
+        "round": 8,
+        "steps": 88,
+        "plays": 10
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 42,
+        "winner": 1,
+        "round": 6,
+        "steps": 72,
+        "plays": 10
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 1337,
+        "winner": 1,
+        "round": 9,
+        "steps": 110,
+        "plays": 12
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 8100,
+        "winner": 1,
+        "round": 6,
+        "steps": 69,
+        "plays": 10
+      }
+    ]
+  },
+  {
+    "id": "dawn_court",
+    "games": [
+      {
+        "enemy": "thornbound",
+        "seed": 42,
+        "winner": 1,
+        "round": 9,
+        "steps": 114,
+        "plays": 11
+      },
+      {
+        "enemy": "thornbound",
+        "seed": 1337,
+        "winner": 0,
+        "round": 6,
+        "steps": 80,
+        "plays": 8
+      },
+      {
+        "enemy": "thornbound",
+        "seed": 8100,
+        "winner": 0,
+        "round": 6,
+        "steps": 64,
+        "plays": 8
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 42,
+        "winner": 0,
+        "round": 5,
+        "steps": 67,
+        "plays": 9
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 1337,
+        "winner": 0,
+        "round": 7,
+        "steps": 76,
+        "plays": 9
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 8100,
+        "winner": 0,
+        "round": 4,
+        "steps": 48,
+        "plays": 6
+      }
+    ]
+  },
+  {
+    "id": "blood_coven",
+    "games": [
+      {
+        "enemy": "thornbound",
+        "seed": 42,
+        "winner": 0,
+        "round": 4,
+        "steps": 59,
+        "plays": 16
+      },
+      {
+        "enemy": "thornbound",
+        "seed": 1337,
+        "winner": 0,
+        "round": 6,
+        "steps": 79,
+        "plays": 17
+      },
+      {
+        "enemy": "thornbound",
+        "seed": 8100,
+        "winner": 0,
+        "round": 6,
+        "steps": 73,
+        "plays": 18
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 42,
+        "winner": 0,
+        "round": 5,
+        "steps": 74,
+        "plays": 18
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 1337,
+        "winner": 0,
+        "round": 7,
+        "steps": 72,
+        "plays": 10
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 8100,
+        "winner": 0,
+        "round": 3,
+        "steps": 47,
+        "plays": 15
+      }
+    ]
+  },
+  {
+    "id": "sacred_tide",
+    "games": [
+      {
+        "enemy": "thornbound",
+        "seed": 42,
+        "winner": 1,
+        "round": 6,
+        "steps": 92,
+        "plays": 15
+      },
+      {
+        "enemy": "thornbound",
+        "seed": 1337,
+        "winner": 0,
+        "round": 6,
+        "steps": 87,
+        "plays": 11
+      },
+      {
+        "enemy": "thornbound",
+        "seed": 8100,
+        "winner": 0,
+        "round": 6,
+        "steps": 75,
+        "plays": 11
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 42,
+        "winner": 0,
+        "round": 7,
+        "steps": 100,
+        "plays": 17
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 1337,
+        "winner": 0,
+        "round": 7,
+        "steps": 83,
+        "plays": 13
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 8100,
+        "winner": 0,
+        "round": 5,
+        "steps": 71,
+        "plays": 12
+      }
+    ]
+  },
+  {
+    "id": "pathfinders",
+    "games": [
+      {
+        "enemy": "thornbound",
+        "seed": 42,
+        "winner": 1,
+        "round": 5,
+        "steps": 65,
+        "plays": 11
+      },
+      {
+        "enemy": "thornbound",
+        "seed": 1337,
+        "winner": 1,
+        "round": 6,
+        "steps": 91,
+        "plays": 10
+      },
+      {
+        "enemy": "thornbound",
+        "seed": 8100,
+        "winner": 1,
+        "round": 6,
+        "steps": 72,
+        "plays": 10
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 42,
+        "winner": 1,
+        "round": 7,
+        "steps": 87,
+        "plays": 14
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 1337,
+        "winner": 0,
+        "round": 7,
+        "steps": 78,
+        "plays": 13
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 8100,
+        "winner": 1,
+        "round": 7,
+        "steps": 73,
+        "plays": 11
+      }
+    ]
+  },
+  {
+    "id": "grave_roots",
+    "games": [
+      {
+        "enemy": "thornbound",
+        "seed": 42,
+        "winner": 0,
+        "round": 5,
+        "steps": 74,
+        "plays": 14
+      },
+      {
+        "enemy": "thornbound",
+        "seed": 1337,
+        "winner": 1,
+        "round": 7,
+        "steps": 103,
+        "plays": 12
+      },
+      {
+        "enemy": "thornbound",
+        "seed": 8100,
+        "winner": 1,
+        "round": 5,
+        "steps": 61,
+        "plays": 8
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 42,
+        "winner": 0,
+        "round": 6,
+        "steps": 72,
+        "plays": 11
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 1337,
+        "winner": 0,
+        "round": 7,
+        "steps": 83,
+        "plays": 13
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 8100,
+        "winner": 1,
+        "round": 5,
+        "steps": 65,
+        "plays": 9
+      }
+    ]
+  },
+  {
+    "id": "twilight_host",
+    "games": [
+      {
+        "enemy": "thornbound",
+        "seed": 42,
+        "winner": 0,
+        "round": 6,
+        "steps": 78,
+        "plays": 15
+      },
+      {
+        "enemy": "thornbound",
+        "seed": 1337,
+        "winner": 0,
+        "round": 7,
+        "steps": 94,
+        "plays": 12
+      },
+      {
+        "enemy": "thornbound",
+        "seed": 8100,
+        "winner": 0,
+        "round": 6,
+        "steps": 66,
+        "plays": 9
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 42,
+        "winner": 0,
+        "round": 8,
+        "steps": 101,
+        "plays": 20
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 1337,
+        "winner": 0,
+        "round": 7,
+        "steps": 85,
+        "plays": 14
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 8100,
+        "winner": 0,
+        "round": 7,
+        "steps": 80,
+        "plays": 11
+      }
+    ]
+  },
+  {
+    "id": "ash_current",
+    "games": [
+      {
+        "enemy": "thornbound",
+        "seed": 42,
+        "winner": 1,
+        "round": 4,
+        "steps": 64,
+        "plays": 16
+      },
+      {
+        "enemy": "thornbound",
+        "seed": 1337,
+        "winner": 0,
+        "round": 7,
+        "steps": 96,
+        "plays": 15
+      },
+      {
+        "enemy": "thornbound",
+        "seed": 8100,
+        "winner": 1,
+        "round": 4,
+        "steps": 60,
+        "plays": 10
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 42,
+        "winner": 0,
+        "round": 5,
+        "steps": 78,
+        "plays": 17
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 1337,
+        "winner": 0,
+        "round": 7,
+        "steps": 94,
+        "plays": 17
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 8100,
+        "winner": 1,
+        "round": 4,
+        "steps": 58,
+        "plays": 10
+      }
+    ]
+  },
+  {
+    "id": "sunforge",
+    "games": [
+      {
+        "enemy": "thornbound",
+        "seed": 42,
+        "winner": 1,
+        "round": 5,
+        "steps": 67,
+        "plays": 10
+      },
+      {
+        "enemy": "thornbound",
+        "seed": 1337,
+        "winner": 1,
+        "round": 7,
+        "steps": 91,
+        "plays": 11
+      },
+      {
+        "enemy": "thornbound",
+        "seed": 8100,
+        "winner": 0,
+        "round": 7,
+        "steps": 78,
+        "plays": 11
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 42,
+        "winner": 0,
+        "round": 7,
+        "steps": 80,
+        "plays": 13
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 1337,
+        "winner": 0,
+        "round": 7,
+        "steps": 83,
+        "plays": 13
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 8100,
+        "winner": 0,
+        "round": 7,
+        "steps": 77,
+        "plays": 12
+      }
+    ]
+  },
+  {
+    "id": "water_mages",
+    "games": [
+      {
+        "enemy": "thornbound",
+        "seed": 42,
+        "winner": 1,
+        "round": 5,
+        "steps": 80,
+        "plays": 20
+      },
+      {
+        "enemy": "thornbound",
+        "seed": 1337,
+        "winner": 0,
+        "round": 6,
+        "steps": 80,
+        "plays": 15
+      },
+      {
+        "enemy": "thornbound",
+        "seed": 8100,
+        "winner": 0,
+        "round": 6,
+        "steps": 80,
+        "plays": 19
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 42,
+        "winner": 0,
+        "round": 6,
+        "steps": 80,
+        "plays": 16
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 1337,
+        "winner": 0,
+        "round": 7,
+        "steps": 77,
+        "plays": 15
+      },
+      {
+        "enemy": "stormcourt",
+        "seed": 8100,
+        "winner": 1,
+        "round": 3,
+        "steps": 56,
+        "plays": 16
+      }
+    ]
+  }
+]

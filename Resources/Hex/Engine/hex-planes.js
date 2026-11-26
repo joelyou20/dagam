@@ -1,124 +1,32 @@
 "use strict";
 const HEX_TERRAINS = ["Earth", "Sky", "Fire", "Water", "Dark", "Light"];
 const hexFoundation = (c) => (hexDef(c)?.set === "foundations" ? hexDef(c).number : 0);
-const hexPlane = (types = ["Earth"], level = 0, extra = {}) => ({
+const hexPlane = (types = [], level = 0, extra = {}) => ({
   types: [...types],
   level,
   ...extra,
 });
-const hexCompatible = (g, c, side, slot) => {
-  const needs = hexDef(c).terrain_types || HEX_TERRAINS;
-  return needs.some((t) => g.players[side].planes[slot].types.includes(t));
-};
-// Flexible spheres are individual resources. Backtracking avoids spending a dual
-// sphere when a single-colour sphere can pay the same part of the cost.
-const hexCostAccepts = (sphere, type) => type === "Any" || sphere.includes(type);
-function hexPowerPayment(g, side, card) {
-  const pool = g.players[side].power;
-  const needs = Object.entries(hexDef(card).cost || {}).flatMap(([type, count]) =>
-    Array(count).fill(type),
-  );
-  if (
-    pool.length < needs.length ||
-    needs.some(
-      (t) => pool.filter((s) => hexCostAccepts(s, t)).length < needs.filter((n) => n === t).length,
-    )
-  )
-    return null;
-  needs.sort(
-    (a, b) =>
-      (a === "Any") - (b === "Any") ||
-      pool.filter((s) => hexCostAccepts(s, a)).length -
-        pool.filter((s) => hexCostAccepts(s, b)).length,
-  );
-  // For generic payments, conserve colours needed by other cards in this hand.
-  const futureNeed = {};
-  for (const held of g.players[side].hand || []) {
-    if (card.uid && held.uid === card.uid) continue;
-    const costs = hexDef(held).cost || {};
-    const total = Object.values(costs).reduce((sum, n) => sum + n, 0);
-    for (const [type, amount] of Object.entries(costs))
-      if (type !== "Any") futureNeed[type] = (futureNeed[type] || 0) + amount / (total + 1);
-  }
-  const futureValue = (sphere) => sphere.reduce((sum, type) => sum + (futureNeed[type] || 0), 0);
-  function pay(i, used) {
-    if (i === needs.length) return used;
-    const candidates = pool
-      .map((s, index) => ({ s, index }))
-      .filter(({ s, index }) => !used.includes(index) && hexCostAccepts(s, needs[i]))
-      .sort(
-        (a, b) =>
-          a.s.length - b.s.length || (needs[i] === "Any" ? futureValue(a.s) - futureValue(b.s) : 0),
-      );
-    for (const { index } of candidates) {
-      const result = pay(i + 1, [...used, index]);
-      if (result) return result;
-    }
-    return null;
-  }
-  return pay(0, []);
-}
-function hexGeneratePower(g, side) {
-  const pl = g.players[side];
-  pl.power = pl.planes.flatMap((h) => Array.from({ length: h.level }, () => [...h.types]));
-  pl.planePlayed = false;
-  hexLog(g, hexOwnerLabel(side) + " generated " + pl.power.length + " Power.");
-}
+// Compatibility remains a stable hook for movement effects; all creatures fit every hex.
+const hexCompatible = () => true;
 function hexPlaneOptions(g, side, card) {
   const pl = g.players[side];
   if (pl.planePlayed) return [];
   return pl.planes.flatMap((h, slot) =>
-    !h.locked || hexSameTerrain(h.types, hexDef(card).terrain_types)
-      ? [
-          {
-            slot,
-            label:
-              "Plane · " +
-              (slot < 3 ? "Front" : "Back") +
-              " " +
-              ((slot % 3) + 1) +
-              " · " +
-              h.types.join(" / ") +
-              " " +
-              h.level,
-          },
-        ]
+    !h.locked
+      ? [{ slot, label: "Plane · " + (slot < 3 ? "Front" : "Back") + " " + ((slot % 3) + 1) }]
       : [],
   );
 }
-const hexSameTerrain = (a, b) => a.length === b.length && a.every((t) => b.includes(t));
 function hexSetPlane(g, side, slot, card, played = false) {
   const pl = g.players[side],
     old = pl.planes[slot],
     def = hexDef(card);
-  const same = hexSameTerrain(old.types, def.terrain_types);
-  // A hex has one current Plane ability, even when its matching level grows.
-  pl.planes[slot] = hexPlane(def.terrain_types, played && same ? old.level + 1 : 1, {
-    id: def.baseId || def.id,
-    locked: !!old.locked,
-  });
-  if (played) {
-    pl.planePlayed = true;
-    pl.power.push([...def.terrain_types]);
-  }
-  hexCheckTerrain(g);
-  hexLog(
-    g,
-    def.name +
-      " · " +
-      (slot < 3 ? "front" : "back") +
-      " " +
-      ((slot % 3) + 1) +
-      " · level " +
-      pl.planes[slot].level,
-  );
+  pl.planes[slot] = hexPlane([], 1, { id: def.baseId || def.id, locked: !!old.locked });
+  if (played) pl.planePlayed = true;
+  hexLog(g, def.name + " · hex " + (slot + 1));
 }
-function hexCheckTerrain(g) {
-  for (let side = 0; side < 2; side++)
-    for (let slot = 0; slot < 6; slot++) {
-      const c = g.players[side].board[slot];
-      if (c && !hexCompatible(g, c, side, slot)) hexReturn(g, c);
-    }
+function hexCheckTerrain() {
+  // Changing a Plane never evicts or restricts its occupant.
 }
 function hexPlanePre(g, side) {
   const jobs = g.players[side].planes.flatMap((h, slot) => {
@@ -147,72 +55,53 @@ function hexPlaneCombat(g, active) {
     }
   }
 }
-// Preserve old 20-card builds by adding ten suitable Planes. Duals bridge
-// otherwise incompatible encounter decks without changing their existing cards.
+// Strip retired resource Planes from saved decks, preserving active cards and prints.
 function hexDevelopDeck(cards) {
-  if (cards.length !== 20 || cards.some((id) => !HEX_CARD[id] || hexType(id, "Plane")))
-    return [...cards];
-  const demand = {};
-  for (const id of cards)
-    for (const [t, n] of Object.entries(hexDef(id).cost || {}))
-      if (t !== "Any") demand[t] = (demand[t] || 0) + n;
-  const remaining = { ...demand },
-    planes = [];
-  const choices = HEX_CARDS.filter((c) => c.card_type === "Plane" && c.number <= 21);
-  for (let i = 0; i < 10; i++) {
-    const scored = choices
-      .filter((c) => c.basic_plane || planes.filter((id) => id === c.id).length < 2)
-      .map((c) => ({ c, score: c.terrain_types.reduce((v, t) => v + (remaining[t] || 0), 0) }))
-      .sort((a, b) => b.score - a.score);
-    const best = scored[0].c;
-    planes.push(best.id);
-    for (const t of best.terrain_types)
-      remaining[t] = Math.max(0, (remaining[t] || 0) - (demand[t] || 0) / 4);
+  if (cards.some((id) => !HEX_CARD[id])) return [...cards];
+  const active = cards.filter((id) => !hexDef(id)?.retired),
+    counts = {};
+  for (const id of active) {
+    const def = hexDef(id),
+      base = def.baseId || id;
+    counts[base] = (counts[base] || 0) + 1;
+    // Migration must not turn an invalid profile into an apparently legal deck.
+    if (def.generated_only || counts[base] > (def.deckLimit || 2)) return active;
   }
-  return [...cards, ...planes];
+  const kept = hexTrimDeck(active);
+  if (cards.length >= 20 && kept.length < 20)
+    for (const id of Hex.starter) {
+      if (kept.length >= 20) break;
+      if (kept.filter((c) => (HEX_CARD[c].baseId || c) === id).length < 2) kept.push(id);
+    }
+  return kept;
 }
-
-function hexMigratePowerSave(saved) {
+function hexMigrateMatch(saved) {
   const g = JSON.parse(JSON.stringify(saved));
-  if (g?.v !== 1) return g;
-  for (let side = 0; side < 2; side++) {
-    const pl = g.players?.[side];
-    if (!pl || !Array.isArray(pl.deck) || !Array.isArray(pl.hand))
-      throw Error("Invalid legacy match zones");
-    const originals = [
-      ...pl.deck,
-      ...pl.hand,
-      ...(pl.board || []),
-      ...(pl.artifacts || []),
-      ...(pl.discard || []),
-    ]
-      .filter(Boolean)
-      .map((c) => c.id)
-      .slice(0, 20);
-    const seedDeck =
-      originals.length === 20 ? originals : Hex.starter.filter((id) => !hexType(id, "Plane"));
-    const planes = hexDevelopDeck(seedDeck).slice(20);
-    pl.deck.push(
-      ...planes.map((id) => ({
-        id,
-        uid: "hc-" + ++g.serial,
-        owner: side,
-        originalOwner: side,
-        spent: {},
-      })),
-    );
-    pl.deck = hexShuffle(g, pl.deck);
-    pl.planes = Array.from({ length: 6 }, (_, slot) =>
-      hexPlane(
-        [pl.board?.[slot] ? hexDef(pl.board[slot]).terrain_types[0] : HEX_TERRAINS[slot]],
-        0,
-      ),
-    );
-    pl.power = [];
-    pl.planePlayed = false;
+  if (![1, 2, 3].includes(g?.v)) return g;
+  for (const pl of g.players || []) {
+    for (const zone of ["deck", "hand", "discard", "exile"])
+      if (Array.isArray(pl[zone])) pl[zone] = pl[zone].filter((c) => !hexDef(c)?.retired);
+    delete pl.power;
+    pl.planePlayed = !!pl.planePlayed;
+    pl.planes = Array.from({ length: 6 }, (_, slot) => {
+      const h = pl.planes?.[slot];
+      return hexPlane([], h?.id && !hexDef(h.id)?.retired ? 1 : 0, {
+        ...(h?.id && !hexDef(h.id)?.retired ? { id: h.id } : {}),
+        locked: !!h?.locked,
+      });
+    });
   }
-  g.v = 2;
+  g.tasks = (g.tasks || []).map((j) =>
+    j.kind === "power"
+      ? { ...j, kind: "planeReset" }
+      : j.kind === "phase" && j.phase === "power"
+        ? { ...j, phase: "pre" }
+        : j,
+  );
+  if (g.phase === "power") g.phase = "pre";
+  g.v = 3;
   g.rules = { ...hexFormat("standard") };
   if (g.context?.playerDeck) g.context.playerDeck = hexDevelopDeck(g.context.playerDeck);
+  if (g.context?.practice_game) g.context.practice_game = hexMigrateMatch(g.context.practice_game);
   return g;
 }

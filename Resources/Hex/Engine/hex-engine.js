@@ -41,7 +41,7 @@ const hexOriginalOwner = (c, fallback = c.owner) =>
 const hexOwnerLabel = (p) => (p === 0 ? "You" : "The bot");
 function hexNewGame(playerDeck, botDeck, seed = Date.now(), options = {}) {
   const g = {
-    v: 2,
+    v: 3,
     rules: { ...hexFormat(options.format) },
     context: options.context || null,
     challengeStats: { plays: 0, nonCreature: 0, spellsByDay: {} },
@@ -82,12 +82,11 @@ function hexNewGame(playerDeck, botDeck, seed = Date.now(), options = {}) {
       exposure: 0,
       mulligan: false,
       turns: 0,
-      power: [],
       planePlayed: false,
       planes: Array.from({ length: 6 }, (_, slot) => {
         const layout = options.context?.encounter?.planes;
         const h = layout?.[player]?.[slot];
-        return hexPlane(h?.types || [HEX_TERRAINS[slot]], 0, { locked: !!h?.locked });
+        return hexPlane([], 0, { locked: !!h?.locked });
       }),
     });
     if (!options.interactiveCoin) hexDraw(g, player, hexRules(g).opening);
@@ -171,7 +170,7 @@ function hexBeginTurn(g) {
   if (g.field) g.tasks.push({ kind: "fieldStart", owner: g.active });
   g.tasks.push(
     { kind: "draw", owner: g.active, skip: g.turn === 1 },
-    { kind: "power", owner: g.active },
+    { kind: "planeReset", owner: g.active },
     { kind: "phase", phase: "pre" },
   );
   hexPump(g);
@@ -321,7 +320,6 @@ function hexReactionCards(g, p) {
   return g.players[p].hand.filter(
     (c) =>
       !(c.blockedUntil >= g.turn) &&
-      hexPowerPayment(g, p, c) !== null &&
       (hexIsReaction(c) || hexKeyword(c, "ambush")) &&
       hexSpecialOptions(g, p, c, top).length,
   );
@@ -496,8 +494,8 @@ function hexSpecialOptions(g, p, c, f = g.stack.at(-1)) {
   return [];
 }
 function hexPlayOptions(g, p, card) {
+  if (hexDef(card)?.retired) return [];
   if (hexDef(card).generated_only) return [];
-  if (hexPowerPayment(g, p, card) === null) return [];
   if (card.blockedUntil >= g.turn) return [];
   if (
     hexKeyword(card, "ambush") &&
@@ -554,12 +552,10 @@ function hexPlay(g, p, uid, index = 0) {
   if (g.winner !== null) return false;
   const c = g.players[p].hand.find((c) => c.uid === uid);
   if (!c) return false;
+  if (hexDef(c).retired) return false;
   const options = hexPlayOptions(g, p, c),
     option = options[index];
   if (!option) return false;
-  const payment = hexPowerPayment(g, p, c);
-  if (payment === null) return false;
-  g.players[p].power = g.players[p].power.filter((_, i) => !payment.includes(i));
   if (hexType(c, "Plane")) {
     hexDiscardFromHand(g, p, uid);
     hexSetPlane(g, p, option.slot, c, true);
@@ -629,10 +625,7 @@ function hexDeclare(g, p, attacker, target) {
 }
 function hexNext(g, p) {
   if (p !== g.active || g.winner !== null || g.stack.length || g.choice) return false;
-  if (g.phase === "power") {
-    g.tasks.push({ kind: "phase", phase: "pre" });
-    hexPump(g);
-  } else if (g.phase === "pre") {
+  if (g.phase === "pre") {
     g.phase = "combat";
     g.combatParticipants = [];
     hexPlaneCombat(g, p);

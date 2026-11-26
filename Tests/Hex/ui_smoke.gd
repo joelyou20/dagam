@@ -80,7 +80,7 @@ func _run():
 			"""
 		(() => {
 		 const g = Hex.dispatch({op:'save'}).game, player = g.players[0];
-		 player.power = Array.from({length:30}, () => [...HEX_TERRAINS]);
+
 		 player.planes = Array.from({length:6}, () => hexPlane(HEX_TERRAINS, 0));
 		 if (!player.hand.some(c => hexType(c, 'Creature'))) {
 		   const index = player.deck.findIndex(c => hexType(c, 'Creature'));

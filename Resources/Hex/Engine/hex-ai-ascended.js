@@ -15,7 +15,6 @@ function hexBotPlayKey(g, side, uid, index) {
     index,
     phase: g.phase,
     planes: pl.planes,
-    power: pl.power,
     hand: pl.hand,
     board: pl.board,
     artifacts: pl.artifacts,
@@ -77,7 +76,7 @@ function hexAscendedValue(g, side) {
   const score = (p) => {
     const pl = g.players[p];
     let v =
-      pl.planes.reduce((sum, h) => sum + h.level * 3, 0) -
+      pl.planes.reduce((sum, h) => sum + (h.id ? 2 : 0), 0) -
       pl.losses * 24 -
       (pl.exposure || 0) * 14 +
       pl.hand.length * 1.6 +
@@ -144,10 +143,10 @@ function hexAscendedActions(g, side) {
       (c) => c && hexElderNum(c) === 13 && hexReady(g, c) && hexLegalTargets(g, c).length,
     );
   const out = forced ? [] : [{ kind: "next", hint: -1 }];
-  if (["power", "pre", "post"].includes(g.phase)) {
+  if (["pre", "post"].includes(g.phase)) {
     for (const c of g.players[side].hand) {
       if (hexIsReaction(c)) continue;
-      // With no companion, Hawk can only return itself and waste its casting Power.
+      // With no companion, Hawk can only return itself and lose its tempo.
       if (hexElderNum(c) === 17 && !g.players[side].board.some(Boolean)) continue;
       for (const [index, o] of hexPlayOptions(g, side, c).entries())
         if (

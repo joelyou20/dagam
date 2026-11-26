@@ -20,13 +20,7 @@
         "value": 1
       }
     ],
-    "cost": {
-      "Light": 1
-    },
-    "terrain_types": [
-      "Light",
-      "Sky"
-    ]
+    "deckLimit": 2
   },
   {
     "number": 2,
@@ -48,14 +42,7 @@
         "id": "stunning"
       }
     ],
-    "cost": {
-      "Earth": 1,
-      "Any": 1
-    },
-    "terrain_types": [
-      "Earth",
-      "Light"
-    ]
+    "deckLimit": 2
   },
   {
     "number": 3,
@@ -73,14 +60,7 @@
       "Eel"
     ],
     "keywords": [],
-    "cost": {
-      "Dark": 1,
-      "Any": 1
-    },
-    "terrain_types": [
-      "Dark",
-      "Earth"
-    ]
+    "deckLimit": 2
   },
   {
     "number": 4,
@@ -98,13 +78,7 @@
       "Owl"
     ],
     "keywords": [],
-    "cost": {
-      "Sky": 1
-    },
-    "terrain_types": [
-      "Sky",
-      "Water"
-    ]
+    "deckLimit": 2
   },
   {
     "number": 5,
@@ -121,13 +95,7 @@
       "Dragon"
     ],
     "keywords": [],
-    "cost": {
-      "Fire": 1
-    },
-    "terrain_types": [
-      "Fire",
-      "Earth"
-    ]
+    "deckLimit": 2
   },
   {
     "number": 6,
@@ -145,14 +113,7 @@
       "Mouse"
     ],
     "keywords": [],
-    "cost": {
-      "Earth": 1,
-      "Any": 1
-    },
-    "terrain_types": [
-      "Earth",
-      "Light"
-    ]
+    "deckLimit": 2
   },
   {
     "number": 7,
@@ -170,14 +131,7 @@
       "Phoenix"
     ],
     "keywords": [],
-    "cost": {
-      "Fire": 1,
-      "Any": 1
-    },
-    "terrain_types": [
-      "Fire",
-      "Earth"
-    ]
+    "deckLimit": 2
   },
   {
     "number": 8,
@@ -195,14 +149,7 @@
       "Golem"
     ],
     "keywords": [],
-    "cost": {
-      "Dark": 1,
-      "Any": 1
-    },
-    "terrain_types": [
-      "Dark",
-      "Earth"
-    ]
+    "deckLimit": 2
   },
   {
     "number": 9,
@@ -220,13 +167,7 @@
       "Mage"
     ],
     "keywords": [],
-    "cost": {
-      "Dark": 1
-    },
-    "terrain_types": [
-      "Dark",
-      "Earth"
-    ]
+    "deckLimit": 2
   },
   {
     "number": 10,
@@ -244,13 +185,7 @@
       "Guardian"
     ],
     "keywords": [],
-    "cost": {
-      "Earth": 1
-    },
-    "terrain_types": [
-      "Earth",
-      "Light"
-    ]
+    "deckLimit": 2
   },
   {
     "number": 11,
@@ -267,13 +202,7 @@
       "Fungus"
     ],
     "keywords": [],
-    "cost": {
-      "Water": 1
-    },
-    "terrain_types": [
-      "Water",
-      "Sky"
-    ]
+    "deckLimit": 2
   },
   {
     "number": 12,
@@ -291,14 +220,7 @@
       "Stag"
     ],
     "keywords": [],
-    "cost": {
-      "Light": 1,
-      "Any": 1
-    },
-    "terrain_types": [
-      "Light",
-      "Sky"
-    ]
+    "deckLimit": 2
   },
   {
     "number": 13,
@@ -324,13 +246,7 @@
         "value": 1
       }
     ],
-    "cost": {
-      "Fire": 1
-    },
-    "terrain_types": [
-      "Fire",
-      "Earth"
-    ]
+    "deckLimit": 2
   },
   {
     "number": 14,
@@ -352,13 +268,7 @@
         "id": "sprint"
       }
     ],
-    "cost": {
-      "Earth": 1
-    },
-    "terrain_types": [
-      "Earth",
-      "Light"
-    ]
+    "deckLimit": 2
   },
   {
     "number": 15,
@@ -376,14 +286,7 @@
       "Sovereign"
     ],
     "keywords": [],
-    "cost": {
-      "Sky": 1,
-      "Any": 1
-    },
-    "terrain_types": [
-      "Sky",
-      "Water"
-    ]
+    "deckLimit": 2
   },
   {
     "number": 16,
@@ -401,14 +304,7 @@
       "Salamander"
     ],
     "keywords": [],
-    "cost": {
-      "Fire": 1,
-      "Any": 1
-    },
-    "terrain_types": [
-      "Fire",
-      "Earth"
-    ]
+    "deckLimit": 2
   },
   {
     "number": 17,
@@ -425,13 +321,7 @@
       "Slime"
     ],
     "keywords": [],
-    "cost": {
-      "Water": 1
-    },
-    "terrain_types": [
-      "Water",
-      "Sky"
-    ]
+    "deckLimit": 2
   },
   {
     "number": 18,
@@ -449,13 +339,7 @@
       "Archer"
     ],
     "keywords": [],
-    "cost": {
-      "Fire": 1
-    },
-    "terrain_types": [
-      "Fire",
-      "Earth"
-    ]
+    "deckLimit": 2
   },
   {
     "number": 19,
@@ -473,13 +357,7 @@
       "Wind"
     ],
     "keywords": [],
-    "cost": {
-      "Earth": 1
-    },
-    "terrain_types": [
-      "Earth",
-      "Light"
-    ]
+    "deckLimit": 2
   },
   {
     "number": 20,
@@ -497,14 +375,7 @@
       "Serpent"
     ],
     "keywords": [],
-    "cost": {
-      "Sky": 1,
-      "Any": 1
-    },
-    "terrain_types": [
-      "Sky",
-      "Water"
-    ]
+    "deckLimit": 2
   },
   {
     "number": 21,
@@ -522,13 +393,7 @@
       "Sentinel"
     ],
     "keywords": [],
-    "cost": {
-      "Earth": 1
-    },
-    "terrain_types": [
-      "Earth",
-      "Light"
-    ]
+    "deckLimit": 2
   },
   {
     "number": 22,
@@ -550,13 +415,7 @@
         "id": "ranged"
       }
     ],
-    "cost": {
-      "Dark": 1
-    },
-    "terrain_types": [
-      "Dark",
-      "Earth"
-    ]
+    "deckLimit": 2
   },
   {
     "number": 23,
@@ -570,9 +429,7 @@
     "hp": null,
     "set": "first-light",
     "keywords": [],
-    "cost": {
-      "Dark": 1
-    }
+    "deckLimit": 2
   },
   {
     "number": 24,
@@ -590,14 +447,7 @@
       "Crab"
     ],
     "keywords": [],
-    "cost": {
-      "Water": 1,
-      "Any": 1
-    },
-    "terrain_types": [
-      "Water",
-      "Sky"
-    ]
+    "deckLimit": 2
   },
   {
     "number": 25,
@@ -611,9 +461,7 @@
     "hp": null,
     "set": "first-light",
     "keywords": [],
-    "cost": {
-      "Earth": 1
-    }
+    "deckLimit": 2
   },
   {
     "number": 26,
@@ -635,14 +483,7 @@
         "id": "stunning"
       }
     ],
-    "cost": {
-      "Water": 1,
-      "Any": 1
-    },
-    "terrain_types": [
-      "Water",
-      "Sky"
-    ]
+    "deckLimit": 2
   },
   {
     "number": 27,
@@ -660,13 +501,7 @@
       "Moth"
     ],
     "keywords": [],
-    "cost": {
-      "Light": 1
-    },
-    "terrain_types": [
-      "Light",
-      "Sky"
-    ]
+    "deckLimit": 2
   },
   {
     "number": 28,
@@ -680,9 +515,7 @@
     "hp": null,
     "set": "first-light",
     "keywords": [],
-    "cost": {
-      "Fire": 1
-    }
+    "deckLimit": 2
   },
   {
     "number": 29,
@@ -704,13 +537,7 @@
         "id": "packbond"
       }
     ],
-    "cost": {
-      "Earth": 1
-    },
-    "terrain_types": [
-      "Earth",
-      "Light"
-    ]
+    "deckLimit": 2
   },
   {
     "number": 30,
@@ -732,14 +559,7 @@
         "id": "resilient"
       }
     ],
-    "cost": {
-      "Dark": 2,
-      "Any": 1
-    },
-    "terrain_types": [
-      "Dark",
-      "Earth"
-    ]
+    "deckLimit": 2
   },
   {
     "number": 31,
@@ -753,9 +573,7 @@
     "hp": null,
     "set": "first-light",
     "keywords": [],
-    "cost": {
-      "Earth": 1
-    }
+    "deckLimit": 2
   },
   {
     "number": 32,
@@ -773,13 +591,7 @@
       "Alchemist"
     ],
     "keywords": [],
-    "cost": {
-      "Fire": 1
-    },
-    "terrain_types": [
-      "Fire",
-      "Earth"
-    ]
+    "deckLimit": 2
   },
   {
     "number": 33,
@@ -793,9 +605,7 @@
     "hp": null,
     "set": "first-light",
     "keywords": [],
-    "cost": {
-      "Sky": 1
-    }
+    "deckLimit": 2
   },
   {
     "number": 34,
@@ -809,9 +619,7 @@
     "hp": null,
     "set": "first-light",
     "keywords": [],
-    "cost": {
-      "Light": 1
-    }
+    "deckLimit": 2
   },
   {
     "number": 35,
@@ -825,9 +633,7 @@
     "hp": null,
     "set": "first-light",
     "keywords": [],
-    "cost": {
-      "Light": 1
-    }
+    "deckLimit": 2
   },
   {
     "number": 36,
@@ -845,13 +651,7 @@
       "Storm"
     ],
     "keywords": [],
-    "cost": {
-      "Sky": 1
-    },
-    "terrain_types": [
-      "Sky",
-      "Water"
-    ]
+    "deckLimit": 2
   },
   {
     "number": 37,
@@ -865,9 +665,7 @@
     "hp": null,
     "set": "first-light",
     "keywords": [],
-    "cost": {
-      "Earth": 1
-    }
+    "deckLimit": 2
   },
   {
     "number": 38,
@@ -881,9 +679,7 @@
     "hp": null,
     "set": "first-light",
     "keywords": [],
-    "cost": {
-      "Water": 1
-    }
+    "deckLimit": 2
   },
   {
     "number": 39,
@@ -897,9 +693,7 @@
     "hp": null,
     "set": "first-light",
     "keywords": [],
-    "cost": {
-      "Fire": 1
-    }
+    "deckLimit": 2
   },
   {
     "number": 40,
@@ -913,9 +707,7 @@
     "hp": null,
     "set": "first-light",
     "keywords": [],
-    "cost": {
-      "Water": 1
-    }
+    "deckLimit": 2
   },
   {
     "number": 41,
@@ -933,13 +725,7 @@
       "Fox"
     ],
     "keywords": [],
-    "cost": {
-      "Sky": 1
-    },
-    "terrain_types": [
-      "Sky",
-      "Water"
-    ]
+    "deckLimit": 2
   },
   {
     "number": 42,
@@ -953,9 +739,7 @@
     "hp": null,
     "set": "first-light",
     "keywords": [],
-    "cost": {
-      "Any": 1
-    }
+    "deckLimit": 2
   },
   {
     "number": 43,
@@ -969,9 +753,7 @@
     "hp": null,
     "set": "first-light",
     "keywords": [],
-    "cost": {
-      "Light": 1
-    }
+    "deckLimit": 2
   },
   {
     "number": 44,
@@ -985,9 +767,7 @@
     "hp": null,
     "set": "first-light",
     "keywords": [],
-    "cost": {
-      "Light": 1
-    }
+    "deckLimit": 2
   },
   {
     "number": 45,
@@ -1001,9 +781,7 @@
     "hp": null,
     "set": "first-light",
     "keywords": [],
-    "cost": {
-      "Sky": 1
-    }
+    "deckLimit": 2
   },
   {
     "number": 46,
@@ -1017,9 +795,7 @@
     "hp": null,
     "set": "first-light",
     "keywords": [],
-    "cost": {
-      "Dark": 1
-    }
+    "deckLimit": 2
   },
   {
     "number": 47,
@@ -1033,9 +809,7 @@
     "hp": null,
     "set": "first-light",
     "keywords": [],
-    "cost": {
-      "Earth": 1
-    }
+    "deckLimit": 2
   },
   {
     "number": 48,
@@ -1049,9 +823,7 @@
     "hp": null,
     "set": "first-light",
     "keywords": [],
-    "cost": {
-      "Earth": 1
-    }
+    "deckLimit": 2
   },
   {
     "number": 49,
@@ -1065,9 +837,7 @@
     "hp": null,
     "set": "first-light",
     "keywords": [],
-    "cost": {
-      "Fire": 1
-    }
+    "deckLimit": 2
   },
   {
     "number": 50,
@@ -1081,9 +851,7 @@
     "hp": null,
     "set": "first-light",
     "keywords": [],
-    "cost": {
-      "Sky": 1
-    }
+    "deckLimit": 2
   },
   {
     "number": 51,
@@ -1101,14 +869,7 @@
       "Tortoise"
     ],
     "keywords": [],
-    "cost": {
-      "Earth": 1,
-      "Any": 1
-    },
-    "terrain_types": [
-      "Light",
-      "Sky"
-    ]
+    "deckLimit": 2
   },
   {
     "number": 52,
@@ -1122,9 +883,7 @@
     "hp": null,
     "set": "first-light",
     "keywords": [],
-    "cost": {
-      "Sky": 1
-    }
+    "deckLimit": 2
   },
   {
     "number": 53,
@@ -1138,9 +897,7 @@
     "hp": null,
     "set": "first-light",
     "keywords": [],
-    "cost": {
-      "Fire": 1
-    }
+    "deckLimit": 2
   },
   {
     "number": 54,
@@ -1154,9 +911,7 @@
     "hp": null,
     "set": "first-light",
     "keywords": [],
-    "cost": {
-      "Sky": 1
-    }
+    "deckLimit": 2
   },
   {
     "number": 55,
@@ -1170,9 +925,7 @@
     "hp": null,
     "set": "first-light",
     "keywords": [],
-    "cost": {
-      "Any": 1
-    }
+    "deckLimit": 2
   },
   {
     "number": 56,
@@ -1186,9 +939,7 @@
     "hp": null,
     "set": "first-light",
     "keywords": [],
-    "cost": {
-      "Earth": 1
-    }
+    "deckLimit": 2
   },
   {
     "number": 57,
@@ -1202,9 +953,7 @@
     "hp": null,
     "set": "first-light",
     "keywords": [],
-    "cost": {
-      "Light": 1
-    }
+    "deckLimit": 2
   },
   {
     "number": 58,
@@ -1218,9 +967,7 @@
     "hp": null,
     "set": "first-light",
     "keywords": [],
-    "cost": {
-      "Light": 1
-    }
+    "deckLimit": 2
   },
   {
     "number": 59,
@@ -1234,9 +981,7 @@
     "hp": null,
     "set": "first-light",
     "keywords": [],
-    "cost": {
-      "Earth": 1
-    }
+    "deckLimit": 2
   },
   {
     "number": 60,
@@ -1250,10 +995,7 @@
     "hp": null,
     "set": "first-light",
     "keywords": [],
-    "cost": {
-      "Sky": 1,
-      "Any": 1
-    }
+    "deckLimit": 2
   },
   {
     "number": 61,
@@ -1267,9 +1009,7 @@
     "hp": null,
     "set": "first-light",
     "keywords": [],
-    "cost": {
-      "Water": 1
-    }
+    "deckLimit": 2
   },
   {
     "number": 62,
@@ -1283,9 +1023,7 @@
     "hp": null,
     "set": "first-light",
     "keywords": [],
-    "cost": {
-      "Earth": 1
-    }
+    "deckLimit": 2
   },
   {
     "number": 63,
@@ -1299,9 +1037,7 @@
     "hp": null,
     "set": "first-light",
     "keywords": [],
-    "cost": {
-      "Sky": 1
-    }
+    "deckLimit": 2
   },
   {
     "number": 64,
@@ -1315,9 +1051,7 @@
     "hp": null,
     "set": "first-light",
     "keywords": [],
-    "cost": {
-      "Dark": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "SA-001",
@@ -1330,9 +1064,7 @@
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
-    "cost": {
-      "Sky": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "SA-002",
@@ -1345,9 +1077,7 @@
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
-    "cost": {
-      "Sky": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "SA-003",
@@ -1360,9 +1090,7 @@
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
-    "cost": {
-      "Water": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "SA-004",
@@ -1375,9 +1103,7 @@
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
-    "cost": {
-      "Dark": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "SA-005",
@@ -1390,9 +1116,7 @@
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
-    "cost": {
-      "Fire": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "SA-006",
@@ -1405,9 +1129,7 @@
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
-    "cost": {
-      "Sky": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "SA-007",
@@ -1420,9 +1142,7 @@
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
-    "cost": {
-      "Light": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "SA-008",
@@ -1435,10 +1155,7 @@
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
-    "cost": {
-      "Water": 1,
-      "Any": 2
-    }
+    "deckLimit": 2
   },
   {
     "id": "SA-009",
@@ -1451,9 +1168,7 @@
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
-    "cost": {
-      "Light": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "SA-010",
@@ -1466,10 +1181,7 @@
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
-    "cost": {
-      "Sky": 1,
-      "Any": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "SA-011",
@@ -1482,9 +1194,7 @@
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
-    "cost": {
-      "Water": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "SA-012",
@@ -1497,9 +1207,7 @@
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
-    "cost": {
-      "Earth": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "SA-013",
@@ -1512,9 +1220,7 @@
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
-    "cost": {
-      "Dark": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "SA-014",
@@ -1527,9 +1233,7 @@
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
-    "cost": {
-      "Sky": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "SA-015",
@@ -1542,10 +1246,7 @@
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
-    "cost": {
-      "Dark": 1,
-      "Any": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "SA-016",
@@ -1558,9 +1259,7 @@
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
-    "cost": {
-      "Light": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "SA-017",
@@ -1573,9 +1272,7 @@
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
-    "cost": {
-      "Fire": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "SA-018",
@@ -1588,10 +1285,7 @@
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
-    "cost": {
-      "Light": 1,
-      "Any": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "SA-019",
@@ -1604,9 +1298,7 @@
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
-    "cost": {
-      "Water": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "SA-020",
@@ -1619,10 +1311,7 @@
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
-    "cost": {
-      "Earth": 1,
-      "Any": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "SA-021",
@@ -1635,10 +1324,7 @@
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
-    "cost": {
-      "Dark": 1,
-      "Any": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "SA-022",
@@ -1651,9 +1337,7 @@
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
-    "cost": {
-      "Dark": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "SA-023",
@@ -1666,10 +1350,7 @@
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
-    "cost": {
-      "Dark": 1,
-      "Any": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "SA-024",
@@ -1682,10 +1363,7 @@
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
-    "cost": {
-      "Light": 1,
-      "Any": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "SA-025",
@@ -1698,10 +1376,7 @@
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
-    "cost": {
-      "Water": 1,
-      "Any": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "SA-026",
@@ -1714,10 +1389,7 @@
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
-    "cost": {
-      "Dark": 1,
-      "Any": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "SA-027",
@@ -1730,10 +1402,7 @@
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
-    "cost": {
-      "Sky": 1,
-      "Any": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "SA-028",
@@ -1746,10 +1415,7 @@
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
-    "cost": {
-      "Sky": 1,
-      "Any": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "SA-029",
@@ -1762,10 +1428,7 @@
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
-    "cost": {
-      "Dark": 2,
-      "Any": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "SA-030",
@@ -1778,9 +1441,7 @@
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
-    "cost": {
-      "Sky": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "SA-031",
@@ -1793,10 +1454,7 @@
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
-    "cost": {
-      "Sky": 1,
-      "Any": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "SA-032",
@@ -1809,9 +1467,7 @@
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
-    "cost": {
-      "Water": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "SA-033",
@@ -1824,10 +1480,7 @@
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
-    "cost": {
-      "Sky": 1,
-      "Any": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "SA-034",
@@ -1840,9 +1493,7 @@
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
-    "cost": {
-      "Sky": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "SA-035",
@@ -1855,9 +1506,7 @@
     "attack": null,
     "hp": null,
     "set": "shattered-arcana",
-    "cost": {
-      "Sky": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "SA-036",
@@ -1874,13 +1523,7 @@
       "Goblin",
       "Mage"
     ],
-    "cost": {
-      "Any": 1
-    },
-    "terrain_types": [
-      "Sky",
-      "Water"
-    ]
+    "deckLimit": 2
   },
   {
     "id": "SA-037",
@@ -1907,13 +1550,7 @@
         "value": 1
       }
     ],
-    "cost": {
-      "Water": 1
-    },
-    "terrain_types": [
-      "Light",
-      "Sky"
-    ]
+    "deckLimit": 2
   },
   {
     "id": "SA-038",
@@ -1929,13 +1566,7 @@
     "types": [
       "Fairie"
     ],
-    "cost": {
-      "Water": 1
-    },
-    "terrain_types": [
-      "Water",
-      "Sky"
-    ]
+    "deckLimit": 2
   },
   {
     "id": "SA-039",
@@ -1952,13 +1583,7 @@
       "Goblin",
       "Mage"
     ],
-    "cost": {
-      "Any": 1
-    },
-    "terrain_types": [
-      "Dark",
-      "Earth"
-    ]
+    "deckLimit": 2
   },
   {
     "id": "SA-040",
@@ -1980,13 +1605,7 @@
         "id": "sprint"
       }
     ],
-    "cost": {
-      "Sky": 1
-    },
-    "terrain_types": [
-      "Fire",
-      "Earth"
-    ]
+    "deckLimit": 2
   },
   {
     "id": "SA-041",
@@ -2003,13 +1622,7 @@
       "Insect",
       "Beetle"
     ],
-    "cost": {
-      "Dark": 1
-    },
-    "terrain_types": [
-      "Dark",
-      "Earth"
-    ]
+    "deckLimit": 2
   },
   {
     "id": "SA-042",
@@ -2026,13 +1639,7 @@
       "Undead",
       "Mage"
     ],
-    "cost": {
-      "Water": 1
-    },
-    "terrain_types": [
-      "Water",
-      "Sky"
-    ]
+    "deckLimit": 2
   },
   {
     "id": "SA-043",
@@ -2049,14 +1656,7 @@
       "Elemental",
       "Mage"
     ],
-    "cost": {
-      "Sky": 1,
-      "Any": 1
-    },
-    "terrain_types": [
-      "Sky",
-      "Water"
-    ]
+    "deckLimit": 2
   },
   {
     "id": "SA-044",
@@ -2073,14 +1673,7 @@
       "Dragon",
       "Mage"
     ],
-    "cost": {
-      "Water": 1,
-      "Any": 1
-    },
-    "terrain_types": [
-      "Light",
-      "Sky"
-    ]
+    "deckLimit": 2
   },
   {
     "id": "SA-045",
@@ -2097,14 +1690,7 @@
       "Construct",
       "Mage"
     ],
-    "cost": {
-      "Water": 1,
-      "Any": 1
-    },
-    "terrain_types": [
-      "Dark",
-      "Earth"
-    ]
+    "deckLimit": 2
   },
   {
     "id": "SA-046",
@@ -2121,14 +1707,7 @@
       "Wiskin",
       "Soldier"
     ],
-    "cost": {
-      "Earth": 1,
-      "Any": 1
-    },
-    "terrain_types": [
-      "Earth",
-      "Light"
-    ]
+    "deckLimit": 2
   },
   {
     "id": "SA-047",
@@ -2145,14 +1724,7 @@
       "Voidling",
       "Mage"
     ],
-    "cost": {
-      "Sky": 1,
-      "Any": 2
-    },
-    "terrain_types": [
-      "Dark",
-      "Earth"
-    ]
+    "deckLimit": 2
   },
   {
     "id": "WE-001",
@@ -2169,13 +1741,7 @@
     "types": [
       "Goblin"
     ],
-    "cost": {
-      "Earth": 1
-    },
-    "terrain_types": [
-      "Earth",
-      "Light"
-    ]
+    "deckLimit": 2
   },
   {
     "id": "WE-002",
@@ -2192,13 +1758,7 @@
     "types": [
       "Dragon"
     ],
-    "cost": {
-      "Fire": 1
-    },
-    "terrain_types": [
-      "Fire",
-      "Earth"
-    ]
+    "deckLimit": 2
   },
   {
     "id": "WE-003",
@@ -2216,13 +1776,7 @@
       "Goblin",
       "Mage"
     ],
-    "cost": {
-      "Fire": 1
-    },
-    "terrain_types": [
-      "Fire",
-      "Earth"
-    ]
+    "deckLimit": 2
   },
   {
     "id": "WE-004",
@@ -2239,13 +1793,7 @@
     "types": [
       "Goblin"
     ],
-    "cost": {
-      "Fire": 1
-    },
-    "terrain_types": [
-      "Fire",
-      "Earth"
-    ]
+    "deckLimit": 2
   },
   {
     "id": "WE-005",
@@ -2263,13 +1811,7 @@
       "Beast",
       "Warg"
     ],
-    "cost": {
-      "Earth": 1
-    },
-    "terrain_types": [
-      "Earth",
-      "Light"
-    ]
+    "deckLimit": 2
   },
   {
     "id": "WE-006",
@@ -2290,13 +1832,7 @@
     "types": [
       "Elemental"
     ],
-    "cost": {
-      "Fire": 1
-    },
-    "terrain_types": [
-      "Fire",
-      "Earth"
-    ]
+    "deckLimit": 2
   },
   {
     "id": "WE-007",
@@ -2313,13 +1849,7 @@
     "types": [
       "Goblin"
     ],
-    "cost": {
-      "Fire": 1
-    },
-    "terrain_types": [
-      "Fire",
-      "Earth"
-    ]
+    "deckLimit": 2
   },
   {
     "id": "WE-008",
@@ -2342,13 +1872,7 @@
       "Wiskin",
       "Soldier"
     ],
-    "cost": {
-      "Earth": 1
-    },
-    "terrain_types": [
-      "Earth",
-      "Light"
-    ]
+    "deckLimit": 2
   },
   {
     "id": "WE-009",
@@ -2365,13 +1889,7 @@
     "types": [
       "Wiskin"
     ],
-    "cost": {
-      "Earth": 1
-    },
-    "terrain_types": [
-      "Earth",
-      "Light"
-    ]
+    "deckLimit": 2
   },
   {
     "id": "WE-010",
@@ -2389,13 +1907,7 @@
       "Wiskin",
       "Cleric"
     ],
-    "cost": {
-      "Light": 1
-    },
-    "terrain_types": [
-      "Light",
-      "Sky"
-    ]
+    "deckLimit": 2
   },
   {
     "id": "WE-011",
@@ -2413,14 +1925,7 @@
       "Beast",
       "Cat"
     ],
-    "cost": {
-      "Earth": 1,
-      "Any": 1
-    },
-    "terrain_types": [
-      "Dark",
-      "Earth"
-    ]
+    "deckLimit": 2
   },
   {
     "id": "WE-012",
@@ -2438,13 +1943,7 @@
       "Wiskin",
       "Soldier"
     ],
-    "cost": {
-      "Light": 1
-    },
-    "terrain_types": [
-      "Light",
-      "Sky"
-    ]
+    "deckLimit": 2
   },
   {
     "id": "WE-013",
@@ -2461,13 +1960,7 @@
     "types": [
       "Beast"
     ],
-    "cost": {
-      "Earth": 1
-    },
-    "terrain_types": [
-      "Earth",
-      "Light"
-    ]
+    "deckLimit": 2
   },
   {
     "id": "WE-014",
@@ -2484,14 +1977,7 @@
     "types": [
       "Construct"
     ],
-    "cost": {
-      "Earth": 1,
-      "Any": 1
-    },
-    "terrain_types": [
-      "Earth",
-      "Light"
-    ]
+    "deckLimit": 2
   },
   {
     "id": "WE-015",
@@ -2509,14 +1995,7 @@
       "Wiskin",
       "Goblin"
     ],
-    "cost": {
-      "Earth": 1,
-      "Any": 1
-    },
-    "terrain_types": [
-      "Fire",
-      "Earth"
-    ]
+    "deckLimit": 2
   },
   {
     "id": "WE-016",
@@ -2537,13 +2016,7 @@
     "types": [
       "Assassin"
     ],
-    "cost": {
-      "Dark": 1
-    },
-    "terrain_types": [
-      "Dark",
-      "Earth"
-    ]
+    "deckLimit": 2
   },
   {
     "id": "WE-017",
@@ -2560,13 +2033,7 @@
     "types": [
       "Bird"
     ],
-    "cost": {
-      "Sky": 1
-    },
-    "terrain_types": [
-      "Sky",
-      "Water"
-    ]
+    "deckLimit": 2
   },
   {
     "id": "WE-018",
@@ -2590,14 +2057,7 @@
     "types": [
       "Wiskin"
     ],
-    "cost": {
-      "Earth": 2,
-      "Any": 1
-    },
-    "terrain_types": [
-      "Earth",
-      "Light"
-    ]
+    "deckLimit": 2
   },
   {
     "id": "WE-019",
@@ -2615,13 +2075,7 @@
       "Goblin",
       "Mage"
     ],
-    "cost": {
-      "Fire": 1
-    },
-    "terrain_types": [
-      "Fire",
-      "Earth"
-    ]
+    "deckLimit": 2
   },
   {
     "id": "WE-020",
@@ -2633,10 +2087,7 @@
     "rarity": "Uncommon",
     "rules": "Wiskin gain Restore 1",
     "keywords": [],
-    "cost": {
-      "Earth": 1,
-      "Any": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "WE-021",
@@ -2648,10 +2099,7 @@
     "rarity": "Uncommon",
     "rules": "Goblins gain Sprint",
     "keywords": [],
-    "cost": {
-      "Fire": 1,
-      "Any": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "WE-022",
@@ -2663,10 +2111,7 @@
     "rarity": "Uncommon",
     "rules": "Whenever a Goblin dies, draw a card",
     "keywords": [],
-    "cost": {
-      "Fire": 1,
-      "Any": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "WE-023",
@@ -2678,9 +2123,7 @@
     "rarity": "Uncommon",
     "rules": "+1 Attack. Also, if this is equipped to a Wiskin, whenever the equipped creature defeats an enemy draw 1 card",
     "keywords": [],
-    "cost": {
-      "Earth": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "WE-024",
@@ -2698,14 +2141,7 @@
       "Goblin",
       "Chieftain"
     ],
-    "cost": {
-      "Fire": 1,
-      "Any": 1
-    },
-    "terrain_types": [
-      "Fire",
-      "Earth"
-    ]
+    "deckLimit": 2
   },
   {
     "id": "WE-025",
@@ -2728,14 +2164,7 @@
       "Wiskin",
       "Knight"
     ],
-    "cost": {
-      "Light": 1,
-      "Any": 1
-    },
-    "terrain_types": [
-      "Light",
-      "Sky"
-    ]
+    "deckLimit": 2
   },
   {
     "id": "WE-026",
@@ -2757,14 +2186,7 @@
       "Goblin",
       "Knight"
     ],
-    "cost": {
-      "Fire": 1,
-      "Any": 2
-    },
-    "terrain_types": [
-      "Fire",
-      "Earth"
-    ]
+    "deckLimit": 2
   },
   {
     "id": "WE-027",
@@ -2782,14 +2204,7 @@
       "Wiskin",
       "Captain"
     ],
-    "cost": {
-      "Light": 1,
-      "Any": 2
-    },
-    "terrain_types": [
-      "Sky",
-      "Water"
-    ]
+    "deckLimit": 2
   },
   {
     "id": "WE-028",
@@ -2801,10 +2216,7 @@
     "rarity": "Legendary",
     "rules": "Creatures the enemy plays enter stunned",
     "keywords": [],
-    "cost": {
-      "Dark": 2,
-      "Any": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "WE-029",
@@ -2816,9 +2228,7 @@
     "rarity": "Uncommon",
     "rules": "Equipped creature splits damage between itself and any other friendly creature equipped with Shackles of Nim. For odd numbered damage, the targetted friendly creature will take the higher of the two split values.",
     "keywords": [],
-    "cost": {
-      "Any": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "WE-030",
@@ -2830,10 +2240,7 @@
     "rarity": "Rare",
     "rules": "Equipped creature gains Resilient and +1 Attack",
     "keywords": [],
-    "cost": {
-      "Light": 1,
-      "Any": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "WE-031",
@@ -2845,9 +2252,7 @@
     "rarity": "Epic",
     "rules": "Equipped creature's Attack is equal to the highest attack among other active friendly creatures",
     "keywords": [],
-    "cost": {
-      "Earth": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "WE-032",
@@ -2859,10 +2264,7 @@
     "rarity": "Rare",
     "rules": "Equipped creature gains Stalwart 2. If the Equipped creature dies, Torn Banner becomes an Artifact and you must choose one of your artifact slots to assign it. It's effect becomes \"Friendly creatures gain Stalwart 2\"",
     "keywords": [],
-    "cost": {
-      "Earth": 1,
-      "Any": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "WE-033",
@@ -2874,9 +2276,7 @@
     "rarity": "Uncommon",
     "rules": "Equipped creature ignores the effect of the active Battlefield card.",
     "keywords": [],
-    "cost": {
-      "Any": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "WE-034",
@@ -2888,9 +2288,7 @@
     "rarity": "Common",
     "rules": "Remove all Ward and Shield from a creature",
     "keywords": [],
-    "cost": {
-      "Dark": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "WE-035",
@@ -2902,9 +2300,7 @@
     "rarity": "Common",
     "rules": "Deal 1 damage to a friendly creature and 1 damage to each of the enemy creatures in the same lane opposite to the targetted friendly creature",
     "keywords": [],
-    "cost": {
-      "Fire": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "WE-036",
@@ -2916,9 +2312,7 @@
     "rarity": "Common",
     "rules": "Deal 2 damage to target friendly creature, Draw 3 cards",
     "keywords": [],
-    "cost": {
-      "Dark": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "WE-037",
@@ -2930,9 +2324,7 @@
     "rarity": "Uncommon",
     "rules": "Remove all negative statuses from a target friendly creature",
     "keywords": [],
-    "cost": {
-      "Light": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "WE-038",
@@ -2944,9 +2336,7 @@
     "rarity": "Uncommon",
     "rules": "Put one Artifact card from either discard pile into your hand. That card cannot be played until the next turn",
     "keywords": [],
-    "cost": {
-      "Earth": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "WE-039",
@@ -2958,9 +2348,7 @@
     "rarity": "Rare",
     "rules": "Grant 1 creature \"Invisible\" until next turn",
     "keywords": [],
-    "cost": {
-      "Dark": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "WE-040",
@@ -2972,10 +2360,7 @@
     "rarity": "Uncommon",
     "rules": "Draw 1 card, if that card is a creature card, play it immediately and it gains Sprint until end of turn",
     "keywords": [],
-    "cost": {
-      "Light": 1,
-      "Any": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "WE-041",
@@ -2987,9 +2372,7 @@
     "rarity": "Uncommon",
     "rules": "If the enemy player plays a creature of type \"Summon\", destroy that creature",
     "keywords": [],
-    "cost": {
-      "Sky": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "WE-042",
@@ -3001,9 +2384,7 @@
     "rarity": "Common",
     "rules": "Target creature's attack becomes 0 until end of turn",
     "keywords": [],
-    "cost": {
-      "Dark": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "WE-043",
@@ -3015,10 +2396,7 @@
     "rarity": "Epic",
     "rules": "The player with the most amount of active creatures sacrifices creatures until they have the same number of active creatures as the player with the least amount of active creatures",
     "keywords": [],
-    "cost": {
-      "Dark": 1,
-      "Any": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "WE-044",
@@ -3030,10 +2408,7 @@
     "rarity": "Legendary",
     "rules": "Return all friendly creatures that were put into the discard pile this turn back onto the battlefield. You may choose new placements for these creatures.",
     "keywords": [],
-    "cost": {
-      "Dark": 1,
-      "Any": 2
-    }
+    "deckLimit": 2
   },
   {
     "id": "WE-045",
@@ -3050,15 +2425,7 @@
     "types": [
       "Angel"
     ],
-    "deckLimit": 1,
-    "cost": {
-      "Light": 2,
-      "Any": 1
-    },
-    "terrain_types": [
-      "Light",
-      "Sky"
-    ]
+    "deckLimit": 1
   },
   {
     "id": "WE-046",
@@ -3070,10 +2437,7 @@
     "rarity": "Epic",
     "rules": "All allied creatures gain +2 Attack and Shield 2 until end of turn. Apply Stun to all affected creatures at the start of your next turn.",
     "keywords": [],
-    "cost": {
-      "Light": 1,
-      "Any": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "WE-047",
@@ -3085,10 +2449,7 @@
     "rarity": "Mythic",
     "rules": "When equipped creature attacks return a creature from your discard pile and put it into play in an empty slot, if there is one. That creature gains Sprint and is sacrificed at the end of the turn. Mythic: Removed from the game instead of entering a discard pile.",
     "keywords": [],
-    "cost": {
-      "Dark": 2,
-      "Any": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "WE-048",
@@ -3100,9 +2461,7 @@
     "rarity": "Rare",
     "rules": "Whenever the enemy draws their second card of the turn, you draw a card as well.",
     "keywords": [],
-    "cost": {
-      "Water": 1
-    }
+    "deckLimit": 2
   },
   {
     "id": "WE-049",
@@ -3114,10 +2473,7 @@
     "rarity": "Epic",
     "rules": "If the enemy puts a creature into play, you may play this card and gain control of the creature until the end of your next turn. That creature gains Sprint.",
     "keywords": [],
-    "cost": {
-      "Dark": 1,
-      "Any": 2
-    }
+    "deckLimit": 2
   },
   {
     "id": "FD-001",
@@ -3125,20 +2481,14 @@
     "name": "Earth",
     "rarity": "Common",
     "card_type": "Plane",
-    "subtype": "Earth",
-    "types": [
-      "Earth"
-    ],
-    "terrain_types": [
-      "Earth"
-    ],
+    "subtype": "Plane",
+    "types": [],
     "rules": "",
     "set": "foundations",
     "set_name": "Foundations",
-    "cost": {},
     "art_direction": "Sunlit ochre canyon with towering striated sandstone pillars, jade river ribbon far below, tiny distant caravan for scale. Sweeping low viewpoint, burnt sienna, cobalt and golden noon.",
-    "basic_plane": true,
-    "deckLimit": 30
+    "deckLimit": 2,
+    "retired": true
   },
   {
     "id": "FD-002",
@@ -3146,20 +2496,14 @@
     "name": "Sky",
     "rarity": "Common",
     "card_type": "Plane",
-    "subtype": "Sky",
-    "types": [
-      "Sky"
-    ],
-    "terrain_types": [
-      "Sky"
-    ],
+    "subtype": "Plane",
+    "types": [],
     "rules": "",
     "set": "foundations",
     "set_name": "Foundations",
-    "cost": {},
     "art_direction": "Immense open pale-blue sky above a thin sea of white clouds, towering sculptural cumulus lit pink from sunrise, lone tiny floating feather close foreground. Minimal expansive composition, airy cyan, pearl and rose.",
-    "basic_plane": true,
-    "deckLimit": 30
+    "deckLimit": 2,
+    "retired": true
   },
   {
     "id": "FD-003",
@@ -3167,20 +2511,14 @@
     "name": "Fire",
     "rarity": "Common",
     "card_type": "Plane",
-    "subtype": "Fire",
-    "types": [
-      "Fire"
-    ],
-    "terrain_types": [
-      "Fire"
-    ],
+    "subtype": "Plane",
+    "types": [],
     "rules": "",
     "set": "foundations",
     "set_name": "Foundations",
-    "cost": {},
     "art_direction": "Intimate ground-level view inside a volcanic lava cavern, molten orange river flowing around obsidian spires, black ceiling, smoke and flying sparks. Bold near-black versus white-hot orange, no green or purple.",
-    "basic_plane": true,
-    "deckLimit": 30
+    "deckLimit": 2,
+    "retired": true
   },
   {
     "id": "FD-004",
@@ -3188,20 +2526,14 @@
     "name": "Water",
     "rarity": "Common",
     "card_type": "Plane",
-    "subtype": "Water",
-    "types": [
-      "Water"
-    ],
-    "terrain_types": [
-      "Water"
-    ],
+    "subtype": "Plane",
+    "types": [],
     "rules": "",
     "set": "foundations",
     "set_name": "Foundations",
-    "cost": {},
     "art_direction": "Crystal-clear turquoise tropical lagoon seen half underwater: sun shafts, colourful coral foreground and distant limestone sea arches above waterline. Luminous aqua, coral red and deep marine blue.",
-    "basic_plane": true,
-    "deckLimit": 30
+    "deckLimit": 2,
+    "retired": true
   },
   {
     "id": "FD-005",
@@ -3209,20 +2541,14 @@
     "name": "Dark",
     "rarity": "Common",
     "card_type": "Plane",
-    "subtype": "Dark",
-    "types": [
-      "Dark"
-    ],
-    "terrain_types": [
-      "Dark"
-    ],
+    "subtype": "Plane",
+    "types": [],
     "rules": "",
     "set": "foundations",
     "set_name": "Foundations",
-    "cost": {},
     "art_direction": "Enormous abandoned gothic castle silhouetted on a jagged ridge beneath a starless eclipse, winding pale fog swallowing foreground. Extremely restrained charcoal, indigo and bone-white, dramatic negative space, no glowing purple crystals.",
-    "basic_plane": true,
-    "deckLimit": 30
+    "deckLimit": 2,
+    "retired": true
   },
   {
     "id": "FD-006",
@@ -3230,20 +2556,14 @@
     "name": "Light",
     "rarity": "Common",
     "card_type": "Plane",
-    "subtype": "Light",
-    "types": [
-      "Light"
-    ],
-    "terrain_types": [
-      "Light"
-    ],
+    "subtype": "Plane",
+    "types": [],
     "rules": "",
     "set": "foundations",
     "set_name": "Foundations",
-    "cost": {},
     "art_direction": "Radiant white-gold sun breaking over rolling fields of ivory flowers, prismatic motes and soft golden trees, close dewy petals foreground, horizon flooded with warm light. Cream, amber and pale mint, joyful exposure.",
-    "basic_plane": true,
-    "deckLimit": 30
+    "deckLimit": 2,
+    "retired": true
   },
   {
     "id": "FD-007",
@@ -3251,20 +2571,14 @@
     "name": "Floating Ruins",
     "rarity": "Uncommon",
     "card_type": "Plane",
-    "subtype": "Earth — Sky",
-    "types": [
-      "Earth",
-      "Sky"
-    ],
-    "terrain_types": [
-      "Earth",
-      "Sky"
-    ],
+    "subtype": "Plane",
+    "types": [],
     "rules": "",
     "set": "foundations",
     "set_name": "Foundations",
-    "cost": {},
-    "art_direction": "Aerial oblique view of broken ancient stone temples on floating moss-covered islands above a vast cloud abyss, cascading waterfalls vanish below, small hanging bridges. Weathered stone, emerald and azure, dizzying vertical scale."
+    "art_direction": "Aerial oblique view of broken ancient stone temples on floating moss-covered islands above a vast cloud abyss, cascading waterfalls vanish below, small hanging bridges. Weathered stone, emerald and azure, dizzying vertical scale.",
+    "retired": true,
+    "deckLimit": 2
   },
   {
     "id": "FD-008",
@@ -3272,20 +2586,14 @@
     "name": "Ashlands",
     "rarity": "Uncommon",
     "card_type": "Plane",
-    "subtype": "Earth — Fire",
-    "types": [
-      "Earth",
-      "Fire"
-    ],
-    "terrain_types": [
-      "Earth",
-      "Fire"
-    ],
+    "subtype": "Plane",
+    "types": [],
     "rules": "",
     "set": "foundations",
     "set_name": "Foundations",
-    "cost": {},
-    "art_direction": "Wide desolate black ash dunes crossing a red mesa desert, smoking fissures in foreground, a ruined watchtower nearly buried in ash, wind whips cinders under a copper storm sky. Rust, black and muted bronze, harsh diagonal composition."
+    "art_direction": "Wide desolate black ash dunes crossing a red mesa desert, smoking fissures in foreground, a ruined watchtower nearly buried in ash, wind whips cinders under a copper storm sky. Rust, black and muted bronze, harsh diagonal composition.",
+    "retired": true,
+    "deckLimit": 2
   },
   {
     "id": "FD-009",
@@ -3293,20 +2601,14 @@
     "name": "Sunken City",
     "rarity": "Uncommon",
     "card_type": "Plane",
-    "subtype": "Earth — Water",
-    "types": [
-      "Earth",
-      "Water"
-    ],
-    "terrain_types": [
-      "Earth",
-      "Water"
-    ],
+    "subtype": "Plane",
+    "types": [],
     "rules": "",
     "set": "foundations",
     "set_name": "Foundations",
-    "cost": {},
-    "art_direction": "Deep underwater boulevard of a submerged marble city, sea grass grows over statues and algae-covered stairs, gigantic domes recede into teal gloom, schools of silver fish and a distant whale. Tranquil blue-green and limestone white, street-level perspective."
+    "art_direction": "Deep underwater boulevard of a submerged marble city, sea grass grows over statues and algae-covered stairs, gigantic domes recede into teal gloom, schools of silver fish and a distant whale. Tranquil blue-green and limestone white, street-level perspective.",
+    "retired": true,
+    "deckLimit": 2
   },
   {
     "id": "FD-010",
@@ -3314,20 +2616,14 @@
     "name": "Crypt of Vailyn",
     "rarity": "Uncommon",
     "card_type": "Plane",
-    "subtype": "Earth — Dark",
-    "types": [
-      "Earth",
-      "Dark"
-    ],
-    "terrain_types": [
-      "Earth",
-      "Dark"
-    ],
+    "subtype": "Plane",
+    "types": [],
     "rules": "",
     "set": "foundations",
     "set_name": "Foundations",
-    "cost": {},
-    "art_direction": "Claustrophobic underground sepulchre of rough earth and roots, elaborately carved basalt sarcophagus at lower right, single cold green witch-flame illuminating engraved stone, bone dust in narrow light shaft. Moss-black and sickly pale green, close scale, no skull piles."
+    "art_direction": "Claustrophobic underground sepulchre of rough earth and roots, elaborately carved basalt sarcophagus at lower right, single cold green witch-flame illuminating engraved stone, bone dust in narrow light shaft. Moss-black and sickly pale green, close scale, no skull piles.",
+    "retired": true,
+    "deckLimit": 2
   },
   {
     "id": "FD-011",
@@ -3335,20 +2631,14 @@
     "name": "Vibrant Meadow",
     "rarity": "Uncommon",
     "card_type": "Plane",
-    "subtype": "Earth — Light",
-    "types": [
-      "Earth",
-      "Light"
-    ],
-    "terrain_types": [
-      "Earth",
-      "Light"
-    ],
+    "subtype": "Plane",
+    "types": [],
     "rules": "",
     "set": "foundations",
     "set_name": "Foundations",
-    "cost": {},
-    "art_direction": "Macro-low perspective through red poppies and yellow wildflowers toward a lush sweeping meadow, warm afternoon sun, a tiny rustic windmill on distant hill, bees and butterflies. Saturated scarlet, fresh lime, cornflower blue, exuberant natural abundance."
+    "art_direction": "Macro-low perspective through red poppies and yellow wildflowers toward a lush sweeping meadow, warm afternoon sun, a tiny rustic windmill on distant hill, bees and butterflies. Saturated scarlet, fresh lime, cornflower blue, exuberant natural abundance.",
+    "retired": true,
+    "deckLimit": 2
   },
   {
     "id": "FD-012",
@@ -3356,20 +2646,14 @@
     "name": "Miredin's Pass",
     "rarity": "Uncommon",
     "card_type": "Plane",
-    "subtype": "Sky — Fire",
-    "types": [
-      "Sky",
-      "Fire"
-    ],
-    "terrain_types": [
-      "Sky",
-      "Fire"
-    ],
+    "subtype": "Plane",
+    "types": [],
     "rules": "",
     "set": "foundations",
     "set_name": "Foundations",
-    "cost": {},
-    "art_direction": "Treacherous narrow mountain pass suspended between immense storm clouds, brilliant comet-like streams of fire crossing overhead, rope bridge curling around dark peaks, view from a precarious ledge. Steel blue storm versus blazing vermilion, fierce wind."
+    "art_direction": "Treacherous narrow mountain pass suspended between immense storm clouds, brilliant comet-like streams of fire crossing overhead, rope bridge curling around dark peaks, view from a precarious ledge. Steel blue storm versus blazing vermilion, fierce wind.",
+    "retired": true,
+    "deckLimit": 2
   },
   {
     "id": "FD-013",
@@ -3377,20 +2661,14 @@
     "name": "Inverted Sea",
     "rarity": "Uncommon",
     "card_type": "Plane",
-    "subtype": "Sky — Water",
-    "types": [
-      "Sky",
-      "Water"
-    ],
-    "terrain_types": [
-      "Sky",
-      "Water"
-    ],
+    "subtype": "Plane",
+    "types": [],
     "rules": "",
     "set": "foundations",
     "set_name": "Foundations",
-    "cost": {},
-    "art_direction": "Surreal ocean suspended upside-down overhead, enormous translucent waves and a whale hanging in the sky above a dry white salt plain, vertical rain ribbons connecting earth and ocean. Wide ground-level upward view, icy blue, silver and soft peach horizon."
+    "art_direction": "Surreal ocean suspended upside-down overhead, enormous translucent waves and a whale hanging in the sky above a dry white salt plain, vertical rain ribbons connecting earth and ocean. Wide ground-level upward view, icy blue, silver and soft peach horizon.",
+    "retired": true,
+    "deckLimit": 2
   },
   {
     "id": "FD-014",
@@ -3398,20 +2676,14 @@
     "name": "Twilight Strand",
     "rarity": "Uncommon",
     "card_type": "Plane",
-    "subtype": "Sky — Dark",
-    "types": [
-      "Sky",
-      "Dark"
-    ],
-    "terrain_types": [
-      "Sky",
-      "Dark"
-    ],
+    "subtype": "Plane",
+    "types": [],
     "rules": "",
     "set": "foundations",
     "set_name": "Foundations",
-    "cost": {},
-    "art_direction": "Lonely black-sand shoreline seeming to float among twilight clouds, crescent moon, a skeletal driftwood arch and distant dark birds, reflected starlight on narrow tide pools. Quiet lavender-grey, midnight and a single crimson sunset band, sparse asymmetrical framing."
+    "art_direction": "Lonely black-sand shoreline seeming to float among twilight clouds, crescent moon, a skeletal driftwood arch and distant dark birds, reflected starlight on narrow tide pools. Quiet lavender-grey, midnight and a single crimson sunset band, sparse asymmetrical framing.",
+    "retired": true,
+    "deckLimit": 2
   },
   {
     "id": "FD-015",
@@ -3419,20 +2691,14 @@
     "name": "Loriadre's Reliquary",
     "rarity": "Uncommon",
     "card_type": "Plane",
-    "subtype": "Sky — Light",
-    "types": [
-      "Sky",
-      "Light"
-    ],
-    "terrain_types": [
-      "Sky",
-      "Light"
-    ],
+    "subtype": "Plane",
+    "types": [],
     "rules": "",
     "set": "foundations",
     "set_name": "Foundations",
-    "cost": {},
-    "art_direction": "Open-air celestial reliquary on a gleaming white stone platform above clouds, delicate golden architectural ribs surrounding one suspended luminous glass vessel, silk banners glowing in morning light. Close architectural study, alabaster, pale gold, gentle sky blue, no character portrait."
+    "art_direction": "Open-air celestial reliquary on a gleaming white stone platform above clouds, delicate golden architectural ribs surrounding one suspended luminous glass vessel, silk banners glowing in morning light. Close architectural study, alabaster, pale gold, gentle sky blue, no character portrait.",
+    "retired": true,
+    "deckLimit": 2
   },
   {
     "id": "FD-016",
@@ -3440,20 +2706,14 @@
     "name": "Boiling Delta",
     "rarity": "Uncommon",
     "card_type": "Plane",
-    "subtype": "Fire — Water",
-    "types": [
-      "Fire",
-      "Water"
-    ],
-    "terrain_types": [
-      "Fire",
-      "Water"
-    ],
+    "subtype": "Plane",
+    "types": [],
     "rules": "",
     "set": "foundations",
     "set_name": "Foundations",
-    "cost": {},
-    "art_direction": "High overhead view of branching milky turquoise geothermal rivers meeting glowing volcanic channels, immense steam plumes and vivid orange mineral banks, intricate branching natural pattern. Turquoise, sulphur yellow and orange, cartographic scale without labels."
+    "art_direction": "High overhead view of branching milky turquoise geothermal rivers meeting glowing volcanic channels, immense steam plumes and vivid orange mineral banks, intricate branching natural pattern. Turquoise, sulphur yellow and orange, cartographic scale without labels.",
+    "retired": true,
+    "deckLimit": 2
   },
   {
     "id": "FD-017",
@@ -3461,20 +2721,14 @@
     "name": "Tezzakeen's Hall",
     "rarity": "Uncommon",
     "card_type": "Plane",
-    "subtype": "Fire — Dark",
-    "types": [
-      "Fire",
-      "Dark"
-    ],
-    "terrain_types": [
-      "Fire",
-      "Dark"
-    ],
+    "subtype": "Plane",
+    "types": [],
     "rules": "",
     "set": "foundations",
     "set_name": "Foundations",
-    "cost": {},
-    "art_direction": "Cavernous demonic banquet hall carved from black volcanic glass, empty elongated table leads to a monumental furnace throne, embers drip like chandeliers, reflected red fire in polished floor. Symmetrical one-point perspective, deep burgundy, black and ember gold."
+    "art_direction": "Cavernous demonic banquet hall carved from black volcanic glass, empty elongated table leads to a monumental furnace throne, embers drip like chandeliers, reflected red fire in polished floor. Symmetrical one-point perspective, deep burgundy, black and ember gold.",
+    "retired": true,
+    "deckLimit": 2
   },
   {
     "id": "FD-018",
@@ -3482,20 +2736,14 @@
     "name": "Candlelight Sept",
     "rarity": "Uncommon",
     "card_type": "Plane",
-    "subtype": "Fire — Light",
-    "types": [
-      "Fire",
-      "Light"
-    ],
-    "terrain_types": [
-      "Fire",
-      "Light"
-    ],
+    "subtype": "Plane",
+    "types": [],
     "rules": "",
     "set": "foundations",
     "set_name": "Foundations",
-    "cost": {},
-    "art_direction": "Humble intimate seven-sided stone chapel at night, hundreds of warm candles on stepped wooden ledges and a small stained-glass sun window, comforting amber light catching floating dust. Human-scale interior, honey gold, rich brown and subtle cobalt window accents."
+    "art_direction": "Humble intimate seven-sided stone chapel at night, hundreds of warm candles on stepped wooden ledges and a small stained-glass sun window, comforting amber light catching floating dust. Human-scale interior, honey gold, rich brown and subtle cobalt window accents.",
+    "retired": true,
+    "deckLimit": 2
   },
   {
     "id": "FD-019",
@@ -3503,20 +2751,14 @@
     "name": "Abyssal Depths",
     "rarity": "Uncommon",
     "card_type": "Plane",
-    "subtype": "Water — Dark",
-    "types": [
-      "Water",
-      "Dark"
-    ],
-    "terrain_types": [
-      "Water",
-      "Dark"
-    ],
+    "subtype": "Plane",
+    "types": [],
     "rules": "",
     "set": "foundations",
     "set_name": "Foundations",
-    "cost": {},
-    "art_direction": "Vertiginous descent into a pitch-black ocean trench, huge ancient stone face barely visible on canyon wall, sparse tiny blue bioluminescent creatures reveal unimaginable depth. Near-black and electric cyan, powerful negative space and atmospheric obscurity."
+    "art_direction": "Vertiginous descent into a pitch-black ocean trench, huge ancient stone face barely visible on canyon wall, sparse tiny blue bioluminescent creatures reveal unimaginable depth. Near-black and electric cyan, powerful negative space and atmospheric obscurity.",
+    "retired": true,
+    "deckLimit": 2
   },
   {
     "id": "FD-020",
@@ -3524,20 +2766,14 @@
     "name": "Celestial Estuary",
     "rarity": "Uncommon",
     "card_type": "Plane",
-    "subtype": "Water — Light",
-    "types": [
-      "Water",
-      "Light"
-    ],
-    "terrain_types": [
-      "Water",
-      "Light"
-    ],
+    "subtype": "Plane",
+    "types": [],
     "rules": "",
     "set": "foundations",
     "set_name": "Foundations",
-    "cost": {},
-    "art_direction": "Gently curving river estuary at dawn where luminous gold freshwater meets a pearlescent sea, white wading birds reflected in shallow pools, tiny star-like motes among reeds. Serene low panoramic view, champagne gold, blush pink and pale seafoam."
+    "art_direction": "Gently curving river estuary at dawn where luminous gold freshwater meets a pearlescent sea, white wading birds reflected in shallow pools, tiny star-like motes among reeds. Serene low panoramic view, champagne gold, blush pink and pale seafoam.",
+    "retired": true,
+    "deckLimit": 2
   },
   {
     "id": "FD-021",
@@ -3545,20 +2781,14 @@
     "name": "Moonrend Delve",
     "rarity": "Uncommon",
     "card_type": "Plane",
-    "subtype": "Dark — Light",
-    "types": [
-      "Dark",
-      "Light"
-    ],
-    "terrain_types": [
-      "Dark",
-      "Light"
-    ],
+    "subtype": "Plane",
+    "types": [],
     "rules": "",
     "set": "foundations",
     "set_name": "Foundations",
-    "cost": {},
-    "art_direction": "Subterranean crystal cleft split by a razor-thin shaft of brilliant moonlight, one side pure white sparkling mineral and the other dark untouched stone, still black reflecting pool. Severe black-white contrast with restrained cold silver, dramatic tilted upward viewpoint."
+    "art_direction": "Subterranean crystal cleft split by a razor-thin shaft of brilliant moonlight, one side pure white sparkling mineral and the other dark untouched stone, still black reflecting pool. Severe black-white contrast with restrained cold silver, dramatic tilted upward viewpoint.",
+    "retired": true,
+    "deckLimit": 2
   },
   {
     "id": "FD-022",
@@ -3566,20 +2796,13 @@
     "name": "Sacred Spring",
     "rarity": "Uncommon",
     "card_type": "Plane",
-    "subtype": "Water — Earth",
-    "types": [
-      "Water",
-      "Earth"
-    ],
-    "terrain_types": [
-      "Water",
-      "Earth"
-    ],
+    "subtype": "Plane",
+    "types": [],
     "rules": "Heal the creature occupying this hex by 1 HP at the start of its controller’s pre-combat phase.",
     "set": "foundations",
     "set_name": "Foundations",
-    "cost": {},
-    "art_direction": "A tiny sacred spring wells from between ancient tree roots into a round mossy stone basin, golden sunlight rests on the water, medicinal blue flowers and fresh fern fronds frame the intimate sanctuary. Warm olive, turquoise and soft gold, close low eye-level view."
+    "art_direction": "A tiny sacred spring wells from between ancient tree roots into a round mossy stone basin, golden sunlight rests on the water, medicinal blue flowers and fresh fern fronds frame the intimate sanctuary. Warm olive, turquoise and soft gold, close low eye-level view.",
+    "deckLimit": 2
   },
   {
     "id": "FD-023",
@@ -3587,18 +2810,13 @@
     "name": "Wall of Light",
     "rarity": "Uncommon",
     "card_type": "Plane",
-    "subtype": "Light",
-    "types": [
-      "Light"
-    ],
-    "terrain_types": [
-      "Light"
-    ],
+    "subtype": "Plane",
+    "types": [],
     "rules": "At the beginning of your opponent’s combat phase, grant 1 Shield to the creature you control directly behind this hex.",
     "set": "foundations",
     "set_name": "Foundations",
-    "cost": {},
-    "art_direction": "An immense translucent golden wall shaped from interlocking luminous hexagons shields a quiet grassy courtyard from a distant storm of dark arrows, camera skims along its edge so protective depth is clear. Brilliant honey-white versus slate blue, sharp geometric shapes, no people prominent."
+    "art_direction": "An immense translucent golden wall shaped from interlocking luminous hexagons shields a quiet grassy courtyard from a distant storm of dark arrows, camera skims along its edge so protective depth is clear. Brilliant honey-white versus slate blue, sharp geometric shapes, no people prominent.",
+    "deckLimit": 2
   },
   {
     "id": "FD-024",
@@ -3608,15 +2826,11 @@
     "card_type": "Spell",
     "subtype": "Spell",
     "types": [],
-    "terrain_types": [],
     "rules": "Change one of the enemy’s hexes into a Volcanic Vent.",
     "set": "foundations",
     "set_name": "Foundations",
-    "cost": {
-      "Earth": 1,
-      "Fire": 1
-    },
-    "art_direction": "Violent instant a peaceful grassy field ruptures upward in a cone of magma and shattered rock, roots and soil torn into the air, a tiny distant fleeing goblin establishes scale. Dynamic extreme low ground-level angle, fierce red-orange explosion against saturated cyan sky, kinetic magical spell scene."
+    "art_direction": "Violent instant a peaceful grassy field ruptures upward in a cone of magma and shattered rock, roots and soil torn into the air, a tiny distant fleeing goblin establishes scale. Dynamic extreme low ground-level angle, fierce red-orange explosion against saturated cyan sky, kinetic magical spell scene.",
+    "deckLimit": 2
   },
   {
     "id": "FD-025",
@@ -3624,21 +2838,14 @@
     "name": "Volcanic Vent",
     "rarity": "Uncommon",
     "card_type": "Plane",
-    "subtype": "Fire — Earth",
-    "types": [
-      "Fire",
-      "Earth"
-    ],
-    "terrain_types": [
-      "Fire",
-      "Earth"
-    ],
+    "subtype": "Plane",
+    "types": [],
     "rules": "Deal 1 damage to the creature occupying this hex at the start of its controller’s pre-combat phase.",
     "set": "foundations",
     "set_name": "Foundations",
-    "cost": {},
     "art_direction": "Close downward view of a circular jagged volcanic vent embedded in cracked basalt, white-hot gas jets escape through a glowing central fissure, red mineral crust and scorched dry weeds. Intense white centre, dark umber and sulphur orange, contained hazardous place, not a volcano panorama.",
-    "generated_only": true
+    "generated_only": true,
+    "deckLimit": 2
   },
   {
     "id": "FD-026",
@@ -3646,17 +2853,12 @@
     "name": "Door to Ashgar",
     "rarity": "Rare",
     "card_type": "Plane",
-    "subtype": "Fire",
-    "types": [
-      "Fire"
-    ],
-    "terrain_types": [
-      "Fire"
-    ],
+    "subtype": "Plane",
+    "types": [],
     "rules": "At the beginning of each of your combat phases, if this hex is empty, summon one Goblin Punk. That creature gains Sprint and Doomed.",
     "set": "foundations",
     "set_name": "Foundations",
-    "cost": {},
-    "art_direction": "Tall weather-beaten wooden door stands alone on a windswept grassy ridge, its open doorway reveals a blazing goblin war camp in another realm; one scrappy green goblin punk with red crest is stepping through, other small goblin silhouettes behind. Cool emerald dusk outside, orange fire within, strong doorway silhouette and magical threshold."
+    "art_direction": "Tall weather-beaten wooden door stands alone on a windswept grassy ridge, its open doorway reveals a blazing goblin war camp in another realm; one scrappy green goblin punk with red crest is stepping through, other small goblin silhouettes behind. Cool emerald dusk outside, orange fire within, strong doorway silhouette and magical threshold.",
+    "deckLimit": 2
   }
 ]
