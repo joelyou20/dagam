@@ -145,6 +145,34 @@ def build():
     nodes.append(
         '[node name="Shopkeeper" parent="Market" instance=ExtResource("2_shopkeeper")]\nposition = Vector3(0, 0.14, 0.5)\n'
     )
+    nodes.append(
+        '[node name="CaptainRowan" parent="." instance=ExtResource("4_soldier")]\nposition = Vector3(-1.05, 0.14, 1.15)\n'
+    )
+    nodes.append(
+        '[node name="Liora" parent="." instance=ExtResource("5_dancer")]\nposition = Vector3(3.1, 0.14, 0.9)\n'
+    )
+    node("LioraFlowers", "Node3D", properties="position = Vector3(3.1, 0, 0.9)")
+    for index in range(6):
+        theta = math.pi + index * math.pi / 5
+        x, z = math.cos(theta) * 0.55, math.sin(theta) * 0.5
+        box(
+            f"Stem{index}",
+            (x, 0.045, z),
+            (0.012, 0.09, 0.012),
+            "leaf",
+            parent="LioraFlowers",
+        )
+        for petal, (dx, dz) in enumerate(
+            [(0.025, 0), (-0.025, 0), (0, 0.025), (0, -0.025)]
+        ):
+            sphere(
+                f"Petal{index}_{petal}",
+                (x + dx, 0.1, z + dz),
+                0.025,
+                "red" if index % 2 else "cream",
+                "LioraFlowers",
+            )
+        sphere(f"Center{index}", (x, 0.112, z), 0.018, "cream", "LioraFlowers")
     box("SupplyCrate", (-4.1, 0.13, 1.2), (0.33, 0.26, 0.33), "lightwood", True)
     nodes.append(
         '[node name="Rival" parent="." instance=ExtResource("3_rival")]\nposition = Vector3(1.25, 0.74, -2.5)\n'
@@ -191,6 +219,8 @@ def build():
         '[ext_resource type="Material" path="res://Resources/Terrain/meadow_ground.tres" id="1_ground"]',
         '[ext_resource type="PackedScene" path="res://Scenes/Shopkeeper.tscn" id="2_shopkeeper"]',
         '[ext_resource type="PackedScene" path="res://Scenes/Enemies/Rival.tscn" id="3_rival"]',
+        '[ext_resource type="PackedScene" path="res://Scenes/Characters/CaptainRowan.tscn" id="4_soldier"]',
+        '[ext_resource type="PackedScene" path="res://Scenes/Characters/Liora.tscn" id="5_dancer"]',
         "",
     ]
     text = (

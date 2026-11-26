@@ -1,0 +1,36 @@
+[gd_resource type="Resource" load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://Scripts/Quests/QuestResource.gd" id="quest"]
+[ext_resource type="Script" path="res://Scripts/Quests/QuestObjective.gd" id="objective"]
+[ext_resource type="Script" path="res://Scripts/Quests/Rewards/QuestReward.gd" id="reward"]
+[ext_resource type="Script" path="res://Scripts/Quests/Rewards/QuestReward.XP.gd" id="xp"]
+
+[sub_resource type="Resource" id="Objective0"]
+script = ExtResource("objective")
+id = "meadow_met_liora"
+flag = "MEADOW_MET_LIORA"
+description = "Speak to Liora beside the flowers in the eastern meadow."
+
+[sub_resource type="Resource" id="Objective1"]
+script = ExtResource("objective")
+id = "meadow_invited_rowan"
+flag = "MEADOW_INVITED_ROWAN"
+description = "Deliver Liora's invitation to Captain Rowan by the steps."
+
+[sub_resource type="Resource" id="Objective2"]
+script = ExtResource("objective")
+id = "meadow_encore_finished"
+flag = "MEADOW_ENCORE_FINISHED"
+description = "Return to Liora and ask to see her encore."
+
+[sub_resource type="Resource" id="RewardXP"]
+script = ExtResource("xp")
+amount = 25
+
+[resource]
+script = ExtResource("quest")
+id = "MEADOW_ENCORE"
+title = "A Dance for the Meadow"
+description = "Help a performer invite a tired sentry to an evening of music. Speak to Captain Rowan to begin."
+objectives = Array[ExtResource("objective")]([SubResource("Objective0"), SubResource("Objective1"), SubResource("Objective2")])
+rewards = Array[ExtResource("reward")]([SubResource("RewardXP")])

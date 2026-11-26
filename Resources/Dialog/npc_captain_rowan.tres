@@ -1,0 +1,138 @@
+[gd_resource type="Resource" load_steps=30 format=3]
+
+[ext_resource type="Script" path="res://Scripts/Dialog/DialogResource.gd" id="dialog"]
+[ext_resource type="Script" path="res://Scripts/Dialog/DialogEntry.gd" id="entry"]
+[ext_resource type="Script" path="res://Scripts/Dialog/DialogOption.gd" id="option"]
+[ext_resource type="Script" path="res://Scripts/Dialog/DialogCondition.gd" id="condition"]
+[ext_resource type="Script" path="res://Scripts/Quests/Tasks/Task.gd" id="task"]
+[ext_resource type="Script" path="res://Scripts/Quests/Tasks/QuestTask.gd" id="quest_task"]
+[ext_resource type="Script" path="res://Scripts/Quests/Tasks/FlagTask.gd" id="flag_task"]
+[ext_resource type="Script" path="res://Scripts/Flags/FlagData.gd" id="flag"]
+[ext_resource type="Script" path="res://Scripts/Dialog/Actions/DialogAction.gd" id="action"]
+[ext_resource type="Script" path="res://Scripts/Dialog/Actions/StartQuestDialogAction.gd" id="start"]
+
+[sub_resource type="Resource" id="Active"]
+script = ExtResource("quest_task")
+quest_name = 3
+quest_state = 1
+
+[sub_resource type="Resource" id="Complete"]
+script = ExtResource("quest_task")
+quest_name = 3
+quest_state = 2
+
+[sub_resource type="Resource" id="Expected4"]
+script = ExtResource("flag")
+key = 4
+value = true
+
+[sub_resource type="Resource" id="Flag4"]
+script = ExtResource("flag_task")
+flag = SubResource("Expected4")
+
+[sub_resource type="Resource" id="Expected5"]
+script = ExtResource("flag")
+key = 5
+value = true
+
+[sub_resource type="Resource" id="Flag5"]
+script = ExtResource("flag_task")
+flag = SubResource("Expected5")
+
+[sub_resource type="Resource" id="AcceptAction"]
+script = ExtResource("start")
+quest_name = 3
+
+[sub_resource type="Resource" id="Accept"]
+script = ExtResource("option")
+text = "I'll check on her."
+next = "accepted"
+actions = Array[ExtResource("action")]([SubResource("AcceptAction")])
+
+[sub_resource type="Resource" id="Decline"]
+script = ExtResource("option")
+text = "Perhaps later."
+next = ""
+
+[sub_resource type="Resource" id="offer"]
+script = ExtResource("entry")
+id = "offer"
+text = Array[String](["Captain Rowan rests a gauntleted hand on his sword.", "Liora was going to dance for the watch, but I haven't seen her all morning. Would you check on her? She's beside the flowers, east of here."])
+state = 0
+options = Array[ExtResource("option")]([SubResource("Accept"), SubResource("Decline")])
+flags = Array[int]([])
+
+[sub_resource type="Resource" id="accepted"]
+script = ExtResource("entry")
+id = "accepted"
+text = Array[String](["Thank you. A little music would do this old watch some good. Look for her coral dress beside the eastern flower patch."])
+state = 2
+options = Array[ExtResource("option")]([])
+flags = Array[int]([])
+
+[sub_resource type="Resource" id="reminder"]
+script = ExtResource("entry")
+id = "reminder"
+text = Array[String](["Liora should be beside the flowers in the eastern meadow. Would you see how her preparations are going?"])
+state = 2
+options = Array[ExtResource("option")]([])
+flags = Array[int]([])
+
+[sub_resource type="Resource" id="deliver"]
+script = ExtResource("entry")
+id = "deliver"
+text = Array[String](["An invitation from Liora? I thought she had forgotten this old soldier!", "Tell her I'll join her after my watch. And thank you for delivering it."])
+state = 2
+options = Array[ExtResource("option")]([])
+flags = Array[int]([5])
+
+[sub_resource type="Resource" id="invited"]
+script = ExtResource("entry")
+id = "invited"
+text = Array[String](["Please tell Liora I'll be there after my watch. She needn't worry about an empty audience."])
+state = 2
+options = Array[ExtResource("option")]([])
+flags = Array[int]([])
+
+[sub_resource type="Resource" id="after"]
+script = ExtResource("entry")
+id = "after"
+text = Array[String](["I heard the music from here. You've given us both something to look forward to. Well done, friend."])
+state = 2
+options = Array[ExtResource("option")]([])
+flags = Array[int]([])
+
+[sub_resource type="Resource" id="After"]
+script = ExtResource("condition")
+logic = 1
+next = "after"
+priority = 100
+tasks = Array[ExtResource("task")]([SubResource("Complete")])
+
+[sub_resource type="Resource" id="Invited"]
+script = ExtResource("condition")
+logic = 1
+next = "invited"
+priority = 30
+tasks = Array[ExtResource("task")]([SubResource("Active"), SubResource("Flag5")])
+
+[sub_resource type="Resource" id="Deliver"]
+script = ExtResource("condition")
+logic = 1
+next = "deliver"
+priority = 20
+tasks = Array[ExtResource("task")]([SubResource("Active"), SubResource("Flag4")])
+
+[sub_resource type="Resource" id="Reminder"]
+script = ExtResource("condition")
+logic = 1
+next = "reminder"
+priority = 10
+tasks = Array[ExtResource("task")]([SubResource("Active")])
+
+[resource]
+script = ExtResource("dialog")
+npc_id = "CaptainRowan"
+npc_name = "Captain Rowan"
+entries = Array[ExtResource("entry")]([SubResource("offer"), SubResource("accepted"), SubResource("reminder"), SubResource("deliver"), SubResource("invited"), SubResource("after")])
+conditions = Array[ExtResource("condition")]([SubResource("After"), SubResource("Invited"), SubResource("Deliver"), SubResource("Reminder")])

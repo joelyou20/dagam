@@ -1,69 +1,93 @@
 extends Node
 
-@onready var DialogUIScene := preload("res://Scenes/UI/DialogUI.tscn")
+const DIALOG_UI_SCENE = preload("res://Scenes/UI/DialogUI.tscn")
 var dialog_ui: DialogUI = null
 
 var dialog_registry := {
 	"greg": preload("res://Resources/Dialog/npc_greg.tres"),
 	"gregsDog": preload("res://Resources/Dialog/npc_gregs_dog.tres"),
 	"farmer": preload("res://Resources/Dialog/npc_farmer.tres"),
-	"door_guy": preload("res://Resources/Dialog/npc_door_guy.tres")
+	"door_guy": preload("res://Resources/Dialog/npc_door_guy.tres"),
+	"CaptainRowan": preload("res://Resources/Dialog/npc_captain_rowan.tres"),
+	"Liora": preload("res://Resources/Dialog/npc_liora.tres")
 }
 
 var dialog_resource: DialogResource = null
-var flag_manager : FlagManager
+var flag_manager: FlagManager
 var quest_manager: QuestManager
 var pending_actions: Array[DialogAction] = []
+var default_states: Dictionary = {}
 
 func _ready():
+	for npc in dialog_registry:
+		default_states[npc] = {}
+
+		for entry in dialog_registry[npc].entries:
+			default_states[npc][entry.id] = entry.state
+
 	if quest_manager == null:
 		quest_manager = QuestManager
+
 	if flag_manager == null:
 		flag_manager = FlagManager
+
 	if dialog_ui != null:
 		dialog_ui.option_selected.connect(_on_dialog_option_selected)
-		
+
 func ensure_dialog_ui():
 	if dialog_ui == null:
-		dialog_ui = DialogUIScene.instantiate()
+		dialog_ui = DIALOG_UI_SCENE.instantiate()
 		get_tree().get_root().add_child(dialog_ui)  # Or add to your UI manager node
 		dialog_ui.option_selected.connect(_on_dialog_option_selected)
 		dialog_ui.ui_closed.connect(_on_dialog_closed)
-		
+
 func _on_dialog_closed():
 	for action in pending_actions:
 		if action and action.has_method("execute"):
 			action.execute()
+
 	pending_actions.clear()
 
 func show_dialog_by_npc_id(npc_id: String):
 	ensure_dialog_ui()
 	update_dialog(npc_id)
 	get_npc_dialog(npc_id)
+
 	if dialog_resource:
 		var entry: DialogEntry = null
+
 		for e in dialog_resource.entries:
 			if e.state == DialogState.State.ACTIVE:
 				entry = e
 				break
+
 		show_dialog(npc_id, entry, dialog_resource.npc_name)
 
+
 @warning_ignore("standalone_expression")
+
 func show_dialog_by_entry_id(entry_id: String, npc_id: String):
 	ensure_dialog_ui()
+
 	if dialog_resource && dialog_resource.entries:
-		var entry: DialogEntry = dialog_resource.entries.filter(func(e: DialogEntry): return e.id == entry_id).front()
+		var entry: DialogEntry = (
+			dialog_resource.entries.filter(func(e: DialogEntry): return e.id == entry_id).front()
+		)
+
 		show_dialog(npc_id, entry, dialog_resource.npc_name)
 	else:
-		print ("Dialog entry " + str(entry_id) + " is empty for " + str(npc_id))
+		print("Dialog entry " + str(entry_id) + " is empty for " + str(npc_id))
 
 func show_dialog(npc_id: String, entry: DialogEntry, npc_name: String):
 	if entry:
 		dialog_ui.show_dialog(npc_id, entry.text, dialog_resource.npc_name, entry.options)
+
 		for flag in entry.flags:
 			flag_manager.set_flag(flag)
+
 		quest_manager.validate_active_quest_requirements()
 		# After setting flags and quests, queue entry actions
+
 		if entry.actions.size() > 0:
 			pending_actions.append_array(entry.actions)
 	else:
@@ -71,15 +95,17 @@ func show_dialog(npc_id: String, entry: DialogEntry, npc_name: String):
 
 func update_dialog(npc_id: String):
 	var active_dialog_entry: DialogEntry = get_active_dialog_entry(npc_id)
+
 	if active_dialog_entry == null:
 		return
-	
+
 	var sorted_conditions = dialog_resource.conditions.duplicate()
+
 	sorted_conditions.sort_custom(func(a, b): return a.priority > b.priority)
-	
+
 	var should_advance: bool = false
 	var next: String = ""
-	
+
 	for condition: DialogCondition in sorted_conditions:
 		match condition.logic:
 			DialogCondition.ConditionLogic.IF_ANY:
@@ -100,8 +126,10 @@ func update_dialog(npc_id: String):
 
 	if should_advance:
 		active_dialog_entry.state = DialogState.State.COMPLETED
+
 		if next != "":
 			var next_entry := get_entry_by_id(npc_id, next)
+
 			if next_entry:
 				next_entry.state = DialogState.State.ACTIVE
 
@@ -109,14 +137,19 @@ func _on_dialog_option_selected(npc_id: String, option: DialogOption):
 	# Set flags from this option if it has any
 	for flag in option.flags:
 		flag_manager.set_flag(flag)
-		
+
+	quest_manager.validate_active_quest_requirements()
+
 	# Queue option actions instead of running immediately
+
 	if option.actions.size() > 0:
 		pending_actions.append_array(option.actions)
 
 	# Advance to the next dialog entry if it exists
+
 	if option.next != "":
 		var next_entry := get_entry_by_id(npc_id, option.next)
+
 		if next_entry:
 			set_active_dialog(npc_id, DialogState.State.COMPLETED)
 			next_entry.state = DialogState.State.ACTIVE
@@ -125,57 +158,70 @@ func _on_dialog_option_selected(npc_id: String, option: DialogOption):
 		dialog_ui.hide_ui()
 
 func is_showing_dialog() -> bool:
-	return dialog_ui.visible
+	return is_instance_valid(dialog_ui) and dialog_ui.visible
 
 func get_npc_dialog(npc_id: String) -> DialogResource:
 	dialog_resource = dialog_registry.get(npc_id)
+
 	return dialog_resource
 
 func get_active_dialog_entry(npc_id: String) -> DialogEntry:
 	var dialog = get_npc_dialog(npc_id)
-	# Deliberately skipping catching null for dialog. I want it to blow up when I try and access something
-	#  that does not exist
+
+	if dialog == null:
+		return null
+
 	var matches = dialog.entries.filter(func(entry): return entry.state == DialogState.State.ACTIVE)
-	return matches.front()  # Returns the first match or null if empty
+
+	return matches.front() if not matches.is_empty() else null
 
 func set_active_dialog(npc_id: String, state: int):
 	var dialog = get_active_dialog_entry(npc_id)
+
 	dialog.state = state
 
 func get_entry_by_id(npc_id: String, entry_id: String) -> DialogEntry:
 	var dialog := get_npc_dialog(npc_id)
+
 	if dialog == null:
 		return null
 
 	for entry in dialog.entries:
 		if entry.id == entry_id:
 			return entry
+
 	return null  # Not found
 
+
 # Save all dialog entry states across all NPCs
+
 func save_dialogs() -> Dictionary:
 	var all_data := {}
+
 	for npc_id in dialog_registry.keys():
 		var dialog_data: DialogResource = dialog_registry.get(npc_id)
+
 		if dialog_data == null:
 			continue
 
 		var entry_states := {}
+
 		for entry in dialog_data.entries:
 			entry_states[entry.id] = entry.state
-		
+
 		all_data[npc_id] = entry_states  # Just save { entry_id: state } for each NPC
+
 	return all_data
 
-# Load all dialog entry states from saved data
-func load_dialogs(data: Dictionary):
-	for npc_id in data.keys():
-		var dialog_data: DialogResource = dialog_registry.get(npc_id)
-		if dialog_data == null:
-			push_warning("Dialog not found for NPC: " + npc_id)
-			continue
 
-		var saved_entries: Dictionary = data[npc_id]
-		for entry in dialog_data.entries:
-			if saved_entries.has(entry.id):
-				entry.state = saved_entries[entry.id]
+# Load all dialog entry states from saved data
+
+func load_dialogs(data: Dictionary):
+	for npc in dialog_registry:
+		var dialog: DialogResource = dialog_registry[npc]
+		var saved: Dictionary = data.get(npc, {})
+
+		for entry in dialog.entries:
+			entry.state = saved.get(
+				entry.id, default_states.get(npc, {}).get(entry.id, DialogState.State.PENDING)
+			)

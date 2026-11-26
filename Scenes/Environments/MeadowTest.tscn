@@ -3,6 +3,8 @@
 [ext_resource type="Material" path="res://Resources/Terrain/meadow_ground.tres" id="1_ground"]
 [ext_resource type="PackedScene" path="res://Scenes/Shopkeeper.tscn" id="2_shopkeeper"]
 [ext_resource type="PackedScene" path="res://Scenes/Enemies/Rival.tscn" id="3_rival"]
+[ext_resource type="PackedScene" path="res://Scenes/Characters/CaptainRowan.tscn" id="4_soldier"]
+[ext_resource type="PackedScene" path="res://Scenes/Characters/Liora.tscn" id="5_dancer"]
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1"]
 albedo_color = Color(0.43529411764705883, 0.3333333333333333, 0.25098039215686274, 1)
 roughness = 1.0
@@ -340,119 +342,353 @@ size = Vector3(0.16, 0.06, 0.12)
 material = SubResource("StandardMaterial3D_3")
 
 [sub_resource type="BoxMesh" id="BoxMesh_75"]
+size = Vector3(0.012, 0.09, 0.012)
+material = SubResource("StandardMaterial3D_5")
+
+[sub_resource type="SphereMesh" id="SphereMesh_76"]
+radius = 0.025
+height = 0.05
+radial_segments = 10
+rings = 5
+material = SubResource("StandardMaterial3D_7")
+
+[sub_resource type="SphereMesh" id="SphereMesh_77"]
+radius = 0.025
+height = 0.05
+radial_segments = 10
+rings = 5
+material = SubResource("StandardMaterial3D_7")
+
+[sub_resource type="SphereMesh" id="SphereMesh_78"]
+radius = 0.025
+height = 0.05
+radial_segments = 10
+rings = 5
+material = SubResource("StandardMaterial3D_7")
+
+[sub_resource type="SphereMesh" id="SphereMesh_79"]
+radius = 0.025
+height = 0.05
+radial_segments = 10
+rings = 5
+material = SubResource("StandardMaterial3D_7")
+
+[sub_resource type="SphereMesh" id="SphereMesh_80"]
+radius = 0.018
+height = 0.036
+radial_segments = 10
+rings = 5
+material = SubResource("StandardMaterial3D_7")
+
+[sub_resource type="BoxMesh" id="BoxMesh_81"]
+size = Vector3(0.012, 0.09, 0.012)
+material = SubResource("StandardMaterial3D_5")
+
+[sub_resource type="SphereMesh" id="SphereMesh_82"]
+radius = 0.025
+height = 0.05
+radial_segments = 10
+rings = 5
+material = SubResource("StandardMaterial3D_8")
+
+[sub_resource type="SphereMesh" id="SphereMesh_83"]
+radius = 0.025
+height = 0.05
+radial_segments = 10
+rings = 5
+material = SubResource("StandardMaterial3D_8")
+
+[sub_resource type="SphereMesh" id="SphereMesh_84"]
+radius = 0.025
+height = 0.05
+radial_segments = 10
+rings = 5
+material = SubResource("StandardMaterial3D_8")
+
+[sub_resource type="SphereMesh" id="SphereMesh_85"]
+radius = 0.025
+height = 0.05
+radial_segments = 10
+rings = 5
+material = SubResource("StandardMaterial3D_8")
+
+[sub_resource type="SphereMesh" id="SphereMesh_86"]
+radius = 0.018
+height = 0.036
+radial_segments = 10
+rings = 5
+material = SubResource("StandardMaterial3D_7")
+
+[sub_resource type="BoxMesh" id="BoxMesh_87"]
+size = Vector3(0.012, 0.09, 0.012)
+material = SubResource("StandardMaterial3D_5")
+
+[sub_resource type="SphereMesh" id="SphereMesh_88"]
+radius = 0.025
+height = 0.05
+radial_segments = 10
+rings = 5
+material = SubResource("StandardMaterial3D_7")
+
+[sub_resource type="SphereMesh" id="SphereMesh_89"]
+radius = 0.025
+height = 0.05
+radial_segments = 10
+rings = 5
+material = SubResource("StandardMaterial3D_7")
+
+[sub_resource type="SphereMesh" id="SphereMesh_90"]
+radius = 0.025
+height = 0.05
+radial_segments = 10
+rings = 5
+material = SubResource("StandardMaterial3D_7")
+
+[sub_resource type="SphereMesh" id="SphereMesh_91"]
+radius = 0.025
+height = 0.05
+radial_segments = 10
+rings = 5
+material = SubResource("StandardMaterial3D_7")
+
+[sub_resource type="SphereMesh" id="SphereMesh_92"]
+radius = 0.018
+height = 0.036
+radial_segments = 10
+rings = 5
+material = SubResource("StandardMaterial3D_7")
+
+[sub_resource type="BoxMesh" id="BoxMesh_93"]
+size = Vector3(0.012, 0.09, 0.012)
+material = SubResource("StandardMaterial3D_5")
+
+[sub_resource type="SphereMesh" id="SphereMesh_94"]
+radius = 0.025
+height = 0.05
+radial_segments = 10
+rings = 5
+material = SubResource("StandardMaterial3D_8")
+
+[sub_resource type="SphereMesh" id="SphereMesh_95"]
+radius = 0.025
+height = 0.05
+radial_segments = 10
+rings = 5
+material = SubResource("StandardMaterial3D_8")
+
+[sub_resource type="SphereMesh" id="SphereMesh_96"]
+radius = 0.025
+height = 0.05
+radial_segments = 10
+rings = 5
+material = SubResource("StandardMaterial3D_8")
+
+[sub_resource type="SphereMesh" id="SphereMesh_97"]
+radius = 0.025
+height = 0.05
+radial_segments = 10
+rings = 5
+material = SubResource("StandardMaterial3D_8")
+
+[sub_resource type="SphereMesh" id="SphereMesh_98"]
+radius = 0.018
+height = 0.036
+radial_segments = 10
+rings = 5
+material = SubResource("StandardMaterial3D_7")
+
+[sub_resource type="BoxMesh" id="BoxMesh_99"]
+size = Vector3(0.012, 0.09, 0.012)
+material = SubResource("StandardMaterial3D_5")
+
+[sub_resource type="SphereMesh" id="SphereMesh_100"]
+radius = 0.025
+height = 0.05
+radial_segments = 10
+rings = 5
+material = SubResource("StandardMaterial3D_7")
+
+[sub_resource type="SphereMesh" id="SphereMesh_101"]
+radius = 0.025
+height = 0.05
+radial_segments = 10
+rings = 5
+material = SubResource("StandardMaterial3D_7")
+
+[sub_resource type="SphereMesh" id="SphereMesh_102"]
+radius = 0.025
+height = 0.05
+radial_segments = 10
+rings = 5
+material = SubResource("StandardMaterial3D_7")
+
+[sub_resource type="SphereMesh" id="SphereMesh_103"]
+radius = 0.025
+height = 0.05
+radial_segments = 10
+rings = 5
+material = SubResource("StandardMaterial3D_7")
+
+[sub_resource type="SphereMesh" id="SphereMesh_104"]
+radius = 0.018
+height = 0.036
+radial_segments = 10
+rings = 5
+material = SubResource("StandardMaterial3D_7")
+
+[sub_resource type="BoxMesh" id="BoxMesh_105"]
+size = Vector3(0.012, 0.09, 0.012)
+material = SubResource("StandardMaterial3D_5")
+
+[sub_resource type="SphereMesh" id="SphereMesh_106"]
+radius = 0.025
+height = 0.05
+radial_segments = 10
+rings = 5
+material = SubResource("StandardMaterial3D_8")
+
+[sub_resource type="SphereMesh" id="SphereMesh_107"]
+radius = 0.025
+height = 0.05
+radial_segments = 10
+rings = 5
+material = SubResource("StandardMaterial3D_8")
+
+[sub_resource type="SphereMesh" id="SphereMesh_108"]
+radius = 0.025
+height = 0.05
+radial_segments = 10
+rings = 5
+material = SubResource("StandardMaterial3D_8")
+
+[sub_resource type="SphereMesh" id="SphereMesh_109"]
+radius = 0.025
+height = 0.05
+radial_segments = 10
+rings = 5
+material = SubResource("StandardMaterial3D_8")
+
+[sub_resource type="SphereMesh" id="SphereMesh_110"]
+radius = 0.018
+height = 0.036
+radial_segments = 10
+rings = 5
+material = SubResource("StandardMaterial3D_7")
+
+[sub_resource type="BoxMesh" id="BoxMesh_111"]
 size = Vector3(0.33, 0.26, 0.33)
 material = SubResource("StandardMaterial3D_4")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_76"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_112"]
 size = Vector3(0.33, 0.26, 0.33)
 
-[sub_resource type="SphereMesh" id="SphereMesh_77"]
+[sub_resource type="SphereMesh" id="SphereMesh_113"]
 radius = 0.045
 height = 0.09
 radial_segments = 10
 rings = 5
 material = SubResource("StandardMaterial3D_9")
 
-[sub_resource type="SphereMesh" id="SphereMesh_78"]
+[sub_resource type="SphereMesh" id="SphereMesh_114"]
 radius = 0.045
 height = 0.09
 radial_segments = 10
 rings = 5
 material = SubResource("StandardMaterial3D_9")
 
-[sub_resource type="SphereMesh" id="SphereMesh_79"]
+[sub_resource type="SphereMesh" id="SphereMesh_115"]
 radius = 0.045
 height = 0.09
 radial_segments = 10
 rings = 5
 material = SubResource("StandardMaterial3D_9")
 
-[sub_resource type="SphereMesh" id="SphereMesh_80"]
+[sub_resource type="SphereMesh" id="SphereMesh_116"]
 radius = 0.045
 height = 0.09
 radial_segments = 10
 rings = 5
 material = SubResource("StandardMaterial3D_9")
 
-[sub_resource type="SphereMesh" id="SphereMesh_81"]
+[sub_resource type="SphereMesh" id="SphereMesh_117"]
 radius = 0.045
 height = 0.09
 radial_segments = 10
 rings = 5
 material = SubResource("StandardMaterial3D_9")
 
-[sub_resource type="SphereMesh" id="SphereMesh_82"]
+[sub_resource type="SphereMesh" id="SphereMesh_118"]
 radius = 0.045
 height = 0.09
 radial_segments = 10
 rings = 5
 material = SubResource("StandardMaterial3D_9")
 
-[sub_resource type="SphereMesh" id="SphereMesh_83"]
+[sub_resource type="SphereMesh" id="SphereMesh_119"]
 radius = 0.045
 height = 0.09
 radial_segments = 10
 rings = 5
 material = SubResource("StandardMaterial3D_9")
 
-[sub_resource type="SphereMesh" id="SphereMesh_84"]
+[sub_resource type="SphereMesh" id="SphereMesh_120"]
 radius = 0.045
 height = 0.09
 radial_segments = 10
 rings = 5
 material = SubResource("StandardMaterial3D_9")
 
-[sub_resource type="SphereMesh" id="SphereMesh_85"]
+[sub_resource type="SphereMesh" id="SphereMesh_121"]
 radius = 0.045
 height = 0.09
 radial_segments = 10
 rings = 5
 material = SubResource("StandardMaterial3D_9")
 
-[sub_resource type="SphereMesh" id="SphereMesh_86"]
+[sub_resource type="SphereMesh" id="SphereMesh_122"]
 radius = 0.045
 height = 0.09
 radial_segments = 10
 rings = 5
 material = SubResource("StandardMaterial3D_9")
 
-[sub_resource type="BoxMesh" id="BoxMesh_87"]
+[sub_resource type="BoxMesh" id="BoxMesh_123"]
 size = Vector3(0.035, 0.9, 0.035)
 material = SubResource("StandardMaterial3D_3")
 
-[sub_resource type="BoxMesh" id="BoxMesh_88"]
+[sub_resource type="BoxMesh" id="BoxMesh_124"]
 size = Vector3(0.26, 0.3, 0.025)
 material = SubResource("StandardMaterial3D_8")
 
-[sub_resource type="BoxMesh" id="BoxMesh_89"]
+[sub_resource type="BoxMesh" id="BoxMesh_125"]
 size = Vector3(12, 0.5, 0.2)
 material = SubResource("StandardMaterial3D_2")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_90"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_126"]
 size = Vector3(12, 0.5, 0.2)
 
-[sub_resource type="BoxMesh" id="BoxMesh_91"]
+[sub_resource type="BoxMesh" id="BoxMesh_127"]
 size = Vector3(12, 0.5, 0.2)
 material = SubResource("StandardMaterial3D_2")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_92"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_128"]
 size = Vector3(12, 0.5, 0.2)
 
-[sub_resource type="BoxMesh" id="BoxMesh_93"]
+[sub_resource type="BoxMesh" id="BoxMesh_129"]
 size = Vector3(0.2, 0.5, 10)
 material = SubResource("StandardMaterial3D_2")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_94"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_130"]
 size = Vector3(0.2, 0.5, 10)
 
-[sub_resource type="BoxMesh" id="BoxMesh_95"]
+[sub_resource type="BoxMesh" id="BoxMesh_131"]
 size = Vector3(0.2, 0.5, 10)
 material = SubResource("StandardMaterial3D_2")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_96"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_132"]
 size = Vector3(0.2, 0.5, 10)
 
-[sub_resource type="Environment" id="Environment_97"]
+[sub_resource type="Environment" id="Environment_133"]
 background_mode = 1
 background_color = Color(0.51, 0.65, 0.69, 1)
 ambient_light_source = 3
@@ -791,112 +1027,265 @@ mesh = SubResource("BoxMesh_74")
 [node name="Shopkeeper" parent="Market" instance=ExtResource("2_shopkeeper")]
 position = Vector3(0, 0.14, 0.5)
 
+[node name="CaptainRowan" parent="." instance=ExtResource("4_soldier")]
+position = Vector3(-1.05, 0.14, 1.15)
+
+[node name="Liora" parent="." instance=ExtResource("5_dancer")]
+position = Vector3(3.1, 0.14, 0.9)
+
+[node name="LioraFlowers" type="Node3D" parent="."]
+position = Vector3(3.1, 0, 0.9)
+
+[node name="Stem0" type="MeshInstance3D" parent="LioraFlowers"]
+position = Vector3(-0.55, 0.045, 6.123233995736766e-17)
+mesh = SubResource("BoxMesh_75")
+
+[node name="Petal0_0" type="MeshInstance3D" parent="LioraFlowers"]
+position = Vector3(-0.525, 0.1, 6.123233995736766e-17)
+mesh = SubResource("SphereMesh_76")
+
+[node name="Petal0_1" type="MeshInstance3D" parent="LioraFlowers"]
+position = Vector3(-0.5750000000000001, 0.1, 6.123233995736766e-17)
+mesh = SubResource("SphereMesh_77")
+
+[node name="Petal0_2" type="MeshInstance3D" parent="LioraFlowers"]
+position = Vector3(-0.55, 0.1, 0.025000000000000064)
+mesh = SubResource("SphereMesh_78")
+
+[node name="Petal0_3" type="MeshInstance3D" parent="LioraFlowers"]
+position = Vector3(-0.55, 0.1, -0.02499999999999994)
+mesh = SubResource("SphereMesh_79")
+
+[node name="Center0" type="MeshInstance3D" parent="LioraFlowers"]
+position = Vector3(-0.55, 0.112, 6.123233995736766e-17)
+mesh = SubResource("SphereMesh_80")
+
+[node name="Stem1" type="MeshInstance3D" parent="LioraFlowers"]
+position = Vector3(-0.4449593469062212, 0.045, -0.2938926261462365)
+mesh = SubResource("BoxMesh_81")
+
+[node name="Petal1_0" type="MeshInstance3D" parent="LioraFlowers"]
+position = Vector3(-0.41995934690622116, 0.1, -0.2938926261462365)
+mesh = SubResource("SphereMesh_82")
+
+[node name="Petal1_1" type="MeshInstance3D" parent="LioraFlowers"]
+position = Vector3(-0.4699593469062212, 0.1, -0.2938926261462365)
+mesh = SubResource("SphereMesh_83")
+
+[node name="Petal1_2" type="MeshInstance3D" parent="LioraFlowers"]
+position = Vector3(-0.4449593469062212, 0.1, -0.2688926261462365)
+mesh = SubResource("SphereMesh_84")
+
+[node name="Petal1_3" type="MeshInstance3D" parent="LioraFlowers"]
+position = Vector3(-0.4449593469062212, 0.1, -0.31889262614623654)
+mesh = SubResource("SphereMesh_85")
+
+[node name="Center1" type="MeshInstance3D" parent="LioraFlowers"]
+position = Vector3(-0.4449593469062212, 0.112, -0.2938926261462365)
+mesh = SubResource("SphereMesh_86")
+
+[node name="Stem2" type="MeshInstance3D" parent="LioraFlowers"]
+position = Vector3(-0.16995934690622116, 0.045, -0.47552825814757677)
+mesh = SubResource("BoxMesh_87")
+
+[node name="Petal2_0" type="MeshInstance3D" parent="LioraFlowers"]
+position = Vector3(-0.14495934690622117, 0.1, -0.47552825814757677)
+mesh = SubResource("SphereMesh_88")
+
+[node name="Petal2_1" type="MeshInstance3D" parent="LioraFlowers"]
+position = Vector3(-0.19495934690622116, 0.1, -0.47552825814757677)
+mesh = SubResource("SphereMesh_89")
+
+[node name="Petal2_2" type="MeshInstance3D" parent="LioraFlowers"]
+position = Vector3(-0.16995934690622116, 0.1, -0.45052825814757674)
+mesh = SubResource("SphereMesh_90")
+
+[node name="Petal2_3" type="MeshInstance3D" parent="LioraFlowers"]
+position = Vector3(-0.16995934690622116, 0.1, -0.5005282581475767)
+mesh = SubResource("SphereMesh_91")
+
+[node name="Center2" type="MeshInstance3D" parent="LioraFlowers"]
+position = Vector3(-0.16995934690622116, 0.112, -0.47552825814757677)
+mesh = SubResource("SphereMesh_92")
+
+[node name="Stem3" type="MeshInstance3D" parent="LioraFlowers"]
+position = Vector3(0.169959346906221, 0.045, -0.4755282581475768)
+mesh = SubResource("BoxMesh_93")
+
+[node name="Petal3_0" type="MeshInstance3D" parent="LioraFlowers"]
+position = Vector3(0.194959346906221, 0.1, -0.4755282581475768)
+mesh = SubResource("SphereMesh_94")
+
+[node name="Petal3_1" type="MeshInstance3D" parent="LioraFlowers"]
+position = Vector3(0.144959346906221, 0.1, -0.4755282581475768)
+mesh = SubResource("SphereMesh_95")
+
+[node name="Petal3_2" type="MeshInstance3D" parent="LioraFlowers"]
+position = Vector3(0.169959346906221, 0.1, -0.4505282581475768)
+mesh = SubResource("SphereMesh_96")
+
+[node name="Petal3_3" type="MeshInstance3D" parent="LioraFlowers"]
+position = Vector3(0.169959346906221, 0.1, -0.5005282581475768)
+mesh = SubResource("SphereMesh_97")
+
+[node name="Center3" type="MeshInstance3D" parent="LioraFlowers"]
+position = Vector3(0.169959346906221, 0.112, -0.4755282581475768)
+mesh = SubResource("SphereMesh_98")
+
+[node name="Stem4" type="MeshInstance3D" parent="LioraFlowers"]
+position = Vector3(0.4449593469062211, 0.045, -0.2938926261462367)
+mesh = SubResource("BoxMesh_99")
+
+[node name="Petal4_0" type="MeshInstance3D" parent="LioraFlowers"]
+position = Vector3(0.4699593469062211, 0.1, -0.2938926261462367)
+mesh = SubResource("SphereMesh_100")
+
+[node name="Petal4_1" type="MeshInstance3D" parent="LioraFlowers"]
+position = Vector3(0.41995934690622105, 0.1, -0.2938926261462367)
+mesh = SubResource("SphereMesh_101")
+
+[node name="Petal4_2" type="MeshInstance3D" parent="LioraFlowers"]
+position = Vector3(0.4449593469062211, 0.1, -0.26889262614623666)
+mesh = SubResource("SphereMesh_102")
+
+[node name="Petal4_3" type="MeshInstance3D" parent="LioraFlowers"]
+position = Vector3(0.4449593469062211, 0.1, -0.3188926261462367)
+mesh = SubResource("SphereMesh_103")
+
+[node name="Center4" type="MeshInstance3D" parent="LioraFlowers"]
+position = Vector3(0.4449593469062211, 0.112, -0.2938926261462367)
+mesh = SubResource("SphereMesh_104")
+
+[node name="Stem5" type="MeshInstance3D" parent="LioraFlowers"]
+position = Vector3(0.55, 0.045, -1.2246467991473532e-16)
+mesh = SubResource("BoxMesh_105")
+
+[node name="Petal5_0" type="MeshInstance3D" parent="LioraFlowers"]
+position = Vector3(0.5750000000000001, 0.1, -1.2246467991473532e-16)
+mesh = SubResource("SphereMesh_106")
+
+[node name="Petal5_1" type="MeshInstance3D" parent="LioraFlowers"]
+position = Vector3(0.525, 0.1, -1.2246467991473532e-16)
+mesh = SubResource("SphereMesh_107")
+
+[node name="Petal5_2" type="MeshInstance3D" parent="LioraFlowers"]
+position = Vector3(0.55, 0.1, 0.02499999999999988)
+mesh = SubResource("SphereMesh_108")
+
+[node name="Petal5_3" type="MeshInstance3D" parent="LioraFlowers"]
+position = Vector3(0.55, 0.1, -0.025000000000000123)
+mesh = SubResource("SphereMesh_109")
+
+[node name="Center5" type="MeshInstance3D" parent="LioraFlowers"]
+position = Vector3(0.55, 0.112, -1.2246467991473532e-16)
+mesh = SubResource("SphereMesh_110")
+
 [node name="SupplyCrate" type="MeshInstance3D" parent="."]
 position = Vector3(-4.1, 0.13, 1.2)
-mesh = SubResource("BoxMesh_75")
+mesh = SubResource("BoxMesh_111")
 
 [node name="Body" type="StaticBody3D" parent="SupplyCrate"]
 
 
 [node name="Shape" type="CollisionShape3D" parent="SupplyCrate/Body"]
-shape = SubResource("BoxShape3D_76")
+shape = SubResource("BoxShape3D_112")
 
 [node name="Rival" parent="." instance=ExtResource("3_rival")]
 position = Vector3(1.25, 0.74, -2.5)
 
 [node name="ClearingStone0" type="MeshInstance3D" parent="."]
 position = Vector3(1.9, 0.62, -2.5)
-mesh = SubResource("SphereMesh_77")
+mesh = SubResource("SphereMesh_113")
 
 [node name="ClearingStone1" type="MeshInstance3D" parent="."]
 position = Vector3(1.7758610463437159, 0.62, -2.1179395860098924)
-mesh = SubResource("SphereMesh_78")
+mesh = SubResource("SphereMesh_114")
 
 [node name="ClearingStone2" type="MeshInstance3D" parent="."]
 position = Vector3(1.450861046343716, 0.62, -1.8818132644081502)
-mesh = SubResource("SphereMesh_79")
+mesh = SubResource("SphereMesh_115")
 
 [node name="ClearingStone3" type="MeshInstance3D" parent="."]
 position = Vector3(1.0491389536562843, 0.62, -1.8818132644081502)
-mesh = SubResource("SphereMesh_80")
+mesh = SubResource("SphereMesh_116")
 
 [node name="ClearingStone4" type="MeshInstance3D" parent="."]
 position = Vector3(0.7241389536562842, 0.62, -2.1179395860098924)
-mesh = SubResource("SphereMesh_81")
+mesh = SubResource("SphereMesh_117")
 
 [node name="ClearingStone5" type="MeshInstance3D" parent="."]
 position = Vector3(0.6, 0.62, -2.5)
-mesh = SubResource("SphereMesh_82")
+mesh = SubResource("SphereMesh_118")
 
 [node name="ClearingStone6" type="MeshInstance3D" parent="."]
 position = Vector3(0.7241389536562841, 0.62, -2.8820604139901076)
-mesh = SubResource("SphereMesh_83")
+mesh = SubResource("SphereMesh_119")
 
 [node name="ClearingStone7" type="MeshInstance3D" parent="."]
 position = Vector3(1.049138953656284, 0.62, -3.11818673559185)
-mesh = SubResource("SphereMesh_84")
+mesh = SubResource("SphereMesh_120")
 
 [node name="ClearingStone8" type="MeshInstance3D" parent="."]
 position = Vector3(1.4508610463437157, 0.62, -3.11818673559185)
-mesh = SubResource("SphereMesh_85")
+mesh = SubResource("SphereMesh_121")
 
 [node name="ClearingStone9" type="MeshInstance3D" parent="."]
 position = Vector3(1.7758610463437159, 0.62, -2.8820604139901076)
-mesh = SubResource("SphereMesh_86")
+mesh = SubResource("SphereMesh_122")
 
 [node name="BannerPole" type="MeshInstance3D" parent="."]
 position = Vector3(2.1, 1.05, -3.4)
-mesh = SubResource("BoxMesh_87")
+mesh = SubResource("BoxMesh_123")
 
 [node name="RivalBanner" type="MeshInstance3D" parent="."]
 position = Vector3(2.23, 1.25, -3.4)
-mesh = SubResource("BoxMesh_88")
+mesh = SubResource("BoxMesh_124")
 
 [node name="NorthBoundary" type="MeshInstance3D" parent="."]
 position = Vector3(0, 0.1, -4.8)
-mesh = SubResource("BoxMesh_89")
+mesh = SubResource("BoxMesh_125")
 
 [node name="Body" type="StaticBody3D" parent="NorthBoundary"]
 
 
 [node name="Shape" type="CollisionShape3D" parent="NorthBoundary/Body"]
-shape = SubResource("BoxShape3D_90")
+shape = SubResource("BoxShape3D_126")
 
 [node name="SouthBoundary" type="MeshInstance3D" parent="."]
 position = Vector3(0, 0.1, 4.8)
-mesh = SubResource("BoxMesh_91")
+mesh = SubResource("BoxMesh_127")
 
 [node name="Body" type="StaticBody3D" parent="SouthBoundary"]
 
 
 [node name="Shape" type="CollisionShape3D" parent="SouthBoundary/Body"]
-shape = SubResource("BoxShape3D_92")
+shape = SubResource("BoxShape3D_128")
 
 [node name="WestBoundary" type="MeshInstance3D" parent="."]
 position = Vector3(-5.8, 0.1, 0)
-mesh = SubResource("BoxMesh_93")
+mesh = SubResource("BoxMesh_129")
 
 [node name="Body" type="StaticBody3D" parent="WestBoundary"]
 
 
 [node name="Shape" type="CollisionShape3D" parent="WestBoundary/Body"]
-shape = SubResource("BoxShape3D_94")
+shape = SubResource("BoxShape3D_130")
 
 [node name="EastBoundary" type="MeshInstance3D" parent="."]
 position = Vector3(5.8, 0.1, 0)
-mesh = SubResource("BoxMesh_95")
+mesh = SubResource("BoxMesh_131")
 
 [node name="Body" type="StaticBody3D" parent="EastBoundary"]
 
 
 [node name="Shape" type="CollisionShape3D" parent="EastBoundary/Body"]
-shape = SubResource("BoxShape3D_96")
+shape = SubResource("BoxShape3D_132")
 
 [node name="PlayerSpawn" type="Marker3D" parent="."]
 position = Vector3(0, 0.15, 3.1)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_97")
+environment = SubResource("Environment_133")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 rotation_degrees = Vector3(-55, -25, 0)
